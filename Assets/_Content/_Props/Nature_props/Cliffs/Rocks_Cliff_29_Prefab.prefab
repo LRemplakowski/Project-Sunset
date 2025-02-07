@@ -1,0 +1,103 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4494408520655256318
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 577588182740355309}
+  m_Layer: 0
+  m_Name: Rocks_Cliff_29_Prefab
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &577588182740355309
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4494408520655256318}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -82.41758, y: -2.3154946e-17, z: -44.91825}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 555737217929937951}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &4813456025647853317
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 577588182740355309}
+    m_Modifications:
+    - target: {fileID: -4216859302048453862, guid: fe2de19001be2b842b89bb11f58594f2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: fe2de19001be2b842b89bb11f58594f2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: fe2de19001be2b842b89bb11f58594f2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: fe2de19001be2b842b89bb11f58594f2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: fe2de19001be2b842b89bb11f58594f2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: fe2de19001be2b842b89bb11f58594f2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: fe2de19001be2b842b89bb11f58594f2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: fe2de19001be2b842b89bb11f58594f2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: fe2de19001be2b842b89bb11f58594f2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: fe2de19001be2b842b89bb11f58594f2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: fe2de19001be2b842b89bb11f58594f2, type: 3}
+      propertyPath: m_Name
+      value: MSH_Rocks_Cliff_29
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 5551014577142218206, guid: fe2de19001be2b842b89bb11f58594f2, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 3339322310521469313, guid: fe2de19001be2b842b89bb11f58594f2, type: 3}
+    - {fileID: 514852880178059330, guid: fe2de19001be2b842b89bb11f58594f2, type: 3}
+    - {fileID: 2972556325523947529, guid: fe2de19001be2b842b89bb11f58594f2, type: 3}
+    - {fileID: 2750116800679845231, guid: fe2de19001be2b842b89bb11f58594f2, type: 3}
+    - {fileID: 1399441342152872513, guid: fe2de19001be2b842b89bb11f58594f2, type: 3}
+    - {fileID: -6245681318126385556, guid: fe2de19001be2b842b89bb11f58594f2, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fe2de19001be2b842b89bb11f58594f2, type: 3}
+--- !u!4 &555737217929937951 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: fe2de19001be2b842b89bb11f58594f2, type: 3}
+  m_PrefabInstance: {fileID: 4813456025647853317}
+  m_PrefabAsset: {fileID: 0}
