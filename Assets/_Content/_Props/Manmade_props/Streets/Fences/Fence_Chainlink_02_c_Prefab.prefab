@@ -14,7 +14,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4000013943713070
 Transform:
@@ -80,9 +80,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 13904462140188597, guid: fccc49bf3e108b94c8202230c83d6e92, type: 3}
+      propertyPath: m_ReceiveGI
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 13904462140188597, guid: fccc49bf3e108b94c8202230c83d6e92, type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: fccc49bf3e108b94c8202230c83d6e92, type: 3}
       propertyPath: m_Name
       value: MSH_Fence_Chainlink_02_c
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fccc49bf3e108b94c8202230c83d6e92, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 3849411961012145734, guid: fccc49bf3e108b94c8202230c83d6e92, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4742473837712756890, guid: fccc49bf3e108b94c8202230c83d6e92, type: 3}

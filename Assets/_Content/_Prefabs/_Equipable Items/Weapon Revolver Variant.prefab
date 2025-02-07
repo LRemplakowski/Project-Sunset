@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6412383375597593294}
   m_Layer: 0
   m_Name: MuzzleFlash
-  m_TagString: Untagged
+  m_TagString: UMAIgnore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -97,6 +97,7 @@ VFXRenderer:
   m_RayTraceProcedural: 0
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_StaticBatchInfo:
@@ -130,7 +131,7 @@ GameObject:
   - component: {fileID: 8289183225622037686}
   m_Layer: 0
   m_Name: Projectile Origin
-  m_TagString: Untagged
+  m_TagString: UMAIgnore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -183,6 +184,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Weapon Revolver Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 2223582635439538016, guid: 2de8cba9a85f7734aa5fe5e38d773bda, type: 3}
+      propertyPath: m_TagString
+      value: UMAIgnore
+      objectReference: {fileID: 0}
     - target: {fileID: 4634100117701520046, guid: 2de8cba9a85f7734aa5fe5e38d773bda, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -222,6 +227,26 @@ PrefabInstance:
     - target: {fileID: 4634100117701520046, guid: 2de8cba9a85f7734aa5fe5e38d773bda, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5341368709518589996, guid: 2de8cba9a85f7734aa5fe5e38d773bda, type: 3}
+      propertyPath: Position.x
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 5341368709518589996, guid: 2de8cba9a85f7734aa5fe5e38d773bda, type: 3}
+      propertyPath: Position.y
+      value: 0.125
+      objectReference: {fileID: 0}
+    - target: {fileID: 5341368709518589996, guid: 2de8cba9a85f7734aa5fe5e38d773bda, type: 3}
+      propertyPath: Position.z
+      value: 0.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 5458821934253913222, guid: 2de8cba9a85f7734aa5fe5e38d773bda, type: 3}
+      propertyPath: m_TagString
+      value: UMAIgnore
+      objectReference: {fileID: 0}
+    - target: {fileID: 6478590111729436035, guid: 2de8cba9a85f7734aa5fe5e38d773bda, type: 3}
+      propertyPath: m_TagString
+      value: UMAIgnore
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -291,9 +316,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2710503606394071260, guid: 6d1bdbc543e4a2c4da9a8745714dc85a, type: 3}
+      propertyPath: m_TagString
+      value: UMAIgnore
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 6d1bdbc543e4a2c4da9a8745714dc85a, type: 3}
       propertyPath: m_Name
       value: revolver01
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6d1bdbc543e4a2c4da9a8745714dc85a, type: 3}
+      propertyPath: m_TagString
+      value: UMAIgnore
+      objectReference: {fileID: 0}
+    - target: {fileID: 1502820007554212546, guid: 6d1bdbc543e4a2c4da9a8745714dc85a, type: 3}
+      propertyPath: m_TagString
+      value: UMAIgnore
       objectReference: {fileID: 0}
     - target: {fileID: 2540524892134558383, guid: 6d1bdbc543e4a2c4da9a8745714dc85a, type: 3}
       propertyPath: m_LocalPosition.x
@@ -302,6 +339,14 @@ PrefabInstance:
     - target: {fileID: 2540524892134558383, guid: 6d1bdbc543e4a2c4da9a8745714dc85a, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.1357
+      objectReference: {fileID: 0}
+    - target: {fileID: 8821623529969584324, guid: 6d1bdbc543e4a2c4da9a8745714dc85a, type: 3}
+      propertyPath: m_TagString
+      value: UMAIgnore
+      objectReference: {fileID: 0}
+    - target: {fileID: 9138063162429020765, guid: 6d1bdbc543e4a2c4da9a8745714dc85a, type: 3}
+      propertyPath: m_TagString
+      value: UMAIgnore
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

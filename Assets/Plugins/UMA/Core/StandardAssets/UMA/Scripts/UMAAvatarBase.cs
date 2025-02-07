@@ -64,8 +64,7 @@ namespace UMA
 
 			if (umaData == null)
 			{
-				umaData = GetComponent<UMAData>();
-				if (umaData == null)
+				if (!TryGetComponent(out umaData))
 				{
 					umaData = gameObject.AddComponent<UMAData>();
 					umaData.umaRecipe = new UMAData.UMARecipe(); // TEST JRRM

@@ -1830,7 +1830,7 @@ namespace UMA.CharacterSystem
                 //it may just be that the race has changed and the current wardrobe didn't fit? If so we dont want to stop everything.
                 if (Debug.isDebugBuild)
                 {
-                    Debug.LogWarning("Unable to find slot or recipe for Slotname " + Slotname + " Recipename " + Recipename);
+                    Debug.LogWarning("Unable to find slot or recipe for Slotname " + Slotname + " Recipename " + Recipename, gameObject);
                 }
             }
             else

@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1030982895}
-  - component: {fileID: 6718161142434280178}
   m_Layer: 0
   m_Name: Clutter_Poster_07_Prefab
   m_TagString: Untagged
@@ -33,27 +32,6 @@ Transform:
   - {fileID: 2736366981548907639}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &6718161142434280178
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1030982894}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.53183544, y: 0.68639934, z: 0.21486774}
-  m_Center: {x: 0.23408228, y: 0.31062585, z: -0.02145921}
 --- !u!1001 &2482396233758014364
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -102,9 +80,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 85a7a6a644401784e9e88227e92ccd30, type: 3}
+      propertyPath: m_ReceiveGI
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 85a7a6a644401784e9e88227e92ccd30, type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 85a7a6a644401784e9e88227e92ccd30, type: 3}
       propertyPath: m_Name
       value: MSH_Clutter_Poster_07
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 85a7a6a644401784e9e88227e92ccd30, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

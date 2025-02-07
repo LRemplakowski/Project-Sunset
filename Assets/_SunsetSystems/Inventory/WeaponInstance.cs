@@ -6,7 +6,7 @@ using UnityEngine.VFX;
 namespace SunsetSystems.Equipment
 {
     [RequireComponent(typeof(AudioSource))]
-    public class WeaponInstance : SerializedMonoBehaviour, IWeaponInstance
+    public class WeaponInstance : MonoBehaviour, IWeaponInstance
     {
         [Title("Config")]
         [SerializeField, Min(0)]

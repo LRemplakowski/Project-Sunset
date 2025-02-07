@@ -743,17 +743,17 @@ namespace UMA
 			{
 				if (Debug.isDebugBuild)
                 {
-                    Debug.LogError("UMA data missing required recipe!");
+                    Debug.LogError("UMA data missing required recipe!", gameObject);
                 }
 
                 valid = false;
 			}
 			else
 			{
-				valid &= umaRecipe.Validate();
+				valid &= _umaRecipe.Validate();
 				if (!valid)
 				{
-					Debug.LogError($"UMAData >>> Failed to validate UMA recipe {umaRecipe}!");
+					Debug.LogError($"UMAData >>> Failed to validate UMA recipe {_umaRecipe}!", gameObject);
 				}
 			}
 

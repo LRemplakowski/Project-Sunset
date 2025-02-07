@@ -14,7 +14,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2026416417396503914
 Transform:
@@ -80,9 +80,37 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7961398254785425502, guid: a4dda0446abcca84a8473088f1391919, type: 3}
+      propertyPath: m_ReceiveGI
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7961398254785425502, guid: a4dda0446abcca84a8473088f1391919, type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -2703169174935522312, guid: a4dda0446abcca84a8473088f1391919, type: 3}
+      propertyPath: m_ReceiveGI
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -2703169174935522312, guid: a4dda0446abcca84a8473088f1391919, type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a4dda0446abcca84a8473088f1391919, type: 3}
       propertyPath: m_Name
       value: MSH_Street_Light_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a4dda0446abcca84a8473088f1391919, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1047425363680076489, guid: a4dda0446abcca84a8473088f1391919, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 6417518751802459173, guid: a4dda0446abcca84a8473088f1391919, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4742473837712756890, guid: a4dda0446abcca84a8473088f1391919, type: 3}
