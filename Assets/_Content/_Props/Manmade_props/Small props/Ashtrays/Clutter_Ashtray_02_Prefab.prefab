@@ -14,7 +14,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 85
+  m_StaticEditorFlags: 125
   m_IsActive: 1
 --- !u!4 &4295613874160946
 Transform:
@@ -43,6 +43,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 7222bf01a44af7945829ff0a4b90a472, type: 3}
       propertyPath: m_Name
       value: MSH_Furniture_Ashtray_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7222bf01a44af7945829ff0a4b90a472, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 125
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 7222bf01a44af7945829ff0a4b90a472, type: 3}
       propertyPath: m_LocalPosition.x
@@ -83,6 +87,10 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 7222bf01a44af7945829ff0a4b90a472, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 7222bf01a44af7945829ff0a4b90a472, type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 7222bf01a44af7945829ff0a4b90a472, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'

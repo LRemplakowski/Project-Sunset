@@ -15,7 +15,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2079393140786679006
 Transform:
@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
   m_OverrideArea: 1
   m_Area: 1
   m_OverrideGenerateLinks: 0
@@ -60,6 +61,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2079393140786679006}
     m_Modifications:
+    - target: {fileID: -9181029300390094985, guid: 22cf36f73a0c55449ade9f17438ea7ac, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 22cf36f73a0c55449ade9f17438ea7ac, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -104,9 +109,73 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8287985813479825632, guid: 22cf36f73a0c55449ade9f17438ea7ac, type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8265041577398899715, guid: 22cf36f73a0c55449ade9f17438ea7ac, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: -6115416327025978817, guid: 22cf36f73a0c55449ade9f17438ea7ac, type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4525618238765431418, guid: 22cf36f73a0c55449ade9f17438ea7ac, type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -3952541308068325525, guid: 22cf36f73a0c55449ade9f17438ea7ac, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: -3622171462052140643, guid: 22cf36f73a0c55449ade9f17438ea7ac, type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -1390734974290967380, guid: 22cf36f73a0c55449ade9f17438ea7ac, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: -41754388853935142, guid: 22cf36f73a0c55449ade9f17438ea7ac, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 916537399754720052, guid: 22cf36f73a0c55449ade9f17438ea7ac, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 22cf36f73a0c55449ade9f17438ea7ac, type: 3}
       propertyPath: m_Name
       value: busbar01
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 22cf36f73a0c55449ade9f17438ea7ac, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1823568193117554285, guid: 22cf36f73a0c55449ade9f17438ea7ac, type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4531912228224351498, guid: 22cf36f73a0c55449ade9f17438ea7ac, type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5889670600287193313, guid: 22cf36f73a0c55449ade9f17438ea7ac, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7070141719653308163, guid: 22cf36f73a0c55449ade9f17438ea7ac, type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7953606483559150473, guid: 22cf36f73a0c55449ade9f17438ea7ac, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8800046273328551200, guid: 22cf36f73a0c55449ade9f17438ea7ac, type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

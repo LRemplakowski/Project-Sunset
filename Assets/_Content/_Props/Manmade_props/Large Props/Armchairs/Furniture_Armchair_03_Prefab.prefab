@@ -15,7 +15,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4030289527095174
 Transform:
@@ -102,6 +102,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: e6de05233ad7dfb4f85d67d8af7093be, type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: e6de05233ad7dfb4f85d67d8af7093be, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: e7c747c22a0298d4b962e8c728faa03b, type: 2}
@@ -109,41 +113,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: MSH_Furniture_Armchair_04
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e6de05233ad7dfb4f85d67d8af7093be, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e6de05233ad7dfb4f85d67d8af7093be, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 4683690690738001852}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6de05233ad7dfb4f85d67d8af7093be, type: 3}
 --- !u!4 &3675828506744437674 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e6de05233ad7dfb4f85d67d8af7093be, type: 3}
   m_PrefabInstance: {fileID: 3785719622150184001}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &4055766487132135696 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e6de05233ad7dfb4f85d67d8af7093be, type: 3}
-  m_PrefabInstance: {fileID: 3785719622150184001}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &4683690690738001852
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4055766487132135696}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SerializedVersion: 0
-  m_OverrideArea: 1
-  m_Area: 1
-  m_OverrideGenerateLinks: 0
-  m_GenerateLinks: 0
-  m_IgnoreFromBuild: 0
-  m_ApplyToChildren: 1
-  m_AffectedAgents: ffffffff

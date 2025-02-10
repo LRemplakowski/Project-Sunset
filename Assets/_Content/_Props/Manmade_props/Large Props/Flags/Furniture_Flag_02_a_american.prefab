@@ -14,7 +14,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4980971143950778972
 Transform:
@@ -85,12 +85,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 1afe53c0bad7db84fa84e46b84bae2cb, type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 1afe53c0bad7db84fa84e46b84bae2cb, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: b22447ef2503f9043bf0a0727c88ba7b, type: 2}
     - target: {fileID: 919132149155446097, guid: 1afe53c0bad7db84fa84e46b84bae2cb, type: 3}
       propertyPath: m_Name
       value: british_flag01
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1afe53c0bad7db84fa84e46b84bae2cb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
