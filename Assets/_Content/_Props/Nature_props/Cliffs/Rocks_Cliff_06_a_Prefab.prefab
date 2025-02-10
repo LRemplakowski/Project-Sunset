@@ -1,0 +1,107 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3303048539018403683
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1985402430053313904}
+  m_Layer: 0
+  m_Name: Rocks_Cliff_06_a_Prefab
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &1985402430053313904
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3303048539018403683}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -80.700035, y: -7.072382e-18, z: -50.531532}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3441296461325976835}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &7690815729833963033
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1985402430053313904}
+    m_Modifications:
+    - target: {fileID: -5502437020010623308, guid: 5466dacfd28ef53408a38957b2c22258, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 6da0ffbeae9a2c04e86be45ee9370926, type: 2}
+    - target: {fileID: -4216859302048453862, guid: 5466dacfd28ef53408a38957b2c22258, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 5466dacfd28ef53408a38957b2c22258, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 5466dacfd28ef53408a38957b2c22258, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 5466dacfd28ef53408a38957b2c22258, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 5466dacfd28ef53408a38957b2c22258, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 5466dacfd28ef53408a38957b2c22258, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 5466dacfd28ef53408a38957b2c22258, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 5466dacfd28ef53408a38957b2c22258, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 5466dacfd28ef53408a38957b2c22258, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: 5466dacfd28ef53408a38957b2c22258, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 5466dacfd28ef53408a38957b2c22258, type: 3}
+      propertyPath: m_Name
+      value: MSH_Rocks_Cliff_06_a
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 5551014577142218206, guid: 5466dacfd28ef53408a38957b2c22258, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 3339322310521469313, guid: 5466dacfd28ef53408a38957b2c22258, type: 3}
+    - {fileID: 514852880178059330, guid: 5466dacfd28ef53408a38957b2c22258, type: 3}
+    - {fileID: 2972556325523947529, guid: 5466dacfd28ef53408a38957b2c22258, type: 3}
+    - {fileID: 2750116800679845231, guid: 5466dacfd28ef53408a38957b2c22258, type: 3}
+    - {fileID: 1399441342152872513, guid: 5466dacfd28ef53408a38957b2c22258, type: 3}
+    - {fileID: -6245681318126385556, guid: 5466dacfd28ef53408a38957b2c22258, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5466dacfd28ef53408a38957b2c22258, type: 3}
+--- !u!4 &3441296461325976835 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 5466dacfd28ef53408a38957b2c22258, type: 3}
+  m_PrefabInstance: {fileID: 7690815729833963033}
+  m_PrefabAsset: {fileID: 0}

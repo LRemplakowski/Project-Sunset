@@ -1,0 +1,129 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6172095275858036135
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4692530466543555518}
+  - component: {fileID: 915955833893340022}
+  m_Layer: 0
+  m_Name: Vegetation_Bristlecone_02_a_Prefab
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4692530466543555518
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6172095275858036135}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 3228212110327928547}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!205 &915955833893340022
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6172095275858036135}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.600852, y: 4.002372, z: -0.073933125}
+  m_Size: 8.647437
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.018665498
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 1074465633141491911}
+  m_Enabled: 1
+--- !u!1001 &3118268517452394760
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 4692530466543555518}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 6e41daa4d4d4ff542bbf49eb9bf725dc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6e41daa4d4d4ff542bbf49eb9bf725dc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6e41daa4d4d4ff542bbf49eb9bf725dc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6e41daa4d4d4ff542bbf49eb9bf725dc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6e41daa4d4d4ff542bbf49eb9bf725dc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6e41daa4d4d4ff542bbf49eb9bf725dc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6e41daa4d4d4ff542bbf49eb9bf725dc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6e41daa4d4d4ff542bbf49eb9bf725dc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6e41daa4d4d4ff542bbf49eb9bf725dc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 6e41daa4d4d4ff542bbf49eb9bf725dc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6e41daa4d4d4ff542bbf49eb9bf725dc, type: 3}
+      propertyPath: m_Name
+      value: MSH_Vegetation_Bristlecone_02
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 4742473837712756890, guid: 6e41daa4d4d4ff542bbf49eb9bf725dc, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: -7773418280952215162, guid: 6e41daa4d4d4ff542bbf49eb9bf725dc, type: 3}
+    - {fileID: 8596598308508330987, guid: 6e41daa4d4d4ff542bbf49eb9bf725dc, type: 3}
+    - {fileID: -8486531273060330753, guid: 6e41daa4d4d4ff542bbf49eb9bf725dc, type: 3}
+    - {fileID: -6611251337264163014, guid: 6e41daa4d4d4ff542bbf49eb9bf725dc, type: 3}
+    - {fileID: 651204406948118193, guid: 6e41daa4d4d4ff542bbf49eb9bf725dc, type: 3}
+    - {fileID: -4522085566700408959, guid: 6e41daa4d4d4ff542bbf49eb9bf725dc, type: 3}
+    - {fileID: -8186495745605393871, guid: 6e41daa4d4d4ff542bbf49eb9bf725dc, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6e41daa4d4d4ff542bbf49eb9bf725dc, type: 3}
+--- !u!23 &1074465633141491911 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -6507960401038460465, guid: 6e41daa4d4d4ff542bbf49eb9bf725dc, type: 3}
+  m_PrefabInstance: {fileID: 3118268517452394760}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &3228212110327928547 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 6e41daa4d4d4ff542bbf49eb9bf725dc, type: 3}
+  m_PrefabInstance: {fileID: 3118268517452394760}
+  m_PrefabAsset: {fileID: 0}
