@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4759582563284444}
+  - component: {fileID: 6154548435581929334}
   m_Layer: 0
   m_Name: Clutter_Books_32_Prefab
   m_TagString: Untagged
@@ -32,6 +33,27 @@ Transform:
   - {fileID: 7150579424360194170}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &6154548435581929334
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1962189107699062}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.41444677, y: 0.16454865, z: 0.2640364}
+  m_Center: {x: -0.1904037, y: 0.08227419, z: -0.119471535}
 --- !u!1001 &7150579424360069882
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -43,6 +65,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 92b248680f01a9f4c9b76aa3361e02d3, type: 3}
       propertyPath: m_Name
       value: MSH_Clutter_Books_32
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 92b248680f01a9f4c9b76aa3361e02d3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 92b248680f01a9f4c9b76aa3361e02d3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -83,6 +109,10 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 92b248680f01a9f4c9b76aa3361e02d3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 92b248680f01a9f4c9b76aa3361e02d3, type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -14,7 +14,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2883757595383988464
 Transform:
@@ -85,12 +85,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: eda1b24a263f0ce4ab36fec48508940d, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: m_StaticShadowCaster
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: eda1b24a263f0ce4ab36fec48508940d, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: fc76880b88c4e4243bd960b7f8dc1db1, type: 2}
     - target: {fileID: 919132149155446097, guid: eda1b24a263f0ce4ab36fec48508940d, type: 3}
       propertyPath: m_Name
       value: pillow01
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: eda1b24a263f0ce4ab36fec48508940d, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -198,7 +198,7 @@ Material:
     - _AlphaCutoffEnable: 1
     - _AlphaCutoffPostpass: 0.5
     - _AlphaCutoffPrepass: 0.5
-    - _AlphaCutoffShadow: 0.5
+    - _AlphaCutoffShadow: 0.926
     - _AlphaDstBlend: 0
     - _AlphaRemapMax: 1
     - _AlphaRemapMin: 0
@@ -231,6 +231,7 @@ Material:
     - _DoubleSidedGIMode: 0
     - _DoubleSidedNormalMode: 1
     - _DstBlend: 0
+    - _DstBlend2: 0
     - _EmissiveColorMode: 1
     - _EmissiveExposureWeight: 1
     - _EmissiveIntensity: 1
@@ -273,6 +274,7 @@ Material:
     - _PPDPrimitiveLength: 1
     - _PPDPrimitiveWidth: 1
     - _Parallax: 0.005
+    - _PerPixelSorting: 0
     - _QueueOffset: 0
     - _RayTracing: 0
     - _ReceiveShadows: 1
@@ -341,6 +343,7 @@ Material:
     - _UVMappingMask: {r: 1, g: 0, b: 0, a: 0}
     - _UVMappingMaskEmissive: {r: 1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!114 &3705609345389247732
 MonoBehaviour:
   m_ObjectHideFlags: 11

@@ -14,7 +14,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 127
   m_IsActive: 1
 --- !u!4 &4759412162187186
 Transform:
@@ -43,6 +43,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 6390c5e06ce223c4fa34c7cf4c7f66d6, type: 3}
       propertyPath: m_Name
       value: MSH_Clutter_Books_28
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 6390c5e06ce223c4fa34c7cf4c7f66d6, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 127
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 6390c5e06ce223c4fa34c7cf4c7f66d6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -83,6 +87,10 @@ PrefabInstance:
     - target: {fileID: 400000, guid: 6390c5e06ce223c4fa34c7cf4c7f66d6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 6390c5e06ce223c4fa34c7cf4c7f66d6, type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

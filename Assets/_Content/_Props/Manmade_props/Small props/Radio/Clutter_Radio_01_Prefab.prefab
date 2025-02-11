@@ -23,6 +23,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2853709563138399313}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -30,13 +31,13 @@ Transform:
   m_Children:
   - {fileID: 6141456904546701117}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &5958385424133859542
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 3702443025279171954}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 0d6e85b8cd18177439b39bcaef16a7f2, type: 3}
@@ -83,6 +84,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 0d6e85b8cd18177439b39bcaef16a7f2, type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7057572496822386052, guid: 0d6e85b8cd18177439b39bcaef16a7f2, type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -7027540902750879044, guid: 0d6e85b8cd18177439b39bcaef16a7f2, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
@@ -107,7 +116,22 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
+    - target: {fileID: 2437906171476069959, guid: 0d6e85b8cd18177439b39bcaef16a7f2, type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3829821960397584093, guid: 0d6e85b8cd18177439b39bcaef16a7f2, type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8638263172815310572, guid: 0d6e85b8cd18177439b39bcaef16a7f2, type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d6e85b8cd18177439b39bcaef16a7f2, type: 3}
 --- !u!4 &6141456904546701117 stripped
 Transform:
