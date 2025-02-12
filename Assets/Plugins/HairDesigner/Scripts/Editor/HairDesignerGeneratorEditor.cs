@@ -596,7 +596,7 @@ namespace Kalagaan
 
                     //Vector3 newPos = Handles.FreeMoveHandle(hd.m_motionZones[i].parent.TransformPoint(hd.m_motionZones[i].localPosition), Quaternion.identity, hd.m_motionZones[i].radius, Vector3.zero, Handles.CircleCap);
 
-                    var fmh_599_72_638540593857663216 = Quaternion.identity; Vector3 newPos = Handles.FreeMoveHandle(handlePos, HandleUtility.GetHandleSize(handlePos) * .5f, Vector3.zero, SphereCap);
+                    var fmh_599_72_638749745244216267 = Quaternion.identity; Vector3 newPos = Handles.FreeMoveHandle(handlePos, HandleUtility.GetHandleSize(handlePos) * .5f, Vector3.zero, SphereCap);
                     hd.generator.m_motionZones[i].localPosition = hd.generator.m_motionZones[i].parent.InverseTransformPoint(newPos);
 
                     c = Color.yellow;
@@ -605,7 +605,7 @@ namespace Kalagaan
 
                     Handles.Label(hd.generator.m_motionZones[i].parent.position, hd.generator.m_motionZones[i].parent.gameObject.name, EditorStyles.centeredGreyMiniLabel);
 
-                    var fmh_608_158_638540593857670156 = Quaternion.identity; Vector3 radiusHandle = Handles.FreeMoveHandle(handlePos + SvCam.transform.right * hd.generator.m_motionZones[i].radius * hd.globalScale, HandleUtility.GetHandleSize(handlePos) * .2f, Vector3.zero, CircleCap);
+                    var fmh_608_158_638749745244227109 = Quaternion.identity; Vector3 radiusHandle = Handles.FreeMoveHandle(handlePos + SvCam.transform.right * hd.generator.m_motionZones[i].radius * hd.globalScale, HandleUtility.GetHandleSize(handlePos) * .2f, Vector3.zero, CircleCap);
                     if (hd.globalScale > 0)
                         hd.generator.m_motionZones[i].radius = (radiusHandle - handlePos).magnitude / hd.globalScale;
                     else

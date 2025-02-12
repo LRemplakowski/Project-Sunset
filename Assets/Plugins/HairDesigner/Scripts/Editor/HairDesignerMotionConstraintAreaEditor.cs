@@ -70,7 +70,7 @@ namespace Kalagaan.HairDesignerExtension
             for (int i = 0; i < mca.m_areas.Count; ++i)
             {
                 Vector3 worldPos = mca.transform.TransformPoint(mca.m_areas[i].position);
-                var fmh_73_67_638540593856747778 = Quaternion.identity; Vector3 newpos = Handles.FreeMoveHandle(worldPos, HandleUtility.GetHandleSize(worldPos) * .1f, Vector3.zero, Handles.CircleHandleCap);
+                var fmh_73_67_638749745242912304 = Quaternion.identity; Vector3 newpos = Handles.FreeMoveHandle(worldPos, HandleUtility.GetHandleSize(worldPos) * .1f, Vector3.zero, Handles.CircleHandleCap);
                 if (Vector3.Distance(worldPos, newpos) > .001f)
                 {
                     mca.m_areas[i].position = mca.transform.InverseTransformPoint(newpos);
@@ -81,7 +81,7 @@ namespace Kalagaan.HairDesignerExtension
 
 
                 radius = worldPos + r * mca.m_areas[i].radius * mca.transform.lossyScale.x;
-                var fmh_84_57_638540593856752120 = Quaternion.identity; newpos = Handles.FreeMoveHandle(radius, HandleUtility.GetHandleSize(worldPos) * .05f, Vector3.zero, Handles.RectangleHandleCap);
+                var fmh_84_57_638749745242930437 = Quaternion.identity; newpos = Handles.FreeMoveHandle(radius, HandleUtility.GetHandleSize(worldPos) * .05f, Vector3.zero, Handles.RectangleHandleCap);
 
                 if (Vector3.Distance(radius, newpos) > .001f)
                     mca.m_areas[i].radius = Vector3.Distance(worldPos, newpos) / mca.transform.lossyScale.x;

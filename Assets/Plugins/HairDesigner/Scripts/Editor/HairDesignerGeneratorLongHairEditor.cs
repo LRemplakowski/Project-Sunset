@@ -1920,7 +1920,7 @@ namespace Kalagaan
                 Vector3 rLocalPoint0 = pos + up * (handleSize * heightFactorHandle - handleSize*.5f) ;// / g.m_hd.globalScale;
 
                 //Vector3 rLocalPoint1 =  FreeMoveHandleTransformPoint(trans, rLocalPoint0, Quaternion.LookRotation(-up, tan), handleSize * 2f, Vector3.zero, ConeCap);
-                var fmh_1923_78_638540593860608308 = Quaternion.LookRotation(-up, tan); Vector3 rLocalPoint1 = Handles.FreeMoveHandle( rLocalPoint0, handleSize * 2f, Vector3.zero, ConeCap);
+                var fmh_1923_78_638749745248048208 = Quaternion.LookRotation(-up, tan); Vector3 rLocalPoint1 = Handles.FreeMoveHandle( rLocalPoint0, handleSize * 2f, Vector3.zero, ConeCap);
 
 
                 //Vector3 rWorldPoint = trans.TransformPoint(rLocalPoint1);

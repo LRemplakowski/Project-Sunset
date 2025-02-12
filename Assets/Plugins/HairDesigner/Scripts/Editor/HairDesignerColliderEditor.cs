@@ -85,14 +85,14 @@ namespace Kalagaan.HairDesignerExtension
             if (!col.m_useUnityColliderSettings1)
             {
                 Handles.color = Color.cyan;
-                var fmh_88_70_638540593856720667 = Quaternion.identity; Vector3 newcenter1 = Handles.FreeMoveHandle(center1, HandleUtility.GetHandleSize(center1) * .1f, Vector3.zero, Handles.CircleHandleCap);
+                var fmh_88_70_638749745242912091 = Quaternion.identity; Vector3 newcenter1 = Handles.FreeMoveHandle(center1, HandleUtility.GetHandleSize(center1) * .1f, Vector3.zero, Handles.CircleHandleCap);
                 if (Vector3.Distance(newcenter1, center1) > .01f)
                 {
                     center1 = newcenter1;
                     col.SetWorldCenter(center1, 1);
                 }
                 radius = center1 + r * col.m_dualSphereWorldData.radius1;
-                var fmh_95_57_638540593856736686 = Quaternion.identity; radius = Handles.FreeMoveHandle(radius, HandleUtility.GetHandleSize(center1) * .1f, Vector3.zero, Handles.RectangleHandleCap);
+                var fmh_95_57_638749745242930437 = Quaternion.identity; radius = Handles.FreeMoveHandle(radius, HandleUtility.GetHandleSize(center1) * .1f, Vector3.zero, Handles.RectangleHandleCap);
                 col.SetWorldRadius(Vector3.Distance(center1, radius), .001f, 1);
                 Handles.DrawDottedLine(center1, radius, .2f);
             }
@@ -106,14 +106,14 @@ namespace Kalagaan.HairDesignerExtension
             if (!col.m_useUnityColliderSettings2)
             {
                 Handles.color = Color.cyan;
-                var fmh_109_70_638540593856743860 = Quaternion.identity; Vector3 newcenter2 = Handles.FreeMoveHandle(center2, HandleUtility.GetHandleSize(center2) * .1f, Vector3.zero, Handles.CircleHandleCap);
+                var fmh_109_70_638749745242939240 = Quaternion.identity; Vector3 newcenter2 = Handles.FreeMoveHandle(center2, HandleUtility.GetHandleSize(center2) * .1f, Vector3.zero, Handles.CircleHandleCap);
                 if (Vector3.Distance(newcenter2, center2) > .01f)
                 {
                     center2 = newcenter2;
                     col.SetWorldCenter(center2, 2);
                 }
                 radius = center2 + r * col.m_dualSphereWorldData.radius2;
-                var fmh_116_57_638540593856747864 = Quaternion.identity; radius = Handles.FreeMoveHandle(radius, HandleUtility.GetHandleSize(center2) * .1f, Vector3.zero, Handles.RectangleHandleCap);
+                var fmh_116_57_638749745242945940 = Quaternion.identity; radius = Handles.FreeMoveHandle(radius, HandleUtility.GetHandleSize(center2) * .1f, Vector3.zero, Handles.RectangleHandleCap);
                 col.SetWorldRadius(Vector3.Distance(center2, radius), .001f, 2);
                 Handles.DrawDottedLine(center2, radius, .2f);
             }
