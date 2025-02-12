@@ -746,7 +746,7 @@ MonoBehaviour:
     - {fileID: 550978507}
     - {fileID: 476926072}
     - {fileID: 1308169686}
-    - {fileID: 3159384319582936116}
+    - {fileID: 0}
     - {fileID: 813161223}
     - {fileID: 2341507053060625728}
     - {fileID: 5046033117664799797, guid: e592f6dc5d5c3db4180ba93d30ddca92, type: 3}
@@ -865,7 +865,7 @@ MonoBehaviour:
     - {fileID: 2100000, guid: d3aa4190a12748241b10f49f3dbbca3c, type: 2}
     - {fileID: 2100000, guid: 78b806c0e0ac4b64f9c99cd378e8ba61, type: 2}
     - {fileID: 914153544723648135, guid: 894d74694202427499f35233c24e5c48, type: 3}
-    - {fileID: 4480464680700903511}
+    - {fileID: 0}
     - {fileID: 842191064}
     - {fileID: 4361315407252175332}
     - {fileID: 2100000, guid: 34064f3d315b98345a106a2a4608d773, type: 2}
@@ -962,7 +962,7 @@ MonoBehaviour:
     - {fileID: 2800000, guid: 35240f90b1c18ae45a64c671b26c6a14, type: 3}
     - {fileID: 2800000, guid: 381c45d162c987746882a0deab3a3b0a, type: 3}
     - {fileID: 2800000, guid: 2280f0a3e628d7a45b5a8aa5d7232707, type: 3}
-    - {fileID: 6636955611068567346}
+    - {fileID: 0}
     - {fileID: 2100000, guid: 5590fb3bccf597149b13b212655a1194, type: 2}
     - {fileID: 2800000, guid: 7aa901719bf4a8844b4f57f7aef3d212, type: 3}
     - {fileID: 2800000, guid: 6a29bf7866d58b342b0f0a94643ae568, type: 3}
@@ -1822,7 +1822,7 @@ MonoBehaviour:
     - {fileID: 2800000, guid: db68b94d2aa673d42becefee794d3b43, type: 3}
     - {fileID: 1058008730}
     - {fileID: 2800000, guid: a563fdc2a7c446e47b0eaaf0d0a8ecf3, type: 3}
-    - {fileID: 3267723020566847983}
+    - {fileID: 0}
     - {fileID: 2945118339151498098}
     - {fileID: 2800000, guid: 9035dc683a6cff1488fc81cfd5a874c5, type: 3}
     - {fileID: 1451795678618783145}
@@ -2396,7 +2396,7 @@ MonoBehaviour:
     - {fileID: 163815837762985348, guid: 0c226e6b5d5272e47bc4e7636bed2aad, type: 3}
     - {fileID: 1301207683036997355, guid: 0c226e6b5d5272e47bc4e7636bed2aad, type: 3}
     - {fileID: 544626877327864606}
-    - {fileID: 8010470618345338077}
+    - {fileID: 0}
     - {fileID: 5092678640154779888}
     - {fileID: 5281039893934812205}
     - {fileID: 4154515202858826495}
@@ -2426,8 +2426,8 @@ MonoBehaviour:
     - {fileID: 7094774407989676520}
     - {fileID: 1509601878154191783}
     - {fileID: 3734126275291950700}
-    - {fileID: 5694586373363951329}
-    - {fileID: 5412404982527770250}
+    - {fileID: 0}
+    - {fileID: 0}
     - {fileID: 3732255358879460234}
     - {fileID: 2068228410572249335}
     - {fileID: 3232907555827416864}
@@ -13285,7 +13285,7 @@ Light:
   m_BounceIntensity: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 5}
+  m_BoundingSphereOverride: {x: 1.1426e-41, y: 2.524355e-29, z: 0, w: -4.09964e-36}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
@@ -26552,7 +26552,7 @@ ReflectionProbe:
   m_BlendDistance: 0
   m_HDR: 1
   m_BoxProjection: 0
-  m_RenderDynamicObjects: 0
+  m_RenderDynamicObjects: 1
   m_UseOcclusionCulling: 1
   m_Importance: 1
   m_CustomBakedTexture: {fileID: 0}
@@ -26575,7 +26575,7 @@ MonoBehaviour:
       automaticScale: 1
       viewerScale: 1
     type: 0
-    mode: 0
+    mode: 1
     realtimeMode: 1
     timeSlicing: 0
     lighting:
@@ -26660,7 +26660,7 @@ MonoBehaviour:
       volumes:
         layerMask:
           serializedVersion: 2
-          m_Bits: 73
+          m_Bits: 329
         anchorOverride: {fileID: 0}
       frustum:
         mode: 0
@@ -26695,7 +26695,7 @@ MonoBehaviour:
       flipYMode: 0
       probeLayerMask:
         serializedVersion: 2
-        m_Bits: 73
+        m_Bits: 329
       defaultFrameSettings: 0
       m_ObsoleteRenderingPath: 0
       m_ObsoleteFrameSettings:
@@ -26830,37 +26830,37 @@ MonoBehaviour:
     m_CaptureRotation: {x: 0, y: 0, z: 0, w: 0}
     m_FieldOfView: 0
     m_Aspect: 0
-  m_HasValidSHForNormalization: 0
+  m_HasValidSHForNormalization: 1
   m_SHForNormalization:
-    'sh[ 0]': 0.0069101183
-    'sh[ 1]': -0.00096573425
-    'sh[ 2]': -0.0053568278
-    'sh[ 3]': 0.0009552605
-    'sh[ 4]': 0.000049643455
-    'sh[ 5]': 0.000023047662
-    'sh[ 6]': 0.00021444229
-    'sh[ 7]': -0.0003175217
-    'sh[ 8]': 0.00021770962
-    'sh[ 9]': 0.0018474793
-    'sh[10]': -0.00038061079
-    'sh[11]': -0.0013425336
-    'sh[12]': 0.0002170347
-    'sh[13]': -0.000015092761
-    'sh[14]': 0.000027187954
-    'sh[15]': 0.00004476746
-    'sh[16]': -0.000039160885
-    'sh[17]': 0.00005328985
-    'sh[18]': 0.0003025539
-    'sh[19]': -0.000104366605
-    'sh[20]': -0.00016359331
-    'sh[21]': 0.00002827148
-    'sh[22]': -0.000014371046
-    'sh[23]': 0.000011807905
-    'sh[24]': 0.0000038591993
-    'sh[25]': 0.0000064917067
-    'sh[26]': 0.00000668605
-  m_SHValidForCapturePosition: {x: 4.9099994, y: 1.78, z: -0.48000002}
-  m_SHValidForSourcePosition: {x: 4.9099994, y: 1.78, z: -0.48000002}
+    'sh[ 0]': 0.06805149
+    'sh[ 1]': -0.025438122
+    'sh[ 2]': 0.029235782
+    'sh[ 3]': 0.026005253
+    'sh[ 4]': 0.0017340892
+    'sh[ 5]': -0.007184549
+    'sh[ 6]': -0.00010747079
+    'sh[ 7]': 0.007568804
+    'sh[ 8]': 0.0015608835
+    'sh[ 9]': 0.02302895
+    'sh[10]': -0.009039599
+    'sh[11]': 0.011288038
+    'sh[12]': 0.008537924
+    'sh[13]': 0.00022242201
+    'sh[14]': -0.0025816695
+    'sh[15]': 0.00013093758
+    'sh[16]': 0.0032630062
+    'sh[17]': 0.0003940844
+    'sh[18]': 0.0048328587
+    'sh[19]': -0.0018124377
+    'sh[20]': 0.00257594
+    'sh[21]': 0.001858196
+    'sh[22]': -0.000008373539
+    'sh[23]': -0.00054174225
+    'sh[24]': 0.000060490733
+    'sh[25]': 0.0008183721
+    'sh[26]': 0.000104260536
+  m_SHValidForCapturePosition: {x: 4.632692, y: 1.78, z: -0.23631787}
+  m_SHValidForSourcePosition: {x: 4.632692, y: 1.78, z: -0.23631787}
   m_HDProbeVersion: 9
   m_ObsoleteInfiniteProjection: 1
   m_ObsoleteInfluenceVolume:
@@ -29892,7 +29892,7 @@ MonoBehaviour:
       automaticScale: 1
       viewerScale: 1
     type: 0
-    mode: 0
+    mode: 1
     realtimeMode: 1
     timeSlicing: 0
     lighting:
@@ -29977,7 +29977,7 @@ MonoBehaviour:
       volumes:
         layerMask:
           serializedVersion: 2
-          m_Bits: 73
+          m_Bits: 329
         anchorOverride: {fileID: 0}
       frustum:
         mode: 0
@@ -30012,7 +30012,7 @@ MonoBehaviour:
       flipYMode: 0
       probeLayerMask:
         serializedVersion: 2
-        m_Bits: 73
+        m_Bits: 329
       defaultFrameSettings: 0
       m_ObsoleteRenderingPath: 0
       m_ObsoleteFrameSettings:
@@ -30147,35 +30147,35 @@ MonoBehaviour:
     m_CaptureRotation: {x: 0, y: 0, z: 0, w: 0}
     m_FieldOfView: 0
     m_Aspect: 0
-  m_HasValidSHForNormalization: 0
+  m_HasValidSHForNormalization: 1
   m_SHForNormalization:
-    'sh[ 0]': 0.110250026
-    'sh[ 1]': 0.055083413
-    'sh[ 2]': -0.0909263
-    'sh[ 3]': 0.012614982
-    'sh[ 4]': -0.0015220665
-    'sh[ 5]': -0.023208635
-    'sh[ 6]': 0.004131811
-    'sh[ 7]': -0.00794974
-    'sh[ 8]': -0.004397544
-    'sh[ 9]': 0.045903675
-    'sh[10]': 0.0236324
-    'sh[11]': -0.038383927
-    'sh[12]': 0.0052869027
-    'sh[13]': -0.0005651812
-    'sh[14]': -0.010017268
-    'sh[15]': 0.001752438
-    'sh[16]': -0.0030935127
-    'sh[17]': -0.0019549099
-    'sh[18]': 0.011115182
-    'sh[19]': 0.005874685
-    'sh[20]': -0.009351274
-    'sh[21]': 0.001205541
-    'sh[22]': -0.000115805204
-    'sh[23]': -0.0024948213
-    'sh[24]': 0.00042956127
-    'sh[25]': -0.00069936475
-    'sh[26]': -0.00049310224
+    'sh[ 0]': 0.3161512
+    'sh[ 1]': 0.09752004
+    'sh[ 2]': 0.0711869
+    'sh[ 3]': 0.121267885
+    'sh[ 4]': 0.101042405
+    'sh[ 5]': 0.008212829
+    'sh[ 6]': 0.017566135
+    'sh[ 7]': -0.0014143607
+    'sh[ 8]': 0.022662576
+    'sh[ 9]': 0.13738893
+    'sh[10]': 0.04232763
+    'sh[11]': 0.029917093
+    'sh[12]': 0.051096298
+    'sh[13]': 0.043332722
+    'sh[14]': 0.0041669086
+    'sh[15]': 0.0078591015
+    'sh[16]': 0.000105723026
+    'sh[17]': 0.009930917
+    'sh[18]': 0.027294504
+    'sh[19]': 0.008185635
+    'sh[20]': 0.0062525664
+    'sh[21]': 0.010164599
+    'sh[22]': 0.008590626
+    'sh[23]': 0.00079669943
+    'sh[24]': 0.0015692611
+    'sh[25]': -0.000031177588
+    'sh[26]': 0.0019264384
   m_SHValidForCapturePosition: {x: 5.386, y: 1.5019999, z: 5.464}
   m_SHValidForSourcePosition: {x: 5.386, y: 1.5019999, z: 5.464}
   m_HDProbeVersion: 9
@@ -31465,7 +31465,7 @@ Light:
   m_BounceIntensity: 3
   m_ColorTemperature: 6570
   m_UseColorTemperature: 1
-  m_BoundingSphereOverride: {x: 1.02e-43, y: 0, z: 0, w: -1.8623136e-10}
+  m_BoundingSphereOverride: {x: 3.8603e-41, y: 2.524355e-29, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
@@ -33080,7 +33080,7 @@ ReflectionProbe:
   m_BlendDistance: 0
   m_HDR: 1
   m_BoxProjection: 0
-  m_RenderDynamicObjects: 0
+  m_RenderDynamicObjects: 1
   m_UseOcclusionCulling: 1
   m_Importance: 1
   m_CustomBakedTexture: {fileID: 0}
@@ -33103,7 +33103,7 @@ MonoBehaviour:
       automaticScale: 1
       viewerScale: 1
     type: 0
-    mode: 0
+    mode: 1
     realtimeMode: 1
     timeSlicing: 0
     lighting:
@@ -33188,7 +33188,7 @@ MonoBehaviour:
       volumes:
         layerMask:
           serializedVersion: 2
-          m_Bits: 73
+          m_Bits: 329
         anchorOverride: {fileID: 0}
       frustum:
         mode: 0
@@ -33223,7 +33223,7 @@ MonoBehaviour:
       flipYMode: 0
       probeLayerMask:
         serializedVersion: 2
-        m_Bits: 73
+        m_Bits: 329
       defaultFrameSettings: 0
       m_ObsoleteRenderingPath: 0
       m_ObsoleteFrameSettings:
@@ -33358,37 +33358,37 @@ MonoBehaviour:
     m_CaptureRotation: {x: 0, y: 0, z: 0, w: 0}
     m_FieldOfView: 0
     m_Aspect: 0
-  m_HasValidSHForNormalization: 0
+  m_HasValidSHForNormalization: 1
   m_SHForNormalization:
-    'sh[ 0]': 0.0794367
-    'sh[ 1]': -0.028859641
-    'sh[ 2]': 0.013410973
-    'sh[ 3]': 0.010708773
-    'sh[ 4]': 0.004506914
-    'sh[ 5]': -0.0034815685
-    'sh[ 6]': -0.0004889659
-    'sh[ 7]': -0.010095103
-    'sh[ 8]': 0.0037390955
-    'sh[ 9]': 0.027228361
-    'sh[10]': -0.011844322
-    'sh[11]': 0.0036255836
-    'sh[12]': 0.00075580215
-    'sh[13]': 0.0013199963
-    'sh[14]': -0.001362314
-    'sh[15]': -0.000026800888
-    'sh[16]': -0.0045563322
-    'sh[17]': 0.001046135
-    'sh[18]': 0.0060023568
-    'sh[19]': -0.00283832
-    'sh[20]': 0.00072585576
-    'sh[21]': -0.000160735
-    'sh[22]': 0.00026390876
-    'sh[23]': -0.0003220452
-    'sh[24]': 0.0000049277496
-    'sh[25]': -0.0011233632
-    'sh[26]': 0.00020586187
-  m_SHValidForCapturePosition: {x: 4.9099994, y: 1.78, z: 2.46}
-  m_SHValidForSourcePosition: {x: 4.9099994, y: 1.78, z: 2.46}
+    'sh[ 0]': 0.19665776
+    'sh[ 1]': -0.04621034
+    'sh[ 2]': 0.08731138
+    'sh[ 3]': 0.009715362
+    'sh[ 4]': 0.0041726185
+    'sh[ 5]': 0.008479365
+    'sh[ 6]': 0.007950915
+    'sh[ 7]': -0.0055062883
+    'sh[ 8]': -0.0010979547
+    'sh[ 9]': 0.06575225
+    'sh[10]': -0.020841446
+    'sh[11]': 0.026433552
+    'sh[12]': 0.0016768449
+    'sh[13]': 0.0010238765
+    'sh[14]': 0.000668425
+    'sh[15]': 0.0026676545
+    'sh[16]': -0.0033727686
+    'sh[17]': -0.00019294073
+    'sh[18]': 0.013744319
+    'sh[19]': -0.0049186014
+    'sh[20]': 0.0050077783
+    'sh[21]': 0.00045832415
+    'sh[22]': 0.00016083579
+    'sh[23]': -0.00017009559
+    'sh[24]': 0.0005442876
+    'sh[25]': -0.00093427405
+    'sh[26]': 0.000029201625
+  m_SHValidForCapturePosition: {x: 4.9939933, y: 1.78, z: 2.1811302}
+  m_SHValidForSourcePosition: {x: 4.9939933, y: 1.78, z: 2.1811302}
   m_HDProbeVersion: 9
   m_ObsoleteInfiniteProjection: 1
   m_ObsoleteInfluenceVolume:
@@ -34763,7 +34763,7 @@ ReflectionProbe:
   m_BlendDistance: 0
   m_HDR: 1
   m_BoxProjection: 0
-  m_RenderDynamicObjects: 0
+  m_RenderDynamicObjects: 1
   m_UseOcclusionCulling: 1
   m_Importance: 1
   m_CustomBakedTexture: {fileID: 0}
@@ -34786,7 +34786,7 @@ MonoBehaviour:
       automaticScale: 1
       viewerScale: 1
     type: 0
-    mode: 0
+    mode: 1
     realtimeMode: 1
     timeSlicing: 0
     lighting:
@@ -34871,7 +34871,7 @@ MonoBehaviour:
       volumes:
         layerMask:
           serializedVersion: 2
-          m_Bits: 1
+          m_Bits: 329
         anchorOverride: {fileID: 0}
       frustum:
         mode: 0
@@ -34906,7 +34906,7 @@ MonoBehaviour:
       flipYMode: 0
       probeLayerMask:
         serializedVersion: 2
-        m_Bits: 4294967295
+        m_Bits: 329
       defaultFrameSettings: 0
       m_ObsoleteRenderingPath: 0
       m_ObsoleteFrameSettings:
@@ -35043,33 +35043,33 @@ MonoBehaviour:
     m_Aspect: 0
   m_HasValidSHForNormalization: 1
   m_SHForNormalization:
-    'sh[ 0]': 0.22523434
-    'sh[ 1]': -0.14105481
-    'sh[ 2]': 0.0076534483
-    'sh[ 3]': 0.008060945
-    'sh[ 4]': 0.0026890084
-    'sh[ 5]': -0.00040157902
-    'sh[ 6]': 0.00018490128
-    'sh[ 7]': -0.00036821168
-    'sh[ 8]': -0.005506054
-    'sh[ 9]': 0.1356737
-    'sh[10]': -0.08896265
-    'sh[11]': 0.0066076415
-    'sh[12]': 0.006175242
-    'sh[13]': 0.0015301718
-    'sh[14]': -0.0005106638
-    'sh[15]': 0.000011360221
-    'sh[16]': -0.0018272391
-    'sh[17]': -0.004346813
-    'sh[18]': 0.046572596
-    'sh[19]': -0.032269794
-    'sh[20]': 0.0024591193
-    'sh[21]': 0.0021750673
-    'sh[22]': 0.00041039096
-    'sh[23]': -0.0001458182
-    'sh[24]': -0.000021609914
-    'sh[25]': -0.001293692
-    'sh[26]': -0.0019154537
+    'sh[ 0]': 0.30411002
+    'sh[ 1]': -0.18821487
+    'sh[ 2]': 0.0014400708
+    'sh[ 3]': -0.024096113
+    'sh[ 4]': 0.004310886
+    'sh[ 5]': 0.007953951
+    'sh[ 6]': -0.0016049745
+    'sh[ 7]': 0.028595505
+    'sh[ 8]': -0.004439348
+    'sh[ 9]': 0.18290217
+    'sh[10]': -0.11888196
+    'sh[11]': 0.005888416
+    'sh[12]': -0.007801522
+    'sh[13]': 0.0016919177
+    'sh[14]': 0.004268555
+    'sh[15]': -0.0010711777
+    'sh[16]': 0.014955703
+    'sh[17]': -0.0043012425
+    'sh[18]': 0.061956313
+    'sh[19]': -0.042255796
+    'sh[20]': 0.0027668492
+    'sh[21]': -0.0012462729
+    'sh[22]': 0.00044650518
+    'sh[23]': 0.0013853642
+    'sh[24]': -0.0003823534
+    'sh[25]': 0.0044371444
+    'sh[26]': -0.001994195
   m_SHValidForCapturePosition: {x: -1.6399999, y: 1.52, z: 7.27}
   m_SHValidForSourcePosition: {x: -1.6399999, y: 1.52, z: 7.27}
   m_HDProbeVersion: 9
@@ -36123,7 +36123,7 @@ ReflectionProbe:
   m_BlendDistance: 0
   m_HDR: 1
   m_BoxProjection: 0
-  m_RenderDynamicObjects: 0
+  m_RenderDynamicObjects: 1
   m_UseOcclusionCulling: 1
   m_Importance: 1
   m_CustomBakedTexture: {fileID: 0}
@@ -36146,7 +36146,7 @@ MonoBehaviour:
       automaticScale: 1
       viewerScale: 1
     type: 0
-    mode: 0
+    mode: 1
     realtimeMode: 1
     timeSlicing: 0
     lighting:
@@ -36159,8 +36159,8 @@ MonoBehaviour:
     influence:
       m_Shape: 0
       m_BoxSize: {x: 3.9197779, y: 3, z: 3.6050029}
-      m_BoxBlendDistancePositive: {x: 0.4082309, y: 0.4082309, z: 0.4082309}
-      m_BoxBlendDistanceNegative: {x: 0.4082309, y: 0.4082309, z: 0.4082309}
+      m_BoxBlendDistancePositive: {x: 1, y: 1, z: 1}
+      m_BoxBlendDistanceNegative: {x: 1, y: 1, z: 1}
       m_BoxBlendNormalDistancePositive: {x: 0, y: 0, z: 0}
       m_BoxBlendNormalDistanceNegative: {x: 0, y: 0, z: 0}
       m_BoxSideFadePositive: {x: 1, y: 1, z: 1}
@@ -36231,7 +36231,7 @@ MonoBehaviour:
       volumes:
         layerMask:
           serializedVersion: 2
-          m_Bits: 73
+          m_Bits: 329
         anchorOverride: {fileID: 0}
       frustum:
         mode: 0
@@ -36266,7 +36266,7 @@ MonoBehaviour:
       flipYMode: 0
       probeLayerMask:
         serializedVersion: 2
-        m_Bits: 73
+        m_Bits: 329
       defaultFrameSettings: 0
       m_ObsoleteRenderingPath: 0
       m_ObsoleteFrameSettings:
@@ -36401,37 +36401,37 @@ MonoBehaviour:
     m_CaptureRotation: {x: 0, y: 0, z: 0, w: 0}
     m_FieldOfView: 0
     m_Aspect: 0
-  m_HasValidSHForNormalization: 0
+  m_HasValidSHForNormalization: 1
   m_SHForNormalization:
-    'sh[ 0]': 0.08071622
-    'sh[ 1]': -0.008435739
-    'sh[ 2]': -0.028807748
-    'sh[ 3]': 0.03431285
-    'sh[ 4]': 0.019850042
-    'sh[ 5]': -0.0019409398
-    'sh[ 6]': -0.006272132
-    'sh[ 7]': -0.022277035
-    'sh[ 8]': 0.02033531
-    'sh[ 9]': 0.040122207
-    'sh[10]': -0.007243351
-    'sh[11]': -0.012799481
-    'sh[12]': 0.006848242
-    'sh[13]': 0.011415117
-    'sh[14]': -0.00070458755
-    'sh[15]': -0.0033366831
-    'sh[16]': -0.0090703145
-    'sh[17]': 0.0098647475
-    'sh[18]': 0.012757723
-    'sh[19]': -0.002846472
-    'sh[20]': -0.002005086
-    'sh[21]': -0.0013149171
-    'sh[22]': 0.0037304908
-    'sh[23]': -0.000046232457
-    'sh[24]': -0.0008698266
-    'sh[25]': -0.0026041353
-    'sh[26]': 0.002871003
-  m_SHValidForCapturePosition: {x: 2, y: 1.77, z: 5.484}
-  m_SHValidForSourcePosition: {x: 2, y: 1.77, z: 5.484}
+    'sh[ 0]': 0.013613431
+    'sh[ 1]': 0.0023904007
+    'sh[ 2]': -0.009873314
+    'sh[ 3]': 0.011870542
+    'sh[ 4]': 0.00101096
+    'sh[ 5]': -0.000840865
+    'sh[ 6]': 0.00014352422
+    'sh[ 7]': -0.0041756686
+    'sh[ 8]': 0.0012041919
+    'sh[ 9]': 0.0053181117
+    'sh[10]': 0.00093381456
+    'sh[11]': -0.0038570282
+    'sh[12]': 0.0046372493
+    'sh[13]': 0.00039493336
+    'sh[14]': -0.00032848542
+    'sh[15]': 0.000056068
+    'sh[16]': -0.0016312329
+    'sh[17]': 0.00047041985
+    'sh[18]': 0.0011261547
+    'sh[19]': 0.00019774305
+    'sh[20]': -0.00081675785
+    'sh[21]': 0.0009819762
+    'sh[22]': 0.00008363044
+    'sh[23]': -0.00006955953
+    'sh[24]': 0.000011872865
+    'sh[25]': -0.0003454272
+    'sh[26]': 0.00009961533
+  m_SHValidForCapturePosition: {x: 1.9472685, y: 1.77, z: 5.2310762}
+  m_SHValidForSourcePosition: {x: 1.9472685, y: 1.77, z: 5.2310762}
   m_HDProbeVersion: 9
   m_ObsoleteInfiniteProjection: 1
   m_ObsoleteInfluenceVolume:
@@ -37612,7 +37612,7 @@ Light:
   m_BounceIntensity: 3
   m_ColorTemperature: 6570
   m_UseColorTemperature: 1
-  m_BoundingSphereOverride: {x: 1.02e-43, y: 0, z: 0, w: -1.8623136e-10}
+  m_BoundingSphereOverride: {x: 8.799e-42, y: 2.524355e-29, z: 0, w: 2.7470774e+20}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
@@ -37683,7 +37683,7 @@ ReflectionProbe:
   m_BlendDistance: 0
   m_HDR: 1
   m_BoxProjection: 0
-  m_RenderDynamicObjects: 0
+  m_RenderDynamicObjects: 1
   m_UseOcclusionCulling: 1
   m_Importance: 1
   m_CustomBakedTexture: {fileID: 0}
@@ -37706,7 +37706,7 @@ MonoBehaviour:
       automaticScale: 1
       viewerScale: 1
     type: 0
-    mode: 0
+    mode: 1
     realtimeMode: 1
     timeSlicing: 0
     lighting:
@@ -37719,8 +37719,8 @@ MonoBehaviour:
     influence:
       m_Shape: 0
       m_BoxSize: {x: 3.664453, y: 3, z: 3.6582854}
-      m_BoxBlendDistancePositive: {x: 0.51, y: 0.51, z: 0.51}
-      m_BoxBlendDistanceNegative: {x: 0.51, y: 0.51, z: 0.51}
+      m_BoxBlendDistancePositive: {x: 1, y: 1, z: 1}
+      m_BoxBlendDistanceNegative: {x: 1, y: 1, z: 1}
       m_BoxBlendNormalDistancePositive: {x: 0, y: 0, z: 0}
       m_BoxBlendNormalDistanceNegative: {x: 0, y: 0, z: 0}
       m_BoxSideFadePositive: {x: 1, y: 1, z: 1}
@@ -37791,7 +37791,7 @@ MonoBehaviour:
       volumes:
         layerMask:
           serializedVersion: 2
-          m_Bits: 73
+          m_Bits: 329
         anchorOverride: {fileID: 0}
       frustum:
         mode: 0
@@ -37826,7 +37826,7 @@ MonoBehaviour:
       flipYMode: 0
       probeLayerMask:
         serializedVersion: 2
-        m_Bits: 73
+        m_Bits: 329
       defaultFrameSettings: 0
       m_ObsoleteRenderingPath: 0
       m_ObsoleteFrameSettings:
@@ -37961,37 +37961,37 @@ MonoBehaviour:
     m_CaptureRotation: {x: 0, y: 0, z: 0, w: 0}
     m_FieldOfView: 0
     m_Aspect: 0
-  m_HasValidSHForNormalization: 0
+  m_HasValidSHForNormalization: 1
   m_SHForNormalization:
-    'sh[ 0]': 0.06738238
-    'sh[ 1]': 0.015022669
-    'sh[ 2]': 0.04149684
-    'sh[ 3]': -0.009624844
-    'sh[ 4]': -0.001194883
-    'sh[ 5]': 0.0028433162
-    'sh[ 6]': 0.00020319903
-    'sh[ 7]': -0.006561861
-    'sh[ 8]': -0.0035212617
-    'sh[ 9]': 0.0040021758
-    'sh[10]': -0.0006282605
-    'sh[11]': 0.001973146
-    'sh[12]': 0.0003494034
-    'sh[13]': 0.00024784997
-    'sh[14]': -0.0003891211
-    'sh[15]': -0.0000013137878
-    'sh[16]': -0.0004464774
-    'sh[17]': 0.000014604863
-    'sh[18]': 0.039291754
-    'sh[19]': 0.029252991
-    'sh[20]': 0.025839409
-    'sh[21]': -0.011024361
-    'sh[22]': -0.0040099337
-    'sh[23]': 0.008958102
-    'sh[24]': 0.000000955707
-    'sh[25]': -0.0035916914
-    'sh[26]': -0.0033517412
-  m_SHValidForCapturePosition: {x: 1.9900002, y: 1.78, z: 3.41}
-  m_SHValidForSourcePosition: {x: 1.9900002, y: 1.78, z: 3.41}
+    'sh[ 0]': 0.208451
+    'sh[ 1]': -0.0735284
+    'sh[ 2]': 0.065800786
+    'sh[ 3]': -0.07144851
+    'sh[ 4]': 0.03128666
+    'sh[ 5]': -0.012462885
+    'sh[ 6]': -0.007269436
+    'sh[ 7]': -0.032557834
+    'sh[ 8]': 0.021816192
+    'sh[ 9]': 0.03869043
+    'sh[10]': -0.009308009
+    'sh[11]': 0.0080242725
+    'sh[12]': 0.010145685
+    'sh[13]': 0.0026841392
+    'sh[14]': -0.0007916598
+    'sh[15]': -0.0013047
+    'sh[16]': -0.0032880565
+    'sh[17]': 0.004158318
+    'sh[18]': 0.023987092
+    'sh[19]': -0.009347819
+    'sh[20]': 0.008858872
+    'sh[21]': -0.014082311
+    'sh[22]': 0.0044614174
+    'sh[23]': -0.0019449248
+    'sh[24]': -0.00084219384
+    'sh[25]': -0.004444815
+    'sh[26]': 0.0025251606
+  m_SHValidForCapturePosition: {x: 2.0226312, y: 1.78, z: 3.0808573}
+  m_SHValidForSourcePosition: {x: 2.0226312, y: 1.78, z: 3.0808573}
   m_HDProbeVersion: 9
   m_ObsoleteInfiniteProjection: 1
   m_ObsoleteInfluenceVolume:
@@ -39088,7 +39088,7 @@ Light:
   m_BounceIntensity: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 5}
+  m_BoundingSphereOverride: {x: 3.8931e-41, y: 2.524355e-29, z: 0, w: 3.9415303e+12}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
@@ -40196,7 +40196,7 @@ ReflectionProbe:
   m_BlendDistance: 0
   m_HDR: 1
   m_BoxProjection: 0
-  m_RenderDynamicObjects: 0
+  m_RenderDynamicObjects: 1
   m_UseOcclusionCulling: 1
   m_Importance: 1
   m_CustomBakedTexture: {fileID: 0}
@@ -40219,7 +40219,7 @@ MonoBehaviour:
       automaticScale: 1
       viewerScale: 1
     type: 0
-    mode: 0
+    mode: 1
     realtimeMode: 1
     timeSlicing: 0
     lighting:
@@ -40304,7 +40304,7 @@ MonoBehaviour:
       volumes:
         layerMask:
           serializedVersion: 2
-          m_Bits: 1
+          m_Bits: 329
         anchorOverride: {fileID: 0}
       frustum:
         mode: 0
@@ -40339,7 +40339,7 @@ MonoBehaviour:
       flipYMode: 0
       probeLayerMask:
         serializedVersion: 2
-        m_Bits: 4294967295
+        m_Bits: 329
       defaultFrameSettings: 0
       m_ObsoleteRenderingPath: 0
       m_ObsoleteFrameSettings:
@@ -40476,33 +40476,33 @@ MonoBehaviour:
     m_Aspect: 0
   m_HasValidSHForNormalization: 1
   m_SHForNormalization:
-    'sh[ 0]': 0.14266375
-    'sh[ 1]': -0.08395578
-    'sh[ 2]': 0.08232527
-    'sh[ 3]': -0.009486964
-    'sh[ 4]': 0.0010789155
-    'sh[ 5]': -0.017905502
-    'sh[ 6]': -0.00011502315
-    'sh[ 7]': -0.0015885414
-    'sh[ 8]': -0.0038645284
-    'sh[ 9]': 0.089051686
-    'sh[10]': -0.05400737
-    'sh[11]': 0.05063222
-    'sh[12]': -0.0063726157
-    'sh[13]': 0.0006932015
-    'sh[14]': -0.011606009
-    'sh[15]': -0.00025398954
-    'sh[16]': -0.0010315612
-    'sh[17]': -0.0026411035
-    'sh[18]': 0.030818082
-    'sh[19]': -0.019411642
-    'sh[20]': 0.017299363
-    'sh[21]': -0.002250207
-    'sh[22]': 0.0002492127
-    'sh[23]': -0.004196892
-    'sh[24]': -0.00013849554
-    'sh[25]': -0.00035191365
-    'sh[26]': -0.0010437259
+    'sh[ 0]': 0.100367576
+    'sh[ 1]': -0.06659001
+    'sh[ 2]': 0.05713959
+    'sh[ 3]': -0.011387926
+    'sh[ 4]': 0.0047158194
+    'sh[ 5]': -0.015778396
+    'sh[ 6]': 0.0004242568
+    'sh[ 7]': -0.0028492387
+    'sh[ 8]': -0.0026834444
+    'sh[ 9]': 0.062330406
+    'sh[10]': -0.04147457
+    'sh[11]': 0.03597326
+    'sh[12]': -0.0072488887
+    'sh[13]': 0.0028681792
+    'sh[14]': -0.009871721
+    'sh[15]': 0.00034307782
+    'sh[16]': -0.0016445874
+    'sh[17]': -0.0018376561
+    'sh[18]': 0.022096818
+    'sh[19]': -0.014867303
+    'sh[20]': 0.013066811
+    'sh[21]': -0.0030189825
+    'sh[22]': 0.0011275244
+    'sh[23]': -0.0035997657
+    'sh[24]': 0.00016828728
+    'sh[25]': -0.00067689514
+    'sh[26]': -0.00075015426
   m_SHValidForCapturePosition: {x: -1.6399999, y: 1.52, z: 1.484}
   m_SHValidForSourcePosition: {x: -1.6399999, y: 1.52, z: 1.484}
   m_HDProbeVersion: 9
@@ -41700,7 +41700,7 @@ Light:
   m_BounceIntensity: 2
   m_ColorTemperature: 3000
   m_UseColorTemperature: 1
-  m_BoundingSphereOverride: {x: 4.2891e-41, y: 6e-44, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 1.3925e-41, y: 2.524355e-29, z: 0, w: -5.2361644e-36}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
@@ -42009,7 +42009,7 @@ ReflectionProbe:
   m_BlendDistance: 0
   m_HDR: 1
   m_BoxProjection: 0
-  m_RenderDynamicObjects: 0
+  m_RenderDynamicObjects: 1
   m_UseOcclusionCulling: 1
   m_Importance: 1
   m_CustomBakedTexture: {fileID: 0}
@@ -42032,7 +42032,7 @@ MonoBehaviour:
       automaticScale: 1
       viewerScale: 1
     type: 0
-    mode: 0
+    mode: 1
     realtimeMode: 1
     timeSlicing: 0
     lighting:
@@ -42117,7 +42117,7 @@ MonoBehaviour:
       volumes:
         layerMask:
           serializedVersion: 2
-          m_Bits: 1
+          m_Bits: 329
         anchorOverride: {fileID: 0}
       frustum:
         mode: 0
@@ -42152,7 +42152,7 @@ MonoBehaviour:
       flipYMode: 0
       probeLayerMask:
         serializedVersion: 2
-        m_Bits: 4294967295
+        m_Bits: 329
       defaultFrameSettings: 0
       m_ObsoleteRenderingPath: 0
       m_ObsoleteFrameSettings:
@@ -42289,33 +42289,33 @@ MonoBehaviour:
     m_Aspect: 0
   m_HasValidSHForNormalization: 1
   m_SHForNormalization:
-    'sh[ 0]': 0.21806106
-    'sh[ 1]': -0.14233412
-    'sh[ 2]': -0.020150036
-    'sh[ 3]': -0.0123847
-    'sh[ 4]': 0.0028958463
-    'sh[ 5]': -0.00045827657
-    'sh[ 6]': -0.0013596273
-    'sh[ 7]': -0.0029926545
-    'sh[ 8]': -0.0068899617
-    'sh[ 9]': 0.13726877
-    'sh[10]': -0.09285224
-    'sh[11]': -0.0119189145
-    'sh[12]': -0.005798992
-    'sh[13]': 0.0018908695
-    'sh[14]': -0.0009877111
-    'sh[15]': -0.00089944166
-    'sh[16]': -0.0015431686
-    'sh[17]': -0.005117989
-    'sh[18]': 0.04757839
-    'sh[19]': -0.033655196
-    'sh[20]': -0.0037052764
-    'sh[21]': -0.0015233721
-    'sh[22]': 0.00073165237
-    'sh[23]': -0.00045809735
-    'sh[24]': -0.0003413368
-    'sh[25]': -0.0004616999
-    'sh[26]': -0.0021166422
+    'sh[ 0]': 0.27068493
+    'sh[ 1]': -0.21429548
+    'sh[ 2]': -0.036242526
+    'sh[ 3]': -0.017545046
+    'sh[ 4]': 0.015720706
+    'sh[ 5]': 0.010209523
+    'sh[ 6]': -0.0039494284
+    'sh[ 7]': -0.009493678
+    'sh[ 8]': -0.014417755
+    'sh[ 9]': 0.17164938
+    'sh[10]': -0.13857447
+    'sh[11]': -0.020694764
+    'sh[12]': -0.013912328
+    'sh[13]': 0.010582024
+    'sh[14]': 0.0061203837
+    'sh[15]': -0.0024772377
+    'sh[16]': -0.0054605263
+    'sh[17]': -0.010004254
+    'sh[18]': 0.06009438
+    'sh[19]': -0.04970263
+    'sh[20]': -0.0063432595
+    'sh[21]': -0.0067219106
+    'sh[22]': 0.0040485016
+    'sh[23]': 0.0020600264
+    'sh[24]': -0.00088005624
+    'sh[25]': -0.0013518039
+    'sh[26]': -0.0038321307
   m_SHValidForCapturePosition: {x: -1.6399999, y: 1.52, z: 4.35}
   m_SHValidForSourcePosition: {x: -1.6399999, y: 1.52, z: 4.35}
   m_HDProbeVersion: 9
@@ -46014,7 +46014,7 @@ Light:
   m_BounceIntensity: 0
   m_ColorTemperature: 3000
   m_UseColorTemperature: 1
-  m_BoundingSphereOverride: {x: 1.7355005e-29, y: NaN, z: 0, w: -7.1613884}
+  m_BoundingSphereOverride: {x: 0, y: 2.20416e-39, z: 5.06e-41, w: 0}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
@@ -47005,18 +47005,18 @@ MonoBehaviour:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
+    - {fileID: 4465382662236084939}
+    - {fileID: 9004222733306578357}
+    - {fileID: 8134098342766710913}
     - {fileID: 8165350680761484523}
     - {fileID: 405509940611007120}
-    - {fileID: 9004222733306578357}
-    - {fileID: 5135634278718082678}
-    - {fileID: 8134098342766710913}
-    - {fileID: 6810282402838054528}
-    - {fileID: 6216623185040811584}
     - {fileID: 337944793638444894}
-    - {fileID: 4465382662236084939}
-    - {fileID: 3294543174635250179}
+    - {fileID: 6810282402838054528}
     - {fileID: 7717312302181153061}
     - {fileID: 4950092096058045171}
+    - {fileID: 5135634278718082678}
+    - {fileID: 3294543174635250179}
+    - {fileID: 6216623185040811584}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -47041,7 +47041,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: KIERAN_ENTER_APARTMENT
+      Data: PC_KEVIN_SINK
     - Name: $v
       Entry: 10
       Data: 0
@@ -47053,7 +47053,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: KEVIN_SINK_FIX
+      Data: KEVIN_ENTER_APARTMENT
     - Name: $v
       Entry: 10
       Data: 1
@@ -47065,7 +47065,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: KEVIN_ENTER_APARTMENT
+      Data: KIERAN_LOOK_AROUND
     - Name: $v
       Entry: 10
       Data: 2
@@ -47077,7 +47077,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: TAKE_COVER
+      Data: KIERAN_ENTER_APARTMENT
     - Name: $v
       Entry: 10
       Data: 3
@@ -47089,7 +47089,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: KIERAN_LOOK_AROUND
+      Data: KEVIN_SINK_FIX
     - Name: $v
       Entry: 10
       Data: 4
@@ -47101,7 +47101,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: DOMINIC_FRIDGE
+      Data: PC_FRIDGE
     - Name: $v
       Entry: 10
       Data: 5
@@ -47113,7 +47113,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: AREA_START
+      Data: DOMINIC_FRIDGE
     - Name: $v
       Entry: 10
       Data: 6
@@ -47125,7 +47125,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: PC_FRIDGE
+      Data: PC_KEVIN_ENTER
     - Name: $v
       Entry: 10
       Data: 7
@@ -47137,7 +47137,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: PC_KEVIN_SINK
+      Data: DOMINIC_LEAVE_AREA
     - Name: $v
       Entry: 10
       Data: 8
@@ -47149,7 +47149,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: DOMINIC_ENTER_APARTMENT
+      Data: TAKE_COVER
     - Name: $v
       Entry: 10
       Data: 9
@@ -47161,7 +47161,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: PC_KEVIN_ENTER
+      Data: DOMINIC_ENTER_APARTMENT
     - Name: $v
       Entry: 10
       Data: 10
@@ -47173,7 +47173,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: DOMINIC_LEAVE_AREA
+      Data: AREA_START
     - Name: $v
       Entry: 10
       Data: 11
@@ -48330,7 +48330,7 @@ Light:
   m_BounceIntensity: 2
   m_ColorTemperature: 3000
   m_UseColorTemperature: 1
-  m_BoundingSphereOverride: {x: 7e-45, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 1.5561346e+28, y: 2.794639e+20, z: 1.1837556e+33, w: 3221.3372}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
@@ -53126,7 +53126,7 @@ Light:
   m_BounceIntensity: 3
   m_ColorTemperature: 6570
   m_UseColorTemperature: 1
-  m_BoundingSphereOverride: {x: 1.02e-43, y: 0, z: 0, w: -1.8623136e-10}
+  m_BoundingSphereOverride: {x: 8.79e-43, y: 4e-44, z: 0, w: 4.3e-44}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
@@ -54382,7 +54382,7 @@ ReflectionProbe:
   m_BlendDistance: 0
   m_HDR: 1
   m_BoxProjection: 0
-  m_RenderDynamicObjects: 0
+  m_RenderDynamicObjects: 1
   m_UseOcclusionCulling: 1
   m_Importance: 1
   m_CustomBakedTexture: {fileID: 0}
@@ -54405,7 +54405,7 @@ MonoBehaviour:
       automaticScale: 1
       viewerScale: 1
     type: 0
-    mode: 0
+    mode: 1
     realtimeMode: 1
     timeSlicing: 0
     lighting:
@@ -54490,7 +54490,7 @@ MonoBehaviour:
       volumes:
         layerMask:
           serializedVersion: 2
-          m_Bits: 1
+          m_Bits: 329
         anchorOverride: {fileID: 0}
       frustum:
         mode: 0
@@ -54525,7 +54525,7 @@ MonoBehaviour:
       flipYMode: 0
       probeLayerMask:
         serializedVersion: 2
-        m_Bits: 4294967295
+        m_Bits: 329
       defaultFrameSettings: 0
       m_ObsoleteRenderingPath: 0
       m_ObsoleteFrameSettings:
@@ -54662,33 +54662,33 @@ MonoBehaviour:
     m_Aspect: 0
   m_HasValidSHForNormalization: 1
   m_SHForNormalization:
-    'sh[ 0]': 0.30211458
-    'sh[ 1]': -0.19569285
-    'sh[ 2]': -0.11544586
-    'sh[ 3]': -0.0043441383
-    'sh[ 4]': 0.0033672657
-    'sh[ 5]': 0.024084752
-    'sh[ 6]': 0.0007079476
-    'sh[ 7]': 0.0029961457
-    'sh[ 8]': -0.009610523
-    'sh[ 9]': 0.1882143
-    'sh[10]': -0.124714345
-    'sh[11]': -0.07623348
-    'sh[12]': -0.0000028960444
-    'sh[13]': 0.0016898824
-    'sh[14]': 0.015945448
-    'sh[15]': 0.00079324795
-    'sh[16]': 0.0016079408
-    'sh[17]': -0.0071754064
-    'sh[18]': 0.06590635
-    'sh[19]': -0.04485454
-    'sh[20]': -0.027193464
-    'sh[21]': 0.00064274913
-    'sh[22]': 0.00046002935
-    'sh[23]': 0.005756695
-    'sh[24]': 0.00036685416
-    'sh[25]': 0.0004240379
-    'sh[26]': -0.0029268453
+    'sh[ 0]': 0.3294137
+    'sh[ 1]': -0.227159
+    'sh[ 2]': -0.092399046
+    'sh[ 3]': -0.03684537
+    'sh[ 4]': -0.009797106
+    'sh[ 5]': 0.017792707
+    'sh[ 6]': -0.004348725
+    'sh[ 7]': 0.011483491
+    'sh[ 8]': -0.013508821
+    'sh[ 9]': 0.20632756
+    'sh[10]': -0.14699943
+    'sh[11]': -0.059590515
+    'sh[12]': -0.023005378
+    'sh[13]': -0.006163949
+    'sh[14]': 0.011569782
+    'sh[15]': -0.0026347192
+    'sh[16]': 0.0070206127
+    'sh[17]': -0.009878483
+    'sh[18]': 0.07259592
+    'sh[19]': -0.053111743
+    'sh[20]': -0.020981053
+    'sh[21]': -0.0076802317
+    'sh[22]': -0.0022331306
+    'sh[23]': 0.0041554905
+    'sh[24]': -0.0009218437
+    'sh[25]': 0.0023308524
+    'sh[26]': -0.003865418
   m_SHValidForCapturePosition: {x: -1.6399999, y: 1.52, z: 9.959999}
   m_SHValidForSourcePosition: {x: -1.6399999, y: 1.52, z: 9.959999}
   m_HDProbeVersion: 9
@@ -59553,7 +59553,7 @@ ReflectionProbe:
   m_BlendDistance: 0
   m_HDR: 1
   m_BoxProjection: 0
-  m_RenderDynamicObjects: 0
+  m_RenderDynamicObjects: 1
   m_UseOcclusionCulling: 1
   m_Importance: 1
   m_CustomBakedTexture: {fileID: 0}
@@ -59576,7 +59576,7 @@ MonoBehaviour:
       automaticScale: 1
       viewerScale: 1
     type: 0
-    mode: 0
+    mode: 1
     realtimeMode: 1
     timeSlicing: 0
     lighting:
@@ -59661,7 +59661,7 @@ MonoBehaviour:
       volumes:
         layerMask:
           serializedVersion: 2
-          m_Bits: 73
+          m_Bits: 329
         anchorOverride: {fileID: 0}
       frustum:
         mode: 0
@@ -59696,7 +59696,7 @@ MonoBehaviour:
       flipYMode: 0
       probeLayerMask:
         serializedVersion: 2
-        m_Bits: 73
+        m_Bits: 329
       defaultFrameSettings: 0
       m_ObsoleteRenderingPath: 0
       m_ObsoleteFrameSettings:
@@ -59831,37 +59831,37 @@ MonoBehaviour:
     m_CaptureRotation: {x: 0, y: 0, z: 0, w: 0}
     m_FieldOfView: 0
     m_Aspect: 0
-  m_HasValidSHForNormalization: 0
+  m_HasValidSHForNormalization: 1
   m_SHForNormalization:
-    'sh[ 0]': 0.048957042
-    'sh[ 1]': -0.0042836433
-    'sh[ 2]': 0.035790086
-    'sh[ 3]': 0.03844176
-    'sh[ 4]': -0.00069041084
-    'sh[ 5]': -0.0017308425
-    'sh[ 6]': 0.0010002956
-    'sh[ 7]': 0.01319378
-    'sh[ 8]': 0.003675302
-    'sh[ 9]': 0.019827988
-    'sh[10]': -0.00138613
-    'sh[11]': 0.014419558
-    'sh[12]': 0.015977392
-    'sh[13]': -0.00027258816
-    'sh[14]': -0.0005721458
-    'sh[15]': 0.00039607275
-    'sh[16]': 0.0054670083
-    'sh[17]': 0.0015623348
-    'sh[18]': 0.004995363
-    'sh[19]': -0.00034084302
-    'sh[20]': 0.0036553992
-    'sh[21]': 0.004029141
-    'sh[22]': -0.00007407292
-    'sh[23]': -0.00013893678
-    'sh[24]': 0.00010368963
-    'sh[25]': 0.0013904759
-    'sh[26]': 0.00039371027
-  m_SHValidForCapturePosition: {x: 1.9900002, y: 1.78, z: -0.25}
-  m_SHValidForSourcePosition: {x: 1.9900002, y: 1.78, z: -0.25}
+    'sh[ 0]': 0.030542959
+    'sh[ 1]': -0.005137864
+    'sh[ 2]': 0.016171386
+    'sh[ 3]': 0.023286691
+    'sh[ 4]': -0.0019799417
+    'sh[ 5]': -0.00033737277
+    'sh[ 6]': 0.0005031547
+    'sh[ 7]': 0.005213874
+    'sh[ 8]': 0.0018641338
+    'sh[ 9]': 0.010320868
+    'sh[10]': -0.0013373593
+    'sh[11]': 0.0060805418
+    'sh[12]': 0.007855613
+    'sh[13]': -0.00056778995
+    'sh[14]': -0.000077059376
+    'sh[15]': 0.00022388178
+    'sh[16]': 0.00198433
+    'sh[17]': 0.00065319304
+    'sh[18]': 0.002002133
+    'sh[19]': -0.00022206067
+    'sh[20]': 0.0012122466
+    'sh[21]': 0.0015154149
+    'sh[22]': -0.00009637172
+    'sh[23]': -0.000010746834
+    'sh[24]': 0.00004865898
+    'sh[25]': 0.0003941382
+    'sh[26]': 0.00012758214
+  m_SHValidForCapturePosition: {x: 1.8709688, y: 1.7285771, z: -0.26228237}
+  m_SHValidForSourcePosition: {x: 1.8709688, y: 1.7285771, z: -0.26228237}
   m_HDProbeVersion: 9
   m_ObsoleteInfiniteProjection: 1
   m_ObsoleteInfluenceVolume:
@@ -64266,7 +64266,6 @@ GameObject:
   - component: {fileID: 4911249816957085845}
   - component: {fileID: 7272080184196084349}
   - component: {fileID: 5104235664745840644}
-  - component: {fileID: 6636955611068567346}
   m_Layer: 0
   m_Name: window_glass02
   m_TagString: Untagged
@@ -65842,6 +65841,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7863590981095543738, guid: fa37f1d3759e76a4e986ddbffbea3303, type: 3}
+      propertyPath: m_BoundingSphereOverride.w
+      value: 4.3e-44
+      objectReference: {fileID: 0}
+    - target: {fileID: 7863590981095543738, guid: fa37f1d3759e76a4e986ddbffbea3303, type: 3}
+      propertyPath: m_BoundingSphereOverride.x
+      value: 5.209e-42
+      objectReference: {fileID: 0}
+    - target: {fileID: 7863590981095543738, guid: fa37f1d3759e76a4e986ddbffbea3303, type: 3}
+      propertyPath: m_BoundingSphereOverride.y
+      value: 2.524355e-29
+      objectReference: {fileID: 0}
+    - target: {fileID: 7863590981095543738, guid: fa37f1d3759e76a4e986ddbffbea3303, type: 3}
+      propertyPath: m_BoundingSphereOverride.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -66845,7 +66860,6 @@ GameObject:
   - component: {fileID: 6112093782433132346}
   - component: {fileID: 654539463590266876}
   - component: {fileID: 3614087544300611857}
-  - component: {fileID: 4480464680700903511}
   m_Layer: 0
   m_Name: window_glass01
   m_TagString: Untagged
@@ -68734,14 +68748,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tag: SCENE_LOGIC
---- !u!33 &3159384319582936116
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8010470618345338077}
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!64 &3173252531478833736 stripped
 MeshCollider:
   m_CorrespondingSourceObject: {fileID: 6015202448788180395, guid: 120c72f0d13e329489f9c82d36836d3f, type: 3}
@@ -69031,28 +69037,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ecb5ee9b64cd5a44a40280fa969bd17, type: 3}
---- !u!64 &3267723020566847983
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8010470618345338077}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &3294543174635250179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69951,7 +69935,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6112093782433132346}
-  - {fileID: 5694586373363951329}
   m_Father: {fileID: 4468901516803977217}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &3595742104788803262
@@ -72335,11 +72318,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4368871756280346781, guid: e27f61d1c4c3c3f469e3cc141db75a31, type: 3}
       propertyPath: m_BoundingSphereOverride.w
-      value: -2.0595532e+12
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4368871756280346781, guid: e27f61d1c4c3c3f469e3cc141db75a31, type: 3}
       propertyPath: m_BoundingSphereOverride.x
-      value: 1.02e-43
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4368871756280346781, guid: e27f61d1c4c3c3f469e3cc141db75a31, type: 3}
       propertyPath: m_BoundingSphereOverride.y
@@ -72887,28 +72870,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!64 &4480464680700903511
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2213320434962396619}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!114 &4482665426339807924
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73894,11 +73855,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3387682532423637702, guid: b69b59d8115f0584aa9ff840b419bc8a, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: -0.00069049717
       objectReference: {fileID: 0}
     - target: {fileID: 3387682532423637702, guid: b69b59d8115f0584aa9ff840b419bc8a, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -1
+      value: -0.99999976
       objectReference: {fileID: 0}
     - target: {fileID: 3387682532423637702, guid: b69b59d8115f0584aa9ff840b419bc8a, type: 3}
       propertyPath: m_LocalRotation.z
@@ -73910,11 +73871,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3387682532423637702, guid: b69b59d8115f0584aa9ff840b419bc8a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 3387682532423637702, guid: b69b59d8115f0584aa9ff840b419bc8a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
+      value: 0.079
+      objectReference: {fileID: 0}
+    - target: {fileID: 6369596208081597203, guid: b69b59d8115f0584aa9ff840b419bc8a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6369596208081597203, guid: b69b59d8115f0584aa9ff840b419bc8a, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -73954,7 +73919,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8711042093640665797, guid: b69b59d8115f0584aa9ff840b419bc8a, type: 3}
       propertyPath: m_Intensity
-      value: 47.746483
+      value: 23.873241
       objectReference: {fileID: 0}
     - target: {fileID: 8711042093640665797, guid: b69b59d8115f0584aa9ff840b419bc8a, type: 3}
       propertyPath: m_AreaSize.x
@@ -73986,15 +73951,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8711042093640665797, guid: b69b59d8115f0584aa9ff840b419bc8a, type: 3}
       propertyPath: m_BoundingSphereOverride.w
-      value: 0
+      value: 4.3e-44
       objectReference: {fileID: 0}
     - target: {fileID: 8711042093640665797, guid: b69b59d8115f0584aa9ff840b419bc8a, type: 3}
       propertyPath: m_BoundingSphereOverride.x
-      value: 1.89e-43
+      value: 8.79e-43
       objectReference: {fileID: 0}
     - target: {fileID: 8711042093640665797, guid: b69b59d8115f0584aa9ff840b419bc8a, type: 3}
       propertyPath: m_BoundingSphereOverride.y
-      value: 0
+      value: 6.3e-44
       objectReference: {fileID: 0}
     - target: {fileID: 8711042093640665797, guid: b69b59d8115f0584aa9ff840b419bc8a, type: 3}
       propertyPath: m_BoundingSphereOverride.z
@@ -74108,7 +74073,7 @@ Transform:
   m_GameObject: {fileID: 1000325480151147522}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -1.708, y: 0.818, z: 0.068}
+  m_LocalPosition: {x: -1.708, y: 0.818, z: 0.077}
   m_LocalScale: {x: 0.25754, y: 0.25754, z: 0.25754}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -75116,51 +75081,6 @@ MonoBehaviour:
     _PersistentCalls: []
   OnNodeFinished:
     _PersistentCalls: []
---- !u!23 &5412404982527770250
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8010470618345338077}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 0083bb87cb7d6494894ad64e1d759ee2, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1001 &5428719445761512437
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -75736,21 +75656,6 @@ MeshFilter:
   m_CorrespondingSourceObject: {fileID: 7150579424356769882, guid: 9ae4e56d111938948b75f4dd9802a5c9, type: 3}
   m_PrefabInstance: {fileID: 5672707718800469934}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &5694586373363951329
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8010470618345338077}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -1.541, y: 0.818, z: 0.081}
-  m_LocalScale: {x: 0.25754, y: 0.25754, z: 0.25754}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3591573868757865958}
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1001 &5727260771640776201
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -76820,13 +76725,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2213320434962396619}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.6532815, y: 0.27059805, z: -0.27059805, w: 0.6532815}
+  m_LocalRotation: {x: -0.2718999, y: 0.6527407, z: -0.6527407, w: -0.2718999}
   m_LocalPosition: {x: 0.901, y: 0.818, z: -0.849}
   m_LocalScale: {x: 0.25754, y: 0.25754, z: 0.25754}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3591573868757865958}
-  m_LocalEulerAnglesHint: {x: 90, y: 45, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: -225.228}
 --- !u!114 &6120297129642422989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78316,28 +78221,6 @@ MonoBehaviour:
   - {fileID: 283513860}
   - {fileID: 781100931855757374}
   _rendererParent: {fileID: 0}
---- !u!64 &6636955611068567346
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1000325480151147522}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &6637549388404480485
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -81668,25 +81551,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0a10ddb4efe9334db008971a364fbe4, type: 3}
---- !u!1 &8010470618345338077
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5694586373363951329}
-  - component: {fileID: 3159384319582936116}
-  - component: {fileID: 5412404982527770250}
-  - component: {fileID: 3267723020566847983}
-  m_Layer: 0
-  m_Name: window_glass01_1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &8020200240937352876
 GameObject:
   m_ObjectHideFlags: 0
