@@ -1,4 +1,4 @@
-// Made with Amplify Shader Editor v1.9.3.2
+// Made with Amplify Shader Editor v1.9.7.1
 // Available at the Unity Asset Store - http://u3d.as/y3X 
 Shader "Piloto Studio/PBR_UberShader"
 {
@@ -120,70 +120,112 @@ Shader "Piloto Studio/PBR_UberShader"
 			float AlphaClipThresholdShadow;
 			float AlphaClipThresholdDepthPrepass;
 			float AlphaClipThresholdDepthPostpass;
+			float SpecularOcclusion;
 			float SpecularAAScreenSpaceVariance;
 			float SpecularAAThreshold;
-			float SpecularOcclusion;
-			float DepthOffset;
-			//Refraction
 			float RefractionIndex;
 			float3 RefractionColor;
 			float RefractionDistance;
-			//SSS/Translucent
 			float DiffusionProfile;
-			// Transmission + Diffusion Profile
 			float Thickness;
 			float SubsurfaceMask;
-			//Anisotropy
 			float Anisotropy;
 			float3 Tangent;
-			//Iridescent
 			float IridescenceMask;
 			float IridescenceThickness;
-			//BakedGI
 			float3 BakedGI;
 			float3 BakedBackGI;
-			//Virtual Texturing
+			float DepthOffset;
 			float4 VTPackedFeedback;
 		};
 
 		struct AlphaSurfaceDescription // ShadowCaster
 		{
+			float3 Emission;
 			float Alpha;
 			float AlphaClipThreshold;
 			float AlphaClipThresholdShadow;
+			float3 BakedGI;
+			float3 BakedBackGI;
 			float DepthOffset;
+			float4 VTPackedFeedback;
 		};
 
 		struct SceneSurfaceDescription // SceneSelection
 		{
+		    float3 Emission;
 			float Alpha;
 			float AlphaClipThreshold;
+			float AlphaClipThresholdShadow;
+			float RefractionIndex;
+			float3 RefractionColor;
+			float RefractionDistance;
+			float3 BakedGI;
+			float3 BakedBackGI;
 			float DepthOffset;
+			float4 VTPackedFeedback;
 		};
 
 		struct PrePassSurfaceDescription // DepthPrePass
 		{
 			float3 Normal;
+			float3 Emission;
 			float Smoothness;
 			float Alpha;
+			float AlphaClipThreshold;
+			float AlphaClipThresholdShadow;
 			float AlphaClipThresholdDepthPrepass;
+			float3 BakedGI;
+			float3 BakedBackGI;
 			float DepthOffset;
+			float4 VTPackedFeedback;
 		};
 
 		struct PostPassSurfaceDescription //DepthPostPass
 		{
+			float3 Emission;
 			float Alpha;
+			float AlphaClipThreshold;
+			float AlphaClipThresholdShadow;
 			float AlphaClipThresholdDepthPostpass;
+			float3 BakedGI;
+			float3 BakedBackGI;
 			float DepthOffset;
+			float4 VTPackedFeedback;
 		};
 
 		struct SmoothSurfaceDescription // MotionVectors DepthOnly
 		{
 			float3 Normal;
+			float3 Emission;
 			float Smoothness;
 			float Alpha;
 			float AlphaClipThreshold;
+			float AlphaClipThresholdShadow;
+			float3 BakedGI;
+			float3 BakedBackGI;
 			float DepthOffset;
+			float4 VTPackedFeedback;
+		};
+
+        struct PickingSurfaceDescription //Picking
+		{
+            float3 BentNormal;
+			float3 Emission;
+			float Alpha;
+			float AlphaClipThreshold;
+			float AlphaClipThresholdShadow;
+			float3 BakedGI;
+			float3 BakedBackGI;
+			float DepthOffset;
+			float4 VTPackedFeedback;
+
+			float3 ObjectSpaceNormal;
+			float3 WorldSpaceNormal;
+			float3 TangentSpaceNormal;
+			float3 ObjectSpaceViewDirection;
+			float3 WorldSpaceViewDirection;
+			float3 ObjectSpacePosition;
 		};
 
 		#ifndef ASE_TESS_FUNCS
@@ -315,20 +357,23 @@ Shader "Piloto Studio/PBR_UberShader"
 		
 
 			HLSLPROGRAM
-
-            #define SUPPORT_BLENDMODE_PRESERVE_SPECULAR_LIGHTING
+            #pragma shader_feature_local _ _DOUBLESIDED_ON
             #pragma shader_feature_local_fragment _ _DISABLE_DECALS
             #pragma shader_feature_local_fragment _ _DISABLE_SSR_TRANSPARENT
+            #pragma shader_feature_local_fragment _ _CONSERVATIVE_DEPTH_OFFSET
             #pragma multi_compile_instancing
             #pragma instancing_options renderinglayer
             #pragma shader_feature_local _ _ALPHATEST_ON
             #define _AMBIENT_OCCLUSION 1
+            #define ASE_VERSION 19701
             #define ASE_SRP_VERSION 120112
 
+            #pragma multi_compile _ DOTS_INSTANCING_ON
 
             #pragma shader_feature _ _SURFACE_TYPE_TRANSPARENT
             #pragma shader_feature_local _ _TRANSPARENT_WRITES_MOTION_VEC
             #pragma shader_feature_local_fragment _ _ENABLE_FOG_ON_TRANSPARENT
+			#pragma shader_feature_local _BLENDMODE_OFF _BLENDMODE_ALPHA _BLENDMODE_ADD _BLENDMODE_PRE_MULTIPLY
 
 			#pragma multi_compile_fragment _ LIGHT_LAYERS
             #pragma multi_compile_fragment _ SHADOWS_SHADOWMASK
@@ -340,10 +385,17 @@ Shader "Piloto Studio/PBR_UberShader"
             #pragma multi_compile_fragment DECALS_OFF DECALS_3RT DECALS_4RT
             #pragma multi_compile_fragment _ DECAL_SURFACE_GRADIENT
 
-            #pragma multi_compile _ DOTS_INSTANCING_ON
-
 			#pragma vertex Vert
 			#pragma fragment Frag
+
+			#define SHADERPASS SHADERPASS_GBUFFER
+			#define SHADOWS_SHADOWMASK
+			#define PUNCTUAL_SHADOW_LOW
+			#define PUNCTUAL_SHADOW_MEDIUM
+			#define PUNCTUAL_SHADOW_HIGH 
+			#define AREA_SHADOW_LOW
+			#define AREA_SHADOW_MEDIUM
+			#define AREA_SHADOW_HIGH
 
 			#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Common.hlsl"
 			#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/GeometricTools.hlsl"
@@ -354,49 +406,57 @@ Shader "Piloto Studio/PBR_UberShader"
 			#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/TextureStack.hlsl"
             #include "Packages/com.unity.shadergraph/ShaderGraphLibrary/Functions.hlsl"
 
+            //#if !defined(SHADER_STAGE_RAY_TRACING) && SHADERPASS != SHADERPASS_RAYTRACING_GBUFFER && SHADERPASS != SHADERPASS_FULL_SCREEN_DEBUG
+            //#define FRAG_INPUTS_ENABLE_STRIPPING
+            //#endif
+
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/FragInputs.hlsl"
 
-			#define SHADERPASS SHADERPASS_GBUFFER
+            #ifdef RAYTRACING_SHADER_GRAPH_DEFAULT
+                #define RAYTRACING_SHADER_GRAPH_HIGH
+            #endif
 
-			#ifndef SHADER_UNLIT
-			#if defined(_DOUBLESIDED_ON) && !defined(VARYINGS_NEED_CULLFACE)
-			#define VARYINGS_NEED_CULLFACE
-			#endif
+            #ifdef RAYTRACING_SHADER_GRAPH_RAYTRACED
+                #define RAYTRACING_SHADER_GRAPH_LOW
+            #endif
+
+            #ifndef SHADER_UNLIT
+            #if defined(_DOUBLESIDED_ON) && !defined(VARYINGS_NEED_CULLFACE)
+                #define VARYINGS_NEED_CULLFACE
+            #endif
+            #endif
+
+			#if defined(_DOUBLESIDED_ON) && !defined(ASE_NEED_CULLFACE)
+			    #define ASE_NEED_CULLFACE 1
 			#endif
 
 		    #if defined(_MATERIAL_FEATURE_SUBSURFACE_SCATTERING) && !defined(_SURFACE_TYPE_TRANSPARENT)
 			#define OUTPUT_SPLIT_LIGHTING
 		    #endif
 
-		    #if (SHADERPASS == SHADERPASS_PATH_TRACING) && !defined(_DOUBLESIDED_ON) && (defined(_REFRACTION_PLANE) || defined(_REFRACTION_SPHERE))
-			#undef  _REFRACTION_PLANE
-			#undef  _REFRACTION_SPHERE
-			#define _REFRACTION_THIN
-		    #endif
+            #if SHADERPASS == SHADERPASS_TRANSPARENT_DEPTH_PREPASS
+            #if !defined(_DISABLE_SSR_TRANSPARENT) && !defined(SHADER_UNLIT)
+                #define WRITE_NORMAL_BUFFER
+            #endif
+            #endif
 
-			#if SHADERPASS == SHADERPASS_TRANSPARENT_DEPTH_PREPASS
-			#if !defined(_DISABLE_SSR_TRANSPARENT) && !defined(SHADER_UNLIT)
-				#define WRITE_NORMAL_BUFFER
-			#endif
-			#endif
+            #ifndef DEBUG_DISPLAY
+                #if !defined(_SURFACE_TYPE_TRANSPARENT)
+                    #if SHADERPASS == SHADERPASS_FORWARD
+                    #define SHADERPASS_FORWARD_BYPASS_ALPHA_TEST
+                    #elif SHADERPASS == SHADERPASS_GBUFFER
+                    #define SHADERPASS_GBUFFER_BYPASS_ALPHA_TEST
+                    #endif
+                #endif
+            #endif
 
-			#ifndef DEBUG_DISPLAY
-				#if !defined(_SURFACE_TYPE_TRANSPARENT)
-					#if SHADERPASS == SHADERPASS_FORWARD
-					#define SHADERPASS_FORWARD_BYPASS_ALPHA_TEST
-					#elif SHADERPASS == SHADERPASS_GBUFFER
-					#define SHADERPASS_GBUFFER_BYPASS_ALPHA_TEST
-					#endif
-				#endif
-			#endif
-
-			#if defined(SHADER_LIT) && !defined(_SURFACE_TYPE_TRANSPARENT)
-			#define _DEFERRED_CAPABLE_MATERIAL
-			#endif
-
-			#if defined(_TRANSPARENT_WRITES_MOTION_VEC) && defined(_SURFACE_TYPE_TRANSPARENT)
-			#define _WRITE_TRANSPARENT_MOTION_VECTOR
-			#endif
+            #if defined(SHADER_LIT) && !defined(_SURFACE_TYPE_TRANSPARENT)
+                #define _DEFERRED_CAPABLE_MATERIAL
+            #endif
+        
+            #if defined(_TRANSPARENT_WRITES_MOTION_VEC) && defined(_SURFACE_TYPE_TRANSPARENT)
+                #define _WRITE_TRANSPARENT_MOTION_VECTOR
+            #endif
 
 			CBUFFER_START( UnityPerMaterial )
 			float4 _BaseColorTint;
@@ -420,7 +480,7 @@ Shader "Piloto Studio/PBR_UberShader"
 			float _AlphaCutoff;
 			float _RenderQueueType;
 			#ifdef _ADD_PRECOMPUTED_VELOCITY
-			float _AddPrecomputedVelocity;
+			    float _AddPrecomputedVelocity;
 			#endif
 			float _StencilRef;
 			float _StencilWriteMask;
@@ -428,6 +488,8 @@ Shader "Piloto Studio/PBR_UberShader"
 			float _StencilWriteMaskDepth;
 			float _StencilRefMV;
 			float _StencilWriteMaskMV;
+			float _StencilRefDistortionVec;
+			float _StencilWriteMaskDistortionVec;
 			float _StencilWriteMaskGBuffer;
 			float _StencilRefGBuffer;
 			float _ZTestGBuffer;
@@ -436,7 +498,7 @@ Shader "Piloto Studio/PBR_UberShader"
 			float _SurfaceType;
 			float _BlendMode;
             #ifdef SUPPORT_BLENDMODE_PRESERVE_SPECULAR_LIGHTING
-			float _EnableBlendModePreserveSpecularLighting;
+			    float _EnableBlendModePreserveSpecularLighting;
             #endif
 			float _SrcBlend;
 			float _DstBlend;
@@ -458,12 +520,12 @@ Shader "Piloto Studio/PBR_UberShader"
 			float _DoubleSidedNormalMode;
 			float4 _DoubleSidedConstants;
 			#ifdef ASE_TESSELLATION
-			float _TessPhongStrength;
-			float _TessValue;
-			float _TessMin;
-			float _TessMax;
-			float _TessEdgeLength;
-			float _TessMaxDisp;
+			    float _TessPhongStrength;
+			    float _TessValue;
+			    float _TessMin;
+			    float _TessMax;
+			    float _TessEdgeLength;
+			    float _TessMaxDisp;
 			#endif
 			CBUFFER_END
 
@@ -494,17 +556,11 @@ Shader "Piloto Studio/PBR_UberShader"
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/Material/MaterialUtilities.hlsl"
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderGraphFunctions.hlsl"
 
-			// Setup DECALS_OFF so the shader stripper can remove variants
-            #define HAVE_DECALS ( (defined(DECALS_3RT) || defined(DECALS_4RT)) && !defined(_DISABLE_DECALS) )
             #include "Packages/com.unity.render-pipelines.high-definition/Runtime/Material/Decal/DecalUtilities.hlsl"
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/Material/Lit/LitDecalData.hlsl"
 
 			#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/CommonLighting.hlsl"
 
-
-			#if defined(_DOUBLESIDED_ON) && !defined(ASE_NEED_CULLFACE)
-			#define ASE_NEED_CULLFACE 1
-			#endif
 
 			struct AttributesMesh
 			{
@@ -548,7 +604,6 @@ Shader "Piloto Studio/PBR_UberShader"
 
 				surfaceData.specularOcclusion = 1.0;
 
-				// surface data
 				surfaceData.baseColor =					surfaceDescription.BaseColor;
 				surfaceData.perceptualSmoothness =		surfaceDescription.Smoothness;
 				surfaceData.ambientOcclusion =			surfaceDescription.Occlusion;
@@ -558,21 +613,27 @@ Shader "Piloto Studio/PBR_UberShader"
 				#ifdef _SPECULAR_OCCLUSION_CUSTOM
 				surfaceData.specularOcclusion =			surfaceDescription.SpecularOcclusion;
 				#endif
+
 				#ifdef _MATERIAL_FEATURE_SUBSURFACE_SCATTERING
 				surfaceData.subsurfaceMask =			surfaceDescription.SubsurfaceMask;
 				#endif
+
 				#if defined(_HAS_REFRACTION) || defined(_MATERIAL_FEATURE_TRANSMISSION)
 				surfaceData.thickness =					surfaceDescription.Thickness;
 				#endif
+
 				#if defined( _MATERIAL_FEATURE_SUBSURFACE_SCATTERING ) || defined( _MATERIAL_FEATURE_TRANSMISSION )
 				surfaceData.diffusionProfileHash =		asuint(surfaceDescription.DiffusionProfile);
 				#endif
+
 				#ifdef _MATERIAL_FEATURE_SPECULAR_COLOR
 				surfaceData.specularColor =				surfaceDescription.Specular;
 				#endif
+
 				#ifdef _MATERIAL_FEATURE_ANISOTROPY
 				surfaceData.anisotropy =				surfaceDescription.Anisotropy;
 				#endif
+
 				#ifdef _MATERIAL_FEATURE_IRIDESCENCE
 				surfaceData.iridescenceMask =			surfaceDescription.IridescenceMask;
 				surfaceData.iridescenceThickness =		surfaceDescription.IridescenceThickness;
@@ -604,54 +665,47 @@ Shader "Piloto Studio/PBR_UberShader"
                     surfaceData.transmittanceMask = 0.0;
                 #endif
 
-
-				// material features
 				surfaceData.materialFeatures = MATERIALFEATUREFLAGS_LIT_STANDARD;
+
 				#ifdef _MATERIAL_FEATURE_SUBSURFACE_SCATTERING
-				surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_SUBSURFACE_SCATTERING;
+                    surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_SUBSURFACE_SCATTERING;
 				#endif
 
 				#ifdef _MATERIAL_FEATURE_TRANSMISSION
-				surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_TRANSMISSION;
+                    surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_TRANSMISSION;
 				#endif
 
                 #ifdef _MATERIAL_FEATURE_ANISOTROPY
-				surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_ANISOTROPY;
-				surfaceData.normalWS = float3(0, 1, 0);
+                    surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_ANISOTROPY;
+                    surfaceData.normalWS = float3(0, 1, 0);
                 #endif
 
 				#ifdef _MATERIAL_FEATURE_CLEAR_COAT
-				surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_CLEAR_COAT;
+                    surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_CLEAR_COAT;
 				#endif
 
 				#ifdef _MATERIAL_FEATURE_IRIDESCENCE
-				surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_IRIDESCENCE;
+                    surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_IRIDESCENCE;
 				#endif
 
 				#ifdef _MATERIAL_FEATURE_SPECULAR_COLOR
-				surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_SPECULAR_COLOR;
+                    surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_SPECULAR_COLOR;
 				#endif
 
-				// others
 				#if defined (_MATERIAL_FEATURE_SPECULAR_COLOR) && defined (_ENERGY_CONSERVING_SPECULAR)
-				surfaceData.baseColor *= ( 1.0 - Max3( surfaceData.specularColor.r, surfaceData.specularColor.g, surfaceData.specularColor.b ) );
+                    surfaceData.baseColor *= ( 1.0 - Max3( surfaceData.specularColor.r, surfaceData.specularColor.g, surfaceData.specularColor.b ) );
 				#endif
 
 				#ifdef _DOUBLESIDED_ON
-				float3 doubleSidedConstants = _DoubleSidedConstants.xyz;
+                    float3 doubleSidedConstants = _DoubleSidedConstants.xyz;
 				#else
-				float3 doubleSidedConstants = float3( 1.0, 1.0, 1.0 );
+                    float3 doubleSidedConstants = float3( 1.0, 1.0, 1.0 );
 				#endif
 
-				// normals
 				float3 normalTS = float3(0.0f, 0.0f, 1.0f);
 				normalTS = surfaceDescription.Normal;
-				GetNormalWS( fragInputs, normalTS, surfaceData.normalWS, doubleSidedConstants );
+				GetNormalWS(fragInputs, normalTS, surfaceData.normalWS, doubleSidedConstants);
 
-				surfaceData.geomNormalWS = fragInputs.tangentToWorld[2];
-				surfaceData.tangentWS = normalize( fragInputs.tangentToWorld[ 0 ].xyz );
-
-				// decals
 				#if HAVE_DECALS
 				if (_EnableDecals)
 				{
@@ -660,26 +714,18 @@ Shader "Piloto Studio/PBR_UberShader"
 				}
 				#endif
 
+				surfaceData.geomNormalWS = fragInputs.tangentToWorld[2];
+                surfaceData.tangentWS = normalize(fragInputs.tangentToWorld[0].xyz );
+                surfaceData.tangentWS = Orthonormalize(surfaceData.tangentWS, surfaceData.normalWS);
+
 				bentNormalWS = surfaceData.normalWS;
 
 				#ifdef ASE_BENT_NORMAL
-				GetNormalWS( fragInputs, surfaceDescription.BentNormal, bentNormalWS, doubleSidedConstants );
+                    GetNormalWS( fragInputs, surfaceDescription.BentNormal, bentNormalWS, doubleSidedConstants );
 				#endif
 
 				#ifdef _MATERIAL_FEATURE_ANISOTROPY
-				surfaceData.tangentWS = TransformTangentToWorld( surfaceDescription.Tangent, fragInputs.tangentToWorld );
-				#endif
-				surfaceData.tangentWS = Orthonormalize( surfaceData.tangentWS, surfaceData.normalWS );
-
-                #if defined(_SPECULAR_OCCLUSION_CUSTOM)
-                #elif defined(_SPECULAR_OCCLUSION_FROM_AO_BENT_NORMAL)
-				surfaceData.specularOcclusion = GetSpecularOcclusionFromBentAO(V, bentNormalWS, surfaceData.normalWS, surfaceData.ambientOcclusion, PerceptualSmoothnessToPerceptualRoughness(surfaceData.perceptualSmoothness));
-                #elif defined(_AMBIENT_OCCLUSION) && defined(_SPECULAR_OCCLUSION_FROM_AO)
-				surfaceData.specularOcclusion = GetSpecularOcclusionFromAmbientOcclusion(ClampNdotV(dot(surfaceData.normalWS, V)), surfaceData.ambientOcclusion, PerceptualSmoothnessToRoughness(surfaceData.perceptualSmoothness));
-                #endif
-
-				#ifdef _ENABLE_GEOMETRIC_SPECULAR_AA
-				surfaceData.perceptualSmoothness = GeometricNormalFiltering( surfaceData.perceptualSmoothness, fragInputs.tangentToWorld[ 2 ], surfaceDescription.SpecularAAScreenSpaceVariance, surfaceDescription.SpecularAAThreshold );
+                    surfaceData.tangentWS = TransformTangentToWorld(surfaceDescription.Tangent, fragInputs.tangentToWorld);
 				#endif
 
 				#if defined(DEBUG_DISPLAY)
@@ -689,55 +735,70 @@ Shader "Piloto Studio/PBR_UberShader"
 				    }
 				    ApplyDebugToSurfaceData(fragInputs.tangentToWorld, surfaceData); 
 				#endif
+
+                #if defined(_SPECULAR_OCCLUSION_CUSTOM)
+                #elif defined(_SPECULAR_OCCLUSION_FROM_AO_BENT_NORMAL)
+                    surfaceData.specularOcclusion = GetSpecularOcclusionFromBentAO(V, bentNormalWS, surfaceData.normalWS, surfaceData.ambientOcclusion, PerceptualSmoothnessToPerceptualRoughness(surfaceData.perceptualSmoothness));
+                #elif defined(_AMBIENT_OCCLUSION) && defined(_SPECULAR_OCCLUSION_FROM_AO)
+                    surfaceData.specularOcclusion = GetSpecularOcclusionFromAmbientOcclusion(ClampNdotV(dot(surfaceData.normalWS, V)), surfaceData.ambientOcclusion, PerceptualSmoothnessToRoughness(surfaceData.perceptualSmoothness));
+                #endif
+
+                #ifdef _ENABLE_GEOMETRIC_SPECULAR_AA
+                    surfaceData.perceptualSmoothness = GeometricNormalFiltering(surfaceData.perceptualSmoothness, fragInputs.tangentToWorld[2], surfaceDescription.SpecularAAScreenSpaceVariance, surfaceDescription.SpecularAAThreshold);
+                #endif
 			}
 
+			// Get Surface And BuiltinData
 			void GetSurfaceAndBuiltinData(GlobalSurfaceDescription surfaceDescription, FragInputs fragInputs, float3 V, inout PositionInputs posInput, out SurfaceData surfaceData, out BuiltinData builtinData)
 			{
 				#ifdef LOD_FADE_CROSSFADE
-				LODDitheringTransition(ComputeFadeMaskSeed(V, posInput.positionSS), unity_LODFade.x);
+                    LODDitheringTransition(ComputeFadeMaskSeed(V, posInput.positionSS), unity_LODFade.x);
 				#endif
 
-				#ifdef _DOUBLESIDED_ON
-				float3 doubleSidedConstants = _DoubleSidedConstants.xyz;
-				#else
-				float3 doubleSidedConstants = float3( 1.0, 1.0, 1.0 );
-				#endif
-
-				ApplyDoubleSidedFlipOrMirror( fragInputs, doubleSidedConstants );
+                #ifdef _DOUBLESIDED_ON
+                    float3 doubleSidedConstants = _DoubleSidedConstants.xyz;
+                #else
+                    float3 doubleSidedConstants = float3(1.0, 1.0, 1.0);
+                #endif  
+                ApplyDoubleSidedFlipOrMirror(fragInputs, doubleSidedConstants);
 
 				#ifdef _ALPHATEST_ON
-				DoAlphaTest( surfaceDescription.Alpha, surfaceDescription.AlphaClipThreshold );
+                    DoAlphaTest( surfaceDescription.Alpha, surfaceDescription.AlphaClipThreshold );
+				#endif
+
+				#ifdef _ALPHATEST_SHADOW_ON
+                    DoAlphaTest( surfaceDescription.Alpha, surfaceDescription.AlphaClipThresholdShadow);
 				#endif
 
 				#ifdef _DEPTHOFFSET_ON
-				ApplyDepthOffsetPositionInput( V, surfaceDescription.DepthOffset, GetViewForwardDir(), GetWorldToHClipMatrix(), posInput );
+                    ApplyDepthOffsetPositionInput(V, surfaceDescription.DepthOffset, GetViewForwardDir(), GetWorldToHClipMatrix(), posInput);
 				#endif
 
 				float3 bentNormalWS;
-				BuildSurfaceData( fragInputs, surfaceDescription, V, posInput, surfaceData, bentNormalWS );
-				InitBuiltinData( posInput, surfaceDescription.Alpha, bentNormalWS, -fragInputs.tangentToWorld[ 2 ], fragInputs.texCoord1, fragInputs.texCoord2, builtinData );
+                BuildSurfaceData(fragInputs, surfaceDescription, V, posInput, surfaceData, bentNormalWS);
+                InitBuiltinData(posInput, surfaceDescription.Alpha, bentNormalWS, -fragInputs.tangentToWorld[2], fragInputs.texCoord1, fragInputs.texCoord2, builtinData);
 
 				#ifdef _DEPTHOFFSET_ON
-				builtinData.depthOffset = surfaceDescription.DepthOffset;
+                    builtinData.depthOffset = surfaceDescription.DepthOffset;
 				#endif
 
-				#ifdef _ALPHATEST_ON
-				builtinData.alphaClipTreshold = surfaceDescription.AlphaClipThreshold;
+                #ifdef _ALPHATEST_ON
+                    builtinData.alphaClipTreshold = surfaceDescription.AlphaClipThreshold;
                 #endif
 
-				#ifdef UNITY_VIRTUAL_TEXTURING
-                builtinData.vtPackedFeedback = surfaceDescription.VTPackedFeedback;
+                #ifdef UNITY_VIRTUAL_TEXTURING
+                    builtinData.vtPackedFeedback = surfaceDescription.VTPackedFeedback;
                 #endif
 
 				#ifdef ASE_BAKEDGI
-				builtinData.bakeDiffuseLighting = surfaceDescription.BakedGI;
+                    builtinData.bakeDiffuseLighting = surfaceDescription.BakedGI;
 				#endif
 
 				#ifdef ASE_BAKEDBACKGI
-				builtinData.backBakeDiffuseLighting = surfaceDescription.BakedBackGI;
+                    builtinData.backBakeDiffuseLighting = surfaceDescription.BakedBackGI;
 				#endif
 
-				builtinData.emissiveColor = surfaceDescription.Emission;
+                builtinData.emissiveColor = surfaceDescription.Emission;
 
 				PostInitBuiltinData(V, posInput, surfaceData, builtinData);
 			}
@@ -1031,30 +1092,30 @@ Shader "Piloto Studio/PBR_UberShader"
 			Cull Off
 
 			HLSLPROGRAM
+			#pragma shader_feature_local _ _DOUBLESIDED_ON
+			#pragma shader_feature_local_fragment _ _DISABLE_DECALS
+			#pragma shader_feature_local_fragment _ _DISABLE_SSR_TRANSPARENT
+			#pragma shader_feature_local_fragment _ _CONSERVATIVE_DEPTH_OFFSET
+			#pragma multi_compile_instancing
+			#pragma instancing_options renderinglayer
+			#pragma shader_feature_local _ _ALPHATEST_ON
+			#define _AMBIENT_OCCLUSION 1
+			#define ASE_VERSION 19701
+			#define ASE_SRP_VERSION 120112
 
-            #define SUPPORT_BLENDMODE_PRESERVE_SPECULAR_LIGHTING
-            #pragma shader_feature_local_fragment _ _DISABLE_DECALS
-            #pragma shader_feature_local_fragment _ _DISABLE_SSR_TRANSPARENT
-            #pragma multi_compile_instancing
-            #pragma instancing_options renderinglayer
-            #pragma shader_feature_local _ _ALPHATEST_ON
-            #define _AMBIENT_OCCLUSION 1
-            #define ASE_SRP_VERSION 120112
-
+			#pragma shader_feature _ EDITOR_VISUALIZATION
+			#pragma multi_compile _ DOTS_INSTANCING_ON
 
             #pragma shader_feature _ _SURFACE_TYPE_TRANSPARENT
             #pragma shader_feature_local _ _TRANSPARENT_WRITES_MOTION_VEC
             #pragma shader_feature_local_fragment _ _ENABLE_FOG_ON_TRANSPARENT
-
-		    #pragma shader_feature _ EDITOR_VISUALIZATION
-
-            #pragma multi_compile _ DOTS_INSTANCING_ON
+			#pragma shader_feature_local _BLENDMODE_OFF _BLENDMODE_ALPHA _BLENDMODE_ADD _BLENDMODE_PRE_MULTIPLY
 
 			#pragma vertex Vert
 			#pragma fragment Frag
 
-			#define SHADERPASS SHADERPASS_LIGHT_TRANSPORT
-			#define SCENEPICKINGPASS
+            #define SHADERPASS SHADERPASS_LIGHT_TRANSPORT
+            #define SCENEPICKINGPASS 1
 
 			#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Common.hlsl"
 			#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/GeometricTools.hlsl"
@@ -1065,42 +1126,58 @@ Shader "Piloto Studio/PBR_UberShader"
 			#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/TextureStack.hlsl"
             #include "Packages/com.unity.shadergraph/ShaderGraphLibrary/Functions.hlsl"
 
+            //#if !defined(SHADER_STAGE_RAY_TRACING) && SHADERPASS != SHADERPASS_RAYTRACING_GBUFFER && SHADERPASS != SHADERPASS_FULL_SCREEN_DEBUG
+            //#define FRAG_INPUTS_ENABLE_STRIPPING
+            //#endif
+
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/FragInputs.hlsl"
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/PickingSpaceTransforms.hlsl"
 
-			#ifndef SHADER_UNLIT
-			#if defined(_DOUBLESIDED_ON) && !defined(VARYINGS_NEED_CULLFACE)
-			#define VARYINGS_NEED_CULLFACE
-			#endif
+            #ifdef RAYTRACING_SHADER_GRAPH_DEFAULT
+                #define RAYTRACING_SHADER_GRAPH_HIGH
+            #endif
+        
+            #ifdef RAYTRACING_SHADER_GRAPH_RAYTRACED
+                #define RAYTRACING_SHADER_GRAPH_LOW
+            #endif
+
+            #ifndef SHADER_UNLIT
+            #if defined(_DOUBLESIDED_ON) && !defined(VARYINGS_NEED_CULLFACE)
+                #define VARYINGS_NEED_CULLFACE
+            #endif
+            #endif
+
+			#if defined(_DOUBLESIDED_ON) && !defined(ASE_NEED_CULLFACE)
+			    #define ASE_NEED_CULLFACE 1
 			#endif
 
 		    #if defined(_MATERIAL_FEATURE_SUBSURFACE_SCATTERING) && !defined(_SURFACE_TYPE_TRANSPARENT)
 			#define OUTPUT_SPLIT_LIGHTING
 		    #endif
 
-			#if SHADERPASS == SHADERPASS_TRANSPARENT_DEPTH_PREPASS
-			#if !defined(_DISABLE_SSR_TRANSPARENT) && !defined(SHADER_UNLIT)
-				#define WRITE_NORMAL_BUFFER
-			#endif
-			#endif
+            #if SHADERPASS == SHADERPASS_TRANSPARENT_DEPTH_PREPASS
+            #if !defined(_DISABLE_SSR_TRANSPARENT) && !defined(SHADER_UNLIT)
+                #define WRITE_NORMAL_BUFFER
+            #endif
+            #endif
 
-			#ifndef DEBUG_DISPLAY
-				#if !defined(_SURFACE_TYPE_TRANSPARENT)
-					#if SHADERPASS == SHADERPASS_FORWARD
-					#define SHADERPASS_FORWARD_BYPASS_ALPHA_TEST
-					#elif SHADERPASS == SHADERPASS_GBUFFER
-					#define SHADERPASS_GBUFFER_BYPASS_ALPHA_TEST
-					#endif
-				#endif
-			#endif
+            #ifndef DEBUG_DISPLAY
+                #if !defined(_SURFACE_TYPE_TRANSPARENT)
+                    #if SHADERPASS == SHADERPASS_FORWARD
+                    #define SHADERPASS_FORWARD_BYPASS_ALPHA_TEST
+                    #elif SHADERPASS == SHADERPASS_GBUFFER
+                    #define SHADERPASS_GBUFFER_BYPASS_ALPHA_TEST
+                    #endif
+                #endif
+            #endif
 
-			#if defined(SHADER_LIT) && !defined(_SURFACE_TYPE_TRANSPARENT)
-			#define _DEFERRED_CAPABLE_MATERIAL
-			#endif
-
-			#if defined(_TRANSPARENT_WRITES_MOTION_VEC) && defined(_SURFACE_TYPE_TRANSPARENT)
-			#define _WRITE_TRANSPARENT_MOTION_VECTOR
-			#endif
+            #if defined(SHADER_LIT) && !defined(_SURFACE_TYPE_TRANSPARENT)
+                #define _DEFERRED_CAPABLE_MATERIAL
+            #endif
+        
+            #if defined(_TRANSPARENT_WRITES_MOTION_VEC) && defined(_SURFACE_TYPE_TRANSPARENT)
+                #define _WRITE_TRANSPARENT_MOTION_VECTOR
+            #endif
 
 			CBUFFER_START( UnityPerMaterial )
 			float4 _BaseColorTint;
@@ -1124,7 +1201,7 @@ Shader "Piloto Studio/PBR_UberShader"
 			float _AlphaCutoff;
 			float _RenderQueueType;
 			#ifdef _ADD_PRECOMPUTED_VELOCITY
-			float _AddPrecomputedVelocity;
+			    float _AddPrecomputedVelocity;
 			#endif
 			float _StencilRef;
 			float _StencilWriteMask;
@@ -1132,6 +1209,8 @@ Shader "Piloto Studio/PBR_UberShader"
 			float _StencilWriteMaskDepth;
 			float _StencilRefMV;
 			float _StencilWriteMaskMV;
+			float _StencilRefDistortionVec;
+			float _StencilWriteMaskDistortionVec;
 			float _StencilWriteMaskGBuffer;
 			float _StencilRefGBuffer;
 			float _ZTestGBuffer;
@@ -1140,7 +1219,7 @@ Shader "Piloto Studio/PBR_UberShader"
 			float _SurfaceType;
 			float _BlendMode;
             #ifdef SUPPORT_BLENDMODE_PRESERVE_SPECULAR_LIGHTING
-			float _EnableBlendModePreserveSpecularLighting;
+			    float _EnableBlendModePreserveSpecularLighting;
             #endif
 			float _SrcBlend;
 			float _DstBlend;
@@ -1162,12 +1241,12 @@ Shader "Piloto Studio/PBR_UberShader"
 			float _DoubleSidedNormalMode;
 			float4 _DoubleSidedConstants;
 			#ifdef ASE_TESSELLATION
-			float _TessPhongStrength;
-			float _TessValue;
-			float _TessMin;
-			float _TessMax;
-			float _TessEdgeLength;
-			float _TessMaxDisp;
+			    float _TessPhongStrength;
+			    float _TessValue;
+			    float _TessMin;
+			    float _TessMax;
+			    float _TessEdgeLength;
+			    float _TessMaxDisp;
 			#endif
 			CBUFFER_END
 
@@ -1191,6 +1270,12 @@ Shader "Piloto Studio/PBR_UberShader"
             #include "Packages/com.unity.render-pipelines.high-definition/Runtime/Debug/DebugDisplay.hlsl"
             #endif
 
+			#if SHADERPASS == SHADERPASS_LIGHT_TRANSPORT
+			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/PickingSpaceTransforms.hlsl"
+			#endif
+
+			#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/MetaPass.hlsl"
+
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/Material/Material.hlsl"
 			#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/NormalSurfaceGradient.hlsl"
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/Material/Lit/Lit.hlsl"
@@ -1198,17 +1283,15 @@ Shader "Piloto Studio/PBR_UberShader"
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/Material/MaterialUtilities.hlsl"
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderGraphFunctions.hlsl"
 
-			// Setup DECALS_OFF so the shader stripper can remove variants
-            #define HAVE_DECALS ( (defined(DECALS_3RT) || defined(DECALS_4RT)) && !defined(_DISABLE_DECALS) )
             #include "Packages/com.unity.render-pipelines.high-definition/Runtime/Material/Decal/DecalUtilities.hlsl"
             #include "Packages/com.unity.render-pipelines.high-definition/Runtime/Material/Lit/LitDecalData.hlsl"
 
+        	#ifdef HAVE_VFX_MODIFICATION
+			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/VisualEffectVertex.hlsl"
+        	#endif
+
 			#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/CommonLighting.hlsl"
 
-
-			#if defined(_DOUBLESIDED_ON) && !defined(ASE_NEED_CULLFACE)
-			#define ASE_NEED_CULLFACE 1
-			#endif
 
 			struct AttributesMesh
 			{
@@ -1251,7 +1334,6 @@ Shader "Piloto Studio/PBR_UberShader"
 
 				surfaceData.specularOcclusion = 1.0;
 
-				// surface data
 				surfaceData.baseColor =					surfaceDescription.BaseColor;
 				surfaceData.perceptualSmoothness =		surfaceDescription.Smoothness;
 				surfaceData.ambientOcclusion =			surfaceDescription.Occlusion;
@@ -1261,21 +1343,27 @@ Shader "Piloto Studio/PBR_UberShader"
 				#ifdef _SPECULAR_OCCLUSION_CUSTOM
 				surfaceData.specularOcclusion =			surfaceDescription.SpecularOcclusion;
 				#endif
+
 				#ifdef _MATERIAL_FEATURE_SUBSURFACE_SCATTERING
 				surfaceData.subsurfaceMask =			surfaceDescription.SubsurfaceMask;
 				#endif
+
 				#if defined(_HAS_REFRACTION) || defined(_MATERIAL_FEATURE_TRANSMISSION)
 				surfaceData.thickness = 				surfaceDescription.Thickness;
 				#endif
+
 				#if defined( _MATERIAL_FEATURE_SUBSURFACE_SCATTERING ) || defined( _MATERIAL_FEATURE_TRANSMISSION )
 				surfaceData.diffusionProfileHash =		asuint(surfaceDescription.DiffusionProfile);
 				#endif
+
 				#ifdef _MATERIAL_FEATURE_SPECULAR_COLOR
 				surfaceData.specularColor =				surfaceDescription.Specular;
 				#endif
+
 				#ifdef _MATERIAL_FEATURE_ANISOTROPY
 				surfaceData.anisotropy =				surfaceDescription.Anisotropy;
 				#endif
+
 				#ifdef _MATERIAL_FEATURE_IRIDESCENCE
 				surfaceData.iridescenceMask =			surfaceDescription.IridescenceMask;
 				surfaceData.iridescenceThickness =		surfaceDescription.IridescenceThickness;
@@ -1307,52 +1395,47 @@ Shader "Piloto Studio/PBR_UberShader"
                     surfaceData.transmittanceMask = 0.0;
                 #endif
 
-				// material features
 				surfaceData.materialFeatures = MATERIALFEATUREFLAGS_LIT_STANDARD;
-				#ifdef _MATERIAL_FEATURE_SUBSURFACE_SCATTERING
-				surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_SUBSURFACE_SCATTERING;
+
+                #ifdef _MATERIAL_FEATURE_SUBSURFACE_SCATTERING
+                    surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_SUBSURFACE_SCATTERING;
 				#endif
 
 				#ifdef _MATERIAL_FEATURE_TRANSMISSION
-				surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_TRANSMISSION;
+                    surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_TRANSMISSION;
 				#endif
 
                 #ifdef _MATERIAL_FEATURE_ANISOTROPY
-				surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_ANISOTROPY;
-				surfaceData.normalWS = float3(0, 1, 0);
+                    surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_ANISOTROPY;
+                    surfaceData.normalWS = float3(0, 1, 0);
                 #endif
 
 				#ifdef _MATERIAL_FEATURE_CLEAR_COAT
-				surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_CLEAR_COAT;
+                    surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_CLEAR_COAT;
 				#endif
 
 				#ifdef _MATERIAL_FEATURE_IRIDESCENCE
-				surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_IRIDESCENCE;
+                    surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_IRIDESCENCE;
 				#endif
 
-				#ifdef _MATERIAL_FEATURE_SPECULAR_COLOR
-				surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_SPECULAR_COLOR;
-				#endif
+                #ifdef _MATERIAL_FEATURE_SPECULAR_COLOR
+                    surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_SPECULAR_COLOR;
+                #endif
 
-				// others
 				#if defined (_MATERIAL_FEATURE_SPECULAR_COLOR) && defined (_ENERGY_CONSERVING_SPECULAR)
-				surfaceData.baseColor *= ( 1.0 - Max3( surfaceData.specularColor.r, surfaceData.specularColor.g, surfaceData.specularColor.b ) );
+                    surfaceData.baseColor *= ( 1.0 - Max3( surfaceData.specularColor.r, surfaceData.specularColor.g, surfaceData.specularColor.b ) );
 				#endif
+
 				#ifdef _DOUBLESIDED_ON
 				float3 doubleSidedConstants = _DoubleSidedConstants.xyz;
 				#else
 				float3 doubleSidedConstants = float3( 1.0, 1.0, 1.0 );
 				#endif
 
-				// normals
 				float3 normalTS = float3(0.0f, 0.0f, 1.0f);
 				normalTS = surfaceDescription.Normal;
-				GetNormalWS( fragInputs, normalTS, surfaceData.normalWS, doubleSidedConstants );
+				GetNormalWS(fragInputs, normalTS, surfaceData.normalWS, doubleSidedConstants);
 
-				surfaceData.geomNormalWS = fragInputs.tangentToWorld[2];
-				surfaceData.tangentWS = normalize( fragInputs.tangentToWorld[ 0 ].xyz );
-
-				// decals
 				#if HAVE_DECALS
 				if (_EnableDecals)
 				{
@@ -1361,29 +1444,20 @@ Shader "Piloto Studio/PBR_UberShader"
 				}
 				#endif
 
+				surfaceData.geomNormalWS = fragInputs.tangentToWorld[2];
+                surfaceData.tangentWS = normalize(fragInputs.tangentToWorld[0].xyz );
+                surfaceData.tangentWS = Orthonormalize(surfaceData.tangentWS, surfaceData.normalWS);
+
 				bentNormalWS = surfaceData.normalWS;
 
 				#ifdef ASE_BENT_NORMAL
-				GetNormalWS( fragInputs, surfaceDescription.BentNormal, bentNormalWS, doubleSidedConstants );
+                    GetNormalWS( fragInputs, surfaceDescription.BentNormal, bentNormalWS, doubleSidedConstants );
 				#endif
 
 				#ifdef _MATERIAL_FEATURE_ANISOTROPY
-				surfaceData.tangentWS = TransformTangentToWorld( surfaceDescription.Tangent, fragInputs.tangentToWorld );
-				#endif
-				surfaceData.tangentWS = Orthonormalize( surfaceData.tangentWS, surfaceData.normalWS );
-
-                #if defined(_SPECULAR_OCCLUSION_CUSTOM)
-                #elif defined(_SPECULAR_OCCLUSION_FROM_AO_BENT_NORMAL)
-				surfaceData.specularOcclusion = GetSpecularOcclusionFromBentAO(V, bentNormalWS, surfaceData.normalWS, surfaceData.ambientOcclusion, PerceptualSmoothnessToPerceptualRoughness(surfaceData.perceptualSmoothness));
-                #elif defined(_AMBIENT_OCCLUSION) && defined(_SPECULAR_OCCLUSION_FROM_AO)
-				surfaceData.specularOcclusion = GetSpecularOcclusionFromAmbientOcclusion(ClampNdotV(dot(surfaceData.normalWS, V)), surfaceData.ambientOcclusion, PerceptualSmoothnessToRoughness(surfaceData.perceptualSmoothness));
-                #endif
-
-				#ifdef _ENABLE_GEOMETRIC_SPECULAR_AA
-				surfaceData.perceptualSmoothness = GeometricNormalFiltering( surfaceData.perceptualSmoothness, fragInputs.tangentToWorld[ 2 ], surfaceDescription.SpecularAAScreenSpaceVariance, surfaceDescription.SpecularAAThreshold );
+                    surfaceData.tangentWS = TransformTangentToWorld(surfaceDescription.Tangent, fragInputs.tangentToWorld);
 				#endif
 
-				// debug
 				#if defined(DEBUG_DISPLAY)
 				    if (_DebugMipMapMode != DEBUGMIPMAPMODE_NONE)
 				    {
@@ -1391,47 +1465,73 @@ Shader "Piloto Studio/PBR_UberShader"
 				    }
 				    ApplyDebugToSurfaceData(fragInputs.tangentToWorld, surfaceData); 
 				#endif
+
+                #if defined(_SPECULAR_OCCLUSION_CUSTOM)
+                #elif defined(_SPECULAR_OCCLUSION_FROM_AO_BENT_NORMAL)
+                    surfaceData.specularOcclusion = GetSpecularOcclusionFromBentAO(V, bentNormalWS, surfaceData.normalWS, surfaceData.ambientOcclusion, PerceptualSmoothnessToPerceptualRoughness(surfaceData.perceptualSmoothness));
+                #elif defined(_AMBIENT_OCCLUSION) && defined(_SPECULAR_OCCLUSION_FROM_AO)
+                    surfaceData.specularOcclusion = GetSpecularOcclusionFromAmbientOcclusion(ClampNdotV(dot(surfaceData.normalWS, V)), surfaceData.ambientOcclusion, PerceptualSmoothnessToRoughness(surfaceData.perceptualSmoothness));
+                #endif
+
+                #ifdef _ENABLE_GEOMETRIC_SPECULAR_AA
+                    surfaceData.perceptualSmoothness = GeometricNormalFiltering(surfaceData.perceptualSmoothness, fragInputs.tangentToWorld[2], surfaceDescription.SpecularAAScreenSpaceVariance, surfaceDescription.SpecularAAThreshold);
+                #endif
 			}
 
+			// Get Surface And BuiltinData
 			void GetSurfaceAndBuiltinData(GlobalSurfaceDescription surfaceDescription, FragInputs fragInputs, float3 V, inout PositionInputs posInput, out SurfaceData surfaceData, out BuiltinData builtinData)
 			{
 				#ifdef LOD_FADE_CROSSFADE
-				LODDitheringTransition(ComputeFadeMaskSeed(V, posInput.positionSS), unity_LODFade.x);
+                    LODDitheringTransition(ComputeFadeMaskSeed(V, posInput.positionSS), unity_LODFade.x);
 				#endif
 
-				#ifdef _DOUBLESIDED_ON
-				float3 doubleSidedConstants = _DoubleSidedConstants.xyz;
-				#else
-				float3 doubleSidedConstants = float3( 1.0, 1.0, 1.0 );
-				#endif
-
-				ApplyDoubleSidedFlipOrMirror( fragInputs, doubleSidedConstants );
+                #ifdef _DOUBLESIDED_ON
+                    float3 doubleSidedConstants = _DoubleSidedConstants.xyz;
+                #else
+                    float3 doubleSidedConstants = float3(1.0, 1.0, 1.0);
+                #endif
+                ApplyDoubleSidedFlipOrMirror(fragInputs, doubleSidedConstants);
 
 				#ifdef _ALPHATEST_ON
-				DoAlphaTest( surfaceDescription.Alpha, surfaceDescription.AlphaClipThreshold );
+                    DoAlphaTest( surfaceDescription.Alpha, surfaceDescription.AlphaClipThreshold );
+				#endif
+
+				#ifdef _ALPHATEST_SHADOW_ON
+                    DoAlphaTest( surfaceDescription.Alpha, surfaceDescription.AlphaClipThresholdShadow);
 				#endif
 
 				#ifdef _DEPTHOFFSET_ON
-				builtinData.depthOffset = surfaceDescription.DepthOffset;
-				ApplyDepthOffsetPositionInput( V, surfaceDescription.DepthOffset, GetViewForwardDir(), GetWorldToHClipMatrix(), posInput );
+                    ApplyDepthOffsetPositionInput(V, surfaceDescription.DepthOffset, GetViewForwardDir(), GetWorldToHClipMatrix(), posInput);
 				#endif
 
-				float3 bentNormalWS;
-				BuildSurfaceData( fragInputs, surfaceDescription, V, posInput, surfaceData, bentNormalWS );
+                float3 bentNormalWS;
+                BuildSurfaceData(fragInputs, surfaceDescription, V, posInput, surfaceData, bentNormalWS);
+                InitBuiltinData(posInput, surfaceDescription.Alpha, bentNormalWS, -fragInputs.tangentToWorld[2], fragInputs.texCoord1, fragInputs.texCoord2, builtinData);
 
-				InitBuiltinData( posInput, surfaceDescription.Alpha, bentNormalWS, -fragInputs.tangentToWorld[ 2 ], fragInputs.texCoord1, fragInputs.texCoord2, builtinData );
+				#ifdef _DEPTHOFFSET_ON
+                    builtinData.depthOffset = surfaceDescription.DepthOffset;
+				#endif
 
-				builtinData.emissiveColor = surfaceDescription.Emission;
+                #ifdef _ALPHATEST_ON
+                    builtinData.alphaClipTreshold = surfaceDescription.AlphaClipThreshold;
+                #endif
 
-				PostInitBuiltinData(V, posInput, surfaceData, builtinData);
+                #ifdef UNITY_VIRTUAL_TEXTURING
+                    builtinData.vtPackedFeedback = surfaceDescription.VTPackedFeedback;
+                #endif
+
+				#ifdef ASE_BAKEDGI
+                    builtinData.bakeDiffuseLighting = surfaceDescription.BakedGI;
+				#endif
+
+				#ifdef ASE_BAKEDBACKGI
+                    builtinData.backBakeDiffuseLighting = surfaceDescription.BakedBackGI;
+				#endif
+
+                builtinData.emissiveColor = surfaceDescription.Emission;
+
+                PostInitBuiltinData(V, posInput, surfaceData, builtinData);
 			}
-
-			#if SHADERPASS == SHADERPASS_LIGHT_TRANSPORT
-			#define SCENEPICKINGPASS
-			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/PickingSpaceTransforms.hlsl"
-			#endif
-
-			#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/MetaPass.hlsl"
 
 			PackedVaryingsMeshToPS VertexFunction(AttributesMesh inputMesh  )
 			{
@@ -1462,7 +1562,6 @@ Shader "Piloto Studio/PBR_UberShader"
 				inputMesh.tangentOS =  inputMesh.tangentOS ;
 
 				outputPackedVaryingsMeshToPS.positionCS = UnityMetaVertexPosition(inputMesh.positionOS, inputMesh.uv1.xy, inputMesh.uv2.xy, unity_LightmapST, unity_DynamicLightmapST);
-
 
 				#ifdef EDITOR_VISUALIZATION
 					float2 vizUV = 0;
@@ -1671,7 +1770,6 @@ Shader "Piloto Studio/PBR_UberShader"
 				#endif
 
 				GetSurfaceAndBuiltinData(surfaceDescription,input, V, posInput, surfaceData, builtinData);
-
 				BSDFData bsdfData = ConvertSurfaceDataToBSDFData(input.positionSS.xy, surfaceData);
 				LightTransportData lightTransportData = GetLightTransportData(surfaceData, builtinData, bsdfData);
 
@@ -1706,27 +1804,30 @@ Shader "Piloto Studio/PBR_UberShader"
 			ColorMask 0
 
 			HLSLPROGRAM
+			#pragma shader_feature_local _ _DOUBLESIDED_ON
+			#pragma shader_feature_local_fragment _ _DISABLE_DECALS
+			#pragma shader_feature_local_fragment _ _DISABLE_SSR_TRANSPARENT
+			#pragma shader_feature_local_fragment _ _CONSERVATIVE_DEPTH_OFFSET
+			#pragma multi_compile_instancing
+			#pragma instancing_options renderinglayer
+			#pragma shader_feature_local _ _ALPHATEST_ON
+			#define _AMBIENT_OCCLUSION 1
+			#define ASE_VERSION 19701
+			#define ASE_SRP_VERSION 120112
 
-            #define SUPPORT_BLENDMODE_PRESERVE_SPECULAR_LIGHTING
-            #pragma shader_feature_local_fragment _ _DISABLE_DECALS
-            #pragma shader_feature_local_fragment _ _DISABLE_SSR_TRANSPARENT
-            #pragma multi_compile_instancing
-            #pragma instancing_options renderinglayer
-            #pragma shader_feature_local _ _ALPHATEST_ON
-            #define _AMBIENT_OCCLUSION 1
-            #define ASE_SRP_VERSION 120112
-
+			#pragma multi_compile _ DOTS_INSTANCING_ON
 
             #pragma shader_feature _ _SURFACE_TYPE_TRANSPARENT
             #pragma shader_feature_local _ _TRANSPARENT_WRITES_MOTION_VEC
             #pragma shader_feature_local_fragment _ _ENABLE_FOG_ON_TRANSPARENT
+			#pragma shader_feature_local _BLENDMODE_OFF _BLENDMODE_ALPHA _BLENDMODE_ADD _BLENDMODE_PRE_MULTIPLY
 
 			#pragma multi_compile_fragment _ SHADOWS_SHADOWMASK
 
-            #pragma multi_compile _ DOTS_INSTANCING_ON
-
 			#pragma vertex Vert
 			#pragma fragment Frag
+
+			#define SHADERPASS SHADERPASS_SHADOWS
 
 			#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Common.hlsl"
         	#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/GeometricTools.hlsl"
@@ -1738,51 +1839,57 @@ Shader "Piloto Studio/PBR_UberShader"
 			#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/TextureStack.hlsl"
             #include "Packages/com.unity.shadergraph/ShaderGraphLibrary/Functions.hlsl"
 
-			//#define USE_LEGACY_UNITY_MATRIX_VARIABLES
+            //#if !defined(SHADER_STAGE_RAY_TRACING) && SHADERPASS != SHADERPASS_RAYTRACING_GBUFFER && SHADERPASS != SHADERPASS_FULL_SCREEN_DEBUG
+            //#define FRAG_INPUTS_ENABLE_STRIPPING
+            //#endif
 
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/FragInputs.hlsl"
 
-			#define SHADERPASS SHADERPASS_SHADOWS
+            #ifdef RAYTRACING_SHADER_GRAPH_DEFAULT
+                #define RAYTRACING_SHADER_GRAPH_HIGH
+            #endif
+        
+            #ifdef RAYTRACING_SHADER_GRAPH_RAYTRACED
+                #define RAYTRACING_SHADER_GRAPH_LOW
+            #endif
 
-			#ifndef SHADER_UNLIT
-			#if defined(_DOUBLESIDED_ON) && !defined(VARYINGS_NEED_CULLFACE)
-			#define VARYINGS_NEED_CULLFACE
-			#endif
+            #ifndef SHADER_UNLIT
+            #if defined(_DOUBLESIDED_ON) && !defined(VARYINGS_NEED_CULLFACE)
+                #define VARYINGS_NEED_CULLFACE
+            #endif
+            #endif
+
+			#if defined(_DOUBLESIDED_ON) && !defined(ASE_NEED_CULLFACE)
+			    #define ASE_NEED_CULLFACE 1
 			#endif
 
 		    #if defined(_MATERIAL_FEATURE_SUBSURFACE_SCATTERING) && !defined(_SURFACE_TYPE_TRANSPARENT)
 			#define OUTPUT_SPLIT_LIGHTING
 		    #endif
 
-		    #if (SHADERPASS == SHADERPASS_PATH_TRACING) && !defined(_DOUBLESIDED_ON) && (defined(_REFRACTION_PLANE) || defined(_REFRACTION_SPHERE))
-			#undef  _REFRACTION_PLANE
-			#undef  _REFRACTION_SPHERE
-			#define _REFRACTION_THIN
-		    #endif
+            #if SHADERPASS == SHADERPASS_TRANSPARENT_DEPTH_PREPASS
+            #if !defined(_DISABLE_SSR_TRANSPARENT) && !defined(SHADER_UNLIT)
+                #define WRITE_NORMAL_BUFFER
+            #endif
+            #endif
 
-			#if SHADERPASS == SHADERPASS_TRANSPARENT_DEPTH_PREPASS
-			#if !defined(_DISABLE_SSR_TRANSPARENT) && !defined(SHADER_UNLIT)
-			#define WRITE_NORMAL_BUFFER
-			#endif
-			#endif
+            #ifndef DEBUG_DISPLAY
+                #if !defined(_SURFACE_TYPE_TRANSPARENT)
+                    #if SHADERPASS == SHADERPASS_FORWARD
+                    #define SHADERPASS_FORWARD_BYPASS_ALPHA_TEST
+                    #elif SHADERPASS == SHADERPASS_GBUFFER
+                    #define SHADERPASS_GBUFFER_BYPASS_ALPHA_TEST
+                    #endif
+                #endif
+            #endif
 
-			#ifndef DEBUG_DISPLAY
-				#if !defined(_SURFACE_TYPE_TRANSPARENT)
-					#if SHADERPASS == SHADERPASS_FORWARD
-					#define SHADERPASS_FORWARD_BYPASS_ALPHA_TEST
-					#elif SHADERPASS == SHADERPASS_GBUFFER
-					#define SHADERPASS_GBUFFER_BYPASS_ALPHA_TEST
-					#endif
-				#endif
-			#endif
-
-			#if defined(SHADER_LIT) && !defined(_SURFACE_TYPE_TRANSPARENT)
-			#define _DEFERRED_CAPABLE_MATERIAL
-			#endif
-
-			#if defined(_TRANSPARENT_WRITES_MOTION_VEC) && defined(_SURFACE_TYPE_TRANSPARENT)
-			#define _WRITE_TRANSPARENT_MOTION_VECTOR
-			#endif
+            #if defined(SHADER_LIT) && !defined(_SURFACE_TYPE_TRANSPARENT)
+                #define _DEFERRED_CAPABLE_MATERIAL
+            #endif
+        
+            #if defined(_TRANSPARENT_WRITES_MOTION_VEC) && defined(_SURFACE_TYPE_TRANSPARENT)
+                #define _WRITE_TRANSPARENT_MOTION_VECTOR
+            #endif
 
 			CBUFFER_START( UnityPerMaterial )
 			float4 _BaseColorTint;
@@ -1806,7 +1913,7 @@ Shader "Piloto Studio/PBR_UberShader"
 			float _AlphaCutoff;
 			float _RenderQueueType;
 			#ifdef _ADD_PRECOMPUTED_VELOCITY
-			float _AddPrecomputedVelocity;
+			    float _AddPrecomputedVelocity;
 			#endif
 			float _StencilRef;
 			float _StencilWriteMask;
@@ -1814,6 +1921,8 @@ Shader "Piloto Studio/PBR_UberShader"
 			float _StencilWriteMaskDepth;
 			float _StencilRefMV;
 			float _StencilWriteMaskMV;
+			float _StencilRefDistortionVec;
+			float _StencilWriteMaskDistortionVec;
 			float _StencilWriteMaskGBuffer;
 			float _StencilRefGBuffer;
 			float _ZTestGBuffer;
@@ -1822,7 +1931,7 @@ Shader "Piloto Studio/PBR_UberShader"
 			float _SurfaceType;
 			float _BlendMode;
             #ifdef SUPPORT_BLENDMODE_PRESERVE_SPECULAR_LIGHTING
-			float _EnableBlendModePreserveSpecularLighting;
+			    float _EnableBlendModePreserveSpecularLighting;
             #endif
 			float _SrcBlend;
 			float _DstBlend;
@@ -1844,12 +1953,12 @@ Shader "Piloto Studio/PBR_UberShader"
 			float _DoubleSidedNormalMode;
 			float4 _DoubleSidedConstants;
 			#ifdef ASE_TESSELLATION
-			float _TessPhongStrength;
-			float _TessValue;
-			float _TessMin;
-			float _TessMax;
-			float _TessEdgeLength;
-			float _TessMaxDisp;
+			    float _TessPhongStrength;
+			    float _TessValue;
+			    float _TessMin;
+			    float _TessMax;
+			    float _TessEdgeLength;
+			    float _TessMaxDisp;
 			#endif
 			CBUFFER_END
 
@@ -1876,21 +1985,20 @@ Shader "Piloto Studio/PBR_UberShader"
             #include "Packages/com.unity.render-pipelines.high-definition/Runtime/Material/MaterialUtilities.hlsl"
             #include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderGraphFunctions.hlsl"
 
-			// Setup DECALS_OFF so the shader stripper can remove variants
-            #define HAVE_DECALS ( (defined(DECALS_3RT) || defined(DECALS_4RT)) && !defined(_DISABLE_DECALS) )
             #include "Packages/com.unity.render-pipelines.high-definition/Runtime/Material/Decal/DecalUtilities.hlsl"
             #include "Packages/com.unity.render-pipelines.high-definition/Runtime/Material/Lit/LitDecalData.hlsl"
 
-			
+        	#ifdef HAVE_VFX_MODIFICATION
+            #include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/VisualEffectVertex.hlsl"
+        	#endif
 
-			#if defined(_DOUBLESIDED_ON) && !defined(ASE_NEED_CULLFACE)
-			#define ASE_NEED_CULLFACE 1
-			#endif
+			
 
 			struct AttributesMesh
 			{
 				float3 positionOS : POSITION;
 				float3 normalOS : NORMAL;
+				float4 tangentOS : TANGENT;
 				float4 ase_texcoord : TEXCOORD0;
 				UNITY_VERTEX_INPUT_INSTANCE_ID
 			};
@@ -1913,8 +2021,6 @@ Shader "Piloto Studio/PBR_UberShader"
 				ZERO_INITIALIZE(SurfaceData, surfaceData);
 
 				surfaceData.specularOcclusion = 1.0;
-
-				// surface data
 
 				// refraction ShadowCaster
                 #if defined(_REFRACTION_PLANE) || defined(_REFRACTION_SPHERE) || defined(_REFRACTION_THIN)
@@ -1939,37 +2045,35 @@ Shader "Piloto Studio/PBR_UberShader"
                     surfaceData.transmittanceMask = 0.0;
                 #endif
 
-
-				// material features
 				surfaceData.materialFeatures = MATERIALFEATUREFLAGS_LIT_STANDARD;
+
 				#ifdef _MATERIAL_FEATURE_SUBSURFACE_SCATTERING
-				surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_SUBSURFACE_SCATTERING;
+                    surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_SUBSURFACE_SCATTERING;
 				#endif
 
 				#ifdef _MATERIAL_FEATURE_TRANSMISSION
-				surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_TRANSMISSION;
+                    surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_TRANSMISSION;
 				#endif
 
                 #ifdef _MATERIAL_FEATURE_ANISOTROPY
-				surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_ANISOTROPY;
-				surfaceData.normalWS = float3(0, 1, 0);
+                    surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_ANISOTROPY;
+                    surfaceData.normalWS = float3(0, 1, 0);
                 #endif
 
 				#ifdef _MATERIAL_FEATURE_IRIDESCENCE
-				surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_IRIDESCENCE;
+                    surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_IRIDESCENCE;
 				#endif
 
 				#ifdef _MATERIAL_FEATURE_SPECULAR_COLOR
-				surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_SPECULAR_COLOR;
+                    surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_SPECULAR_COLOR;
 				#endif
 
 				#ifdef _MATERIAL_FEATURE_CLEAR_COAT
-				surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_CLEAR_COAT;
+                    surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_CLEAR_COAT;
 				#endif
 
-				// others
 				#if defined (_MATERIAL_FEATURE_SPECULAR_COLOR) && defined (_ENERGY_CONSERVING_SPECULAR)
-				surfaceData.baseColor *= ( 1.0 - Max3( surfaceData.specularColor.r, surfaceData.specularColor.g, surfaceData.specularColor.b ) );
+                    surfaceData.baseColor *= ( 1.0 - Max3( surfaceData.specularColor.r, surfaceData.specularColor.g, surfaceData.specularColor.b ) );
 				#endif
 
 				#ifdef _DOUBLESIDED_ON
@@ -1978,14 +2082,9 @@ Shader "Piloto Studio/PBR_UberShader"
 				float3 doubleSidedConstants = float3( 1.0, 1.0, 1.0 );
 				#endif
 
-				// normals
 				float3 normalTS = float3(0.0f, 0.0f, 1.0f);
-				GetNormalWS( fragInputs, normalTS, surfaceData.normalWS, doubleSidedConstants );
+				GetNormalWS(fragInputs, normalTS, surfaceData.normalWS, doubleSidedConstants);
 
-				surfaceData.geomNormalWS = fragInputs.tangentToWorld[2];
-				surfaceData.tangentWS = normalize( fragInputs.tangentToWorld[ 0 ].xyz );
-
-				// decals
 				#if HAVE_DECALS
 				if (_EnableDecals)
 				{
@@ -1994,59 +2093,85 @@ Shader "Piloto Studio/PBR_UberShader"
 				}
 				#endif
 
+				surfaceData.geomNormalWS = fragInputs.tangentToWorld[2];
+                surfaceData.tangentWS = normalize(fragInputs.tangentToWorld[0].xyz );
+                surfaceData.tangentWS = Orthonormalize(surfaceData.tangentWS, surfaceData.normalWS);
+
 				bentNormalWS = surfaceData.normalWS;
-				surfaceData.tangentWS = Orthonormalize( surfaceData.tangentWS, surfaceData.normalWS );
+
+                #if defined(DEBUG_DISPLAY)
+                    if (_DebugMipMapMode != DEBUGMIPMAPMODE_NONE)
+                    {
+                        surfaceData.metallic = 0;
+                    }
+                    ApplyDebugToSurfaceData(fragInputs.tangentToWorld, surfaceData);
+                #endif
 
                 #if defined(_SPECULAR_OCCLUSION_CUSTOM)
                 #elif defined(_SPECULAR_OCCLUSION_FROM_AO_BENT_NORMAL)
-				surfaceData.specularOcclusion = GetSpecularOcclusionFromBentAO(V, bentNormalWS, surfaceData.normalWS, surfaceData.ambientOcclusion, PerceptualSmoothnessToPerceptualRoughness(surfaceData.perceptualSmoothness));
+                    surfaceData.specularOcclusion = GetSpecularOcclusionFromBentAO(V, bentNormalWS, surfaceData.normalWS, surfaceData.ambientOcclusion, PerceptualSmoothnessToPerceptualRoughness(surfaceData.perceptualSmoothness));
                 #elif defined(_AMBIENT_OCCLUSION) && defined(_SPECULAR_OCCLUSION_FROM_AO)
-				surfaceData.specularOcclusion = GetSpecularOcclusionFromAmbientOcclusion(ClampNdotV(dot(surfaceData.normalWS, V)), surfaceData.ambientOcclusion, PerceptualSmoothnessToRoughness(surfaceData.perceptualSmoothness));
+                    surfaceData.specularOcclusion = GetSpecularOcclusionFromAmbientOcclusion(ClampNdotV(dot(surfaceData.normalWS, V)), surfaceData.ambientOcclusion, PerceptualSmoothnessToRoughness(surfaceData.perceptualSmoothness));
                 #endif
 
-				// debug
-				#if defined(DEBUG_DISPLAY)
-				    if (_DebugMipMapMode != DEBUGMIPMAPMODE_NONE)
-				    {
-					   surfaceData.metallic = 0;
-				    }
-				    ApplyDebugToSurfaceData(fragInputs.tangentToWorld, surfaceData); 
-				#endif
+                #ifdef _ENABLE_GEOMETRIC_SPECULAR_AA
+                    surfaceData.perceptualSmoothness = GeometricNormalFiltering(surfaceData.perceptualSmoothness, fragInputs.tangentToWorld[2], surfaceDescription.SpecularAAScreenSpaceVariance, surfaceDescription.SpecularAAThreshold);
+                #endif
 			}
 
+			// Get Surface And BuiltinData
 			void GetSurfaceAndBuiltinData(AlphaSurfaceDescription surfaceDescription, FragInputs fragInputs, float3 V, inout PositionInputs posInput, out SurfaceData surfaceData, out BuiltinData builtinData)
 			{
 				#ifdef LOD_FADE_CROSSFADE
-				LODDitheringTransition(ComputeFadeMaskSeed(V, posInput.positionSS), unity_LODFade.x);
+                    LODDitheringTransition(ComputeFadeMaskSeed(V, posInput.positionSS), unity_LODFade.x);
 				#endif
 
-				#ifdef _DOUBLESIDED_ON
-				float3 doubleSidedConstants = _DoubleSidedConstants.xyz;
-				#else
-				float3 doubleSidedConstants = float3( 1.0, 1.0, 1.0 );
-				#endif
-
-				ApplyDoubleSidedFlipOrMirror( fragInputs, doubleSidedConstants );
+                #ifdef _DOUBLESIDED_ON
+                    float3 doubleSidedConstants = _DoubleSidedConstants.xyz;
+                #else
+                    float3 doubleSidedConstants = float3(1.0, 1.0, 1.0);
+                #endif
+                ApplyDoubleSidedFlipOrMirror(fragInputs, doubleSidedConstants);
 
 				#ifdef _ALPHATEST_ON
-				#ifdef _ALPHATEST_SHADOW_ON
-				DoAlphaTest( surfaceDescription.Alpha, surfaceDescription.AlphaClipThresholdShadow );
-				#else
-				DoAlphaTest( surfaceDescription.Alpha, surfaceDescription.AlphaClipThreshold );
+                    DoAlphaTest( surfaceDescription.Alpha, surfaceDescription.AlphaClipThreshold );
 				#endif
+
+				#ifdef _ALPHATEST_SHADOW_ON
+                    DoAlphaTest( surfaceDescription.Alpha, surfaceDescription.AlphaClipThresholdShadow);
 				#endif
 
 				#ifdef _DEPTHOFFSET_ON
-				builtinData.depthOffset = surfaceDescription.DepthOffset;
-				ApplyDepthOffsetPositionInput( V, surfaceDescription.DepthOffset, GetViewForwardDir(), GetWorldToHClipMatrix(), posInput );
+                    ApplyDepthOffsetPositionInput(V, surfaceDescription.DepthOffset, GetViewForwardDir(), GetWorldToHClipMatrix(), posInput);
 				#endif
 
-				float3 bentNormalWS;
-				BuildSurfaceData( fragInputs, surfaceDescription, V, posInput, surfaceData, bentNormalWS );
+                float3 bentNormalWS;
+                BuildSurfaceData(fragInputs, surfaceDescription, V, posInput, surfaceData, bentNormalWS);
+                InitBuiltinData(posInput, surfaceDescription.Alpha, bentNormalWS, -fragInputs.tangentToWorld[2], fragInputs.texCoord1, fragInputs.texCoord2, builtinData);
 
-				InitBuiltinData( posInput, surfaceDescription.Alpha, bentNormalWS, -fragInputs.tangentToWorld[ 2 ], fragInputs.texCoord1, fragInputs.texCoord2, builtinData );
+				#ifdef _DEPTHOFFSET_ON
+                    builtinData.depthOffset = surfaceDescription.DepthOffset;
+				#endif
 
-				PostInitBuiltinData(V, posInput, surfaceData, builtinData);
+                #ifdef _ALPHATEST_ON
+                    builtinData.alphaClipTreshold = surfaceDescription.AlphaClipThreshold;
+                #endif
+
+                #ifdef UNITY_VIRTUAL_TEXTURING
+                    builtinData.vtPackedFeedback = surfaceDescription.VTPackedFeedback;
+                #endif
+
+				#ifdef ASE_BAKEDGI
+                    builtinData.bakeDiffuseLighting = surfaceDescription.BakedGI;
+				#endif
+
+				#ifdef ASE_BAKEDBACKGI
+                    builtinData.backBakeDiffuseLighting = surfaceDescription.BakedBackGI;
+				#endif
+
+                builtinData.emissiveColor = surfaceDescription.Emission;
+
+                PostInitBuiltinData(V, posInput, surfaceData, builtinData);
 			}
 
 			PackedVaryingsMeshToPS VertexFunction(AttributesMesh inputMesh )
@@ -2075,6 +2200,7 @@ Shader "Piloto Studio/PBR_UberShader"
 				#endif
 
 				inputMesh.normalOS =  inputMesh.normalOS ;
+				inputMesh.tangentOS = inputMesh.tangentOS;
 
 				float3 positionRWS = TransformObjectToWorld(inputMesh.positionOS);
 				outputPackedVaryingsMeshToPS.positionCS = TransformWorldToHClip(positionRWS);
@@ -2087,6 +2213,7 @@ Shader "Piloto Studio/PBR_UberShader"
 			{
 				float3 positionOS : INTERNALTESSPOS;
 				float3 normalOS : NORMAL;
+				float4 tangentOS : TANGENT;
 				float4 ase_texcoord : TEXCOORD0;
 
 				UNITY_VERTEX_INPUT_INSTANCE_ID
@@ -2105,6 +2232,7 @@ Shader "Piloto Studio/PBR_UberShader"
 				UNITY_TRANSFER_INSTANCE_ID(v, o);
 				o.positionOS = v.positionOS;
 				o.normalOS = v.normalOS;
+				o.tangentOS = v.tangentOS;
 				o.ase_texcoord = v.ase_texcoord;
 				return o;
 			}
@@ -2149,6 +2277,7 @@ Shader "Piloto Studio/PBR_UberShader"
 				AttributesMesh o = (AttributesMesh) 0;
 				o.positionOS = patch[0].positionOS * bary.x + patch[1].positionOS * bary.y + patch[2].positionOS * bary.z;
 				o.normalOS = patch[0].normalOS * bary.x + patch[1].normalOS * bary.y + patch[2].normalOS * bary.z;
+				o.tangentOS = patch[0].tangentOS * bary.x + patch[1].tangentOS * bary.y + patch[2].tangentOS * bary.z;
 				o.ase_texcoord = patch[0].ase_texcoord * bary.x + patch[1].ase_texcoord * bary.y + patch[2].ase_texcoord * bary.z;
 				#if defined(ASE_PHONG_TESSELLATION)
 				float3 pp[3];
@@ -2256,24 +2385,22 @@ Shader "Piloto Studio/PBR_UberShader"
 				#endif
 
 				#ifdef WRITE_MSAA_DEPTH
-				depthColor = packedInput.vmesh.positionCS.z;
-
-				#ifdef _ALPHATOMASK_ON
-				depthColor.a = SharpenAlpha(builtinData.opacity, builtinData.alphaClipTreshold);
-				#endif
+					depthColor = packedInput.vmesh.positionCS.z;
+					#ifdef _ALPHATOMASK_ON
+					depthColor.a = SharpenAlpha(builtinData.opacity, builtinData.alphaClipTreshold);
+					#endif
 				#endif
 
 				#if defined(WRITE_NORMAL_BUFFER)
 				EncodeIntoNormalBuffer(ConvertSurfaceDataToNormalData(surfaceData), outNormalBuffer);
 				#endif
 
-				#if defined(WRITE_DECAL_BUFFER) && !defined(_DISABLE_DECALS)
+                #if defined(WRITE_DECAL_BUFFER) && !defined(_DISABLE_DECALS)
 				DecalPrepassData decalPrepassData;
 				decalPrepassData.geomNormalWS = surfaceData.geomNormalWS;
 				decalPrepassData.decalLayerMask = GetMeshRenderingDecalLayer();
 				EncodeIntoDecalPrepassBuffer(decalPrepassData, outDecalBuffer);
-				#endif
-
+                #endif
 			}
 			ENDHLSL
 		}
@@ -2288,24 +2415,24 @@ Shader "Piloto Studio/PBR_UberShader"
 			Cull Off
 
 			HLSLPROGRAM
-
-			#define SUPPORT_BLENDMODE_PRESERVE_SPECULAR_LIGHTING
+			#pragma shader_feature_local _ _DOUBLESIDED_ON
 			#pragma shader_feature_local_fragment _ _DISABLE_DECALS
 			#pragma shader_feature_local_fragment _ _DISABLE_SSR_TRANSPARENT
+			#pragma shader_feature_local_fragment _ _CONSERVATIVE_DEPTH_OFFSET
 			#pragma multi_compile_instancing
 			#pragma instancing_options renderinglayer
 			#pragma shader_feature_local _ _ALPHATEST_ON
 			#define _AMBIENT_OCCLUSION 1
+			#define ASE_VERSION 19701
 			#define ASE_SRP_VERSION 120112
 
-
 			#pragma editor_sync_compilation
+            #pragma multi_compile _ DOTS_INSTANCING_ON
 
             #pragma shader_feature _ _SURFACE_TYPE_TRANSPARENT
             #pragma shader_feature_local _ _TRANSPARENT_WRITES_MOTION_VEC
             #pragma shader_feature_local_fragment _ _ENABLE_FOG_ON_TRANSPARENT
-
-            #pragma multi_compile _ DOTS_INSTANCING_ON
+			#pragma shader_feature_local _BLENDMODE_OFF _BLENDMODE_ALPHA _BLENDMODE_ADD _BLENDMODE_PRE_MULTIPLY
 
 			#pragma vertex Vert
 			#pragma fragment Frag
@@ -2322,47 +2449,57 @@ Shader "Piloto Studio/PBR_UberShader"
 			#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/TextureStack.hlsl"
             #include "Packages/com.unity.shadergraph/ShaderGraphLibrary/Functions.hlsl"
 
+            //#if !defined(SHADER_STAGE_RAY_TRACING) && SHADERPASS != SHADERPASS_RAYTRACING_GBUFFER && SHADERPASS != SHADERPASS_FULL_SCREEN_DEBUG
+            //#define FRAG_INPUTS_ENABLE_STRIPPING
+            //#endif
+
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/FragInputs.hlsl"
 
-			#ifndef SHADER_UNLIT
-			#if defined(_DOUBLESIDED_ON) && !defined(VARYINGS_NEED_CULLFACE)
-			#define VARYINGS_NEED_CULLFACE
-			#endif
+            #ifdef RAYTRACING_SHADER_GRAPH_DEFAULT
+                #define RAYTRACING_SHADER_GRAPH_HIGH
+            #endif
+
+            #ifdef RAYTRACING_SHADER_GRAPH_RAYTRACED
+                #define RAYTRACING_SHADER_GRAPH_LOW
+            #endif
+
+            #ifndef SHADER_UNLIT
+            #if defined(_DOUBLESIDED_ON) && !defined(VARYINGS_NEED_CULLFACE)
+                #define VARYINGS_NEED_CULLFACE
+            #endif
+            #endif
+
+			#if defined(_DOUBLESIDED_ON) && !defined(ASE_NEED_CULLFACE)
+			    #define ASE_NEED_CULLFACE 1
 			#endif
 
 		    #if defined(_MATERIAL_FEATURE_SUBSURFACE_SCATTERING) && !defined(_SURFACE_TYPE_TRANSPARENT)
 			#define OUTPUT_SPLIT_LIGHTING
 		    #endif
 
-		    #if (SHADERPASS == SHADERPASS_PATH_TRACING) && !defined(_DOUBLESIDED_ON) && (defined(_REFRACTION_PLANE) || defined(_REFRACTION_SPHERE))
-			#undef  _REFRACTION_PLANE
-			#undef  _REFRACTION_SPHERE
-			#define _REFRACTION_THIN
-		    #endif
+            #if SHADERPASS == SHADERPASS_TRANSPARENT_DEPTH_PREPASS
+            #if !defined(_DISABLE_SSR_TRANSPARENT) && !defined(SHADER_UNLIT)
+                #define WRITE_NORMAL_BUFFER
+            #endif
+            #endif
 
-			#if SHADERPASS == SHADERPASS_TRANSPARENT_DEPTH_PREPASS
-			#if !defined(_DISABLE_SSR_TRANSPARENT) && !defined(SHADER_UNLIT)
-				#define WRITE_NORMAL_BUFFER
-			#endif
-			#endif
+            #ifndef DEBUG_DISPLAY
+                #if !defined(_SURFACE_TYPE_TRANSPARENT)
+                    #if SHADERPASS == SHADERPASS_FORWARD
+                    #define SHADERPASS_FORWARD_BYPASS_ALPHA_TEST
+                    #elif SHADERPASS == SHADERPASS_GBUFFER
+                    #define SHADERPASS_GBUFFER_BYPASS_ALPHA_TEST
+                    #endif
+                #endif
+            #endif
 
-			#ifndef DEBUG_DISPLAY
-				#if !defined(_SURFACE_TYPE_TRANSPARENT)
-					#if SHADERPASS == SHADERPASS_FORWARD
-					#define SHADERPASS_FORWARD_BYPASS_ALPHA_TEST
-					#elif SHADERPASS == SHADERPASS_GBUFFER
-					#define SHADERPASS_GBUFFER_BYPASS_ALPHA_TEST
-					#endif
-				#endif
-			#endif
+            #if defined(SHADER_LIT) && !defined(_SURFACE_TYPE_TRANSPARENT)
+                #define _DEFERRED_CAPABLE_MATERIAL
+            #endif
 
-			#if defined(SHADER_LIT) && !defined(_SURFACE_TYPE_TRANSPARENT)
-			#define _DEFERRED_CAPABLE_MATERIAL
-			#endif
-
-			#if defined(_TRANSPARENT_WRITES_MOTION_VEC) && defined(_SURFACE_TYPE_TRANSPARENT)
-			#define _WRITE_TRANSPARENT_MOTION_VECTOR
-			#endif
+            #if defined(_TRANSPARENT_WRITES_MOTION_VEC) && defined(_SURFACE_TYPE_TRANSPARENT)
+                #define _WRITE_TRANSPARENT_MOTION_VECTOR
+            #endif
 
 			CBUFFER_START( UnityPerMaterial )
 			float4 _BaseColorTint;
@@ -2386,7 +2523,7 @@ Shader "Piloto Studio/PBR_UberShader"
 			float _AlphaCutoff;
 			float _RenderQueueType;
 			#ifdef _ADD_PRECOMPUTED_VELOCITY
-			float _AddPrecomputedVelocity;
+			    float _AddPrecomputedVelocity;
 			#endif
 			float _StencilRef;
 			float _StencilWriteMask;
@@ -2394,6 +2531,8 @@ Shader "Piloto Studio/PBR_UberShader"
 			float _StencilWriteMaskDepth;
 			float _StencilRefMV;
 			float _StencilWriteMaskMV;
+			float _StencilRefDistortionVec;
+			float _StencilWriteMaskDistortionVec;
 			float _StencilWriteMaskGBuffer;
 			float _StencilRefGBuffer;
 			float _ZTestGBuffer;
@@ -2402,7 +2541,7 @@ Shader "Piloto Studio/PBR_UberShader"
 			float _SurfaceType;
 			float _BlendMode;
             #ifdef SUPPORT_BLENDMODE_PRESERVE_SPECULAR_LIGHTING
-			float _EnableBlendModePreserveSpecularLighting;
+			    float _EnableBlendModePreserveSpecularLighting;
             #endif
 			float _SrcBlend;
 			float _DstBlend;
@@ -2424,12 +2563,12 @@ Shader "Piloto Studio/PBR_UberShader"
 			float _DoubleSidedNormalMode;
 			float4 _DoubleSidedConstants;
 			#ifdef ASE_TESSELLATION
-			float _TessPhongStrength;
-			float _TessValue;
-			float _TessMin;
-			float _TessMax;
-			float _TessEdgeLength;
-			float _TessMaxDisp;
+			    float _TessPhongStrength;
+			    float _TessValue;
+			    float _TessMin;
+			    float _TessMax;
+			    float _TessEdgeLength;
+			    float _TessMaxDisp;
 			#endif
 			CBUFFER_END
 
@@ -2457,21 +2596,20 @@ Shader "Piloto Studio/PBR_UberShader"
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/Material/MaterialUtilities.hlsl"
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderGraphFunctions.hlsl"
 
-			// Setup DECALS_OFF so the shader stripper can remove variants
-            #define HAVE_DECALS ( (defined(DECALS_3RT) || defined(DECALS_4RT)) && !defined(_DISABLE_DECALS) )
             #include "Packages/com.unity.render-pipelines.high-definition/Runtime/Material/Decal/DecalUtilities.hlsl"
             #include "Packages/com.unity.render-pipelines.high-definition/Runtime/Material/Lit/LitDecalData.hlsl"
 
-			
+        	#ifdef HAVE_VFX_MODIFICATION
+            #include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/VisualEffectVertex.hlsl"
+        	#endif
 
-			#if defined(_DOUBLESIDED_ON) && !defined(ASE_NEED_CULLFACE)
-			#define ASE_NEED_CULLFACE 1
-			#endif
+			
 
 			struct AttributesMesh
 			{
 				float3 positionOS : POSITION;
 				float3 normalOS : NORMAL;
+				float4 tangentOS : TANGENT;
 				float4 ase_texcoord : TEXCOORD0;
 				UNITY_VERTEX_INPUT_INSTANCE_ID
 			};
@@ -2495,80 +2633,72 @@ Shader "Piloto Studio/PBR_UberShader"
 
 				surfaceData.specularOcclusion = 1.0;
 
-				// surface data
-
-				// refraction SceneSelectionPass
-                //#if defined(_REFRACTION_PLANE) || defined(_REFRACTION_SPHERE) || defined(_REFRACTION_THIN)
-                    //if (_EnableSSRefraction)
-                    //{
-                        //surfaceData.ior =                       surfaceDescription.RefractionIndex;
-                        //surfaceData.transmittanceColor =        surfaceDescription.RefractionColor;
-                        //surfaceData.atDistance =                surfaceDescription.RefractionDistance;
+				//refraction SceneSelectionPass
+                #if defined(_REFRACTION_PLANE) || defined(_REFRACTION_SPHERE) || defined(_REFRACTION_THIN)
+                    if (_EnableSSRefraction)
+                    {
+                        surfaceData.ior =                       surfaceDescription.RefractionIndex;
+                        surfaceData.transmittanceColor =        surfaceDescription.RefractionColor;
+                        surfaceData.atDistance =                surfaceDescription.RefractionDistance;
         
-                        //surfaceData.transmittanceMask = (1.0 - surfaceDescription.Alpha);
-                        //surfaceDescription.Alpha = 1.0;
-                    //}
-                    //else
-                    //{
-                        //surfaceData.ior = 1.0;
-                        //surfaceData.transmittanceColor = float3(1.0, 1.0, 1.0);
-                        //surfaceData.atDistance = 1.0;
-                        //surfaceData.transmittanceMask = 0.0;
-                        //surfaceDescription.Alpha = 1.0;
-                    //}
-                //#else
-                    //surfaceData.ior = 1.0;
-                    //surfaceData.transmittanceColor = float3(1.0, 1.0, 1.0);
-                    //surfaceData.atDistance = 1.0;
-                    //surfaceData.transmittanceMask = 0.0;
-                //#endif
+                        surfaceData.transmittanceMask = (1.0 - surfaceDescription.Alpha);
+                        surfaceDescription.Alpha = 1.0;
+                    }
+                    else
+                    {
+                        surfaceData.ior = 1.0;
+                        surfaceData.transmittanceColor = float3(1.0, 1.0, 1.0);
+                        surfaceData.atDistance = 1.0;
+                        surfaceData.transmittanceMask = 0.0;
+                        surfaceDescription.Alpha = 1.0;
+                    }
+                #else
+                    surfaceData.ior = 1.0;
+                    surfaceData.transmittanceColor = float3(1.0, 1.0, 1.0);
+                    surfaceData.atDistance = 1.0;
+                    surfaceData.transmittanceMask = 0.0;
+                #endif
 
-
-				// material features
 				surfaceData.materialFeatures = MATERIALFEATUREFLAGS_LIT_STANDARD;
+
 				#ifdef _MATERIAL_FEATURE_SUBSURFACE_SCATTERING
-				surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_SUBSURFACE_SCATTERING;
+                    surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_SUBSURFACE_SCATTERING;
 				#endif
 
 				#ifdef _MATERIAL_FEATURE_TRANSMISSION
-				surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_TRANSMISSION;
+                    surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_TRANSMISSION;
 				#endif
 
                 #ifdef _MATERIAL_FEATURE_ANISOTROPY
-				surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_ANISOTROPY;
-				surfaceData.normalWS = float3(0, 1, 0);
+                    surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_ANISOTROPY;
+                    surfaceData.normalWS = float3(0, 1, 0);
                 #endif
 
 				#ifdef _MATERIAL_FEATURE_CLEAR_COAT
-				surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_CLEAR_COAT;
+                    surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_CLEAR_COAT;
 				#endif
 
 				#ifdef _MATERIAL_FEATURE_IRIDESCENCE
-				surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_IRIDESCENCE;
+                    surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_IRIDESCENCE;
 				#endif
 
 				#ifdef _MATERIAL_FEATURE_SPECULAR_COLOR
-				surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_SPECULAR_COLOR;
+                    surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_SPECULAR_COLOR;
 				#endif
 
-				// others
 				#if defined (_MATERIAL_FEATURE_SPECULAR_COLOR) && defined (_ENERGY_CONSERVING_SPECULAR)
-				surfaceData.baseColor *= ( 1.0 - Max3( surfaceData.specularColor.r, surfaceData.specularColor.g, surfaceData.specularColor.b ) );
+                    surfaceData.baseColor *= ( 1.0 - Max3( surfaceData.specularColor.r, surfaceData.specularColor.g, surfaceData.specularColor.b ) );
 				#endif
+
 				#ifdef _DOUBLESIDED_ON
-				float3 doubleSidedConstants = _DoubleSidedConstants.xyz;
+                    float3 doubleSidedConstants = _DoubleSidedConstants.xyz;
 				#else
-				float3 doubleSidedConstants = float3( 1.0, 1.0, 1.0 );
+                    float3 doubleSidedConstants = float3( 1.0, 1.0, 1.0 );
 				#endif
 
-				// normals
 				float3 normalTS = float3(0.0f, 0.0f, 1.0f);
-				GetNormalWS( fragInputs, normalTS, surfaceData.normalWS, doubleSidedConstants );
+				GetNormalWS(fragInputs, normalTS, surfaceData.normalWS, doubleSidedConstants);
 
-				surfaceData.geomNormalWS = fragInputs.tangentToWorld[2];
-				surfaceData.tangentWS = normalize( fragInputs.tangentToWorld[ 0 ].xyz );
-
-				// decals
 				#if HAVE_DECALS
 				if (_EnableDecals)
 				{
@@ -2577,55 +2707,85 @@ Shader "Piloto Studio/PBR_UberShader"
 				}
 				#endif
 
+				surfaceData.geomNormalWS = fragInputs.tangentToWorld[2];
+                surfaceData.tangentWS = normalize(fragInputs.tangentToWorld[0].xyz );
+                surfaceData.tangentWS = Orthonormalize(surfaceData.tangentWS, surfaceData.normalWS);
+
 				bentNormalWS = surfaceData.normalWS;
-				surfaceData.tangentWS = Orthonormalize( surfaceData.tangentWS, surfaceData.normalWS );
+
+                #if defined(DEBUG_DISPLAY)
+                    if (_DebugMipMapMode != DEBUGMIPMAPMODE_NONE)
+                   {
+                        surfaceData.metallic = 0;
+                   }
+                     ApplyDebugToSurfaceData(fragInputs.tangentToWorld, surfaceData);
+                #endif
 
                 #if defined(_SPECULAR_OCCLUSION_CUSTOM)
                 #elif defined(_SPECULAR_OCCLUSION_FROM_AO_BENT_NORMAL)
-				surfaceData.specularOcclusion = GetSpecularOcclusionFromBentAO(V, bentNormalWS, surfaceData.normalWS, surfaceData.ambientOcclusion, PerceptualSmoothnessToPerceptualRoughness(surfaceData.perceptualSmoothness));
+                    surfaceData.specularOcclusion = GetSpecularOcclusionFromBentAO(V, bentNormalWS, surfaceData.normalWS, surfaceData.ambientOcclusion, PerceptualSmoothnessToPerceptualRoughness(surfaceData.perceptualSmoothness));
                 #elif defined(_AMBIENT_OCCLUSION) && defined(_SPECULAR_OCCLUSION_FROM_AO)
-				surfaceData.specularOcclusion = GetSpecularOcclusionFromAmbientOcclusion(ClampNdotV(dot(surfaceData.normalWS, V)), surfaceData.ambientOcclusion, PerceptualSmoothnessToRoughness(surfaceData.perceptualSmoothness));
+                    surfaceData.specularOcclusion = GetSpecularOcclusionFromAmbientOcclusion(ClampNdotV(dot(surfaceData.normalWS, V)), surfaceData.ambientOcclusion, PerceptualSmoothnessToRoughness(surfaceData.perceptualSmoothness));
                 #endif
 
-				// debug
-				#if defined(DEBUG_DISPLAY)
-				    if (_DebugMipMapMode != DEBUGMIPMAPMODE_NONE)
-				    {
-					   surfaceData.metallic = 0;
-				    }
-				    ApplyDebugToSurfaceData(fragInputs.tangentToWorld, surfaceData); 
-				#endif
+                #ifdef _ENABLE_GEOMETRIC_SPECULAR_AA
+                    surfaceData.perceptualSmoothness = GeometricNormalFiltering(surfaceData.perceptualSmoothness, fragInputs.tangentToWorld[2], surfaceDescription.SpecularAAScreenSpaceVariance, surfaceDescription.SpecularAAThreshold);
+                #endif
 			}
 
+			// Get Surface And BuiltinData
 			void GetSurfaceAndBuiltinData(SceneSurfaceDescription surfaceDescription, FragInputs fragInputs, float3 V, inout PositionInputs posInput, out SurfaceData surfaceData, out BuiltinData builtinData)
 			{
 				#ifdef LOD_FADE_CROSSFADE
-				LODDitheringTransition(ComputeFadeMaskSeed(V, posInput.positionSS), unity_LODFade.x);
+                    LODDitheringTransition(ComputeFadeMaskSeed(V, posInput.positionSS), unity_LODFade.x);
 				#endif
 
-				#ifdef _DOUBLESIDED_ON
-				float3 doubleSidedConstants = _DoubleSidedConstants.xyz;
-				#else
-				float3 doubleSidedConstants = float3( 1.0, 1.0, 1.0 );
-				#endif
-
-				ApplyDoubleSidedFlipOrMirror( fragInputs, doubleSidedConstants );
+                #ifdef _DOUBLESIDED_ON
+                    float3 doubleSidedConstants = _DoubleSidedConstants.xyz;
+                #else
+                    float3 doubleSidedConstants = float3(1.0, 1.0, 1.0);
+                #endif
+                ApplyDoubleSidedFlipOrMirror(fragInputs, doubleSidedConstants);
 
 				#ifdef _ALPHATEST_ON
-				DoAlphaTest( surfaceDescription.Alpha, surfaceDescription.AlphaClipThreshold );
+                    DoAlphaTest( surfaceDescription.Alpha, surfaceDescription.AlphaClipThreshold );
+				#endif
+
+				#ifdef _ALPHATEST_SHADOW_ON
+                    DoAlphaTest( surfaceDescription.Alpha, surfaceDescription.AlphaClipThresholdShadow);
 				#endif
 
 				#ifdef _DEPTHOFFSET_ON
-				builtinData.depthOffset = surfaceDescription.DepthOffset;
-				ApplyDepthOffsetPositionInput( V, surfaceDescription.DepthOffset, GetViewForwardDir(), GetWorldToHClipMatrix(), posInput );
+                    ApplyDepthOffsetPositionInput(V, surfaceDescription.DepthOffset, GetViewForwardDir(), GetWorldToHClipMatrix(), posInput);
 				#endif
 
-				float3 bentNormalWS;
-				BuildSurfaceData( fragInputs, surfaceDescription, V, posInput, surfaceData, bentNormalWS );
+                float3 bentNormalWS;
+                BuildSurfaceData(fragInputs, surfaceDescription, V, posInput, surfaceData, bentNormalWS);
+                InitBuiltinData(posInput, surfaceDescription.Alpha, bentNormalWS, -fragInputs.tangentToWorld[2], fragInputs.texCoord1, fragInputs.texCoord2, builtinData);
 
-				InitBuiltinData( posInput, surfaceDescription.Alpha, bentNormalWS, -fragInputs.tangentToWorld[ 2 ], fragInputs.texCoord1, fragInputs.texCoord2, builtinData );
+				#ifdef _DEPTHOFFSET_ON
+                    builtinData.depthOffset = surfaceDescription.DepthOffset;
+				#endif
 
-				PostInitBuiltinData(V, posInput, surfaceData, builtinData);
+                #ifdef _ALPHATEST_ON
+                    builtinData.alphaClipTreshold = surfaceDescription.AlphaClipThreshold;
+                #endif
+
+                #ifdef UNITY_VIRTUAL_TEXTURING
+                    builtinData.vtPackedFeedback = surfaceDescription.VTPackedFeedback;
+                #endif
+
+				#ifdef ASE_BAKEDGI
+                    builtinData.bakeDiffuseLighting = surfaceDescription.BakedGI;
+				#endif
+
+				#ifdef ASE_BAKEDBACKGI
+                    builtinData.backBakeDiffuseLighting = surfaceDescription.BakedBackGI;
+				#endif
+
+                builtinData.emissiveColor = surfaceDescription.Emission;
+
+                PostInitBuiltinData(V, posInput, surfaceData, builtinData);
 			}
 
 			PackedVaryingsMeshToPS VertexFunction(AttributesMesh inputMesh )
@@ -2654,6 +2814,7 @@ Shader "Piloto Studio/PBR_UberShader"
 				#endif
 
 				inputMesh.normalOS =  inputMesh.normalOS ;
+				inputMesh.tangentOS = inputMesh.tangentOS;
 
 				float3 positionRWS = TransformObjectToWorld(inputMesh.positionOS);
 				outputPackedVaryingsMeshToPS.positionCS = TransformWorldToHClip(positionRWS);
@@ -2666,6 +2827,7 @@ Shader "Piloto Studio/PBR_UberShader"
 			{
 				float3 positionOS : INTERNALTESSPOS;
 				float3 normalOS : NORMAL;
+				float4 tangentOS : TANGENT;
 				float4 ase_texcoord : TEXCOORD0;
 
 				UNITY_VERTEX_INPUT_INSTANCE_ID
@@ -2684,6 +2846,7 @@ Shader "Piloto Studio/PBR_UberShader"
 				UNITY_TRANSFER_INSTANCE_ID(v, o);
 				o.positionOS = v.positionOS;
 				o.normalOS = v.normalOS;
+				o.tangentOS = v.tangentOS;
 				o.ase_texcoord = v.ase_texcoord;
 				return o;
 			}
@@ -2728,6 +2891,7 @@ Shader "Piloto Studio/PBR_UberShader"
 				AttributesMesh o = (AttributesMesh) 0;
 				o.positionOS = patch[0].positionOS * bary.x + patch[1].positionOS * bary.y + patch[2].positionOS * bary.z;
 				o.normalOS = patch[0].normalOS * bary.x + patch[1].normalOS * bary.y + patch[2].normalOS * bary.z;
+				o.tangentOS = patch[0].tangentOS * bary.x + patch[1].tangentOS * bary.y + patch[2].tangentOS * bary.z;
 				o.ase_texcoord = patch[0].ase_texcoord * bary.x + patch[1].ase_texcoord * bary.y + patch[2].ase_texcoord * bary.z;
 				#if defined(ASE_PHONG_TESSELLATION)
 				float3 pp[3];
@@ -2823,7 +2987,6 @@ Shader "Piloto Studio/PBR_UberShader"
 			Tags { "LightMode"="DepthOnly" }
 
 			Cull [_CullMode]
-
 			ZWrite On
 
 			Stencil
@@ -2838,29 +3001,32 @@ Shader "Piloto Studio/PBR_UberShader"
 
 
 			HLSLPROGRAM
+			#pragma shader_feature_local _ _DOUBLESIDED_ON
+			#pragma shader_feature_local_fragment _ _DISABLE_DECALS
+			#pragma shader_feature_local_fragment _ _DISABLE_SSR_TRANSPARENT
+			#pragma shader_feature_local_fragment _ _CONSERVATIVE_DEPTH_OFFSET
+			#pragma multi_compile_instancing
+			#pragma instancing_options renderinglayer
+			#pragma shader_feature_local _ _ALPHATEST_ON
+			#define _AMBIENT_OCCLUSION 1
+			#define ASE_VERSION 19701
+			#define ASE_SRP_VERSION 120112
 
-            #define SUPPORT_BLENDMODE_PRESERVE_SPECULAR_LIGHTING
-            #pragma shader_feature_local_fragment _ _DISABLE_DECALS
-            #pragma shader_feature_local_fragment _ _DISABLE_SSR_TRANSPARENT
-            #pragma multi_compile_instancing
-            #pragma instancing_options renderinglayer
-            #pragma shader_feature_local _ _ALPHATEST_ON
-            #define _AMBIENT_OCCLUSION 1
-            #define ASE_SRP_VERSION 120112
-
+			#pragma multi_compile _ DOTS_INSTANCING_ON
 
             #pragma shader_feature _ _SURFACE_TYPE_TRANSPARENT
             #pragma shader_feature_local _ _TRANSPARENT_WRITES_MOTION_VEC
             #pragma shader_feature_local_fragment _ _ENABLE_FOG_ON_TRANSPARENT
+			#pragma shader_feature_local _BLENDMODE_OFF _BLENDMODE_ALPHA _BLENDMODE_ADD _BLENDMODE_PRE_MULTIPLY
 
             #pragma multi_compile _ WRITE_NORMAL_BUFFER
             #pragma multi_compile_fragment _ WRITE_MSAA_DEPTH
             #pragma multi_compile _ WRITE_DECAL_BUFFER
 
-            #pragma multi_compile _ DOTS_INSTANCING_ON
-
 			#pragma vertex Vert
 			#pragma fragment Frag
+
+            #define SHADERPASS SHADERPASS_DEPTH_ONLY
 
 			#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Common.hlsl"
 			#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/GeometricTools.hlsl"
@@ -2871,49 +3037,57 @@ Shader "Piloto Studio/PBR_UberShader"
 			#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/TextureStack.hlsl"
             #include "Packages/com.unity.shadergraph/ShaderGraphLibrary/Functions.hlsl"
 
+            //#if !defined(SHADER_STAGE_RAY_TRACING) && SHADERPASS != SHADERPASS_RAYTRACING_GBUFFER && SHADERPASS != SHADERPASS_FULL_SCREEN_DEBUG
+            //#define FRAG_INPUTS_ENABLE_STRIPPING
+            //#endif
+
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/FragInputs.hlsl"
 
-			#define SHADERPASS SHADERPASS_DEPTH_ONLY
+            #ifdef RAYTRACING_SHADER_GRAPH_DEFAULT
+                #define RAYTRACING_SHADER_GRAPH_HIGH
+            #endif
+        
+            #ifdef RAYTRACING_SHADER_GRAPH_RAYTRACED
+                #define RAYTRACING_SHADER_GRAPH_LOW
+            #endif
 
-			#ifndef SHADER_UNLIT
-			#if defined(_DOUBLESIDED_ON) && !defined(VARYINGS_NEED_CULLFACE)
-			#define VARYINGS_NEED_CULLFACE
-			#endif
+            #ifndef SHADER_UNLIT
+            #if defined(_DOUBLESIDED_ON) && !defined(VARYINGS_NEED_CULLFACE)
+                #define VARYINGS_NEED_CULLFACE
+            #endif
+            #endif
+
+			#if defined(_DOUBLESIDED_ON) && !defined(ASE_NEED_CULLFACE)
+			    #define ASE_NEED_CULLFACE 1
 			#endif
 
 		    #if defined(_MATERIAL_FEATURE_SUBSURFACE_SCATTERING) && !defined(_SURFACE_TYPE_TRANSPARENT)
 			#define OUTPUT_SPLIT_LIGHTING
 		    #endif
 
-		    #if (SHADERPASS == SHADERPASS_PATH_TRACING) && !defined(_DOUBLESIDED_ON) && (defined(_REFRACTION_PLANE) || defined(_REFRACTION_SPHERE))
-			#undef  _REFRACTION_PLANE
-			#undef  _REFRACTION_SPHERE
-			#define _REFRACTION_THIN
-		    #endif
+            #if SHADERPASS == SHADERPASS_TRANSPARENT_DEPTH_PREPASS
+            #if !defined(_DISABLE_SSR_TRANSPARENT) && !defined(SHADER_UNLIT)
+                #define WRITE_NORMAL_BUFFER
+            #endif
+            #endif
 
-			#if SHADERPASS == SHADERPASS_TRANSPARENT_DEPTH_PREPASS
-			#if !defined(_DISABLE_SSR_TRANSPARENT) && !defined(SHADER_UNLIT)
-				#define WRITE_NORMAL_BUFFER
-			#endif
-			#endif
+            #ifndef DEBUG_DISPLAY
+                #if !defined(_SURFACE_TYPE_TRANSPARENT)
+                    #if SHADERPASS == SHADERPASS_FORWARD
+                    #define SHADERPASS_FORWARD_BYPASS_ALPHA_TEST
+                    #elif SHADERPASS == SHADERPASS_GBUFFER
+                    #define SHADERPASS_GBUFFER_BYPASS_ALPHA_TEST
+                    #endif
+                #endif
+            #endif
 
-			#ifndef DEBUG_DISPLAY
-				#if !defined(_SURFACE_TYPE_TRANSPARENT)
-					#if SHADERPASS == SHADERPASS_FORWARD
-					#define SHADERPASS_FORWARD_BYPASS_ALPHA_TEST
-					#elif SHADERPASS == SHADERPASS_GBUFFER
-					#define SHADERPASS_GBUFFER_BYPASS_ALPHA_TEST
-					#endif
-				#endif
-			#endif
+            #if defined(SHADER_LIT) && !defined(_SURFACE_TYPE_TRANSPARENT)
+                #define _DEFERRED_CAPABLE_MATERIAL
+            #endif
 
-			#if defined(SHADER_LIT) && !defined(_SURFACE_TYPE_TRANSPARENT)
-			#define _DEFERRED_CAPABLE_MATERIAL
-			#endif
-
-			#if defined(_TRANSPARENT_WRITES_MOTION_VEC) && defined(_SURFACE_TYPE_TRANSPARENT)
-			#define _WRITE_TRANSPARENT_MOTION_VECTOR
-			#endif
+            #if defined(_TRANSPARENT_WRITES_MOTION_VEC) && defined(_SURFACE_TYPE_TRANSPARENT)
+                #define _WRITE_TRANSPARENT_MOTION_VECTOR
+            #endif
 
 			CBUFFER_START( UnityPerMaterial )
 			float4 _BaseColorTint;
@@ -2937,7 +3111,7 @@ Shader "Piloto Studio/PBR_UberShader"
 			float _AlphaCutoff;
 			float _RenderQueueType;
 			#ifdef _ADD_PRECOMPUTED_VELOCITY
-			float _AddPrecomputedVelocity;
+			    float _AddPrecomputedVelocity;
 			#endif
 			float _StencilRef;
 			float _StencilWriteMask;
@@ -2945,6 +3119,8 @@ Shader "Piloto Studio/PBR_UberShader"
 			float _StencilWriteMaskDepth;
 			float _StencilRefMV;
 			float _StencilWriteMaskMV;
+			float _StencilRefDistortionVec;
+			float _StencilWriteMaskDistortionVec;
 			float _StencilWriteMaskGBuffer;
 			float _StencilRefGBuffer;
 			float _ZTestGBuffer;
@@ -2953,7 +3129,7 @@ Shader "Piloto Studio/PBR_UberShader"
 			float _SurfaceType;
 			float _BlendMode;
             #ifdef SUPPORT_BLENDMODE_PRESERVE_SPECULAR_LIGHTING
-			float _EnableBlendModePreserveSpecularLighting;
+			    float _EnableBlendModePreserveSpecularLighting;
             #endif
 			float _SrcBlend;
 			float _DstBlend;
@@ -2975,12 +3151,12 @@ Shader "Piloto Studio/PBR_UberShader"
 			float _DoubleSidedNormalMode;
 			float4 _DoubleSidedConstants;
 			#ifdef ASE_TESSELLATION
-			float _TessPhongStrength;
-			float _TessValue;
-			float _TessMin;
-			float _TessMax;
-			float _TessEdgeLength;
-			float _TessMaxDisp;
+			    float _TessPhongStrength;
+			    float _TessValue;
+			    float _TessMin;
+			    float _TessMax;
+			    float _TessEdgeLength;
+			    float _TessMaxDisp;
 			#endif
 			CBUFFER_END
 
@@ -3009,16 +3185,14 @@ Shader "Piloto Studio/PBR_UberShader"
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/Material/MaterialUtilities.hlsl"
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderGraphFunctions.hlsl"
 
-			// Setup DECALS_OFF so the shader stripper can remove variants
-            #define HAVE_DECALS ( (defined(DECALS_3RT) || defined(DECALS_4RT)) && !defined(_DISABLE_DECALS) )
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/Material/Decal/DecalUtilities.hlsl"
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/Material/Lit/LitDecalData.hlsl"
 
-			
+        	#ifdef HAVE_VFX_MODIFICATION
+			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/VisualEffectVertex.hlsl"
+        	#endif
 
-			#if defined(_DOUBLESIDED_ON) && !defined(ASE_NEED_CULLFACE)
-			#define ASE_NEED_CULLFACE 1
-			#endif
+			
 
 			struct AttributesMesh
 			{
@@ -3049,8 +3223,6 @@ Shader "Piloto Studio/PBR_UberShader"
 				ZERO_INITIALIZE(SurfaceData, surfaceData);
 
 				surfaceData.specularOcclusion = 1.0;
-
-				// surface data
 				surfaceData.perceptualSmoothness =		surfaceDescription.Smoothness;
 
 				// refraction
@@ -3079,53 +3251,47 @@ Shader "Piloto Studio/PBR_UberShader"
                     surfaceData.transmittanceMask = 0.0;
                 #endif
 
-
-				// material features
 				surfaceData.materialFeatures = MATERIALFEATUREFLAGS_LIT_STANDARD;
+
 				#ifdef _MATERIAL_FEATURE_SUBSURFACE_SCATTERING
-				surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_SUBSURFACE_SCATTERING;
+                    surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_SUBSURFACE_SCATTERING;
 				#endif
 
 				#ifdef _MATERIAL_FEATURE_TRANSMISSION
-				surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_TRANSMISSION;
+                    surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_TRANSMISSION;
 				#endif
 
                 #ifdef _MATERIAL_FEATURE_ANISOTROPY
-				surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_ANISOTROPY;
-				surfaceData.normalWS = float3(0, 1, 0);
+                    surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_ANISOTROPY;
+                    surfaceData.normalWS = float3(0, 1, 0);
                 #endif
 
 				#ifdef _MATERIAL_FEATURE_CLEAR_COAT
-				surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_CLEAR_COAT;
+                    surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_CLEAR_COAT;
 				#endif
 
 				#ifdef _MATERIAL_FEATURE_IRIDESCENCE
-				surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_IRIDESCENCE;
+                    surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_IRIDESCENCE;
 				#endif
 
 				#ifdef _MATERIAL_FEATURE_SPECULAR_COLOR
-				surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_SPECULAR_COLOR;
+                    surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_SPECULAR_COLOR;
 				#endif
 
-				// others
 				#if defined (_MATERIAL_FEATURE_SPECULAR_COLOR) && defined (_ENERGY_CONSERVING_SPECULAR)
-				surfaceData.baseColor *= ( 1.0 - Max3( surfaceData.specularColor.r, surfaceData.specularColor.g, surfaceData.specularColor.b ) );
-				#endif
-				#ifdef _DOUBLESIDED_ON
-				float3 doubleSidedConstants = _DoubleSidedConstants.xyz;
-				#else
-				float3 doubleSidedConstants = float3( 1.0, 1.0, 1.0 );
+                    surfaceData.baseColor *= ( 1.0 - Max3( surfaceData.specularColor.r, surfaceData.specularColor.g, surfaceData.specularColor.b ) );
 				#endif
 
-				// normals
+				#ifdef _DOUBLESIDED_ON
+				    float3 doubleSidedConstants = _DoubleSidedConstants.xyz;
+				#else
+				    float3 doubleSidedConstants = float3( 1.0, 1.0, 1.0 );
+				#endif
+
 				float3 normalTS = float3(0.0f, 0.0f, 1.0f);
 				normalTS = surfaceDescription.Normal;
-				GetNormalWS( fragInputs, normalTS, surfaceData.normalWS, doubleSidedConstants );
+				GetNormalWS(fragInputs, normalTS, surfaceData.normalWS, doubleSidedConstants);
 
-				surfaceData.geomNormalWS = fragInputs.tangentToWorld[2];
-				surfaceData.tangentWS = normalize( fragInputs.tangentToWorld[ 0 ].xyz );
-
-				// decals
 				#if HAVE_DECALS
 				if (_EnableDecals)
 				{
@@ -3134,55 +3300,85 @@ Shader "Piloto Studio/PBR_UberShader"
 				}
 				#endif
 
+				surfaceData.geomNormalWS = fragInputs.tangentToWorld[2];
+                surfaceData.tangentWS = normalize(fragInputs.tangentToWorld[0].xyz );
+                surfaceData.tangentWS = Orthonormalize(surfaceData.tangentWS, surfaceData.normalWS);
+
 				bentNormalWS = surfaceData.normalWS;
-				surfaceData.tangentWS = Orthonormalize( surfaceData.tangentWS, surfaceData.normalWS );
+
+                #if defined(DEBUG_DISPLAY)
+                    if (_DebugMipMapMode != DEBUGMIPMAPMODE_NONE)
+                    {
+                        surfaceData.metallic = 0;
+                    }
+                     ApplyDebugToSurfaceData(fragInputs.tangentToWorld, surfaceData);
+                #endif
 
                 #if defined(_SPECULAR_OCCLUSION_CUSTOM)
                 #elif defined(_SPECULAR_OCCLUSION_FROM_AO_BENT_NORMAL)
-				surfaceData.specularOcclusion = GetSpecularOcclusionFromBentAO(V, bentNormalWS, surfaceData.normalWS, surfaceData.ambientOcclusion, PerceptualSmoothnessToPerceptualRoughness(surfaceData.perceptualSmoothness));
+                    surfaceData.specularOcclusion = GetSpecularOcclusionFromBentAO(V, bentNormalWS, surfaceData.normalWS, surfaceData.ambientOcclusion, PerceptualSmoothnessToPerceptualRoughness(surfaceData.perceptualSmoothness));
                 #elif defined(_AMBIENT_OCCLUSION) && defined(_SPECULAR_OCCLUSION_FROM_AO)
-				surfaceData.specularOcclusion = GetSpecularOcclusionFromAmbientOcclusion(ClampNdotV(dot(surfaceData.normalWS, V)), surfaceData.ambientOcclusion, PerceptualSmoothnessToRoughness(surfaceData.perceptualSmoothness));
+                    surfaceData.specularOcclusion = GetSpecularOcclusionFromAmbientOcclusion(ClampNdotV(dot(surfaceData.normalWS, V)), surfaceData.ambientOcclusion, PerceptualSmoothnessToRoughness(surfaceData.perceptualSmoothness));
                 #endif
 
-				// debug
-				#if defined(DEBUG_DISPLAY)
-				    if (_DebugMipMapMode != DEBUGMIPMAPMODE_NONE)
-				    {
-					   surfaceData.metallic = 0;
-				    }
-				    ApplyDebugToSurfaceData(fragInputs.tangentToWorld, surfaceData); 
-				#endif
+                #ifdef _ENABLE_GEOMETRIC_SPECULAR_AA
+                    surfaceData.perceptualSmoothness = GeometricNormalFiltering(surfaceData.perceptualSmoothness, fragInputs.tangentToWorld[2], surfaceDescription.SpecularAAScreenSpaceVariance, surfaceDescription.SpecularAAThreshold);
+                #endif
 			}
 
+			// Get Surface And BuiltinData
 			void GetSurfaceAndBuiltinData(SmoothSurfaceDescription surfaceDescription, FragInputs fragInputs, float3 V, inout PositionInputs posInput, out SurfaceData surfaceData, out BuiltinData builtinData)
 			{
 				#ifdef LOD_FADE_CROSSFADE
-				LODDitheringTransition(ComputeFadeMaskSeed(V, posInput.positionSS), unity_LODFade.x);
+                    LODDitheringTransition(ComputeFadeMaskSeed(V, posInput.positionSS), unity_LODFade.x);
 				#endif
 
-				#ifdef _DOUBLESIDED_ON
-				float3 doubleSidedConstants = _DoubleSidedConstants.xyz;
-				#else
-				float3 doubleSidedConstants = float3( 1.0, 1.0, 1.0 );
-				#endif
-
-				ApplyDoubleSidedFlipOrMirror( fragInputs, doubleSidedConstants );
+                #ifdef _DOUBLESIDED_ON
+                    float3 doubleSidedConstants = _DoubleSidedConstants.xyz;
+                #else
+                    float3 doubleSidedConstants = float3(1.0, 1.0, 1.0);
+                #endif
+                ApplyDoubleSidedFlipOrMirror(fragInputs, doubleSidedConstants);
 
 				#ifdef _ALPHATEST_ON
-				DoAlphaTest( surfaceDescription.Alpha, surfaceDescription.AlphaClipThreshold );
+                    DoAlphaTest( surfaceDescription.Alpha, surfaceDescription.AlphaClipThreshold );
+				#endif
+
+				#ifdef _ALPHATEST_SHADOW_ON
+                    DoAlphaTest( surfaceDescription.Alpha, surfaceDescription.AlphaClipThresholdShadow);
 				#endif
 
 				#ifdef _DEPTHOFFSET_ON
-				builtinData.depthOffset = surfaceDescription.DepthOffset;
-				ApplyDepthOffsetPositionInput( V, surfaceDescription.DepthOffset, GetViewForwardDir(), GetWorldToHClipMatrix(), posInput );
+                    ApplyDepthOffsetPositionInput(V, surfaceDescription.DepthOffset, GetViewForwardDir(), GetWorldToHClipMatrix(), posInput);
 				#endif
 
-				float3 bentNormalWS;
-				BuildSurfaceData( fragInputs, surfaceDescription, V, posInput, surfaceData, bentNormalWS );
+                float3 bentNormalWS;
+                BuildSurfaceData(fragInputs, surfaceDescription, V, posInput, surfaceData, bentNormalWS);
+                InitBuiltinData(posInput, surfaceDescription.Alpha, bentNormalWS, -fragInputs.tangentToWorld[2], fragInputs.texCoord1, fragInputs.texCoord2, builtinData);
 
-				InitBuiltinData( posInput, surfaceDescription.Alpha, bentNormalWS, -fragInputs.tangentToWorld[ 2 ], fragInputs.texCoord1, fragInputs.texCoord2, builtinData );
+				#ifdef _DEPTHOFFSET_ON
+                    builtinData.depthOffset = surfaceDescription.DepthOffset;
+				#endif
 
-				PostInitBuiltinData(V, posInput, surfaceData, builtinData);
+                #ifdef _ALPHATEST_ON
+                    builtinData.alphaClipTreshold = surfaceDescription.AlphaClipThreshold;
+                #endif
+
+                #ifdef UNITY_VIRTUAL_TEXTURING
+                    builtinData.vtPackedFeedback = surfaceDescription.VTPackedFeedback;
+                #endif
+
+				#ifdef ASE_BAKEDGI
+                    builtinData.bakeDiffuseLighting = surfaceDescription.BakedGI;
+				#endif
+
+				#ifdef ASE_BAKEDBACKGI
+                    builtinData.backBakeDiffuseLighting = surfaceDescription.BakedBackGI;
+				#endif
+
+                builtinData.emissiveColor = surfaceDescription.Emission;
+
+                PostInitBuiltinData(V, posInput, surfaceData, builtinData);
 			}
 
 			#if defined(WRITE_DECAL_BUFFER) && !defined(_DISABLE_DECALS)
@@ -3416,29 +3612,30 @@ Shader "Piloto Studio/PBR_UberShader"
                 outputDepth += bias;
                 #endif
 
-                #ifdef SCENESELECTIONPASS
-                outColor = float4(_ObjectId, _PassValue, 1.0, 1.0);
-                #elif defined(SCENEPICKINGPASS)
-                outColor = _SelectionID;
-                #else
-                #ifdef WRITE_MSAA_DEPTH
-                depthColor = packedInput.vmesh.positionCS.z;
-				#ifdef _ALPHATOMASK_ON
-                depthColor.a = SharpenAlpha(builtinData.opacity, builtinData.alphaClipTreshold);
-				#endif
-                #endif
-				#endif
+				#ifdef SCENESELECTIONPASS
+    				outColor = float4(_ObjectId, _PassValue, 1.0, 1.0);
+				#elif defined(SCENEPICKINGPASS)
+    				outColor = _SelectionID;
+				#else
+    				#ifdef WRITE_MSAA_DEPTH
+    				depthColor = packedInput.positionCS.z;
+    				#ifdef _ALPHATOMASK_ON
+    				depthColor.a = SharpenAlpha(builtinData.opacity, builtinData.alphaClipTreshold);
+    				#endif
+    				#endif
 
-                #if defined(WRITE_NORMAL_BUFFER)
-                EncodeIntoNormalBuffer(ConvertSurfaceDataToNormalData(surfaceData), outNormalBuffer);
-                #endif
+    				#if defined(WRITE_NORMAL_BUFFER)
+    				EncodeIntoNormalBuffer(ConvertSurfaceDataToNormalData(surfaceData), outNormalBuffer);
+    				#endif
 
-				#if defined(WRITE_DECAL_BUFFER) && !defined(_DISABLE_DECALS)
-				DecalPrepassData decalPrepassData;
-				decalPrepassData.geomNormalWS = surfaceData.geomNormalWS;
-				decalPrepassData.decalLayerMask = GetMeshRenderingDecalLayer();
-				EncodeIntoDecalPrepassBuffer(decalPrepassData, outDecalBuffer);
-				#endif
+    				#if defined(WRITE_DECAL_BUFFER) && !defined(_DISABLE_DECALS)
+    				DecalPrepassData decalPrepassData;
+    				decalPrepassData.geomNormalWS = surfaceData.geomNormalWS;
+    				decalPrepassData.decalLayerMask = GetMeshRenderingDecalLayer();
+    				EncodeIntoDecalPrepassBuffer(decalPrepassData, outDecalBuffer);
+    				#endif
+
+				#endif // SCENESELECTIONPASS
 
 			}
 
@@ -3479,20 +3676,23 @@ Shader "Piloto Studio/PBR_UberShader"
 		
 
 			HLSLPROGRAM
+			#pragma shader_feature_local _ _DOUBLESIDED_ON
+			#pragma shader_feature_local_fragment _ _DISABLE_DECALS
+			#pragma shader_feature_local_fragment _ _DISABLE_SSR_TRANSPARENT
+			#pragma shader_feature_local_fragment _ _CONSERVATIVE_DEPTH_OFFSET
+			#pragma multi_compile_instancing
+			#pragma instancing_options renderinglayer
+			#pragma shader_feature_local _ _ALPHATEST_ON
+			#define _AMBIENT_OCCLUSION 1
+			#define ASE_VERSION 19701
+			#define ASE_SRP_VERSION 120112
 
-            #define SUPPORT_BLENDMODE_PRESERVE_SPECULAR_LIGHTING
-            #pragma shader_feature_local_fragment _ _DISABLE_DECALS
-            #pragma shader_feature_local_fragment _ _DISABLE_SSR_TRANSPARENT
-            #pragma multi_compile_instancing
-            #pragma instancing_options renderinglayer
-            #pragma shader_feature_local _ _ALPHATEST_ON
-            #define _AMBIENT_OCCLUSION 1
-            #define ASE_SRP_VERSION 120112
-
+			#pragma multi_compile _ DOTS_INSTANCING_ON
 
             #pragma shader_feature _ _SURFACE_TYPE_TRANSPARENT
             #pragma shader_feature_local _ _TRANSPARENT_WRITES_MOTION_VEC
             #pragma shader_feature_local_fragment _ _ENABLE_FOG_ON_TRANSPARENT
+			#pragma shader_feature_local _BLENDMODE_OFF _BLENDMODE_ALPHA _BLENDMODE_ADD _BLENDMODE_PRE_MULTIPLY
 
             #pragma multi_compile_fragment _ SHADOWS_SHADOWMASK
 			#pragma multi_compile_fragment SHADOW_LOW SHADOW_MEDIUM SHADOW_HIGH SHADOW_VERY_HIGH
@@ -3506,8 +3706,6 @@ Shader "Piloto Studio/PBR_UberShader"
             #pragma multi_compile _ DYNAMICLIGHTMAP_ON
             #pragma multi_compile_fragment DECALS_OFF DECALS_3RT DECALS_4RT
             #pragma multi_compile_fragment _ DECAL_SURFACE_GRADIENT
-
-            #pragma multi_compile _ DOTS_INSTANCING_ON
 
 			#ifndef SHADER_STAGE_FRAGMENT
 			#define SHADOW_LOW
@@ -3529,50 +3727,57 @@ Shader "Piloto Studio/PBR_UberShader"
 			#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/TextureStack.hlsl"
             #include "Packages/com.unity.shadergraph/ShaderGraphLibrary/Functions.hlsl"
 
+            //#if !defined(SHADER_STAGE_RAY_TRACING) && SHADERPASS != SHADERPASS_RAYTRACING_GBUFFER && SHADERPASS != SHADERPASS_FULL_SCREEN_DEBUG
+            //#define FRAG_INPUTS_ENABLE_STRIPPING
+            //#endif
+
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/FragInputs.hlsl"
 
-			// Setup for Fog Enabled to apply in sky refletions in LightLoopDef.hlsl
-            #define APPLY_FOG_ON_SKY_REFLECTIONS
+            #ifdef RAYTRACING_SHADER_GRAPH_DEFAULT
+                #define RAYTRACING_SHADER_GRAPH_HIGH
+            #endif
 
-			#ifndef SHADER_UNLIT
-			#if defined(_DOUBLESIDED_ON) && !defined(VARYINGS_NEED_CULLFACE)
-			#define VARYINGS_NEED_CULLFACE
-			#endif
+            #ifdef RAYTRACING_SHADER_GRAPH_RAYTRACED
+                #define RAYTRACING_SHADER_GRAPH_LOW
+            #endif
+
+            #ifndef SHADER_UNLIT
+            #if defined(_DOUBLESIDED_ON) && !defined(VARYINGS_NEED_CULLFACE)
+                #define VARYINGS_NEED_CULLFACE
+            #endif
+            #endif
+
+			#if defined(_DOUBLESIDED_ON) && !defined(ASE_NEED_CULLFACE)
+			    #define ASE_NEED_CULLFACE 1
 			#endif
 
 		    #if defined(_MATERIAL_FEATURE_SUBSURFACE_SCATTERING) && !defined(_SURFACE_TYPE_TRANSPARENT)
 			#define OUTPUT_SPLIT_LIGHTING
 		    #endif
 
-		    #if (SHADERPASS == SHADERPASS_PATH_TRACING) && !defined(_DOUBLESIDED_ON) && (defined(_REFRACTION_PLANE) || defined(_REFRACTION_SPHERE))
-			#undef  _REFRACTION_PLANE
-			#undef  _REFRACTION_SPHERE
-			#define _REFRACTION_THIN
-		    #endif
+            #if SHADERPASS == SHADERPASS_TRANSPARENT_DEPTH_PREPASS
+            #if !defined(_DISABLE_SSR_TRANSPARENT) && !defined(SHADER_UNLIT)
+                #define WRITE_NORMAL_BUFFER
+            #endif
+            #endif
 
-			#if SHADERPASS == SHADERPASS_TRANSPARENT_DEPTH_PREPASS
-			#if !defined(_DISABLE_SSR_TRANSPARENT) && !defined(SHADER_UNLIT)
-				#define WRITE_NORMAL_BUFFER
-			#endif
-			#endif
+            #ifndef DEBUG_DISPLAY
+                #if !defined(_SURFACE_TYPE_TRANSPARENT)
+                    #if SHADERPASS == SHADERPASS_FORWARD
+                    #define SHADERPASS_FORWARD_BYPASS_ALPHA_TEST
+                    #elif SHADERPASS == SHADERPASS_GBUFFER
+                    #define SHADERPASS_GBUFFER_BYPASS_ALPHA_TEST
+                    #endif
+                #endif
+            #endif
 
-			#ifndef DEBUG_DISPLAY
-				#if !defined(_SURFACE_TYPE_TRANSPARENT)
-					#if SHADERPASS == SHADERPASS_FORWARD
-					#define SHADERPASS_FORWARD_BYPASS_ALPHA_TEST
-					#elif SHADERPASS == SHADERPASS_GBUFFER
-					#define SHADERPASS_GBUFFER_BYPASS_ALPHA_TEST
-					#endif
-				#endif
-			#endif
-
-			#if defined(SHADER_LIT) && !defined(_SURFACE_TYPE_TRANSPARENT)
-			#define _DEFERRED_CAPABLE_MATERIAL
-			#endif
-
-			#if defined(_TRANSPARENT_WRITES_MOTION_VEC) && defined(_SURFACE_TYPE_TRANSPARENT)
-			#define _WRITE_TRANSPARENT_MOTION_VECTOR
-			#endif
+            #if defined(SHADER_LIT) && !defined(_SURFACE_TYPE_TRANSPARENT)
+                #define _DEFERRED_CAPABLE_MATERIAL
+            #endif
+        
+            #if defined(_TRANSPARENT_WRITES_MOTION_VEC) && defined(_SURFACE_TYPE_TRANSPARENT)
+                #define _WRITE_TRANSPARENT_MOTION_VECTOR
+            #endif
 
 			CBUFFER_START( UnityPerMaterial )
 			float4 _BaseColorTint;
@@ -3596,7 +3801,7 @@ Shader "Piloto Studio/PBR_UberShader"
 			float _AlphaCutoff;
 			float _RenderQueueType;
 			#ifdef _ADD_PRECOMPUTED_VELOCITY
-			float _AddPrecomputedVelocity;
+			    float _AddPrecomputedVelocity;
 			#endif
 			float _StencilRef;
 			float _StencilWriteMask;
@@ -3604,6 +3809,8 @@ Shader "Piloto Studio/PBR_UberShader"
 			float _StencilWriteMaskDepth;
 			float _StencilRefMV;
 			float _StencilWriteMaskMV;
+			float _StencilRefDistortionVec;
+			float _StencilWriteMaskDistortionVec;
 			float _StencilWriteMaskGBuffer;
 			float _StencilRefGBuffer;
 			float _ZTestGBuffer;
@@ -3612,7 +3819,7 @@ Shader "Piloto Studio/PBR_UberShader"
 			float _SurfaceType;
 			float _BlendMode;
             #ifdef SUPPORT_BLENDMODE_PRESERVE_SPECULAR_LIGHTING
-			float _EnableBlendModePreserveSpecularLighting;
+			    float _EnableBlendModePreserveSpecularLighting;
             #endif
 			float _SrcBlend;
 			float _DstBlend;
@@ -3634,12 +3841,12 @@ Shader "Piloto Studio/PBR_UberShader"
 			float _DoubleSidedNormalMode;
 			float4 _DoubleSidedConstants;
 			#ifdef ASE_TESSELLATION
-			float _TessPhongStrength;
-			float _TessValue;
-			float _TessMin;
-			float _TessMax;
-			float _TessEdgeLength;
-			float _TessMaxDisp;
+			    float _TessPhongStrength;
+			    float _TessValue;
+			    float _TessMin;
+			    float _TessMax;
+			    float _TessEdgeLength;
+			    float _TessMaxDisp;
 			#endif
 			CBUFFER_END
 
@@ -3673,17 +3880,15 @@ Shader "Piloto Studio/PBR_UberShader"
             #include "Packages/com.unity.render-pipelines.high-definition/Runtime/Material/MaterialUtilities.hlsl"
             #include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderGraphFunctions.hlsl"
 
-			// Setup DECALS_OFF so the shader stripper can remove variants
-            #define HAVE_DECALS ( (defined(DECALS_3RT) || defined(DECALS_4RT)) && !defined(_DISABLE_DECALS) )
             #include "Packages/com.unity.render-pipelines.high-definition/Runtime/Material/Decal/DecalUtilities.hlsl"
             #include "Packages/com.unity.render-pipelines.high-definition/Runtime/Material/Lit/LitDecalData.hlsl"
 
+        	#ifdef HAVE_VFX_MODIFICATION
+        	#include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/VisualEffectVertex.hlsl"
+        	#endif
+
 			#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/CommonLighting.hlsl"
 
-
-			#if defined(_DOUBLESIDED_ON) && !defined(ASE_NEED_CULLFACE)
-			#define ASE_NEED_CULLFACE 1
-			#endif
 
 			struct AttributesMesh
 			{
@@ -3729,10 +3934,8 @@ Shader "Piloto Studio/PBR_UberShader"
 			void BuildSurfaceData(FragInputs fragInputs, inout GlobalSurfaceDescription surfaceDescription, float3 V, PositionInputs posInput, out SurfaceData surfaceData, out float3 bentNormalWS)
 			{
 				ZERO_INITIALIZE(SurfaceData, surfaceData);
-
 				surfaceData.specularOcclusion = 1.0;
 
-				// surface data
 				surfaceData.baseColor =                 surfaceDescription.BaseColor;
 				surfaceData.perceptualSmoothness =		surfaceDescription.Smoothness;
 				surfaceData.ambientOcclusion =			surfaceDescription.Occlusion;
@@ -3742,21 +3945,27 @@ Shader "Piloto Studio/PBR_UberShader"
 				#ifdef _SPECULAR_OCCLUSION_CUSTOM
 				surfaceData.specularOcclusion =			surfaceDescription.SpecularOcclusion;
 				#endif
+
 				#ifdef _MATERIAL_FEATURE_SUBSURFACE_SCATTERING
 				surfaceData.subsurfaceMask =			surfaceDescription.SubsurfaceMask;
 				#endif
+
 				#if defined(_HAS_REFRACTION) || defined(_MATERIAL_FEATURE_TRANSMISSION)
 				surfaceData.thickness = 				surfaceDescription.Thickness;
 				#endif
+
 				#if defined( _MATERIAL_FEATURE_SUBSURFACE_SCATTERING ) || defined( _MATERIAL_FEATURE_TRANSMISSION )
 				surfaceData.diffusionProfileHash =		asuint(surfaceDescription.DiffusionProfile);
 				#endif
+
 				#ifdef _MATERIAL_FEATURE_SPECULAR_COLOR
 				surfaceData.specularColor =				surfaceDescription.Specular;
 				#endif
+
 				#ifdef _MATERIAL_FEATURE_ANISOTROPY
 				surfaceData.anisotropy =				surfaceDescription.Anisotropy;
 				#endif
+
 				#ifdef _MATERIAL_FEATURE_IRIDESCENCE
 				surfaceData.iridescenceMask =			surfaceDescription.IridescenceMask;
 				surfaceData.iridescenceThickness =		surfaceDescription.IridescenceThickness;
@@ -3788,53 +3997,47 @@ Shader "Piloto Studio/PBR_UberShader"
                     surfaceData.transmittanceMask = 0.0;
                 #endif
 
-
-				// material features
 				surfaceData.materialFeatures = MATERIALFEATUREFLAGS_LIT_STANDARD;
+
 				#ifdef _MATERIAL_FEATURE_SUBSURFACE_SCATTERING
-				surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_SUBSURFACE_SCATTERING;
+                    surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_SUBSURFACE_SCATTERING;
 				#endif
 
 				#ifdef _MATERIAL_FEATURE_TRANSMISSION
-				surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_TRANSMISSION;
+                    surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_TRANSMISSION;
 				#endif
 
                 #ifdef _MATERIAL_FEATURE_ANISOTROPY
-				surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_ANISOTROPY;
-				surfaceData.normalWS = float3(0, 1, 0);
+                    surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_ANISOTROPY;
+                    surfaceData.normalWS = float3(0, 1, 0);
                 #endif
 
 				#ifdef _MATERIAL_FEATURE_CLEAR_COAT
-				surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_CLEAR_COAT;
+                    surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_CLEAR_COAT;
 				#endif
 
 				#ifdef _MATERIAL_FEATURE_IRIDESCENCE
-				surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_IRIDESCENCE;
+                    surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_IRIDESCENCE;
 				#endif
 
 				#ifdef _MATERIAL_FEATURE_SPECULAR_COLOR
-				surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_SPECULAR_COLOR;
+                    surfaceData.materialFeatures |= MATERIALFEATUREFLAGS_LIT_SPECULAR_COLOR;
 				#endif
 
-				// others
 				#if defined (_MATERIAL_FEATURE_SPECULAR_COLOR) && defined (_ENERGY_CONSERVING_SPECULAR)
-				surfaceData.baseColor *= ( 1.0 - Max3( surfaceData.specularColor.r, surfaceData.specularColor.g, surfaceData.specularColor.b ) );
-				#endif
-				#ifdef _DOUBLESIDED_ON
-				float3 doubleSidedConstants = _DoubleSidedConstants.xyz;
-				#else
-				float3 doubleSidedConstants = float3( 1.0, 1.0, 1.0 );
+                    surfaceData.baseColor *= ( 1.0 - Max3( surfaceData.specularColor.r, surfaceData.specularColor.g, surfaceData.specularColor.b ) );
 				#endif
 
-				// normals
+				#ifdef _DOUBLESIDED_ON
+                    float3 doubleSidedConstants = _DoubleSidedConstants.xyz;
+				#else
+                    float3 doubleSidedConstants = float3( 1.0, 1.0, 1.0 );
+				#endif
+
 				float3 normalTS = float3(0.0f, 0.0f, 1.0f);
 				normalTS = surfaceDescription.Normal;
-				GetNormalWS( fragInputs, normalTS, surfaceData.normalWS, doubleSidedConstants );
+				GetNormalWS(fragInputs, normalTS, surfaceData.normalWS, doubleSidedConstants);
 
-				surfaceData.geomNormalWS = fragInputs.tangentToWorld[2];
-				surfaceData.tangentWS = normalize( fragInputs.tangentToWorld[ 0 ].xyz );
-
-				// decals
 				#if HAVE_DECALS
 				if (_EnableDecals)
 				{
@@ -3843,30 +4046,20 @@ Shader "Piloto Studio/PBR_UberShader"
 				}
 				#endif
 
+				surfaceData.geomNormalWS = fragInputs.tangentToWorld[2];
+                surfaceData.tangentWS = normalize(fragInputs.tangentToWorld[0].xyz );
+                surfaceData.tangentWS = Orthonormalize(surfaceData.tangentWS, surfaceData.normalWS);
+
 				bentNormalWS = surfaceData.normalWS;
 
 				#ifdef ASE_BENT_NORMAL
-				GetNormalWS( fragInputs, surfaceDescription.BentNormal, bentNormalWS, doubleSidedConstants );
+                    GetNormalWS( fragInputs, surfaceDescription.BentNormal, bentNormalWS, doubleSidedConstants );
 				#endif
 
 				#ifdef _MATERIAL_FEATURE_ANISOTROPY
-				surfaceData.tangentWS = TransformTangentToWorld( surfaceDescription.Tangent, fragInputs.tangentToWorld );
-				#endif
-				surfaceData.tangentWS = Orthonormalize( surfaceData.tangentWS, surfaceData.normalWS );
-
-
-                #if defined(_SPECULAR_OCCLUSION_CUSTOM)
-                #elif defined(_SPECULAR_OCCLUSION_FROM_AO_BENT_NORMAL)
-				surfaceData.specularOcclusion = GetSpecularOcclusionFromBentAO(V, bentNormalWS, surfaceData.normalWS, surfaceData.ambientOcclusion, PerceptualSmoothnessToPerceptualRoughness(surfaceData.perceptualSmoothness));
-                #elif defined(_AMBIENT_OCCLUSION) && defined(_SPECULAR_OCCLUSION_FROM_AO)
-				surfaceData.specularOcclusion = GetSpecularOcclusionFromAmbientOcclusion(ClampNdotV(dot(surfaceData.normalWS, V)), surfaceData.ambientOcclusion, PerceptualSmoothnessToRoughness(surfaceData.perceptualSmoothness));
-                #endif
-
-				#ifdef _ENABLE_GEOMETRIC_SPECULAR_AA
-				surfaceData.perceptualSmoothness = GeometricNormalFiltering( surfaceData.perceptualSmoothness, fragInputs.tangentToWorld[ 2 ], surfaceDescription.SpecularAAScreenSpaceVariance, surfaceDescription.SpecularAAThreshold );
+                    surfaceData.tangentWS = TransformTangentToWorld(surfaceDescription.Tangent, fragInputs.tangentToWorld);
 				#endif
 
-				// debug
 				#if defined(DEBUG_DISPLAY)
 				    if (_DebugMipMapMode != DEBUGMIPMAPMODE_NONE)
 				    {
@@ -3874,56 +4067,70 @@ Shader "Piloto Studio/PBR_UberShader"
 				    }
 				    ApplyDebugToSurfaceData(fragInputs.tangentToWorld, surfaceData); 
 				#endif
+
+                #if defined(_SPECULAR_OCCLUSION_CUSTOM)
+                #elif defined(_SPECULAR_OCCLUSION_FROM_AO_BENT_NORMAL)
+                    surfaceData.specularOcclusion = GetSpecularOcclusionFromBentAO(V, bentNormalWS, surfaceData.normalWS, surfaceData.ambientOcclusion, PerceptualSmoothnessToPerceptualRoughness(surfaceData.perceptualSmoothness));
+                #elif defined(_AMBIENT_OCCLUSION) && defined(_SPECULAR_OCCLUSION_FROM_AO)
+                    surfaceData.specularOcclusion = GetSpecularOcclusionFromAmbientOcclusion(ClampNdotV(dot(surfaceData.normalWS, V)), surfaceData.ambientOcclusion, PerceptualSmoothnessToRoughness(surfaceData.perceptualSmoothness));
+                #endif
+
+                #ifdef _ENABLE_GEOMETRIC_SPECULAR_AA
+                    surfaceData.perceptualSmoothness = GeometricNormalFiltering(surfaceData.perceptualSmoothness, fragInputs.tangentToWorld[2], surfaceDescription.SpecularAAScreenSpaceVariance, surfaceDescription.SpecularAAThreshold);
+                #endif
 			}
 
+			// Get Surface And BuiltinData
 			void GetSurfaceAndBuiltinData(GlobalSurfaceDescription surfaceDescription, FragInputs fragInputs, float3 V, inout PositionInputs posInput, out SurfaceData surfaceData, out BuiltinData builtinData)
 			{
 				#ifdef LOD_FADE_CROSSFADE
-				LODDitheringTransition(ComputeFadeMaskSeed(V, posInput.positionSS), unity_LODFade.x);
+                    LODDitheringTransition(ComputeFadeMaskSeed(V, posInput.positionSS), unity_LODFade.x);
 				#endif
 
-				#ifdef _DOUBLESIDED_ON
-				float3 doubleSidedConstants = _DoubleSidedConstants.xyz;
-				#else
-				float3 doubleSidedConstants = float3( 1.0, 1.0, 1.0 );
-				#endif
-
-				ApplyDoubleSidedFlipOrMirror( fragInputs, doubleSidedConstants );
+                #ifdef _DOUBLESIDED_ON
+                    float3 doubleSidedConstants = _DoubleSidedConstants.xyz;
+                #else
+                    float3 doubleSidedConstants = float3(1.0, 1.0, 1.0);
+                #endif  
+                ApplyDoubleSidedFlipOrMirror(fragInputs, doubleSidedConstants);
 
 				#ifdef _ALPHATEST_ON
-				DoAlphaTest( surfaceDescription.Alpha, surfaceDescription.AlphaClipThreshold );
+                    DoAlphaTest( surfaceDescription.Alpha, surfaceDescription.AlphaClipThreshold );
+				#endif
+
+				#ifdef _ALPHATEST_SHADOW_ON
+                    DoAlphaTest( surfaceDescription.Alpha, surfaceDescription.AlphaClipThresholdShadow);
 				#endif
 
 				#ifdef _DEPTHOFFSET_ON
-				ApplyDepthOffsetPositionInput( V, surfaceDescription.DepthOffset, GetViewForwardDir(), GetWorldToHClipMatrix(), posInput );
+                    ApplyDepthOffsetPositionInput(V, surfaceDescription.DepthOffset, GetViewForwardDir(), GetWorldToHClipMatrix(), posInput);
 				#endif
 
 				float3 bentNormalWS;
-				BuildSurfaceData( fragInputs, surfaceDescription, V, posInput, surfaceData, bentNormalWS );
-
-				InitBuiltinData( posInput, surfaceDescription.Alpha, bentNormalWS, -fragInputs.tangentToWorld[ 2 ], fragInputs.texCoord1, fragInputs.texCoord2, builtinData );
+                BuildSurfaceData(fragInputs, surfaceDescription, V, posInput, surfaceData, bentNormalWS);
+                InitBuiltinData(posInput, surfaceDescription.Alpha, bentNormalWS, -fragInputs.tangentToWorld[2], fragInputs.texCoord1, fragInputs.texCoord2, builtinData);
 
 				#ifdef _DEPTHOFFSET_ON
-				builtinData.depthOffset = surfaceDescription.DepthOffset;
+                    builtinData.depthOffset = surfaceDescription.DepthOffset;
 				#endif
 
-				#ifdef _ALPHATEST_ON
+                #ifdef _ALPHATEST_ON
                     builtinData.alphaClipTreshold = surfaceDescription.AlphaClipThreshold;
                 #endif
 
-				#ifdef UNITY_VIRTUAL_TEXTURING
-                builtinData.vtPackedFeedback = surfaceDescription.VTPackedFeedback;
+                #ifdef UNITY_VIRTUAL_TEXTURING
+                    builtinData.vtPackedFeedback = surfaceDescription.VTPackedFeedback;
                 #endif
 
 				#ifdef ASE_BAKEDGI
-				builtinData.bakeDiffuseLighting = surfaceDescription.BakedGI;
+                    builtinData.bakeDiffuseLighting = surfaceDescription.BakedGI;
 				#endif
 
 				#ifdef ASE_BAKEDBACKGI
-				builtinData.backBakeDiffuseLighting = surfaceDescription.BakedBackGI;
+                    builtinData.backBakeDiffuseLighting = surfaceDescription.BakedBackGI;
 				#endif
 
-				builtinData.emissiveColor = surfaceDescription.Emission;
+                builtinData.emissiveColor = surfaceDescription.Emission;
 
 				PostInitBuiltinData(V, posInput, surfaceData, builtinData);
 			}
@@ -4128,6 +4335,7 @@ Shader "Piloto Studio/PBR_UberShader"
             	#endif
 
 			
+
             #else
                 #ifdef OUTPUT_SPLIT_LIGHTING
                 #define DIFFUSE_LIGHTING_TARGET SV_Target1
@@ -4229,13 +4437,13 @@ Shader "Piloto Studio/PBR_UberShader"
 				surfaceDescription.AlphaClipThreshold = _AlphaClipping;
 				#endif
 
+				#ifdef _SPECULAR_OCCLUSION_CUSTOM
+				surfaceDescription.SpecularOcclusion = 0;
+				#endif
+
 				#ifdef _ENABLE_GEOMETRIC_SPECULAR_AA
 				surfaceDescription.SpecularAAScreenSpaceVariance = 0;
 				surfaceDescription.SpecularAAThreshold = 0;
-				#endif
-
-				#ifdef _SPECULAR_OCCLUSION_CUSTOM
-				surfaceDescription.SpecularOcclusion = 0;
 				#endif
 
 				#if defined(_HAS_REFRACTION) || defined(_MATERIAL_FEATURE_TRANSMISSION)
@@ -4269,6 +4477,7 @@ Shader "Piloto Studio/PBR_UberShader"
 				#ifdef ASE_BAKEDGI
 				surfaceDescription.BakedGI = 0;
 				#endif
+
 				#ifdef ASE_BAKEDBACKGI
 				surfaceDescription.BakedBackGI = 0;
 				#endif
@@ -4292,16 +4501,16 @@ Shader "Piloto Studio/PBR_UberShader"
 				outColor = float4(0.0, 0.0, 0.0, 0.0);
 
 				#ifdef DEBUG_DISPLAY
-				       #ifdef OUTPUT_SPLIT_LIGHTING
-				       
-					       outDiffuseLighting = 0;
-				      
-			           
-                ENCODE_INTO_SSSBUFFER(surfaceData, posInput.positionSS, outSSSBuffer);
+				#ifdef OUTPUT_SPLIT_LIGHTING
+				    
+					outDiffuseLighting = 0;
+				   
+			        
+					ENCODE_INTO_SSSBUFFER(surfaceData, posInput.positionSS, outSSSBuffer);
 				#endif
 
 				
-				bool viewMaterial = false;
+			    bool viewMaterial = false;
 				int bufferSize = _DebugViewMaterialArray[0].x;
 				if (bufferSize != 0)
 				{
@@ -4435,27 +4644,34 @@ Shader "Piloto Studio/PBR_UberShader"
             Cull [_CullMode]
 
             HLSLPROGRAM
-
-			#define SUPPORT_BLENDMODE_PRESERVE_SPECULAR_LIGHTING
+			#pragma shader_feature_local _ _DOUBLESIDED_ON
 			#pragma shader_feature_local_fragment _ _DISABLE_DECALS
 			#pragma shader_feature_local_fragment _ _DISABLE_SSR_TRANSPARENT
+			#pragma shader_feature_local_fragment _ _CONSERVATIVE_DEPTH_OFFSET
 			#pragma multi_compile_instancing
 			#pragma instancing_options renderinglayer
 			#pragma shader_feature_local _ _ALPHATEST_ON
 			#define _AMBIENT_OCCLUSION 1
+			#define ASE_VERSION 19701
 			#define ASE_SRP_VERSION 120112
 
-
 			#pragma editor_sync_compilation
+            #pragma multi_compile _ DOTS_INSTANCING_ON
 
             #pragma shader_feature _ _SURFACE_TYPE_TRANSPARENT
             #pragma shader_feature_local _ _TRANSPARENT_WRITES_MOTION_VEC
             #pragma shader_feature_local_fragment _ _ENABLE_FOG_ON_TRANSPARENT
-
-            #pragma multi_compile _ DOTS_INSTANCING_ON
+			#pragma shader_feature_local _BLENDMODE_OFF _BLENDMODE_ALPHA _BLENDMODE_ADD _BLENDMODE_PRE_MULTIPLY
 
 			#pragma vertex Vert
 			#pragma fragment Frag
+
+			#define SHADERPASS SHADERPASS_DEPTH_ONLY
+			#define SCENEPICKINGPASS 1
+
+			#define ATTRIBUTES_NEED_NORMAL
+			#define ATTRIBUTES_NEED_TANGENT
+			#define VARYINGS_NEED_TANGENT_TO_WORLD
 
             #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Common.hlsl"
         	#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/GeometricTools.hlsl"
@@ -4466,30 +4682,39 @@ Shader "Piloto Studio/PBR_UberShader"
             #include "Packages/com.unity.render-pipelines.core/ShaderLibrary/TextureStack.hlsl"
             #include "Packages/com.unity.shadergraph/ShaderGraphLibrary/Functions.hlsl"
 
-			#define ATTRIBUTES_NEED_NORMAL
-			#define ATTRIBUTES_NEED_TANGENT
-			#define VARYINGS_NEED_TANGENT_TO_WORLD
+            //#if !defined(SHADER_STAGE_RAY_TRACING) && SHADERPASS != SHADERPASS_RAYTRACING_GBUFFER && SHADERPASS != SHADERPASS_FULL_SCREEN_DEBUG
+            //#define FRAG_INPUTS_ENABLE_STRIPPING
+            //#endif
 
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/FragInputs.hlsl"
 
-			#define SHADERPASS SHADERPASS_DEPTH_ONLY
-			#define SCENEPICKINGPASS 1
+            #ifdef RAYTRACING_SHADER_GRAPH_DEFAULT
+                #define RAYTRACING_SHADER_GRAPH_HIGH
+            #endif
 
-			#ifndef SHADER_UNLIT
-			#if defined(_DOUBLESIDED_ON) && !defined(VARYINGS_NEED_CULLFACE)
-		    #define VARYINGS_NEED_CULLFACE
-			#endif
+            #ifdef RAYTRACING_SHADER_GRAPH_RAYTRACED
+                #define RAYTRACING_SHADER_GRAPH_LOW
+            #endif
+
+            #ifndef SHADER_UNLIT
+            #if defined(_DOUBLESIDED_ON) && !defined(VARYINGS_NEED_CULLFACE)
+                #define VARYINGS_NEED_CULLFACE
+            #endif
+            #endif
+
+			#if defined(_DOUBLESIDED_ON) && !defined(ASE_NEED_CULLFACE)
+			    #define ASE_NEED_CULLFACE 1
 			#endif
 
 		    #if defined(_MATERIAL_FEATURE_SUBSURFACE_SCATTERING) && !defined(_SURFACE_TYPE_TRANSPARENT)
 			#define OUTPUT_SPLIT_LIGHTING
 		    #endif
 
-			#if SHADERPASS == SHADERPASS_TRANSPARENT_DEPTH_PREPASS
-			#if !defined(_DISABLE_SSR_TRANSPARENT) && !defined(SHADER_UNLIT)
-			#define WRITE_NORMAL_BUFFER
-			#endif
-			#endif
+            #if SHADERPASS == SHADERPASS_TRANSPARENT_DEPTH_PREPASS
+            #if !defined(_DISABLE_SSR_TRANSPARENT) && !defined(SHADER_UNLIT)
+                #define WRITE_NORMAL_BUFFER
+            #endif
+            #endif
 
             #ifndef DEBUG_DISPLAY
                 #if !defined(_SURFACE_TYPE_TRANSPARENT)
@@ -4501,15 +4726,14 @@ Shader "Piloto Studio/PBR_UberShader"
                 #endif
             #endif
 
-			#if defined(SHADER_LIT) && !defined(_SURFACE_TYPE_TRANSPARENT)
-			#define _DEFERRED_CAPABLE_MATERIAL
-			#endif
-
-			#if defined(_TRANSPARENT_WRITES_MOTION_VEC) && defined(_SURFACE_TYPE_TRANSPARENT)
-			#define _WRITE_TRANSPARENT_MOTION_VECTOR
-			#endif
-
-			float4 _SelectionID;
+            #if defined(SHADER_LIT) && !defined(_SURFACE_TYPE_TRANSPARENT)
+                #define _DEFERRED_CAPABLE_MATERIAL
+            #endif
+        
+            #if defined(_TRANSPARENT_WRITES_MOTION_VEC) && defined(_SURFACE_TYPE_TRANSPARENT)
+                #define _WRITE_TRANSPARENT_MOTION_VECTOR
+            #endif
+	
             CBUFFER_START( UnityPerMaterial )
 			float4 _BaseColorTint;
 			float4 _PanningMask_ST;
@@ -4532,7 +4756,7 @@ Shader "Piloto Studio/PBR_UberShader"
 			float _AlphaCutoff;
 			float _RenderQueueType;
 			#ifdef _ADD_PRECOMPUTED_VELOCITY
-			float _AddPrecomputedVelocity;
+			    float _AddPrecomputedVelocity;
 			#endif
 			float _StencilRef;
 			float _StencilWriteMask;
@@ -4540,6 +4764,8 @@ Shader "Piloto Studio/PBR_UberShader"
 			float _StencilWriteMaskDepth;
 			float _StencilRefMV;
 			float _StencilWriteMaskMV;
+			float _StencilRefDistortionVec;
+			float _StencilWriteMaskDistortionVec;
 			float _StencilWriteMaskGBuffer;
 			float _StencilRefGBuffer;
 			float _ZTestGBuffer;
@@ -4548,7 +4774,7 @@ Shader "Piloto Studio/PBR_UberShader"
 			float _SurfaceType;
 			float _BlendMode;
             #ifdef SUPPORT_BLENDMODE_PRESERVE_SPECULAR_LIGHTING
-			float _EnableBlendModePreserveSpecularLighting;
+			    float _EnableBlendModePreserveSpecularLighting;
             #endif
 			float _SrcBlend;
 			float _DstBlend;
@@ -4570,14 +4796,23 @@ Shader "Piloto Studio/PBR_UberShader"
 			float _DoubleSidedNormalMode;
 			float4 _DoubleSidedConstants;
 			#ifdef ASE_TESSELLATION
-			float _TessPhongStrength;
-			float _TessValue;
-			float _TessMin;
-			float _TessMax;
-			float _TessEdgeLength;
-			float _TessMaxDisp;
+			    float _TessPhongStrength;
+			    float _TessValue;
+			    float _TessMin;
+			    float _TessMax;
+			    float _TessEdgeLength;
+			    float _TessMaxDisp;
 			#endif
 			CBUFFER_END
+
+            #ifdef SCENEPICKINGPASS
+            float4 _SelectionID;
+            #endif
+
+            #ifdef SCENESELECTIONPASS
+            int _ObjectId;
+            int _PassValue;
+            #endif
 
 			sampler2D _BaseColorMap;
 
@@ -4593,168 +4828,195 @@ Shader "Piloto Studio/PBR_UberShader"
             #include "Packages/com.unity.render-pipelines.high-definition/Runtime/Material/MaterialUtilities.hlsl"
             #include "Packages/com.unity.render-pipelines.high-definition/Runtime/ShaderLibrary/ShaderGraphFunctions.hlsl"
 
-			// Setup DECALS_OFF so the shader stripper can remove variants
-            #define HAVE_DECALS ( (defined(DECALS_3RT) || defined(DECALS_4RT)) && !defined(_DISABLE_DECALS) )
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/Material/Decal/DecalUtilities.hlsl"
 
 			
 
-			struct VertexInput
+			struct AttributesMesh
 			{
 				float3 positionOS : POSITION;
 				float3 normalOS : NORMAL;
+				float4 tangentOS : TANGENT;
+				float4 uv1 : TEXCOORD1;
+				float4 uv2 : TEXCOORD2;
+				float3 previousPositionOS : TEXCOORD4;
+				float3 precomputedVelocity : TEXCOORD5;
 				float4 ase_texcoord : TEXCOORD0;
 				UNITY_VERTEX_INPUT_INSTANCE_ID
 			};
 
-			struct VertexOutput
+			struct PackedVaryingsMeshToPS
 			{
-				float4 positionCS : SV_POSITION;
-				float3 normalWS : TEXCOORD0;
-				float4 ase_texcoord2 : TEXCOORD2;
+				SV_POSITION_QUALIFIERS float4 positionCS : SV_Position;
+				float3 positionRWS : TEXCOORD0;
+				float3 normalWS : TEXCOORD1;
+				float4 tangentWS : TEXCOORD2;
+				float4 uv1 : TEXCOORD3;
+				float4 uv2 : TEXCOORD4;
+				#ifdef _WRITE_TRANSPARENT_MOTION_VECTOR
+					float3 vpassPositionCS : TEXCOORD5;
+					float3 vpassPreviousPositionCS : TEXCOORD6;
+				#endif
+				float4 ase_texcoord7 : TEXCOORD7;
 				UNITY_VERTEX_INPUT_INSTANCE_ID
 				UNITY_VERTEX_OUTPUT_STEREO
+				#if defined(SHADER_STAGE_FRAGMENT) && defined(ASE_NEED_CULLFACE)
+				FRONT_FACE_TYPE cullFace : FRONT_FACE_SEMANTIC;
+				#endif
 			};
 
 			
-            struct SurfaceDescription
+			// Get Surface And BuiltinData
+			void GetSurfaceAndBuiltinData(PickingSurfaceDescription surfaceDescription, FragInputs fragInputs, float3 V, inout PositionInputs posInput, out SurfaceData surfaceData, out BuiltinData builtinData)
 			{
-				float Alpha;
-				float AlphaClipThreshold;
-				float DepthOffset;
-			};
+				#ifdef LOD_FADE_CROSSFADE
+                    LODDitheringTransition(ComputeFadeMaskSeed(V, posInput.positionSS), unity_LODFade.x);
+				#endif
 
-			struct SurfaceDescriptionInputs
-			{
-				float3 ObjectSpaceNormal;
-				float3 WorldSpaceNormal;
-				float3 TangentSpaceNormal;
-				float3 ObjectSpaceViewDirection;
-				float3 WorldSpaceViewDirection;
-				float3 ObjectSpacePosition;
-			};
-
-
-            void GetSurfaceAndBuiltinData(SurfaceDescription surfaceDescription, FragInputs fragInputs, float3 V, inout PositionInputs posInput, out SurfaceData surfaceData, out BuiltinData builtinData RAY_TRACING_OPTIONAL_PARAMETERS)
-            {
-
-                #if !defined(SHADER_STAGE_RAY_TRACING) && !defined(_TESSELLATION_DISPLACEMENT)
-                #ifdef LOD_FADE_CROSSFADE
-				LODDitheringTransition(ComputeFadeMaskSeed(V, posInput.positionSS), unity_LODFade.x);
-                #endif
-                #endif
-
-                #ifndef SHADER_UNLIT
                 #ifdef _DOUBLESIDED_ON
-				float3 doubleSidedConstants = _DoubleSidedConstants.xyz;
+                    float3 doubleSidedConstants = _DoubleSidedConstants.xyz;
                 #else
-				float3 doubleSidedConstants = float3(1.0, 1.0, 1.0);
-                #endif
-				ApplyDoubleSidedFlipOrMirror(fragInputs, doubleSidedConstants);
-                #endif
+                    float3 doubleSidedConstants = float3(1.0, 1.0, 1.0);
+                #endif  
+                ApplyDoubleSidedFlipOrMirror(fragInputs, doubleSidedConstants);
+
+				#ifdef _ALPHATEST_ON
+                    DoAlphaTest( surfaceDescription.Alpha, surfaceDescription.AlphaClipThreshold );
+				#endif
+
+				#ifdef _ALPHATEST_SHADOW_ON
+                    DoAlphaTest( surfaceDescription.Alpha, surfaceDescription.AlphaClipThresholdShadow);
+				#endif
+
+				#ifdef _DEPTHOFFSET_ON
+                    ApplyDepthOffsetPositionInput(V, surfaceDescription.DepthOffset, GetViewForwardDir(), GetWorldToHClipMatrix(), posInput);
+				#endif
+
+				float3 bentNormalWS;
+                //BuildSurfaceData(fragInputs, surfaceDescription, V, posInput, surfaceData, bentNormalWS);
+                InitBuiltinData(posInput, surfaceDescription.Alpha, bentNormalWS, -fragInputs.tangentToWorld[2], fragInputs.texCoord1, fragInputs.texCoord2, builtinData);
+
+				#ifdef _DEPTHOFFSET_ON
+                    builtinData.depthOffset = surfaceDescription.DepthOffset;
+				#endif
 
                 #ifdef _ALPHATEST_ON
-				float alphaCutoff = surfaceDescription.AlphaClipThreshold;
-                #if SHADERPASS == SHADERPASS_TRANSPARENT_DEPTH_PREPASS
-                #elif SHADERPASS == SHADERPASS_TRANSPARENT_DEPTH_POSTPASS
-				alphaCutoff = surfaceDescription.AlphaClipThresholdDepthPostpass;
-                #elif (SHADERPASS == SHADERPASS_SHADOWS) || (SHADERPASS == SHADERPASS_RAYTRACING_VISIBILITY)
-                #endif
-				GENERIC_ALPHA_TEST(surfaceDescription.Alpha, alphaCutoff);
-                #endif
-
-                #if !defined(SHADER_STAGE_RAY_TRACING) && _DEPTHOFFSET_ON
-				ApplyDepthOffsetPositionInput(V, surfaceDescription.DepthOffset, GetViewForwardDir(), GetWorldToHClipMatrix(), posInput);
-                #endif
-
-                #ifdef FRAG_INPUTS_USE_TEXCOORD1
-				float4 lightmapTexCoord1 = fragInputs.texCoord1;
-                #else
-				float4 lightmapTexCoord1 = float4(0, 0, 0, 0);
-                #endif
-
-                #ifdef FRAG_INPUTS_USE_TEXCOORD2
-				float4 lightmapTexCoord2 = fragInputs.texCoord2;
-                #else
-				float4 lightmapTexCoord2 = float4(0, 0, 0, 0);
-                #endif
-
-				//InitBuiltinData(posInput, surfaceDescription.Alpha, bentNormalWS, -fragInputs.tangentToWorld[2], lightmapTexCoord1, lightmapTexCoord2, builtinData);
-
-                //#else
-                //BuildSurfaceData(fragInputs, surfaceDescription, V, posInput, surfaceData);
-
-                ZERO_INITIALIZE(SurfaceData, surfaceData);
-
-                ZERO_BUILTIN_INITIALIZE(builtinData);
-                builtinData.opacity = surfaceDescription.Alpha;
-
-                #if defined(DEBUG_DISPLAY)
-				builtinData.renderingLayers = GetMeshRenderingLightLayer();
-                #endif
-
-                #ifdef _ALPHATEST_ON
-				builtinData.alphaClipTreshold = alphaCutoff;
+                    builtinData.alphaClipTreshold = surfaceDescription.AlphaClipThreshold;
                 #endif
 
                 #ifdef UNITY_VIRTUAL_TEXTURING
+                    builtinData.vtPackedFeedback = surfaceDescription.VTPackedFeedback;
                 #endif
 
-                #if _DEPTHOFFSET_ON
-				builtinData.depthOffset = surfaceDescription.DepthOffset;
-                #endif
+				#ifdef ASE_BAKEDGI
+                    builtinData.bakeDiffuseLighting = surfaceDescription.BakedGI;
+				#endif
 
-                #if (SHADERPASS == SHADERPASS_DISTORTION)
-				builtinData.distortion = surfaceDescription.Distortion;
-				builtinData.distortionBlur = surfaceDescription.DistortionBlur;
-                #endif
+				#ifdef ASE_BAKEDBACKGI
+                    builtinData.backBakeDiffuseLighting = surfaceDescription.BakedBackGI;
+				#endif
 
-                #ifndef SHADER_UNLIT
+                builtinData.emissiveColor = surfaceDescription.Emission;
+
 				PostInitBuiltinData(V, posInput, surfaceData, builtinData);
-                #else
-				ApplyDebugToBuiltinData(builtinData);
-                #endif
-
-				RAY_TRACING_OPTIONAL_ALPHA_TEST_PASS
 
             }
 
-
-			VertexOutput VertexFunction(VertexInput inputMesh  )
+			AttributesMesh ApplyMeshModification(AttributesMesh inputMesh, float3 timeParameters, inout PackedVaryingsMeshToPS outputPackedVaryingsMeshToPS )
 			{
-
-				VertexOutput o;
-				ZERO_INITIALIZE(VertexOutput, o);
-				UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o);
-
-				UNITY_SETUP_INSTANCE_ID(inputMesh);
-				UNITY_TRANSFER_INSTANCE_ID(inputMesh, o );
-
-				o.ase_texcoord2.xy = inputMesh.ase_texcoord.xy;
+				_TimeParameters.xyz = timeParameters;
+				outputPackedVaryingsMeshToPS.ase_texcoord7.xy = inputMesh.ase_texcoord.xy;
 				
 				//setting value to unused interpolator channels and avoid initialization warnings
-				o.ase_texcoord2.zw = 0;
+				outputPackedVaryingsMeshToPS.ase_texcoord7.zw = 0;
+
 				#ifdef ASE_ABSOLUTE_VERTEX_POS
 				float3 defaultVertexValue = inputMesh.positionOS.xyz;
 				#else
 				float3 defaultVertexValue = float3( 0, 0, 0 );
 				#endif
 				float3 vertexValue =   defaultVertexValue ;
+
 				#ifdef ASE_ABSOLUTE_VERTEX_POS
 				inputMesh.positionOS.xyz = vertexValue;
 				#else
 				inputMesh.positionOS.xyz += vertexValue;
 				#endif
-
 				inputMesh.normalOS =  inputMesh.normalOS ;
+				inputMesh.tangentOS = inputMesh.tangentOS;
+				return inputMesh;
+			}
+
+			PackedVaryingsMeshToPS VertexFunction(AttributesMesh inputMesh)
+			{
+				PackedVaryingsMeshToPS outputPackedVaryingsMeshToPS = (PackedVaryingsMeshToPS)0;
+				AttributesMesh defaultMesh = inputMesh;
+
+				UNITY_SETUP_INSTANCE_ID(inputMesh);
+				UNITY_TRANSFER_INSTANCE_ID(inputMesh, outputPackedVaryingsMeshToPS);
+				UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO( outputPackedVaryingsMeshToPS );
+
+				inputMesh = ApplyMeshModification( inputMesh, _TimeParameters.xyz, outputPackedVaryingsMeshToPS);
 
 				float3 positionRWS = TransformObjectToWorld(inputMesh.positionOS);
 				float3 normalWS = TransformObjectToWorldNormal(inputMesh.normalOS);
-				
-				o.positionCS = TransformWorldToHClip(positionRWS);
-				o.normalWS.xyz =  normalWS;
-				
-				return o;
+				float4 tangentWS = float4(TransformObjectToWorldDir(inputMesh.tangentOS.xyz), inputMesh.tangentOS.w);
+
+				#ifdef _WRITE_TRANSPARENT_MOTION_VECTOR
+				float4 VPASSpreviousPositionCS;
+				float4 VPASSpositionCS = mul(UNITY_MATRIX_UNJITTERED_VP, float4(positionRWS, 1.0));
+
+				bool forceNoMotion = unity_MotionVectorsParams.y == 0.0;
+				if (forceNoMotion)
+				{
+					VPASSpreviousPositionCS = float4(0.0, 0.0, 0.0, 1.0);
+				}
+				else
+				{
+					bool hasDeformation = unity_MotionVectorsParams.x > 0.0;
+					float3 effectivePositionOS = (hasDeformation ? inputMesh.previousPositionOS : defaultMesh.positionOS);
+					#if defined(_ADD_PRECOMPUTED_VELOCITY)
+					effectivePositionOS -= inputMesh.precomputedVelocity;
+					#endif
+
+					#if defined(HAVE_MESH_MODIFICATION)
+						AttributesMesh previousMesh = defaultMesh;
+						previousMesh.positionOS = effectivePositionOS ;
+						PackedVaryingsMeshToPS test = (PackedVaryingsMeshToPS)0;
+						float3 curTime = _TimeParameters.xyz;
+						previousMesh = ApplyMeshModification(previousMesh, _LastTimeParameters.xyz, test);
+						_TimeParameters.xyz = curTime;
+						float3 previousPositionRWS = TransformPreviousObjectToWorld(previousMesh.positionOS);
+					#else
+						float3 previousPositionRWS = TransformPreviousObjectToWorld(effectivePositionOS);
+					#endif
+
+					#ifdef ATTRIBUTES_NEED_NORMAL
+						float3 normalWS = TransformPreviousObjectToWorldNormal(defaultMesh.normalOS);
+					#else
+						float3 normalWS = float3(0.0, 0.0, 0.0);
+					#endif
+
+					#if defined(HAVE_VERTEX_MODIFICATION)
+						ApplyVertexModification(inputMesh, normalWS, previousPositionRWS, _LastTimeParameters.xyz);
+					#endif
+
+					VPASSpreviousPositionCS = mul(UNITY_MATRIX_PREV_VP, float4(previousPositionRWS, 1.0));
+				}
+				#endif
+
+				outputPackedVaryingsMeshToPS.positionCS = TransformWorldToHClip(positionRWS);
+				outputPackedVaryingsMeshToPS.positionRWS.xyz = positionRWS;
+				outputPackedVaryingsMeshToPS.normalWS.xyz = normalWS;
+				outputPackedVaryingsMeshToPS.tangentWS.xyzw = tangentWS;
+				outputPackedVaryingsMeshToPS.uv1.xyzw = inputMesh.uv1;
+				outputPackedVaryingsMeshToPS.uv2.xyzw = inputMesh.uv2;
+
+				#ifdef _WRITE_TRANSPARENT_MOTION_VECTOR
+					outputPackedVaryingsMeshToPS.vpassPositionCS = float3(VPASSpositionCS.xyw);
+					outputPackedVaryingsMeshToPS.vpassPreviousPositionCS = float3(VPASSpreviousPositionCS.xyw);
+				#endif
+				return outputPackedVaryingsMeshToPS;
 			}
 
 			#if defined(ASE_TESSELLATION)
@@ -4762,6 +5024,7 @@ Shader "Piloto Studio/PBR_UberShader"
 			{
 				float3 positionOS : INTERNALTESSPOS;
 				float3 normalOS : NORMAL;
+				float4 tangentOS : TANGENT;
 				float4 ase_texcoord : TEXCOORD0;
 
 				UNITY_VERTEX_INPUT_INSTANCE_ID
@@ -4773,13 +5036,14 @@ Shader "Piloto Studio/PBR_UberShader"
 				float inside : SV_InsideTessFactor;
 			};
 
-			VertexControl Vert ( VertexInput v )
+			VertexControl Vert ( AttributesMesh v )
 			{
 				VertexControl o;
 				UNITY_SETUP_INSTANCE_ID(v);
 				UNITY_TRANSFER_INSTANCE_ID(v, o);
 				o.positionOS = v.positionOS;
 				o.normalOS = v.normalOS;
+				o.tangentOS = v.tangentOS;
 				o.ase_texcoord = v.ase_texcoord;
 				return o;
 			}
@@ -4819,11 +5083,12 @@ Shader "Piloto Studio/PBR_UberShader"
 			}
 
 			[domain("tri")]
-			VertexOutput DomainFunction(TessellationFactors factors, OutputPatch<VertexControl, 3> patch, float3 bary : SV_DomainLocation)
+			PackedVaryingsMeshToPS DomainFunction(TessellationFactors factors, OutputPatch<VertexControl, 3> patch, float3 bary : SV_DomainLocation)
 			{
-				VertexInput o = (VertexInput) 0;
+				AttributesMesh o = (AttributesMesh) 0;
 				o.positionOS = patch[0].positionOS * bary.x + patch[1].positionOS * bary.y + patch[2].positionOS * bary.z;
 				o.normalOS = patch[0].normalOS * bary.x + patch[1].normalOS * bary.y + patch[2].normalOS * bary.z;
+				o.tangentOS = patch[0].tangentOS * bary.x + patch[1].tangentOS * bary.y + patch[2].tangentOS * bary.z;
 				o.ase_texcoord = patch[0].ase_texcoord * bary.x + patch[1].ase_texcoord * bary.y + patch[2].ase_texcoord * bary.z;
 				#if defined(ASE_PHONG_TESSELLATION)
 				float3 pp[3];
@@ -4836,40 +5101,82 @@ Shader "Piloto Studio/PBR_UberShader"
 				return VertexFunction(o);
 			}
 			#else
-			VertexOutput Vert ( VertexInput v )
+			PackedVaryingsMeshToPS Vert ( AttributesMesh v )
 			{
 				return VertexFunction( v );
 			}
 			#endif
 
-			void Frag(	VertexOutput packedInput
+			#if defined(WRITE_NORMAL_BUFFER) && defined(WRITE_MSAA_DEPTH)
+			#define SV_TARGET_DECAL SV_Target2
+			#elif defined(WRITE_NORMAL_BUFFER) || defined(WRITE_MSAA_DEPTH)
+			#define SV_TARGET_DECAL SV_Target1
+			#else
+			#define SV_TARGET_DECAL SV_Target0
+			#endif
+
+			void Frag( PackedVaryingsMeshToPS packedInput
+						#if defined(SCENESELECTIONPASS) || defined(SCENEPICKINGPASS)
 						, out float4 outColor : SV_Target0
+						#else
+							#ifdef WRITE_MSAA_DEPTH
+							, out float4 depthColor : SV_Target0
+								#ifdef WRITE_NORMAL_BUFFER
+								, out float4 outNormalBuffer : SV_Target1
+								#endif
+							#else
+								#ifdef WRITE_NORMAL_BUFFER
+								, out float4 outNormalBuffer : SV_Target0
+								#endif
+							#endif
+
+							#if defined(WRITE_DECAL_BUFFER) && !defined(_DISABLE_DECALS)
+							, out float4 outDecalBuffer : SV_TARGET_DECAL
+							#endif
+						#endif
+
+						#if defined(_DEPTHOFFSET_ON) && !defined(SCENEPICKINGPASS)
+						, out float outputDepth : DEPTH_OFFSET_SEMANTIC
+						#endif
 						
 					)
 			{
-				UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(packedInput);
-				UNITY_SETUP_INSTANCE_ID(packedInput);
+			UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(packedInput);
+			UNITY_SETUP_INSTANCE_ID(packedInput);
+
+				float3 positionRWS = packedInput.positionRWS.xyz;
 
 				FragInputs input;
 				ZERO_INITIALIZE(FragInputs, input);
+
 				input.tangentToWorld = k_identity3x3;
 				input.positionSS = packedInput.positionCS;
 
+				input.positionRWS = positionRWS;
+
+				#if _DOUBLESIDED_ON && SHADER_STAGE_FRAGMENT
+				input.isFrontFace = IS_FRONT_VFACE( packedInput.cullFace, true, false);
+				#elif SHADER_STAGE_FRAGMENT
+				#if defined(ASE_NEED_CULLFACE)
+				input.isFrontFace = IS_FRONT_VFACE( packedInput.cullFace, true, false );
+				#endif
+				#endif
+				half isFrontFace = input.isFrontFace;
+
 				PositionInputs posInput = GetPositionInput(input.positionSS.xy, _ScreenSize.zw, input.positionSS.z, input.positionSS.w, input.positionRWS);
 
-				SurfaceDescription surfaceDescription = (SurfaceDescription)0;
-				float2 uv_BaseColorMap = packedInput.ase_texcoord2.xy * _BaseColorMap_ST.xy + _BaseColorMap_ST.zw;
+				float3 V = GetWorldSpaceNormalizeViewDir(input.positionRWS);
+
+				PickingSurfaceDescription surfaceDescription = (PickingSurfaceDescription)0;
+				float2 uv_BaseColorMap = packedInput.ase_texcoord7.xy * _BaseColorMap_ST.xy + _BaseColorMap_ST.zw;
 				float4 tex2DNode1 = tex2D( _BaseColorMap, uv_BaseColorMap );
 				
 				surfaceDescription.Alpha = tex2DNode1.a;
+
+				#ifdef _ALPHATEST_ON
 				surfaceDescription.AlphaClipThreshold =  _AlphaClipping;
+				#endif
 
-
-				float3 V = float3(1.0, 1.0, 1.0);
-
-				SurfaceData surfaceData;
-				BuiltinData builtinData;
-				GetSurfaceAndBuiltinData(surfaceDescription, input, V, posInput, surfaceData, builtinData);
 				outColor = _SelectionID;
 			}
 
@@ -4890,11 +5197,7 @@ Shader "Piloto Studio/PBR_UberShader"
 			ZWrite Off
 
             HLSLPROGRAM
-
-			/*ase_pragma_before*/
-
-			#pragma multi_compile_instancing
-			#pragma instancing_options renderinglayer
+            /*ase_pragma_before*/
             #pragma multi_compile _ DOTS_INSTANCING_ON
 
 			#pragma vertex Vert
@@ -4903,8 +5206,12 @@ Shader "Piloto Studio/PBR_UberShader"
             #pragma shader_feature _ _SURFACE_TYPE_TRANSPARENT
             #pragma shader_feature_local _ _TRANSPARENT_WRITES_MOTION_VEC
             #pragma shader_feature_local_fragment _ _ENABLE_FOG_ON_TRANSPARENT
+			#pragma shader_feature_local _BLENDMODE_OFF _BLENDMODE_ALPHA _BLENDMODE_ADD _BLENDMODE_PRE_MULTIPLY
 
 			#define SHADERPASS SHADERPASS_FULL_SCREEN_DEBUG
+
+			#define ATTRIBUTES_NEED_NORMAL
+			#define ATTRIBUTES_NEED_TANGENT
 
 			#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Common.hlsl"
 			#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/GeometricTools.hlsl"
@@ -4914,9 +5221,6 @@ Shader "Piloto Studio/PBR_UberShader"
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/ShaderPass.cs.hlsl"
 			#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/TextureStack.hlsl"
             #include "Packages/com.unity.shadergraph/ShaderGraphLibrary/Functions.hlsl"
-
-			#define ATTRIBUTES_NEED_NORMAL
-			#define ATTRIBUTES_NEED_TANGENT
 
 			#include "Packages/com.unity.render-pipelines.high-definition/Runtime/RenderPipeline/ShaderPass/FragInputs.hlsl"
 
@@ -4946,13 +5250,13 @@ Shader "Piloto Studio/PBR_UberShader"
 				#endif
 			#endif
 
-			#if defined(SHADER_LIT) && !defined(_SURFACE_TYPE_TRANSPARENT)
-			#define _DEFERRED_CAPABLE_MATERIAL
-			#endif
-
-			#if defined(_TRANSPARENT_WRITES_MOTION_VEC) && defined(_SURFACE_TYPE_TRANSPARENT)
-			#define _WRITE_TRANSPARENT_MOTION_VECTOR
-			#endif
+            #if defined(SHADER_LIT) && !defined(_SURFACE_TYPE_TRANSPARENT)
+                #define _DEFERRED_CAPABLE_MATERIAL
+            #endif
+        
+            #if defined(_TRANSPARENT_WRITES_MOTION_VEC) && defined(_SURFACE_TYPE_TRANSPARENT)
+                #define _WRITE_TRANSPARENT_MOTION_VECTOR
+            #endif
 
             #ifdef DEBUG_DISPLAY
             #include "Packages/com.unity.render-pipelines.high-definition/Runtime/Debug/DebugDisplay.hlsl"
@@ -5148,7 +5452,7 @@ Shader "Piloto Studio/PBR_UberShader"
 	Fallback Off
 }
 /*ASEBEGIN
-Version=19302
+Version=19701
 Node;AmplifyShaderEditor.HDEmissionNode;18;-100,942.4998;Inherit;False;Luminance;False;3;0;FLOAT3;0,0,0;False;1;FLOAT;0;False;2;FLOAT;0;False;1;FLOAT3;0
 Node;AmplifyShaderEditor.RangedFloatNode;20;-365,1195.5;Inherit;False;Property;_ExposureWeight;Exposure Weight;14;0;Create;True;0;0;0;False;0;False;0;0;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.RangedFloatNode;19;-316,1122.5;Inherit;False;Property;_Intensity;Intensity;4;0;Create;True;0;0;0;False;0;False;0;0;0;0;0;1;FLOAT;0
@@ -5156,7 +5460,7 @@ Node;AmplifyShaderEditor.Vector2Node;26;-1258,1443.5;Inherit;False;Property;_Pan
 Node;AmplifyShaderEditor.SimpleMultiplyOpNode;27;-557,1267.5;Inherit;False;2;2;0;COLOR;0,0,0,0;False;1;FLOAT;0;False;1;COLOR;0
 Node;AmplifyShaderEditor.PannerNode;25;-1077,1391.5;Inherit;False;3;0;FLOAT2;1,1;False;2;FLOAT2;0,0;False;1;FLOAT;1;False;1;FLOAT2;0
 Node;AmplifyShaderEditor.TextureCoordinatesNode;28;-1305,1219.5;Inherit;False;0;24;2;3;2;SAMPLER2D;;False;0;FLOAT2;1,1;False;1;FLOAT2;0,0;False;5;FLOAT2;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.ColorNode;22;-796,1133;Inherit;False;Property;_EmissiveTint;Emissive Tint;3;1;[HDR];Create;True;0;0;0;False;0;False;1,1,1,1;0,0,0,1;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.ColorNode;22;-796,1133;Inherit;False;Property;_EmissiveTint;Emissive Tint;3;1;[HDR];Create;True;0;0;0;False;0;False;1,1,1,1;0,0,0,1;True;True;0;6;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4;FLOAT3;5
 Node;AmplifyShaderEditor.SimpleMultiplyOpNode;30;-572,940.4998;Inherit;False;2;2;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;1;COLOR;0
 Node;AmplifyShaderEditor.RangedFloatNode;33;-736,773.4998;Inherit;False;Property;_AdditiveMaskEdge;Additive Mask Edge;2;0;Create;True;0;0;0;False;0;False;1;0;0;1;0;1;FLOAT;0
 Node;AmplifyShaderEditor.SimpleAddOpNode;31;-125,668.4998;Inherit;False;2;2;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;1;COLOR;0
@@ -5175,13 +5479,13 @@ Node;AmplifyShaderEditor.RangedFloatNode;51;-360.957,446.8333;Inherit;False;Prop
 Node;AmplifyShaderEditor.RangedFloatNode;54;-393.957,69.83328;Inherit;False;Property;_MetallicScale;Metallic Scale;13;0;Create;True;0;0;0;False;0;False;1;0;0;1;0;1;FLOAT;0
 Node;AmplifyShaderEditor.SimpleMultiplyOpNode;47;-607.957,182.8333;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0
 Node;AmplifyShaderEditor.SimpleMultiplyOpNode;55;-75.95703,93.83328;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0
-Node;AmplifyShaderEditor.SamplerNode;4;-1179,223.5;Inherit;True;Property;_OcclusionRoughtMetal;Occlusion Rought Metal;10;0;Create;True;0;0;0;False;0;False;-1;None;None;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.SamplerNode;3;-781,-22.5;Inherit;True;Property;_Normal;Normal;8;0;Create;True;0;0;0;False;0;False;-1;None;None;True;0;True;white;Auto;True;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;5;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.SamplerNode;2;-891,935.5;Inherit;True;Property;_Emission;Emission;1;0;Create;True;0;0;0;False;0;False;-1;None;None;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.SamplerNode;24;-875,1369.5;Inherit;True;Property;_PanningMask;Panning Mask;5;0;Create;True;0;0;0;False;0;False;-1;None;None;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.SamplerNode;4;-1179,223.5;Inherit;True;Property;_OcclusionRoughtMetal;Occlusion Rought Metal;10;0;Create;True;0;0;0;False;0;False;-1;None;None;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;6;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4;FLOAT3;5
+Node;AmplifyShaderEditor.SamplerNode;3;-781,-22.5;Inherit;True;Property;_Normal;Normal;8;0;Create;True;0;0;0;False;0;False;-1;None;None;True;0;True;white;Auto;True;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;6;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4;FLOAT3;5
+Node;AmplifyShaderEditor.SamplerNode;2;-891,935.5;Inherit;True;Property;_Emission;Emission;1;0;Create;True;0;0;0;False;0;False;-1;None;None;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;6;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4;FLOAT3;5
+Node;AmplifyShaderEditor.SamplerNode;24;-875,1369.5;Inherit;True;Property;_PanningMask;Panning Mask;5;0;Create;True;0;0;0;False;0;False;-1;None;None;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;6;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4;FLOAT3;5
 Node;AmplifyShaderEditor.SimpleMultiplyOpNode;59;-87.82632,-283.0322;Inherit;False;2;2;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;1;COLOR;0
-Node;AmplifyShaderEditor.SamplerNode;1;-732,-269.5;Inherit;True;Property;_BaseColorMap;Base Color Map;0;0;Create;True;0;0;0;False;0;False;-1;None;None;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.ColorNode;58;-439.577,-466.1308;Inherit;False;Property;_BaseColorTint;BaseColor Tint;15;0;Create;True;0;0;0;False;0;False;1,1,1,0;1,1,1,0;True;0;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.SamplerNode;1;-732,-269.5;Inherit;True;Property;_BaseColorMap;Base Color Map;0;0;Create;True;0;0;0;False;0;False;-1;None;None;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;6;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4;FLOAT3;5
+Node;AmplifyShaderEditor.ColorNode;58;-439.577,-466.1308;Inherit;False;Property;_BaseColorTint;BaseColor Tint;15;0;Create;True;0;0;0;False;0;False;1,1,1,0;1,1,1,0;True;True;0;6;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4;FLOAT3;5
 Node;AmplifyShaderEditor.RangedFloatNode;60;154.1563,471.9955;Inherit;False;Property;_AlphaClipping;Alpha Clipping;16;0;Create;True;0;0;0;False;0;False;1;0;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;9;0,0;Float;False;False;-1;2;Rendering.HighDefinition.LightingShaderGraphGUI;0;1;New Amplify Shader;53b46d85872c5b24c8f4f0a1c3fe4c87;True;DepthOnly;0;4;DepthOnly;0;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;3;RenderPipeline=HDRenderPipeline;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;True;5;True;8;d3d11;metal;vulkan;xboxone;xboxseries;playstation;ps5;switch;0;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;0;True;_CullMode;False;False;False;False;False;False;False;False;False;True;True;0;True;_StencilRefDepth;255;False;;255;True;_StencilWriteMaskDepth;7;False;;3;False;;1;False;;1;False;;7;False;;1;False;;1;False;;1;False;;False;True;1;False;;False;False;True;1;LightMode=DepthOnly;False;False;0;;0;0;Standard;0;False;0
 Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;13;0,0;Float;False;False;-1;2;Rendering.HighDefinition.LightingShaderGraphGUI;0;1;New Amplify Shader;53b46d85872c5b24c8f4f0a1c3fe4c87;True;TransparentDepthPrepass;0;7;TransparentDepthPrepass;0;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;3;RenderPipeline=HDRenderPipeline;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;True;5;True;8;d3d11;metal;vulkan;xboxone;xboxseries;playstation;ps5;switch;0;False;True;1;1;False;;0;False;;0;1;False;;0;False;;False;False;False;False;False;False;False;False;False;False;False;False;True;0;True;_CullMode;False;False;False;False;False;False;False;False;False;True;True;0;True;_StencilRefDepth;255;False;;255;True;_StencilWriteMaskDepth;7;False;;3;False;;1;False;;1;False;;7;False;;3;False;;1;False;;1;False;;False;True;1;False;;False;False;True;1;LightMode=TransparentDepthPrepass;False;False;0;;0;0;Standard;0;False;0
@@ -5193,7 +5497,7 @@ Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;6;0,0;Float;False;False;-1;
 Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;8;0,0;Float;False;False;-1;2;Rendering.HighDefinition.LightingShaderGraphGUI;0;1;New Amplify Shader;53b46d85872c5b24c8f4f0a1c3fe4c87;True;SceneSelectionPass;0;3;SceneSelectionPass;0;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;3;RenderPipeline=HDRenderPipeline;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;True;5;True;8;d3d11;metal;vulkan;xboxone;xboxseries;playstation;ps5;switch;0;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;2;False;;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;1;LightMode=SceneSelectionPass;False;False;0;;0;0;Standard;0;False;0
 Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;56;276.2731,356.0497;Float;False;False;-1;2;Rendering.HighDefinition.LightingShaderGraphGUI;0;1;New Amplify Shader;53b46d85872c5b24c8f4f0a1c3fe4c87;True;MotionVectors;0;5;MotionVectors;0;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;3;RenderPipeline=HDRenderPipeline;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;True;5;True;7;d3d11;metal;vulkan;xboxone;xboxseries;playstation;switch;0;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;0;True;_CullMode;False;False;False;False;False;False;False;False;False;True;True;0;True;_StencilRefMV;255;False;;255;True;_StencilWriteMaskMV;7;False;;3;False;;0;False;;0;False;;7;False;;3;False;;0;False;;0;False;;False;True;1;False;;False;False;True;1;LightMode=MotionVectors;False;False;0;;0;0;Standard;0;False;0
 Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;57;276.2731,396.0497;Float;False;False;-1;2;Rendering.HighDefinition.LightingShaderGraphGUI;0;1;New Amplify Shader;53b46d85872c5b24c8f4f0a1c3fe4c87;True;ScenePickingPass;0;10;ScenePickingPass;0;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;3;RenderPipeline=HDRenderPipeline;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;True;5;True;7;d3d11;metal;vulkan;xboxone;xboxseries;playstation;switch;0;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;0;True;_CullMode;False;False;False;False;False;False;False;False;False;False;False;True;2;False;;True;3;False;;False;True;1;LightMode=Picking;False;False;0;;0;0;Standard;0;False;0
-Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;5;390.6587,11.59875;Float;False;True;-1;2;Rendering.HighDefinition.LightingShaderGraphGUI;0;14;Piloto Studio/PBR_UberShader;53b46d85872c5b24c8f4f0a1c3fe4c87;True;GBuffer;0;0;GBuffer;33;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;3;RenderPipeline=HDRenderPipeline;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;True;5;True;12;all;0;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;0;True;_CullMode;False;True;True;True;True;True;0;True;_LightLayersMaskBuffer4;False;False;False;False;False;False;False;True;True;0;True;_StencilRefGBuffer;255;False;;255;True;_StencilWriteMaskGBuffer;7;False;;3;False;;1;False;;1;False;;7;False;;1;False;;1;False;;1;False;;False;False;True;0;True;_ZTestGBuffer;False;True;1;LightMode=GBuffer;False;False;0;;0;0;Standard;37;Surface Type;0;638238169937671819;  Rendering Pass;1;0;  Refraction Model;0;0;    Blending Mode;0;0;    Blend Preserves Specular;1;0;  Back Then Front Rendering;0;0;  Transparent Depth Prepass;0;0;  Transparent Depth Postpass;0;0;  ZWrite;0;0;  Z Test;4;0;Double-Sided;0;0;Alpha Clipping;1;638627137317819240;  Use Shadow Threshold;0;638630778700087161;Material Type,InvertActionOnDeselection;0;638238177706027657;  Energy Conserving Specular;1;0;  Transmission,InvertActionOnDeselection;0;0;Receive Decals;1;0;Receive SSR;1;0;Receive SSR Transparent;0;0;Motion Vectors;0;638238176770568466;  Add Precomputed Velocity;0;0;Specular AA;0;638105491206618183;Specular Occlusion Mode;0;638105491252899944;Override Baked GI;0;0;Depth Offset;0;638238178744195274;GPU Instancing;1;0;LOD CrossFade;0;0;Tessellation;0;0;  Phong;0;0;  Strength;0.5,False,;0;  Type;0;0;  Tess;16,False,;0;  Min;10,False,;0;  Max;25,False,;0;  Edge Length;16,False,;0;  Max Displacement;25,False,;0;Vertex Position;1;0;0;11;True;True;True;True;True;False;False;False;False;True;True;False;;False;0
+Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;5;390.6587,11.59875;Float;False;True;-1;2;Rendering.HighDefinition.LightingShaderGraphGUI;0;14;Piloto Studio/PBR_UberShader;53b46d85872c5b24c8f4f0a1c3fe4c87;True;GBuffer;0;0;GBuffer;33;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;3;RenderPipeline=HDRenderPipeline;RenderType=Opaque=RenderType;Queue=Geometry=Queue=0;True;5;True;12;all;0;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;0;True;_CullMode;False;True;True;True;True;True;0;True;_LightLayersMaskBuffer4;False;False;False;False;False;False;False;True;True;0;True;_StencilRefGBuffer;255;False;;255;True;_StencilWriteMaskGBuffer;7;False;;3;False;;1;False;;1;False;;7;False;;1;False;;1;False;;1;False;;False;False;True;0;True;_ZTestGBuffer;False;True;1;LightMode=GBuffer;False;False;0;;0;0;Standard;38;Surface Type;0;638238169937671819;  Rendering Pass;1;0;  Refraction Model;0;0;    Blending Mode;0;0;    Blend Preserves Specular;1;0;  Back Then Front Rendering;0;0;  Transparent Depth Prepass;0;0;  Transparent Depth Postpass;0;0;  ZWrite;0;0;  Z Test;4;0;Double-Sided;0;0;Alpha Clipping;1;638627137317819240;  Use Shadow Threshold;0;638630778700087161;Material Type,InvertActionOnDeselection;0;638238177706027657;  Energy Conserving Specular;1;0;  Transmission,InvertActionOnDeselection;0;0;Receive Decals;1;0;Receive SSR;1;0;Receive SSR Transparent;0;0;Motion Vectors;0;638238176770568466;  Add Precomputed Velocity;0;0;Specular AA;0;638105491206618183;Specular Occlusion Mode;0;638105491252899944;Override Baked GI;0;0;Depth Offset;0;638238178744195274;  Conserative;1;0;GPU Instancing;1;0;LOD CrossFade;0;0;Tessellation;0;0;  Phong;0;0;  Strength;0.5,False,;0;  Type;0;0;  Tess;16,False,;0;  Min;10,False,;0;  Max;25,False,;0;  Edge Length;16,False,;0;  Max Displacement;25,False,;0;Vertex Position;1;0;0;11;True;True;True;True;True;False;False;False;False;True;True;False;;False;0
 WireConnection;18;0;31;0
 WireConnection;18;1;19;0
 WireConnection;18;2;20;0
@@ -5234,4 +5538,4 @@ WireConnection;5;8;47;0
 WireConnection;5;9;1;4
 WireConnection;5;10;60;0
 ASEEND*/
-//CHKSM=8B831F54C5BC99AA70E8FFBCCF8FB0476215A8CE
+//CHKSM=C0579CCD4EEBC98F526134EE954AF25C1D06C0A9
