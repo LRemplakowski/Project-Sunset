@@ -70,7 +70,7 @@ namespace SunsetSystems.Input.CameraControl
 
         public static BoundingBox FindFirstContainingPoint(Vector3 point)
         {
-            return FindObjectsByType<BoundingBox>(FindObjectsSortMode.None).First(box => box.IsPositionWithinBounds(point));
+            return FindObjectsByType<BoundingBox>(FindObjectsSortMode.None).FirstOrDefault(box => box.IsPositionWithinBounds(point));
         }
     }
 }
