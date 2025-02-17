@@ -206,6 +206,7 @@ Material:
     - _DoubleSidedGIMode: 0
     - _DoubleSidedNormalMode: 1
     - _DstBlend: 0
+    - _DstBlend2: 0
     - _EmissiveColorMode: 1
     - _EmissiveExposureWeight: 1
     - _EmissiveIntensity: 1
@@ -214,6 +215,7 @@ Material:
     - _EnableFogOnTransparent: 1
     - _EnableGeometricSpecularAA: 0
     - _EnergyConservingSpecularColor: 1
+    - _ExcludeFromTUAndAA: 0
     - _HeightAmplitude: 0.02
     - _HeightCenter: 0.5
     - _HeightMapParametrization: 0
@@ -229,6 +231,7 @@ Material:
     - _IridescenceThickness: 1
     - _LinkDetailsWithBase: 1
     - _MaterialID: 1
+    - _MaterialTypeMask: 2
     - _Metallic: 0
     - _MetallicRemapMax: 1
     - _MetallicRemapMin: 0
@@ -246,6 +249,8 @@ Material:
     - _PPDPrimitiveWidth: 1
     - _Pattern_normal_offset: 0.5
     - _Pattern_normal_strength: 1
+    - _PerPixelSorting: 0
+    - _Pixelation: 0
     - _Random_range_X: 1
     - _Random_range_Y: 1
     - _RayTracing: 0
@@ -257,6 +262,7 @@ Material:
     - _Smoothness: 0.5
     - _SmoothnessRemapMax: 1
     - _SmoothnessRemapMin: 0
+    - _Smoothness_multiplier: 1
     - _SpecularAAScreenSpaceVariance: 0.1
     - _SpecularAAThreshold: 0.2
     - _SpecularOcclusionMode: 1
@@ -293,6 +299,7 @@ Material:
     - _UV_noise_intensity: 146.5
     - _UseEmissiveIntensity: 0
     - _UseShadowThreshold: 0
+    - _Use_Texture_use_color: 1
     - _ZTestDepthEqualForOpaque: 3
     - _ZTestGBuffer: 4
     - _ZTestTransparent: 4
@@ -303,6 +310,7 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Color_pattern_offset: {r: 0, g: 0, b: 0, a: 0}
     - _Color_pattern_tiling: {r: 1, g: 1, b: 0, a: 0}
+    - _Cookie_offset: {r: 0, g: 0, b: 0, a: 0}
     - _DiffusionProfileAsset: {r: 0, g: 0, b: 0, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
@@ -310,7 +318,8 @@ Material:
     - _EmissiveColorLDR: {r: 0, g: 0, b: 0, a: 1}
     - _InvPrimScale: {r: 1, g: 1, b: 0, a: 0}
     - _IridescenceThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
-    - _Neon_color: {r: 1.1764442, g: 1.3620012, b: 27.71181, a: 0}
+    - _Main_color: {r: 1, g: 1, b: 1, a: 0}
+    - _Neon_color: {r: 0.50876766, g: 0.5890141, b: 11.984311, a: 0}
     - _Noise_direction: {r: 1, g: 0, b: 0, a: 0}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
     - _ThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
@@ -319,3 +328,4 @@ Material:
     - _UVMappingMask: {r: 1, g: 0, b: 0, a: 0}
     - _UVMappingMaskEmissive: {r: 1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
