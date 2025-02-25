@@ -75,7 +75,7 @@ MonoBehaviour:
     supportTerrainHole: 0
     lightProbeSystem: 1
     oldLightProbeSystem: 0
-    probeVolumeMemoryBudget: 512
+    probeVolumeMemoryBudget: 1024
     supportProbeVolumeGPUStreaming: 1
     supportProbeVolumeDiskStreaming: 1
     probeVolumeSHBands: 2
@@ -94,7 +94,7 @@ MonoBehaviour:
       reflectionProbeCacheSize: 64
       reflectionCubemapSize: 256
       maxEnvLightsOnScreen: 64
-      reflectionCacheCompressed: 0
+      reflectionCacheCompressed: 1
       reflectionProbeFormat: 74
       reflectionProbeTexCacheSize: 1073750016
       reflectionProbeTexLastValidCubeMip: 3

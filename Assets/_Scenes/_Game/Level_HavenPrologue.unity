@@ -13285,7 +13285,7 @@ Light:
   m_BounceIntensity: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 1.441e-41, y: 2.524355e-29, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 1.26397e-40, y: 2.524355e-29, z: 0, w: -1.051397e+31}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
@@ -26351,7 +26351,7 @@ MonoBehaviour:
   m_StaticLightingSkyUniqueID: 0
   m_StaticLightingCloudsUniqueID: 0
   m_StaticLightingVolumetricClouds: 0
-  bounces: 1
+  bounces: 2
 --- !u!4 &339414860
 Transform:
   m_ObjectHideFlags: 1
@@ -26575,7 +26575,7 @@ MonoBehaviour:
       automaticScale: 1
       viewerScale: 1
     type: 0
-    mode: 1
+    mode: 0
     realtimeMode: 1
     timeSlicing: 0
     lighting:
@@ -26630,7 +26630,7 @@ MonoBehaviour:
     cubeResolution:
       m_Override: 128
       m_UseOverride: 0
-      m_Level: 0
+      m_Level: 1
     cameraSettings:
       customRenderingSettings: 0
       renderingPathCustomFrameSettings:
@@ -26654,7 +26654,7 @@ MonoBehaviour:
           data1: 0
           data2: 0
       bufferClearing:
-        clearColorMode: 0
+        clearColorMode: 2
         backgroundColorHDR: {r: 0.023529412, g: 0.07058824, b: 0.1882353, a: 0}
         clearDepth: 1
       volumes:
@@ -26750,7 +26750,7 @@ MonoBehaviour:
     camera:
       camera: 0
   m_ProxyVolume: {fileID: 0}
-  m_BakedTexture: {fileID: 8900000, guid: ecc327b7fe764dc4f860f181d84440e6, type: 3}
+  m_BakedTexture: {fileID: 8900000, guid: 14452d65c5138d544adb9cd04ee9c044, type: 3}
   m_CustomTexture: {fileID: 0}
   m_BakedRenderData:
     m_WorldToCameraRHS:
@@ -29892,7 +29892,7 @@ MonoBehaviour:
       automaticScale: 1
       viewerScale: 1
     type: 0
-    mode: 1
+    mode: 0
     realtimeMode: 1
     timeSlicing: 0
     lighting:
@@ -29905,8 +29905,8 @@ MonoBehaviour:
     influence:
       m_Shape: 0
       m_BoxSize: {x: 2.93, y: 3, z: 3}
-      m_BoxBlendDistancePositive: {x: 1, y: 1, z: 1}
-      m_BoxBlendDistanceNegative: {x: 1, y: 1, z: 1}
+      m_BoxBlendDistancePositive: {x: 0, y: 0, z: 0}
+      m_BoxBlendDistanceNegative: {x: 0, y: 0, z: 0}
       m_BoxBlendNormalDistancePositive: {x: 0, y: 0, z: 0}
       m_BoxBlendNormalDistanceNegative: {x: 0, y: 0, z: 0}
       m_BoxSideFadePositive: {x: 1, y: 1, z: 1}
@@ -29947,7 +29947,7 @@ MonoBehaviour:
     cubeResolution:
       m_Override: 128
       m_UseOverride: 0
-      m_Level: 0
+      m_Level: 1
     cameraSettings:
       customRenderingSettings: 0
       renderingPathCustomFrameSettings:
@@ -29971,7 +29971,7 @@ MonoBehaviour:
           data1: 0
           data2: 0
       bufferClearing:
-        clearColorMode: 0
+        clearColorMode: 2
         backgroundColorHDR: {r: 0.023529412, g: 0.07058824, b: 0.1882353, a: 0}
         clearDepth: 1
       volumes:
@@ -30067,7 +30067,7 @@ MonoBehaviour:
     camera:
       camera: 0
   m_ProxyVolume: {fileID: 0}
-  m_BakedTexture: {fileID: 8900000, guid: bbdbcda00c95e2f4db65ece81fd6290b, type: 3}
+  m_BakedTexture: {fileID: 8900000, guid: 9e1e69bfc8970d842befbf2e3e034c05, type: 3}
   m_CustomTexture: {fileID: 0}
   m_BakedRenderData:
     m_WorldToCameraRHS:
@@ -31465,7 +31465,7 @@ Light:
   m_BounceIntensity: 3
   m_ColorTemperature: 6570
   m_UseColorTemperature: 1
-  m_BoundingSphereOverride: {x: 1.1856e-41, y: 2.524355e-29, z: 0, w: 0.000038201357}
+  m_BoundingSphereOverride: {x: -1.008102e+14, y: 4e-45, z: -6.7762636e-18, w: 1.0249415e+36}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
@@ -33103,7 +33103,7 @@ MonoBehaviour:
       automaticScale: 1
       viewerScale: 1
     type: 0
-    mode: 1
+    mode: 0
     realtimeMode: 1
     timeSlicing: 0
     lighting:
@@ -33116,8 +33116,8 @@ MonoBehaviour:
     influence:
       m_Shape: 0
       m_BoxSize: {x: 3.6679888, y: 3, z: 3.7110295}
-      m_BoxBlendDistancePositive: {x: 1, y: 1, z: 1}
-      m_BoxBlendDistanceNegative: {x: 1, y: 1, z: 1}
+      m_BoxBlendDistancePositive: {x: 0.58, y: 0.58, z: 0.58}
+      m_BoxBlendDistanceNegative: {x: 0.58, y: 0.58, z: 0.58}
       m_BoxBlendNormalDistancePositive: {x: 0, y: 0, z: 0}
       m_BoxBlendNormalDistanceNegative: {x: 0, y: 0, z: 0}
       m_BoxSideFadePositive: {x: 1, y: 1, z: 1}
@@ -33158,7 +33158,7 @@ MonoBehaviour:
     cubeResolution:
       m_Override: 128
       m_UseOverride: 0
-      m_Level: 0
+      m_Level: 1
     cameraSettings:
       customRenderingSettings: 0
       renderingPathCustomFrameSettings:
@@ -33182,7 +33182,7 @@ MonoBehaviour:
           data1: 0
           data2: 0
       bufferClearing:
-        clearColorMode: 0
+        clearColorMode: 2
         backgroundColorHDR: {r: 0.023529412, g: 0.07058824, b: 0.1882353, a: 0}
         clearDepth: 1
       volumes:
@@ -33278,7 +33278,7 @@ MonoBehaviour:
     camera:
       camera: 0
   m_ProxyVolume: {fileID: 0}
-  m_BakedTexture: {fileID: 8900000, guid: a60875bdc264bce4baf0bbeac4a2e6a1, type: 3}
+  m_BakedTexture: {fileID: 8900000, guid: 80afd2ac0c7d5fd4fb25958019f96f40, type: 3}
   m_CustomTexture: {fileID: 0}
   m_BakedRenderData:
     m_WorldToCameraRHS:
@@ -33360,33 +33360,33 @@ MonoBehaviour:
     m_Aspect: 0
   m_HasValidSHForNormalization: 1
   m_SHForNormalization:
-    'sh[ 0]': 0.19801353
-    'sh[ 1]': -0.039846584
-    'sh[ 2]': 0.08882365
-    'sh[ 3]': 0.013699867
-    'sh[ 4]': 0.0042958143
-    'sh[ 5]': 0.01106169
-    'sh[ 6]': 0.007962205
-    'sh[ 7]': -0.0034626785
-    'sh[ 8]': -0.0012823353
-    'sh[ 9]': 0.0647309
-    'sh[10]': -0.01836789
-    'sh[11]': 0.025490282
-    'sh[12]': 0.0033022156
-    'sh[13]': 0.0009621536
-    'sh[14]': 0.0016880733
-    'sh[15]': 0.0025824697
-    'sh[16]': -0.0025597524
-    'sh[17]': -0.0002068054
-    'sh[18]': 0.013297725
-    'sh[19]': -0.004478246
-    'sh[20]': 0.004641466
-    'sh[21]': 0.0007749266
-    'sh[22]': 0.0001247203
-    'sh[23]': -0.0000018144859
-    'sh[24]': 0.00051791844
-    'sh[25]': -0.00077224104
-    'sh[26]': 0.000034315646
+    'sh[ 0]': 0.19842266
+    'sh[ 1]': -0.040120296
+    'sh[ 2]': 0.08917574
+    'sh[ 3]': 0.01358486
+    'sh[ 4]': 0.0043070894
+    'sh[ 5]': 0.010963272
+    'sh[ 6]': 0.0079903025
+    'sh[ 7]': -0.0035376733
+    'sh[ 8]': -0.0013107574
+    'sh[ 9]': 0.06499658
+    'sh[10]': -0.018524898
+    'sh[11]': 0.025759371
+    'sh[12]': 0.003233212
+    'sh[13]': 0.0009741946
+    'sh[14]': 0.0016145487
+    'sh[15]': 0.0026033747
+    'sh[16]': -0.0025940684
+    'sh[17]': -0.00022151343
+    'sh[18]': 0.013335281
+    'sh[19]': -0.0045049884
+    'sh[20]': 0.0046735853
+    'sh[21]': 0.00075965095
+    'sh[22]': 0.0001264559
+    'sh[23]': -0.00001125923
+    'sh[24]': 0.0005206359
+    'sh[25]': -0.00078148907
+    'sh[26]': 0.000031166666
   m_SHValidForCapturePosition: {x: 4.9939933, y: 1.78, z: 2.1811302}
   m_SHValidForSourcePosition: {x: 4.9939933, y: 1.78, z: 2.1811302}
   m_HDProbeVersion: 9
@@ -34786,7 +34786,7 @@ MonoBehaviour:
       automaticScale: 1
       viewerScale: 1
     type: 0
-    mode: 1
+    mode: 0
     realtimeMode: 1
     timeSlicing: 0
     lighting:
@@ -34841,7 +34841,7 @@ MonoBehaviour:
     cubeResolution:
       m_Override: 128
       m_UseOverride: 0
-      m_Level: 0
+      m_Level: 1
     cameraSettings:
       customRenderingSettings: 0
       renderingPathCustomFrameSettings:
@@ -34865,7 +34865,7 @@ MonoBehaviour:
           data1: 0
           data2: 0
       bufferClearing:
-        clearColorMode: 0
+        clearColorMode: 2
         backgroundColorHDR: {r: 0.023529412, g: 0.07058824, b: 0.1882353, a: 0}
         clearDepth: 1
       volumes:
@@ -34955,13 +34955,13 @@ MonoBehaviour:
           enableBigTilePrepass: 0
           isFptlEnabled: 0
     roughReflections: 1
-    distanceBasedRoughness: 0
+    distanceBasedRoughness: 1
   m_ProbeSettingsOverride:
     probe: 0
     camera:
       camera: 0
   m_ProxyVolume: {fileID: 0}
-  m_BakedTexture: {fileID: 8900000, guid: ac76acd3ca3e0b5439c72ec495054687, type: 3}
+  m_BakedTexture: {fileID: 8900000, guid: 45d76a83a76dd6644b6b3327f9cdf221, type: 3}
   m_CustomTexture: {fileID: 0}
   m_BakedRenderData:
     m_WorldToCameraRHS:
@@ -35043,33 +35043,33 @@ MonoBehaviour:
     m_Aspect: 0
   m_HasValidSHForNormalization: 1
   m_SHForNormalization:
-    'sh[ 0]': 0.30582285
-    'sh[ 1]': -0.18857603
-    'sh[ 2]': 0.0011851352
-    'sh[ 3]': -0.021937728
-    'sh[ 4]': 0.0041982424
-    'sh[ 5]': 0.007990354
-    'sh[ 6]': -0.001688108
-    'sh[ 7]': 0.028492725
-    'sh[ 8]': -0.0041855723
-    'sh[ 9]': 0.18336372
-    'sh[10]': -0.119004354
-    'sh[11]': 0.005798623
-    'sh[12]': -0.0071209674
-    'sh[13]': 0.0016664588
-    'sh[14]': 0.004284527
-    'sh[15]': -0.0010916389
-    'sh[16]': 0.014930046
-    'sh[17]': -0.004235899
-    'sh[18]': 0.06237252
-    'sh[19]': -0.042304516
-    'sh[20]': 0.0026666715
-    'sh[21]': -0.0011248601
-    'sh[22]': 0.0004282009
-    'sh[23]': 0.0013930108
-    'sh[24]': -0.00039952103
-    'sh[25]': 0.004453817
-    'sh[26]': -0.001937068
+    'sh[ 0]': 0.306378
+    'sh[ 1]': -0.18871318
+    'sh[ 2]': 0.00087086105
+    'sh[ 3]': -0.022454578
+    'sh[ 4]': 0.004256475
+    'sh[ 5]': 0.0080348635
+    'sh[ 6]': -0.0016940641
+    'sh[ 7]': 0.028630298
+    'sh[ 8]': -0.0041328073
+    'sh[ 9]': 0.18411447
+    'sh[10]': -0.11924625
+    'sh[11]': 0.0053101345
+    'sh[12]': -0.0077859857
+    'sh[13]': 0.0017699555
+    'sh[14]': 0.004361662
+    'sh[15]': -0.0010929438
+    'sh[16]': 0.015139656
+    'sh[17]': -0.0041742073
+    'sh[18]': 0.06232061
+    'sh[19]': -0.04230727
+    'sh[20]': 0.00267498
+    'sh[21]': -0.0010653503
+    'sh[22]': 0.0004293679
+    'sh[23]': 0.0013939341
+    'sh[24]': -0.0003967641
+    'sh[25]': 0.004448863
+    'sh[26]': -0.0019452402
   m_SHValidForCapturePosition: {x: -1.6399999, y: 1.52, z: 7.27}
   m_SHValidForSourcePosition: {x: -1.6399999, y: 1.52, z: 7.27}
   m_HDProbeVersion: 9
@@ -36146,7 +36146,7 @@ MonoBehaviour:
       automaticScale: 1
       viewerScale: 1
     type: 0
-    mode: 1
+    mode: 0
     realtimeMode: 1
     timeSlicing: 0
     lighting:
@@ -36201,7 +36201,7 @@ MonoBehaviour:
     cubeResolution:
       m_Override: 128
       m_UseOverride: 0
-      m_Level: 0
+      m_Level: 1
     cameraSettings:
       customRenderingSettings: 0
       renderingPathCustomFrameSettings:
@@ -36225,7 +36225,7 @@ MonoBehaviour:
           data1: 0
           data2: 0
       bufferClearing:
-        clearColorMode: 0
+        clearColorMode: 2
         backgroundColorHDR: {r: 0.023529412, g: 0.07058824, b: 0.1882353, a: 0}
         clearDepth: 1
       volumes:
@@ -36321,7 +36321,7 @@ MonoBehaviour:
     camera:
       camera: 0
   m_ProxyVolume: {fileID: 0}
-  m_BakedTexture: {fileID: 8900000, guid: 33a046297a07e7946a6803289a9acf86, type: 3}
+  m_BakedTexture: {fileID: 8900000, guid: df91a065d78d17f44a5a73a1a9663d5e, type: 3}
   m_CustomTexture: {fileID: 0}
   m_BakedRenderData:
     m_WorldToCameraRHS:
@@ -37612,7 +37612,7 @@ Light:
   m_BounceIntensity: 3
   m_ColorTemperature: 6570
   m_UseColorTemperature: 1
-  m_BoundingSphereOverride: {x: 1.6493e-41, y: 2.524355e-29, z: 0, w: 7.0373473e+22}
+  m_BoundingSphereOverride: {x: 8.95e-43, y: 1e-43, z: 0, w: 4.3e-44}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
@@ -37706,7 +37706,7 @@ MonoBehaviour:
       automaticScale: 1
       viewerScale: 1
     type: 0
-    mode: 1
+    mode: 0
     realtimeMode: 1
     timeSlicing: 0
     lighting:
@@ -37761,7 +37761,7 @@ MonoBehaviour:
     cubeResolution:
       m_Override: 128
       m_UseOverride: 0
-      m_Level: 0
+      m_Level: 1
     cameraSettings:
       customRenderingSettings: 0
       renderingPathCustomFrameSettings:
@@ -37785,7 +37785,7 @@ MonoBehaviour:
           data1: 0
           data2: 0
       bufferClearing:
-        clearColorMode: 0
+        clearColorMode: 2
         backgroundColorHDR: {r: 0.023529412, g: 0.07058824, b: 0.1882353, a: 0}
         clearDepth: 1
       volumes:
@@ -37881,7 +37881,7 @@ MonoBehaviour:
     camera:
       camera: 0
   m_ProxyVolume: {fileID: 0}
-  m_BakedTexture: {fileID: 8900000, guid: 153897f47b6d3f94394978f9e1b3cd2a, type: 3}
+  m_BakedTexture: {fileID: 8900000, guid: 6011b6ab428b02d45976e4bc021c8f6b, type: 3}
   m_CustomTexture: {fileID: 0}
   m_BakedRenderData:
     m_WorldToCameraRHS:
@@ -37963,33 +37963,33 @@ MonoBehaviour:
     m_Aspect: 0
   m_HasValidSHForNormalization: 1
   m_SHForNormalization:
-    'sh[ 0]': 0.21428028
-    'sh[ 1]': -0.07388714
-    'sh[ 2]': 0.06574709
-    'sh[ 3]': -0.07496854
-    'sh[ 4]': 0.029202785
-    'sh[ 5]': -0.01162223
-    'sh[ 6]': -0.0066881045
-    'sh[ 7]': -0.030266108
-    'sh[ 8]': 0.020000666
-    'sh[ 9]': 0.040611524
-    'sh[10]': -0.009833559
-    'sh[11]': 0.008436835
-    'sh[12]': 0.008016337
-    'sh[13]': 0.0028297687
-    'sh[14]': -0.0008623629
-    'sh[15]': -0.001227915
-    'sh[16]': -0.0033374445
-    'sh[17]': 0.0038938606
-    'sh[18]': 0.034137737
-    'sh[19]': -0.013616373
-    'sh[20]': 0.012923383
-    'sh[21]': -0.023512065
-    'sh[22]': 0.006179387
-    'sh[23]': -0.0027005526
-    'sh[24]': -0.0010765815
-    'sh[25]': -0.0060704644
-    'sh[26]': 0.0031877805
+    'sh[ 0]': 0.21463941
+    'sh[ 1]': -0.073542155
+    'sh[ 2]': 0.06604894
+    'sh[ 3]': -0.07533513
+    'sh[ 4]': 0.02899723
+    'sh[ 5]': -0.0114936605
+    'sh[ 6]': -0.0065650754
+    'sh[ 7]': -0.030166011
+    'sh[ 8]': 0.019816259
+    'sh[ 9]': 0.040836215
+    'sh[10]': -0.009805667
+    'sh[11]': 0.008663327
+    'sh[12]': 0.0077757994
+    'sh[13]': 0.002833519
+    'sh[14]': -0.0008669823
+    'sh[15]': -0.0011945027
+    'sh[16]': -0.0033937579
+    'sh[17]': 0.0038644532
+    'sh[18]': 0.034177665
+    'sh[19]': -0.0135641545
+    'sh[20]': 0.012938743
+    'sh[21]': -0.023503857
+    'sh[22]': 0.0061228964
+    'sh[23]': -0.0026709721
+    'sh[24]': -0.0010594866
+    'sh[25]': -0.006027821
+    'sh[26]': 0.0031563016
   m_SHValidForCapturePosition: {x: 2.0226312, y: 1.78, z: 3.0808573}
   m_SHValidForSourcePosition: {x: 2.0226312, y: 1.78, z: 3.0808573}
   m_HDProbeVersion: 9
@@ -39088,7 +39088,7 @@ Light:
   m_BounceIntensity: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 1.6001e-41, y: 2.524355e-29, z: 0, w: 1.8004427e+25}
+  m_BoundingSphereOverride: {x: 8.95e-43, y: 1.04e-43, z: 0, w: 4.3e-44}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
@@ -40219,7 +40219,7 @@ MonoBehaviour:
       automaticScale: 1
       viewerScale: 1
     type: 0
-    mode: 1
+    mode: 0
     realtimeMode: 1
     timeSlicing: 0
     lighting:
@@ -40274,7 +40274,7 @@ MonoBehaviour:
     cubeResolution:
       m_Override: 128
       m_UseOverride: 0
-      m_Level: 0
+      m_Level: 1
     cameraSettings:
       customRenderingSettings: 0
       renderingPathCustomFrameSettings:
@@ -40298,7 +40298,7 @@ MonoBehaviour:
           data1: 0
           data2: 0
       bufferClearing:
-        clearColorMode: 0
+        clearColorMode: 2
         backgroundColorHDR: {r: 0.023529412, g: 0.07058824, b: 0.1882353, a: 0}
         clearDepth: 1
       volumes:
@@ -40388,13 +40388,13 @@ MonoBehaviour:
           enableBigTilePrepass: 0
           isFptlEnabled: 0
     roughReflections: 1
-    distanceBasedRoughness: 0
+    distanceBasedRoughness: 1
   m_ProbeSettingsOverride:
     probe: 0
     camera:
       camera: 0
   m_ProxyVolume: {fileID: 0}
-  m_BakedTexture: {fileID: 8900000, guid: 038aaefeb06dac74487309450ae3f8c9, type: 3}
+  m_BakedTexture: {fileID: 8900000, guid: 4d0eb334b5326884e8cda40298893c3f, type: 3}
   m_CustomTexture: {fileID: 0}
   m_BakedRenderData:
     m_WorldToCameraRHS:
@@ -40476,33 +40476,33 @@ MonoBehaviour:
     m_Aspect: 0
   m_HasValidSHForNormalization: 1
   m_SHForNormalization:
-    'sh[ 0]': 0.09742451
-    'sh[ 1]': -0.06494173
-    'sh[ 2]': 0.0547565
-    'sh[ 3]': -0.009698314
-    'sh[ 4]': 0.0042562406
-    'sh[ 5]': -0.015129238
-    'sh[ 6]': 0.0003412019
-    'sh[ 7]': -0.0021776294
-    'sh[ 8]': -0.0026898137
-    'sh[ 9]': 0.06173849
-    'sh[10]': -0.041143246
-    'sh[11]': 0.035497237
-    'sh[12]': -0.006910515
-    'sh[13]': 0.0027761145
-    'sh[14]': -0.009741957
-    'sh[15]': 0.00032628738
-    'sh[16]': -0.0015096994
-    'sh[17]': -0.0018388974
-    'sh[18]': 0.021893293
-    'sh[19]': -0.014753516
-    'sh[20]': 0.012904488
-    'sh[21]': -0.0029030016
-    'sh[22]': 0.0010959719
-    'sh[23]': -0.0035554457
-    'sh[24]': 0.00016247031
-    'sh[25]': -0.00063070125
-    'sh[26]': -0.00075056753
+    'sh[ 0]': 0.097433016
+    'sh[ 1]': -0.06494625
+    'sh[ 2]': 0.05476068
+    'sh[ 3]': -0.009702383
+    'sh[ 4]': 0.0042573446
+    'sh[ 5]': -0.015130506
+    'sh[ 6]': 0.00034152664
+    'sh[ 7]': -0.002179234
+    'sh[ 8]': -0.0026898244
+    'sh[ 9]': 0.061738275
+    'sh[10]': -0.04114324
+    'sh[11]': 0.035497516
+    'sh[12]': -0.0069102454
+    'sh[13]': 0.0027760598
+    'sh[14]': -0.009741971
+    'sh[15]': 0.00032625726
+    'sh[16]': -0.0015098363
+    'sh[17]': -0.0018388965
+    'sh[18]': 0.021895392
+    'sh[19]': -0.014754601
+    'sh[20]': 0.012905008
+    'sh[21]': -0.002903786
+    'sh[22]': 0.0010961886
+    'sh[23]': -0.0035556352
+    'sh[24]': 0.00016256415
+    'sh[25]': -0.0006310661
+    'sh[26]': -0.000750576
   m_SHValidForCapturePosition: {x: -1.6399999, y: 1.52, z: 1.484}
   m_SHValidForSourcePosition: {x: -1.6399999, y: 1.52, z: 1.484}
   m_HDProbeVersion: 9
@@ -41700,7 +41700,7 @@ Light:
   m_BounceIntensity: 2
   m_ColorTemperature: 3000
   m_UseColorTemperature: 1
-  m_BoundingSphereOverride: {x: 8.779e-42, y: 2.524355e-29, z: 0, w: 4.3e-44}
+  m_BoundingSphereOverride: {x: 8.305307e-19, y: 0.00016805984, z: 0.000043680135, w: 0.0000000024174491}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
@@ -42032,7 +42032,7 @@ MonoBehaviour:
       automaticScale: 1
       viewerScale: 1
     type: 0
-    mode: 1
+    mode: 0
     realtimeMode: 1
     timeSlicing: 0
     lighting:
@@ -42087,7 +42087,7 @@ MonoBehaviour:
     cubeResolution:
       m_Override: 128
       m_UseOverride: 0
-      m_Level: 0
+      m_Level: 1
     cameraSettings:
       customRenderingSettings: 0
       renderingPathCustomFrameSettings:
@@ -42111,7 +42111,7 @@ MonoBehaviour:
           data1: 0
           data2: 0
       bufferClearing:
-        clearColorMode: 0
+        clearColorMode: 2
         backgroundColorHDR: {r: 0.023529412, g: 0.07058824, b: 0.1882353, a: 0}
         clearDepth: 1
       volumes:
@@ -42201,13 +42201,13 @@ MonoBehaviour:
           enableBigTilePrepass: 0
           isFptlEnabled: 0
     roughReflections: 1
-    distanceBasedRoughness: 0
+    distanceBasedRoughness: 1
   m_ProbeSettingsOverride:
     probe: 0
     camera:
       camera: 0
   m_ProxyVolume: {fileID: 0}
-  m_BakedTexture: {fileID: 8900000, guid: 51be8cbd148aca44eb7c4d612f8ccb0a, type: 3}
+  m_BakedTexture: {fileID: 8900000, guid: 0dea59b73a09d7c4688bd773c2b70dc1, type: 3}
   m_CustomTexture: {fileID: 0}
   m_BakedRenderData:
     m_WorldToCameraRHS:
@@ -42289,33 +42289,33 @@ MonoBehaviour:
     m_Aspect: 0
   m_HasValidSHForNormalization: 1
   m_SHForNormalization:
-    'sh[ 0]': 0.27404013
-    'sh[ 1]': -0.21564847
-    'sh[ 2]': -0.037173785
-    'sh[ 3]': -0.02073638
-    'sh[ 4]': 0.016443409
-    'sh[ 5]': 0.010398661
-    'sh[ 6]': -0.004090299
-    'sh[ 7]': -0.009193225
-    'sh[ 8]': -0.014052624
-    'sh[ 9]': 0.17254588
-    'sh[10]': -0.13894154
-    'sh[11]': -0.02095171
-    'sh[12]': -0.014995059
-    'sh[13]': 0.010820531
-    'sh[14]': 0.006179666
-    'sh[15]': -0.0025181354
-    'sh[16]': -0.005354401
-    'sh[17]': -0.00990283
-    'sh[18]': 0.060565084
-    'sh[19]': -0.049890954
-    'sh[20]': -0.006500923
-    'sh[21]': -0.0073383586
-    'sh[22]': 0.0041856044
-    'sh[23]': 0.0020964278
-    'sh[24]': -0.0009027097
-    'sh[25]': -0.0012966639
-    'sh[26]': -0.0037764085
+    'sh[ 0]': 0.27381852
+    'sh[ 1]': -0.21555918
+    'sh[ 2]': -0.037122164
+    'sh[ 3]': -0.020746628
+    'sh[ 4]': 0.016436301
+    'sh[ 5]': 0.010396408
+    'sh[ 6]': -0.004083596
+    'sh[ 7]': -0.009181052
+    'sh[ 8]': -0.014072022
+    'sh[ 9]': 0.17246436
+    'sh[10]': -0.1389116
+    'sh[11]': -0.020930545
+    'sh[12]': -0.015051511
+    'sh[13]': 0.010826964
+    'sh[14]': 0.006180253
+    'sh[15]': -0.0025164837
+    'sh[16]': -0.005341269
+    'sh[17]': -0.009909319
+    'sh[18]': 0.060530916
+    'sh[19]': -0.049876172
+    'sh[20]': -0.006496489
+    'sh[21]': -0.007362499
+    'sh[22]': 0.0041895234
+    'sh[23]': 0.002097484
+    'sh[24]': -0.0009018999
+    'sh[25]': -0.0012932807
+    'sh[26]': -0.003778774
   m_SHValidForCapturePosition: {x: -1.6399999, y: 1.52, z: 4.35}
   m_SHValidForSourcePosition: {x: -1.6399999, y: 1.52, z: 4.35}
   m_HDProbeVersion: 9
@@ -46014,7 +46014,7 @@ Light:
   m_BounceIntensity: 0
   m_ColorTemperature: 3000
   m_UseColorTemperature: 1
-  m_BoundingSphereOverride: {x: 3.128e-42, y: 2.524355e-29, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 8.95e-43, y: 9.7e-44, z: 0, w: 4.3e-44}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
@@ -47005,18 +47005,18 @@ MonoBehaviour:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
-    - {fileID: 7717312302181153061}
-    - {fileID: 5135634278718082678}
-    - {fileID: 405509940611007120}
-    - {fileID: 8134098342766710913}
-    - {fileID: 6216623185040811584}
-    - {fileID: 9004222733306578357}
-    - {fileID: 8165350680761484523}
-    - {fileID: 337944793638444894}
-    - {fileID: 6810282402838054528}
     - {fileID: 4465382662236084939}
+    - {fileID: 9004222733306578357}
+    - {fileID: 6216623185040811584}
     - {fileID: 3294543174635250179}
     - {fileID: 4950092096058045171}
+    - {fileID: 5135634278718082678}
+    - {fileID: 8165350680761484523}
+    - {fileID: 7717312302181153061}
+    - {fileID: 6810282402838054528}
+    - {fileID: 337944793638444894}
+    - {fileID: 8134098342766710913}
+    - {fileID: 405509940611007120}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -47041,7 +47041,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: PC_KEVIN_ENTER
+      Data: PC_KEVIN_SINK
     - Name: $v
       Entry: 10
       Data: 0
@@ -47053,7 +47053,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: TAKE_COVER
+      Data: KEVIN_ENTER_APARTMENT
     - Name: $v
       Entry: 10
       Data: 1
@@ -47065,7 +47065,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: KEVIN_SINK_FIX
+      Data: AREA_START
     - Name: $v
       Entry: 10
       Data: 2
@@ -47077,7 +47077,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: KIERAN_LOOK_AROUND
+      Data: DOMINIC_ENTER_APARTMENT
     - Name: $v
       Entry: 10
       Data: 3
@@ -47089,7 +47089,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: AREA_START
+      Data: DOMINIC_LEAVE_AREA
     - Name: $v
       Entry: 10
       Data: 4
@@ -47101,7 +47101,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: KEVIN_ENTER_APARTMENT
+      Data: TAKE_COVER
     - Name: $v
       Entry: 10
       Data: 5
@@ -47125,7 +47125,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: PC_FRIDGE
+      Data: PC_KEVIN_ENTER
     - Name: $v
       Entry: 10
       Data: 7
@@ -47149,7 +47149,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: PC_KEVIN_SINK
+      Data: PC_FRIDGE
     - Name: $v
       Entry: 10
       Data: 9
@@ -47161,7 +47161,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: DOMINIC_ENTER_APARTMENT
+      Data: KIERAN_LOOK_AROUND
     - Name: $v
       Entry: 10
       Data: 10
@@ -47173,7 +47173,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: DOMINIC_LEAVE_AREA
+      Data: KEVIN_SINK_FIX
     - Name: $v
       Entry: 10
       Data: 11
@@ -48330,7 +48330,7 @@ Light:
   m_BounceIntensity: 2
   m_ColorTemperature: 3000
   m_UseColorTemperature: 1
-  m_BoundingSphereOverride: {x: 1.4356e-41, y: 2.524355e-29, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 1.2494192e-36, y: 0, z: -1.5331163e+25, w: -3676551.8}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
@@ -53126,7 +53126,7 @@ Light:
   m_BounceIntensity: 3
   m_ColorTemperature: 6570
   m_UseColorTemperature: 1
-  m_BoundingSphereOverride: {x: 204069.12, y: 2.3978949e+11, z: 54349076, w: 3.3777472e+9}
+  m_BoundingSphereOverride: {x: 1.5561346e+28, y: 2.794639e+20, z: 1.1837556e+33, w: 3221.3372}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ForceVisible: 0
@@ -54405,7 +54405,7 @@ MonoBehaviour:
       automaticScale: 1
       viewerScale: 1
     type: 0
-    mode: 1
+    mode: 0
     realtimeMode: 1
     timeSlicing: 0
     lighting:
@@ -54460,7 +54460,7 @@ MonoBehaviour:
     cubeResolution:
       m_Override: 128
       m_UseOverride: 0
-      m_Level: 0
+      m_Level: 1
     cameraSettings:
       customRenderingSettings: 0
       renderingPathCustomFrameSettings:
@@ -54484,7 +54484,7 @@ MonoBehaviour:
           data1: 0
           data2: 0
       bufferClearing:
-        clearColorMode: 0
+        clearColorMode: 2
         backgroundColorHDR: {r: 0.023529412, g: 0.07058824, b: 0.1882353, a: 0}
         clearDepth: 1
       volumes:
@@ -54574,13 +54574,13 @@ MonoBehaviour:
           enableBigTilePrepass: 0
           isFptlEnabled: 0
     roughReflections: 1
-    distanceBasedRoughness: 0
+    distanceBasedRoughness: 1
   m_ProbeSettingsOverride:
     probe: 0
     camera:
       camera: 0
   m_ProxyVolume: {fileID: 0}
-  m_BakedTexture: {fileID: 8900000, guid: faf1bc08ff221f24785621c3ff7f9496, type: 3}
+  m_BakedTexture: {fileID: 8900000, guid: 438af6b82cf6e924e9ba4f1dc3eed518, type: 3}
   m_CustomTexture: {fileID: 0}
   m_BakedRenderData:
     m_WorldToCameraRHS:
@@ -54662,33 +54662,33 @@ MonoBehaviour:
     m_Aspect: 0
   m_HasValidSHForNormalization: 1
   m_SHForNormalization:
-    'sh[ 0]': 0.3297526
-    'sh[ 1]': -0.22734375
-    'sh[ 2]': -0.09281332
-    'sh[ 3]': -0.03644817
-    'sh[ 4]': -0.009777039
-    'sh[ 5]': 0.017855788
-    'sh[ 6]': -0.0044192565
-    'sh[ 7]': 0.011523841
-    'sh[ 8]': -0.01344544
-    'sh[ 9]': 0.20585234
-    'sh[10]': -0.14682367
-    'sh[11]': -0.059773937
-    'sh[12]': -0.023177031
-    'sh[13]': -0.0061829733
-    'sh[14]': 0.011588302
-    'sh[15]': -0.0026344087
-    'sh[16]': 0.007017285
-    'sh[17]': -0.009903486
-    'sh[18]': 0.07224182
-    'sh[19]': -0.052932657
-    'sh[20]': -0.021030726
-    'sh[21]': -0.007741861
-    'sh[22]': -0.0022680764
-    'sh[23]': 0.004154963
-    'sh[24]': -0.0009117027
-    'sh[25]': 0.0023240906
-    'sh[26]': -0.0038799734
+    'sh[ 0]': 0.3289693
+    'sh[ 1]': -0.22719242
+    'sh[ 2]': -0.09283961
+    'sh[ 3]': -0.037270382
+    'sh[ 4]': -0.009723976
+    'sh[ 5]': 0.01785587
+    'sh[ 6]': -0.004377799
+    'sh[ 7]': 0.011504834
+    'sh[ 8]': -0.013558131
+    'sh[ 9]': 0.2056038
+    'sh[10]': -0.1468625
+    'sh[11]': -0.05980201
+    'sh[12]': -0.023647675
+    'sh[13]': -0.0061197146
+    'sh[14]': 0.011595416
+    'sh[15]': -0.0026210023
+    'sh[16]': 0.0070142695
+    'sh[17]': -0.009962303
+    'sh[18]': 0.07220245
+    'sh[19]': -0.053010795
+    'sh[20]': -0.021053374
+    'sh[21]': -0.007982484
+    'sh[22]': -0.0022216877
+    'sh[23]': 0.0041622026
+    'sh[24]': -0.00090951653
+    'sh[25]': 0.0023264312
+    'sh[26]': -0.0039081895
   m_SHValidForCapturePosition: {x: -1.6399999, y: 1.52, z: 9.959999}
   m_SHValidForSourcePosition: {x: -1.6399999, y: 1.52, z: 9.959999}
   m_HDProbeVersion: 9
@@ -59576,7 +59576,7 @@ MonoBehaviour:
       automaticScale: 1
       viewerScale: 1
     type: 0
-    mode: 1
+    mode: 0
     realtimeMode: 1
     timeSlicing: 0
     lighting:
@@ -59631,7 +59631,7 @@ MonoBehaviour:
     cubeResolution:
       m_Override: 128
       m_UseOverride: 0
-      m_Level: 0
+      m_Level: 1
     cameraSettings:
       customRenderingSettings: 0
       renderingPathCustomFrameSettings:
@@ -59655,7 +59655,7 @@ MonoBehaviour:
           data1: 0
           data2: 0
       bufferClearing:
-        clearColorMode: 0
+        clearColorMode: 2
         backgroundColorHDR: {r: 0.023529412, g: 0.07058824, b: 0.1882353, a: 0}
         clearDepth: 1
       volumes:
@@ -59751,7 +59751,7 @@ MonoBehaviour:
     camera:
       camera: 0
   m_ProxyVolume: {fileID: 0}
-  m_BakedTexture: {fileID: 8900000, guid: 16cd17436cf389348ba050f592dcd0bc, type: 3}
+  m_BakedTexture: {fileID: 8900000, guid: 38c5ce512149d1f4787e13e1f1fc112c, type: 3}
   m_CustomTexture: {fileID: 0}
   m_BakedRenderData:
     m_WorldToCameraRHS:
@@ -59833,33 +59833,33 @@ MonoBehaviour:
     m_Aspect: 0
   m_HasValidSHForNormalization: 1
   m_SHForNormalization:
-    'sh[ 0]': 0.03220742
-    'sh[ 1]': -0.005204532
-    'sh[ 2]': 0.015206313
-    'sh[ 3]': 0.024792934
-    'sh[ 4]': -0.002010151
-    'sh[ 5]': -0.00031251236
-    'sh[ 6]': 0.00051394524
-    'sh[ 7]': 0.0047707264
-    'sh[ 8]': 0.002029773
-    'sh[ 9]': 0.011094945
-    'sh[10]': -0.001365166
-    'sh[11]': 0.005616536
-    'sh[12]': 0.008561799
-    'sh[13]': -0.0005824457
-    'sh[14]': -0.00006490146
-    'sh[15]': 0.0002287153
-    'sh[16]': 0.0017728095
-    'sh[17]': 0.00073145423
-    'sh[18]': 0.0021115597
-    'sh[19]': -0.00022626895
-    'sh[20]': 0.0011336819
-    'sh[21]': 0.0016165554
-    'sh[22]': -0.000098303324
-    'sh[23]': -0.0000089493
-    'sh[24]': 0.000049042927
-    'sh[25]': 0.00035919162
-    'sh[26]': 0.00013892175
+    'sh[ 0]': 0.032224122
+    'sh[ 1]': -0.005205285
+    'sh[ 2]': 0.015194898
+    'sh[ 3]': 0.024808321
+    'sh[ 4]': -0.0020104873
+    'sh[ 5]': -0.00031226288
+    'sh[ 6]': 0.0005140017
+    'sh[ 7]': 0.0047656274
+    'sh[ 8]': 0.0020314872
+    'sh[ 9]': 0.011105246
+    'sh[10]': -0.0013656302
+    'sh[11]': 0.005609498
+    'sh[12]': 0.008571286
+    'sh[13]': -0.00058265316
+    'sh[14]': -0.00006474762
+    'sh[15]': 0.00022875013
+    'sh[16]': 0.0017696656
+    'sh[17]': 0.00073251105
+    'sh[18]': 0.0021079776
+    'sh[19]': -0.00022610748
+    'sh[20]': 0.0011361297
+    'sh[21]': 0.0016132562
+    'sh[22]': -0.00009823121
+    'sh[23]': -0.000009002807
+    'sh[24]': 0.000049030816
+    'sh[25]': 0.00036028505
+    'sh[26]': 0.0001385542
   m_SHValidForCapturePosition: {x: 1.8709688, y: 1.7285771, z: -0.26228237}
   m_SHValidForSourcePosition: {x: 1.8709688, y: 1.7285771, z: -0.26228237}
   m_HDProbeVersion: 9
@@ -60881,6 +60881,9 @@ MonoBehaviour:
   - id: 8
     category: 0
     gameObject: {fileID: 2011392333}
+  - id: 9
+    category: 0
+    gameObject: {fileID: 514379347}
 --- !u!4 &2111494662
 Transform:
   m_ObjectHideFlags: 19
@@ -64799,6 +64802,142 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1974935688}
     m_Modifications:
+    - target: {fileID: 2788614038367499998, guid: a9413386f2cd3a24c95e4c8270a579e7, type: 3}
+      propertyPath: 'm_SHForNormalization.sh[ 0]'
+      value: 0.16871299
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788614038367499998, guid: a9413386f2cd3a24c95e4c8270a579e7, type: 3}
+      propertyPath: 'm_SHForNormalization.sh[ 1]'
+      value: -0.057570603
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788614038367499998, guid: a9413386f2cd3a24c95e4c8270a579e7, type: 3}
+      propertyPath: 'm_SHForNormalization.sh[ 2]'
+      value: 0.038838975
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788614038367499998, guid: a9413386f2cd3a24c95e4c8270a579e7, type: 3}
+      propertyPath: 'm_SHForNormalization.sh[ 3]'
+      value: 0.0143067185
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788614038367499998, guid: a9413386f2cd3a24c95e4c8270a579e7, type: 3}
+      propertyPath: 'm_SHForNormalization.sh[ 4]'
+      value: 0.0100405915
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788614038367499998, guid: a9413386f2cd3a24c95e4c8270a579e7, type: 3}
+      propertyPath: 'm_SHForNormalization.sh[ 5]'
+      value: -0.0004258946
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788614038367499998, guid: a9413386f2cd3a24c95e4c8270a579e7, type: 3}
+      propertyPath: 'm_SHForNormalization.sh[ 6]'
+      value: -0.001011402
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788614038367499998, guid: a9413386f2cd3a24c95e4c8270a579e7, type: 3}
+      propertyPath: 'm_SHForNormalization.sh[ 7]'
+      value: -0.008402436
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788614038367499998, guid: a9413386f2cd3a24c95e4c8270a579e7, type: 3}
+      propertyPath: 'm_SHForNormalization.sh[ 8]'
+      value: -0.0053244364
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788614038367499998, guid: a9413386f2cd3a24c95e4c8270a579e7, type: 3}
+      propertyPath: 'm_SHForNormalization.sh[ 9]'
+      value: 0.05067786
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788614038367499998, guid: a9413386f2cd3a24c95e4c8270a579e7, type: 3}
+      propertyPath: 'm_SHForNormalization.sh[10]'
+      value: -0.028534025
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788614038367499998, guid: a9413386f2cd3a24c95e4c8270a579e7, type: 3}
+      propertyPath: 'm_SHForNormalization.sh[11]'
+      value: 0.0064325035
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788614038367499998, guid: a9413386f2cd3a24c95e4c8270a579e7, type: 3}
+      propertyPath: 'm_SHForNormalization.sh[12]'
+      value: 0.0024705806
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788614038367499998, guid: a9413386f2cd3a24c95e4c8270a579e7, type: 3}
+      propertyPath: 'm_SHForNormalization.sh[13]'
+      value: 0.0031316527
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788614038367499998, guid: a9413386f2cd3a24c95e4c8270a579e7, type: 3}
+      propertyPath: 'm_SHForNormalization.sh[14]'
+      value: -0.002087151
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788614038367499998, guid: a9413386f2cd3a24c95e4c8270a579e7, type: 3}
+      propertyPath: 'm_SHForNormalization.sh[15]'
+      value: -0.00061797927
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788614038367499998, guid: a9413386f2cd3a24c95e4c8270a579e7, type: 3}
+      propertyPath: 'm_SHForNormalization.sh[16]'
+      value: -0.0026975193
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788614038367499998, guid: a9413386f2cd3a24c95e4c8270a579e7, type: 3}
+      propertyPath: 'm_SHForNormalization.sh[17]'
+      value: -0.0024927352
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788614038367499998, guid: a9413386f2cd3a24c95e4c8270a579e7, type: 3}
+      propertyPath: 'm_SHForNormalization.sh[18]'
+      value: 0.010587677
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788614038367499998, guid: a9413386f2cd3a24c95e4c8270a579e7, type: 3}
+      propertyPath: 'm_SHForNormalization.sh[19]'
+      value: -0.007152945
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788614038367499998, guid: a9413386f2cd3a24c95e4c8270a579e7, type: 3}
+      propertyPath: 'm_SHForNormalization.sh[20]'
+      value: 0.0011261735
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788614038367499998, guid: a9413386f2cd3a24c95e4c8270a579e7, type: 3}
+      propertyPath: 'm_SHForNormalization.sh[21]'
+      value: 0.000116467294
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788614038367499998, guid: a9413386f2cd3a24c95e4c8270a579e7, type: 3}
+      propertyPath: 'm_SHForNormalization.sh[22]'
+      value: 0.00073929154
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788614038367499998, guid: a9413386f2cd3a24c95e4c8270a579e7, type: 3}
+      propertyPath: 'm_SHForNormalization.sh[23]'
+      value: -0.0006749229
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788614038367499998, guid: a9413386f2cd3a24c95e4c8270a579e7, type: 3}
+      propertyPath: 'm_SHForNormalization.sh[24]'
+      value: -0.00017488893
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788614038367499998, guid: a9413386f2cd3a24c95e4c8270a579e7, type: 3}
+      propertyPath: 'm_SHForNormalization.sh[25]'
+      value: -0.0005553579
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788614038367499998, guid: a9413386f2cd3a24c95e4c8270a579e7, type: 3}
+      propertyPath: 'm_SHForNormalization.sh[26]'
+      value: -0.00064858503
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788614038367499998, guid: a9413386f2cd3a24c95e4c8270a579e7, type: 3}
+      propertyPath: m_HasValidSHForNormalization
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788614038367499998, guid: a9413386f2cd3a24c95e4c8270a579e7, type: 3}
+      propertyPath: m_SHValidForSourcePosition.x
+      value: 5.3009925
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788614038367499998, guid: a9413386f2cd3a24c95e4c8270a579e7, type: 3}
+      propertyPath: m_SHValidForSourcePosition.y
+      value: 2.2337956
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788614038367499998, guid: a9413386f2cd3a24c95e4c8270a579e7, type: 3}
+      propertyPath: m_SHValidForSourcePosition.z
+      value: 4.2455544
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788614038367499998, guid: a9413386f2cd3a24c95e4c8270a579e7, type: 3}
+      propertyPath: m_SHValidForCapturePosition.x
+      value: 5.3009925
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788614038367499998, guid: a9413386f2cd3a24c95e4c8270a579e7, type: 3}
+      propertyPath: m_SHValidForCapturePosition.y
+      value: 2.2337954
+      objectReference: {fileID: 0}
+    - target: {fileID: 2788614038367499998, guid: a9413386f2cd3a24c95e4c8270a579e7, type: 3}
+      propertyPath: m_SHValidForCapturePosition.z
+      value: 3.245555
+      objectReference: {fileID: 0}
     - target: {fileID: 4393772805273995529, guid: a9413386f2cd3a24c95e4c8270a579e7, type: 3}
       propertyPath: m_Name
       value: medicine_cabinet_hanging01
@@ -65843,15 +65982,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7863590981095543738, guid: fa37f1d3759e76a4e986ddbffbea3303, type: 3}
       propertyPath: m_BoundingSphereOverride.w
-      value: 6.271147e-39
+      value: 4.3e-44
       objectReference: {fileID: 0}
     - target: {fileID: 7863590981095543738, guid: fa37f1d3759e76a4e986ddbffbea3303, type: 3}
       propertyPath: m_BoundingSphereOverride.x
-      value: 3.576e-42
+      value: 8.95e-43
       objectReference: {fileID: 0}
     - target: {fileID: 7863590981095543738, guid: fa37f1d3759e76a4e986ddbffbea3303, type: 3}
       propertyPath: m_BoundingSphereOverride.y
-      value: 2.524355e-29
+      value: 1.06e-43
       objectReference: {fileID: 0}
     - target: {fileID: 7863590981095543738, guid: fa37f1d3759e76a4e986ddbffbea3303, type: 3}
       propertyPath: m_BoundingSphereOverride.z
@@ -72318,19 +72457,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4368871756280346781, guid: e27f61d1c4c3c3f469e3cc141db75a31, type: 3}
       propertyPath: m_BoundingSphereOverride.w
-      value: NaN
+      value: -0.0038732253
       objectReference: {fileID: 0}
     - target: {fileID: 4368871756280346781, guid: e27f61d1c4c3c3f469e3cc141db75a31, type: 3}
       propertyPath: m_BoundingSphereOverride.x
-      value: 0.000030442856
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4368871756280346781, guid: e27f61d1c4c3c3f469e3cc141db75a31, type: 3}
       propertyPath: m_BoundingSphereOverride.y
-      value: NaN
+      value: -9.000925e+26
       objectReference: {fileID: 0}
     - target: {fileID: 4368871756280346781, guid: e27f61d1c4c3c3f469e3cc141db75a31, type: 3}
       propertyPath: m_BoundingSphereOverride.z
-      value: -0.124701604
+      value: 8.98e-43
       objectReference: {fileID: 0}
     - target: {fileID: 5913392419674598001, guid: e27f61d1c4c3c3f469e3cc141db75a31, type: 3}
       propertyPath: m_Name
@@ -73951,19 +74090,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8711042093640665797, guid: b69b59d8115f0584aa9ff840b419bc8a, type: 3}
       propertyPath: m_BoundingSphereOverride.w
-      value: 0
+      value: -1.06e-43
       objectReference: {fileID: 0}
     - target: {fileID: 8711042093640665797, guid: b69b59d8115f0584aa9ff840b419bc8a, type: 3}
       propertyPath: m_BoundingSphereOverride.x
-      value: 8.94e-42
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8711042093640665797, guid: b69b59d8115f0584aa9ff840b419bc8a, type: 3}
       propertyPath: m_BoundingSphereOverride.y
-      value: 2.524355e-29
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8711042093640665797, guid: b69b59d8115f0584aa9ff840b419bc8a, type: 3}
       propertyPath: m_BoundingSphereOverride.z
-      value: 0
+      value: 9.1837e-41
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
