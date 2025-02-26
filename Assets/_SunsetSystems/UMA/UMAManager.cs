@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Linq;
+using System.Threading.Tasks;
 using Redcode.Awaiting;
 using Sirenix.OdinInspector;
 using SunsetSystems.Core.Database;
@@ -34,7 +35,9 @@ namespace SunsetSystems.UMA
         private IEnumerator _updatePendingCoroutine;
         private bool _isUMACreated = false;
 
-        private void Start()
+        private Task _defaultCollectionLoading;
+
+        private async void Start()
         {
             if (_umaAvatar == null)
             {
@@ -42,7 +45,10 @@ namespace SunsetSystems.UMA
             }
             _umaAvatar.CharacterCreated.AddListener(OnUMACreated);
             RebuildUMADelayed();
-            _ = LoadDefaultWardrobeCollection(BaseLookWardrobeReadableID);
+            if (_defaultCollectionLoading != null)
+                await _defaultCollectionLoading;
+            _defaultCollectionLoading = LoadDefaultWardrobeCollection(BaseLookWardrobeReadableID);
+            await _defaultCollectionLoading;
         }
 
         private UMAWardrobeCollection WardrobeCollectionFromID(string readableID)
@@ -70,14 +76,14 @@ namespace SunsetSystems.UMA
             }
         }
 
-        public void BuildUMAFromTemplate(ICreatureTemplate template)
+        public async void BuildUMAFromTemplate(ICreatureTemplate template)
         {
             if (_umaAvatar == null)
                 PrepareUMA();
             SetBodyType(template.BodyType);
             BaseLookWardrobeReadableID = template.BaseLookWardrobeReadableID;
             RebuildUMADelayed();
-            _ = LoadDefaultWardrobeCollection(BaseLookWardrobeReadableID);
+            await LoadDefaultWardrobeCollection(BaseLookWardrobeReadableID);
 #if UNITY_EDITOR
             if (UnityEditor.EditorApplication.isPlayingOrWillChangePlaymode is false)
             {
@@ -87,7 +93,7 @@ namespace SunsetSystems.UMA
         }
 
         [Button]
-        private void PrepareUMA()
+        private async void PrepareUMA()
         {
             if (!_umaRoot.TryGetComponent(out _umaAvatar))
             {
@@ -122,7 +128,10 @@ namespace SunsetSystems.UMA
                 _umaAvatar.raceAnimationControllers.animators.Add(femaleAnimator);
             }
             _umaAvatar.WardrobeRecipes.Clear();
-            _ = LoadDefaultWardrobeCollection(_baseLookWardrobeCollection);
+            if (_defaultCollectionLoading != null)
+                await _defaultCollectionLoading;
+            _defaultCollectionLoading = LoadDefaultWardrobeCollection(_baseLookWardrobeCollection);
+            await _defaultCollectionLoading;
         }
 
         private void SetBodyType(BodyType bodyType)
@@ -130,8 +139,12 @@ namespace SunsetSystems.UMA
             _umaAvatar.ChangeRace(_umaConfig.BodyRaceData[bodyType], DynamicCharacterAvatar.ChangeRaceOptions.useDefaults, true);
         }
 
-        private async Awaitable LoadDefaultWardrobeCollection(UMAWardrobeCollection wardrobeCollection)
+        private async Task LoadDefaultWardrobeCollection(UMAWardrobeCollection wardrobeCollection)
         {
+            if (wardrobeCollection == null)
+            {
+                return;
+            }
             if (CanUpdateUma() is false)
             {
                 await new WaitUntil(CanUpdateUma);
@@ -139,6 +152,7 @@ namespace SunsetSystems.UMA
             if (_baseLookWardrobeCollection != null)
             {
                 _umaAvatar.UnloadWardrobeCollection(_baseLookWardrobeCollection.name);
+                _baseLookWardrobeCollection = null;
             }
             _baseLookWardrobeCollection = wardrobeCollection;
             if (_baseLookWardrobeCollection != null)
@@ -149,9 +163,10 @@ namespace SunsetSystems.UMA
                     _umaAvatar.SetColor(baseColor.name, baseColor);
                 }
             }
+            _defaultCollectionLoading = null;
         }
 
-        private async Awaitable LoadDefaultWardrobeCollection(string wardrobeID)
+        private async Task LoadDefaultWardrobeCollection(string wardrobeID)
         {
             var wardrobeCollection = WardrobeCollectionFromID(wardrobeID);
             await LoadDefaultWardrobeCollection(wardrobeCollection);
