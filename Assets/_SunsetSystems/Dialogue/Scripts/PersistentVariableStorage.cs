@@ -33,8 +33,8 @@ namespace SunsetSystems.Dialogue
           
             if (_variableInjectionConfig != null)
             {
-                DialogueSaveData _injectionData = _variableInjectionConfig.GetVariableInjectionData();
-                SetAllVariables(_injectionData._floats, _injectionData._strings, _injectionData._bools);
+                DialogueSaveData injectionData = _variableInjectionConfig.GetVariableInjectionData();
+                SetAllVariables(injectionData._floats, injectionData._strings, injectionData._bools);
             }
             ISaveable.RegisterSaveable(this);
         }
@@ -54,8 +54,8 @@ namespace SunsetSystems.Dialogue
         {
             if (_variableInjectionConfig != null)
             {
-                DialogueSaveData _injectionData = _variableInjectionConfig.GetVariableInjectionData();
-                SetAllVariables(_injectionData._floats, _injectionData._strings, _injectionData._bools, false);
+                DialogueSaveData injectionData = _variableInjectionConfig.GetVariableInjectionData();
+                SetAllVariables(injectionData._floats, injectionData._strings, injectionData._bools, false);
             }
         }
 
@@ -96,9 +96,9 @@ namespace SunsetSystems.Dialogue
             {
                 Clear();
             }
-            floats.Keys.ForEach(key => _floats.Add(key, floats[key]));
-            strings.Keys.ForEach(key => _strings.Add(key, strings[key]));
-            bools.Keys.ForEach(key => _bools.Add(key, bools[key]));
+            floats.Keys.ForEach(key => SetValue(key, floats[key]));
+            strings.Keys.ForEach(key => SetValue(key, strings[key]));
+            bools.Keys.ForEach(key => SetValue(key, bools[key]));
         }
 
         public override void SetValue(string variableName, string stringValue)

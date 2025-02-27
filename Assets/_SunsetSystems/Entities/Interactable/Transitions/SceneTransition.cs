@@ -100,14 +100,8 @@ namespace SunsetSystems.Core.SceneLoading
             if (_fadeScreenTime <= 0f || _fadeScreenCanvasGroup == null)
             {
                 InvokeAfterFadeOut();
-                var party = PartyManager.Instance.ActiveParty;
-                foreach (ICreature creature in party)
-                {
-                    creature.ForceToPosition(waypoint.transform.position);
-                }
-                var camera = GameManager.Instance.GameCamera;
-                camera.ForceToPosition(waypoint.transform.position);
-                camera.CurrentBoundingBox = cameraBoundingBox;
+                MovePlayerPartyToWaypoint(waypoint);
+                MoveCameraToWaypoint(waypoint, cameraBoundingBox);
             }
             else
             {
@@ -121,14 +115,8 @@ namespace SunsetSystems.Core.SceneLoading
                 }
                 InvokeAfterFadeOut();
                 _fadeScreenCanvasGroup.alpha = 1f;
-                var party = PartyManager.Instance.ActiveParty;
-                foreach (ICreature creature in party)
-                {
-                    creature.ForceToPosition(waypoint.transform.position);
-                }
-                var camera = GameManager.Instance.GameCamera;
-                camera.ForceToPosition(waypoint.transform.position);
-                camera.CurrentBoundingBox = cameraBoundingBox;
+                MovePlayerPartyToWaypoint(waypoint);
+                MoveCameraToWaypoint(waypoint, cameraBoundingBox);
                 yield return new WaitForSeconds(_fadeScreenTime / 2);
                 while (lerp > 0)
                 {
@@ -138,6 +126,25 @@ namespace SunsetSystems.Core.SceneLoading
                 }
                 _fadeScreenCanvasGroup.alpha = 0f;
                 _fadeScreenCanvasGroup.gameObject.SetActive(false);
+            }
+
+            static void MovePlayerPartyToWaypoint(Waypoint waypoint)
+            {
+                var party = PartyManager.Instance.ActiveParty;
+                var positions = waypoint.GetPositions(party.Count);
+                for (int i = 0; i < party.Count; i++)
+                {
+                    ICreature creature = party[i];
+                    Vector3 position = positions[i];
+                    creature.ForceToPosition(position);
+                }
+            }
+
+            static void MoveCameraToWaypoint(Waypoint waypoint, BoundingBox cameraBoundingBox)
+            {
+                var camera = GameManager.Instance.GameCamera;
+                camera.ForceToPosition(waypoint.transform.position);
+                camera.CurrentBoundingBox = cameraBoundingBox;
             }
         }
 
