@@ -117,21 +117,21 @@ position: 547,728
 <<jump gottaStayStrong>>
 ===
 title: gottaStayStrong
-position: 546,1141
+position: 646,1187
 ---
 -> {$pcName}: [I gotta stay strong.] #line:0fd907e 
 <<ModifyInfluence -1 $kieran>>
 <<ModifyInfluence 1 $anastasia>>
 <<set $doeEyedManAlive to 1>>
-<<jump evacuatePhysical>>
+<<jump physicalOptions>>
 ===
 title: sootheDoeEyedFailure
-position: 855,520
+position: 916,955
 ---
 [nomarkup][There's something that makes his expression sour, contorting in fear, and he scrambles to get away - out of cover and back into the smoke. You hear shouts from the front of the club as the armed assailants notice his movement. It'll be less safe when you duck out of cover now.][/nomarkup] #failure #line:0efe99c 
 <<set $doeEyedManAlive to 1>>
 <<set $doeEyedManSeen to 1>>
-<<jump evacuatePhysical>>
+<<jump physicalOptions>>
 ===
 title: convinceDoeEyedRoll
 position: 237,706
@@ -340,7 +340,7 @@ position: 231,2630
 [nomarkup][Moving quickly without caring if you are seen, you race the rest of the way through the club, a spray of bullets tailing you. Swiftly moving in and out of cover, your mad dash proves a success as you reach the Alley Door.][/nomarkup] #success #line:0efe69d 
 ===
 title: runShootingFailure
-position: 480,2651
+position: 494,2639
 ---
 [nomarkup][Sprinting out of cover, you run with all your might, but right before you reach the Alley Door, you're hit by a stray bullet in the leg. It hurts like hell, but you'll live.][+1 superficial damage][/nomarkup] #failure #line:073db02 
 ===
