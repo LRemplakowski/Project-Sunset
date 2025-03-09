@@ -6,11 +6,16 @@ using SunsetSystems.Combat.Grid;
 using Sirenix.OdinInspector;
 using UltEvents;
 using System.Linq;
+using CleverCrow.Fluid.UniqueIds;
 
 namespace SunsetSystems.Combat
 {
+    [RequireComponent(typeof(UniqueId))]
     public class Encounter : SerializedMonoBehaviour, IEncounter
     {
+        [SerializeField, HideInInspector]
+        private UniqueId _unique;
+
         [field: SerializeField]
         public GridManager GridManager { get; private set; }
 
@@ -32,6 +37,31 @@ namespace SunsetSystems.Combat
         public UltEvent OnEncounterStart = new();
         public UltEvent OnEncounterEnd = new();
 
+        private IGameStateRequest _combatStateRequest;
+
+        private void OnValidate()
+        {
+            EnsureUniqueID();
+        }
+
+        private void Awake()
+        {
+            EnsureUniqueID();
+        }
+
+        private void EnsureStateRequest()
+        {
+            _combatStateRequest ??= new StateChangeRequest($"ENCOUNTER_{_unique.Id}", GameState.Combat);
+        }
+
+        private void EnsureUniqueID()
+        {
+            if (_unique == null)
+            {
+                _unique = GetComponent<UniqueId>();
+            }
+        }
+
         [Title("Editor Utility")]
         [Button("Begin Encounter")]
         public async void Begin()
@@ -39,7 +69,8 @@ namespace SunsetSystems.Combat
             Debug.LogWarning("Begin encounter, do encounter start logic.");
             if (encounterStartLogic)
                 await encounterStartLogic.Perform();
-            GameManager.Instance.CurrentState = GameState.Combat;
+            EnsureStateRequest();
+            GameManager.Instance.RequestState(_combatStateRequest);
             GridManager.EnableGrid();
             OnEncounterStart?.InvokeSafe();
             _creatureCounter = Creatures.Count;
@@ -64,7 +95,8 @@ namespace SunsetSystems.Combat
             Debug.LogWarning("End encounter, do encounter end logic.");
             GridManager.DisableGrid();
             await CombatManager.Instance.EndEncounter(this);
-            GameManager.Instance.CurrentState = GameState.Exploration;
+            EnsureStateRequest();
+            GameManager.Instance.ReleaseState(_combatStateRequest);
             if (encounterEndLogic)
                 await encounterEndLogic.Perform();
             OnEncounterEnd?.InvokeSafe();

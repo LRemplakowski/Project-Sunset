@@ -38,7 +38,7 @@ namespace SunsetSystems.Input
         {
             if ((InputHelper.IsRaycastHittingUIObject(mousePosition, out List<RaycastResult> hits) && InputHelper.DoesAnyUIHitBlockRaycasts(hits)) is false)
             {
-                if (gameplayInputHandlers.TryGetValue(GameManager.Instance.CurrentState, out IGameplayInputHandler handler))
+                if (gameplayInputHandlers.TryGetValue(GameManager.Instance.CachedGameState, out IGameplayInputHandler handler))
                     handler.HandlePrimaryAction(context);
             }
 
@@ -48,7 +48,7 @@ namespace SunsetSystems.Input
         {
             if ((InputHelper.IsRaycastHittingUIObject(mousePosition, out List<RaycastResult> hits) && InputHelper.DoesAnyUIHitBlockRaycasts(hits)) is false)
             {
-                if (gameplayInputHandlers.TryGetValue(GameManager.Instance.CurrentState, out IGameplayInputHandler handler))
+                if (gameplayInputHandlers.TryGetValue(GameManager.Instance.CachedGameState, out IGameplayInputHandler handler))
                     handler.HandleSecondaryAction(context);
             }
         }
@@ -57,14 +57,14 @@ namespace SunsetSystems.Input
         {
             if (context.performed)
                 mousePosition = context.ReadValue<Vector2>();
-            if (gameplayInputHandlers.TryGetValue(GameManager.Instance.CurrentState, out IGameplayInputHandler handler))
+            if (gameplayInputHandlers.TryGetValue(GameManager.Instance.CachedGameState, out IGameplayInputHandler handler))
                 handler.HandlePointerPosition(context);
         }
 
 
         private void OnCameraMove(InputAction.CallbackContext context)
         {
-            if (gameplayInputHandlers.TryGetValue(GameManager.Instance.CurrentState, out IGameplayInputHandler handler))
+            if (gameplayInputHandlers.TryGetValue(GameManager.Instance.CachedGameState, out IGameplayInputHandler handler))
                 handler.HandleCameraMoveAction(context);
         }
     }

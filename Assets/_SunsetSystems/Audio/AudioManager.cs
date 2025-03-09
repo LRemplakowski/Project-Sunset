@@ -41,7 +41,7 @@ namespace SunsetSystems.Audio
                 SetMusicVolume(PlayerPrefs.GetFloat(SettingsConstants.MUSIC_VOLUME_KEY));
             if (PlayerPrefs.HasKey(SettingsConstants.SFX_VOLUME_KEY))
                 SetSFXVolume(PlayerPrefs.GetFloat(SettingsConstants.SFX_VOLUME_KEY));
-            OnGameStateChanged(GameManager.Instance.CurrentState);
+            OnGameStateChanged(GameManager.Instance.CachedGameState);
             GameManager.OnGameStateChanged += OnGameStateChanged;
         }
 

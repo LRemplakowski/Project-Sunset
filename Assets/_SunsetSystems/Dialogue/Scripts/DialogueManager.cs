@@ -14,6 +14,8 @@ namespace SunsetSystems.Dialogue
     [RequireComponent(typeof(Tagger))]
     public class DialogueManager : Singleton<DialogueManager>, IResetable
     {
+        private const string DIALOGUE_MANAGER_STATE_ID = "STATE_SOURCE_DIALOGUE_MANAGER";
+
         [SerializeField]
         private DialogueRunner _dialogueRunner;
         [field: SerializeField]
@@ -24,13 +26,19 @@ namespace SunsetSystems.Dialogue
         public UnityEvent<string> OnNodeStarted => _dialogueRunner.onNodeStart;
         public UnityEvent<string> OnNodeFinished => _dialogueRunner.onNodeComplete;
 
+        private IGameStateRequest _dialogueStateRequest = new StateChangeRequest(DIALOGUE_MANAGER_STATE_ID, GameState.Dialogue);
+
         protected override void Awake()
         {
-            _dialogueRunner ??= GetComponent<DialogueRunner>();
+            _dialogueRunner = _dialogueRunner != null ? _dialogueRunner : GetComponent<DialogueRunner>();
             if (PlayerPrefs.HasKey(SettingsConstants.TYPEWRITER_SPEED_KEY))
+            {
                 SetTypewriterSpeed(PlayerPrefs.GetInt(SettingsConstants.TYPEWRITER_SPEED_KEY));
+            }
             else
+            {
                 SetTypewriterSpeed((int)DefaultTypewriterValue);
+            }
         }
 
         public void ResetOnGameStart()
@@ -66,9 +74,9 @@ namespace SunsetSystems.Dialogue
 
         public void UnregisterView(DialogueViewBase view)
         {
-            List<DialogueViewBase> views = Instance?._dialogueRunner.dialogueViews.ToList();
+            List<DialogueViewBase> views = _dialogueRunner.dialogueViews.ToList();
             views?.Remove(view);
-            Instance?._dialogueRunner.SetDialogueViews(views.ToArray());
+            _dialogueRunner.SetDialogueViews(views.ToArray());
         }
 
         [Button]
@@ -85,13 +93,13 @@ namespace SunsetSystems.Dialogue
                 view.gameObject.SetActive(true);
             }
             _dialogueRunner.StartDialogue(startNode);
-            GameManager.Instance.CurrentState = GameState.Dialogue;
+            GameManager.Instance.RequestState(_dialogueStateRequest);
             return true;
         }   
 
         public void CleanupAfterDialogue()
         {
-            GameManager.Instance.CurrentState = GameState.Exploration;
+            GameManager.Instance.ReleaseState(_dialogueStateRequest);
             foreach (DialogueViewBase view in _dialogueRunner.dialogueViews)
             {
                 view.gameObject.SetActive(false);

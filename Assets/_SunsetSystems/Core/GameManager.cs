@@ -1,10 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Sirenix.OdinInspector;
 using SunsetSystems.Core.SceneLoading;
 using SunsetSystems.Input.CameraControl;
 using SunsetSystems.Persistence;
 using UltEvents;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace SunsetSystems.Game
 {
@@ -19,18 +22,16 @@ namespace SunsetSystems.Game
         public CameraControlScript GameCamera { get; private set; }
 
         [Title("Runtime")]
-        [SerializeField]
+        [SerializeField, FormerlySerializedAs("_gameState")]
+        private GameState _sceneDefaultState = GameState.Exploration;
+
+        [ShowInInspector, ReadOnly, LabelText("Current Cached State")]
         private GameState _gameState;
-        public GameState CurrentState
+        public GameState CachedGameState
         {
             get
             {
                 return _gameState;
-            }
-            set
-            {
-                _gameState = value;
-                OnGameStateChanged?.Invoke(value);
             }
         }
 
@@ -46,6 +47,8 @@ namespace SunsetSystems.Game
 
         public string DataKey => DataKeyConstants.GAME_MANAGER_DATA_KEY;
 
+        private readonly List<IGameStateRequest> _stateRequests = new();
+
         protected void Awake()
         {
             if (Instance == null)
@@ -57,6 +60,8 @@ namespace SunsetSystems.Game
             LevelLoader.OnLevelLoadEnd += GameLevelStart;
             LevelLoader.OnLevelLoadStart += GameLevelEnd;
             LevelLoader.OnBeforePersistentDataLoad += BeforePersistentDataLoad;
+
+            _gameState = GetCurrentState();
         }
 
 //        private void Start()
@@ -101,16 +106,47 @@ namespace SunsetSystems.Game
             return "EN";
         }
 
+        public void RequestState(IGameStateRequest request)
+        {
+            ReleaseState(request);
+            _stateRequests.Add(request);
+            QueueStateUpdate();
+        }
+
+        public void ReleaseState(IGameStateRequest request)
+        {
+            _stateRequests.RemoveAll(existing => existing.SourceID == request.SourceID);
+            QueueStateUpdate();
+        }
+
+        private void QueueStateUpdate()
+        {
+            _gameState = GetCurrentState();
+            OnGameStateChanged?.Invoke(_gameState);
+        }
+
+        private GameState GetCurrentState()
+        {
+            if (_stateRequests.Count > 0)
+            {
+                return _stateRequests.Last().State;
+            }
+            else
+            {
+                return _sceneDefaultState;
+            }
+        }
+
         public bool IsCurrentState(GameState state)
         {
-            return CurrentState.Equals(state);
+            return CachedGameState.Equals(state);
         }
 
         public object GetSaveData()
         {
             GameManagerSaveData saveData = new()
             {
-                CurrentState = CurrentState
+                CurrentState = CachedGameState
             };
             return saveData;
         }
@@ -119,7 +155,7 @@ namespace SunsetSystems.Game
         {
             if (data is not GameManagerSaveData savedData)
                 return false;
-            CurrentState = savedData.CurrentState;
+            _gameState = savedData.CurrentState;
             return true;
         }
 
@@ -137,5 +173,24 @@ namespace SunsetSystems.Game
         MainMenu,
         GamePaused, 
         WorldMap
+    }
+
+    public interface IGameStateRequest
+    {
+        public string SourceID { get; }
+        public GameState State { get; }
+    }
+
+    public class StateChangeRequest : IGameStateRequest
+    {
+        public string SourceID { get; }
+
+        public GameState State { get; }
+
+        public StateChangeRequest(string sourceID, GameState state)
+        {
+            SourceID = sourceID;
+            State = state;
+        }
     }
 }

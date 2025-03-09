@@ -82,7 +82,6 @@ namespace SunsetSystems.Core
         {
             await base.StartSceneAsync();
             await new WaitForUpdate();
-            GameManager.Instance.CurrentState = GameState.Exploration;
         }
 
         private async Task MovePCToPositionAfterDialogue(ICreature _desiree)

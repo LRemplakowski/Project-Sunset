@@ -33,7 +33,7 @@ namespace SunsetSystems.UI
 
         public void OpenMenuScreen(PauseMenuScreen screen)
         {
-            if (GameManager.Instance.CurrentState == GameState.Dialogue)
+            if (GameManager.Instance.CachedGameState == GameState.Dialogue)
                 return;
             if (_lastSelectedScreen != null)
                 _lastSelectedScreen.SetActive(false);
