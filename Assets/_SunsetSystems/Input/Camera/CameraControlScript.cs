@@ -19,7 +19,6 @@ namespace SunsetSystems.Input.CameraControl
         private float _cameraMoveSpeed = 4;
         [SerializeField]
         private BoundingBox _currentBoundingBox;
-        public BoundingBox CurrentBoundingBox { set => _currentBoundingBox = value; }
 
         //Save/Load variables
         public string DataKey => DataKeyConstants.CAMERA_CONTROL_SCRIPT_DATA_KEY;
@@ -92,8 +91,8 @@ namespace SunsetSystems.Input.CameraControl
             if (Physics.Raycast(ray, out RaycastHit hitInfo, 100f, _groundRaycastMask, QueryTriggerInteraction.Collide)) {
                 _moveTarget = new(_moveTarget.x, hitInfo.point.y, _moveTarget.z);
             }
-            if (_currentBoundingBox) {
-                _moveTarget = _currentBoundingBox.IsPositionWithinBounds(_moveTarget) ? _moveTarget : _currentBoundingBox.ClampPositionToBounds(_moveTarget);
+            if (GetBoundingBox()) {
+                _moveTarget = GetBoundingBox().IsPositionWithinBounds(_moveTarget) ? _moveTarget : GetBoundingBox().ClampPositionToBounds(_moveTarget);
             }
         }
 
@@ -114,7 +113,7 @@ namespace SunsetSystems.Input.CameraControl
         {
             CameraSaveData saveData = new()
             {
-                CurrentBoundingBox = _currentBoundingBox.GetID(),
+                CurrentBoundingBox = GetBoundingBox() != null ? GetBoundingBox().GetID() : string.Empty,
                 RigPosition = _moveTarget
             };
             return saveData;
@@ -127,15 +126,25 @@ namespace SunsetSystems.Input.CameraControl
             if (string.IsNullOrWhiteSpace(saveData.CurrentBoundingBox))
             {
                 Debug.LogWarning($"{nameof(CameraControlScript)} >>> Invalid Bounding Box ID in Save Data! Finding Bounding Box by saved camera position!");
-                _currentBoundingBox = BoundingBox.FindFirstContainingPoint(saveData.RigPosition);
+                SetBoundingBox(BoundingBox.FindFirstContainingPoint(saveData.RigPosition));
             }
-            else
+            else if (UniqueUtility.TryFindFirstWithID(saveData.CurrentBoundingBox, out BoundingBox found))
             {
-                _currentBoundingBox = UniqueUtility.FindFirstWithID<BoundingBox>(saveData.CurrentBoundingBox);
+                SetBoundingBox(found);
             }
             ForceToPosition(saveData.RigPosition);
             _movedToSavedPosition = true;
             return true;
+        }
+
+        public void SetBoundingBox(BoundingBox boundingBox)
+        {
+            _currentBoundingBox = boundingBox;
+        }
+
+        public BoundingBox GetBoundingBox()
+        {
+            return _currentBoundingBox;
         }
     }
 

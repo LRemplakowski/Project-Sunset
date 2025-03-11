@@ -179,6 +179,10 @@ namespace SunsetSystems.UMA
 
         public async void OnItemEquipped(IEquipableItem item)
         {
+#if UNITY_EDITOR
+            if (Application.isEditor && !Application.isPlaying)
+                return;
+#endif
             if (CanUpdateUma() is false)
             {
                 await new WaitUntil(CanUpdateUma);
@@ -200,6 +204,12 @@ namespace SunsetSystems.UMA
 
         public async void OnItemUnequipped(IEquipableItem item)
         {
+#if UNITY_EDITOR
+            if (Application.isEditor && !Application.isPlaying)
+            {
+                return;
+            }
+#endif
             if (CanUpdateUma() is false)
             {
                 await new WaitUntil(CanUpdateUma);

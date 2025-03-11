@@ -144,7 +144,7 @@ namespace SunsetSystems.Core.SceneLoading
             {
                 var camera = GameManager.Instance.GameCamera;
                 camera.ForceToPosition(waypoint.transform.position);
-                camera.CurrentBoundingBox = cameraBoundingBox;
+                camera.SetBoundingBox(cameraBoundingBox);
             }
         }
 

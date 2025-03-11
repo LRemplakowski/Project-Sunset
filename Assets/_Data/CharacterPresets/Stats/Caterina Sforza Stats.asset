@@ -14,22 +14,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Trackers:
     health:
-      _maxValue: 1
+      _maxValue: 120
       <SuperficialDamage>k__BackingField: 0
       <AggravatedDamage>k__BackingField: 0
       _trackerType: 0
     willpower:
-      _maxValue: 1
+      _maxValue: 120
       <SuperficialDamage>k__BackingField: 0
       <AggravatedDamage>k__BackingField: 0
       _trackerType: 1
     hunger:
-      _maxValue: 0
+      _maxValue: 5
       <SuperficialDamage>k__BackingField: 0
       <AggravatedDamage>k__BackingField: 0
       _trackerType: 3
     humanity:
-      _maxValue: 1
+      _maxValue: 6
       <SuperficialDamage>k__BackingField: 0
       <AggravatedDamage>k__BackingField: 0
       _trackerType: 2
@@ -149,80 +149,3 @@ MonoBehaviour:
     technology:
       baseValue: 0
       skillType: 67108864
-  Disciplines:
-    animalism:
-      baseValue: 0
-      disciplineType: 1
-      knownPowers: []
-    auspex:
-      baseValue: 0
-      disciplineType: 2
-      knownPowers: []
-    bloodSorcery:
-      baseValue: 0
-      disciplineType: 4
-      knownPowers: []
-    celerity:
-      baseValue: 0
-      disciplineType: 8
-      knownPowers: []
-    dominate:
-      baseValue: 0
-      disciplineType: 16
-      knownPowers: []
-    fortitude:
-      baseValue: 0
-      disciplineType: 32
-      knownPowers: []
-    obfuscate:
-      baseValue: 0
-      disciplineType: 64
-      knownPowers: []
-    oblivion:
-      baseValue: 0
-      disciplineType: 128
-      knownPowers: []
-    potence:
-      baseValue: 0
-      disciplineType: 256
-      knownPowers: []
-    presence:
-      baseValue: 0
-      disciplineType: 512
-      knownPowers: []
-    protean:
-      baseValue: 0
-      disciplineType: 1024
-      knownPowers: []
-    athletics:
-      baseValue: 0
-      disciplineType: 2048
-      knownPowers: []
-    firearms:
-      baseValue: 0
-      disciplineType: 4096
-      knownPowers: []
-    melee:
-      baseValue: 0
-      disciplineType: 8192
-      knownPowers: []
-    streetwise:
-      baseValue: 0
-      disciplineType: 16384
-      knownPowers: []
-    insight:
-      baseValue: 0
-      disciplineType: 32768
-      knownPowers: []
-    medicine:
-      baseValue: 0
-      disciplineType: 65536
-      knownPowers: []
-    larceny:
-      baseValue: 0
-      disciplineType: 131072
-      knownPowers: []
-    intimidation:
-      baseValue: 0
-      disciplineType: 262144
-      knownPowers: []

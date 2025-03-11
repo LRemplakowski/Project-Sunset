@@ -70,6 +70,9 @@ MonoBehaviour:
   sliceDistributionUniformity:
     m_OverrideState: 0
     m_Value: 0.75
+  multipleScatteringIntensity:
+    m_OverrideState: 0
+    m_Value: 0
   m_FogControlMode:
     m_OverrideState: 0
     m_Value: 0
@@ -501,6 +504,12 @@ MonoBehaviour:
       customValue: 100
       additiveValue: 0
       multiplyValue: 1
+  sunInitialRotation:
+    m_OverrideState: 0
+    m_Value: -Infinity
+  lockSun:
+    m_OverrideState: 0
+    m_Value: 0
   enableBackplate:
     m_OverrideState: 0
     m_Value: 0

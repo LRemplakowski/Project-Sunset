@@ -37430,10 +37430,10 @@ MonoBehaviour:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
-    - {fileID: 6162206024482089395}
-    - {fileID: 3636615562471254056}
     - {fileID: 7471926044057796404}
     - {fileID: 874003521}
+    - {fileID: 3636615562471254056}
+    - {fileID: 6162206024482089395}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -37458,7 +37458,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: WP_EMBASSY_MAIN_OFFICE_EXIT
+      Data: Backdoor Waypoint
     - Name: $v
       Entry: 10
       Data: 0
@@ -37470,7 +37470,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: WP_EMBASSY_OFFICE
+      Data: WP_EMBASSY_MAIN_SHOOTOUT_START
     - Name: $v
       Entry: 10
       Data: 1
@@ -37482,7 +37482,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Backdoor Waypoint
+      Data: WP_EMBASSY_OFFICE
     - Name: $v
       Entry: 10
       Data: 2
@@ -37494,7 +37494,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: WP_EMBASSY_MAIN_SHOOTOUT_START
+      Data: WP_EMBASSY_MAIN_OFFICE_EXIT
     - Name: $v
       Entry: 10
       Data: 3
@@ -71084,8 +71084,8 @@ Avatar:
     742852947: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Waist/CC_Base_Spine01/CC_Base_Spine02/CC_Base_NeckTwist01/CC_Base_NeckTwist02/CC_Base_Head/CC_Base_FacialBone/UMAadjustment.Rcheek
     3833206019: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Waist/CC_Base_Spine01/CC_Base_Spine02/CC_Base_R_RibsTwist
     1617059106: Root/Global/Position
-    208684537: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Waist/CC_Base_Spine01/CC_Base_Spine02/CC_Base_L_Clavicle/CC_Base_L_Upperarm/CC_Base_L_Forearm/CC_Base_L_Hand/CC_Base_L_Mid1/CC_Base_L_Mid2
     3191111898: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Pelvis/CC_Base_R_Thigh/CC_Base_R_Calf
+    208684537: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Waist/CC_Base_Spine01/CC_Base_Spine02/CC_Base_L_Clavicle/CC_Base_L_Upperarm/CC_Base_L_Forearm/CC_Base_L_Hand/CC_Base_L_Mid1/CC_Base_L_Mid2
     2692193155: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Waist/CC_Base_Spine01/CC_Base_Spine02/CC_Base_R_Clavicle/CC_Base_R_Upperarm/CC_Base_R_Forearm/CC_Base_R_Hand/CC_Base_R_Index1/CC_Base_R_Index2
     160473484: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Waist/CC_Base_Spine01/CC_Base_Spine02/CC_Base_L_Clavicle/CC_Base_L_Upperarm/CC_Base_L_Forearm/CC_Base_L_Hand/CC_Base_L_Thumb1/CC_Base_L_Thumb2
     2527479459: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Waist/CC_Base_Spine01/CC_Base_Spine02/CC_Base_R_Clavicle/CC_Base_R_Upperarm/CC_Base_R_UpperarmTwist01/CC_Base_R_UpperarmTwist02
@@ -94101,7 +94101,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6635432538046156311, guid: 5fd475a07782c9d4394eb94c5a7bc834, type: 3}
       propertyPath: <Stats>k__BackingField.Trackers.health._maxValue
-      value: 1
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6635432538046156311, guid: 5fd475a07782c9d4394eb94c5a7bc834, type: 3}
+      propertyPath: <Stats>k__BackingField.Trackers.hunger._maxValue
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6635432538046156311, guid: 5fd475a07782c9d4394eb94c5a7bc834, type: 3}
       propertyPath: <Stats>k__BackingField.Attributes.wits._baseValue
@@ -94144,8 +94148,16 @@ PrefabInstance:
       value: 67108864
       objectReference: {fileID: 0}
     - target: {fileID: 6635432538046156311, guid: 5fd475a07782c9d4394eb94c5a7bc834, type: 3}
+      propertyPath: <Stats>k__BackingField.Trackers.humanity._maxValue
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6635432538046156311, guid: 5fd475a07782c9d4394eb94c5a7bc834, type: 3}
       propertyPath: <Stats>k__BackingField.Skills.performance.skillType
       value: 16384
+      objectReference: {fileID: 0}
+    - target: {fileID: 6635432538046156311, guid: 5fd475a07782c9d4394eb94c5a7bc834, type: 3}
+      propertyPath: <Stats>k__BackingField.Trackers.willpower._maxValue
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6635432538046156311, guid: 5fd475a07782c9d4394eb94c5a7bc834, type: 3}
       propertyPath: <Stats>k__BackingField.Attributes.resolve._baseValue
@@ -99879,6 +99891,7 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+  _unique: {fileID: 7673344675393245307}
   <GridManager>k__BackingField: {fileID: 7673344675393245306}
   _encounterEndTrigger: 0
   encounterStartLogic: {fileID: 0}
@@ -130559,6 +130572,7 @@ GameObject:
   - component: {fileID: 494344696763513823}
   - component: {fileID: 378426399820526625}
   - component: {fileID: 7673344675393245306}
+  - component: {fileID: 7673344675393245307}
   m_Layer: 0
   m_Name: Embassy Shootout
   m_TagString: Untagged
@@ -130588,6 +130602,19 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   managedGrid: {fileID: 757463265826837341}
+--- !u!114 &7673344675393245307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7673344675393245305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d1796f3dc38e334ca54f2b0a067111d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: 
 --- !u!114 &7675647208844584432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132655,7 +132682,7 @@ MonoBehaviour:
   context: {fileID: 857370287}
   umaData: {fileID: 8145936593476356440}
   defaultRendererAsset: {fileID: 0}
-  umaRecipe: {fileID: 0}
+  umaRecipe: {fileID: 11400000, guid: 8bb474fd21b86a64ea2e52c61a8fc058, type: 2}
   umaAdditionalRecipes: []
   umaGenerator: {fileID: 857370286}
   animationController: {fileID: 9100000, guid: b6baf64b1736249499205b779ee9dcba, type: 2}
@@ -132740,7 +132767,30 @@ MonoBehaviour:
     dynamicallyAddFromResources: 0
     resourcesFolderPath: 
   characterColors:
-    _colors: []
+    _colors:
+    - name: Skin
+      channelMask:
+      - {r: 1, g: 1, b: 1, a: 1}
+      - {r: 1, g: 1, b: 1, a: 1}
+      - {r: 1, g: 1, b: 1, a: 1}
+      channelAdditiveMask:
+      - {r: 0, g: 0, b: 0, a: 0}
+      - {r: 0, g: 0, b: 0, a: 0}
+      - {r: 0, g: 0, b: 0, a: 0}
+      PropertyBlock:
+        alwaysUpdate: 0
+        alwaysUpdateParms: 0
+        serializedProperties: []
+      foldout: 0
+      showAdvanced: 0
+      isBaseColor: 0
+      deleteThis: 0
+      displayColor: {r: 1, g: 1, b: 1, a: 1}
+      _name: 
+      _color: {r: 1, g: 1, b: 1, a: 1}
+      _metallicGloss: {r: 0, g: 0, b: 0, a: 0}
+      Raw: 0
+      valuesConverted: 0
   predefinedDNA:
     PreloadValues: []
   loadPathType: 0
@@ -132781,15 +132831,15 @@ MonoBehaviour:
   renderers: []
   userInformation: 
   rawAvatar: 0
-  raceChanged: 0
+  raceChanged: 1
   hideRenderers: 0
   umaGenerator: {fileID: 857370286}
   OverrideTpose: {fileID: 0}
   atlasResolutionScale: 1
   ForceRebindAnimator: 0
-  isMeshDirty: 0
-  isShapeDirty: 0
-  isTextureDirty: 0
+  isMeshDirty: 1
+  isShapeDirty: 1
+  isTextureDirty: 1
   isAtlasDirty: 0
   markNotReadable: 1
   markDynamic: 1
@@ -132826,10 +132876,136 @@ MonoBehaviour:
       m_Calls: []
   umaRoot: {fileID: 0}
   _umaRecipe:
-    raceData: {fileID: 0}
+    raceData: {fileID: 11400000, guid: bf6fd1fedff5b3448af32b23adff222f, type: 2}
     dnaValues: []
-    slotDataList: []
-    sharedColors: []
+    slotDataList:
+    - asset: {fileID: 11400000, guid: 569a443fa081f3047a12b0d304306c71, type: 2}
+      overlayScale: 1
+      tags: []
+      Races: []
+      blendShapeTargetSlot: 
+      BlendshapeFoldout: 0
+      ClipPlaneFoldout: 0
+      isDeleted: 0
+      expandAlongNormal: 0
+      overSmoosh: 0.01
+      smooshDistance: 0.001
+      smooshInvertX: 0
+      smooshInvertY: 1
+      smooshInvertZ: 0
+      smooshInvertDist: 1
+      smooshTargetTag: 
+      smooshableTag: 
+      isSwapSlot: 0
+      swapTag: LongHair
+      skinnedMeshRenderer: 0
+      submeshIndex: 0
+      vertexOffset: 0
+      UVArea:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      tempHidden: 0
+      isDisabled: 0
+      UVSet: 0
+      altMaterial: {fileID: 0}
+      BlendshapeSlotNames: []
+      Suppressed: 0
+      dontSerialize: 0
+      rendererAsset: {fileID: 0}
+    - asset: {fileID: 11400000, guid: 46523d1710fd16147b722ec8a1f74a28, type: 2}
+      overlayScale: 1
+      tags: []
+      Races: []
+      blendShapeTargetSlot: 
+      BlendshapeFoldout: 0
+      ClipPlaneFoldout: 0
+      isDeleted: 0
+      expandAlongNormal: 0
+      overSmoosh: 0.01
+      smooshDistance: 0.001
+      smooshInvertX: 0
+      smooshInvertY: 1
+      smooshInvertZ: 0
+      smooshInvertDist: 1
+      smooshTargetTag: 
+      smooshableTag: 
+      isSwapSlot: 0
+      swapTag: LongHair
+      skinnedMeshRenderer: 0
+      submeshIndex: 0
+      vertexOffset: 0
+      UVArea:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      tempHidden: 0
+      isDisabled: 0
+      UVSet: 0
+      altMaterial: {fileID: 0}
+      BlendshapeSlotNames: []
+      Suppressed: 0
+      dontSerialize: 0
+      rendererAsset: {fileID: 0}
+    - asset: {fileID: 11400000, guid: 3bbab3b337a1bf340b5d96ea3cbdbf91, type: 2}
+      overlayScale: 1
+      tags: []
+      Races: []
+      blendShapeTargetSlot: 
+      BlendshapeFoldout: 0
+      ClipPlaneFoldout: 0
+      isDeleted: 0
+      expandAlongNormal: 0
+      overSmoosh: 0.01
+      smooshDistance: 0.001
+      smooshInvertX: 0
+      smooshInvertY: 1
+      smooshInvertZ: 0
+      smooshInvertDist: 1
+      smooshTargetTag: 
+      smooshableTag: 
+      isSwapSlot: 0
+      swapTag: LongHair
+      skinnedMeshRenderer: 0
+      submeshIndex: 0
+      vertexOffset: 0
+      UVArea:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      tempHidden: 0
+      isDisabled: 0
+      UVSet: 0
+      altMaterial: {fileID: 0}
+      BlendshapeSlotNames: []
+      Suppressed: 0
+      dontSerialize: 0
+      rendererAsset: {fileID: 0}
+    sharedColors:
+    - name: Skin
+      channelMask:
+      - {r: 1, g: 1, b: 1, a: 1}
+      - {r: 1, g: 1, b: 1, a: 1}
+      - {r: 1, g: 1, b: 1, a: 1}
+      channelAdditiveMask:
+      - {r: 0, g: 0, b: 0, a: 0}
+      - {r: 0, g: 0, b: 0, a: 0}
+      - {r: 0, g: 0, b: 0, a: 0}
+      PropertyBlock:
+        alwaysUpdate: 0
+        alwaysUpdateParms: 0
+        serializedProperties: []
+      foldout: 0
+      showAdvanced: 0
+      isBaseColor: 0
+      deleteThis: 0
+      displayColor: {r: 1, g: 1, b: 1, a: 1}
   animator: {fileID: 0}
   KeepAvatar: 0
   characterHeight: 2
