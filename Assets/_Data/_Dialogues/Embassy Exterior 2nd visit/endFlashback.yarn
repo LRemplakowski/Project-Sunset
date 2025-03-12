@@ -50,7 +50,7 @@ title: wannabeDefector
 {$kieran}: Turncoat. (-1 Kieran Influence) #line:00d618c 
 <<ModifyInfluence -1 $kieran>>
 <<if GetIsPartyMemberRecruited($anastasia) is true>>
-    {$anastasia}: Bahahaha! [She can't get a word out. She's cackling so hard.] #line:001466a 
+    {$anastasia}: Bahahaha! [nomarkup][She can't get a word out. She's cackling so hard.][/nomarkup] #line:001466a 
 <<endif>>
 <<jump vanComes>>
 ===
