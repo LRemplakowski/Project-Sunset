@@ -176,7 +176,7 @@ position: 458,599
     {$kieran}: Yes. It's a little but useful trick. (+1 Kieran Influence) #line:01b5ea3 
     <<ModifyInfluence 1 $kieran>>
     -> {$pcName}: Can I learn to do that? #line:0ced55a 
-        {$kieran}: [He shakes his head.] Unfortunately for you, it's something only my Clan is permitted to learn. #line:01aeb8a 
+        {$kieran}: [nomarkup][He shakes his head.][/nomarkup] Unfortunately for you, it's something only my Clan is permitted to learn. #line:01aeb8a 
         <<if GetIsPartyMemberRecruited($anastasia) is true>>
             {$anastasia}: In other words, spooky magic shit. #line:0ed285a 
         <<endif>>
