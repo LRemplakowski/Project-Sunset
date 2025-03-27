@@ -17,7 +17,7 @@ namespace SunsetSystems.LevelUtility
         [SerializeField]
         private Vector3 _spawnVolumeSize = new(2, 1, 3);
         [SerializeField]
-        private bool _alwaysHaveLeadCharacter;
+        private bool _alwaysHaveLeadCharacter = true;
         [Title("Editor")]
         [InfoBox("Shows how characters will be spread during spawn for given amount of characters.")]
         [ShowInInspector, MinValue(1)]

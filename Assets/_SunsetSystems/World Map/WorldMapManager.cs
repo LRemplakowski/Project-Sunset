@@ -19,11 +19,11 @@ namespace SunsetSystems.WorldMap
         private List<IWorldMapData> _defaultUnlockedMaps = new();
 
         [Title("Runtime")]
-        [ShowInInspector]
+        [SerializeField]
         private IWorldMapData _currentTraveledToMap;
-        [ShowInInspector]
+        [ShowInInspector, ReadOnly]
         private IWorldMapData _currentSelectedMap;
-        [ShowInInspector]
+        [ShowInInspector, ReadOnly]
         private HashSet<IWorldMapData> _unlockedMaps = new();
 
         public string DataKey => DataKeyConstants.WORLD_MAP_MANAGER_DATA_KEY;

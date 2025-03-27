@@ -37430,10 +37430,10 @@ MonoBehaviour:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
-    - {fileID: 7471926044057796404}
     - {fileID: 874003521}
-    - {fileID: 3636615562471254056}
+    - {fileID: 7471926044057796404}
     - {fileID: 6162206024482089395}
+    - {fileID: 3636615562471254056}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -37458,7 +37458,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Backdoor Waypoint
+      Data: WP_EMBASSY_MAIN_SHOOTOUT_START
     - Name: $v
       Entry: 10
       Data: 0
@@ -37470,7 +37470,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: WP_EMBASSY_MAIN_SHOOTOUT_START
+      Data: Backdoor Waypoint
     - Name: $v
       Entry: 10
       Data: 1
@@ -37482,7 +37482,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: WP_EMBASSY_OFFICE
+      Data: WP_EMBASSY_MAIN_OFFICE_EXIT
     - Name: $v
       Entry: 10
       Data: 2
@@ -37494,7 +37494,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: WP_EMBASSY_MAIN_OFFICE_EXIT
+      Data: WP_EMBASSY_OFFICE
     - Name: $v
       Entry: 10
       Data: 3
@@ -43501,7 +43501,7 @@ MonoBehaviour:
   _columns: 2
   _defaultSpacing: 0.7
   _spawnVolumeSize: {x: 2, y: 1, z: 2}
-  _alwaysHaveLeadCharacter: 0
+  _alwaysHaveLeadCharacter: 1
 --- !u!4 &874003522
 Transform:
   m_ObjectHideFlags: 0
@@ -71084,8 +71084,8 @@ Avatar:
     742852947: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Waist/CC_Base_Spine01/CC_Base_Spine02/CC_Base_NeckTwist01/CC_Base_NeckTwist02/CC_Base_Head/CC_Base_FacialBone/UMAadjustment.Rcheek
     3833206019: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Waist/CC_Base_Spine01/CC_Base_Spine02/CC_Base_R_RibsTwist
     1617059106: Root/Global/Position
-    3191111898: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Pelvis/CC_Base_R_Thigh/CC_Base_R_Calf
     208684537: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Waist/CC_Base_Spine01/CC_Base_Spine02/CC_Base_L_Clavicle/CC_Base_L_Upperarm/CC_Base_L_Forearm/CC_Base_L_Hand/CC_Base_L_Mid1/CC_Base_L_Mid2
+    3191111898: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Pelvis/CC_Base_R_Thigh/CC_Base_R_Calf
     2692193155: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Waist/CC_Base_Spine01/CC_Base_Spine02/CC_Base_R_Clavicle/CC_Base_R_Upperarm/CC_Base_R_Forearm/CC_Base_R_Hand/CC_Base_R_Index1/CC_Base_R_Index2
     160473484: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Waist/CC_Base_Spine01/CC_Base_Spine02/CC_Base_L_Clavicle/CC_Base_L_Upperarm/CC_Base_L_Forearm/CC_Base_L_Hand/CC_Base_L_Thumb1/CC_Base_L_Thumb2
     2527479459: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Waist/CC_Base_Spine01/CC_Base_Spine02/CC_Base_R_Clavicle/CC_Base_R_Upperarm/CC_Base_R_UpperarmTwist01/CC_Base_R_UpperarmTwist02
@@ -109620,7 +109620,7 @@ MonoBehaviour:
   _columns: 2
   _defaultSpacing: 0.7
   _spawnVolumeSize: {x: 2, y: 1, z: 2}
-  _alwaysHaveLeadCharacter: 0
+  _alwaysHaveLeadCharacter: 1
 --- !u!4 &3675175499416549661
 Transform:
   m_ObjectHideFlags: 0
@@ -125426,7 +125426,7 @@ MonoBehaviour:
   _columns: 2
   _defaultSpacing: 0.7
   _spawnVolumeSize: {x: 2, y: 1, z: 2}
-  _alwaysHaveLeadCharacter: 0
+  _alwaysHaveLeadCharacter: 1
 --- !u!114 &6171955763090858045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129804,7 +129804,7 @@ MonoBehaviour:
   _columns: 2
   _defaultSpacing: 0.75
   _spawnVolumeSize: {x: 2, y: 1, z: 2}
-  _alwaysHaveLeadCharacter: 0
+  _alwaysHaveLeadCharacter: 1
 --- !u!114 &7485060591432730377
 MonoBehaviour:
   m_ObjectHideFlags: 0
