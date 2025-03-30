@@ -37,7 +37,7 @@ tags:
 position: -497,-462
 ---
 Ghoul: Got some stragglers, Karl. #line:0d085be 
--> {$pcName}: We just killed all of your friends, in there. Do you really want to try us? (Charisma + Intimidation) #line:09ef5cc 
+-> {$pcName}: We just killed all of your friends, in there. Do you really want to try us? (Charisma + Subterfuge) #line:09ef5cc 
     <<jump charismaGhoulsRoll>>
 -> {$pcName}: [nomarkup][Draw your weapon.][/nomarkup] #line:0549e88 
     <<jump ghoulsCombat>>
@@ -46,7 +46,7 @@ title: charismaGhoulsRoll
 tags: 
 position: -685,-143
 ---
-<<if Roll("Charisma","Intimidation") >=3>>
+<<if Roll("Charisma","Subterfuge") >=3>>
     <<jump charismaGhoulsSuccess>>
 <<else>>
     <<jump charismaGhoulsFailure>>

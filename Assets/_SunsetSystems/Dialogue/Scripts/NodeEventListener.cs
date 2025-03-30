@@ -16,7 +16,10 @@ namespace SunsetSystems.Dialogue
         public void OnNodeEvent(string nodeName)
         {
             if (_listenForNode.Equals(nodeName))
+            {
+                Debug.Log($"{nameof(NodeEventListener)} >>> Node event triggered! Node: {_listenForNode}", this);
                 OnNodeEventMatch?.InvokeSafe();
+            }
         }
     }
 }

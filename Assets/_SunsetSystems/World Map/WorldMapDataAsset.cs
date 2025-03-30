@@ -14,13 +14,13 @@ namespace SunsetSystems.WorldMap
         [field: SerializeField]
         public override string ReadableID { get; protected set; }
 
-        [SerializeField]
+        [SerializeField, BoxGroup("Localization")]
         private LocalizedString _localizedName;
-        [SerializeField]
+        [SerializeField, BoxGroup("Localization")]
         private LocalizedString _localizedDescription;
-        [SerializeField]
+        [SerializeField, BoxGroup("Localization")]
         private string _fallbackName;
-        [SerializeField, MultiLineProperty]
+        [SerializeField, MultiLineProperty, BoxGroup("Localization")]
         private string _fallbackDescription;
         [SerializeField]
         private Sprite _areaIcon;

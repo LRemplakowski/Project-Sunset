@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Sirenix.OdinInspector;
+using Sirenix.Serialization;
 using SunsetSystems.Core.Database;
 using SunsetSystems.Equipment;
 using SunsetSystems.Inventory.Data;
@@ -13,7 +14,7 @@ namespace SunsetSystems.Entities.Characters
     public class EquipmentManager : SerializedMonoBehaviour, IEquipmentManager
     {
         [field: Title("Data")]
-        [field: SerializeField, DictionaryDrawerSettings(IsReadOnly = true)]
+        [field: OdinSerialize, DictionaryDrawerSettings(IsReadOnly = true)]
         public Dictionary<EquipmentSlotID, IEquipmentSlot> EquipmentSlots { get; private set; }
         public IEnumerable<IBaseItem> EquippedItems => EquipmentSlots.Values.Select(slot => slot.GetEquippedItem());
 
