@@ -383,7 +383,7 @@ AnimatorState:
   - {fileID: -4901545207370406977}
   - {fileID: -6946749493813957458}
   m_StateMachineBehaviours:
-  - {fileID: 9118494103532713059}
+  - {fileID: 32954944945305706}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -743,7 +743,7 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -757,6 +757,21 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
+--- !u!114 &32954944945305706
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c56cfffa32bd0be48a4ab1b7c388bbd1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _paramType: 1
+  _stateCount: 15
+  animatorParameter: selected_animation
 --- !u!1102 &1684610904413789293
 AnimatorState:
   serializedVersion: 6

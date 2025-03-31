@@ -85,8 +85,8 @@ namespace SunsetSystems.Utils.Triggers
         private bool ValidateTrigger(Collider other, in bool stateTriggeredOnce)
         {
             bool result = true;
-            result &= !triggerOnlyOnce || stateTriggeredOnce is false;
-            result &= !triggeredOnlyBySpecificObject || triggeringObject != other;
+            result &= !triggerOnlyOnce || !stateTriggeredOnce;
+            result &= !triggeredOnlyBySpecificObject || triggeringObject == other;
             result &= !_triggerOnlyInGameState || GameManager.Instance.IsCurrentState(_triggerState);
             return result;
         }

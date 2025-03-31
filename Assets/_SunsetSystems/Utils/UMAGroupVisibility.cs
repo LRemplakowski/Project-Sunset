@@ -15,18 +15,6 @@ namespace SunsetSystems.Utils
         private List<DynamicCharacterAvatar> _childrenUMA = new();
         [SerializeField]
         private bool _umaVisible = true;
-        private bool UmaVisible
-        {
-            get
-            {
-                return _umaVisible;
-            }
-            set
-            {
-                _umaVisible = value;
-                RefreshUMAVisibility();
-            }
-        }
 
         public string ComponentID => "UMA_VISIBILITY_GROUP";
 
@@ -51,7 +39,8 @@ namespace SunsetSystems.Utils
 
         public void SetUMAVisibility(bool visible)
         {
-            UmaVisible = visible;
+            _umaVisible = visible;
+            RefreshUMAVisibility();
         }
 
         private void RefreshUMAVisibility()
