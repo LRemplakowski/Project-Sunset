@@ -7,6 +7,7 @@ using UnityEngine;
 
 namespace SunsetSystems.Cinematics
 {
+    [ExecuteAlways]
     public class FadeScreenManager : MonoBehaviour
     {
         public static FadeScreenManager Instance { get; private set; }
@@ -17,7 +18,7 @@ namespace SunsetSystems.Cinematics
 
         [Title("Config")]
         [SerializeField]
-        private float _fadeTime = .5f;
+        private float _defaultFadeTime = .5f;
 
         private Coroutine _fadeCoroutine;
 
@@ -35,34 +36,64 @@ namespace SunsetSystems.Cinematics
                 StopCoroutine(_fadeCoroutine);
             _fadeScreenCanvasGroup.alpha = 0f;
             _fadeScreenCanvasGroup.blocksRaycasts = true;
-            _fadeCoroutine = StartCoroutine(CoroutineUtility.LerpAlphaOverTime(_fadeScreenCanvasGroup, _fadeTime, 1f, FadeInWhenCompleted));
+            _fadeCoroutine = StartCoroutine(CoroutineUtility.LerpAlphaOverTime(_fadeScreenCanvasGroup, _defaultFadeTime, 1f, FadeInWhenCompleted));
 
             void FadeInWhenCompleted()
             {
                 afterFadeOut?.Invoke();
-                _fadeCoroutine = StartCoroutine(CoroutineUtility.LerpAlphaOverTime(_fadeScreenCanvasGroup, _fadeTime, 0f, () => _fadeScreenCanvasGroup.blocksRaycasts = false));
+                _fadeCoroutine = StartCoroutine(CoroutineUtility.LerpAlphaOverTime(_fadeScreenCanvasGroup, _defaultFadeTime, 0f, () => _fadeScreenCanvasGroup.blocksRaycasts = false));
             }
         }
 
-        public void FadeOut(Action onAfterFadeOut = null)
+        public void FadeOut(float fadeTime, Action onAfterFadeOut = null)
         {
             if (_fadeCoroutine != null)
                 StopCoroutine(_fadeCoroutine);
             _fadeScreenCanvasGroup.blocksRaycasts = true;
-            _fadeCoroutine = StartCoroutine(CoroutineUtility.LerpAlphaOverTime(_fadeScreenCanvasGroup, _fadeTime, 1f, onAfterFadeOut));
+            _fadeCoroutine = StartCoroutine(CoroutineUtility.LerpAlphaOverTime(_fadeScreenCanvasGroup, fadeTime, 1f, onAfterFadeOut));
         }
 
-        public void FadeIn(Action onAfterFadeIn = null)
+        public void FadeOut()
+        {
+            FadeOut(_defaultFadeTime);
+        }
+
+        public void FadeOut(float fadeTime)
+        {
+            FadeOut(fadeTime, null);
+        }
+
+        public void FadeOut(Action onAfterFadeOut = null)
+        {
+            FadeOut(_defaultFadeTime, onAfterFadeOut);
+        }
+
+        public void FadeIn(float fadeTime, Action onAfterFadeIn = null)
         {
             if (_fadeCoroutine != null)
                 StopCoroutine(_fadeCoroutine);
-            _fadeCoroutine = StartCoroutine(CoroutineUtility.LerpAlphaOverTime(_fadeScreenCanvasGroup, _fadeTime, 0f, AfterFade));
+            _fadeCoroutine = StartCoroutine(CoroutineUtility.LerpAlphaOverTime(_fadeScreenCanvasGroup, fadeTime, 0f, AfterFade));
 
             void AfterFade()
             {
                 onAfterFadeIn?.Invoke();
                 _fadeScreenCanvasGroup.blocksRaycasts = false;
             }
+        }
+
+        public void FadeIn()
+        {
+            FadeIn(_defaultFadeTime);
+        }
+
+        public void FadeIn(float fadeTime)
+        {
+            FadeIn(fadeTime, null);
+        }
+
+        public void FadeIn(Action onAfterFadeIn = null)
+        {
+            FadeIn(_defaultFadeTime, onAfterFadeIn);
         }
     }
 }
