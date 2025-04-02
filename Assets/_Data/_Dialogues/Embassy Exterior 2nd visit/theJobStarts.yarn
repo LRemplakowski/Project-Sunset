@@ -1,5 +1,5 @@
 ﻿title: theJobStarts
-position: -72,177
+position: -860,-831
 ---
 //scene starts in PC's car near the dumpsters behind the Embassy//
 [nomarkup][You've tracked Diego Vazguez to the Embassy. He's outside taking a smoke break, hands in his pockets. The dingy smell of trash and stale fluids hits you immediately as you open the van window. A woman with blonde hair sits in the passenger seat alongside you. She's telling you about a job she needs you to finish.][/nomarkup] #line:0ec2da1 
@@ -16,13 +16,14 @@ position: -72,177
     <<jump approachWithoutDiana>>
 ===
 title: approachWithDiana
-position: 192,182
+position: -533,-527
 ---
 [nomarkup][You walk down the alleyway with Diana, seeing the flash of a cigarette being thrown as he spots Diana, without waiting for even a seconds notice he starts sprinting towards you both, blowing past the two of you before you even have the chance to try and catch him. Both of you caught completely off guard as he gets a headstart on you.][/nomarkup] #line:085464c 
 -> [nomarkup][Jump to the chase.][/nomarkup] #line:08ffdaa 
 <<jump chaseOptions>>
 ===
 title: approachWithoutDiana
+position: -335,-820
 ---
 {$diego}: Hey. #line:01928ce 
 -> {$pcName}: Hey, yourself.  #line:0d58e1e 
@@ -34,6 +35,7 @@ title: approachWithoutDiana
 <<jump interactions>>
 ===
 title: interactions
+position: -97,-500
 ---
 [nomarkup][The man is looking at you waiting.][/nomarkup] #line:0f0cb9d 
 -> {$pcName}: Can you spare a cigarette? (Manipulation + Etiquette) <<if CustomVisited("cigRoll") == false>> #line:06b4ac7 
@@ -46,6 +48,7 @@ title: interactions
     <<jump theVan>>
 ===
 title: cigRoll
+position: 198,-318
 ---
 <<if Roll("Manipulation","Etiquette") >=2>>
     <<set $rollModifier to 1>>
@@ -55,6 +58,7 @@ title: cigRoll
 <<endif>>
 ===
 title: cigSuccess
+position: 399,-656
 ---
 [nomarkup][He gets you a cig, lights it. This will buy some time. There is a wedding ring on his right hand.][/nomarkup] #success #line:0f37119 
 -> {$pcName}: I'm Des, nice to meet you. <<if CustomVisited("introduction") == false>> #line:036f294 
@@ -66,6 +70,7 @@ title: cigSuccess
 <<jump interactions>>
 ===
 title: introduction
+position: 843,-750
 ---
 {$diego}: Diego, what brings a broad like you all the way out her' this evening? [nomarkup][He looks you over with a curious glance. He's not really disguising it either, curious and interested.][/nomarkup] #line:0f04aea 
 -> {$pcName}: Got tired of being inside the club. No smoking policy really something else. #line:0d885ab 
@@ -77,11 +82,13 @@ title: introduction
 <<jump cigSuccess>>
 ===
 title: married
+position: 536,-1048
 ---
 {$diego}: [nomarkup][He looks down at the ring and swallows][/nomarkup] Doesn't matter now. Guess it didn't matter much then. #line:07a146e 
 <<jump cigSuccess>>
 ===
 title: scar
+position: 865,-1046
 ---
 {$diego}: Noticed that? Got into a fight with my old la - with Elizabeth - my ex-wife. [nomarkup][He puts emphasis onto the word ex like it's something he's been thinking about a lot lately.][/nomarkup] #line:04d1279 
 -> {$pcName}: Oh? I'm sorry to hear that. #line:0f13245 
@@ -91,6 +98,7 @@ title: scar
 <<jump cigSuccess>>
 ===
 title: checkout
+position: 217,-1112
 ---
 [nomarkup][Your eyes slide along Diego's body and he puffs himself up a little bit, clearly appreciating the attention.][/nomarkup] #line:05f32ee 
 <<if Roll("Wits","Streetwise") >=(2-$rollModifier)>>
@@ -107,6 +115,7 @@ title: checkout
 <<endif>>
 ===
 title: chase
+position: -534,-270
 ---
 [nomarkup][Your eyes scan along Diego and he watches you back, each of you trying to gauge the other's intent.][/nomarkup] #line:0552e80 
 {$diego}: Déjate de mamadas. I don't know if I like that look. #line:0da3675 
@@ -121,6 +130,7 @@ title: chase
     <<jump cutToTheChase>>
 ===
 title: lureDiego
+position: -736,-92
 ---
 {$diego}: [nomarkup][He purses his lips as he stares at you, his eyes searching yours as his posture shifts and he closes in on himself slightly.][/nomarkup] A tempting offer, but one I'll pass on. #line:09bf9ca 
 -> {$pcName}: I thought you wanted me? #line:039a603 
@@ -153,6 +163,7 @@ title: lureDiego
 <<jump cutToTheChase>>
 ===
 title: cutToTheChase
+position: -597,177
 ---
 {$diego}: Is that what you wanted to ask me about morra? #line:042bb18 
 -> {$pcName}: No. No it isn't Diego. #line:0a3a728 
@@ -165,6 +176,7 @@ title: cutToTheChase
     <<jump leadershipRoll>>
 ===
 title: leadershipRoll
+position: -592,377
 ---
 <<if Roll("Charisma","Leadership") >=4>>
     <<jump leadershipSuccess>>
@@ -173,11 +185,13 @@ title: leadershipRoll
 <<endif>>
 ===
 title: leadershipSuccess
+position: -230,459
 ---
 {$diego}: I don't think so bebezota. Sorry. [nomarkup][He flicks the cig he had been smoking to the ground and snuffs it out with his heel, brushing past you and walking away.][/nomarkup] #success #line:029c2a3 
 <<jump chaseOptions>>
 ===
 title: chaseOptions
+position: 241,322
 ---
 {$diego}: You know... [nomarkup][He flicks the cig he had been smoking at you with a swiftness as he turns and starts sprinting down the alley way- towards you the van that you were planning to get him into. The shock of it makes you freeze for a second before you spin and give chase.][/nomarkup] #line:00acd50 
 //Diego starts to run//
@@ -185,6 +199,7 @@ title: chaseOptions
     <<jump dexChaseRoll>>
 ===
 title: dexChaseRoll
+position: 244,623
 ---
 <<if Roll("Dexterity","Athletics") >=(1+$rollModifier)>>
     <<jump dexChaseSuccess>>
@@ -193,12 +208,14 @@ title: dexChaseRoll
 <<endif>>
 ===
 title: dexChaseSuccess
+position: 144,806
 ---
 [nomarkup][You move, turning on your heel to avoid the lit cigarette coming towards you. As you pivot to move towards Diego you can see that he's started to move faster away from you, noticing the pace of your footsteps and reacting by breaking out into a run. You find yourself sprinting after him, air fast and hot in your lungs as you try to out run his initial sprint.][/nomarkup] #success #line:06984e1 
 -> [nomarkup][Try to tackle him.] (Stamina + Brawl)[/nomarkup] #line:02080e9 
 <<jump stamChaseRoll>>
 ===
 title: dexChaseFailure
+position: 391,812
 ---
 [nomarkup][You reel back from the shock of the cigarette butt and jerk to avoid it even as it lands near you and not specifically at you. Putting to much power into the action you find yourself sprawled on your ass and by the time you look up - you see Diego has broken out into a sprint.][nomarkup] #failure #line:064459e 
 <<DealDamage $pcName 1>>
@@ -207,6 +224,7 @@ title: dexChaseFailure
 <<jump stamChaseRoll>>
 ===
 title: stamChaseRoll
+position: 161,1008
 ---
 <<if Roll("Stamina","Brawl") >=(2+$rollModifier)>>
     <<jump stamChaseSuccess>>
@@ -215,16 +233,19 @@ title: stamChaseRoll
 <<endif>>
 ===
 title: stamChaseSuccess
+position: 356,1195
 ---
 [nomarkup][Chasing him down in the dinghy alleyway you can feel rainwater and what you hope is just general grim seeping into your pantleg as it splashes. You grit your teeth and push through it. Slamming into Deigo from behind him and pinning him against the van doors.][/nomarkup] #success #line:0f14512 
 <<jump theVan>>
 ===
 title: stamChaseFailure
+position: 99,1189
 ---
 [nomarkup][You sprint after Diego as he collides off the Van, you hear Diana shout from inside and the sound of the passenger side door opening just as you dash past her, running Diego down as he tries to get out of the way and further down the back streets towards the main road. You gras his jacket and he slips out of it, finding yourself running after him with your arms full of leather. Diana's feet pounding behind you.][/nomarkup] #failure #line:0b64cec 
 <<jump theVan>>
 ===
 title: theVan
+position: -33,1514
 ---
 //Diego is pushed into the van//
 [nomarkup][You look a little closer at the man who's been quiet since you dragged him into the van. Diana grabs his face to look at him, dragging Diego towards her whose face is pinched and sallow. You've been skimming the documents that you've been given and looked into Diego's background - a nobody. Got caught up in something he didn't understand; ultimately it's unlikely he'll walk away from this unscathed, but that isn't your problem.][/nomarkup] #line:0c75ce4 
@@ -237,6 +258,7 @@ title: theVan
 <<jump theVanRide>>
 ===
 title: theVanRide
+position: 463,1535
 ---
 [nomarkup][You shove the doors open and muscle the man you just ran down inside. He looks a little out of it and doesn't resist. You take a few minutes to seatbelt him in and turn his face to get a better look at his eyes. Diego's head lists.][/nomarkup] #line:06af709 
 <<if Roll("Intelligence","Medicine") >=3>>
@@ -256,6 +278,7 @@ title: theVanRide
     <<jump pcVenerated>>
 ===
 title: pcValidated
+position: 731,1679
 ---
 [nomarkup][It seems that your skills are not that bad. You've got plenty of time to train, but compared to your previous job they are just somewhat alike.][/nomarkup] #line:0ead108 
 -> {$pcName}: - think this is how I'm going to start clawing my way back to where I started. This isn't where I pictured myself being, I'll be honest, and it is somewhere I want to be again - #line:0aba814 
@@ -265,6 +288,7 @@ title: pcValidated
 <<jump wrapUpVan>>
 ===
 title: pcVindicated
+position: 925,1543
 ---
 [nomarkup][Diana's words make you even more convinced that private investigator is a job that fits you like a glove. You feel a wave of certainty you haven't felt for a long time.][/nomarkup] #line:00dc997 
 -> {$pcName}: - get the feeling this is the sort of work I'm meant to do. I wish things had worked out with the Sands, but rooting out corruption- it works well for me. #line:0179377 
@@ -277,6 +301,7 @@ title: pcVindicated
 <<jump wrapUpVan>>
 ===
 title: pcVenerated
+position: 499,1810
 ---
 [nomarkup][Yes, you feel that's a compliment, and from one of your clients no less. It feels good.][/nomarkup] #line:0629172 
 -> {$pcName}: - it's good to finally have a win. I've been losing for so long. #line:080163a 
@@ -287,6 +312,7 @@ title: pcVenerated
 <<jump wrapUpVan>>
 ===
 title: wrapUpVan
+position: 965,1880
 ---
 [nomarkup][Eventually you turn onto a familiar street and the desire to talk leaves you. You can feel there is only a few more turns before the grim task ahead of you must be done.][/nomarkup] #line:0ee0167 
 <<jump havenJobArrival>>

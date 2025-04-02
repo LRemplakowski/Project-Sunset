@@ -27,6 +27,7 @@ namespace SunsetSystems.Cinematics
         {
             _playableDirector.Stop();
             _playableDirector.Play(asset, wrapMode);
+            _playableDirector.playableGraph.GetRootPlayable(0).SetSpeed(1);
         }
     }
 }
