@@ -1,4 +1,5 @@
-﻿// Copyright (c) Pixel Crushers. All rights reserved.
+// Recompile at 04/04/2025 17:24:10
+// Copyright (c) Pixel Crushers. All rights reserved.
 
 using System.Collections.Generic;
 using System.IO;
@@ -145,8 +146,9 @@ namespace PixelCrushers
 
         private void OnSelectionChange()
         {
-            if (Selection.activeObject is TextTable)
+            if (Selection.activeObject is TextTable selectedTextTable)
             {
+                if (selectedTextTable != m_textTable && m_serializedObject != null) m_serializedObject.ApplyModifiedProperties();
                 SelectTextTable(Selection.activeObject as TextTable);
                 Repaint();
             }
