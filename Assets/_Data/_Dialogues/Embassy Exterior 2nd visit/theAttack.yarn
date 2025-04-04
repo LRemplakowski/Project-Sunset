@@ -1,5 +1,6 @@
 ﻿title: theAttack
 tags:
+position: -44,-406
 ---
 {$diana}: Shit. #line:0e61ac9 
 [nomarkup][You feel yourself being shoved further into your apartment as a warm body falls on top of you. Bleached blonde hair coloring your vision as you tumble.][/nomarkup] #line:010ddf1 
@@ -7,6 +8,7 @@ tags:
     <<jump attackStrRoll>>
 ===
 title: attackStrRoll
+position: -41,-197
 ---
 <<if Roll("Strength","Athletics") >=(3+$rollModifier)>>
     <<jump attackStrSuccess>>
@@ -15,16 +17,19 @@ title: attackStrRoll
 <<endif>>
 ===
 title: attackStrSuccess
+position: -137,34
 ---
 [nomarkup][You catch yourself as the warm body of a man slides over you and hits the floor with a dull thud.][/nomarkup] #success #line:0afc493 
 <<jump luciaShowsUp>>
 ===
 title: attackStrFailure
+position: 80,32
 ---
 [nomarkup][You turn just in time to find yourself holding the man from the van in your arms. His warmth leaches into your arms and you try to handle his dead weight.][/nomarkup] #failure #line:0ab9395 
 <<jump luciaShowsUp>>
 ===
 title: luciaShowsUp
+position: -30,281
 ---
 {$sire}: Surprise, sweetie. Don't worry- this won't hurt much. #line:0acec7e 
 [nomarkup][She smiles and you can see stark white teeth in the dark. Intent and lust present on her face as she looks at you. You stomach churns as you look towards the door where Diana stands as a silhouette between you and freedom.][/nomarkup] #line:0f2788f 
@@ -34,6 +39,7 @@ title: luciaShowsUp
     <<jump attackDexRoll>>
 ===
 title: attackDexRoll
+position: -30,479
 ---
 <<if Roll("Dexterity","Athletics") >=(3+$rollModifier)>>
     <<jump attackDexSuccess>>
@@ -42,12 +48,14 @@ title: attackDexRoll
 <<endif>>
 ===
 title: attackDexSuccess
+position: -125,727
 ---
 [nomarkup][You dart backwards, your head swimming as you try to keep your balance. Maneuvering yourself and the man has become a herculean task by you managing to make it past Diana and out towards the parking lot.][/nomarkup] #line:0dcd70f 
 <<jump havenEscape>>
 //scene changes to Haven exterior//
 ===
 title: attackDexFailure
+position: 88,726
 ---
 [nomarkup][You move backwards directly into Diana who shoves you full force forwards sending you sprawling into the brown eyed woman, Lucia, before you.][/nomarkup] #line:0805dbf 
 <<jump capturedByLucia>>
