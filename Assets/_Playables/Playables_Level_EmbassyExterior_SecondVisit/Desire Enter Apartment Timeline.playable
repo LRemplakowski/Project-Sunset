@@ -1,24 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8816198912221048532
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d52b6a8fc11ea247bbcedfdd150cc37, type: 3}
-  m_Name: Play Cutscene Signal Emitter
-  m_EditorClassIdentifier: 
-  m_Time: 2.5166666666666666
-  m_Retroactive: 0
-  m_EmitOnce: 0
-  m_Asset: {fileID: 11400000, guid: 8f16ada241ddce84b87fa3d52036b9be, type: 2}
-  <Parameter>k__BackingField:
-    _playableAsset: {fileID: 0}
-    _wrapMode: 0
 --- !u!114 &-6988735595763875066
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -43,8 +24,6 @@ MonoBehaviour:
   m_Markers:
     m_Objects:
     - {fileID: -6121383924191190322}
-    - {fileID: -4584762503184637562}
-    - {fileID: -8816198912221048532}
 --- !u!114 &-6121383924191190322
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -61,23 +40,6 @@ MonoBehaviour:
   m_Retroactive: 0
   m_EmitOnce: 0
   m_Asset: {fileID: 11400000, guid: 8f16ada241ddce84b87fa3d52036b9be, type: 2}
---- !u!114 &-4584762503184637562
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: String Signal Emitter
-  m_EditorClassIdentifier: SunsetSystems:SunsetSystems.Playables:StringSignalEmitter
-  m_Time: 2.933333333333333
-  m_Retroactive: 0
-  m_EmitOnce: 0
-  m_Asset: {fileID: 11400000, guid: a010f66bbb64f1748b7414a26079b588, type: 2}
-  <Parameter>k__BackingField: 
 --- !u!114 &-1033300668717242150
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -118,6 +80,7 @@ MonoBehaviour:
   - {fileID: 7211178747613921884}
   - {fileID: 128600741154283751}
   - {fileID: -6988735595763875066}
+  - {fileID: 707032578258781148}
   m_FixedDuration: 0
   m_EditorSettings:
     m_Framerate: 60
@@ -320,6 +283,49 @@ MonoBehaviour:
   m_Markers:
     m_Objects: []
   m_PostPlaybackState: 3
+--- !u!114 &707032578258781148
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b46e36075dd1c124a8422c228e75e1fb, type: 3}
+  m_Name: Signal Track (1)
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_AnimClip: {fileID: 0}
+  m_Locked: 0
+  m_Muted: 0
+  m_CustomPlayableFullTypename: 
+  m_Curves: {fileID: 0}
+  m_Parent: {fileID: 11400000}
+  m_Children: []
+  m_Clips: []
+  m_Markers:
+    m_Objects:
+    - {fileID: 2618915777299168792}
+--- !u!114 &2618915777299168792
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d52b6a8fc11ea247bbcedfdd150cc37, type: 3}
+  m_Name: Play Cutscene Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 3
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: 2def9d47956a2a948a500405b70effc5, type: 2}
+  <Parameter>k__BackingField:
+    _playableAsset: {fileID: 11400000, guid: 3213c8b8bcaf65a458b68df871c122a3, type: 2}
+    _wrapMode: 0
 --- !u!114 &3222429234726730996
 MonoBehaviour:
   m_ObjectHideFlags: 1
