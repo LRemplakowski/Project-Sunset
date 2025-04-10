@@ -1,5 +1,6 @@
 ﻿title: leaveAlone
 tags:
+position: 0,-501
 ---
 {$diana}: Shame. Think I could grab your number? #line:0a751ff 
 -> {$pcName}: Yes. #line:04adab7 
@@ -10,6 +11,7 @@ tags:
 //regardless of outcome PC stands up//
 ===
 title: licenseTab
+position: 1,-274
 ---
 Bartender: Hey- can't leave your license behind the bar. Let me close out your tab? #line:0cd6d54 
 -> {$pcName}: Ah, silly me, I nearly forgot. [nomarkup][Look closely at bartender hiding suspicion.] (Charisma + Insight)[/nomarkup] #line:07e7631 
@@ -20,6 +22,7 @@ Bartender: Hey- can't leave your license behind the bar. Let me close out your t
     <<jump bartenderCompRoll>>
 ===
 title: bartenderChaRoll
+position: 198,94
 ---
 <<if $drinkSuccess == true>>
     <<jump bartenderChaSuccess>>
@@ -30,16 +33,19 @@ title: bartenderChaRoll
 <<endif>>
 ===
 title: bartenderChaSuccess
+position: 304,386
 ---
 [nomarkup][You look at the bartender who's been serving you and catch his eyes with an easy smile. He glances at the drink with a flash of extreme guilt that sets on on edge and hands you your driver's license. Before you have the chance to ask him he disappears into the staff-only area.][/nomarkup] #success #line:0cdf5b5 
 <<jump dianaContinues>>
 ===
 title: bartenderChaFailure
+position: 92,383
 ---
 [nomarkup][You take your license from the bartender who rings up your tab. He immediately disappears into the staff-only area.][/nomarkup] #line:0b169a5 
 <<jump dianaContinues>>
 ===
 title: bartenderIntRoll
+position: -255,103
 ---
 <<if $drinkSuccess == true>>
     <<jump bartenderIntSuccess>>
@@ -50,16 +56,19 @@ title: bartenderIntRoll
 <<endif>>
 ===
 title: bartenderIntSuccess
+position: -389,381
 ---
 [nomarkup][You catch it just out of the corner of your eye that the bartender has written down your license information. He hands it back to you a moment later but you know something off here. Before you have the chance to ask him he disappears into the staff-only area.][/nomarkup] #success #line:0f6e2b7 
 <<jump dianaContinues>>
 ===
 title: bartenderIntFailure
+position: -150,380
 ---
 [nomarkup][You see him write something down behind the bar as he hands you back your license. He looks over at Diana and then tells another bartender he'll be taking his break.][/nomarkup] #failure #line:0901783 
 <<jump dianaContinues>>
 ===
 title: bartenderCompRoll
+position: 642,93
 ---
 <<if $drinkSuccess == true>>
     <<jump bartenderCompSuccess>>
@@ -70,34 +79,38 @@ title: bartenderCompRoll
 <<endif>>
 ===
 title: bartenderCompSuccess
+position: 747,391
 ---
 [nomarkup][You were supposed to be given your license back immediately, it's actually more strange that you're getting it now. What has he been doing it with this whole time? Shit. This is bad. Before you have the chance to ask him he disappears into the staff-only area.][/nomarkup] #success #line:059b5c9 
 <<jump dianaContinues>>
 ===
 title: bartenderCompFailure
+position: 539,393
 ---
 [nomarkup][It's weird that he didn't give you back your license until now but he might have just not gotten around to it. Before you have the change to ask him he's disappeared into the kitchen.][/nomarkup] #failure #line:06efe54 
 <<jump dianaContinues>>
 ===
 title: dianaContinues
+position: 138,1283
 ---
-<<if $numberOfDrinks == 0>>
+<<if $numberOfDrinks <= 0>>
     [nomarkup][The situation has taken a turn and as you look back at Diana you can see her glowering at you. You almost have to take a step back it has such a venom to it. You twirl your keys in your hand, anxious. Whatever ‘The Dutchess' has in mind for you you want no part in it.][/nomarkup] #line:0eec1e1 
     {$diana}: You sure you don't want to take me up on the offer Desiree Bardot? #line:0106224 
     -> {$pcName}: Yeah. Yeah, I think I'm sure. Have a nice night. #line:02f59c1 
     {$diana}: Alright... Have it your way. #line:0dbe7cb 
     <<jump havenArrivalAlone>>
-<<elseif $numberOfDrinks >=1>>
+<<else>>
     <<if Roll("Stamina","Resolve") >=1>>
         //pc gets drunk animations//
         [nomarkup][You feel yourself getting unsteady on your feet, the lights seem brighter and the back of your neck feels hot. You didn't drink that much did you?][/nomarkup] #line:0c9c27d 
     <<endif>>
     {$diana}: Sorry babes... It'll all be over quickly. #line:0bc9069 
+    -> [nomarkup][Try to overcome the drug effects.] (Stamina + Resolve)[/nomarkup] #line:069e723 
     <<jump drugOvercome>>
 <<endif>>
--> [nomarkup][Try to overcome the drug effects.] (Stamina + Resolve)[/nomarkup] #line:069e723 
 ===
 title: drugOvercome
+position: 140,1504
 ---
 <<if Roll("Stamina","Resolve") >=(1+$numberOfDrinks)>>
     <<jump drugOvercomeSuccess>>
@@ -106,16 +119,18 @@ title: drugOvercome
 <<endif>>
 ===
 title: drugOvercomeFailure
+position: 856,2051
 ---
 [nomarkup][You find your head resting against your knees as prickles of hair brush against your face.][/nomarkup] #line:0f84d46 
 {$diana}: Come on. #line:0f7d324 
 -> {$pcName}: Why...? #line:076b299 
-{$diana}: It's what Lucia... why am I answering that. #line:01f990f 
+{$diana}: It's what Lucia... Why am I answering that. #line:01f990f 
 -> {$pcName}: Why... #line:0c7a610 
 {$diana}: I don't know. #line:028828c 
 <<jump pcLoosesConciousness>>
 ===
 title: pcLoosesConciousness
+position: 860,2280
 ---
 //PC stumbles and lies on ground//
 [nomarkup][Everything goes white as you hear the sound of your body hitting the floor.][/nomarkup] #line:0db91ec 
@@ -123,6 +138,7 @@ title: pcLoosesConciousness
 <<jump havenDruggedArrival>>
 ===
 title: drugOvercomeSuccess
+position: 139,1721
 ---
 //pc leans on the bar//
 [nomarkup][You put your hand on the bar and wheeze feeling everything get brighter.][/nomarkup] #success #line:05ab806 
@@ -136,6 +152,7 @@ title: drugOvercomeSuccess
 <<endif>>
 ===
 title:drugOvercomeSuccess2
+position: 140,1923
 ---
 //pc gest drunk anims as he makes several steps//
 [nomarkup][You stagger through the club as you're bounced between bodies feeling your vision get more and more hazy. The lights are so bright and they're blinding you.][/nomarkup] #line:0471e23 
@@ -149,6 +166,7 @@ title:drugOvercomeSuccess2
 <<endif>>
 ===
 title:drugOvercomeSuccess3
+position: 138,2132
 ---
 //PC is in back alley lying on the ground next to the black van//
 [nomarkup][Your hand presses onto something cold and metallic and you push, hard, on whatever it is. You have to close your eyes against the intensity of the headlights flashing. Where are you?][/nomarkup] #line:07c85c4 
@@ -162,6 +180,7 @@ title:drugOvercomeSuccess3
 <<endif>>
 ===
 title: drugOvercomeSuccess4
+position: 140,2337
 ---
 //PC is in the black van, that goes through the streets//
 [nomarkup][You lead against a wall and close your eyes feeling your legs go weak. You keep pushing yourself... forward. A muffled voice can be heard above you.][/nomarkup] #line:07c5416 

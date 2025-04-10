@@ -1,5 +1,6 @@
 ﻿title: theOfferStarts
 tags:
+position: -7,-309
 ---
 <<set $rollModifier to 0>>
 //Embassy interior, PC sits next to a bar, Diana sits next to PC//
@@ -22,16 +23,19 @@ tags:
     <<jump iBuyYouADrink>>
 ===
 title: buyMeADrink
+position: -92,-38
 ---
 {$diana}: [nomarkup][There's a whistle and she makes a swirling motion at the bartender with her finger raised][/nomarkup] Malt whiskey and whatever she likes. On me. #line:0087499 
 <<jump havingADrink>>
 ===
 title: iBuyYouADrink
+position: 123,-34
 ---
 {$diana}: Everyone here knows the Duchess gets the good stuff. Only the best for me and my girl. [She turns to the bartender.] Put it on my tab. #line:0fb9533 
 <<jump havingADrink>>
 ===
 title: havingADrink
+position: 15,193
 ---
 [nomarkup][Your drink is served alongside a glass of single malt whiskey, Diana leaning over with a straw and stealing a small amount of your drink. Her jewelry, and hair have been moved so that you can see the full length of her figure, lithe, muscled and with just the slightest bit of curve. Her eyes flick up to catch yours.][/nomarkup] #line:0f71cb3 
 -> {$pcName}: You thief! #line:02444c6 
@@ -47,18 +51,21 @@ title: havingADrink
     <<jump pcUnamused>>
 ===
 title: pcAmused
+position: -89,458
 ---
 [nomarkup][You look away as you feel a smile force itself across your lips.][/nomarkup] #line:0afc96c 
 {$diana}: Good girl. #line:03e20a0 
 <<jump dianaTalkCont>>
 ===
 title: pcUnamused
+position: 131,462
 ---
 [nomarkup][You raise an eyebrow and narrow your eyes at her with a snort.][/nomarkup] #line:0f907b9 
 {$diana}: Too bad. #line:098e6ad 
 <<jump dianaTalkCont>>
 ===
 title: dianaTalkCont
+position: 17,680
 ---
 [nomarkup][Woman beside you takes a sip of her drink.][/nomarkup] #line:02da2bc 
 -> {$pcName}: Do you have a name or are you going to keep being a stranger? <<if CustomVisited("introductions") ==false>> #line:087ae66 
@@ -67,6 +74,7 @@ title: dianaTalkCont
     <<jump flirt>>
 ===
 title: introductions
+position: -330,889
 ---
 {$diana}: Diana Foster, the Dutchess if you're familiar with me by reputation? #line:0957c37 
 -> [nomarkup][Try to recall where you heard that.] (Wits + Streetwise)[/nomarkup] #line:02686b9 
@@ -100,6 +108,7 @@ title: introductions
 <<jump dianaTalkCont>>
 ===
 title: flirt
+position: 28,898
 ---
 {$diana}: So... [nomarkup][She raises an eyebrow playfully at you.][/nomarkup] #line:032cbdf 
 -> {$pcName}: Okay fair. How's your night been? #line:0fa9990 
@@ -121,6 +130,7 @@ title: flirt
 <<jump judgementOnDrinks>>
 ===
 title: judgementOnDrinks
+position: 25,1103
 ---
 {$diana}: Starting with...? #line:0187fec
 <<if $numberOfDrinks <=1>>
@@ -133,11 +143,13 @@ title: judgementOnDrinks
     <<jump sceneryChange>>
 ===
 title: meProblem
+position: 244,1492
 --- 
 {$diana}: You're cute, you know that don't you? #line:0470a64 
 <<jump leaveEmbassy>>
 ===
 title: betterOneLiners
+position: 28,1490
 ---
 [nomarkup][Diana rolls her eyes and smirks at you.][/nomarkup] #line:072e51b 
 -> {$pcName}: What? #line:076757c 
@@ -151,6 +163,7 @@ title: betterOneLiners
 <<jump leaveEmbassy>>
 ===
 title: sceneryChange
+position: -203,1492
 ---
 {$diana}: Go where no one knows you, start over... that's a romantic thought. #line:0348295 
 -> {$pcName}: Not sure I like that idea so much anymore. #line:0acbdfc 
@@ -158,6 +171,7 @@ title: sceneryChange
 <<jump leaveEmbassy>>
 ===
 title: leaveEmbassy
+position: 35,1910
 ---
 [nomarkup][Two of you sit in silence for a moment and the ice clinks as Diana swirls her glass.][/nomarkup] #line:0d82f30 
 -> {$pcName}: Actually, probably best I'll be getting home. Thanks for the drink but I'm going to call it a night. #line:08dd11e 

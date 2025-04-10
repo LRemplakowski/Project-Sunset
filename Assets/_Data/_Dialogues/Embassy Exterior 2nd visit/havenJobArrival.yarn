@@ -1,6 +1,6 @@
 ﻿title: havenJobArrival
 tags:
-position: -55,-519
+position: -20,-539
 ---
 //part takes place in PC Haven exterior in the black van//
 [nomarkup][You hear the ding of the car signaling that you should put your seatbelt on as you pull into the driveway of your apartment. The air in here is humid, and as you open the doors there's a burst of fresh air that's welcome until the familiar scent hits you and you can see the long stairway up not quite welcoming you in. Stepping out of the car you look back to Diana.][/nomarkup] #line:0f4fef5 
@@ -12,21 +12,21 @@ position: -55,-519
 <<jump havenJobArrivalContinued>>
 ===
 title: havenJobArrivalContinued
-position: -37,-283
+position: -20,-324
 ---
 //Haven interior on the corridor//
 [nomarkup][Walking up the stairs you can hear the sounds of your feet against the stairs, the slight echo of force against metal. Approaching your apartment door you pull out a key and unlock it. Pushing the door open and catching it with your foot. You hear the thud of a body hitting the ground and the effort of Diana picking Diego up and carrying him.][/nomarkup] #line:0add112 
 <<jump arrivalPassive>>
 ===
 title: havenArrivalAlone
-position: 472,-336
+position: 450,-539
 ---
 //Haven corridor//
 [nomarkup][Walking towards your apartment door you pull out a key and unlock it. Pushing the door open and catching it with your foot. You hear the sliding doors of the van being pulled open in the parking lot and try to go a little faster.][/nomarkup] #line:0365ed0 
 <<jump arrivalPassive>>
 ===
 title: havenDruggedArrival
-position: -916,-838
+position: 174,-1319
 ---
 //haven exterior, pc is lying on the ground and Diana drags him to apartment//
 [nomarkup][You can feel your pockets being fumbled with as a hand reaches in and pulls the keys out. Streetlights pass by as your head rests against the cool glass, somewhere from inside the car you can hear the sound of a man coughing. His voice is wheezing like he's struggling to breathe. Suddenly you find yourself pulling into the parking lot of your apartment, a door being opened and you're dragged out of your street and tossed onto the gravel.][/nomarkup] #line:042a781 
@@ -37,7 +37,7 @@ position: -916,-838
     <<jump gripDexRoll>>
 ===
 title: gripStrRoll
-position: -1069,-440
+position: -261,-1090
 ---
 <<if Roll("Strength","Athletics") >=3>>
     <<jump gripStrSuccess>>
@@ -46,20 +46,20 @@ position: -1069,-440
 <<endif>>
 ===
 title: gripStrSuccess
-position: -750,-413
+position: -155,-854
 ---
 [nomarkup][You scramble up on the pavement and hear a shout from Diana as she notices you moving. You grit your teeth and make your way up to your apartment. Maybe that's where she wants you to go but it's the only advantage you'll have.][/nomarkup] #success #line:0919d6c 
 <<jump dianaBitch>>
 ===
 title: gripStrFailure
-position: -890,-240
+position: -366,-854
 ---
 [nomarkup][You scramble up from the pavement and you hear a shout as you stumble, moving forward and scraping your cheek and shoulder against the ground. You can feel the skin tear away against the grit of the pavement but you may still be able to get to the apartment before she does.][/nomarkup] #failure #line:001f552 
 <<DealDamage $pcName 1>>
 <<jump dianaBitch>>
 ===
 title: gripDexRoll
-position: -382,-669
+position: 185,-1096
 ---
 <<if Roll("Dexterity","Stealth") >=3>>
     <<jump gripDexSuccess>>
@@ -68,34 +68,34 @@ position: -382,-669
 <<endif>>
 ===
 title: gripDexSuccess
-position: -358,-291
+position: 314,-857
 ---
 [nomarkup][You push yourself up from the asphalt and slowly make your way towards your apartment door. You can feel tiredness seeping into your muscles but a jolt of adrenaline sharpens your focus. Maybe she wants you in your apartment, but at least there you'll have some home-field advantage.][/nomarkup] #success #line:0346451 
 <<jump dianaBitch>>
 ===
 title: gripDexFailure
-position: -506,-444
+position: 69,-853
 ---
 [nomarkup][You push yourself up on the asphalt and slowly make your way to your apartment. Your leg buckles under its fatigue and you crash to the ground with a thud and a groan of pain, only able to get up and keep going through sheer force of will.][/nomarkup] #failure #line:0fba85c 
 <<DealDamage $pcName 1>>
 <<jump dianaBitch>>
 ===
 title: dianaBitch
-position: -622,4
+position: -353,-539
 ---
 {$diana}: Shit - shit where - Desiree? #line:007df03 
 -> {$pcName}: Right here bitch. [nomarkup][You groan and quietly whisper to yourself. The door is just in sight.][/nomarkup] #line:0f5df8f 
 <<jump druggedEscaped>>
 ===
 title: druggedEscaped
-position: -265,-20
+position: -352,-158
 ---
 // faded to black
 [nomarkup][Putting your hand on the door you twist the knob and let yourself in. Feeling for just a moment a rush of relief as you're finally in a familiar space. Not safe yet but there's still comfort in being in your apartment.][/nomarkup] #line:0719c00 
 <<jump arrivalPassive>>
 ===
 title: threesome
-position: 253,-493
+position: 219,-539
 ---
 //haven corridor//
 [nomarkup][You laugh as Diana pushes into you her boyfriend following up behind with a lascivious smile, the three of you walking towards your apartment. The drive back was boisterous and slightly drunken, a few lights had been run and a few stop signs ignored but none of that matters now as you fumble with the door, your keys scraping along the hole as the woman pulls on your arm.][nomarkup] #line:0e3c78c 
@@ -127,7 +127,7 @@ position: 64,17
 <<jump theAttack>>
 ===
 title: arrivalResolveRoll
-position: 175,367
+position: 66,239
 ---
 <<if Roll("Resolve","Athletics") >=2>>
     <<jump arrivalResolveSuccess>>
@@ -136,13 +136,13 @@ position: 175,367
 <<endif>>
 ===
 title: arrivalResolveSuccess
-position: 323,641
+position: 182,495
 ---
 [nomarkup][You start to immediately back out of the apartment and reach to pull the doors closed. There's a flash of movement and a hand is on yours before you even have the chance to think.][/nomarkup] #success #line:0035b15 
 <<jump theAttack>>
 ===
 title: arrivalResolveFailure
-position: 81,625
+position: -41,497
 ---
 <<set $rollModifier to 1>>
 [nomarkup][You are frozen in place as your body fails to react to anything. Disbelief and surprise make you slow.][/nomarkup] #failure #line:0100bde 
