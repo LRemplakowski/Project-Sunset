@@ -1,5 +1,6 @@
 ﻿title: endFlashback
 tags:
+position: 142,-134
 ---
 {$kieran}: You are spacing out again? Again? Right now?  #line:05bf684 
 [nomarkup][Your senses come to. The person, no, the monster who did this to you is standing directly before you.][/nomarkup] #line:02d07da 
@@ -11,6 +12,7 @@ tags:
     <<jump looser>>
 ===
 title: dianaLuciaDexRoll
+position: -333,171
 ---
 <<if Roll("Dexterity","Stealth") >=3>>
     <<jump dianaLuciaDexSuccess>>
@@ -19,6 +21,7 @@ title: dianaLuciaDexRoll
 <<endif>>
 ===
 title: dianaLuciaDexSuccess
+position: -21,193
 ---
 [nomarkup][You approach Lucia from behind.][/nomarkup] #success #line:0010765 
 //+dmg agains Lucia, or make Lucia wounded at the start of the fight//
@@ -26,12 +29,14 @@ title: dianaLuciaDexSuccess
 <<jump looser>>
 ===
 title: dianaLuciaDexFailure
+position: -204,422
 ---
 //stepping on broken glass SFX//
 [nomarkup][You step on a glass bottle..][/nomarkup] #failure #line:09a8344 
 <<jump looser>>
 ===
 title: looser
+position: 146,541
 ---
 {$sire}: Ah there you are, my blood. So glad you could make it. [nomarkup][She isn't surprised to see you. If anything she looks pleased.][/nomarkup] #line:02bbc24 
 {$beast}: Arrogant bitch. I need to show her her place. Who does she think she is? #line:0f16831 
@@ -45,6 +50,7 @@ title: looser
     <<jump youHadThatComing>>
 ===
 title: wannabeDefector
+position: -272,782
 ---
 [nomarkup][There's a shift in the air as you deliver those words. Nobody was expecting that.][/nomarkup] #line:08ea324 
 {$kieran}: Turncoat. (-1 Kieran Influence) #line:00d618c 
@@ -55,6 +61,7 @@ title: wannabeDefector
 <<jump vanComes>>
 ===
 title: chargeStrRoll
+position: 175,777
 ---
 <<if Roll("Strength","Brawl") >=6>>
     <<jump chargeStrSuccess>>
@@ -63,12 +70,14 @@ title: chargeStrRoll
 <<endif>>
 ===
 title: chargeStrSuccess
+position: 59,1065
 ---
 [nomarkup][You crash into her.][/nomarkup] #success #line:02618ce 
 //+dmg agains Lucia, or make Lucia wounded at the start of the fight, cumulative with earlier//
 <<jump vanComes>>
 ===
 title:  chargeStrFailure
+position: 282,1065
 ---
 [nomarkup][You were a little too eager. You barrel past Lucia and end up falling into a pile of trash.][/nomarkup] #failure #line:0542add 
 <<DealDamage $pcName 1>>
@@ -76,11 +85,13 @@ title:  chargeStrFailure
 <<jump vanComes>>
 ===
 title: youHadThatComing
+position: -43,779
 ---
 {$sire}: Will I now? I'm looking forward to it. #line:0804033 
 <<jump vanComes>>
 ===
 title: vanComes
+position: -138,1383
 ---
 //SFX for screeching tires, black van comes into the scene, ghouls come out of it//
 [nomarkup][As if on cue, a van rips through the concrete. There's a loud SCREECH as the brakes hit a sudden stop before Lucia. The doors fly open before her. What you assume to be ghouls are at the ready with assault weapons, waiting for a cue.][/nomarkup] #line:0e684c6 
@@ -94,6 +105,7 @@ title: vanComes
 <<jump afterVanLeaves>>
 ===
 title: afterVanLeaves
+position: -138,1624
 ---
 {$diana}: [nomarkup][Eventually, Diana turns towards you.][/nomarkup] This is all your fault! #line:0192490 
 -> {$pcName}: Mine? You're joking right? #line:0443ad0 
@@ -106,6 +118,7 @@ title: afterVanLeaves
     //initiate combat//
 ===
 title: dianaManipRoll
+position: -142,1852
 ---
 <<if Roll("Manipulation","Leadership") >=6>>
     <<jump dianaManipSuccess>>
@@ -114,11 +127,13 @@ title: dianaManipRoll
 <<endif>>
 ===
 title: dianaManipSuccess
+position: -28,2097
 ---
 {$diana}: [nomarkup][You watch those words weigh upon her face. There's a painful period of silence as she's lost in reflection.][/nomarkup] You - you're right. #success #line:00de38f 
 //combat starts without Diana
 ===
 title: dianaManipFailure
+position: -295,2091
 ---
 {$diana}: How would you even know that? You don't know her like I do. #failure #line:04bfba2 
 //initiate combat//

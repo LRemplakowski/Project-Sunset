@@ -118,9 +118,16 @@ namespace SunsetSystems.Dialogue
         }
 
         [YarnCommand("DealDamage")]
-        public static void DealDamage(string characterID, int damage, string damageType)
+        public static void DealDamage(string characterID, int damage)
         {
-            Debug.LogError($"Deal that damage, dummy");
+            if (CreatureDatabase.Instance.TryGetEntry(characterID, out var config))
+            {
+                var partyMember = PartyManager.Instance.GetPartyMemberByID(config.DatabaseID);
+                if (partyMember != null)
+                {
+                    partyMember.References.StatsManager.TakeDamage(damage);
+                }
+            }
         }
 
         [YarnCommand("DecreaseWillpower")]

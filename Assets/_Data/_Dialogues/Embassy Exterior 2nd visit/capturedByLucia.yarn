@@ -1,5 +1,6 @@
 ﻿title: capturedByLucia
 tags:
+position: 4,-273
 ---
 //PC is tied to the chair, Lucia is leaning towards him, Diego lies on his side on the floor//
 [nomarkup][Manicured nails hold your jaw in place, lighting turning it side to side as you're inspected. You can hear the soft whimpering of the man who was shoved onto you coming to and the draft from the window makes you shiver. Your eyes and mouth are completely dry making it hard to close your eyes, even if the woman puppeteering you wasn't staring holes into them.][/nomarkup] #line:0874aea 
@@ -14,17 +15,19 @@ tags:
 <<jump deathOptions>>
 ===
 title: deathOptions
+position: -2,14
 ---
 {$sire}: I asked you a question. #line:0d0ba7b 
 //she stands straight again//
 -> {$pcName}: Strangulation. <<if CustomVisited("strangulation") == false>> #line:04f6c9a 
     <<jump strangulation>>
--> {$pcName}: Gunshot. #line:00bfdba 
+-> {$pcName}: Gunshot. <<if CustomVisited("gunshot") == false>> #line:00bfdba 
     <<jump gunshot>>
 -> {$pcName}: Exsanguination. #line:0f7e01b 
     <<jump exsanguination>>
 ===
 title: strangulation
+position: 366,-181
 ---
 {$sire}: Hm. Did I say that was an option? #line:03d0cd8 
 -> {$pcName}: Are you going to do it or not? #line:0864687 
@@ -32,11 +35,12 @@ title: strangulation
 <<jump deathOptions>>
 ===
 title: gunshot
+position: -285,235
 ---
 {$sire}: No. No. Too messy. #line:066ce8e 
 -> {$pcName}: Then why did you fucking offer it? I'm fucking tired of listening to - #line:02a08b5 
 //Lucia hits PC//
-[nomarkup][Your jaw explodes in pain as your head is thrown to the side nearly knocking you out of the chain. You blink as your ears rink and dizziness overtakes you, your inner ear reeling. You feel something in your mouth sort of... pop.][/nomarkup] #line:041f1fa 
+[nomarkup][You see a blur as Lucia swings at your face with an open palm. Your jaw explodes in pain as your head is thrown to the side nearly knocking you out of the chain. You blink as your ears rink and dizziness overtakes you, your inner ear reeling. You feel something in your mouth sort of... pop.][/nomarkup] #line:041f1fa 
 -> {$pcName}: G-guh-f - #line:0dae82d 
 [nomarkup][You run your tongue along your teeth and feel it rolling something hard around in your mouth. When you spit a viscus mixture of blood and saliva comes out along with a molar. Fuck.][/nomarkup] #line:0946568 
 <<set $missingTooth to true>>
@@ -44,6 +48,7 @@ title: gunshot
 <<jump deathOptions>>
 ===
 title: exsanguination
+position: 177,537
 ---
 //Lucia leans again to the PC//
 [nomarkup][Lucia leans in close putting her cheek against yours so that you're both staring at the open door that would get you out of your apartment.][/nomarkup] #line:0b978ae 

@@ -28,7 +28,7 @@ title: climbingSuccess
 title: climbingFailure
 ---
 [nomarkup][You violently chuck yourself up the wall, vaulting head first through the glass.][+1 Superficial Damage][/nomarkup] #line:0959a99 
-<<DealDamage($pcName, 1, "Superficial")>>
+<<DealDamage $pcName 1>>
 {$kieran}: Ow! #line:068d42f 
 <<if GetIsPartyMemberRecruited($anastasia) is true>> 
     {$anastasia}: Smooth. #line:0166d67 
