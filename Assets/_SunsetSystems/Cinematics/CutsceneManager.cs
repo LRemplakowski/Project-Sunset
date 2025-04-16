@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Playables;
@@ -13,17 +11,38 @@ namespace SunsetSystems.Cinematics
         [SerializeField, Required]
         private PlayableDirector _playableDirector;
         [SerializeField, Required]
-        private CanvasGroup _crossFadeCanvasGroup;
+        private FadeScreenManager _crossFade;
 
         private void Awake()
         {
             if (Instance == null)
+            {
                 Instance = this;
+            }
             else
+            {
                 Destroy(gameObject);
+            }
         }
 
+        //public void PlayCutscene(PlayableAsset asset, DirectorWrapMode wrapMode, bool doCrossFade = false)
+        //{
+        //    if (doCrossFade)
+        //    {
+        //        _crossFade.CycleFade(() => DoPlayNextCutscene(asset, wrapMode));
+        //    }
+        //    else
+        //    {
+        //        DoPlayNextCutscene(asset, wrapMode);
+        //    }
+        //}
+
         public void PlayCutscene(PlayableAsset asset, DirectorWrapMode wrapMode)
+        {
+            _crossFade.CycleFade(() => DoPlayNextCutscene(asset, wrapMode));
+        }
+
+        private void DoPlayNextCutscene(PlayableAsset asset, DirectorWrapMode wrapMode)
         {
             _playableDirector.Stop();
             _playableDirector.Play(asset, wrapMode);
