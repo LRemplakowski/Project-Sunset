@@ -25,17 +25,17 @@ namespace SunsetSystems.Cinematics
             }
         }
 
-        //public void PlayCutscene(PlayableAsset asset, DirectorWrapMode wrapMode, bool doCrossFade = false)
-        //{
-        //    if (doCrossFade)
-        //    {
-        //        _crossFade.CycleFade(() => DoPlayNextCutscene(asset, wrapMode));
-        //    }
-        //    else
-        //    {
-        //        DoPlayNextCutscene(asset, wrapMode);
-        //    }
-        //}
+        public void PlayCutscene(PlayableAsset asset, DirectorWrapMode wrapMode, bool doCrossFade = false)
+        {
+            if (doCrossFade)
+            {
+                _crossFade.CycleFade(() => DoPlayNextCutscene(asset, wrapMode));
+            }
+            else
+            {
+                DoPlayNextCutscene(asset, wrapMode);
+            }
+        }
 
         public void PlayCutscene(PlayableAsset asset, DirectorWrapMode wrapMode)
         {
