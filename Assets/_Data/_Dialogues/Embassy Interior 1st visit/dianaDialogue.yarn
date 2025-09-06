@@ -42,11 +42,11 @@ title: approachDiana
 <<endif>>
 -> {$pcName}: [nomarkup][Nod.][/nomarkup] #line:0c46c4d 
     {$kieran}: [nomarkup][Kieran nods back.][/nomarkup](+1 Kieran Influence) #line:0399fb7 
-    <<ModifyInfluence 1 $kieran>>
+    <<ModifyInfluence 1 {$kieran}>>
     <<jump dianaApproached>>
 -> {$pcName}: Geez, I'm not some psycho killer...  #line:02e8b49 
     {$kieran}: The corpse in your bathroom implies otherwise. (-1 Kieran Influence) #line:0a21169 
-    <<ModifyInfluence -1 $kieran>>
+    <<ModifyInfluence -1 {$kieran}>>
     <<if GetIsPartyMemberRecruited($anastasia) is true>>
         {$anastasia}: Hey, you can't knock the girl for wanting to have some fun, you know? #line:0df12ed 
     <<endif>>

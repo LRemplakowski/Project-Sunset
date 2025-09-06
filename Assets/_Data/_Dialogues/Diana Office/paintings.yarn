@@ -114,11 +114,11 @@ position: 775,-49
     [nomarkup][You feel as if you should have an opinion about the art in front of you...][/nomarkup] #line:0676976 
     -> {$pcName}: It isn't all that aesthetically pleasing, is it? #line:0ec2ef6 
         {$kieran}: Right, you are. This piece fails to be satisfying to the eye, and moreover is unsuccessful in conveying anything but chaos. Hence, it lacks artistic value. (+1 Kieran Influence) #line:0e0bb0e 
-        <<ModifyInfluence 1 $kieran>>
+        <<ModifyInfluence 1 {$kieran}>>
     -> {$pcName}: You know what? I also think I actually kind of like this painting. I mean, it's a trainwreck, but there's something about it... #line:0a6402e 
         {$kieran}: Hm. Agree to disagree, I suppose... #line:0a50756 
         {$anastasia}: Right?! It rules!(+1 Anastasia Influence) #line:0684159 
-        <<ModifyInfluence 1 $anastasia>>
+        <<ModifyInfluence 1 {$anastasia}>>
     -> {$pcName}: People like Kieran, huh? I don't think that a person's opinion says nearly as much about them as you claim it does, Anastasia. Least of all me, since I don't really have an opinion. #line:039146c 
         {$anastasia}: Au contraire, as the residents of Paris, capital of art snobbery, would say. Not having an opinion is still an opinion - just as much as Kiki's or mine. It tells me that you haven't really thought too deeply about the art you consume, for one. That, or you're too tired and stressed to risk prolonging our bickering.   #line:01e7487 
         {$anastasia}: As for Kieran, well... He believes that the function of art is for it to look good and clearly, explicitly convey something. In a nutshell, it needs to say shit and not look like shit, in order to even be given the title - “art”.  #line:0bfa58c 
@@ -234,7 +234,7 @@ position: -1440,-287
     {$anastasia}: Such depths of emotion! The viciousness on display was captivating. You should make your own exhibition one day. [nomarkup][She grins.][/nomarkup] #line:0183fc2 
 <<endif>>
 {$kieran}: Why did you do that? Is this how you conduct investigations? [nomarkup][He gestures to the shreds of colorful canvas strewn about.] (-1 Kieran influence)[/nomarkup] #line:04a3041 
-<<ModifyInfluence -1 $kieran>>
+<<ModifyInfluence -1 {$kieran}>>
 -> {$pcName}: I... don't know what came over me. <<if CustomVisited("beastTalk") == false>> #line:0e9e8bb 
     <<jump beastTalk>>
 -> {$pcName}: Normally no. But I'm pissed. <<if CustomVisited("beastTalk") == false>> #line:0537bea 
@@ -303,8 +303,8 @@ position: -1320,398
     -> {$pcName}: SHUT UP!!! [nomarkup][You release an impressively loud shout.][/nomarkup] #failure #line:0658ceb 
     [nomarkup][Anastasia and Kieran focus on you, then turn to stare at one another.][/nomarkup] #line:0822982 
     {$kieran}: That was exceedingly rude. We're helping you with this investigation, and this is the thanks we get? (-1 Kieran Influence) #line:081baa7 
-    <<ModifyInfluence -1 $kieran>>
-    <<ModifyInfluence 1 $anastasia>>
+    <<ModifyInfluence -1 {$kieran}>>
+    <<ModifyInfluence 1 {$anastasia}>>
     {$anastasia}: [nomarkup][She whistles in appreciation, turning her head to regard Kieran.][/nomarkup] Speak for yourself. Nice lung capacity, Bumblebee. (+1 Anastasia Influence) #line:0448073 
     -> {$pcName}: Bumblebee? #line:0c323f6 
     {$kieran}: Your clothing, miss Bardot. I think our companion here is referring to the color scheme and pattern. #line:001185e 
@@ -327,10 +327,10 @@ position: -1320,398
     {$anastasia}: [nomarkup][She raises an eyebrow with a smirk.][/nomarkup] Why? You gotta give a good reason, kid. #line:03a1d87 
     -> {$pcName}: Very well. It is only that... When you act so emotional and childish while invoking my name, I cannot help but think that I mistakenly stumbled into a daycare, rather than one of the Vegas Strip's finest night clubs. #line:03f7e44 
     {$anastasia}: I am not a child. But if I was, that'd make you a fetus, little miss Desiree-conciler the pacifier. [nomarkup][She spits.][/nomarkup] (-1 Anastasia Influence) #line:02c5afb
-    <<ModifyInfluence -1 $anastasia>>
+    <<ModifyInfluence -1 {$anastasia}>>
     -> {$pcName}: That being said, Kieran is my adoptive Sire, and if any information pertinent to this investigation comes up, I trust him to relay it to me when his judgment deems the time to be right. #line:066cd94
     {$kieran}: [nomarkup][He nods once in acknowledgement, his expression pleased.][/nomarkup] Quite right. I believe that with that, we have put the relevant concerns to rest. (Kieran influence +1) #line:00780ed 
-    <<ModifyInfluence 1 $kieran>>
+    <<ModifyInfluence 1 {$kieran}>>
     {$anastasia}: Ugh. #lastline #line:0177a57 
 <<if CustomVisited("beastOpens")>>
     <<jump safeQuestions>>

@@ -258,7 +258,7 @@ tags:
 [nomarkup][Before the conversation comes to an end, you feel the need to say one last thing.][/nomarkup] #line:097de2e 
 -> {$pcName}: Thanks for saving me. #line:095235a 
     {$kieran}: [nomarkup][He raises his head a bit.][/nomarkup] This isn't sympathy, so please don't take it as such. My good will extends only as far as your resolve. (+1 Kieran Influence) #line:07a4702
-    <<ModifyInfluence 1 $kieran>> 
+    <<ModifyInfluence 1 {$kieran}>> 
 -> {$pcName}: So you're my jailor. #line:0cebb89 
     {$kieran}: [nomarkup][He crosses his arms, glaring at you coldly.][/nomarkup] That would imply I will come out of this ordeal unscathed should you fail, and I believe Dominic made himself clear: you are my responsibility now. #line:03eb161 
     {$pcName}: Why did you do it, then, if you knew the risks? #line:0d89e29 

@@ -54,7 +54,7 @@ position: -272,782
 ---
 [nomarkup][There's a shift in the air as you deliver those words. Nobody was expecting that.][/nomarkup] #line:08ea324 
 {$kieran}: Turncoat. (-1 Kieran Influence) #line:00d618c 
-<<ModifyInfluence -1 $kieran>>
+<<ModifyInfluence -1 {$kieran}>>
 <<if GetIsPartyMemberRecruited($anastasia) is true>>
     {$anastasia}: Bahahaha! [nomarkup][She can't get a word out. She's cackling so hard.][/nomarkup] #line:001466a 
 <<endif>>

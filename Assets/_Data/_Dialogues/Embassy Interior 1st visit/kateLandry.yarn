@@ -37,11 +37,11 @@ position: -540,-238
 {$sforzaMask}: I suppose if Dominic believes you're worth breaking the Traditions over, then you must be something quite special...? Good luck with this little test my dear, and do come back if you succeed? Oh, but don't forget to  tell me all about it, I'm so curious! #line:0e09c12 
 -> {$pcName}: Thanks. #line:099b710 
     {$sforzaMask}: At least you know your manners. That helps. (+1 Kieran Influence) #line:05b5dd3 
-    <<ModifyInfluence 1 $kieran>>
+    <<ModifyInfluence 1 {$kieran}>>
     <<jump questionsAboutLastNight>>
 -> {$pcName}: How generous of you. [nomarkup][You say with a dose of sarcasm.][/nomarkup] #line:09aa0fa 
     {$sforzaMask}: [nomarkup][She laughs, yet her tone is far from amused.][/nomarkup] My dear, you should learn to be more guarded with your intentions if you want to make something of your new life. Not all Kindred are as nice as I am; some think that the solution to a wounded pride is a missing tooth... (-1 Kieran Influence) #line:07fa057 
-    <<ModifyInfluence -1 $kieran>>
+    <<ModifyInfluence -1 {$kieran}>>
     {$kieran}: She does have a fiery temperament, but... it's to be expected, given her Blood. #line:00590a3 
     {$sforzaMask}: Brujah? [nomarkup][She sighs and rolls her eyes.][/nomarkup] I would heartily endorse some anger management classes and, if you would like to live a long prosperous life, to not lean on excuses. #line:0179d9d 
     <<jump questionsAboutLastNight>>
@@ -67,7 +67,7 @@ position: -212,-233
     {$sforzaMask}: Poor influences aside, I'm sure Kieran can help you realize your full potential, and in time, build you into an upstanding member of the Praxis. I anticipate that his mentorship will be an exemplary guiding force, and I would expect nothing less. #line:053536d 
     {$sforzaMask}: [nomarkup][She gazes meaningfully at you both.][/nomarkup] He [nomarkup]<i>is my</i>[/nomarkup] Childe, after all.
     [nomarkup][Kieran only reciprocates with a shallow nod, though there may be some pride in the way he glances at you momentarily.][/nomarkup](+1 Kieran Influence) #line:0d945bc #lastline
-    <<ModifyInfluence 1 $kieran>>
+    <<ModifyInfluence 1 {$kieran}>>
 <<else>>
     {$kieran}: Maybe, but I think the most sound conclusion is that he's the individual we found in her apartment, based on the evidence we have already collected. #failure #line:031ced2 
     -> {$pcName}: [nomarkup][What was left of him, anyway. You wince slightly at the memory.][/nomarkup] #line:02f1271 

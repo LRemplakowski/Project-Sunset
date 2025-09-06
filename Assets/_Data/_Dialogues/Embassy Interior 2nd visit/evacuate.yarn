@@ -120,8 +120,8 @@ title: gottaStayStrong
 position: 646,1187
 ---
 -> {$pcName}: [I gotta stay strong.] #line:0fd907e 
-<<ModifyInfluence -1 $kieran>>
-<<ModifyInfluence 1 $anastasia>>
+<<ModifyInfluence -1 {$kieran}>>
+<<ModifyInfluence 1 {$anastasia}>>
 <<set $doeEyedManAlive to 1>>
 <<jump physicalOptions>>
 ===
@@ -160,10 +160,10 @@ position: 221,1198
 <<endif>>
 [nomarkup][Kieran stares a little too long at the blood pooling on the floor, and then at the doe eyed man.][/nomarkup] No. We are here, we cannot leave as if we didn't see him. #line:0663f57 
 -> [nomarkup][Attempt to treat his wounds.][/nomarkup] #line:06653cd 
-    <<ModifyInfluence -1 $anastasia>>
+    <<ModifyInfluence -1 {$anastasia}>>
     <<jump medicalAssistanceRoll>>
 -> [nomarkup][Leave him to bleed out.][/nomarkup] #line:02f2df9 
-    <<ModifyInfluence -1 $kieran>>
+    <<ModifyInfluence -1 {$kieran}>>
     <<set $doeEyedManAlive to 0>>
 ===
 title: intimidateDoeEyedRoll
@@ -262,7 +262,7 @@ position: 434,1848
             <<else>>
                 -> [nomarkup][Say nothing][/nomarkup] #line:0881592 
                 [nomarkup][You feel the weight of your words settle on you as you joke about the life of the man you just saved being worth the cost of shoes. You can feel the regret color your face and you look away from Kieran's accusatory stare.][/nomarkup](+1 Kieran Influence) #line:0b0b32e 
-                <<ModifyInfluence 1 $kieran>>
+                <<ModifyInfluence 1 {$kieran}>>
             <<endif>>
             {$anastasia}: Alright twinkle toes, we bookin' it? #line:0511246 
             <<if GetCompanionInfluence($kieran)<=1>>

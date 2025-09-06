@@ -182,13 +182,13 @@ title: whatHappensWithDiana
 title: niceCar
 ---
 {$sheriff}: You betcha. Dodge Charger, 3rd generation. Bought freshly from the assembly line in the 70s. Still in great shape after all these years, she's a bit like me really. I can't even count how many times it saved my unlife and how many races we've won. Sprints are my favorite. The only thing that isn't original is the hood and several parts. I had to adjust this sweetie into the best street racin' car because most usually people hear me before they see me. It's like a trademark right now. When you hear V8 headin' your way you can assume it's me. And never EVER try to scratch my baby. #line:02ef1a8 
-<<ModifyInfluence 1 $sheriff>>
+<<ModifyInfluence 1 {$sheriff}>>
 <<jump carInteractions>>
 ===
 title: badCar
 ---
 {$sheriff}: [nomarkup][He turns to you, slowly, and lowers his glasses.][/nomarkup] I recommend you rethink that statement girl. You obviously don't know nothin' about cars. [nomarkup][His gaze turns again to the road.][/nomarkup] What's your car huh? Rabbit? Omni? Corolla? I have a V8 under the hood. Not some shitty I4. Yea, it drinks gas like we drink blood, but the performance? Worth every dollar you pump into the tank. [nomarkup][He snorts - visibly annoyed for some reason.][/nomarkup] ... pile of junk. #line:01a995b 
-<<ModifyInfluence -1 $sheriff>>
+<<ModifyInfluence -1 {$sheriff}>>
 <<jump carInteractions>>
 ===
 title: turnOnRadio

@@ -58,7 +58,7 @@ position: 164,153
     {$kieran}: Look, I know that this is a lot to process, but we're in the same boat right now. If we want to live to see another night, we need to work together to achieve that. #line:067022e 
 -> {$pcName}: I was trying to tune you out. #line:09fde6f 
     {$kieran}: By all means. See how well that works out for you. (-1 Kieran Influence) #line:033e151 
-    <<ModifyInfluence (-1,"kieran")>>
+    <<ModifyInfluence -1 {$kieran}>>
 {$kieran}: [nomarkup][He sighs wearily.][/nomarkup] Do not get me wrong. I am trying to help. I know it may sound patronizing, but I have more experience with Kindred than you. Aside from that, in light of our laws, I am responsible for you, so I may as well give you some advice so that we can avoid such disasters in the future. You may not like it - I know I didn't - but this is how things must be done. #lastline #line:0b60692 
 <<jump ArrivalQuestions>>
 ===

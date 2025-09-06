@@ -82,7 +82,7 @@ Drunk Guy: Why are you looking at me like that? Stay away! #line:01c9b51
 [nomarkup][The man attempts to fight, but it's no use. Already in a weakened state, he goes down with a single blow][/nomarkup] #line:0f90220 
 {$beast}: Yes, no witnesses. Nice and clean. #line:09ad6ac 
 {$kieran}: [nomarkup][Kieran's disappointment turns into barely restrained anger - his frown deep and his nostrils flaring.][/nomarkup] So that's your solution? Reducing people down to obstacles to be removed? It sure is convenient, isn't it? The overwhelming force you've been gifted with. (-2 Kieran Influence) #line:0da39f3 
-<<ModifyInfluence -2 $kieran>>
+<<ModifyInfluence -2 {$kieran}>>>>
 {$kieran}: Just remember, you're not the only one...  #line:00f8949 
 {$kieran}: [nomarkup][He closes his eyes, taking a deep breath in an attempt to calm himself down. All that remains afterward is a glare steeped in bitter resignation.][/nomarkup] Point taken. We need to clean up the scene, if we hope to have a chance of getting out of this mess. Why did you even bother with pretenses to begin with? #line:05e509a 
 <<jump kieranComment>>
@@ -111,11 +111,11 @@ position: -509,170
                 {$kieran}: I know. And I don't like it either. You do not have to remind me about it every step of the way. [nomarkup][He pauses, surveying the mayhem surrounding you.][/nomarkup] We need to get rid of these bodies before anybody comes by. There's a dumpster in the back alley Kate uses for clean-up. #line:0401d92 
             ->{$pcName}: Let's say I understand. But to be honest, I don't - not really. #line:0269e5c 
                 {$kieran}: I apologize. I will answer your questions, should we make it past this night alive. Right now, however? Finding your Sire takes precedence. [nomarkup][He pauses, surveying the mayhem surrounding you.][/nomarkup] We need to get rid of these bodies before anybody comes by. There's a dumpster in the back alley Kate uses for clean-up. (+1 Kieran Influence) #line:0db6135 
-                <<ModifyInfluence 1 $kieran>>
+                <<ModifyInfluence 1 {$kieran}>>
             ->{$pcName}: You said we're in this boat together. And now, you openly admit that you're keeping information from me. Guess how I feel about it. #line:0365609 
                 {$kieran}: As if someone you do not entirely trust is holding all the cards. Just know that you're not the only one who is frequently kept out of the loop. [nomarkup][He pauses, surveying the mayhem surrounding you.][/nomarkup] We need to get rid of these bodies before anybody comes by. There's a dumpster in the back alley Kate uses for clean-up. #line:011bbf8 
             ->{$pcName}: “Later for us both”. Are you trying to flirt with me? #line:09cb329 
                 {$kieran}: [nomarkup][His gaze is suddenly unfocused, and he blink blink blinks the haziness away.][/nomarkup] ...What? What even gave you the impression that I'm... No, I am not attempting to flirt with you. [nomarkup][He speaks firmly, shaking his head, but it is clear he is more confused than anything else.][/nomarkup] This is neither the place nor time, and definitely not the person, miss Bardot. [nomarkup][He pauses, surveying the mayhem surrounding you.][/nomarkup] We need to get rid of these bodies before anybody comes by. There's a dumpster in the back alley Kate uses for clean-up. (-1 Kieran Influence) #line:06ab5fc 
-                <<ModifyInfluence -1 $kieran>>
+                <<ModifyInfluence -1 {$kieran}>>
 <<endif>>
 ===

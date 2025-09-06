@@ -56,12 +56,12 @@ position: -1609,-2088
 <<if $hiddenArts == true>>
     -> {$pcName}: [nomarkup][Take the book.][/nomarkup] #line:08a5386 
         {$kieran}: [nomarkup][He peers for a while at the book you pointed out and its volumes.][/nomarkup] [nomarkup]<i>Liber Al vel Legis</i>[/nomarkup] by Aleister Crowley. Good eyes. Let me check them first. I do not think there is a trap, but with matters of the occult, you're better safe than sorry. (+1 Kieran Influence) #line:0f594d6
-        <<ModifyInfluence 1 $kieran>>
+        <<ModifyInfluence 1 {$kieran}>>
         <<jump booksHaveTeeth>>
 <<else>>
     -> {$pcName}: Diana has quite the collection. She appears to read this one quite often, though. [nomarkup][You point at it.][/nomarkup] #line:01a1e74 
         {$kieran}: [nomarkup][He peers for a while at the book you pointed out and its volumes.][/nomarkup] [nomarkup]<i>Liber Al vel Legis</i>[/nomarkup] by Aleister Crowley. Good eyes. Let me check them first. I do not think there is a trap, but with matters of the occult, you're better safe than sorry. (+1 Kieran Influence)
-        <<ModifyInfluence 1 $kieran>>
+        <<ModifyInfluence 1 {$kieran}>>
         <<jump booksHaveTeeth>>
 <<endif>>
 <<jump bookcaseInteractions>>
@@ -165,7 +165,7 @@ position: 1692,-987
     [nomarkup][You don't catch any signs that Anastasia feels any differently than she has been trying to convey.][/nomarkup] #failure #line:0b883ae 
     -> {$pcName}: [nomarkup][Perhaps Kieran was wrong.][/nomarkup] You'd agree with me that this kind of ridicule is a little childish, right Kieran? #line:0081625 
         {$kieran}: You're impugning [nomarkup]<i>me</i>[/nomarkup]? I have only returned the attitude that has been served to me in kind. (-1 Kieran Influence) #lastline #line:0286661 
-        <<ModifyInfluence -1 $kieran>>
+        <<ModifyInfluence -1 {$kieran}>>
     <<if $layingItOn > 0>>
     -> {$pcName}: You [nomarkup]<i>do</i>[/nomarkup] seem to like it, though. #line:02631c3 
         {$anastasia}: [nomarkup][She laughs so hard you're sure it is heard down below in the club. Between the breathless wheezes, she speaks.][/nomarkup] Oh my god, that would be a new low. Me? Listening to pop music?  #line:020e3ca 

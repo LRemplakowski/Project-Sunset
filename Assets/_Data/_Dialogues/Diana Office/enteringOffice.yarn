@@ -48,7 +48,7 @@ title: anastasiaIsPresent
 title: sidingWithKieran
 ---
 {$anastasia}: Problems? I don't have any... At least for now. Try not to be a narc, and we can keep it that way. (-1 Anastasia Influence) #line:0fc5743 
-<<ModifyInfluence -1 $anastasia>>
+<<ModifyInfluence -1 {$anastasia}>>
 {$kieran}: [nomarkup][He blinks, then straightens up with a deep frown etched on his face, crossing his arms sternly.][/nomarkup] And what is that intended to mean, miss Kaminska? #line:029543c 
 <<if Roll ("Intelligence","Awareness")>=3>>
     <<set $missKaminska to true>>
@@ -64,7 +64,7 @@ title: sidingWithKieran
         -> {$pcName}: But you [nomarkup]<i>are</i>[/nomarkup] curious about who they are, right? #line:077e93e 
         {$anastasia}: [nomarkup][She huffs out a sigh, rolling her eyes dramatically.][/nomarkup] Fiiiine. You got me. I'm pretty solidly hooked on this dollar-store detective mystery you got going on, at this point, so I'll behave. #line:07058cd 
         {$kieran}: [nomarkup][He lets go of the breath he had been holding, the building tension draining from his posture.] (+1 Kieran Influence)[/nomarkup] #line:028f566 
-        <<ModifyInfluence 1 $kieran>>
+        <<ModifyInfluence 1 {$kieran}>>
         <<jump neutralResponse>>
     <<else>>
         [nomarkup][You try to cut in, but Anastasia just bulldozes on through with what she was going to say, anyhow. Looks like you aren't the assertive, inspiring type of leader this group desperately needs.][/nomarkup] #failure #line:037559a 
@@ -76,7 +76,7 @@ title: sidingWithKieran
         -> {$pcName}: Anastasia, I know how fun you find pushing Kieran's buttons, but guess who's going to have to clean up the mess if this comes to blows... That's right, it's you. Doesn't that sound like a drag? And Kieran, you don't need more work, right? All in all, this seems like a silly argument to have, given how boring the consequences will be. #line:08769c0 
         {$anastasia}: I don't wanna admit it, but when you're right, you're right. S'not worth the hassle. #line:040b725 
         {$kieran}: Yes, well put. [nomarkup][He lets go of the breath he had been holding,  the building tension draining from his posture.][/nomarkup] (+1 Kieran Influence) #line:04ba0ac 
-        <<ModifyInfluence 1 $kieran>>
+        <<ModifyInfluence 1 {$kieran}>>
         <<jump neutralResponse>>
     <<else>>
         [nomarkup][...but you cut in before she can utter a word.][/nomarkup] #failure #line:0ea4adb 
@@ -104,7 +104,7 @@ title: anaKieranBanter
 <<endif>>
 {$anastasia}: Fine, can do. Dunno what his problem is, though. [nomarkup][She shrugs, the ghost of a smirk still present on her lips, turning on her heel and wandering off to idly browse the office.][/nomarkup] #line:0a58448 
 {$kieran}: [nomarkup][As soon as she backs off, the tension drains from Kieran's posture. He huffs out a long sigh, then turns to you.][/nomarkup] Ready to return to the investigation, miss Bardot? (+1 Kieran Influence) #line:03301db 
-<<ModifyInfluence 1 $kieran>>
+<<ModifyInfluence 1 {$kieran}>>
 <<jump neutralResponse>>
 ===
 title: sidingWithAnastasia

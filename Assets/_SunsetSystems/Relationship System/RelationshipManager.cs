@@ -56,6 +56,7 @@ namespace SunsetSystems
 
         public void ModifyInfluence(string readableID, int value)
         {
+            Debug.Log($"{nameof(RelationshipManager)} >>> Influence modified by {value}! Target: {readableID}");
             if (_influenceData.TryGetValue(readableID, out var stored))
                 _influenceData[readableID] = stored + value;
             else

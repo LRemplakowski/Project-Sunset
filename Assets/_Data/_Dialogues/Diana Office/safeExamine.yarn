@@ -153,7 +153,7 @@ position: 31,551
 ---
 -> {$pcName}: Hold on, what are you going to do with it? #line:04960dc 
     {$kieran}: Please, I know that you do not trust me, but we don't have time to argue. (-1 Kieran Influence) #lastline #line:0c20ec5 
-    <<ModifyInfluence -1 $kieran>>
+    <<ModifyInfluence -1 {$kieran}>>
     -> [nomarkup][Give Kieran the vial.][/nomarkup] #line:09ba39d 
         <<jump bloodVialKieranExamine>>
 -> [nomarkup][Give Kieran the vial.][/nomarkup] #line:031d09b 
@@ -174,7 +174,7 @@ position: 458,599
 <<if Roll ("Intelligence","Occult") >=4 or Roll ("Wits","Awareness") >=4>>
     -> {$pcName}: Did you just do the same thing that Dominic did back in my apartment? #line:0a7f352 
     {$kieran}: Yes. It's a little but useful trick. (+1 Kieran Influence) #line:01b5ea3 
-    <<ModifyInfluence 1 $kieran>>
+    <<ModifyInfluence 1 {$kieran}>>
     -> {$pcName}: Can I learn to do that? #line:0ced55a 
         {$kieran}: [nomarkup][He shakes his head.][/nomarkup] Unfortunately for you, it's something only my Clan is permitted to learn. #line:01aeb8a 
         <<if GetIsPartyMemberRecruited($anastasia) is true>>
@@ -212,7 +212,7 @@ position: -284,185
 ---
 [nomarkup][Kieran gives you a disapproving look.][/nomarkup]
 -> {$pcName}: I need to pay my bills Kieran. #line:0212bfb 
-<<ModifyInfluence -2 $kieran>>
+<<ModifyInfluence -2 {$kieran}>>>>
 {$kieran}: That is by no means a good enough reason to steal! (-2 Kieran influence) #line:0a341aa 
 -> {$pcName}: In my situation, it is. Besides, we've already committed graver sins than that, today. #line:0051af0 
 [nomarkup][As you stuff the money into your pockets, he shakes his head - clearly very disappointed.][/nomarkup] #lastline #line:0e13ecd 

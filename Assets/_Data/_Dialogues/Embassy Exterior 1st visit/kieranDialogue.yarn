@@ -129,7 +129,7 @@ title: catherinaCharacteristics
     <<if GetCompanionInfluence($kieran)>=2>>
         {$kieran}: Kate is far better than most of the Sires I know. [nomarkup][His eyes go a little cloudy - this is the first time you have seen him look so lost in his own daydreams.][/nomarkup] Beautiful and caring... every young Kindred would be lucky to have her as a Sire. #line:089b698 
         -> {$pcName}: Whoa, I didn't expect that.  #line:0880a7e 
-            <<ModifyInfluence 1 $kieran>>
+            <<ModifyInfluence 1 {$kieran}>>
             {$kieran}: I don't quite understand why it's so surprising that I admire a woman such as her. [nomarkup][His eyes focus back on you.][/nomarkup] But speaking of hierarchies, please remember that Dominic's attitude towards the Prince is his privilege only. And do not speak ill of her in his presence, or he'll skin you alive. (+1 Kieran influence) #line:04d530b 
             <<jump kieransSire>>
         ->  {$pcName}: You're painting her as if she was some kind of ideal. #line:0d34725 
@@ -141,9 +141,9 @@ title: catherinaCharacteristics
                 <<jump kieransSire>>
             <<endif>>
         ->  {$pcName}: You must be exaggerating. #line:01d0455 
-            <<ModifyInfluence -1 $kieran>>
+            <<ModifyInfluence -1 {$kieran}>>
             {$kieran}: [nomarkup][He frowns deeply.][/nomarkup] No, I really am not. You know nothing about the matter, so kindly keep her name out of your mouth. (-1 Kieran influence)#line:0c931b3 
-            <<ModifyInfluence -1 $kieran>>
+            <<ModifyInfluence -1 {$kieran}>>
             <<jump kieransSire>>
     <<elseif GetCompanionInfluence($kieran)<=-2>>
         {$kieran}: I don't want to sound rude, but I'm not certain how this is relevant to the ongoing investigation. #line:065ce23 
@@ -224,11 +224,11 @@ title: kieransClan
             <<endif>>
     <<else>>
         {$kieran}: Dominic was correct. You are indeed annoying. But no. (-1 Kieran Influence) #failure #line:03f1c4a 
-        <<ModifyInfluence -1 $kieran>>
+        <<ModifyInfluence -1 {$kieran}>>
     <<endif>>
 -> {$pcName}: [nomarkup][Leave it be.][/nomarkup] Alright, then. #line:0d98606 
     {$kieran}: [nomarkup][He visibly relaxes, his posture and expression softening.][/nomarkup](+1 Kieran Influence) #line:064a109 
-    <<ModifyInfluence 1 $kieran>>
+    <<ModifyInfluence 1 {$kieran}>>
 <<jump occultChoices>>
 ===
 title: unaware

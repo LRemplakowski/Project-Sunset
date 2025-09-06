@@ -7,10 +7,12 @@ position: -7,-309
 [nomarkup][A woman with shaggy blonde hair and piercings gives you a look, appreciative and appraising. She flicks her hair over her shoulder and runs her fingers along her scalp.][/nomarkup] #line:07627d6 
 {$diana}: Bad evening? #line:0e7ead1 
 -> {$pcName}: The worst, why do you ask? #line:0209c49 
-{$diana}: [nomarkup][She pops her lips and raises an eyebrow at you][/nomarkup] I was just thinking you might want to make it a little shorter? #line:04b3712 
 <<if Roll("Resolve","Etiquette") >=3>>
+    {$diana}: [nomarkup][She pops her lips and raises an eyebrow at you][/nomarkup] I was just thinking you might want to make it a little shorter? #line:04b3712 
     <<set $rollModifier to 1>>
-    [nomarkup][She's being really forward and you're clearly not looking for company, maybe she's also lonely?][/nomarkup] #lastline #line:002152f 
+    [nomarkup][She's being really forward and you're clearly not looking for company, maybe she's also lonely?][/nomarkup] #lastline #line:002152f
+<<else>>
+    {$diana}: [nomarkup][She pops her lips and raises an eyebrow at you][/nomarkup] I was just thinking you might want to make it a little shorter? #lastline
 <<endif>>
 -> {$pcName}: Maybe buy a girl a drink first? #line:038b01f 
     <<jump buyMeADrink>>
@@ -31,7 +33,7 @@ position: -92,-38
 title: iBuyYouADrink
 position: 123,-34
 ---
-{$diana}: Everyone here knows the Duchess gets the good stuff. Only the best for me and my girl. [She turns to the bartender.] Put it on my tab. #line:0fb9533 
+{$diana}: Everyone here knows the Duchess gets the good stuff. Only the best for me and my girl. [nomarkup][She turns to the bartender.][/nomarkup] Put it on my tab. #line:0fb9533 
 <<jump havingADrink>>
 ===
 title: havingADrink
@@ -119,28 +121,33 @@ position: 28,898
 {$diana}: God if there's a punchline tell me it's coming because I am not seeing the joke, love, I'm not seeing it at all. #line:0b281f4 
 <<if Roll("Resolve","Insight") >=(1+$numberOfDrinks)>>
     {$diana}: Fuck. [nomarkup][The guilt in her whisper is obvious. She stares at her own drink and her lips twitch, her eyes blinking a couple of times.][/nomarkup] #line:0ad4797 
-    [nomarkup][There's an awkward pause as you look down at your glass.][/nomarkup] #line:07ffa52 
+    [nomarkup][There's an awkward pause as you look down at your glass.][/nomarkup] #lastline #line:07ffa52 
 <<else>>
+    <<set $numberOfDrinks to ($numberOfDrinks+1)>>
     {$diana}: Fuck. [nomarkup][The guilt in her whisper is obvious. She stares at her own drink and her lips twitch, her eyes blinking a couple of times.][/nomarkup] #line:0380736 
     [nomarkup][There's an awkward pause as you look down at your glass.][/nomarkup] #line:0eee317 
-    [nomarkup][This is what you came here for. You wash the pause away with some alcohol.][/nomarkup] #line:087b59b 
-    <<set $numberOfDrinks to ($numberOfDrinks+1)>>
+    [nomarkup][This is what you came here for. You wash the pause away with some alcohol.][/nomarkup] #lastline #line:087b59b 
 <<endif>>
--> {$pcName}: Maybe it's time to make some changes huh? #line:0c388ac  
+-> {$pcName}: Maybe it's time to make some changes huh? #lastline #line:0c388ac  
 <<jump judgementOnDrinks>>
 ===
 title: judgementOnDrinks
 position: 25,1103
 ---
-{$diana}: Starting with...? #line:0187fec
-<<if $numberOfDrinks <=1>>
-    -> {$pcName}: Me. [nomarkup][You blush and bite your lip, gesturing to yourself with both thumbs.][/nomarkup] #line:092b037
+{$diana}: Starting with...? #lastline #line:0187fec
+<<if $numberOfDrinks <= 1>>
+-> {$pcName}: Me. [nomarkup][You blush and bite your lip, gesturing to yourself with both thumbs.][/nomarkup] #line:092b037
     <<jump meProblem>>
-<<endif>>
+-> {$pcName}: Finding better one liners?
+    <<jump betterOneLiners>>
+-> {$pcName}: Change of scenery?
+    <<jump sceneryChange>>
+<<else>>
 -> {$pcName}: Finding better one liners? #line:0a333e7 
     <<jump betterOneLiners>>
 -> {$pcName}: Change of scenery? #line:0eb7d84 
     <<jump sceneryChange>>
+<<endif>>
 ===
 title: meProblem
 position: 244,1492

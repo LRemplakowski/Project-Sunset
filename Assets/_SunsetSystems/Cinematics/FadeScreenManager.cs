@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace SunsetSystems.Cinematics
 {
-    [ExecuteAlways]
+    [ExecuteInEditMode]
     public class FadeScreenManager : MonoBehaviour
     {
         public static FadeScreenManager Instance { get; private set; }
