@@ -1,8 +1,20 @@
 using UnityEngine;
 
+[ExecuteAlways]
 public class WindzoneToShader : MonoBehaviour
 {
+    [SerializeField]
     private WindZone windZone;
+
+    private void OnValidate()
+    {
+        FindWindZone();
+    }
+
+    private void Start()
+    {
+        FindWindZone();
+    }
 
     void Update()
     {
@@ -11,10 +23,6 @@ public class WindzoneToShader : MonoBehaviour
 
     void ApplySettings()
     {
-        if (windZone == null)
-        {
-            windZone = gameObject.GetComponent<WindZone>();
-        }
         if (windZone != null)
         {
             Shader.SetGlobalVector("_WINDZONE_Direction",
@@ -35,6 +43,14 @@ public class WindzoneToShader : MonoBehaviour
             // Degree of variation (e.g. 1 is lots of variation)
             Shader.SetGlobalFloat("_WINDZONE_Turbulence",
                                   windZone.windTurbulence);
+        }
+    }
+
+    private void FindWindZone()
+    {
+        if (windZone == null)
+        {
+            windZone = gameObject.GetComponent<WindZone>();
         }
     }
 }
