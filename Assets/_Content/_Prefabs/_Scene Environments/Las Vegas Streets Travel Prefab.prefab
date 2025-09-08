@@ -575,7 +575,7 @@ GameObject:
   - component: {fileID: 1085283079116460940}
   - component: {fileID: 327211828318938672}
   - component: {fileID: 6068931553754563653}
-  - component: {fileID: 6430041240223810831}
+  - component: {fileID: 8328015759466194616}
   m_Layer: 0
   m_Name: pavement01_2
   m_TagString: Untagged
@@ -651,8 +651,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &6430041240223810831
-MeshCollider:
+--- !u!65 &8328015759466194616
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -669,10 +669,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+  serializedVersion: 3
+  m_Size: {x: 9.999999, y: 0.01, z: 10}
+  m_Center: {x: 0, y: 0, z: 0.0000019073486}
 --- !u!1 &2532797757581418326
 GameObject:
   m_ObjectHideFlags: 0
@@ -3164,7 +3163,7 @@ GameObject:
   - component: {fileID: 1529208407382673029}
   - component: {fileID: 3842293600332569045}
   - component: {fileID: 8450230174946631034}
-  - component: {fileID: 8024409693724557528}
+  - component: {fileID: 9134600417314117435}
   m_Layer: 0
   m_Name: asphalt
   m_TagString: Untagged
@@ -3240,8 +3239,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &8024409693724557528
-MeshCollider:
+--- !u!65 &9134600417314117435
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3258,10 +3257,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+  serializedVersion: 3
+  m_Size: {x: 10, y: 0.01, z: 10}
+  m_Center: {x: 0.0000019073486, y: 0, z: 0.0000019073486}
 --- !u!1 &6749648788813908842
 GameObject:
   m_ObjectHideFlags: 0
@@ -3828,7 +3826,7 @@ GameObject:
   - component: {fileID: 4636724262226588794}
   - component: {fileID: 6494711129788647546}
   - component: {fileID: 3902971206936707513}
-  - component: {fileID: 1312125417514321657}
+  - component: {fileID: 8845530489512037021}
   m_Layer: 0
   m_Name: asphalt_1
   m_TagString: Untagged
@@ -3904,8 +3902,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &1312125417514321657
-MeshCollider:
+--- !u!65 &8845530489512037021
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3922,10 +3920,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+  serializedVersion: 3
+  m_Size: {x: 10, y: 0.01, z: 10}
+  m_Center: {x: 0, y: 0, z: 0.0000019073486}
 --- !u!1 &8195980910689085146
 GameObject:
   m_ObjectHideFlags: 0
@@ -4377,7 +4374,7 @@ GameObject:
   - component: {fileID: 8107424502002266204}
   - component: {fileID: 2579697378443019554}
   - component: {fileID: 7856106242028865844}
-  - component: {fileID: 9172272714429506629}
+  - component: {fileID: 1129101087781788916}
   m_Layer: 0
   m_Name: pavement01_1
   m_TagString: Untagged
@@ -4453,8 +4450,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &9172272714429506629
-MeshCollider:
+--- !u!65 &1129101087781788916
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -4471,10 +4468,9 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+  serializedVersion: 3
+  m_Size: {x: 9.999999, y: 0.01, z: 10}
+  m_Center: {x: -0.000015258789, y: 0, z: 0.0000019073486}
 --- !u!1001 &6107356424542985
 PrefabInstance:
   m_ObjectHideFlags: 0
