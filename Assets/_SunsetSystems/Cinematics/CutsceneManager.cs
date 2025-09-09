@@ -25,6 +25,7 @@ namespace SunsetSystems.Cinematics
             }
         }
 
+        [Button]
         public void PlayCutscene(PlayableAsset asset, DirectorWrapMode wrapMode, bool doCrossFade = false)
         {
             if (doCrossFade)
@@ -40,6 +41,19 @@ namespace SunsetSystems.Cinematics
         public void PlayCutscene(PlayableAsset asset, DirectorWrapMode wrapMode)
         {
             _crossFade.CycleFade(() => DoPlayNextCutscene(asset, wrapMode));
+        }
+
+        [Button]
+        public void StopCutscene(bool doCrossFade = false)
+        {
+            if (doCrossFade)
+            {
+                _crossFade.CycleFade(() => _playableDirector.Stop());
+            }
+            else
+            {
+                _playableDirector.Stop();
+            }
         }
 
         private void DoPlayNextCutscene(PlayableAsset asset, DirectorWrapMode wrapMode)
