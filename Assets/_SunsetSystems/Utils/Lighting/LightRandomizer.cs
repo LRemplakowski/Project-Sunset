@@ -46,7 +46,7 @@ namespace SunsetSystems.Utils.Lighting
 
         private void Start()
         {
-            if (_randomizeAtRuntime && _light.lightmapBakeType is LightmapBakeType.Realtime)
+            if (_randomizeAtRuntime && _light.bakingOutput.lightmapBakeType is LightmapBakeType.Realtime or LightmapBakeType.Mixed)
                 Randomize();
             Destroy(this);
         }
@@ -67,7 +67,7 @@ namespace SunsetSystems.Utils.Lighting
         {
             if (_randomizeIntensity)
             {
-                _lightData.intensity = Random.Range(_intensityRange.x, _intensityRange.y);
+                _light.intensity = Random.Range(_intensityRange.x, _intensityRange.y);
             }
         }
 

@@ -29,6 +29,7 @@ namespace SunsetSystems.Entities
 
             return (FactionInteraction)UnityEditor.EditorGUI.EnumPopup(rect, value);
         }
+#endif
 
         // Method to provide faction labels
         private static (string label, LabelDirection direction) GetFactionLabels(int index, bool isRow)
@@ -43,7 +44,6 @@ namespace SunsetSystems.Entities
             };
             return (labels[index], isRow ? LabelDirection.LeftToRight : LabelDirection.TopToBottom);
         }
-#endif
     }
 }
 
