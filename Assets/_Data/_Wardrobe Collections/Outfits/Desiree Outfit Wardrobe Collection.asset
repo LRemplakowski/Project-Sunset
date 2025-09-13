@@ -29,19 +29,22 @@ MonoBehaviour:
   suppressWardrobeSlots: []
   activeWardrobeSet: []
   MeshHideAssets: []
+  MeshModifiers: []
   OverrideDNA:
     PreloadValues: []
+  disabled: 0
   recipeString: '{"packedRecipeType":"WardrobeCollection","name":"Desiree Outfit
-    Wardrobe Collection","race":"","dna":[],"characterColors":[{"name":"clothes_chest","colors":[255,255,255,255,0,0,0,0,255,255,255,255,0,0,0,0,255,255,255,255,0,0,0,0,255,255,255,255,0,0,0,0],"ShaderParms":[],"alwaysUpdate":false,"isBaseColor":false,"displayColor":-1},{"name":"leg_warmers","colors":[255,206,54,255,0,0,0,0,255,255,255,255,0,0,0,0,255,255,255,255,0,0,0,0,255,255,255,255,0,0,0,0],"ShaderParms":[],"alwaysUpdate":false,"isBaseColor":false,"displayColor":-13185281}],"wardrobeSet":[],"raceAnimatorController":""}'
+    Wardrobe Collection","race":"","dna":[],"characterColors":[{"name":"clothes_chest","colors":[255,255,255,255,0,0,0,0,255,255,255,255,0,0,0,0,255,255,255,255,0,0,0,0,255,255,255,255,0,0,0,0],"ShaderParms":[],"alwaysUpdate":false,"alwaysUpdateParms":false,"isBaseColor":false,"displayColor":-1},{"name":"leg_warmers","colors":[255,206,54,255,0,0,0,0,255,255,255,255,0,0,0,0,255,255,255,255,0,0,0,0,255,255,255,255,0,0,0,0],"ShaderParms":[],"alwaysUpdate":false,"alwaysUpdateParms":false,"isBaseColor":false,"displayColor":-13185281}],"wardrobeSet":[],"raceAnimatorController":""}'
   forceKeep: 0
   labelLocalFiles: 0
+  noAutoAdd: 0
   coverImages: []
   wardrobeCollection:
     sets:
     - targetRace: VampireFemale
       wardrobeSet:
       - slot: Chest
-        recipe: golf_sweater_f02
+        recipe: golf_sweater_f01
       - slot: Legs
         recipe: mini_skirt_Recipe
       - slot: OuterClothing

@@ -21,6 +21,11 @@ namespace UMA
 #else
         public bool convertRenderTexture = true;
 #endif
+		[Tooltip("Use Async RT conversion to avoid GPU stalls")]
+		public bool useAsyncConversion = true;
+		[Tooltip("Regenerate Mipmaps on conversion to avoid copying mips from GPU")]
+		public bool asyncMipRegen = true;
+
         [Tooltip("Create Mipmaps for the generated texture. Checking this is a good idea.")]
 		public bool convertMipMaps;
         [Tooltip("Initial size of the texture atlas (square)")]
@@ -48,6 +53,9 @@ namespace UMA
 
 		[Tooltip("Default Renderer Asset to use for the generated SkinnedMeshRenderer")]
         public UMARendererAsset defaultRendererAsset;
+
+		public bool MultiThreadTextureConversion = true;
+		public int MaxQueuedConversionsPerFrame = 8;
 
         [NonSerialized]
 		public bool FreezeTime;
@@ -114,28 +122,52 @@ namespace UMA
 		/// </summary>
 		public abstract void Work();
 
-		public static UMAGeneratorBase Instance { get; private set; }
 		/// <summary>
 		/// Try to finds the static generator in the scene.
 		/// </summary>
 		/// <returns>The instance.</returns>
 		public static UMAGeneratorBase FindInstance()
 		{
+			if (Instance == null)
+			{
+                var generatorGO = GameObject.Find("UMAGenerator");
+                if (generatorGO == null)
+                {
+                    return null;
+                }
+                Instance = generatorGO.GetComponent<UMAGeneratorBase>();
+            }
 			return Instance;
-		}
+        }
+
+		public static UMAGeneratorBase Instance { get; private set; }
 
 		public virtual void Awake()
 		{
 			if (Instance == null)
+			{
 				Instance = this;
+            }
 			if (Instance != this)
-				Destroy(gameObject);
+			{
+				Debug.LogWarning("There should only be one UMAGenerator active at a time. Destroying the extra one.");
+				Destroy(this.gameObject);
+				return;
+            }
 		}
 
-		/// <summary>
-		/// Utility class to store data about active animator.
-		/// </summary>
-		public class AnimatorState
+		public virtual void OnDestroy()
+		{
+			if (Instance == this)
+			{
+				Instance = null;
+			}
+        }
+
+        /// <summary>
+        /// Utility class to store data about active animator.
+        /// </summary>
+        public class AnimatorState
 		{
 			public bool wasCopied = false;
 			public bool FreezeTime;
@@ -309,10 +341,11 @@ namespace UMA
 				{
 					var umaTransform = umaData.transform;
 					var oldParent = umaTransform.parent;
-					umaTransform.GetLocalPositionAndRotation(out var originalPos, out var originalRot);
+					var originalRot = umaTransform.localRotation;
+					var originalPos = umaTransform.localPosition;
                     var animator = umaData.animator;
 
-                    //umaTransform.SetParent(null, false);
+                    umaTransform.SetParent(null, false);
 					umaTransform.localRotation = Quaternion.identity;
 					umaTransform.localPosition = Vector3.zero;
 					
@@ -328,7 +361,7 @@ namespace UMA
 						animator.runtimeAnimatorController = umaData.animationController;
 						umaData.animator = animator;
 
-						//umaTransform.SetParent(oldParent, false);
+						umaTransform.SetParent(oldParent, false);
 						umaTransform.localRotation = originalRot;
 						umaTransform.localPosition = originalPos;
 					}
@@ -345,7 +378,7 @@ namespace UMA
 							SetAvatar(umaData, animator);
 						}
 
-						//umaTransform.SetParent(oldParent, false);
+						umaTransform.SetParent(oldParent, false);
 						umaTransform.localRotation = originalRot;
 						umaTransform.localPosition = originalPos;
 

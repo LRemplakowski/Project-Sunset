@@ -54,7 +54,6 @@ namespace UMA
 		{
 			Initialize();
 		}
-
 		public void Initialize()
 		{
 			if (context == null)
@@ -64,7 +63,8 @@ namespace UMA
 
 			if (umaData == null)
 			{
-				if (!TryGetComponent(out umaData))
+				umaData = GetComponent<UMAData>();
+				if (umaData == null)
 				{
 					umaData = gameObject.AddComponent<UMAData>();
 					umaData.umaRecipe = new UMAData.UMARecipe(); // TEST JRRM

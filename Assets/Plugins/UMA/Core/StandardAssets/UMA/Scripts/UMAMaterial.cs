@@ -181,7 +181,7 @@ namespace UMA
         //public Material secondPass;
 
         public MaterialType materialType = MaterialType.Atlas;
-        public MaterialChannel[] channels;
+        public MaterialChannel[] channels = new MaterialChannel[0];
 
         [Range(-2.0f, 2.0f)]
         public float MipMapBias = 0.0f;
@@ -276,7 +276,7 @@ namespace UMA
             return names;
         }
 
-        private bool isGeneratedTextures
+        public bool IsGeneratedTextures
         {
             get
             {
@@ -284,9 +284,9 @@ namespace UMA
             }
         }
 
-        public bool isNoAtlas()
+        public bool IsNoAtlas()
         {
-            return materialType == MaterialType.Atlas;
+            return materialType != MaterialType.Atlas;
         }
 
         /// <summary>

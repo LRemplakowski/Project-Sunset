@@ -15,11 +15,21 @@ namespace UMA
     /// </remarks>
     [PreferBinarySerialization]
 	[Serializable]
-	public partial class RaceData : ScriptableObject, INameProvider
+	public partial class RaceData : ScriptableObject, INameProvider, IUMAIndexOptions
 	{
 	    public string raceName;
 		public List<string> KeepBoneNames = new List<string>();
 		public List<string> tags = new List<string>();
+
+		public bool disableDNAConverters = false;
+		[Tooltip("if true, this will not be added to the index when all items are scanned.")]
+        public bool noAutoAdd = false;
+
+		public bool NoAutoAdd
+		{
+			get { return noAutoAdd; }
+            set { noAutoAdd = value; }
+        }
 
         #region INameProvider
         public string GetAssetName()
@@ -81,12 +91,26 @@ namespace UMA
 		/// </summary>
 		public DynamicDNAConverterController[] dnaConverterList
 		{
-			get { return _dnaConverterList.ToArray(); }
+			get {
+				if (disableDNAConverters)
+					return new DynamicDNAConverterController[0];
+				else
+					return _dnaConverterList.ToArray(); 
+			}
 			set { _dnaConverterList = new DNAConverterList(value); }
 		}
 
-		public DynamicDNAConverterController[] GetConverters(UMADnaBase DNA)
+		public bool forceKeep;
+        public bool ForceKeep { get => forceKeep; set => forceKeep = value; }
+		public bool labelLocalFiles;
+        public bool LabelLocalFiles { get => labelLocalFiles; set => labelLocalFiles = value; }
+
+        public DynamicDNAConverterController[] GetConverters(UMADnaBase DNA)
 		{
+			if (disableDNAConverters)
+			{
+				return new DynamicDNAConverterController[0];
+			}
 			return _dnaConverterList.ToArray();
 		}
 
@@ -96,6 +120,8 @@ namespace UMA
 		/// <param name="converter"></param>
 		public void AddConverter(IDNAConverter converter)
 		{
+			if (disableDNAConverters)
+				return;
 			_dnaConverterList.Add(converter as DynamicDNAConverterController);
 		}
 
@@ -166,7 +192,9 @@ namespace UMA
 		#pragma warning disable 618
 	    public void UpdateDictionary()
 	    {
+			if (disableDNAConverters) return;
 			//UMA2.8+ call Prepare() on the elements in _dnaConverterList now.
+			
 			for (int i = 0; i < _dnaConverterList.Count; i++)
 			{
 				if (_dnaConverterList[i] != null)

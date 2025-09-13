@@ -1,6 +1,7 @@
 ﻿#if UMA_ADDRESSABLES
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 using UMA.CharacterSystem;
 using UnityEditor;
@@ -20,6 +21,12 @@ namespace UMA
         Dictionary<string, List<string>> RecipeExtraLabels = new Dictionary<string, List<string>>();
 
         const string SharedGroupName = "UMA_SharedItems";
+
+        public void DebugLog(string message)
+        {
+            // File.AppendAllText("D:\\DebugGenerator.txt", message + Environment.NewLine);
+        }
+
 
         public string Menu
         {
@@ -51,9 +58,9 @@ namespace UMA
                 LogText("Generating from recipes: " + DateTime.Now.ToString());
                 LogText("****************************************************");
                 LogText("");
-                bool IncludeRecipes = UMAEditorUtilities.GetConfigValue(UMAEditorUtilities.ConfigToggle_IncludeRecipes, false);
-                bool IncludeOthers = UMAEditorUtilities.GetConfigValue(UMAEditorUtilities.ConfigToggle_IncludeOther, false);
-                string DefaultAddressableLabel = UMAEditorUtilities.GetDefaultAddressableLabel();
+                bool IncludeRecipes = UMASettings.AddrIncludeRecipes;
+                bool IncludeOthers = UMASettings.AddrIncludeOther;
+                string DefaultAddressableLabel = UMASettings.AddrDefaultLabel;
 
                 RecipeExtraLabels = new Dictionary<string, List<string>>();
                 
@@ -65,6 +72,12 @@ namespace UMA
                         List<string> recipes = wc.wardrobeCollection.GetAllRecipeNamesInCollection();
                         foreach (string recipe in recipes)
                         {
+#if UMA_VES
+                        if (VesUmaLabelMaker.DO_NOT_INCLUDE_LABELS.Contains(label))
+                        {   //VES added
+                            continue;
+                        }
+#endif
                             if (RecipeExtraLabels.ContainsKey(recipe) == false)
                             {
                                 RecipeExtraLabels.Add(recipe, new List<string>());
@@ -77,6 +90,12 @@ namespace UMA
                 float inc = 1.0f / Recipes.Count;
                 foreach (UMAPackedRecipeBase uwr in Recipes)
                 {
+#if UMA_VES
+                    if (VesUmaLabelMaker.DO_NOT_INCLUDE_LABELS.Contains(uwr.AssignedLabel))
+                    { //VES added
+                        continue;
+                    }
+#endif
                     List<string> ExtraLabels = new List<string>();
 
                     if (RecipeExtraLabels.ContainsKey(uwr.name))
@@ -121,17 +140,17 @@ namespace UMA
                     else
                     {
                         // Get the asset items for the recipe from the index
-                    List<AssetItem> items = Index.GetAssetItems(uwr, true);
-                    foreach (AssetItem ai in items)
-                    {
-                        if (AddressableItems.ContainsKey(ai) == false)
+                        List<AssetItem> items = Index.GetAssetItems(uwr, true);
+                        foreach (AssetItem ai in items)
                         {
-                            AddressableItems.Add(ai, new List<string>());
-                            AddressableItems[ai].Add(DefaultAddressableLabel);
+                            if (AddressableItems.ContainsKey(ai) == false)
+                            {
+                                AddressableItems.Add(ai, new List<string>());
+                                AddressableItems[ai].Add(DefaultAddressableLabel);
+                            }
+                            AddressableItems[ai].Add(uwr.AssignedLabel);
+                            AddressableItems[ai].AddRange(ExtraLabels);
                         }
-                        AddressableItems[ai].Add(uwr.AssignedLabel);
-                        AddressableItems[ai].AddRange(ExtraLabels);
-                    }
                     }
 
                     if (IncludeRecipes)

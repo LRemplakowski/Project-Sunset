@@ -71,7 +71,7 @@ namespace SunsetSystems.UMA
             IEnumerator UMARebuildAfterSeconds(float seconds)
             {
                 yield return new WaitForSeconds(seconds);
-                _umaAvatar.BuildCharacter(true);
+                _umaAvatar.BuildCharacter();
                 _updatePendingCoroutine = null;
             }
         }

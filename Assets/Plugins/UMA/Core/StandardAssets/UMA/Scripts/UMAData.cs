@@ -66,6 +66,106 @@ namespace UMA
 		public List<UMASavedItem> savedItems = new List<UMASavedItem>();
 		public string userInformation = "";
 
+		// MeshModifers are used to modify the mesh during creation.
+		// This array is built from the various recipes added during the build process.
+		private Dictionary<string,List<MeshModifier.Modifier>> meshModifiers = new Dictionary<string, List<MeshModifier.Modifier>>();
+		private Dictionary<string, List<MeshModifier.Modifier>> accumulatedModifiers = new Dictionary<string, List<MeshModifier.Modifier>>();
+
+        // This array is not built from the recipes. It must be set manually. It is merged into the dictionary of MeshModifiers with the recipe driven modifiers.
+        // It's general use case is for adding mesh modifiers that are not part of the normal UMA build process, such as during editing, etc.
+
+        public Dictionary<string, List<MeshModifier.Modifier>> Modifiers
+        {
+            get
+            {
+                return meshModifiers;
+            }
+        }
+
+#if UNITY_EDITOR
+
+        private List<MeshModifier.Modifier> _manualMeshModifiers = new List<MeshModifier.Modifier>();
+		public List<MeshModifier.Modifier> manualMeshModifiers 
+		{ 
+			get 
+			{ 
+				return _manualMeshModifiers; 
+			}
+            set
+            {
+                _manualMeshModifiers = value;
+            }
+        }
+#endif
+
+        public void ClearModifiers()
+        {
+            meshModifiers.Clear();
+			accumulatedModifiers.Clear();
+        }
+
+		public void AddMeshModifier(MeshModifier.Modifier modifier)
+		{
+            if (!meshModifiers.ContainsKey(modifier.SlotName))
+            {
+                meshModifiers.Add(modifier.SlotName, new List<MeshModifier.Modifier>());
+            }
+            meshModifiers[modifier.SlotName].Add(modifier);
+        }
+
+        public void AddMeshModifiers(List<MeshModifier.Modifier> modifiers)
+        {
+			if (modifiers == null)
+			{
+				return;
+			}
+            foreach (MeshModifier.Modifier modifier in modifiers)
+            {
+                AddMeshModifier(modifier);
+            }
+        }
+
+        public void BuildActiveModifiers()
+		{
+			if (umaRecipe == null)
+			{
+				return;
+			}
+			accumulatedModifiers.Clear();
+            // add all the existing meshModifiers to the accumulatedModifiers
+            foreach (var kvp in meshModifiers)
+            {
+                if (!accumulatedModifiers.ContainsKey(kvp.Key))
+                {
+                    accumulatedModifiers.Add(kvp.Key, new List<MeshModifier.Modifier>());
+                }
+                accumulatedModifiers[kvp.Key].AddRange(kvp.Value);
+            }
+#if UNITY_EDITOR
+            foreach (var m in _manualMeshModifiers)
+            {
+                if (!accumulatedModifiers.ContainsKey(m.SlotName))
+                {
+                    accumulatedModifiers.Add(m.SlotName, new List<MeshModifier.Modifier>());
+                }
+                accumulatedModifiers[m.SlotName].Add(m);
+            }
+#endif
+
+            // This function expects the umaRecipe to be set.
+            // and for the meshModifiers from the wardrobe recipes to be set in the meshModifiers list.
+            for (int i = 0; i < umaRecipe.slotDataList.Length; i++)
+			{
+				var slot = umaRecipe.slotDataList[i];
+				slot.meshModifiers.Clear();
+				if (accumulatedModifiers.ContainsKey(slot.slotName))
+				{
+					var modifiers = accumulatedModifiers[slot.slotName];
+                    slot.meshModifiers.AddRange(modifiers);
+                }
+            }
+			
+        }
 
         public void SaveMountedItems()
         {
@@ -663,7 +763,9 @@ namespace UMA
             }
 			if (!umaGenerator)
 			{
-				var generatorGO = GameObject.Find("UMAGenerator");
+				FindObjectOfType<UMAGeneratorBase>();
+
+				var generatorGO = GameObject.Find("UMA_GLIB");
 				if (generatorGO == null)
                 {
                     return;
@@ -673,6 +775,31 @@ namespace UMA
 			}
 			Initialize(umaGenerator);
 		}
+
+
+		public UMAGeneratorBase FindGenerator()
+		{
+            var gen = UnityEngine.Object.FindFirstObjectByType<UMAGeneratorBase>() as UMAGeneratorBase;
+			if (gen != null)
+            {
+				return gen;
+            }
+
+            // Some versions of Unity could find hidden objects, so we need to check for that.
+            if (GameObject.Find("TempUMAGenerator") != null)
+			{
+                return GameObject.Find("TempUMAGenerator").GetComponent<UMAGeneratorBase>();
+            }
+
+            // If we still can't find it, create a temporary one, and hide it.
+            GameObject temp = new GameObject("TempUMAGenerator")
+			{
+				hideFlags = HideFlags.HideAndDontSave
+            };
+
+			return temp.AddComponent<UMAGeneratorStub>();
+        }
+
 
 		public void Initialize(UMAGeneratorBase generator)
 		{
@@ -743,18 +870,14 @@ namespace UMA
 			{
 				if (Debug.isDebugBuild)
                 {
-                    Debug.LogError("UMA data missing required recipe!", gameObject);
+                    Debug.LogError("UMA data missing required recipe!");
                 }
 
                 valid = false;
 			}
 			else
 			{
-				valid &= _umaRecipe.Validate();
-				if (!valid)
-				{
-					Debug.LogError($"UMAData >>> Failed to validate UMA recipe {_umaRecipe}!", gameObject);
-				}
+				valid = valid && umaRecipe.Validate();
 			}
 
 			if (animationController == null)
@@ -763,7 +886,7 @@ namespace UMA
 				{
 					if (Debug.isDebugBuild)
                     {
-                        Debug.LogWarning($"No animation controller supplied. {gameObject}", gameObject);
+                        Debug.LogWarning("No animation controller supplied.");
                     }
                 }
 			}
@@ -773,7 +896,7 @@ namespace UMA
 			{
 				if (Debug.isDebugBuild)
                 {
-                    Debug.LogError($"UMAData: Recipe or Generator is not valid! {gameObject}", gameObject);
+                    Debug.LogError("UMAData: Recipe or Generator is not valid!");
                 }
 			}
 #endif
@@ -1071,7 +1194,7 @@ namespace UMA
 				{
 					if (Debug.isDebugBuild)
                     {
-                        Debug.LogError($"UMA recipe {this} missing required race!");
+                        Debug.LogError("UMA recipe missing required race!");
                     }
 
                     valid = false;
@@ -1085,10 +1208,10 @@ namespace UMA
 				{
 					if (Debug.isDebugBuild)
                     {
-                        Debug.LogError($"UMA recipe {this} slot list is empty!");
+                        Debug.LogError("UMA recipe slot list is empty!");
                     }
 
-                    return false;
+                    valid = false;
 				}
 				int slotDataCount = 0;
 				for (int i = 0; i < slotDataList.Length; i++)
@@ -1360,6 +1483,38 @@ namespace UMA
 				}
 			}
 
+			public SlotData FindSlot(string slotName)
+			{
+                // find the vertex in the slot
+                for (int i = 0; i < slotDataList.Length; i++)
+                {
+                    var slot = slotDataList[i];
+                    if ( slot.slotName == slotName)
+                    {
+						return slot;
+                    }
+                }
+                return null;
+            }
+
+            public SlotData FindSlotForVertex(int vert)
+			{
+                // find the vertex in the slot
+                for (int i = 0; i < slotDataList.Length; i++)
+                {
+                    var slot = slotDataList[i];
+                    if (vert >= slot.vertexOffset)
+                    {
+                        int LocalToSlot = vert - slot.vertexOffset;
+                        if (LocalToSlot < slot.asset.meshData.vertexCount)
+                        {
+							return slot;
+                        }
+                    }
+                }
+				return null;
+            }
+
 			/// <summary>
 			/// Combine additional slot with current data.
 			/// </summary>
@@ -1481,11 +1636,28 @@ namespace UMA
                 return null;
 			}
 
-			/// <summary>
-			/// Gets the first slot in the slotdatalist that is not null
-			/// </summary>
-			/// <returns></returns>
-			public SlotData GetFirstSlot()
+			public SlotData GetSlot(string name)
+            {
+                for (int i = 0; i < slotDataList.Length; i++)
+                {
+                    if (slotDataList[i] == null)
+                    {
+                        continue;
+                    }
+
+                    if (slotDataList[i].slotName == name)
+                    {
+                        return slotDataList[i];
+                    }
+                }
+                return null;
+            }
+
+            /// <summary>
+            /// Gets the first slot in the slotdatalist that is not null
+            /// </summary>
+            /// <returns></returns>
+            public SlotData GetFirstSlot()
 			{
 				if (slotDataList == null)
 				{
@@ -1540,7 +1712,7 @@ namespace UMA
 
 
 
-            public Dictionary<string, SlotData> GetFirsIndexedSlotsByTag()
+            public Dictionary<string, SlotData> GetFirstIndexedSlotsByTag()
             {
                 Dictionary<string, SlotData> indexedSlots = new Dictionary<string, SlotData>();
                 foreach (SlotData slotData in slotDataList)
@@ -1584,6 +1756,7 @@ namespace UMA
                 }
                 return indexedSlots;
             }
+
 
             /// <summary>
             /// Are two overlay lists the same?
@@ -2282,22 +2455,49 @@ namespace UMA
 						if (generatedMaterials.materials[atlasIndex].resultingAtlasList[textureIndex] != null)
 						{
 							Texture tempTexture = generatedMaterials.materials[atlasIndex].resultingAtlasList[textureIndex];
-							if (tempTexture is RenderTexture)
+                            generatedMaterials.materials[atlasIndex].resultingAtlasList[textureIndex] = null;
+
+                            if (tempTexture is RenderTexture)
 							{
 								RenderTexture tempRenderTexture = tempTexture as RenderTexture;
-								tempRenderTexture.Release();
-								UMAUtils.DestroySceneObject(tempRenderTexture);
+								int InstanceID = tempRenderTexture.GetInstanceID();
+								if (!RenderTexToCPU.renderTexturesToCPU.ContainsKey(InstanceID))
+								{
+                                    // this will be cleared up when the async call is completed.
+                                    tempTexture = null;
+									bool safe = RenderTexToCPU.SafeToFree(tempRenderTexture);
+									if (safe)
+									{
+										if (tempRenderTexture.IsCreated())
+										{
+											tempRenderTexture.Release();
+										}
+										RenderTexToCPU.renderTexturesCleanedUMAData++;
+										UMAUtils.DestroySceneObject(tempRenderTexture);
+
+                                    }
+								}
 							}
 							else
 							{
 								UMAUtils.DestroySceneObject(tempTexture);
 							}
-							generatedMaterials.materials[atlasIndex].resultingAtlasList[textureIndex] = null;
 						}
 					}
-				}
+					if (generatedMaterials.materials[atlasIndex].umaMaterial.materialType != UMAMaterial.MaterialType.UseExistingMaterial)
+					{
+						UMAUtils.DestroySceneObject(generatedMaterials.materials[atlasIndex].material);
+						generatedMaterials.materials[atlasIndex] = null;
+					}
+					else
+					{
+						//Debug.Log("Not removing material " + generatedMaterials.materials[atlasIndex].material.name);
+                        generatedMaterials.materials[atlasIndex] = null;
+                    }
+                }
 			}
-		}
+			generatedMaterials.materials.Clear();
+        }
 
 		/// <summary>
 		/// Destroy materials used to render mesh.
@@ -2339,6 +2539,7 @@ namespace UMA
 			}
 		}
 
+		/*
 		public Texture[] backUpTextures()
 		{
 			List<Texture> textureList = new List<Texture>();
@@ -2361,7 +2562,7 @@ namespace UMA
 			}
 
 			return textureList.ToArray();
-		}
+		}*/
 
 		public RenderTexture GetFirstRenderTexture()
 		{

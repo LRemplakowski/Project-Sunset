@@ -2,6 +2,7 @@ using Sirenix.OdinInspector;
 using SunsetSystems.Animation;
 using UnityEngine;
 using UnityEngine.VFX;
+using UMA;
 
 namespace SunsetSystems.Equipment
 {
