@@ -11,18 +11,13 @@ position: 136,-238
 <<if GetIsPartyMemberRecruited($anastasia) is true>>
     {$anastasia}: Well, if she's done spacing out and you two already have some kind of plan, I'd like to hear it. Sharing is caring. #line:0af9e59 
     {$kieran}: [nomarkup][Kieran frowns.][/nomarkup] She does that, sometimes. Please, pay it no mind. #lastline #line:09a1f03
-    <<if $toldKieranAboutVision is true>>
-        {$kieran}: Another vision? #line:07c09de
-    <<endif>>
-    -> {$pcName}: That's the woman I've been seeing. <<if CustomVisited("tellAboutVision") == false>> #line:0a3a355 
-    <<jump tellAboutVision>>
-<<else>>
-    <<if $toldKieranAboutVision is true>>
-        {$kieran}: Another vision?
-    <<endif>>
-    -> {$pcName}: That's the woman I've been seeing. <<if CustomVisited("tellAboutVision") == false>>
-    <<jump tellAboutVision>> 
 <<endif>>
+<<if $toldKieranAboutVision is true>>
+    {$kieran}: Another vision? #line:07c09de
+<<endif>>
+[nomarkup][You see Kieran looking at you a little bit confused.][/nomarkup]
+-> {$pcName}: That's the woman I've been seeing. <<if CustomVisited("tellAboutVision") == false>> #line:0a3a355 
+<<jump tellAboutVision>> 
 ===
 title: tellAboutVision
 ---
@@ -36,16 +31,21 @@ title: tellAboutVision
 ===
 title: approachDiana
 ---
-{$kieran}: [nomarkup][As you weave through the crowd making your way to the bar, Kieran grabs your shoulder.][/nomarkup] Proceed with caution. Diana is Kate's favorite ghoul. If something were to happen to her, she would be pissed. Proceed with caution, Diana is Kate's favorite ghoul. #line:022383f 
+{$kieran}: [nomarkup][As you weave through the crowd making your way to the bar, Kieran grabs your shoulder.][/nomarkup] Proceed with caution. Diana is Kate's favorite ghoul. If something were to happen to her, she would be pissed. #line:022383f 
 <<if GetIsPartyMemberRecruited($anastasia) is true>>
     {$anastasia}: [nomarkup][Under her breath.][/nomarkup] Funny way to say pet. #lastline #line:0c35de6 
 <<endif>>
+{$beast}: I bet he doesn't care for her. Just for his own business.
 -> {$pcName}: [nomarkup][Nod.][/nomarkup] #line:0c46c4d 
     {$kieran}: [nomarkup][Kieran nods back.][/nomarkup](+1 Kieran Influence) #line:0399fb7 
     <<ModifyInfluence 1 {$kieran}>>
     <<jump dianaApproached>>
--> {$pcName}: Geez, I'm not some psycho killer...  #line:02e8b49 
-    {$kieran}: The corpse in your bathroom implies otherwise. (-1 Kieran Influence) #line:0a21169 
+-> {$pcName}: Geez, I'm not some psycho killer...  #line:02e8b49
+    <<if $kevinmurdered == true>>
+        {$kieran}: The corpses in your apartment imply otherwise. (-1 Kieran Influence) #line:0a21169 
+    <<else>>
+        {$kieran}: The corpse in your bathroom implies otherwise. (-1 Kieran Influence)
+    <<endif>>
     <<ModifyInfluence -1 {$kieran}>>
     <<if GetIsPartyMemberRecruited($anastasia) is true>>
         {$anastasia}: Hey, you can't knock the girl for wanting to have some fun, you know? #line:0df12ed 
@@ -104,6 +104,7 @@ title: blownOffByDiana
 -> {$pcName}: You're not just gonna blow me off!    #line:00f5f4d 
 [nomarkup][She, in fact, blows you off. A barely-subdued anger washes over you.][/nomarkup] #line:0f325cd 
 {$beast}: I will [nomarkup]<i>not</i>[/nomarkup] be casually brushed aside like some insignificant fool. #line:0a5cbd9 
-[nomarkup][But Diana has already turned away, walking off...][/nomarkup] #line:0a2597f 
+[nomarkup][But Diana has already turned away, walking off...][/nomarkup] #line:0a2597f
+-> [nomarkup][Walk away.][/nomarkup] 
 //cut to black, Diana dissapears//
 ===

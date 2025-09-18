@@ -10,9 +10,11 @@ Bartender: [nomarkup][She's drying a glass with a dishrag. Looking up from her w
     <<if GetIsPartyMemberRecruited($anastasia) is true>>
         {$anastasia}: Oh come on, a little bit of bile and blood never hurt anyone. Or clogged toilet. #line:0f462fc 
     <<endif>>
+    -> [nomarkup][Walk away.][nomarkup]
 -> {$pcName}: So, what can you tell me about Diana? #line:01a3bca 
     Bartender: She's nice enough. Been seeing someone who kinda gives me a bad feeling, but I can't put my finger on why. #line:0c8425a 
     -> {$pcName}: Bad feeling? #line:0fd6f3c 
-        Bartender: Very suspicious - always skulking around. She only visits her office when Kate isn't here. #line:079b3e8 
+        Bartender: Very suspicious - always skulking around. She only visits her office when Kate isn't here. #line:079b3e8
+        -> [nomarkup][Walk away.][nomarkup] 
 -> {$pcName}: Nothing, nevermind. #line:07b7b43 
 ===

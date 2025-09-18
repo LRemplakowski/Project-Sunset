@@ -168,6 +168,7 @@ title: subsequentQuestions
     <<jump bouncerDifficulties>>
 -> {$pcName}: I should go.
     {$sforzaMask}: An astute observation. Best of luck on your little search.
+    -> [nomarkup][Walk away.][/nomarkup]
 ===
 title: whoIsDiana
 position: -418,534
@@ -321,6 +322,7 @@ title: KateTalkWithBouncer
 <<endif>>
 -> {$pcName}: I should go.
     {$sforzaMask}: An astute observation. Best of luck on your little search.
+    -> [nomarkup][Walk away.][/nomarkup]
 ===
 title: finalDeathExplained
 position: 1151,92
@@ -336,16 +338,16 @@ position: 1151,92
 title: getToOffice
 position: -858,264
 ---
-<<if $kateAlleyTalk == false>>
-    {$sforzaMask}: That's very nice Desiree.  #line:0a65e99 
+{$sforzaMask}: That's very nice Desiree.  #line:0a65e99 
     -> {$pcName}: She led me into the alley last night. #line:0c7e656 
-    <<set $kateAlleyTalk to true>>
-    {$sforzaMask}: You should talk to her about that, then. #line:0f13eb6 
-    -> {$pcName}: She ran off into her office before I had the chance. #line:0637d69 
-    {$sforzaMask}: [nomarkup][She cocks her head to the side.][/nomarkup] With such a courteous and considerate attitude, I cannot imagine why. Perhaps she had work to do? Talk to her bouncer over there.
-    [nomarkup][She raises her slender hand and shows you another exit from the room - there is a muscled man standing on stairs and guarding the doors behind him.][/nomarkup] #line:0987053 
-    {$sforzaMask}: [nomarkup][Kate waves her hand without looking at you.][/nomarkup] Tell him his mistress sent you. #line:0868ee8 
-    {$kieran}: We appreciate your assistance with this matter. #line:028f814
-<<endif>>
+    <<if $kateAlleyTalk == false>>
+        <<set $kateAlleyTalk to true>>
+        {$sforzaMask}: You should talk to her about that, then. #line:0f13eb6 
+        -> {$pcName}: She ran off into her office before I had the chance. #line:0637d69 
+        {$sforzaMask}: [nomarkup][She cocks her head to the side.][/nomarkup] With such a courteous and considerate attitude, I cannot imagine why. Perhaps she had work to do? Talk to her bouncer over there.
+        [nomarkup][She raises her slender hand and shows you another exit from the room - there is a muscled man standing on stairs and guarding the doors behind him.][/nomarkup] #line:0987053 
+        {$sforzaMask}: [nomarkup][Kate waves her hand without looking at you.][/nomarkup] Tell him his mistress sent you. #line:0868ee8 
+        {$kieran}: We appreciate your assistance with this matter. #line:028f814
+    <<endif>>
 <<jump subsequentQuestions>>
 ===

@@ -18,6 +18,7 @@ Office Bouncer: [nomarkup][He says rather tersely.][/nomarkup] Private area. Ms.
     <<endif>>
 -> {$pcName}: Uhm...
 {$kieran}: Sorry to bother you. #line:0764b1c 
+-> [nomarkup][Walk away.][/nomarkup]
 ===
 title: officeBouncerTechnicalNode1
 ---
@@ -41,6 +42,7 @@ Office Bouncer: ... Ms. Foster is not taking any visitors at the moment. #line:0
     {$anastasia}: See? Told ya.
 <<endif>>
 [nomarkup][It appears you need to look for another way in...][/nomarkup]
+-> [nomarkup][Walk away.][/nomarkup]
 ===
 title: drinkSuccess
 position: 241,17
@@ -56,6 +58,7 @@ Office Bouncer: [nomarkup][The Bouncer scans the room nervously.][/nomarkup] I s
     <<jump afterBouncerCutscene>>
 <<else>>
     Office Bouncer: Thanks! #line:00b692b 
+    <<jump officeBouncer>>
 <<endif>>
 ===
 title: drinkFailure
@@ -68,6 +71,10 @@ title: afterBouncerCutscene
 position: 246,222
 ---
 <<if GetIsPartyMemberRecruited($anastasia) is true>>
-    {$anastasia}: What a lightweight. Back where I come from, we drink vodka like water. #line:09073f5 
+    {$anastasia}: What a lightweight. Back where I come from, we drink vodka like water. #line:09073f5
+    -> [nomarkup][Walk away.][/nomarkup]
+<<else>>
+    [nomarkup][The doors to the office is opened.][/nomarkup]
+    -> [nomarkup][Walk in.][/nomarkup]
 <<endif>>
 ===
