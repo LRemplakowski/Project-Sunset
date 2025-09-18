@@ -10,14 +10,17 @@ position: -516,-712
 <<declare $kateAnastasia to false>>
 <<declare $dianaWithKate to false>>
 <<declare $dominicHasDiana to false>>
-[nomarkup][The alley smells like blood, death, and burnt rubber. A person slumped against the brick wall tilts their head up just enough to make direct eye contact as the door slams closed behind you. Sirens can be heard wailing not too far from here.][/nomarkup] #line:0d12354 
+[nomarkup][The alley smells like blood, death, and burnt rubber. A person slumped against the brick wall tilts their head up just enough to make direct eye contact as the door slams closed behind you.][/nomarkup] #line:0d12354 
 <<if GetIsPartyMemberRecruited($anastasia) is true>>
+    [nomarkup][Sirens can be heard wailing not too far from here.][/nomarkup]
     {$anastasia}: Shit! It's the fuzz. Let's get the hell out of here. #line:0694dee 
     {$kieran}: You're welcome to leave, but I cannot until we find her Sire. I'm not going back to Dominic empty-handed. #line:0296d1e 
 <<else>>
+    [nomarkup][Sirens can be heard wailing not too far from here.][/nomarkup]
     -> {$pcName}: Let's get out of here. #line:0604e3f 
         {$kieran}: Not until we find your Sire. I'm not going back to Dominic empty-handed. #lastline #line:0f2aadd 
 <<endif>>
+{$beast}: That's not reassuring...
 -> {$pcName}: Aren't you worried about the police? #line:0bbac08 
     {$kieran}: Your Primogen has us covered. #line:0ffe05e 
     -> {$pcName}: Primogen? #line:0e9f5a8 
@@ -58,13 +61,15 @@ position: -325,30
 ---
 Karl: You make a good point. Pretend you didn't see us, and we won't say anything? #success #line:0c114ae 
 {$kieran}: Deal. #line:0a0c9bd 
+-> [nomarkup][End dialogue.][/nomarkup]
 //ghouls run away, dialog ends//
 ===
 title: charismaGhoulsFailure
 tags: 
 position: 103,-153
 ---
-Karl: They didn't have you in point-blank range like I do. #failure #line:07a5d51 
+Karl: They didn't have you in point-blank range like I do. #failure #line:07a5d51
+-> [nomarkup][End dialogue.][/nomarkup]  
 //initiate combat//
 ===
 title: ghoulsCombat
@@ -72,6 +77,7 @@ tags:
 position: -255,-267
 ---
 Karl: Oooo, looks like these ones have some bite. #line:07f7a1e 
-Ghoul: Terrible pun, Karl. #line:0d90dd6 
+Ghoul: Terrible pun, Karl. #line:0d90dd6
+-> [nomarkup][End dialogue.][/nomarkup]
 //initiate combat//
 ===

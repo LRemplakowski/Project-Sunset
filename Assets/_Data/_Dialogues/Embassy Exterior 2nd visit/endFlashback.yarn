@@ -110,11 +110,13 @@ position: -138,1624
 {$diana}: [nomarkup][Eventually, Diana turns towards you.][/nomarkup] This is all your fault! #line:0192490 
 -> {$pcName}: Mine? You're joking right? #line:0443ad0 
     {$diana}: If you hadn't shown up she would have Embraced me instead! I should be the one being tested! #line:0f71ade 
+    -> [nomarkup][Draw your weapon.][/nomarkup]
     //initiate combat//
 -> {$pcName}: She would have abandoned you either way. Surrender. (Manipulation + Leadership) #line:04f6096
     <<jump dianaManipRoll>>
 -> {$pcName}: I could say the same to you. #line:0af1fa5 
-    {$diana}: You don't even appreciate what's she given you. Yet you rub my face in it. #line:02fd19a 
+    {$diana}: You don't even appreciate what's she given you. Yet you rub my face in it. #line:02fd19a
+    -> [nomarkup][Draw your weapon.][/nomarkup] 
     //initiate combat//
 ===
 title: dianaManipRoll
@@ -129,12 +131,14 @@ position: -142,1852
 title: dianaManipSuccess
 position: -28,2097
 ---
-{$diana}: [nomarkup][You watch those words weigh upon her face. There's a painful period of silence as she's lost in reflection.][/nomarkup] You - you're right. #success #line:00de38f 
+{$diana}: [nomarkup][You watch those words weigh upon her face. There's a painful period of silence as she's lost in reflection.][/nomarkup] You - you're right. #success #line:00de38f
+-> [nomarkup][Draw your weapon.][/nomarkup] 
 //combat starts without Diana
 ===
 title: dianaManipFailure
 position: -295,2091
 ---
-{$diana}: How would you even know that? You don't know her like I do. #failure #line:04bfba2 
+{$diana}: How would you even know that? You don't know her like I do. #failure #line:04bfba2
+-> [nomarkup][Draw your weapon.][/nomarkup] 
 //initiate combat//
 ===

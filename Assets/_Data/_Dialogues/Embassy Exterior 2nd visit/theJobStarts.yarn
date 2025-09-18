@@ -52,6 +52,7 @@ position: 198,-318
 ---
 <<if Roll("Manipulation","Etiquette") >=2>>
     <<set $rollModifier to 1>>
+    [nomarkup][He gets you a cig, lights it.][/nomarkup] #success
     <<jump cigSuccess>>
 <<else>>
     <<jump chaseOptions>>
@@ -60,13 +61,14 @@ position: 198,-318
 title: cigSuccess
 position: 399,-656
 ---
-[nomarkup][He gets you a cig, lights it. This will buy some time. There is a wedding ring on his right hand.][/nomarkup] #success #line:0f37119 
+[nomarkup][You smoke with Diego. This will buy you some time. There is a wedding ring on his right hand.][/nomarkup] #line:0f37119 
 -> {$pcName}: I'm Des, nice to meet you. <<if CustomVisited("introduction") == false>> #line:036f294 
     <<jump introduction>>
 -> {$pcName}: Are you married? I see a wedding ring on your finger. <<if CustomVisited("married") == false>> #line:0a38f95 
     <<jump married>>
 -> {$pcName}: Nice scar. I bet it has a good story behind it. <<if CustomVisited("scar") == false>> #line:024876f 
     <<jump scar>>
+[nomarkup][There's nothing that comes to your mind. You stare at each other in silence.][/nomarkup]
 <<jump interactions>>
 ===
 title: introduction
@@ -253,14 +255,13 @@ position: -33,1514
 -> {$pcName}: [nomarkup][You can feel the sigh building up in your chest.][/nomarkup] I know a place. #line:010d1be 
 [nomarkup][The van is a large black vehicle that has had its plates changed. Diana moves towards the driver's door and stops.][/nomarkup] #line:0c0a848 
 {$diana}: Babes, you didn't say- what's the address? #line:0783432 
--> {$pcName}: It's (apartment address). #line:040a5e9 
 //car starts to move through the streets//
 <<jump theVanRide>>
 ===
 title: theVanRide
 position: 463,1535
 ---
-[nomarkup][You shove the doors open and muscle the man you just ran down inside. He looks a little out of it and doesn't resist. You take a few minutes to seatbelt him in and turn his face to get a better look at his eyes. Diego's head lists.][/nomarkup] #line:06af709 
+[nomarkup][You give the address to Diana and shove the doors open. You muscle the man you just ran down inside. He looks a little out of it and doesn't resist. You take a few minutes to seatbelt him in and turn his face to get a better look at his eyes. Diego's head lists.][/nomarkup] #line:06af709 
 <<if Roll("Intelligence","Medicine") >=3>>
     [nomarkup][Diego's pupils are wide, his gaze is unfocused, and his pulse is slow. Calm despite the situation. As you touch the side of his face, he doesn't react in the slightest.][/nomarkup] #line:089182b 
 <<endif>>
