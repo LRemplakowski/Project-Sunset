@@ -72,6 +72,7 @@ position: 567,-63
             [nomarkup][You curse under your breath. Strangely enough, even after all that, you don't feel the least bit fatigued. Surveying the damage, you curse under your breath. If your landlord sees that, he'll be pissed.][/nomarkup] #line:0981350 
         <<endif>>
         <<CompleteObjective "Q_0P_MAIN_SATURDAY_START" "ENTER_BATHROOM">>
+        -> [nomarkup][Go inside.][/nomarkup]
     <<else>>
         <<if $kevinmurdered == true>>
             [nomarkup][Despite your best efforts, the door doesn't budge. The architect definitely was a sadist.][/nomarkup] #failure #lastline #line:0082b73 
@@ -92,10 +93,12 @@ position: 545,316
     {$pcName}: [nomarkup][Ow! What the fuck!?][/nomarkup] #line:0e0fb25 
 <<endif>>
 <<CompleteObjective "Q_0P_MAIN_SATURDAY_START" "ENTER_BATHROOM">>
+-> [nomarkup][Go inside.][/nomarkup]
 ===
 title: BathroomDoorUnlock
 position: 606,144
 ---
 [nomarkup][You turn the key in the lock, pushing open the bathroom door.][/nomarkup] #line:09dd832 
 <<CompleteObjective "Q_0P_MAIN_SATURDAY_START" "ENTER_BATHROOM">>
+-> [nomarkup][Go inside.][/nomarkup]
 ===
