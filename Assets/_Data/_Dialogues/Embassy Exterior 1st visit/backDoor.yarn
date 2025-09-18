@@ -3,8 +3,10 @@ tags:
 ---
 {$kieran}: Remember to behave. We're not here to have a good time. #line:000f80a 
 -> {$pcName}: I don't need a chaperone to enter a club. #line:05016e8 
-    {$kieran}: And I don't need to be chaperoning, but here we are. #line:0bda9c5 
+    {$kieran}: And I don't need to be chaperoning, but here we are. #line:0bda9c5
+    ->[nomarkup][Enter the club.][/nomarkup] 
 -> {$pcName}: Party my ass off, got it. #line:014c64e 
-    {$kieran}: Sometimes, I get the feeling that your main goal is to see how much you can push my buttons. Don't. (-1 Kieran Influence) #line:01775b0
     <<ModifyInfluence -1 {$kieran}>>
+    {$kieran}: Sometimes, I get the feeling that your main goal is to see how much you can push my buttons. Don't. (-1 Kieran Influence) #line:01775b0
+    ->[nomarkup][Enter the club.][/nomarkup] 
 ===

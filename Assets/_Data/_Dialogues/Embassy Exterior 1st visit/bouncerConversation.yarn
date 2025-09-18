@@ -12,10 +12,12 @@ Bouncer: You on the list? #line:00cf04d
         <<jump BouncerPresenceFailure>>
     <<endif>>
 -> {$pcName}: Yes. #line:051123c 
-    Bouncer: Why even bother lying? #line:0e9b76e 
+    Bouncer: Why even bother lying? #line:0e9b76e
+    -> [nomarkup][Walk away.][/nomarkup] 
 -> {$pcName}: No. #line:0261ff6 
     Bouncer: Thanks for being honest, I guess. Now fuck off. #line:0bf4b11 
-    {$kieran}: ... why did you even bother? [nomarkup][He looks confused.][/nomarkup]  #line:0ffc896 
+    {$kieran}: ... why did you even bother? [nomarkup][He looks confused.][/nomarkup]  #line:0ffc896
+    -> [nomarkup][Walk away.][/nomarkup] 
 ===
 title: BouncerPresenceSuccess
 ---
@@ -26,10 +28,12 @@ Bouncer: I'd love to miss, but someone as special as you should go in through th
 Bouncer: Was I talking to you? #line:0d0fda5 
 {$pcName}: ... Guess I should head on back. #line:0836623 
 Bouncer: Yeah... totally... I get that. Come back later, alright. #line:01e5e9a 
+-> [nomarkup][Walk away.][/nomarkup]
 ===
 title: BouncerPresenceFailure
 ---
 Bouncer: Nice try. Head on back like the other licks. Kate's orders. #failure #line:0a5351a 
 {$kieran}: Sorry to bother you. #line:00b8ef4 
-Bouncer: You should know better, Kieran. #line:08015fe 
+Bouncer: You should know better, Kieran. #line:08015fe
+-> [nomarkup][Walk away.][/nomarkup] 
 ===
