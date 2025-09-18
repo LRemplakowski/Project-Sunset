@@ -5,11 +5,11 @@ tags:
     [nomarkup][It's been out for two days now, but you're starving. You could eat a horse. And the stable it sleeps in. As they say, when you're hungry, anything tastes good.][/nomarkup] #line:0a2527e 
         -> [nomarkup][Grab a slice.][/nomarkup]  #line:0923c08 
             <<set $vomit to true>>
+            <<set $pizzaeaten to true>>
             [nomarkup][As soon as the cheese hits your mouth, you are hit by a wave of intense nausea. Even worse than the one you felt upon waking up.][/nomarkup]
             [nomarkup][Your gut churns, pushing a reddish slurry up and out into the sink. Something about the aftertaste is enticing to you, for some reason...][/nomarkup] +1 Hunger. #line:0319c99 
             {$pcName}: [nomarkup][Oh my god... what is happening? Am I dying? What happened last night?!][/nomarkup] #line:0809316 
             [nomarkup][Your thoughts swirl in mesmerizing fractals, like a kaleidoscope of half-baked ideas and jumbled memories - requiring gargantuan effort to sift through and make sense of... But eventually, you are able to reach a conclusion - you're dying. Or not. But you're sure something isn't right.][/nomarkup] #line:0426d08 
-            <<set $pizzaeaten to true>>
             -> [nomarkup][Walk away.][/nomarkup]
 <<else>>
     [nomarkup][The pizza box is empty, but even if it wasn't, you don't think you could stomach another slice.][/nomarkup] #line:066ab92 

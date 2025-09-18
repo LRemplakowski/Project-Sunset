@@ -12,10 +12,11 @@ tags:
 title: PickUpGun
 ---
 <<if Roll("Dexterity","Firearms") >= 3>>
-    {$pcName}: [nomarkup][Good as new.][/nomarkup] +1 Weapon Damage. #success #line:0e1f39e 
+    {$pcName}: [nomarkup][Good as new.][/nomarkup] +1 Weapon Damage. #success #line:0e1f39e
+    -> [nomarkup][Walk away.][/nomarkup] 
 <<else>>
     BANG! [nomarkup][You get careless, putting a bullet hole in the ceiling.][/nomarkup] #failure #line:0c4c45e 
-    {$pcName}: [nomarkup][Definitely not getting my security deposit back.][/nomarkup] #line:094c254 
+    {$pcName}: [nomarkup][Definitely not getting my security deposit back.][/nomarkup] #line:094c254
+    -> [nomarkup][Walk away.][/nomarkup] 
 <<endif>>
--> [nomarkup][Walk away.][/nomarkup]
 ===

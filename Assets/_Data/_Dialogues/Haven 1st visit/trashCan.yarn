@@ -9,12 +9,11 @@ tags:
     {$pcName}: I found our next spot. Club Embassy off the Strip. #line:07e9b7e 
     {$kieran}: [nomarkup][He frowns; you can tell he is surprised.][/nomarkup] Curious... My Sire owns the place, in a sense. #line:02358e5 
     {$pcName}: "...In a sense?" #line:0b89fa3 
-    {$kieran}: I'll share what I know on the way. We need to hurry and investigate; tonight is the first and only chance you will be afforded to prove yourself or die trying. Do not fail, please. You hold more than just your own fate within your hands... #line:03af0d6 
     <<if $coveredinblood == true>>
         {$kieran}: Pardon me, but we wouldn't be allowed within sight of the place, with how you appear. Please, clean yourself up before we depart. I would recommend a quick shower, but... #line:083e315
-        -> [nomarkup][Walk away.][/nomarkup] 
     <<endif>>
     <<CompleteObjective "Q_0P_MAIN_SATURDAY_START" "FIGURE_OUT_WHERE_YOU_WERE">>
+    {$kieran}: I'll share what I know on the way. We need to hurry and investigate; tonight is the first and only chance you will be afforded to prove yourself or die trying. Do not fail, please. You hold more than just your own fate within your hands...
     -> [nomarkup][Walk away.][/nomarkup]
 <<endif>>
 ===

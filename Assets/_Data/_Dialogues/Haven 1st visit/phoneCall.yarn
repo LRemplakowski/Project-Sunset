@@ -46,7 +46,7 @@ tags:
                 [nomarkup][A moment later, and all that remains is the hum of the dial tone. He's hung up.][/nomarkup] #line:0d5cc7b 
                 <<jump AfterPhoneCall>>
             -> [nomarkup][Hang up.][/nomarkup] #line:02470df 
-                [nomarkup][You hear Arthur desperately mutter some syllables before you hang up the line.][/nomarkup] #line:0f17bae 
+                [nomarkup][You hear Arthur desperately mutter some syllables before you hang up the line.][/nomarkup] #line:0f17bae
                 <<jump AfterPhoneCall>>
         -> {$pcName}: [nomarkup][Hang up.][/nomarkup] #line:0d17798 
             [nomarkup][You hear Arthur desperately mutter some syllables before you hang up the line.][/nomarkup] #line:07ea3e2 
@@ -63,6 +63,7 @@ tags:
 [nomarkup][You used to dream about living the quintessential suburban fantasy, with a white-picket fence and two or three kids running around in the backyard, but when it came time to commit to that plan, you weren't ready, and Arthur never pressed.][/nomarkup]
 [nomarkup][Sometimes, you wish he had. At least then, you would have known where things stood before it all fell apart...][/nomarkup] #line:02db9ac 
 {$pcName}: [nomarkup][Ugh.][/nomarkup] #line:0560d2c 
-[nomarkup][Your headache is getting worse by the minute. You rub your fingers against your temple to no avail. You need something to take the edge off.][/nomarkup]  #line:077a6da 
 <<CompleteObjective "Q_0P_MAIN_SATURDAY_START" "ANSWER_PHONE">>
+[nomarkup][Your headache is getting worse by the minute. You rub your fingers against your temple to no avail. You need something to take the edge off.][/nomarkup]  #line:077a6da 
+-> [nomarkup][Hang up.][/nomarkup]
 ===

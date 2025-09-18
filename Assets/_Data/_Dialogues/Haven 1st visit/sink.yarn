@@ -6,7 +6,7 @@ tags:
 <<if $vomit == true>>
     [nomarkup][You forgot the sink was clogged. Your reflection in the water, now tinted red, stares back at you. You look terrible - even more so than usual... Like you're terminally ill.][/nomarkup] #line:0f33850 
     [nomarkup][The idea fills you with dread... How's that possible? Yesterday, you were fine! What's worse is, you can't afford a visit to the ER, either.][/nomarkup]
-    [nomarkup][You have no choice but to wait and hope that it's not as serious as it looks... You're not ready to die.][/nomarkup] #lastline #line:0afd30e 
+    [nomarkup][You have no choice but to wait and hope that it's not as serious as it looks... You're not ready to die.][/nomarkup] #lastline #line:0afd30e
 <<else>>
     [nomarkup][The sink is clogged. Again. You get what you pay for, and this shitty apartment just about cleans you out each time rent is due. It's a pile of crap, but at the very least, it's your pile of crap.][/nomarkup] #lastline #line:0f4b5be 
 <<endif>> 
@@ -14,12 +14,12 @@ tags:
     <<CompleteObjective "Q_0P_FIX_SINK" "REPAIR_SINK">>
     <<GiveItem "IT_Q_BATHROOM_KEY">>  
     <<if Roll("Resolve","Craft") >= (5 - $strangeInsightModifier)>>
-        [nomarkup][As you open up the U-Pipe, what is undeniably cold blood squirts out. The bloody bile looks and feels disgusting on your skin, but despite that fact, you find yourself transfixed by the fluid. You have to put in quite a bit of effort to refocus on unclogging the sink.][/nomarkup] #success #line:0c0b51c 
         <<set $police to true>>
+        [nomarkup][As you open up the U-Pipe, what is undeniably cold blood squirts out. The bloody bile looks and feels disgusting on your skin, but despite that fact, you find yourself transfixed by the fluid. You have to put in quite a bit of effort to refocus on unclogging the sink.][/nomarkup] #success #line:0c0b51c 
     <<else>>
-        [nomarkup][The pipe breaks off into your hands. What is undeniably backed-up blood sprays you soaked. The bloody bile looks and feels disgusting on your skin, but despite that fact, you find yourself transfixed by the fluid. You have to put in quite a bit of effort to refocus on unclogging the sink.][/nomarkup] #failure #line:04f3ed7 
         <<set $coveredinblood to true>>
         <<set $police to true>>
+        [nomarkup][The pipe breaks off into your hands. What is undeniably backed-up blood sprays you soaked. The bloody bile looks and feels disgusting on your skin, but despite that fact, you find yourself transfixed by the fluid. You have to put in quite a bit of effort to refocus on unclogging the sink.][/nomarkup] #failure #line:04f3ed7 
     <<endif>>
     [nomarkup][You find the source of the clog, the Bathroom Key and an... eyeball? Your eyes widen, horrified. How did that get in here? Whose eyeball is this? And most importantly, where are they?][/nomarkup] #line:05f01af 
     {$pcName}: [nomarkup][What the fuck?][/nomarkup] #line:00217e7 
@@ -41,5 +41,4 @@ tags:
         <<else>>
             -> [nomarkup][Walk away.][/nomarkup] #line:0e1b8f6 
         <<endif>>
--> [nomarkup][Walk away.][/nomarkup] #line:009d6b5 
 ===
