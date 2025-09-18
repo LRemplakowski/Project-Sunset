@@ -2,9 +2,11 @@
 tags:
 ---
 <<if GetIsCompanionInParty($kieran) == false>>
-    [nomarkup][You don't have time to watch TV.][/nomarkup] #line:0537fee 
+    [nomarkup][You don't have time to watch TV.][/nomarkup] #line:0537fee
+    -> [nomarkup][Walk away.][/nomarkup] 
 <<else>>
     {$kieran}: ...Disappointing. This will not help your case, nor will it help mine. (-1 Kieran Influence) #line:0d04613
-    <<ModifyInfluence -1 {$kieran}>> 
+    <<ModifyInfluence -1 {$kieran}>>
+    -> [nomarkup][Walk away.][/nomarkup] 
 <<endif>>
 ===

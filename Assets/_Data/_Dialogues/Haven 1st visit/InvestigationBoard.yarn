@@ -8,14 +8,19 @@ tags:
     -> {$pcName}: It's an apartment, not a house. #line:001277b 
         {$kieran}: Please do not bring the conversation here; I do not care for semantic arguments. (-1 Kieran Influence) #line:07e5918
         <<ModifyInfluence -1 {$kieran}>> 
+        -> [nomarkup][Walk away.][/nomarkup]
     -> {$pcName}: This is where I keep track of UFO sightings. #line:08dba13 
         {$kieran}: And yet, you did not see us coming. #line:0762700 
+        -> [nomarkup][Walk away.][/nomarkup]
+    -> [nomarkup][Walk away.][/nomarkup]
 <<else>>
     [nomarkup][Your investigation board is empty save for a blank map of the city, some scribbled notes, and the overdue bills you've posted as fearful motivation. Hopefully, things will pick up soon.][/nomarkup] #line:0dafacf 
     <<if GetAttributeSkillPoolSize("Intelligence","Finance") <= 3>>
         [nomarkup][You don't know much about budgeting, and it shows.][/nomarkup] #line:074d29c 
+        -> [nomarkup][Walk away.][/nomarkup]
     <<else>>
         [nomarkup][You have about a month and a half - maybe two - of savings left before you'll have had to choose between eating and keeping the lights on.][/nomarkup]   #line:07febb4 
+        -> [nomarkup][Walk away.][/nomarkup]
     <<endif>>
 <<endif>>
 ===
