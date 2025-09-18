@@ -2,10 +2,11 @@
 tags: 
 ---
 [nomarkup][You drive through Vegas streets. Kieran is a cautious driver adhering to the traffic rules to the letter. He looks a little bit tense. You have time to relax, or talk.][/nomarkup] #line:05cc647 
--> {$pcName}: Kieran May I ask you some questions? #line:0e614f7 
+-> {$pcName}: Kieran may I ask you some questions? #line:0e614f7 
     <<jump askQuestions>>
 -> [nomarkup][Stay silent.][/nomarkup] #line:011080e 
 [nomarkup][You see neon lights coming closer and closer. Time for questions is over. You take a deep breath in anticipation for what is to come. You hope that you find answers to your questions there before someone kills you.][/nomarkup] #line:0789e4e 
+-> [nomarkup][End dialogue.][nomarkup]
 ===
 title: askQuestions
 ---
@@ -44,8 +45,6 @@ title: questionsKieran
     <<jump kieransSire>>
 -> {$pcName}: If we'll be partners, even temporarily I would like to know more about you. #line:0350c77 
     <<jump wantToKnowMoreAboutKieran>>
--> {$pcName}: I think that some thanks are in order. <<if CustomVisited("thanks") ==false>> #line:02f65bf 
-    <<jump thanks>>
 -> {$pcName}: Maybe later. #line:064e3db 
     {$kieran}: OK, it's not like I'm going anywhere. #line:0ab9942 
 ===
@@ -165,16 +164,6 @@ title: wantToKnowMoreAboutKieran
 ---
 {$kieran}: Sorry Desiree, but it will have to wait. It is unimportant right now. Not that I do not enjoy chatting about myself. #line:08eb29b #lastline
 <<jump questionsKieran>>
-===
-title: thanks
----
-{$kieran}: Let's not get ahead of ourselves. We still need to pull through with a sound conclusion to this investigation of ours. The last thing I want is to become Dominic's target practice. #line:08824dc 
-    -> {$pcName}: I bet. And me neither. Just the thought of it is painful. Lead pellets have to be excruciating -  especially with that hand cannon of his. #line:08988b5 
-        {$kieran}: Well then? Let's get to it. #line:07dd22c 
-        -> {$pcName}: Wait, I have some questions! #line:0d68850
-            {$kieran}: [nomarkup][He sighs a little allowing himself to glance at you instead of the road before his gaze goes back to grey asphalt sprinkled with gold light of the street.][/nomarkup] Okay, ask away then. #lastline
-                <<jump questionsKieran>>
-        -> {$pcName}: Yeah, let's do it.
 ===
 title: occultQuestions
 ---
