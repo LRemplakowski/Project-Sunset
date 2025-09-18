@@ -36,7 +36,7 @@ position: -906,-1095
     <<jump bookcaseTV>>
 -> [nomarkup][Turn on the radio.][/nomarkup] <<if CustomVisited("bookcaseRadio") == false>> #line:0f01e3f 
     <<jump bookcaseRadio>>
--> [nomarkup][Examine Poe's book.][/nomarkup] #line:0de685b 
+-> [nomarkup][Examine Poe's book.][/nomarkup] <<if CustomVisited("bookcaseExcamineNormal") == true>> #line:0de685b 
     <<jump poeBookExamine>>
 -> [nomarkup][Step back.][/nomarkup] #line:02ac943 
 ===
@@ -96,7 +96,7 @@ position: -1628,-1244
     [nomarkup][You don't think you'll find anything else in this book... You put it back on the shelf.][/nomarkup] #line:0898f9f #lastline
 <<else>>
     <<set $safeFailCounter to inc($safeFailCounter)>>
-    -> [nomarkup][On second thought, I don't want to look at this dusty, old book.][/nomarkup]
+    [nomarkup][On second thought there is nothing interesting about that book.][/nomarkup]
 <<endif>>
 <<jump bookcaseInteractions>>
 ===
@@ -108,7 +108,7 @@ position: 2202,1634
 [nomarkup][Maybe it's you, or maybe it's here for a reason. None of the other books on the shelves are anthologies. Not to mention poems or similar.][/nomarkup] #line:09ca8e2 
 -> [nomarkup][Open the book.][/nomarkup] #line:0738468 
 [nomarkup][You open the book and search through it. The short story which gives the anthology its name is marked. From what you recall from English lessons, this one was about deciphering a message leading to a hidden treasure.][/nomarkup] #line:0499b1a 
-<<if $safeDiscovered ==true>>
+<<if $safeDiscovered == true>>
     <<jump poeBookExamine>>
 <<else>>
     [nomarkup][It's probably just a circumstancial book laying around. You put it back at its place.][/nomarkup] #lastline #line:03915d7 
@@ -330,7 +330,7 @@ position: 270,1119
 title: poeExamineFailureAwareness
 position: -173,1699
 ---
-[nomarkup][You look around - even under the shelf. You find nothing relevant to the current search.][/nomarkup] #lastline #line:06936b9 
+[nomarkup][You look around - even under the shelf. You find nothing relevant to the current search.][/nomarkup] #failure #lastline #line:06936b9 
 <<jump poeBookExamineQuestions>>
 ===
 title: poeExamineAthleticsRoll

@@ -12,6 +12,7 @@ position: -273,-1167
 title: paintingsInteractions
 position: -225,-696
 ---
+[nomarkup][This afront to the art still hangs on the wall.][/nomarkup]
 -> [nomarkup][Examine the paintings more closely.] (Resolve+Awareness)[/nomarkup] <<if CustomVisited("paintingAwarenessRoll") == false>> #line:0d08a4a 
     <<jump paintingAwarenessRoll>>
 -> [nomarkup][Try to dig up some information about art trade from your brain.] (Intelligence+Finance)[/nomarkup] <<if CustomVisited("paintingIntelligenceRoll") == false>> #line:0770fad 
@@ -183,8 +184,8 @@ position: 1740,623
 <<set $safeCode to true>>
 <<set $vibrantVistas to true>>
 [nomarkup][You squat and squint your eyes trying to read what is written on the piece of paper glued to the canvas.][/nomarkup] #line:08877b9 
-[nomarkup][It looks quite new. Maybe a bit yellowed. The text indicates that it was bought in the Vibrant Vistas Gallery in the Arts District. It also says that this particular piece was bought on the 17th of June, 1969.][/nomarkup] #line:06c123e 
-{$kieran}: Vibrant Vistas Gallery... The address... I believe it's somewhere in the Arts District. And the date:the 17th of June, 1969. This is probably when it was bought. #line:0d53691 
+[nomarkup][It looks quite new. Maybe a bit yellowed. The text indicates that it was bought in the Vibrant Vistas Gallery. It also says that this particular piece was bought on the 17th of June, 1969.][/nomarkup] #line:06c123e 
+{$kieran}: Vibrant Vistas Gallery... The address... I believe it's somewhere around downtown. And the date:the 17th of June, 1969. This is probably when it was bought. #line:0d53691 
 <<if GetIsPartyMemberRecruited($anastasia) is true and CustomVisited("paintingsDestroyed") == true>>
     {$anastasia}: Great! Now we know where we can find more art to tear into. [nomarkup][She chuckles.][/nomarkup] #line:05774dc 
 <<endif>>
@@ -216,7 +217,7 @@ position: 748,-378
 [nomarkup][Kieran's voice jolts you back into the land of the living - and indisputably conscious.][/nomarkup] #line:0cc506c 
 {$kieran}: Are you alright? You seemed... transfixed. Did you notice something about the art? #line:0d4385d 
 -> {$pcName}: No, but I think I have an opinion about this piece. #line:05806b8
-<<if GetIsPartyMemberRecruited($anastasia)>>
+<<if GetIsPartyMemberRecruited($anastasia) is true>>
     <<jump paintingsOpinion>>
 <<else>>
     {$kieran}: I do not believe now is the proper time for art connoisseurship.

@@ -5,9 +5,9 @@ position: -177,-434
 <<if $safeFailCounter >= 4>>
     <<jump beastOpens>>
 <<else>>
-    -> [nomarkup][Try to open the safe without combination.][Resolve + Larceny][/nomarkup] <<if CustomVisited("safeResolveRoll") == false>> #line:05d4917 
+    -> [nomarkup][Try to open the safe without combination.][Resolve + Larceny][/nomarkup] #line:05d4917 
         <<jump safeResolveRoll>>
-    -> [nomarkup][Try to pry open the safe.][Strength + Larceny][/nomarkup] <<if CustomVisited("safeStrengthRoll") == false and GetHasItem("IT_WPN_ML_CROWBAR") == true>> #line:03cddc8 
+    -> [nomarkup][Try to pry open the safe.][Strength + Larceny][/nomarkup] <<if GetHasItem("IT_WPN_ML_CROWBAR") == true>> #line:03cddc8 
         <<jump safeStrengthRoll>>
     -> [nomarkup][Open the safe with a 1966 combination.][/nomarkup] <<if $satanDate == true and CustomVisited("safeSatan") == false>> #line:08271ae 
         <<jump safeSatan>>
@@ -139,6 +139,7 @@ Lucia #line:00d2b26
     {$anastasia}: [nomarkup][She pumps her fist in the air with a loud, enthusiastic whoop.][/nomarkup] FINALLY! Some action! #line:064ec68 
 <<endif>>
 {$kieran}: That didn't sound good... We need to leave. Now. [nomarkup][Kieran looks concerned.][/nomarkup] #line:0cb4a25 
+-> [nomarkup][Walk away.][/nomarkup]
 ===
 title: safeBloodIdentified
 position: -266,539
@@ -222,12 +223,14 @@ position: -284,185
 title: safeResolveFailure
 position: 288,-1086
 ---
+<<set $safeFailCounter to inc($safeFailCounter)>>
 [nomarkup][Despite your best efforts, you give up after several minutes of fruitless fiddling with the safe. It is still locked tightly, and it will remain so until you find a safe combination that works.][/nomarkup] #failure #line:0b8b221 
 <<jump safeExamine>>
 ===
 title: safeStrenghtFailure
 position: -434,-89
 ---
+<<set $safeFailCounter to inc($safeFailCounter)>>
 [nomarkup][Despite your best efforts, you give up after several minutes of fruitless conflict with the door to the safe. It is still locked tightly, and it will remain so until you find a safe combination that works.][/nomarkup] #failure #line:050d36f 
 <<jump safeExamine>>
 ===
