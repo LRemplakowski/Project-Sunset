@@ -23,19 +23,20 @@ position: -509,-433
 title: evacuateIntSuccess
 position: -510,-224
 ---
-[nomarkup][Determining where not to be can be just as important as moving silently. Having seen the patterns of their movement, you are able to easily pick out a path to the backdoor that completely avoids the insurgency.][/nomarkup] #line:0a8fccb 
+[nomarkup][Determining where not to be can be just as important as moving silently. Having seen the patterns of their movement, you are able to easily pick out a path to the backdoor that completely avoids the insurgency.][/nomarkup] #success #line:0a8fccb 
 <<set $bestPathFound to 1>>
 <<jump evacuateAdditional>>
 ===
 title: evacuateIntFailure
 position: -166,-433
 ---
-[nomarkup][There isn't any rhyme or reason to how these assailants move and strike - at least, not that you can discern.][/nomarkup] #line:05c4a7e 
+[nomarkup][There isn't any rhyme or reason to how these assailants move and strike - at least, not that you can discern.][/nomarkup] #failure #line:05c4a7e 
 <<jump evacuateAdditional>>
 ===
 title: evacuateAdditional
 position: -152,-219
 ---
+[nomarkup][One thing is for sure - you can't stay here forever.][/nomarkup]
 -> [nomarkup][Sneak to the exit.] (Dexterity+Stealth)[/nomarkup] #line:074b1d5 
     <<jump evacuateDexRoll>>
 -> [nomarkup][Sprint to the exit.] (Stamina+Athletics)[/nomarkup] #line:08c56aa 
@@ -54,6 +55,7 @@ title: evacuateDexSuccess
 position: -354,280
 ---
 [nomarkup][Staying out of sight as wood chips fly overhead, you carefully pick your way towards the back of the club. The crackle of music filters in from the overturned TV, making your steps inaudible between it and the intermittent gunfire as you carefully navigate your way to the Alley Door.][/nomarkup] #success #line:0744b80 
+-> [nomarkup][Exit Embassy.][/nomarkup]
 ===
 title: evacuateDexFailure
 position: 25,271
@@ -73,8 +75,10 @@ position: 189,-192
 title: evacuateStamSuccess
 position: 539,-208
 ---
-[nomarkup][Moving quickly without caring if you are seen, you race through the club as a spray of bullets tail you. Swiftly moving in and out of cover, your mad dash proves a success as you reach the Alley Door.][/nomarkup] #success #line:09f8fe6 
+[nomarkup][Moving quickly without caring if you are seen, you race through the club as a spray of bullets tail you.][/nomarkup] #success #line:09f8fe6 
 <<set $ranForIt to 1>>
+[nomarkup][Swiftly moving in and out of cover, your mad dash proves a success as you reach the Alley Door.][/nomarkup]
+-> [nomarkup][Exit Embassy.][/nomarkup]
 ===
 title: evacuateStamFailure
 position: 374,33

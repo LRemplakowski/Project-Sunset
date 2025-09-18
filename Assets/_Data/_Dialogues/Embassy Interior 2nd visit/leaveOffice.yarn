@@ -5,7 +5,7 @@ position: -62,-258
 [nomarkup][You turn the doorknob, nudging the wooden barrier to entry open just the tiniest bit - enough for you to peek your head out and look around.][/nomarkup] #line:0a4c9db 
 -> [nomarkup][Scan the lounge from your spot here.][/nomarkup] #line:08c8e17 
     <<jump peekWitsRoll>>
--> [nomarkup][Peek your head out to get a better look.] (Wits+Awareness)[/nomarkup] #line:0bcb09e 
+-> [nomarkup][Peek your head out to get a better look.] (Resolve+Composure)[/nomarkup] #line:0bcb09e 
     <<jump peekResolveRoll>>
 -> [nomarkup][Go in blind. What's the worst that could happen?][/nomarkup] #line:00ec683 
     <<jump urraNaMintarn>>
@@ -43,7 +43,7 @@ position: 133,-46
 title: peekResolveSuccess
 position: 370,249
 ---
-[nomarkup][As you peer out around the bar, your eyes turn towards what windows and small reflective surfaces remain unbroken, surveying your surroundings as best you can in such a low-visibility environment. It looks like you can make it to the Alley Door, if you're fast.][/nomarkup] #line:01124df 
+[nomarkup][As you peer out around the bar, your eyes turn towards what windows and small reflective surfaces remain unbroken, surveying your surroundings as best you can in such a low-visibility environment. It looks like you can make it to the Alley Door, if you're fast.][/nomarkup] #success #line:01124df 
 <<if Roll ("Wits","Streetwise")>=4>>
     [nomarkup][You catch a glimpse of a few of the assailants in the washed out, smokey lighting of the Embassy. One of them, a tall person with tanned skin and long brown hair, isn't carrying a gun. Their eyes are narrowed as they saunter through the club without an ounce of visible fear of being shot. They have a strikingly beautiful profile, though what catches your interest in that moment is the sacred heart tattoo on their neck, and the raise of one corner of their lips in a smirk. They shout something - almost catching your eyes before you duck down behind cover again.][/nomarkup] #line:0c08dce 
     <<set $tattooSpotter to true>>
@@ -61,7 +61,7 @@ position: 370,249
 title: peekResolveFailure
 position: 159,181
 ---
-[nomarkup][Peeking out for just a moment, you feel a slight breeze next to your ear and an impact somewhere behind you - ducking down instinctively behind cover to compose yourself after that bullet nearly grazed you.][/nomarkup] #line:0bdce8d 
+[nomarkup][Peeking out for just a moment, you feel a slight breeze next to your ear and an impact somewhere behind you - ducking down instinctively behind cover to compose yourself after that bullet nearly grazed you.][/nomarkup] #failure #line:0bdce8d 
 <<jump urraNaMintarn>>
 ===
 title: urraNaMintarn
@@ -80,4 +80,6 @@ position: -125,683
     {$kieran}: Just remember, people can always surprise you, Anastasia. #line:0c93df5 
     {$anastasia}: [nomarkup][She blinks, staring at Kieran for a beat or two with wide eyes - muzzle fire harshly lighting the side of her face, which is then split by a smirk yet again.][/nomarkup] You just might... Kieran. Alright, let's move! #line:08dac9f 
 <<endif>>
+{$beast}: If I'm fast enough I can make it! Besides, I have to meatshields with me.
+-> [nomarkup][Run!][/nomarkup]
 ===

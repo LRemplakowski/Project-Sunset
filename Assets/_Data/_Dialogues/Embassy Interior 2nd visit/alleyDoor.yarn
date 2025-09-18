@@ -7,7 +7,7 @@ position: -34,-179
     <<jump alleyDexRoll>>
 -> [nomarkup][Let the door close.][/nomarkup] #line:0f97cb6 
     <<if $carryingNPC == 1>>
-    [nomarkup][You place the doe-eyed, injured man down gently before taking on the door.][/nomarkup] #line:0adab75 
+        [nomarkup][You place the doe-eyed, injured man down gently before taking on the door.][/nomarkup] #line:0adab75 
     <<endif>>
     <<jump alleyDoorForcing>>
 ===
@@ -57,6 +57,7 @@ title: alleyDoorForcingStrSuccess
 position: 1104,145
 ---
 [nomarkup][Thinking quickly, you grab the door handle and ram your shoulder against the door, shoving it open and following it into the alleyway.][/nomarkup] #success #line:0aba7e0 
+-> [nomarkup][Exit Embassy.][/nomarkup]
 ===
 title: alleyDoorForcingStrFailure
 position: 840,355
@@ -81,6 +82,7 @@ title: alleyDoorForcingMeleeSuccess
 position: 151,624
 ---
 [nomarkup][Thinking quickly, you pull out your trusty crowbar, prying open the door before shoving it open the rest of the way into the alley.][/nomarkup] #success #line:00e554a 
+-> [nomarkup][Exit Embassy.][/nomarkup]
 ===
 title: alleyDoorForcingMeleeFailure
 position: 510,607
@@ -94,13 +96,15 @@ position: 619,930
 <<if GetIsPartyMemberRecruited($anastasia) is true>>
     {$anastasia}: Seems like you're having some trouble, there. Let me. Oh, and step back a little. #line:0a8164e 
     {$anastasia}: [nomarkup][She saunters up to the metal door, giving it one singular side kick - strong enough to bust the door wide open, as well as place a hefty dent in the metal.][/nomarkup] Voila. Open sesame, or whatever the fuck. #line:03c078f 
+    -> [nomarkup][Exit Embassy.][/nomarkup]
 <<else>>
-{$kieran}: Since it seems we have no other option, I must step up. [nomarkup][He produces a pocket knife, bringing the blade up to his palm and wrist - making several criss-crossing incisions so that his hand and several inches of his forearm are coated in blood. Then, approaching the doorway, he smears an area of the metal barrier close to the doorknob in blood, before removing his hand.][/nomarkup] Don't touch anything. Not for a few minutes. #line:0a155b6 
-[nomarkup][As you wait, before your very eyes, the door corrodes, slowly reducing the metal into steaming sludge, and leaving a hole wide enough for you to stick your arm through.][/nomarkup] #line:0cbabb2 
--> {$pcName}: What now? #line:0d0cf9d 
-{$kieran}: Well, you should be able to reach the doorknob on the other side and turn it, now, opening the door. #line:05a0237 
--> {$pcName}: [nomarkup][Phew. That's a relief.][/nomarkup] And lemme guess: You can't teach this to me, either? #line:02a361d 
-{$kieran}: [nomarkup][He chuckles.][/nomarkup] My, you do catch on quickly, miss Bardot. But we should get moving. After you... #line:00c61c9 
-[nomarkup][With some apprehension, you reach your arm through the hole eaten in the metal, feeling around for the doorknob on the other side. Once you have it, though, freedom is only a quick turn and a push away, as you step into the alleyway.][/nomarkup] #line:0c54a76 
+    {$kieran}: Since it seems we have no other option, I must step up. [nomarkup][He produces a pocket knife, bringing the blade up to his palm and wrist - making several criss-crossing incisions so that his hand and several inches of his forearm are coated in blood. Then, approaching the doorway, he smears an area of the metal barrier close to the doorknob in blood, before removing his hand.][/nomarkup] Don't touch anything. Not for a few minutes. #line:0a155b6 
+    [nomarkup][As you wait, before your very eyes, the door corrodes, slowly reducing the metal into steaming sludge, and leaving a hole wide enough for you to stick your arm through.][/nomarkup] #line:0cbabb2 
+    -> {$pcName}: What now? #line:0d0cf9d 
+        {$kieran}: Well, you should be able to reach the doorknob on the other side and turn it, now, opening the door. #line:05a0237 
+    -> {$pcName}: [nomarkup][Phew. That's a relief.][/nomarkup] And lemme guess: You can't teach this to me, either? #line:02a361d 
+        {$kieran}: [nomarkup][He chuckles.][/nomarkup] My, you do catch on quickly, miss Bardot. But we should get moving. After you... #line:00c61c9 
+        [nomarkup][With some apprehension, you reach your arm through the hole eaten in the metal, feeling around for the doorknob on the other side. Once you have it, though, freedom is only a quick turn and a push away, as you step into the alleyway.][/nomarkup] #line:0c54a76 
+        -> [nomarkup][Exit Embassy.][/nomarkup]
 <<endif>>
 ===
