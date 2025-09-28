@@ -21,6 +21,7 @@ position: -7,-309
         <<set $drinkSuccess to true>>
         [nomarkup][You watch the bartender as he pours your drink and notice that it takes him a little longer than it usually would to pour. It actually looks like he's giving you a double.][/nomarkup] #line:0b9def3 
     <<endif>>
+    Bartender: [nomarkup][Bartender gives you your drink with a smile.][/nomarkup] Enjoy.
     -> {$pcName}: You're a regular here? #line:0ac9369 
     <<jump iBuyYouADrink>>
 ===
@@ -90,10 +91,17 @@ position: -330,889
 -> [nomarkup][Cheers her.][/nomarkup] #line:0bde5b0 
     <<set $numberOfDrinks to ($numberOfDrinks+1)>>
     [nomarkup][You take a sip of your drink and feel the warmth of alcohol on your tongue. It's nice to be recognized for your work, no one else is fucking doing that.][/nomarkup] #line:0751567 
+    <<jump dianaAnswers>>
 -> [nomarkup][Salute back.][/nomarkup] #line:0ef6553 
-    [nomarkup][You tip your glass to Diana and she clinks hers against it. With a laugh you set it back on the bar and give her a little nod.][/nomarkup] #line:002e636 
--> {$pcName}: You have no idea how good that is to hear. I feel like I've been catching nothing but losses ever since. Sometimes I wonder if it was even worth it at all. #line:08b0bcb 
-{$diana}: [nomarkup][She winks at you.][/nomarkup] Babes I know a little something about how it feels to have good work go unrecognized. I'm not sure how much you're willing to talk about but love, really - it opened my eyes to a lot of things going on in the world. Made me realize some things about myself. I'm betting you don't want to talk about it but you got a fan in me, Desiree. #line:0a698b5 
+    [nomarkup][You tip your glass to Diana and she clinks hers against it. With a laugh you set it back on the bar and give her a little nod.][/nomarkup] #line:002e636
+    <<jump dianaAnswers>>
+-> {$pcName}: You have no idea how good that is to hear. I feel like I've been catching nothing but losses ever since. Sometimes I wonder if it was even worth it at all. #line:08b0bcb
+    <<jump dianaAnswers>>
+===
+title: dianaAnswers
+---
+{$diana}: [nomarkup][She winks at you.][/nomarkup] Babes I know a little something about how it feels to have good work go unrecognized. I'm not sure how much you're willing to talk about but love, really - it opened my eyes to a lot of things going on in the world. Made me realize some things about myself.
+{$diana}: I'm betting you don't want to talk about it but you got a fan in me, Desiree. #line:0a698b5 
 {$diana}: [nomarkup][She runs her finger around the rim of her glass.][/nomarkup] Sometimes someone writes something that makes you take a long hard look at yourself and ask - is this it? Am I happy with the corruption, the lies, and the endless uphill battle to get something good? Is this all I have to look forward to? A couple hours with someone to make things feel less hopeless? #line:0f7dce6 
 -> [nomarkup][Try not to show your feelings.] (Composure + Subterfuge)[/nomarkup] #line:0c2092e 
     <<if Roll("Composure","Subterfuge") >=3>>
@@ -104,7 +112,8 @@ position: -330,889
         -> [nomarkup][Don't take a sip of your drink.][/nomarkup] #line:06b369b 
             [nomarkup][You push down the urge to way that feeling away staring at the counter. Wishing she hadn't said that.][/nomarkup] #line:02c2c66 
     <<else>>
-        [nomarkup][You feel a hollow in your throat when she says that, unknowingly voicing the reason you came here to drink in the first place. You close your eyes and try to forget that feeling, raising your glass to your lips and downing everything inside. Your mind flickers to the countless bills sitting on your counter, stacks of notices about having to pay for damages. Notices from other journalists' boards that they'll be taking your license and removing you from their boards. Raising your hand to the bartender for another and try to bury the shame in another drink.][/nomarkup] #line:0f96918 
+        [nomarkup][You feel a hollow in your throat when she says that, unknowingly voicing the reason you came here to drink in the first place. You close your eyes and try to forget that feeling, raising your glass to your lips and downing everything inside.][/nomarkup] #failure
+        [nomarkup][Your mind flickers to the countless bills sitting on your counter, stacks of notices about having to pay for damages. Notices from other journalists' boards that they'll be taking your license and removing you from their boards. Raising your hand to the bartender for another and try to bury the shame in another drink.][/nomarkup]  #line:0f96918 
         <<set $numberOfDrinks to ($numberOfDrinks+2)>>
     <<endif>>
 <<jump dianaTalkCont>>

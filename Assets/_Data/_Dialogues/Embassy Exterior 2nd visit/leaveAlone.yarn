@@ -41,7 +41,7 @@ position: 304,386
 title: bartenderChaFailure
 position: 92,383
 ---
-[nomarkup][You take your license from the bartender who rings up your tab. He immediately disappears into the staff-only area.][/nomarkup] #line:0b169a5 
+[nomarkup][You take your license from the bartender who rings up your tab. He immediately disappears into the staff-only area.][/nomarkup] #failure #line:0b169a5 
 <<jump dianaContinues>>
 ===
 title: bartenderIntRoll
@@ -121,7 +121,7 @@ position: 140,1504
 title: drugOvercomeFailure
 position: 856,2051
 ---
-[nomarkup][You find your head resting against your knees as prickles of hair brush against your face.][/nomarkup] #line:0f84d46 
+[nomarkup][You find your head resting against your knees as prickles of hair brush against your face.][/nomarkup] #failure #line:0f84d46 
 {$diana}: Come on. #line:0f7d324 
 -> {$pcName}: Why...? #line:076b299 
 {$diana}: It's what Lucia... Why am I answering that. #line:01f990f 
@@ -155,7 +155,7 @@ title:drugOvercomeSuccess2
 position: 140,1923
 ---
 //pc gest drunk anims as he makes several steps//
-[nomarkup][You stagger through the club as you're bounced between bodies feeling your vision get more and more hazy. The lights are so bright and they're blinding you.][/nomarkup] #line:0471e23 
+[nomarkup][You stagger through the club as you're bounced between bodies feeling your vision get more and more hazy. The lights are so bright and they're blinding you.][/nomarkup] #success #line:0471e23 
 {$diana}: Just relax. #line:0e483ed 
 -> {$pcName}: Fuck you. Fuck... Fuck you. #line:0acc94a 
 //fade to black//
@@ -169,7 +169,7 @@ title:drugOvercomeSuccess3
 position: 138,2132
 ---
 //PC is in back alley lying on the ground next to the black van//
-[nomarkup][Your hand presses onto something cold and metallic and you push, hard, on whatever it is. You have to close your eyes against the intensity of the headlights flashing. Where are you?][/nomarkup] #line:07c85c4 
+[nomarkup][Your hand presses onto something cold and metallic and you push, hard, on whatever it is. You have to close your eyes against the intensity of the headlights flashing. Where are you?][/nomarkup] #success #line:07c85c4 
 {$diana}: Oh shit - Desiree! #line:063aea1 
 -> {$pcName}: Wha-what the fuck is... what's happening...? #line:0a00823 
 //fade to black//
@@ -183,7 +183,7 @@ title: drugOvercomeSuccess4
 position: 140,2337
 ---
 //PC is in the black van, that goes through the streets//
-[nomarkup][You lead against a wall and close your eyes feeling your legs go weak. You keep pushing yourself... forward. A muffled voice can be heard above you.][/nomarkup] #line:07c5416 
+[nomarkup][You lead against a wall and close your eyes feeling your legs go weak. You keep pushing yourself... forward. A muffled voice can be heard above you.][/nomarkup] #success #line:07c5416 
 -> {$pcName}: W-who's there - what? Where am... I? #line:0ff10bc 
 <<jump drugOvercomeFailure>>
 ===

@@ -61,15 +61,18 @@ position: 198,-318
 title: cigSuccess
 position: 399,-656
 ---
-[nomarkup][You smoke with Diego. This will buy you some time. There is a wedding ring on his right hand.][/nomarkup] #line:0f37119 
--> {$pcName}: I'm Des, nice to meet you. <<if CustomVisited("introduction") == false>> #line:036f294 
-    <<jump introduction>>
--> {$pcName}: Are you married? I see a wedding ring on your finger. <<if CustomVisited("married") == false>> #line:0a38f95 
-    <<jump married>>
--> {$pcName}: Nice scar. I bet it has a good story behind it. <<if CustomVisited("scar") == false>> #line:024876f 
-    <<jump scar>>
-[nomarkup][There's nothing that comes to your mind. You stare at each other in silence.][/nomarkup]
-<<jump interactions>>
+<<if CustomVisited("introduction") && CustomVisited("married") && CustomVisited("scar")>>
+    [nomarkup][There's nothing that comes to your mind. You stare at each other in silence.][/nomarkup]
+    <<jump interactions>>
+<<else>>
+    [nomarkup][You smoke with Diego. This will buy you some time. There is a wedding ring on his right hand.][/nomarkup] #line:0f37119
+    -> {$pcName}: I'm Des, nice to meet you. <<if CustomVisited("introduction") == false>> #line:036f294 
+        <<jump introduction>>
+    -> {$pcName}: Are you married? I see a wedding ring on your finger. <<if CustomVisited("married") == false>> #line:0a38f95 
+        <<jump married>>
+    -> {$pcName}: Nice scar. I bet it has a good story behind it. <<if CustomVisited("scar") == false>> #line:024876f 
+        <<jump scar>>
+<<endif>>
 ===
 title: introduction
 position: 843,-750

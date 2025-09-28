@@ -61,7 +61,7 @@ position: -343,68
 [nomarkup][Your frustration grows. It seems like everyone is forgetting that YOU are the one who died today. Not Kieran. And they keep talking like you aren't here.][/nomarkup] #line:0fc4322 
 -> {$pcName}: HER NAME IS LUCIA. (Charisma + Intimidation) #line:00fd705 
     <<jump herNameChaRoll>>
--> [nomarkup][Maintain your cool.] (Composure + Leadership)[nomarkup] #line:0fa95ff 
+-> [nomarkup][Maintain your cool.] (Composure + Resolve)[/nomarkup] #line:0fa95ff 
     <<jump keepCoolCompRoll>>
 ===
 title: herNameChaRoll
@@ -103,7 +103,7 @@ position: 269,248
 title: keepCoolCompRoll
 position: 676,151
 ---
-<<if Roll("Composure","Leadership") >=3>>
+<<if Roll("Composure","Resolve") >=3>>
     <<jump keepCoolCompSuccess>>
 <<else>>
     <<jump keepCoolCompFailure>>
