@@ -31,6 +31,12 @@ namespace SunsetSystems.ActionSystem
             gridInstance.HandleCombatantMovedIntoGridCell(context.SourceCombatBehaviour, gridCell);
         }
 
+        public override void Cleanup()
+        {
+            base.Cleanup();
+            navigationManager.StopMovement();
+        }
+
         public override void Begin()
         {
             navigationManager.SetNavigationTarget(destination);

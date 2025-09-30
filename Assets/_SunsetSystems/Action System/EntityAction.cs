@@ -47,29 +47,27 @@ namespace SunsetSystems.ActionSystem
         public virtual void Cleanup()
         {
             conditions.Clear();
-            ActionFinished = true;
         }
 
         public virtual void Abort()
         {
-            conditions.Clear();
             ActionCanceled = true;
         }
 
         public virtual bool EvaluateAction()
         {
-            if (ActionFinished || ActionCanceled)
-                return true;
             if (conditions.Count == 0)
             {
                 Debug.LogError("Aborting action, no conditions present");
                 Abort();
-                return true;
             }
-            ActionFinished = conditions.All(c => c.IsMet());
-            if (ActionFinished)
+            else
+            {
+                ActionFinished = conditions.All(c => c.IsMet());
+            }
+            if (ActionFinished || ActionCanceled)
                 Cleanup();
-            return ActionFinished;
+            return ActionFinished || ActionCanceled;
         }
 
         public override string ToString()

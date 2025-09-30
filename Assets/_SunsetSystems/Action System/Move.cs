@@ -49,6 +49,7 @@ namespace SunsetSystems.ActionSystem
         public override void Cleanup()
         {
             base.Cleanup();
+            navigationManager.StopMovement();
             OnMovementFinished?.Invoke(this.Owner);
         }
 
