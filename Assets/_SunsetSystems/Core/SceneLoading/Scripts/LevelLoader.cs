@@ -40,6 +40,7 @@ namespace SunsetSystems.Core.SceneLoading
         {
             await loadingScreenUI.DoFadeOutAsync(loadingCrossfadeTime / 2f);
             await new WaitForUpdate();
+            OnAfterScreenFadeOut?.Invoke();
             loadingCamera.gameObject.SetActive(true);
             OnBeforePersistentDataCache?.Invoke();
             SaveLoadManager.UpdateRuntimeDataCache();
@@ -59,6 +60,7 @@ namespace SunsetSystems.Core.SceneLoading
             loadingCamera.gameObject.SetActive(false);
             loadingScreenUI.DisableLoadingScreen();
             await new WaitForSeconds(.1f);
+            OnBeforeScreenFadeIn?.Invoke();
             await loadingScreenUI.DoFadeInAsync(loadingCrossfadeTime / 2f);
         }
 
@@ -73,6 +75,7 @@ namespace SunsetSystems.Core.SceneLoading
         {
             await loadingScreenUI.DoFadeOutAsync(loadingCrossfadeTime / 2f);
             await new WaitForUpdate();
+            OnAfterScreenFadeOut?.Invoke();
             loadingCamera.gameObject.SetActive(true);
             OnLevelLoadStart?.Invoke();
             loadingScreenUI.EnableAndResetLoadingScreen();
@@ -92,6 +95,7 @@ namespace SunsetSystems.Core.SceneLoading
             loadingCamera.gameObject.SetActive(false);
             loadingScreenUI.DisableLoadingScreen();
             await new WaitForSeconds(.1f);
+            OnBeforeScreenFadeIn?.Invoke();
             await loadingScreenUI.DoFadeInAsync(loadingCrossfadeTime / 2f);
         }
 
