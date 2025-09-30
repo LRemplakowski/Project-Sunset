@@ -270,6 +270,11 @@ namespace SunsetSystems.Party
             return TryRemoveMemberFromActiveRoster(partyMember.References.CreatureData.DatabaseID);
         }
 
+        public bool TryRemoveMemberFromActiveRoster(CreatureConfig memberTemplate)
+        {
+            return TryRemoveMemberFromActiveRoster(memberTemplate.DatabaseID);
+        }
+
         public object GetSaveData()
         {
             _cachedPartyTemplates = UpdatePartyTemplates();
