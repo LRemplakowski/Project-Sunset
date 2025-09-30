@@ -59,6 +59,8 @@ namespace SunsetSystems.Party
 
         private bool _initializeAtSavedPositions = false;
 
+        public bool IsInitialized { get; private set; } = false;
+
         private string[] GetLayerNames()
         {
             return Enumerable.Range(0, 31).Select(index => LayerMask.LayerToName(index)).Where(layerName => !string.IsNullOrEmpty(layerName)).ToArray();
@@ -75,6 +77,7 @@ namespace SunsetSystems.Party
         protected void Awake()
         {
             Instance = this;
+            IsInitialized = false;
             ISaveable.RegisterSaveable(this);
             _activeCoterieMemberKeys.AddRange(_activeParty.Keys);
         }
@@ -118,11 +121,12 @@ namespace SunsetSystems.Party
             }
             else
             {
-                InitializePartyInCreatureStorage();
+                await InitializePartyInCreatureStorage();
             }
+            IsInitialized = true;
         }
 
-        private async void InitializePartyInCreatureStorage()
+        private async Awaitable InitializePartyInCreatureStorage()
         {
             foreach (string key in Instance._activeCoterieMemberKeys)
             {
