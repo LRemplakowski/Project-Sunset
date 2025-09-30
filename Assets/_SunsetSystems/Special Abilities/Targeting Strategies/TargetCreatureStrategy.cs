@@ -130,9 +130,9 @@ namespace SunsetSystems.Abilities.Targeting
 
         private static bool IsTargetInRange(ICombatant attacker, ICombatant target, in RangeData abilityRange)
         {
-            Vector3 attackerPosition = attacker.Transform.position;
-            Vector3 targetPosition = target.Transform.position;
-            return Vector3.Distance(attackerPosition, targetPosition) <= abilityRange.MaxRange;
+            Vector3Int attackerPosition = attacker.GetContext().GridPosition;
+            Vector3Int targetPosition = target.GetContext().GridPosition;
+            return Vector3Int.Distance(attackerPosition, targetPosition) <= abilityRange.MaxRange;
         }
 
         private static bool CanShowTargetingLine(in RangeData abilityRange) => abilityRange.MaxRange > 1;

@@ -11,9 +11,9 @@ namespace SunsetSystems.Abilities
     public sealed class WeaponAttackAbility : AbstractAbilityConfig, IAmmoAbility
     {
         [SerializeField, BoxGroup("Ability Range"), MinValue(0)]
-        private int _baseAbilityRange = 1;
+        private float _baseAbilityRange = 1;
         [SerializeField, BoxGroup("Ability Range"), MinValue(0)]
-        private int _rangeFalloff = 1;
+        private float _rangeFalloff = 1;
         [BoxGroup("Weapon Ability")]
         [SerializeField, MinValue(1)]
         private int _numberOfAttacks = 1;

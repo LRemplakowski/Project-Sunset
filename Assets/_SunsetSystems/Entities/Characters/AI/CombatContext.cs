@@ -22,6 +22,8 @@ namespace SunsetSystems.Combat
 
         public Vector3 AimingOrigin => _source.AimingOrigin;
 
+        public Vector3Int GridPosition => CombatManager.Instance.CurrentEncounter.GridManager.WorldPositionToGridPosition(Transform.position);
+
         public bool IsInCover => CurrentCoverSources.Count() > 0;
 
         public bool IsAlive => _source.References.StatsManager.IsAlive();

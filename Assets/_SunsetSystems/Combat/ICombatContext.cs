@@ -11,6 +11,7 @@ namespace SunsetSystems.Combat
         GameObject GameObject { get; }
         Transform Transform { get; }
         Vector3 AimingOrigin { get; }
+        Vector3Int GridPosition { get; }
         bool IsInCover { get; }
         bool IsAlive { get; }
         bool IsPlayerControlled { get; }
