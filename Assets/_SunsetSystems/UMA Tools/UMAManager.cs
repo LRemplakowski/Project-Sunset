@@ -32,7 +32,7 @@ namespace SunsetSystems.UMA
         [SerializeField, ReadOnly]
         private DynamicCharacterAvatar _umaAvatar;
 
-        private IEnumerator _updatePendingCoroutine;
+        private Coroutine _updatePendingCoroutine;
         private bool _isUMACreated = false;
 
         private Task _defaultCollectionLoading;
@@ -62,15 +62,13 @@ namespace SunsetSystems.UMA
 
         private void RebuildUMADelayed()
         {
-            if (_updatePendingCoroutine == null)
-            {
-                _updatePendingCoroutine = UMARebuildAfterSeconds(1f);
-                _ = StartCoroutine(_updatePendingCoroutine);
-            }
+            _umaAvatar.BuildCharacterEnabled = false;
+            _updatePendingCoroutine ??= StartCoroutine(UMARebuildAfterSeconds(1f));
 
             IEnumerator UMARebuildAfterSeconds(float seconds)
             {
                 yield return new WaitForSeconds(seconds);
+                _umaAvatar.BuildCharacterEnabled = true;
                 _umaAvatar.BuildCharacter();
                 _updatePendingCoroutine = null;
             }
@@ -149,6 +147,7 @@ namespace SunsetSystems.UMA
             {
                 await new WaitUntil(CanUpdateUma);
             }
+            _umaAvatar.BuildCharacterEnabled = false;
             if (_baseLookWardrobeCollection != null)
             {
                 _umaAvatar.UnloadWardrobeCollection(_baseLookWardrobeCollection.name);
@@ -164,6 +163,7 @@ namespace SunsetSystems.UMA
                 }
             }
             _defaultCollectionLoading = null;
+            RebuildUMADelayed();
         }
 
         private async Task LoadDefaultWardrobeCollection(string wardrobeID)
@@ -191,8 +191,9 @@ namespace SunsetSystems.UMA
             {
                 if (wearable.WearableWardrobe != null)
                 {
+                    _umaAvatar.BuildCharacterEnabled = false;
                     _umaAvatar.LoadWardrobeCollection(wearable.WearableWardrobe);
-                    _umaAvatar.umaData.Dirty();
+                    //_umaAvatar.umaData.Dirty();
                     RebuildUMADelayed();
                 }
                 else
@@ -218,8 +219,8 @@ namespace SunsetSystems.UMA
             {
                 if (wearable.WearableWardrobe != null)
                 {
+                    _umaAvatar.BuildCharacterEnabled = false;
                     _umaAvatar.UnloadWardrobeCollection(wearable.WearableWardrobe.name);
-                    _umaAvatar.umaData.Dirty();
                     RebuildUMADelayed();
                 }
             }
