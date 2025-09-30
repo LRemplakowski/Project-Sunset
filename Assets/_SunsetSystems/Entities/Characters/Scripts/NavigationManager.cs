@@ -107,12 +107,15 @@ namespace SunsetSystems.Entities.Characters.Navigation
         {
             if (_navMeshAgent.isActiveAndEnabled is false)
                 return false;
+            _navMeshAgent.isStopped = false;
             return _navMeshAgent.SetDestination(target);
         }
 
-        public void StopMovement()
+        public void StopMovement(bool forceStopImmediate = false)
         {
             _navMeshAgent.ResetPath();
+            if (forceStopImmediate)
+                _navMeshAgent.isStopped = true;
         }
 
         public void SetNavigationEnabled(bool enabled)

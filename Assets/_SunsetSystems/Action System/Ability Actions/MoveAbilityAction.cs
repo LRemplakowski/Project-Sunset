@@ -34,7 +34,7 @@ namespace SunsetSystems.ActionSystem
         public override void Cleanup()
         {
             base.Cleanup();
-            navigationManager.StopMovement();
+            navigationManager.StopMovement(true);
         }
 
         public override void Begin()

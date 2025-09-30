@@ -15,7 +15,7 @@ namespace SunsetSystems.Entities.Characters.Navigation
         bool CalculatePath(Vector3 targetPosition, NavMeshPath path);
         void FaceDirectionAfterMovementFinished(Vector3 point);
         bool SetNavigationTarget(Vector3 target);
-        void StopMovement();
+        void StopMovement(bool forceStopImmediate = false);
         void SetNavigationEnabled(bool enabled);
     }
 }
