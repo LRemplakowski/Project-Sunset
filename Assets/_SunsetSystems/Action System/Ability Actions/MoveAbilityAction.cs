@@ -40,6 +40,12 @@ namespace SunsetSystems.ActionSystem
         public override void Begin()
         {
             navigationManager.SetNavigationTarget(destination);
+            bool destinationSet = navigationManager.SetNavigationTarget(destination);
+            if (!destinationSet)
+            {
+                Debug.LogError("Failed to set navigation target for MoveAbilityAction, aborting action.");
+                Abort();
+            }
         }
     }
 }
