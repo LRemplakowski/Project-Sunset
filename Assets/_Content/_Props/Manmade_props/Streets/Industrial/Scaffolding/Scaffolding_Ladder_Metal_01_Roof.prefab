@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1673931220736299414}
   - component: {fileID: 6169665294427796269}
   - component: {fileID: 7526861475381647667}
-  - component: {fileID: 4776589796627064643}
+  - component: {fileID: 8480527598513109960}
   m_Layer: 0
   m_Name: Scaffolding_Ladder_Metal_01_Roof
   m_TagString: Untagged
@@ -87,8 +87,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &4776589796627064643
-MeshCollider:
+--- !u!65 &8480527598513109960
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -105,7 +105,6 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -6414077376873807275, guid: 9a11dc181bf288f478a5d6acba2e86ef, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 0.6200001, y: 0.8100002, z: 0.55000126}
+  m_Center: {x: 0.0000038295984, y: 0.4050001, z: 0.02500247}

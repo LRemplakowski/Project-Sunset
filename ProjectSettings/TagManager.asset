@@ -2,7 +2,7 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
+  serializedVersion: 3
   tags:
   - UMAKeepChain
   - Inventory icon
@@ -23,6 +23,8 @@ TagManager:
   - asteroid
   - ship
   - CinemachineTarget
+  - NavAgent
+  - NavWalkable
   layers:
   - Default
   - TransparentFX
@@ -43,7 +45,7 @@ TagManager:
   - Enviromental Trigger
   - Party Member
   - Highlighted
-  - 
+  - NavMeshNonWalkable
   - 
   - 
   - 
@@ -60,3 +62,5 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  m_RenderingLayers:
+  - Default

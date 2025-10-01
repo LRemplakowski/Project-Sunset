@@ -22,9 +22,8 @@ namespace SunsetSystems.ActionSystem
         public Move(IActionPerformer owner, Vector3 destination/*, float stoppingDistance = .1f*/) : base(owner, false)
         {
             this.navigationManager = owner.References.NavigationManager;
-            NavMesh.SamplePosition(destination, out var hit, 1f, NavMesh.AllAreas);
             conditions.Add(new Destination(navigationManager));
-            this.destination = hit.position;
+            this.destination = destination;
         }
 
         public Move(ICombatant owner, IGridCell gridCell, GridManager gridInstance) : this(owner, gridInstance.GridPositionToWorldPosition(gridCell.GridPosition))

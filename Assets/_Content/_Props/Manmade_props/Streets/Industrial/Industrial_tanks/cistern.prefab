@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 4016899347430916}
   - component: {fileID: 33081932136233062}
   - component: {fileID: 23985143069840758}
-  m_Layer: 0
+  - component: {fileID: 161691455322497023}
+  m_Layer: 19
   m_Name: cistern
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,3 +88,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &161691455322497023
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1525489940925694}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 6.2503996, y: 3.0084777, z: 2.8459823}
+  m_Center: {x: -0.120716706, y: -1.2095857, z: 0.0000011324881}

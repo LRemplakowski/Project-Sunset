@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Pathfinding;
 using Sirenix.OdinInspector;
 using SunsetSystems.Entities.Characters;
 using SunsetSystems.Entities.Characters.Navigation;
@@ -116,8 +117,6 @@ namespace SunsetSystems.Combat.Grid
         {
             distanceToUnitDictionary = new();
             List<GridUnit> unitsInRange = new();
-            // Calculate the path
-            NavMeshPath path = new();
             // Calculate the maximum grid distance within _range
             float maxGridDistance = range * managedGrid.GridCellSize;
 
@@ -129,17 +128,16 @@ namespace SunsetSystems.Combat.Grid
                 if (gridDistance <= maxGridDistance)
                 {
                     Vector3 unitWorldPosition = GridPositionToWorldPosition(unit.GridPosition);
-                    if (agent.CalculatePath(unitWorldPosition, path))
+                    if (agent.CalculatePath(unitWorldPosition, out ABPath path))
                     {
                         // Calculate path length
-                        float pathLength = path.GetPathLength();
+                        float pathLength = path.GetTotalLength();
                         if (pathLength <= maxGridDistance)
                         {
                             unitsInRange.Add(unit);
                             distanceToUnitDictionary[unit] = pathLength;
                         }
                     }
-                    path.ClearCorners();
                 }
             }
             return unitsInRange;

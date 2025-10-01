@@ -7,7 +7,7 @@ using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
-using UnityEngine.AI;
+using Pathfinding;
 
 namespace SunsetSystems.Combat.Grid
 {
@@ -25,10 +25,14 @@ namespace SunsetSystems.Combat.Grid
         [SerializeField, Min(1)]
         private float gridCellSize = 1f;
         public float GridCellSize => gridCellSize;
-        [SerializeField]
-        private NavMeshAreas gridAreaMask = NavMeshAreas.All;
 
+        // Changed field: Serialized reference to the AstarPath object used at editor time
         [Title("References")]
+        [SerializeField, Required]
+        private AstarPath astarPath;
+        [SerializeField]
+        private GraphMask gridGraphMask;
+
         [SerializeField]
         private AssetReferenceGameObject gridObjectAsset = null;
 
@@ -60,7 +64,7 @@ namespace SunsetSystems.Combat.Grid
                     return levels[0][0, 0];
                 }
             }
-            private set 
+            private set
             {
                 try
                 {
@@ -109,23 +113,36 @@ namespace SunsetSystems.Combat.Grid
         public Vector3 GridPositionToWorldPosition(Vector3Int gridPosition)
         {
             GridUnit unit = levels[gridPosition.y][gridPosition.x, gridPosition.z];
-            return transform.position + new Vector3(unit.GridPosition.x * unit.CellSize, unit.SurfaceY, unit.GridPosition.z * unit.CellSize);
+            return unit.WorldPosition;
         }
 
         public Vector3Int WorldPositionToGridPosition(Vector3 worldPosition)
         {
-            Vector3 localPosition = transform.InverseTransformPoint(worldPosition);
-            Vector3Int gridPosition = Vector3Int.zero;
-            localPosition.x = Mathf.Clamp(localPosition.x, 0, levelWidth * gridCellSize);
-            localPosition.y = Mathf.Clamp(localPosition.y, 0, gridLevelsCount * gridCellSize);
-            localPosition.z = Mathf.Clamp(localPosition.z, 0, levelDepth * gridCellSize);
-            gridPosition.x = Mathf.RoundToInt(localPosition.x / gridCellSize);
-            gridPosition.x = Mathf.Clamp(gridPosition.x, 0, levelWidth - 1);
-            gridPosition.y = Mathf.RoundToInt(localPosition.y / gridCellSize);
-            gridPosition.y = Mathf.Clamp(gridPosition.y, 0, gridLevelsCount - 1);
-            gridPosition.z = Mathf.RoundToInt(localPosition.z / gridCellSize);
-            gridPosition.z = Mathf.Clamp(gridPosition.z, 0, levelDepth - 1);
-            return gridPosition;
+            //Vector3 localPosition = transform.InverseTransformPoint(worldPosition);
+            //Vector3Int gridPosition = Vector3Int.zero;
+            NNConstraint constraint = NNConstraint.Walkable;
+            constraint.graphMask = gridGraphMask;
+            constraint.constrainDistance = true;
+            constraint.distanceMetric = DistanceMetric.ClosestAsSeenFromAbove();
+            var nearestNode = astarPath.GetNearest(worldPosition, constraint);
+            foreach (var level in levels)
+            {
+                if (level.TryGetGridUnitFromNode(nearestNode.node, out var unit))
+                {
+                    return unit.GridPosition;
+                }
+            }
+            return Vector3Int.zero;
+            //localPosition.x = Mathf.Clamp(localPosition.x, 0, levelWidth * gridCellSize);
+            //localPosition.y = Mathf.Clamp(localPosition.y, 0, gridLevelsCount * gridCellSize);
+            //localPosition.z = Mathf.Clamp(localPosition.z, 0, levelDepth * gridCellSize);
+            //gridPosition.x = Mathf.RoundToInt(localPosition.x / gridCellSize);
+            //gridPosition.x = Mathf.Clamp(gridPosition.x, 0, levelWidth - 1);
+            //gridPosition.y = Mathf.RoundToInt(localPosition.y / gridCellSize);
+            //gridPosition.y = Mathf.Clamp(gridPosition.y, 0, gridLevelsCount - 1);
+            //gridPosition.z = Mathf.RoundToInt(localPosition.z / gridCellSize);
+            //gridPosition.z = Mathf.Clamp(gridPosition.z, 0, levelDepth - 1);
+            //return gridPosition;
         }
 
         public GridUnitObject GetCellGameObject(GridUnit unit)
@@ -189,15 +206,22 @@ namespace SunsetSystems.Combat.Grid
             gridFinished = true;
         }
 
+        // Changed method: BuildGrid now uses the serialized AstarPath and passes it to GridLevel.BuildLevel
         [Button]
         public void BuildGrid()
         {
+            if (astarPath == null)
+            {
+                Debug.LogError($"{nameof(CachedMultiLevelGrid)}: astarPath reference is null. Assign an AstarPath component in the inspector.");
+                return;
+            }
+
             cachedCoverSourcesInGrid.Clear();
             levels = new GridLevel[gridLevelsCount];
             for (int y = 0; y < gridLevelsCount; y++)
             {
-                GridLevel level = new(levelWidth, levelDepth, levelHeight, y, transform.position + Vector3.up * y, gridCellSize);
-                level.BuildLevel(gridAreaMask, cachedCoverSourcesInGrid);
+                GridLevel level = new GridLevel(levelWidth, levelDepth, levelHeight, y, transform.position + Vector3.up * y, gridCellSize);
+                level.BuildLevel(astarPath, cachedCoverSourcesInGrid, in gridGraphMask);
                 levels[y] = level;
             }
         }
@@ -231,6 +255,7 @@ namespace SunsetSystems.Combat.Grid
 
         private void OnDrawGizmos()
         {
+            if (astarPath == null) return;
             if (showGizmosWhenNotSelected)
             {
                 Gizmos.color = Color.blue;
@@ -280,6 +305,7 @@ namespace SunsetSystems.Combat.Grid
         public HashSet<GridUnit> WalkableUnits => walkableUnits;
         private readonly HashSet<GridUnit> coverAdjacentUnits = new();
         public HashSet<GridUnit> CoverAdjacentUnits => coverAdjacentUnits;
+        private readonly Dictionary<Int3, GridUnit> _graphPositionToGridUnitMap = new();
 
         public GridUnit this[int x, int z]
         {
@@ -303,72 +329,115 @@ namespace SunsetSystems.Combat.Grid
             gridCells = new GridUnit[width, depth];
         }
 
-        public void BuildLevel(AreaMask mask, HashSet<ICover> coverSourcesCache)
+        public bool TryGetGridUnitFromNode(GraphNode node, out GridUnit unit)
         {
+            return _graphPositionToGridUnitMap.TryGetValue(node.position, out unit);
+        }
+
+        public void BuildLevel(AstarPath astarPath, HashSet<ICover> coverSourcesCache, in GraphMask graphMask)
+        {
+            if (astarPath == null)
+            {
+                Debug.LogError("GridLevel.BuildLevel: astarPath is null.");
+                return;
+            }
+
             gridCells = new GridUnit[width, depth];
             walkableUnits.Clear();
             coverAdjacentUnits.Clear();
+
             for (int x = 0; x < width; x++)
             {
                 for (int z = 0; z < depth; z++)
                 {
                     Vector3Int gridPos = new(x, yPosition, z);
-                    Vector3 worldPos = levelOrigin + new Vector3(gridPos.x * cellSize, gridPos.y * height, gridPos.z * cellSize);
+
+                    // Sample position from custom grid
+                    Vector3 samplePosition = levelOrigin + new Vector3(
+                        gridPos.x * cellSize,
+                        0f,
+                        gridPos.z * cellSize
+                    );
+
+                    // Find nearest node first
+                    NNConstraint constraint = NNConstraint.Walkable;
+                    constraint.graphMask = graphMask;
+                    constraint.constrainDistance = true;
+                    constraint.distanceMetric = DistanceMetric.ClosestAsSeenFromAbove();
+
+                    NNInfo nearest = astarPath.GetNearest(samplePosition, constraint);
+
+                    Vector3 worldPos;
+                    bool walkable;
+                    GraphNode nearestNode;
+
+                    if (nearest.node != null && Vector3.Distance(nearest.position, samplePosition) <= cellSize * .45f)
+                    {
+                        worldPos = nearest.position;
+                        walkable = nearest.node.Walkable;
+                        nearestNode = nearest.node;
+                    }
+                    else
+                    {
+                        // Fallback to sample position if no node found
+                        worldPos = samplePosition;
+                        walkable = false;
+                        nearestNode = null;
+                    }
+
+                    // Create the GridUnit already aligned to nearest node
                     GridUnit newGridUnit = new(gridPos, worldPos)
                     {
-                        CellSize = cellSize
+                        CellSize = cellSize,
+                        SurfaceY = worldPos.y,
+                        Walkable = walkable,
+                        NearestNode = nearestNode
                     };
-                    VerifyIfIsWalkable(newGridUnit);
+
+                    if (nearestNode != null) 
+                    { 
+                        _graphPositionToGridUnitMap[nearestNode.position] = newGridUnit; 
+                    }
+
                     if (newGridUnit.Walkable)
                     {
                         walkableUnits.Add(newGridUnit);
                         VerifyIfAdjactenToCoverSource(newGridUnit, coverSourcesCache);
+
                         if (newGridUnit.AdjacentToCover)
                             coverAdjacentUnits.Add(newGridUnit);
                     }
+
                     gridCells[x, z] = newGridUnit;
                 }
             }
+        }
 
-            void VerifyIfIsWalkable(GridUnit unit)
+
+        private void VerifyIfAdjactenToCoverSource(GridUnit unit, HashSet<ICover> coverSourcesCache)
+        {
+            Vector3 gridUnitCenter = levelOrigin + new Vector3(unit.GridPosition.x * cellSize, height / 2, unit.GridPosition.z * cellSize);
+            CoverQuality coverQuality = CoverQuality.None;
+            FindCover(unit, coverSourcesCache, gridUnitCenter + Vector3.forward, ref coverQuality);
+            FindCover(unit, coverSourcesCache, gridUnitCenter + Vector3.right, ref coverQuality);
+            FindCover(unit, coverSourcesCache, gridUnitCenter + Vector3.back, ref coverQuality);
+            FindCover(unit, coverSourcesCache, gridUnitCenter + Vector3.left, ref coverQuality);
+            unit.CoverQuality = coverQuality;
+
+            static void FindCover(GridUnit unit, HashSet<ICover> coverSourcesCache, Vector3 cellPosition, ref CoverQuality coverQuality)
             {
-                Vector3 originOffset;
-                for (float h = height; h > -1f; h -= .1f)
+                Collider[] overlap = new Collider[8];
+                int overlapCount = Physics.OverlapBoxNonAlloc(cellPosition, new Vector3(unit.CellSize / 4f, unit.CellSize / 4f, unit.CellSize / 4f), overlap);
+                if (overlapCount > 0)
                 {
-                    originOffset = new Vector3(unit.GridPosition.x * cellSize, h, unit.GridPosition.z * cellSize);
-                    if (NavMesh.SamplePosition(levelOrigin + originOffset, out NavMeshHit hit, .11f, mask))
+                    for (int i = 0; i < overlapCount; i++)
                     {
-                        unit.SurfaceY = hit.position.y;
-                        unit.Walkable = true;
-                    }
-                }
-            }
-
-            void VerifyIfAdjactenToCoverSource(GridUnit unit, HashSet<ICover> coverSourcesCache)
-            {
-                Vector3 gridUnitCenter = levelOrigin + new Vector3(unit.GridPosition.x * cellSize, height / 2, unit.GridPosition.z * cellSize);
-                CoverQuality coverQuality = CoverQuality.None;
-                FindCover(unit, coverSourcesCache, gridUnitCenter + Vector3.forward, ref coverQuality);
-                FindCover(unit, coverSourcesCache, gridUnitCenter + Vector3.right, ref coverQuality);
-                FindCover(unit, coverSourcesCache, gridUnitCenter + Vector3.back, ref coverQuality);
-                FindCover(unit, coverSourcesCache, gridUnitCenter + Vector3.left, ref coverQuality);
-                unit.CoverQuality = coverQuality;
-
-                static void FindCover(GridUnit unit, HashSet<ICover> coverSourcesCache, Vector3 cellPosition, ref CoverQuality coverQuality)
-                {
-                    Collider[] overlap = new Collider[8];
-                    int overlapCount = Physics.OverlapBoxNonAlloc(cellPosition, new Vector3(unit.CellSize / 4f, unit.CellSize / 4f, unit.CellSize / 4f), overlap);
-                    if (overlapCount > 0)
-                    {
-                        for (int i = 0; i < overlapCount; i++)
+                        if (overlap[i].TryGetComponent(out ICover cover))
                         {
-                            if (overlap[i].TryGetComponent(out ICover cover))
-                            {
-                                unit.AdjacentToCover = true;
-                                unit.AdjacentCoverSources.Add(cover);
-                                coverQuality = cover.Quality > coverQuality ? cover.Quality : coverQuality;
-                                coverSourcesCache.Add(cover);
-                            }
+                            unit.AdjacentToCover = true;
+                            unit.AdjacentCoverSources.Add(cover);
+                            coverQuality = cover.Quality > coverQuality ? cover.Quality : coverQuality;
+                            coverSourcesCache.Add(cover);
                         }
                     }
                 }
@@ -395,6 +464,7 @@ namespace SunsetSystems.Combat.Grid
         public float CellSize { get; set; }
 
         public bool Highlighted { get; set; }
+        public GraphNode NearestNode { get; internal set; }
 
         public GridUnit(Vector3Int GridPosition, Vector3 WorldPosition)
         {

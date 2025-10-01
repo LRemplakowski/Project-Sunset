@@ -5,7 +5,6 @@ using SunsetSystems.ActionSystem;
 using SunsetSystems.Combat.Grid;
 using SunsetSystems.Inventory;
 using UnityEngine;
-using UnityEngine.AI;
 
 namespace SunsetSystems.Abilities
 {
@@ -52,9 +51,8 @@ namespace SunsetSystems.Abilities
             var combatBehaviour = context.SourceCombatBehaviour;
             var navManager = combatBehaviour.References.NavigationManager;
             var gridManager = context.GridManager;
-            var path = new NavMeshPath();
-            navManager.CalculatePath(position.WorldPosition, path);
-            var movementCost = Mathf.CeilToInt(path.GetPathLength() / gridManager.GetGridScale()) * _baseMovementCost;
+            navManager.CalculatePath(position.WorldPosition, out var path);
+            var movementCost = Mathf.CeilToInt(path.GetTotalLength() / gridManager.GetGridScale()) * _baseMovementCost;
             return movementCost;
         }
 

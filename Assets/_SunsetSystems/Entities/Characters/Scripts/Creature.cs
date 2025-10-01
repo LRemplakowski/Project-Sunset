@@ -86,15 +86,16 @@ namespace SunsetSystems.Entities.Characters
         public void ForceToPosition(Vector3 position)
         {
             ClearAllActions();
-            if (NavMesh.SamplePosition(position, out NavMeshHit hit, 1f, (int)NavMeshAreas.Walkable))
-            {
-                Debug.Log($"Forcing Creature {gameObject.name} to position: {hit.position}!");
-                References.NavigationManager.Warp(hit.position);
-            }
-            else
-            {
-                Debug.LogError($"Could not force creature {this} to position {position}! Could not find walkable NavMesh!");
-            }
+            References.NavigationManager.Warp(position);
+            //if (NavMesh.SamplePosition(position, out NavMeshHit hit, 1f, (int)NavMeshAreas.Walkable))
+            //{
+            //    Debug.Log($"Forcing Creature {gameObject.name} to position: {hit.position}!");
+            //    References.NavigationManager.Warp(hit.position);
+            //}
+            //else
+            //{
+            //    Debug.LogError($"Could not force creature {this} to position {position}! Could not find walkable NavMesh!");
+            //}
         }
 
         public void ForceToPosition(Transform positionTransform) => ForceToPosition(positionTransform.position);

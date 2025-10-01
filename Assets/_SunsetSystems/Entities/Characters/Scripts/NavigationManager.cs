@@ -4,123 +4,156 @@ using Sirenix.OdinInspector;
 using SunsetSystems.ActionSystem;
 using SunsetSystems.Persistence;
 using UnityEngine;
-using UnityEngine.AI;
+using Pathfinding;
+using SunsetSystems.Combat;
+using System.Collections.Generic;
 
 namespace SunsetSystems.Entities.Characters.Navigation
 {
     public class NavigationManager : SerializedMonoBehaviour, INavigationManager, IPersistentComponent
     {
+        private enum NavigationType
+        {
+            GridAI,
+            RichAI
+        }
+
         private const string COMPONENT_ID = "NAVIGATION_MANAGER";
+        private const float MOVEMENT_THRESHOLD = 0.01f;
 
         [Title("Config")]
         [SerializeField]
-        private float _faceTargetTime = .5f;
+        private float _faceTargetTime = 0.5f;
+
         [Title("References")]
         [SerializeField, Required]
-        private NavMeshAgent _navMeshAgent;
+        private FollowerEntity CurrentNavigationAI;
+        [SerializeField]
+        private GraphMask _explorationMask;
+        [SerializeField]
+        private GraphMask _combatMask;
         [SerializeField, Required]
         private IActionPerformer _actionPerformer;
 
         private Coroutine _faceTargetCoroutine;
 
-        public Vector3 Position => _navMeshAgent.transform.position;
-        public bool FinishedCurrentPath
-        {
-            get
-            {
-                if (_navMeshAgent.pathPending)
-                    return false;
-                return _navMeshAgent.hasPath && GetAgentFinishedMovement();
-            }
-        }
+        public Vector3 Position => CurrentNavigationAI.position;
+        private GraphMask CurrentGraphMask { get; set; }
 
-        public bool IsMoving
-        {
-            get
-            {
-                if (_navMeshAgent.pathPending)
-                    return true;
-                return _navMeshAgent.hasPath && !GetAgentFinishedMovement() || _actionPerformer.PeekCurrentAction is Move or MoveAbilityAction;
-            }
-        }
+        public bool FinishedCurrentPath => !CurrentNavigationAI.pathPending && CurrentNavigationAI.reachedEndOfPath;
 
-        public float CurrentSpeed => _navMeshAgent.velocity.magnitude;
-        public float MaxSpeed => _navMeshAgent.speed;
+        public bool IsMoving =>
+            CurrentNavigationAI.velocity.sqrMagnitude > MOVEMENT_THRESHOLD ||
+            _actionPerformer.PeekCurrentAction is Move or MoveAbilityAction;
+
+        public float CurrentSpeed => CurrentNavigationAI.velocity.magnitude;
+        public float MaxSpeed => CurrentNavigationAI.maxSpeed;
 
         public string ComponentID => COMPONENT_ID;
 
+        private void Awake()
+        {
+            CurrentGraphMask = _explorationMask;
+            CurrentNavigationAI.pathfindingSettings.graphMask = CurrentGraphMask;
+        }
+
+        private void Start()
+        {
+            CombatManager.OnCombatStart += OnCombatStart;
+            CombatManager.OnCombatEnd += OnCombatEnd;
+        }
+
+        private void OnCombatEnd(IEnumerable<ICombatant> _)
+        {
+            CurrentGraphMask = _explorationMask;
+            CurrentNavigationAI.pathfindingSettings.graphMask = CurrentGraphMask;
+        }
+
+        private void OnCombatStart(IEnumerable<ICombatant> _)
+        {
+            CurrentGraphMask = _combatMask;
+            CurrentNavigationAI.pathfindingSettings.graphMask = CurrentGraphMask;
+        }
+
+        private void OnDestroy()
+        {
+            CombatManager.OnCombatStart -= OnCombatStart;
+            CombatManager.OnCombatEnd -= OnCombatEnd;
+        }
+
+        // Warp agent instantly to a position
         public bool Warp(Vector3 position)
         {
-            if (NavMesh.SamplePosition(position, out NavMeshHit hit, 1f, (int)NavMeshAreas.Walkable))
-            {
-                return _navMeshAgent.Warp(position);
-            }
-            else
-            {
-                Debug.LogError($"{nameof(NavigationManager)} >>> Failed to Warp Creature {GetComponentInParent<ICreatureReferences>().GameObject} to position {position}! Position is not valid!");
-                return false;
-            }
+            // Set agent position directly
+            CurrentNavigationAI.Teleport(position);
+            return true;
         }
 
-        public bool CalculatePath(Vector3 targetPosition, NavMeshPath path) => _navMeshAgent.CalculatePath(targetPosition, path);
-
-        private bool GetAgentFinishedMovement()
+        // Calculate a path using A* ABPath
+        public bool CalculatePath(Vector3 targetPosition, out ABPath path)
         {
-            if (_navMeshAgent.isStopped)
-                return true;
-            return _navMeshAgent.pathStatus switch
+            path = ABPath.Construct(Position, targetPosition, null);
+            path.nnConstraint = new NNConstraint
             {
-                NavMeshPathStatus.PathComplete => _navMeshAgent.remainingDistance <= _navMeshAgent.stoppingDistance,
-                NavMeshPathStatus.PathPartial => _navMeshAgent.remainingDistance <= _navMeshAgent.stoppingDistance,
-                NavMeshPathStatus.PathInvalid => true,
-                _ => false,
+                graphMask = CurrentGraphMask,
+                constrainWalkability = true,
+                walkable = true
             };
+            AstarPath.StartPath(path);
+            path.BlockUntilCalculated(); // synchronous calculation
+            return path.CompleteState == PathCompleteState.Complete;
         }
 
+        // Smooth rotation towards a point after movement
         public void FaceDirectionAfterMovementFinished(Vector3 point)
         {
             if (_faceTargetCoroutine != null)
                 StopCoroutine(_faceTargetCoroutine);
-            StartCoroutine(FaceTargetInTime(_faceTargetTime, point));
+            _faceTargetCoroutine = StartCoroutine(FaceTargetInTime(_faceTargetTime, point));
         }
 
         private IEnumerator FaceTargetInTime(float time, Vector3 targetPosition)
         {
-            yield return new WaitUntil(() => IsMoving is false);
-            Vector3 lookPosition = targetPosition - _navMeshAgent.transform.position;
+            yield return new WaitUntil(() => IsMoving == false);
+
+            Vector3 lookPosition = targetPosition - Position;
             lookPosition.y = 0;
             Quaternion targetRotation = Quaternion.LookRotation(lookPosition);
-            Quaternion startRotation = _navMeshAgent.transform.rotation;
+            Quaternion startRotation = CurrentNavigationAI.rotation;
             float slerp = 0f;
+
             while (slerp < time)
             {
                 if (IsMoving)
                     yield break;
                 slerp += Time.deltaTime;
-                _navMeshAgent.transform.rotation = Quaternion.Slerp(startRotation, targetRotation, slerp / time);
+                CurrentNavigationAI.rotation = Quaternion.Slerp(startRotation, targetRotation, slerp / time);
                 yield return null;
             }
-            _navMeshAgent.transform.rotation = targetRotation;
+
+            CurrentNavigationAI.rotation = targetRotation;
         }
 
+        // Set a navigation target for the agent
         public bool SetNavigationTarget(Vector3 target)
         {
-            if (_navMeshAgent.isActiveAndEnabled is false)
+            if (!CurrentNavigationAI.canMove)
                 return false;
-            _navMeshAgent.isStopped = false;
-            return _navMeshAgent.SetDestination(target);
+            CurrentNavigationAI.isStopped = false;
+            CurrentNavigationAI.destination = target;
+            CurrentNavigationAI.SearchPath();
+            return true;
         }
 
+        // Stop agent movement
         public void StopMovement(bool forceStopImmediate = false)
         {
-            _navMeshAgent.ResetPath();
-            if (forceStopImmediate)
-                _navMeshAgent.isStopped = true;
+            CurrentNavigationAI.isStopped = true;
         }
 
         public void SetNavigationEnabled(bool enabled)
         {
-            _navMeshAgent.enabled = enabled;
+            CurrentNavigationAI.canMove = enabled;
         }
 
         public object GetComponentPersistenceData()
@@ -130,9 +163,8 @@ namespace SunsetSystems.Entities.Characters.Navigation
 
         public void InjectComponentPersistenceData(object data)
         {
-            if (data is not NavigatorPeristenceData navData)
-                return;
-            _navMeshAgent.enabled = navData.NavigationEnabled;
+            if (data is not NavigatorPeristenceData navData) return;
+            CurrentNavigationAI.canMove = navData.NavigationEnabled;
         }
 
         [Serializable]
@@ -142,7 +174,7 @@ namespace SunsetSystems.Entities.Characters.Navigation
 
             public NavigatorPeristenceData(NavigationManager navigationManager)
             {
-                NavigationEnabled = navigationManager._navMeshAgent.enabled;
+                NavigationEnabled = navigationManager.CurrentNavigationAI.canMove;
             }
 
             public NavigatorPeristenceData()

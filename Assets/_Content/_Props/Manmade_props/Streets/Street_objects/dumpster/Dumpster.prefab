@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 4738355537790816}
   - component: {fileID: 33363973818584808}
   - component: {fileID: 23562773408658120}
-  - component: {fileID: 903686106298936450}
   m_Layer: 0
   m_Name: Dumpster_lid01
   m_TagString: Untagged
@@ -87,26 +86,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &903686106298936450
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1316022447318324}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SerializedVersion: 0
-  m_OverrideArea: 0
-  m_Area: 0
-  m_OverrideGenerateLinks: 0
-  m_GenerateLinks: 0
-  m_IgnoreFromBuild: 1
-  m_ApplyToChildren: 1
-  m_AffectedAgents: ffffffff
 --- !u!1 &1665434738283074
 GameObject:
   m_ObjectHideFlags: 0
@@ -152,8 +131,8 @@ GameObject:
   - component: {fileID: 4971270160806918}
   - component: {fileID: 33730219425451772}
   - component: {fileID: 23979866643090634}
-  - component: {fileID: 3798698723978836644}
-  m_Layer: 0
+  - component: {fileID: 8804153581689346990}
+  m_Layer: 19
   m_Name: Dumpster_body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -228,26 +207,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &3798698723978836644
-MonoBehaviour:
+--- !u!65 &8804153581689346990
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1852114665794428}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SerializedVersion: 0
-  m_OverrideArea: 1
-  m_Area: 1
-  m_OverrideGenerateLinks: 0
-  m_GenerateLinks: 0
-  m_IgnoreFromBuild: 1
-  m_ApplyToChildren: 1
-  m_AffectedAgents: ffffffff
+  serializedVersion: 3
+  m_Size: {x: 0.018000005, y: 0.011341119, z: 0.013719155}
+  m_Center: {x: -0.006432194, y: 0.003966178, z: 0.0068621733}
 --- !u!1 &1990458721890876
 GameObject:
   m_ObjectHideFlags: 0
@@ -259,7 +239,6 @@ GameObject:
   - component: {fileID: 4958073067067288}
   - component: {fileID: 33041925022923874}
   - component: {fileID: 23238705241011312}
-  - component: {fileID: 3762470260792823844}
   m_Layer: 0
   m_Name: Dumpster_lid02
   m_TagString: Untagged
@@ -335,23 +314,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &3762470260792823844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1990458721890876}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SerializedVersion: 0
-  m_OverrideArea: 0
-  m_Area: 0
-  m_OverrideGenerateLinks: 0
-  m_GenerateLinks: 0
-  m_IgnoreFromBuild: 1
-  m_ApplyToChildren: 1
-  m_AffectedAgents: ffffffff

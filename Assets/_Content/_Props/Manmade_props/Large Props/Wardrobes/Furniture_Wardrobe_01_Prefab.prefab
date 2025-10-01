@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2800719384135766359}
-  - component: {fileID: 1566185449470826846}
   m_Layer: 0
   m_Name: Furniture_Wardrobe_01_Prefab
   m_TagString: Untagged
@@ -33,26 +32,6 @@ Transform:
   - {fileID: 6854304998338169677}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1566185449470826846
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4792218066985836739}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SerializedVersion: 0
-  m_OverrideArea: 1
-  m_Area: 1
-  m_OverrideGenerateLinks: 0
-  m_GenerateLinks: 0
-  m_IgnoreFromBuild: 0
-  m_ApplyToChildren: 1
-  m_AffectedAgents: ffffffff
 --- !u!1001 &1550478534367019264
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -197,8 +176,37 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: ffb9061fe5603634583a364688258bdf, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1301207683036997355}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ffb9061fe5603634583a364688258bdf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5831280837214038760}
   m_SourcePrefab: {fileID: 100100000, guid: ffb9061fe5603634583a364688258bdf, type: 3}
+--- !u!1 &6076678300750696951 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: ffb9061fe5603634583a364688258bdf, type: 3}
+  m_PrefabInstance: {fileID: 6383249294888856742}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &5831280837214038760
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6076678300750696951}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 0.5000001, z: 2.0959811}
+  m_Center: {x: 0, y: 0, z: 1.049319}
 --- !u!4 &6854304998338169677 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ffb9061fe5603634583a364688258bdf, type: 3}

@@ -20,8 +20,7 @@ namespace SunsetSystems.ActionSystem
             this.target = target;
             conditions.Add(new InteractionComplete(target));
             this.navMeshAgent = owner.References.NavigationManager;
-            NavMesh.SamplePosition(target.InteractionTransform.position, out var hit, 1f, NavMesh.AllAreas);
-            this.destination = hit.position;
+            this.destination = target.InteractionTransform.position;
         }
 
         public override void Cleanup()

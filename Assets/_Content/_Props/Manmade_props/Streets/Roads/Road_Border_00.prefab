@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 7021881334827750388}
   - component: {fileID: 7469462757113481716}
   - component: {fileID: 5007552922584627819}
-  - component: {fileID: 2613847343889767256}
-  m_Layer: 0
+  - component: {fileID: 6342756528520651501}
+  m_Layer: 6
   m_Name: Road_Border_00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,23 +87,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &2613847343889767256
-MonoBehaviour:
+--- !u!65 &6342756528520651501
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5246678610843493001}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SerializedVersion: 0
-  m_OverrideArea: 0
-  m_Area: 0
-  m_OverrideGenerateLinks: 0
-  m_GenerateLinks: 0
-  m_IgnoreFromBuild: 1
-  m_ApplyToChildren: 1
-  m_AffectedAgents: ffffffff
+  serializedVersion: 3
+  m_Size: {x: 0.26919463, y: 0.15009342, z: 2.0355833}
+  m_Center: {x: -0.009757325, y: 0.07681798, z: 0.9977454}
