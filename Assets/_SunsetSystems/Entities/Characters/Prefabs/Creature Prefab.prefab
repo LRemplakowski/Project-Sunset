@@ -1177,6 +1177,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5605094159454864981}
   - component: {fileID: 409868112203810021}
+  - component: {fileID: 8714977868881684492}
   m_Layer: 0
   m_Name: Navigation Manager
   m_TagString: Untagged
@@ -1230,6 +1231,21 @@ MonoBehaviour:
     value: 1
   _combatMask:
     value: -2
+  _myBlocker: {fileID: 8714977868881684492}
+--- !u!114 &8714977868881684492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6940308080547407485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b45e20632f1604fc6bb73e0e79cd7368, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1073741824
+  manager: {fileID: 0}
 --- !u!1 &7874706646623494373
 GameObject:
   m_ObjectHideFlags: 0

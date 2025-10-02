@@ -14,7 +14,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2955968855061659304
 Transform:
@@ -80,9 +80,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 371612934861776578, guid: 3a3113843c2d00240862fe10887715f3, type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3a3113843c2d00240862fe10887715f3, type: 3}
       propertyPath: m_Name
       value: MSH_Clutter_Book_10
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3a3113843c2d00240862fe10887715f3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1799082150784750083, guid: 3a3113843c2d00240862fe10887715f3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 3707894051503001383, guid: 3a3113843c2d00240862fe10887715f3, type: 3}
       propertyPath: m_LocalPosition.x

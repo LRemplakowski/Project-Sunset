@@ -14,7 +14,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &1988733456054255899
 Transform:
@@ -85,6 +85,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7511558181221131132, guid: 11fb46e5d31a5064181b74476fb97e0c, type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 11fb46e5d31a5064181b74476fb97e0c, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: a7c325f4e1ac4ac449618790752aa67e, type: 2}
@@ -96,11 +100,48 @@ PrefabInstance:
       propertyPath: m_Name
       value: coffee_table03
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 11fb46e5d31a5064181b74476fb97e0c, type: 3}
+      propertyPath: m_Layer
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 11fb46e5d31a5064181b74476fb97e0c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 11fb46e5d31a5064181b74476fb97e0c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 248249846683766481}
   m_SourcePrefab: {fileID: 100100000, guid: 11fb46e5d31a5064181b74476fb97e0c, type: 3}
+--- !u!1 &8177403800508673768 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 11fb46e5d31a5064181b74476fb97e0c, type: 3}
+  m_PrefabInstance: {fileID: 9059712753344877497}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &248249846683766481
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8177403800508673768}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.9999998, y: 2.47, z: 4.095295}
+  m_Center: {x: -0.000015258789, y: 0.69237757, z: 0}
 --- !u!4 &8804583188208809042 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 11fb46e5d31a5064181b74476fb97e0c, type: 3}

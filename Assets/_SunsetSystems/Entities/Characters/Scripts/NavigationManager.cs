@@ -29,50 +29,62 @@ namespace SunsetSystems.Entities.Characters.Navigation
         [SerializeField, Required]
         private FollowerEntity CurrentNavigationAI;
         [SerializeField]
-        private GraphMask _explorationMask;
-        [SerializeField]
-        private GraphMask _combatMask;
+        private SingleNodeBlocker _myBlocker;
         [SerializeField, Required]
         private IActionPerformer _actionPerformer;
 
-        private Coroutine _faceTargetCoroutine;
-
         public Vector3 Position => CurrentNavigationAI.position;
-        private GraphMask CurrentGraphMask { get; set; }
-
         public bool FinishedCurrentPath => !CurrentNavigationAI.pathPending && CurrentNavigationAI.reachedEndOfPath;
-
         public bool IsMoving =>
             CurrentNavigationAI.velocity.sqrMagnitude > MOVEMENT_THRESHOLD ||
             _actionPerformer.PeekCurrentAction is Move or MoveAbilityAction;
-
         public float CurrentSpeed => CurrentNavigationAI.velocity.magnitude;
         public float MaxSpeed => CurrentNavigationAI.maxSpeed;
-
         public string ComponentID => COMPONENT_ID;
+
+        private GraphMask _explorationMask;
+        private GraphMask _combatMask;
+        private GraphMask _currentGraphMask;
+        private Coroutine _faceTargetCoroutine;
+        private BlockManager.TraversalProvider _traversalProvider;
 
         private void Awake()
         {
-            CurrentGraphMask = _explorationMask;
-            CurrentNavigationAI.pathfindingSettings.graphMask = CurrentGraphMask;
+            _currentGraphMask = _explorationMask;
+            CurrentNavigationAI.pathfindingSettings.graphMask = _currentGraphMask;
         }
 
         private void Start()
         {
             CombatManager.OnCombatStart += OnCombatStart;
             CombatManager.OnCombatEnd += OnCombatEnd;
+
+            BlockManager blockManager = FindAnyObjectByType<BlockManager>();
+            _myBlocker.manager = blockManager;
+            _traversalProvider = new BlockManager.TraversalProvider(blockManager, BlockManager.BlockMode.AllExceptSelector, new() { _myBlocker });
+            foreach (var graph in AstarPath.active.graphs)
+            {
+                if (graph is GridGraph)
+                {
+                    _combatMask |= GraphMask.FromGraph(graph);
+                }
+                else
+                {
+                    _explorationMask |= GraphMask.FromGraph(graph);
+                }
+            }
         }
 
         private void OnCombatEnd(IEnumerable<ICombatant> _)
         {
-            CurrentGraphMask = _explorationMask;
-            CurrentNavigationAI.pathfindingSettings.graphMask = CurrentGraphMask;
+            _currentGraphMask = _explorationMask;
+            CurrentNavigationAI.pathfindingSettings.graphMask = _currentGraphMask;
         }
 
         private void OnCombatStart(IEnumerable<ICombatant> _)
         {
-            CurrentGraphMask = _combatMask;
-            CurrentNavigationAI.pathfindingSettings.graphMask = CurrentGraphMask;
+            _currentGraphMask = _combatMask;
+            CurrentNavigationAI.pathfindingSettings.graphMask = _currentGraphMask;
         }
 
         private void OnDestroy()
@@ -95,7 +107,7 @@ namespace SunsetSystems.Entities.Characters.Navigation
             path = ABPath.Construct(Position, targetPosition, null);
             path.nnConstraint = new NNConstraint
             {
-                graphMask = CurrentGraphMask,
+                graphMask = _currentGraphMask,
                 constrainWalkability = true,
                 walkable = true
             };
@@ -140,7 +152,11 @@ namespace SunsetSystems.Entities.Characters.Navigation
             if (!CurrentNavigationAI.canMove)
                 return false;
             CurrentNavigationAI.isStopped = false;
-            CurrentNavigationAI.destination = target;
+            ABPath path = ABPath.Construct(Position, target, null);
+            path.traversalProvider = _traversalProvider;
+            AstarPath.StartPath(path);
+            path.BlockUntilCalculated();
+            CurrentNavigationAI.SetPath(path);
             CurrentNavigationAI.SearchPath();
             return true;
         }

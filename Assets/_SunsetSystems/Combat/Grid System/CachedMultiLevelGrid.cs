@@ -87,11 +87,12 @@ namespace SunsetSystems.Combat.Grid
         [SerializeField]
         private bool showGizmosWhenNotSelected = false;
 
-        private void Start()
+        private async void Start()
         {
             BuildGrid();
             gridFinished = false;
             dirtyUnits.Clear();
+            await new WaitUntil(() => !astarPath.isScanning);
             _ = GenerateSceneObjects(levels.SelectMany(level => level.WalkableUnits));
         }
 
