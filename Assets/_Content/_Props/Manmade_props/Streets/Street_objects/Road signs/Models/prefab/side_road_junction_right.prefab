@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4032925049023856}
   - component: {fileID: 33277281437501608}
   - component: {fileID: 23380934820015328}
-  - component: {fileID: 64424488944483178}
+  - component: {fileID: 7892162570037362486}
   m_Layer: 0
   m_Name: side_road_junction_right
   m_TagString: Untagged
@@ -87,8 +87,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &64424488944483178
-MeshCollider:
+--- !u!65 &7892162570037362486
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -105,7 +105,6 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300084, guid: 13e36ac39a96afe49bc041eeb490917a, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 0.1, y: 2, z: 0.1}
+  m_Center: {x: 0, y: 1, z: 0}

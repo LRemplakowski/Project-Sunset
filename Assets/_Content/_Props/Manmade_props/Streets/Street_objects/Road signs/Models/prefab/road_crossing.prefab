@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4609809480446096}
   - component: {fileID: 33100757761289372}
   - component: {fileID: 23278544211727978}
-  - component: {fileID: 64114338509746106}
+  - component: {fileID: 8599129105715067388}
   m_Layer: 0
   m_Name: road_crossing
   m_TagString: Untagged
@@ -87,8 +87,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &64114338509746106
-MeshCollider:
+--- !u!65 &8599129105715067388
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -105,7 +105,6 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300042, guid: 13e36ac39a96afe49bc041eeb490917a, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 0.1, y: 2, z: 0.1}
+  m_Center: {x: 0, y: 1, z: 0}
