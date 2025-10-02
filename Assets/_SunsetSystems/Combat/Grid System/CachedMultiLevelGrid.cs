@@ -392,7 +392,7 @@ namespace SunsetSystems.Combat.Grid
                         CellSize = cellSize,
                         SurfaceY = worldPos.y,
                         Walkable = walkable,
-                        NearestNode = nearestNode
+                        GraphNode = nearestNode
                     };
 
                     if (nearestNode != null) 
@@ -465,7 +465,7 @@ namespace SunsetSystems.Combat.Grid
         public float CellSize { get; set; }
 
         public bool Highlighted { get; set; }
-        public GraphNode NearestNode { get; internal set; }
+        public GraphNode GraphNode { get; internal set; }
 
         public GridUnit(Vector3Int GridPosition, Vector3 WorldPosition)
         {

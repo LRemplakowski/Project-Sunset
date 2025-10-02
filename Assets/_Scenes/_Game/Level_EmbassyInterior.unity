@@ -12435,7 +12435,7 @@ MonoBehaviour:
   showSearchTree: 0
   unwalkableNodeDebugSize: 0.3
   logPathResults: 4
-  maxNearestNodeDistance: 100
+  maxNearestNodeDistance: 5
   scanOnStartup: 1
   fullGetNearestSearch: 0
   prioritizeGraphs: 0
@@ -12451,7 +12451,7 @@ MonoBehaviour:
   tagNames: []
   heuristic: 2
   heuristicScale: 1
-  threadCount: 1
+  threadCount: -1
   maxFrameTime: 10
   batchGraphUpdates: 0
   graphUpdateBatchingInterval: 0.2
@@ -37294,8 +37294,8 @@ MonoBehaviour:
     SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 7471926044057796404}
-    - {fileID: 3636615562471254056}
     - {fileID: 874003521}
+    - {fileID: 3636615562471254056}
     - {fileID: 6162206024482089395}
     SerializedBytesString: 
     Prefab: {fileID: 0}
@@ -37333,7 +37333,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: WP_EMBASSY_OFFICE
+      Data: WP_EMBASSY_MAIN_SHOOTOUT_START
     - Name: $v
       Entry: 10
       Data: 1
@@ -37345,7 +37345,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: WP_EMBASSY_MAIN_SHOOTOUT_START
+      Data: WP_EMBASSY_OFFICE
     - Name: $v
       Entry: 10
       Data: 2
@@ -101121,7 +101121,7 @@ MonoBehaviour:
   levelHeight: 2
   gridLevelsCount: 1
   gridCellSize: 1
-  astarPath: {fileID: 0}
+  astarPath: {fileID: 135444665}
   gridGraphMask:
     value: 0
   gridObjectAsset:
@@ -131795,7 +131795,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d1796f3dc38e334ca54f2b0a067111d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _id: 
+  _id: 599d2a18-97c7-45a7-90e1-5c0081773782
 --- !u!114 &7675647208844584432
 MonoBehaviour:
   m_ObjectHideFlags: 0

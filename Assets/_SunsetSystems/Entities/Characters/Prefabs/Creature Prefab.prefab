@@ -718,14 +718,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1073741831
   shape:
-    radius: 0.4
-    height: 2
+    radius: 0.1
+    height: 1.8
   movement:
     follower:
-      rotationSpeed: 600
+      rotationSpeed: 360
       speed: 5
-      maxRotationSpeed: 720
-      maxOnSpotRotationSpeed: 720
+      maxRotationSpeed: 420
+      maxOnSpotRotationSpeed: 420
       slowdownTime: 0.5
       slowdownTimeWhenTurningOnSpot: 0
       desiredWallDistance: 0.5
@@ -734,24 +734,24 @@ MonoBehaviour:
     debugFlags: 64
     stopDistance: 0.2
     rotationSmoothing: 0
-    positionSmoothing: 0
+    positionSmoothing: 0.25
     groundMask:
       serializedVersion: 2
-      m_Bits: 4294967295
+      m_Bits: 65
     isStopped: 0
   managedState:
     rvoSettings:
-      agentTimeHorizon: 1
+      agentTimeHorizon: 2
       obstacleTimeHorizon: 0.5
       maxNeighbours: 10
-      layer: 1
+      layer: 2
       collidesWith: -1
       priority: 0.5
       debug: 0
       locked: 0
     pathfindingSettings:
       graphMask:
-        value: 1
+        value: 0
       tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
       traversableTags: -1
     enableLocalAvoidance: 1
@@ -1227,10 +1227,6 @@ MonoBehaviour:
       Data: 0
   _faceTargetTime: 0.25
   CurrentNavigationAI: {fileID: 438409855980846995}
-  _explorationMask:
-    value: 1
-  _combatMask:
-    value: -2
   _myBlocker: {fileID: 8714977868881684492}
 --- !u!114 &8714977868881684492
 MonoBehaviour:

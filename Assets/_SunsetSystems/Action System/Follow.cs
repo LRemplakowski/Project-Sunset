@@ -1,6 +1,7 @@
 using System.Collections;
 using SunsetSystems.Entities.Characters.Navigation;
 using SunsetSystems.Entities.Interfaces;
+using UnityEngine;
 
 namespace SunsetSystems.ActionSystem
 {
@@ -20,7 +21,7 @@ namespace SunsetSystems.ActionSystem
             myAgent = owner.References.NavigationManager;
             following = false;
             this.followDistance = followDistance;
-            conditions.Add(new KeepWithinStoppingDistanceOfFollowTarget(this.followTarget, myAgent, followDistance));
+            conditions.Add(new KeepWithinStoppingDistanceOfFollowTarget(this.followTarget, myAgent, followDistance * 1.01f));
         }
 
         public override void Cleanup()
@@ -28,7 +29,6 @@ namespace SunsetSystems.ActionSystem
             base.Cleanup();
             if (followCoroutine != null)
                 Owner.CoroutineRunner.StopCoroutine(followCoroutine);
-            myAgent.StopMovement();
             following = false;
         }
 
@@ -44,7 +44,7 @@ namespace SunsetSystems.ActionSystem
             while (following)
             {
                 myAgent.SetNavigationTarget(followTarget.Position - ((followTarget.Position - myAgent.Position).normalized * followDistance));
-                yield return null;
+                yield return new WaitForSeconds(.1f);
             }
         }
     }

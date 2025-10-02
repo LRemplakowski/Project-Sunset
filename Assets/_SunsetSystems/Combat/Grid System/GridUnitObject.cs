@@ -1,3 +1,4 @@
+using Pathfinding;
 using Sirenix.OdinInspector;
 using SunsetSystems.Abilities;
 using SunsetSystems.Core;
@@ -25,6 +26,7 @@ namespace SunsetSystems.Combat.Grid
         private IMaterialConfig defaultCellStateConfig;
         private static MaterialPropertyNameAndTypeComparer propertyNameAndTypeComparer = new();
 
+        public GraphNode GraphNode => unitData.GraphNode;
         public Vector3Int GridPosition => unitData.GridPosition;
         public Vector3 WorldPosition => transform.position;
 

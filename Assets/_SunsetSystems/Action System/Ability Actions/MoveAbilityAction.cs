@@ -1,5 +1,6 @@
 using Sirenix.OdinInspector;
 using SunsetSystems.Abilities;
+using SunsetSystems.Combat;
 using SunsetSystems.Combat.Grid;
 using SunsetSystems.Entities.Characters.Navigation;
 using UnityEngine;
@@ -12,34 +13,35 @@ namespace SunsetSystems.ActionSystem
         [SerializeField]
         private INavigationManager navigationManager;
         [SerializeField, ReadOnly]
-        private Vector3 destination;
+        private IGridCell destination;
+        [SerializeField]
+        private GridManager gridInstance;
+        [SerializeField]
+        private ICombatant combatant;
 
         public MoveAbilityAction(MoveAbility ability, IAbilityContext context) : base(context.SourceActionPerformer)
         {
-            var gridInstance = context.GridManager;
-            var gridCell = context.TargetObject as IGridCell;
-            var combatant = context.SourceCombatBehaviour;
+            gridInstance = context.GridManager;
+            destination = context.TargetObject as IGridCell;
+            combatant = context.SourceCombatBehaviour;
             navigationManager = context.SourceCombatBehaviour.References.NavigationManager;
-            NavMesh.SamplePosition(gridCell.WorldPosition, out var hit, 1f, NavMesh.AllAreas);
-            destination = hit.position;
             conditions.Add(new Destination(navigationManager));
-            this.destination = hit.position;
-            if (gridInstance.TryGetCurrentGridCell(combatant, out IGridCell occupiedCell))
-            {
-                gridInstance.ClearOccupierFromCell(occupiedCell);
-            }
-            gridInstance.HandleCombatantMovedIntoGridCell(context.SourceCombatBehaviour, gridCell);
         }
 
         public override void Cleanup()
         {
             base.Cleanup();
-            navigationManager.StopMovement(true);
+            navigationManager.StopMovement();
         }
 
         public override void Begin()
         {
-            bool destinationSet = navigationManager.SetNavigationTarget(destination);
+            if (gridInstance.TryGetCurrentGridCell(combatant, out IGridCell occupiedCell))
+            {
+                gridInstance.ClearOccupierFromCell(occupiedCell);
+            }
+            gridInstance.HandleCombatantMovedIntoGridCell(combatant, destination);
+            bool destinationSet = navigationManager.SetGridTarget(destination);
             if (!destinationSet)
             {
                 Debug.LogError("Failed to set navigation target for MoveAbilityAction, aborting action.");

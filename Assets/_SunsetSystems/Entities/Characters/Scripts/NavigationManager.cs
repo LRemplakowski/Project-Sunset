@@ -1,12 +1,14 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
+using Pathfinding;
 using Sirenix.OdinInspector;
 using SunsetSystems.ActionSystem;
-using SunsetSystems.Persistence;
-using UnityEngine;
-using Pathfinding;
 using SunsetSystems.Combat;
-using System.Collections.Generic;
+using SunsetSystems.Combat.Grid;
+using SunsetSystems.Persistence;
+using TMPro;
+using UnityEngine;
 
 namespace SunsetSystems.Entities.Characters.Navigation
 {
@@ -34,10 +36,10 @@ namespace SunsetSystems.Entities.Characters.Navigation
         private IActionPerformer _actionPerformer;
 
         public Vector3 Position => CurrentNavigationAI.position;
-        public bool FinishedCurrentPath => !CurrentNavigationAI.pathPending && CurrentNavigationAI.reachedEndOfPath;
-        public bool IsMoving =>
-            CurrentNavigationAI.velocity.sqrMagnitude > MOVEMENT_THRESHOLD ||
-            _actionPerformer.PeekCurrentAction is Move or MoveAbilityAction or Follow;
+        public bool FinishedCurrentPath => !CurrentNavigationAI.hasPath || CurrentNavigationAI.reachedCrowdedEndOfPath;
+        public bool IsMoving => (CurrentNavigationAI.velocity.sqrMagnitude > MOVEMENT_THRESHOLD || !FinishedCurrentPath)
+                                && CurrentNavigationAI.canMove
+                                && !CurrentNavigationAI.isStopped;
         public float CurrentSpeed => CurrentNavigationAI.velocity.magnitude;
         public float MaxSpeed => CurrentNavigationAI.maxSpeed;
         public string ComponentID => COMPONENT_ID;
@@ -73,6 +75,8 @@ namespace SunsetSystems.Entities.Characters.Navigation
                     _explorationMask |= GraphMask.FromGraph(graph);
                 }
             }
+            _currentGraphMask = _explorationMask;
+            CurrentNavigationAI.pathfindingSettings.graphMask = _currentGraphMask;
         }
 
         private void OnCombatEnd(IEnumerable<ICombatant> _)
@@ -152,12 +156,25 @@ namespace SunsetSystems.Entities.Characters.Navigation
             if (!CurrentNavigationAI.canMove)
                 return false;
             CurrentNavigationAI.isStopped = false;
-            ABPath path = ABPath.Construct(Position, target, null);
-            path.traversalProvider = _traversalProvider;
-            AstarPath.StartPath(path);
-            path.BlockUntilCalculated();
-            CurrentNavigationAI.SetPath(path);
+            CurrentNavigationAI.destination = target;
             CurrentNavigationAI.SearchPath();
+            return true;
+        }
+
+        public bool SetGridTarget(IGridCell gridCell)
+        {
+            if (!CurrentNavigationAI.canMove)
+                return false;
+            CurrentNavigationAI.isStopped = false;
+            ABPath path = ABPath.Construct(Position, gridCell.WorldPosition, null);
+            path.nnConstraint = new NNConstraint
+            {
+                graphMask = _currentGraphMask,
+                constrainWalkability = true,
+                walkable = true,
+            };
+            path.traversalProvider = _traversalProvider;
+            CurrentNavigationAI.SetPath(path);
             return true;
         }
 

@@ -99,7 +99,8 @@ namespace SunsetSystems.Combat.Grid
             var gridUnit = this[cell.GridPosition];
             var occupier = gridUnit.Occupier;
             gridUnit.Occupier = null;
-            occupier.References.StatsManager.OnCreatureDied -= OnOccupierDied;
+            if (occupier != null)
+                occupier.References.StatsManager.OnCreatureDied -= OnOccupierDied;
             _occupiedGridCells.Remove(occupier);
             managedGrid.MarkCellDirty(cell);
         }
