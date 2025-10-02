@@ -1,4 +1,5 @@
-﻿using SunsetSystems.Core;
+﻿using System;
+using SunsetSystems.Core;
 using SunsetSystems.Game;
 using SunsetSystems.Persistence;
 using Unity.Cinemachine;
@@ -50,11 +51,18 @@ namespace SunsetSystems.Input.CameraControl
         private void Start()
         {
             _moveTarget = transform.position;
+            GameManager.OnGameStateChanged += OnGameStateChanged;
         }
 
         private void OnDestroy()
         {
+            GameManager.OnGameStateChanged -= OnGameStateChanged;
             ISaveable.UnregisterSaveable(this);
+        }
+
+        private void OnGameStateChanged(GameState state)
+        {
+            _moveDirection = Vector3.zero;
         }
 
         public void MoveToLevelStartPosition()
