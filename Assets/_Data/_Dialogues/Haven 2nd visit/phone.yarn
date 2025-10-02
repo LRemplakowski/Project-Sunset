@@ -1,5 +1,7 @@
 ﻿title: phone
 tags:
+color: red
+position: -99,-460
 ---
 <<if GetAttributeSkillPoolSize("Intelligence","Technology")==0>>
     <<jump phoneInt0>>
@@ -16,10 +18,12 @@ tags:
 <<endif>>
 ===
 title: phoneInt0
+position: -301,-119
 ---
 [nomarkup][The phone has been disconnected, but you can plug it back in. It's most likely Dominic who's responsible given that the cord seems to have been ripped out of the wall. You can feel the urge to call Arthur, ask him to come over and stay with you - but you couldn't even if you wanted to.][/nomarkup] #line:0600fec 
 ===
 title: phoneInt1
+position: 75,-135
 ---
 [nomarkup][The phone has been disconnected, but you can plug it back in. It's most likely Dominic who's responsible given that the cord seems to have been ripped out of the wall. You can feel the urge to call Arthur, and ask him to come over and stay with, you and driven by this you spend a couple of minutes finding a place to plug the cord into the wall, moving it around until the power connects. You feel a slight jolt in your arm at the shoulder and a green light flashes.][/nomarkup] #line:04cb380 
 -> [nomarkup][Dial up Arthur.][/nomarkup] #line:01ac1f8 
@@ -28,6 +32,7 @@ title: phoneInt1
     [nomarkup][You look at the phone and immediately think better of it. There's nothing you want to do less than call Arthur and burden him even more. Setting the phone in its cradle, you return to the rest of the apartment.][/nomarkup] #line:007c81a 
 ===
 title: phoneInt2Duct
+position: 225,-417
 ---
 [nomarkup][The phone has been disconnected, but you can plug it back in. It's most likely Dominic who's responsible given that the cord seems to have been ripped out of the wall. You can feel the urge to call Arthur, and ask him to come over and stay with you, and driven by this you spend a couple of minutes finding a place to plug the cord into the wall, moving it around until the power connects. You feel a slight jolt in your arm at the shoulder and a green light flashes. You spend a couple of minutes with the cord and find where it's been ripped, connecting it with duct tape and nodding. It'll do.][/nomarkup] #line:08038ea 
 -> [nomarkup][Dial up Arthur.][/nomarkup] #line:0c7934d 
@@ -38,6 +43,7 @@ title: phoneInt2Duct
     [nomarkup][You look at the phone and immediately think better of it. There's nothing you want to do less than call Arthur and burden him even more. Setting the phone in its cradle, you return to the rest of the apartment.][/nomarkup] #line:076d56a 
 ===
 title: phoneInt2
+position: -49,339
 ---
 [nomarkup][The phone has been disconnected, but you can plug it back in. It's most likely Dominic who's responsible given that the cord seems to have been ripped out of the wall. You can feel the urge to call Arthur, and ask him to come over and stay with you and driven by this you spend a couple of minutes finding a place to plug the cord into the wall, moving it around until the power connects. You feel a slight jolt in your arm at the shoulder and a green light flashes.][nomarkup] #line:04cd872 
 -> [nomarkup][Dial up Arthur.][/nomarkup] #line:01a8dce 
@@ -46,6 +52,7 @@ title: phoneInt2
     [nomarkup][You look at the phone and immediately think better of it. There's nothing you want to do less than call Arthur and burden him even more. Setting the phone in its cradle, you return to the rest of the apartment. As you do you see that the cord has been jostled by the notion, a light that was blinking green having turned off briefly. Maybe if you had some duct tape you could fix the cord?] [/nomarkup] #line:0c28b58 
 ===
 title: phoneInt3Duct
+position: -193,164
 ---
 [nomarkup][The phone has been disconnected, but you can plug it back in. It's most likely Dominic who's responsible given that the cord seems to have been ripped out of the wall. You can feel the urge to call Arthur, and ask him to come over and stay with you, and driven by this you spend a couple of minutes finding a place to plug the cord into the wall, moving it around until the power connects. You feel a slight jolt in your arm at the shoulder and a green light flashes. You spend a couple of minutes with the cord and find where it's been ripped, connecting it with duct tape and nodding. It'll do.][/nomarkup] #line:071a784 
 -> [nomarkup][Dial up Arthur.][/nomarkup] #line:07d8db1 

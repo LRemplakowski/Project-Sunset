@@ -1,5 +1,6 @@
 ﻿title: tv
 tags:
+position: -111,-258
 ---
 <<if CustomVisited("tv") == false>>
     [nomarkup][The TV buzzes to life behind you having been passively flickering through channels, the news taking over the broadcast as you see the smoking and burnt char of the Embassy highlighted on the grainy TV screen. A woman with bright eyes and a bold red lip starts speaking, her voice devoid of any accent and noted by her teleprompter cadence.][/nomarkup] #line:0c1d192 
@@ -34,6 +35,7 @@ tags:
 <<endif>>
 ===
 title: tvInsertTape
+position: -140,-7
 ---
 [nomarkup][VHS static blur the screen until a face comes into view – one you haven't seen in a long time. Arthur. His once confident demeanor was replaced by an aura of vulnerability you've never witnessed before. Bound hands strain against their restraints, his fingers white-knuckled in a futile attempt to break free. A bloody gash marks his forehead. The cold, unforgiving walls that enclose him, cast ominous shadows that seem to mock his plight. As the camera zooms in closer, Arthur's eyes reflect a mixture of defiance and resignation, silently pleading for rescue from his grim captivity.][/nomarkup] #line:0fce1d3 
 {$sire}: [nomarkup][From around the camera, she steps into view. Placing her hands on Arthur's shoulders.][/nomarkup] Since you've taken something of mine, I figured I'd go ahead and take something of yours. [nomarkup][She licks the gash on his forehead. He whimpers in agony.][/nomarkup] Don't worry. I won't hurt him. Yet. Come and find us. #line:0a941a1 
@@ -48,6 +50,7 @@ title: tvInsertTape
     <<endif>>
 ===
 title: tvTapeAnaComments
+position: -161,259
 ---
 {$anastasia}: Who was that? #line:07baec2 
 -> {$pcName}: It was my ex. #line:0cf3afb 

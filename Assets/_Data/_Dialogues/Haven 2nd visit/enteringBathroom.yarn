@@ -1,5 +1,7 @@
 ﻿title: enteringBathroom
 tags:
+color: red
+position: 35,-453
 ---
 [nomarkup][As you enter the bathroom to take the shower you promised yourself you get paralyzed. Diego's body still there, prompting again bad memories in your head rewind like a horror. With your full memories from the night before it's even more devastating to look at the guys face.][/nomarkup] #line:0ffefec 
 {$pcName}: Dammit... #line:067a3ce 
@@ -19,6 +21,7 @@ tags:
 <<endif>>
 ===
 title: anaTakesBody
+position: 255,25
 ---
 [nomarkup][You see Anastasia picking the limp body by it's arms and taking it out of the shower. She's dragging it outside.][/nomarkup] #line:02e995d 
 {$anastasia}: Care to make some room? I want to put it in the closet before you ask. #line:0993f02 
@@ -26,11 +29,13 @@ title: anaTakesBody
 <<jump bodyCompRoll1>>
 ===
 title: pcTakesBody
+position: -229,-4
 ---
 [nomarkup][You take the limp body by it's arms and take it out of the shower dragging it outside the bathroom. It's not easy without help, but you manage to put it into the closet. Just oustide the view.][/nomarkup] #line:0555d84 
 <<jump bodyCompRoll2>>
 ===
 title: bodyCompRoll1
+position: 218,268
 ---
 <<if Roll("Composure","Resolve") >=3>>
     <<jump bodyCompRoll1Success>>
@@ -39,6 +44,7 @@ title: bodyCompRoll1
 <<endif>>
 ===
 title: bodyCompRoll2
+position: -290,257
 ---
 <<if Roll("Composure","Resolve") >=3>>
     <<jump bodyCompRoll2Success>>
@@ -47,19 +53,23 @@ title: bodyCompRoll2
 <<endif>>
 ===
 title: bodyCompRoll1Success
+position: 65,516
 ---
 [nomarkup][You feel like you should tell something, but it'll not change anything. The guy is dead now. There's no turning back for him - even if you'd want to.][/nomarkup] #line:0ad7ea2 
 ===
 title: bodyCompRoll1Failure
+position: 340,515
 ---
 -> {$pcName}: His name is Diego… #line:008b91f 
 {$anastasia}: Huh? He can be Stalin himself for all I care - he's dead now. Nothing will change that. #line:035b41d 
 ===
 title: bodyCompRoll2Success
+position: -216,483
 ---
 [nomarkup][You close your eyes and clench your teeth. It's tragic, but you can't let it take you over now.][/nomarkup] #line:0a0bd63 
 ===
 title: bodyCompRoll2Failure
+position: -459,484
 ---
 [nomarkup][You just can't help. You start to sob and cry sliding down to the floor. Is it how your every night will look? The crimson tears run down your cheeks.][/nomarkup] #line:0ee672d 
 <<if GetIsPartyMemberRecruited($anastasia) is true>>

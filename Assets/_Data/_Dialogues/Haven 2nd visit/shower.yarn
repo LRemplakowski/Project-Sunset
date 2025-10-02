@@ -1,5 +1,7 @@
 ﻿title: shower
 tags:
+color: blue
+position: -185,-349
 ---
 -> {$pcName}: Yea, I need a shower. <<if $diegoMoved == true and GetIsPartyMemberRecruited($anastasia) is true>> #line:0ac3c01 
     <<jump takeAShowerWithAna>>
@@ -13,6 +15,7 @@ tags:
     <<jump showerIntRoll>>
 ===
 title: takeAShowerWithAna
+position: -642,266
 ---
 [nomarkup][Pulling off your shirt and pants you can feel the sticky slick of blood and grime clinging to you. It's gotten into your hair and is caked anywhere that it could touch. As you rub your eye in agitation you can feel it seal shut against the agitation of the thick iron smell of blood coming off your hands. You can see blood and bits of gore that Anastasia didn't clean when she was moving Diego's corpse out and as you flick the shower head on, twisting the knob to hot you can see the water turn black as it washes the events of the evening off of you.][/nomarkup] #line:07170ce 
 {$anastasia}: You got any towels or clothes in this whole fuckin' place? Or do you just stand naked in the laundry mat? [nomarkup][She cracks the door and shouts at you from behind it.][/nomarkup] Seriously Princess what's the deal do you not have any jamies? #line:0672bd1 
@@ -23,6 +26,8 @@ title: takeAShowerWithAna
 <<endif>>
 ===
 title: showerCompSuccess
+position: -608,466
+color: red
 ---
 [nomarkup][You stare at the water as it swirls around the drain, slowly turning from black to a muddy brown as it soaks off the dirt and starts to slowly work the blood off of your skin. For a moment it's almost as if you're washing away the events of the evening. Resetting yourself back to a few hours ago when things were dire but less so, your eyes simply glaze over as you hear Anastasia's voice fade slightly into simply background noise.][/nomarkup] #line:08c7d65 
 {$anastasia}: De-s-ree! Des-ree! DESIREE!! [nomarkup][Her voice becomes more clear as she knocks on the wall in the bathroom. You can see her silhouette through the shower curtain.][/nomarkup] #line:0add997 
@@ -38,6 +43,7 @@ title: showerCompSuccess
 <<endif>>
 ===
 title: anaInShower
+position: 116,513
 ---
 {$anastasia}: You're uh... you're not naked are you? #line:0b184f1 
 [nomarkup][You look down at yourself and shudder, and not just because you're covered head to toe in dirt, gore, and who knows what.][/nomarkup] #line:00726e1 
@@ -61,6 +67,7 @@ title: anaInShower
 <<jump shower>>
 ===
 title: anaNotInShower
+position: -498,721
 ---
 {$anastasia}: Hey whatever you need. I'm not here to reenact Scream. Okay, I've got a towel out here and some clothes. Cool. #line:03ac465 
 [nomarkup][A long time passes with you seated in the shower, your eyes unfocused as you watch the water slosh around the shower. Your mind racing with thoughts and yet completely empty][/nomarkup] #line:0d14cf2 
@@ -76,6 +83,7 @@ title: anaNotInShower
 <<jump shower>>
 ===
 title: anaAdvice
+position: -270,200
 ---
 {$anastasia}: Goddamnit. Well yeah, Desiree you killed like eight people. Have you ever killed anyone before? #line:0fae98c 
 [nomarkup][Your silence answers for you as you stare blankly into the water.][/nomarkup] #line:014b1c1 
@@ -92,6 +100,7 @@ title: anaAdvice
 <<jump shower>>
 ===
 title: showerCompFailure
+position: -111,372
 ---
 [nomarkup][You stare at the water as it swirls around the drain, slowly turning from black to a muddy brown as it soaks off the dirt and starts to slowly work the blood off of your skin. For a moment it's almost as if you're washing away the events of the evening. Resetting yourself back to a few hours ago when things were dire but less so, your eyes simply glaze over as you hear Anastasia's voice fade slightly into simply background noise. A voice becomes more clear as she knocks on the wall in the bathroom. You can see her silhouette through the shower curtain. BANG BANG BANG. You can hear pounding on the bathroom wall and feel your body tense. A wild surging fear claws at you as you feel danger coming in all around you. Prickles of water against your skin, the flaking of drywall above you, the shouting from beyond the curtain a standing shadow that is taller than you from your seated position in the shower. You feel a burning in your throat in your eyes, and an itch in your hands. The shower is coated in blood and you can feel bits of skin with muscle attached float past your foot. You have to defend yourself or you're going to die in here - ][/nomarkup] #line:08354f0 
 {$anastasia}: DESIREE! #line:0a0a0b0 
@@ -102,11 +111,13 @@ title: showerCompFailure
 <<jump shower>>
 ===
 title: noShower
+position: 268,-694
 ---
 [nomarkup][Your eyes flash with an image of yourself in Diego's place. Dead and lifeless in the shower. There's something haunting and strange about this place. Even without the body in it that the idea of being in this space is almost magnetically repellant. You cannot imagine stepping into it at all, much less trying to step into the shower. You shake your head.][/nomarkup] #line:03c87f6 
 <<jump shower>>
 ===
 title: showerStrRoll
+position: 862,-39
 ---
 <<if Roll("Strength","Athletics") >=1 or GetCharacterDisciplineRank($pcName,"POTENCE")>0>>
     <<jump showerStrSuccess>>
@@ -115,15 +126,19 @@ title: showerStrRoll
 <<endif>>
 ===
 title: showerStrSuccess
+position: 1196,187
 ---
 [nomarkup][You reach out and yank the shower curtain off its railing causing the fabric and plastic lining to crumble to the floor.][/nomarkup] #success #line:0aa6ca9 
 ===
 title: showerStrFailure
+position: 1209,24
+color: red
 ---
 [nomarkup][You reach out and yank the shower curtain off its railing causing the fabric and plastic lining to crumble to the floor. The sound of metal against metal sounds and you can see that some of the attachment rings have ripped through the fabric making it harder to hang.][/nomarkup] #failure #line:0b0b121 
 <<set $curtainRipped to 1>>
 ===
 title: showerIntRoll
+position: 759,-319
 ---
 <<GiveItem IT_Q_SHOWERCURTAIN>>
 <<if Roll("Intelligence","Craft") >=1>>
@@ -133,21 +148,25 @@ title: showerIntRoll
 <<endif>>
 ===
 title: showerIntSuccess
+position: 1103,-241
 ---
 [nomarkup][You get up on the toilet and carefully unhook each metal attachment ring, pulling the shower curtain off the rod. At the end of it, you have a plastic liner and the fabric you were looking for.][/nomarkup] #success #line:0e55721 
 ===
 title: showerIntFailure
+position: 1095,-395
 ---
 [nomarkup][You get up on the toilet and start to carefully unhook each of the carefully unhook metal attachment ring rods. At the end of it, you have a plastic liner and the fabric you were looking for. The sound of metal against metal sounds and you can see that some of the attachment rings weren't detached properly and have ripped through the fabric making it harder to hang. You can feel a sigh building in your throat.][/nomarkup] #failure #line:0c801ff 
 <<set $curtainRipped to 1>>
 ===
 title: pcChecksShower
+position: -577,-1063
 ---
 [nomarkup][You walk into the bathroom and are met with the same sight you saw this evening Diego remains exactly where you left him, though his eye has now detached and fallen into the bathtub. Bright red oxygenated blood has dried down to a dull black and his face looks terrified. Frozen forever in an expression of unimaginable fear, fear you now understand yourself in some ways. Rigor mortis has set in and his skin has a grayish tint to it.][/nomarkup] #line:02e00d1 
 -> [nomarkup][Move the body.] (Strength + Athletics)[/nomarkup] #line:0d6e521 
     <<jump moveDiegoStrRoll>>
 ===
 title: moveDiegoStrRoll
+position: -259,-1102
 ---
 <<if Roll("Strength","Athletics") >=1>>
     <<jump moveDiegoStrSuccess>>
@@ -156,18 +175,21 @@ title: moveDiegoStrRoll
 <<endif>>
 ===
 title: moveDiegoStrSuccess
+position: -390,-769
 ---
 [nomarkup][You have Diego up onto your shoulder and carefully maneuver him into a nearby supply closet. Finding a dustpan and vacuum stored in there as well. You only have a few more hours until his body starts to rot, but you don't have the time to think about that as dawn encroaches. For now, you carefully set him down in the closet and close his eyes. You'll find someplace to bury him in the next evening if the Dominics crew won't take care of it sooner.][/nomarkup] #success #line:0ccd6bd 
 <<set $diegoMoved to true>>
 <<jump shower>>
 ===
 title: moveDiegoStrFailure
+position: -137,-745
 ---
 [nomarkup][You have Diego up onto your shoulder and carefully maneuver him into a nearby supply closet. Finding a dustpan and vacuum stored in there as well. You only have a few more hours until his body starts to rot, but you don't have the time to think about that as dawn encroaches. For now, you carefully set him down in the closet and close his eyes. You'll find someplace to bury him in the next evening if the Dominics crew won't take care of it sooner. You find yourself staring into the abyss of his face, it feels so much more personal now - even if Diego Vaguez is a stranger to you.] (+1 Hunger)[/nomarkup] #failure #line:04144bb 
 <<set $diegoMoved to true>>
 <<jump shower>>
 ===
 title: showerAlone
+position: -939,-379
 ---
 <<if Roll("Composure","Resolve") >=3>>
     <<jump showerAloneCompSuccess>>
@@ -176,6 +198,7 @@ title: showerAlone
 <<endif>>
 ===
 title: showerAloneCompSuccess
+position: -1151,70
 ---
 [nomarkup][Pulling off your shirt and pants you can feel the sticky slick of blood, grime, and sweat clinging to you. It's gotten into your hair and is caked anywhere that it could touch. As you rub your eye in agitation you can feel it seal shut against the agitation of the thick iron smell of blood coming off your hands. You can see blood and bits of gore clinging to the side of the bathtub from Diego's corpse and as you flick the shower head on, twisting the knob to hot you can see the water turn black as it washes the events of the evening off of you. A long time passes with you seated in the shower, your eyes unfocused as you watch the water slosh around the shower. Your mind racing with thoughts and yet completely empty][/nomarkup] #line:0d7f73b 
 {$innerVoice}: I did what I had to do. #line:02b34eb 
@@ -190,12 +213,14 @@ title: showerAloneCompSuccess
 <<jump shower>>
 ===
 title: showerAloneCompFailure
+position: -780,19
 ---
 [nomarkup][You stare at the water as it swirls around the drain, slowly turning from black to a muddy brown as it soaks off the dirt and starts to slowly work the blood off of your skin. For a moment it's almost as if you're washing away the events of the evening. Resetting yourself back to a few hours ago when things were dire but less so, your eyes simply glaze over as whatever voice has started the shout simply fades to background noise. You can see a masculine silhouette through the shower curtain. BANG BANG BANG. You can hear pounding on the bathroom wall and feel your body tense. A wild surging fear claws at you as you feel danger coming in all around you. Prickles of water against your skin, the flaking of drywall above you, the shouting from beyond the curtain a standing shadow that is taller than you from your seated position in the shower. You feel a burning in your throat in your eyes, and an itch in your hands. The shower is coated in blood and you can feel bits of skin with muscle attached float past your foot. You have to defend yourself or you're going to die in here- Your eyes flash with an image of yourself in Diego's place. Dead and lifeless in the shower. It takes some time for you to realize it- you're the one who's been screaming and the hands pounding against the walls are your own.][/nomarkup] #line:0a3368d 
 <<set $showerTaken to true>>
 <<jump shower>>
 ===
 title: proofingObjectiveFailed
+position: 785,282
 ---
 //player proceeds here automatically if he fails proofing the window - he goes into bathroom with ana if recruited//
 [nomarkup][With inhuman effort you get your body into the bathroom. With each passing minute, it gets heavier and heavier. When you close the door and put some dirty clothes in your attempt to block any light seeping from under the door your limbs are heavy as a lead.][/nomarkup] #line:0cd5436 

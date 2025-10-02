@@ -1,5 +1,6 @@
 ﻿title: frontDoor
 tags:
+position: 1,-283
 ---
 KNOCK. KNOCK. KNOCK. #line:018c7a7 
 [nomarkup][The sound brings up unvoluntary memories as you look at your front door.][/nomarkup] #line:0a66899 
@@ -12,6 +13,7 @@ KNOCK. KNOCK. KNOCK. #line:018c7a7
 <<jump doorOptions>>
 ===
 title: doorOptions
+position: -12,-16
 ---
 [nomarkup][Of course, there's no answer. You take a deep breath trying to compose yourself and come closer to the door reading your weapon.][/nomarkup] #line:05e8ab0 
 -> [nomarkup][Open it.][/nomarkup] #line:00feb7e 
@@ -21,6 +23,7 @@ title: doorOptions
     <<jump doorOptions>>
 ===
 title: doorOpened
+position: 7,254
 ---
 [nomarkup][You creak the door open to find an empty hallway. On the ground before you is an unlabelled VHS tape.][/nomarkup] #line:09aa606 
 <<GiveItem "IT_Q_VHS">>

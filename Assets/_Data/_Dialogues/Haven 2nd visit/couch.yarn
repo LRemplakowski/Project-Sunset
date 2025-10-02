@@ -1,5 +1,7 @@
 ﻿title: couch
 tags:
+position: -32,-298
+color: red
 ---
 [nomarkup][Your a little bit tarnished couch that doubles as your bed.][/nomarkup] #line:088b8f3 
 -> [nomarkup][Move the couch.] (Strength + Athletics)[/nomarkup] <<if CustomVisited("couchStrRoll") == false>> #line:0fd9d25 
@@ -8,6 +10,7 @@ tags:
     <<jump sheets>>
 ===
 title: couchStrRoll
+position: 30,5
 ---
 <<if Roll("Strength","Athletics") >=2>>
     <<jump couchStrSuccess>>
@@ -16,6 +19,7 @@ title: couchStrRoll
 <<endif>>
 ===
 title: couchStrSuccess
+position: 108,365
 ---
 [nomarkup][Shoulders slumping, you glare at the couch. It's yet another item that needs to be dealt with.][/nomarkup] #success #line:005835e 
 <<if GetIsPartyMemberRecruited($anastasia) is true>>
@@ -44,6 +48,7 @@ title: couchStrSuccess
 <<endif>>
 ===
 title: notMyDaddy
+position: 403,475
 ---
 {$anastasia}: Desiree and The-Prince's-Bitch sittin' in a tree! F-U-C-K-I-N-G! First comes love then comes - #line:05820a1 
 -> {$pcName}: Ooooh - You better fucking run - #line:0f83b83 
@@ -51,6 +56,7 @@ title: notMyDaddy
 {$anastasia}: Oh no! I'm under attack! [nomarkup][Laughing, She holds up a couch cushion as a shield.][/nomarkup] #line:06c5649 
 ===
 title: myDaddy
+position: 404,321
 ---
 {$anastasia}: Oh fucking gross. Babes you know I'm uh... [nomarkup][She raises an eyebrow and gestures to herself.][/nomarkup] #line:0e345b7 
 -> {$pcName}: A menace? #line:02ba91f 
@@ -71,10 +77,12 @@ title: myDaddy
 <<endif>>
 ===
 title: couchStrFailure
+position: 567,3
 ---
 [nomarkup][A long loud scrape tearing across the floor leaving visible scratches on the already damaged parquet. You probably just woke up the entire neighborhood.][/nomarkup] #failure #line:04c87db 
 ===
 title: sheets
+position: -307,13
 ---
 [nomarkup][You pull the sheets off the pull-out couch and bundle them under your arm with a sigh.][nomarkup] #line:0723feb 
 <<GiveItem IT_Q_SHEETS>>
