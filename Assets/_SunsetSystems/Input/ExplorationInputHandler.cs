@@ -114,7 +114,7 @@ namespace SunsetSystems.Input
             for (int i = 0; i < creatures.Count; i++)
             {
                 ICreature creature = creatures[i];
-                if (creature != null)
+                if (creature != null && creature.PeekCurrentAction is not Follow)
                 {
                     creature.PerformAction(new Follow(creature, PartyManager.Instance.MainCharacter, _companionFollowDistance));
                 }

@@ -37,7 +37,7 @@ namespace SunsetSystems.Entities.Characters.Navigation
         public bool FinishedCurrentPath => !CurrentNavigationAI.pathPending && CurrentNavigationAI.reachedEndOfPath;
         public bool IsMoving =>
             CurrentNavigationAI.velocity.sqrMagnitude > MOVEMENT_THRESHOLD ||
-            _actionPerformer.PeekCurrentAction is Move or MoveAbilityAction;
+            _actionPerformer.PeekCurrentAction is Move or MoveAbilityAction or Follow;
         public float CurrentSpeed => CurrentNavigationAI.velocity.magnitude;
         public float MaxSpeed => CurrentNavigationAI.maxSpeed;
         public string ComponentID => COMPONENT_ID;
