@@ -15,7 +15,7 @@ namespace SunsetSystems.Combat.UI
         [SerializeField, AssetsOnly]
         private IAbilityButtonFactory _buttonFactory;
 
-        private readonly Dictionary<IAbilityConfig, Action<WeaponAmmoData>> _ammoUpdatesMap = new();
+        private readonly Dictionary<Guid, Action<WeaponAmmoData>> _ammoUpdatesMap = new();
 
         private IAbilityConfig _cachedLastSelectedAbility;
         public static event Action<IAbilityConfig> OnAbilitySelected;
@@ -24,10 +24,15 @@ namespace SunsetSystems.Combat.UI
         {
             RefreshCoreAbilities();
         }
-
+        
+        // Updated ability should be passed as argument
+        // Weapon should own it's abilities
         public void UpdateAmmoCounter(in WeaponAmmoData ammoData)
         {
-            if (_cachedLastSelectedAbility != null && _ammoUpdatesMap.TryGetValue(_cachedLastSelectedAbility, out var onAmmoUpdate))
+            IAbilityConfig abilityToUpdate = _cachedLastSelectedAbility;
+            if (abilityToUpdate != null && abilityToUpdate is ReloadWeaponAbility reloadAbility)
+                abilityToUpdate = reloadAbility.GetReloadedAbility();
+            if (abilityToUpdate != null && _ammoUpdatesMap.TryGetValue(abilityToUpdate.AbilityID, out var onAmmoUpdate))
             {
                 onAmmoUpdate?.Invoke(ammoData);
             }
@@ -40,7 +45,10 @@ namespace SunsetSystems.Combat.UI
             foreach (var ability in GetCoreAbilities())
             {
                 _buttonFactory.Create(_coreButtonsParent, ability, SelectAbility, out var onAmmoUpdate);
-                _ammoUpdatesMap.TryAdd(ability, onAmmoUpdate);
+                if (ability is IAmmoAbility)
+                {
+                    _ammoUpdatesMap.TryAdd(ability.AbilityID, onAmmoUpdate);
+                }
             }
         }
 

@@ -18,11 +18,15 @@ MonoBehaviour:
     ReferencedUnityObjects:
     - {fileID: 636267614, guid: 0fada1ce6e2b7f9499463fbd4f780580, type: 3}
     - {fileID: 1018659407, guid: 0fada1ce6e2b7f9499463fbd4f780580, type: 3}
+    - {fileID: 11400000, guid: d071091e72cc533449d84ee29814afa5, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
+    - Name: _abilityID
+      Entry: 2
+      Data: e28e743219124ca5a459f73a50aab3c3
     - Name: _icons
       Entry: 7
       Data: 0|System.Collections.Generic.Dictionary`2[[SunsetSystems.Abilities.IAbilityUIData+IconState,
@@ -109,6 +113,9 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+    - Name: _reloadedAbility
+      Entry: 10
+      Data: 2
   _fallbackName: Reload Weapon
   _fallbackDescription: Reloads your current weapon.
   _categoryMask: 4

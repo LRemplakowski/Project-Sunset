@@ -8,6 +8,9 @@ namespace SunsetSystems.Abilities
 {
     public abstract class AbstractAbilityConfig : SerializedScriptableObject, IAbilityConfig
     {
+        [SerializeField]
+        private Guid _abilityID = Guid.NewGuid();
+        public Guid AbilityID => _abilityID;
         [BoxGroup("UI Data")]
         [SerializeField]
         private string _fallbackName;

@@ -29,7 +29,7 @@ namespace SunsetSystems.Combat.UI
             var buttonObject = Instantiate(_buttonPrefab as UnityEngine.Object, parent);
             var buttonBehaviour = buttonObject as IAbilityButton;
             buttonBehaviour.Initialize(data, selectionDelegate);
-            buttonBehaviour.SetUpdateAmmoCounterEnabled(data is IAmmoAbility);
+            buttonBehaviour.SetUpdateAmmoCounterEnabled(data is IAmmoAbility ammoAbility && ammoAbility.UsesAmmo);
             onUpdateAmmoData = buttonBehaviour.OnUpdateAmmoData;
             return buttonBehaviour;
         }

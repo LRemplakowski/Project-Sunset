@@ -16,11 +16,11 @@ namespace SunsetSystems.ActionSystem
             
             _actionFinishedFlag = new() { Value = false };
             _weaponManager = weaponManager;
+            conditions.Add(new WaitForFlag(_actionFinishedFlag));
         }
 
         public override void Begin()
         {
-            conditions.Add(new WaitForFlag(_actionFinishedFlag));
             _weaponManager.ReloadSelectedWeapon();
             _actionFinishedFlag.Value = true;
         }

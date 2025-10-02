@@ -164,7 +164,7 @@ namespace SunsetSystems.Equipment
         {
             if (weaponsAmmoData.TryGetValue(GetSelectedWeapon()?.DatabaseID, out var ammoData))
                 return ammoData;
-            return new();
+            return new() { WeaponID = GetSelectedWeapon()?.DatabaseID };
         }
 
         public bool HasEnoughAmmoInSelectedWeapon(int ammo)
@@ -216,6 +216,7 @@ namespace SunsetSystems.Equipment
             {
                 WeaponAmmoData ammoData = new()
                 {
+                    WeaponID = weapon.DatabaseID,
                     MaxAmmo = weapon.MaxAmmo,
                     CurrentAmmo = weapon.MaxAmmo
                 };

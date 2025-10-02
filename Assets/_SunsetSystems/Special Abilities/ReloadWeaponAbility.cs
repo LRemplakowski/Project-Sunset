@@ -1,3 +1,4 @@
+using System;
 using SunsetSystems.Abilities.Execution;
 using SunsetSystems.Abilities.Targeting;
 using SunsetSystems.Combat;
@@ -10,6 +11,8 @@ namespace SunsetSystems.Abilities
     [CreateAssetMenu(fileName = "New Reload Ability", menuName = "Sunset Abilities/Weapon Reload")]
     public class ReloadWeaponAbility : AbstractAbilityConfig
     {
+        [SerializeField]
+        private IAbilityConfig _reloadedAbility;
         private IAbilityExecutionStrategy _executionStrategy;
         private IAbilityTargetingStrategy _targetingStrategy;
 
@@ -42,5 +45,7 @@ namespace SunsetSystems.Abilities
 
         public override IAbilityExecutionStrategy GetExecutionStrategy() => _executionStrategy ??= new ReloadStrategy();
         public override IAbilityTargetingStrategy GetTargetingStrategy() => _targetingStrategy ??= new SelfTargetStrategy(this);
+
+        internal IAbilityConfig GetReloadedAbility() => _reloadedAbility;
     }
 }

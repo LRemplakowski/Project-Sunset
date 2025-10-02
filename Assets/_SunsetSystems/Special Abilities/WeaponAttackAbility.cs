@@ -36,6 +36,8 @@ namespace SunsetSystems.Abilities
         private IAbilityExecutionStrategy _executionStrategy;
         private IAbilityTargetingStrategy _targetingStrategy;
 
+        public bool UsesAmmo => _ammoPerAttack > 0;
+
         protected override bool ValidateAbilityTarget(IAbilityContext context)
         {
             return IsTargetDamageable(context);
@@ -69,6 +71,7 @@ namespace SunsetSystems.Abilities
 
     public interface IAmmoAbility 
     {
+        bool UsesAmmo { get; }
         int GetAmmoPerUse();
         int GetUsesPerExecution();
     }
