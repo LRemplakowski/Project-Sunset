@@ -131,8 +131,13 @@ You have spent so long under her cruel watch - nothing more than a convenient to
 I want us to live together - be together as equals, such that we'll be bonded only through trust and love rather than coercion and obligation. I promise that once the last of your bindings are broken, we will escape and make our home far, far away from here - from Jyhad and the pressures foisted upon us by wicked institutions.  #line:06ece37 
 It will be just you - and me. Together in the night. #line:07e7453 
 With love,  #line:026c4fd 
-Lucia #line:00d2b26 
+Lucia #line:00d2b26 #lastline
 <<set $luciaLoveLetter to true>>
+<<jump shotsFired>>
+===
+title: shotsFired
+---
+<<PlaySFX "gunshot_rapid_fire">>
 [nomarkup][Just as you finish reading the letter, a sharp sound rings out from the club downstairs - a sound that cannot be mistaken for anything else. A gunshot.][/nomarkup] #line:0530e38 
 {$kieran}: What the hell? #line:0decad3 
 <<if GetIsPartyMemberRecruited($anastasia) is true>>
