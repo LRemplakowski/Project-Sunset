@@ -1,33 +1,33 @@
 ﻿title: enteringBathroom
 tags:
 ---
-[nomarkup][As you enter the bathroom to take the shower you promised yourself you get paralyzed. Diego's body still there, prompting again bad memories in your head rewind like a horror. With your full memories from the night before it's even more devastating to look at the guys face.][/nomarkup]
-{$pcName}: Dammit...
+[nomarkup][As you enter the bathroom to take the shower you promised yourself you get paralyzed. Diego's body still there, prompting again bad memories in your head rewind like a horror. With your full memories from the night before it's even more devastating to look at the guys face.][/nomarkup] #line:0ffefec 
+{$pcName}: Dammit... #line:067a3ce 
 <<if GetIsPartyMemberRecruited($anastasia) is true>>
-    {$anastasia}: [nomarkup][She pushes past you.][/nomarkup] Who the fuck is this guy?
-    -> {$pcName}: It's… it appears it's my first victim.
-    {$anastasia}: Well that's tough. [nomarkup][She looks around and then focuses her gaze on you.][/nomarkup] Did you want to take a shower?
-    -> {$pcName}: Yes.
-    {$anastasia}: Do you need help with this guy?
-    -> {$pcName}: Yes.
+    {$anastasia}: [nomarkup][She pushes past you.][/nomarkup] Who the fuck is this guy? #line:0f6d936 
+    -> {$pcName}: It's… it appears it's my first victim. #line:04fa137 
+    {$anastasia}: Well that's tough. [nomarkup][She looks around and then focuses her gaze on you.][/nomarkup] Did you want to take a shower? #line:06efcdd 
+    -> {$pcName}: Yes. #line:0dc8bef 
+    {$anastasia}: Do you need help with this guy? #line:0103150 
+    -> {$pcName}: Yes. #line:0e946bb 
         <<jump anaTakesBody>>
-    -> {$pcName}: No. I have to do it myself. It's my mess.
+    -> {$pcName}: No. I have to do it myself. It's my mess. #line:0bdf1b7 
         <<jump pcTakesBody>>
 <<else>>
-    [nomarkup][You have no other choice then to deal with the body yourself.][/nomarkup]
+    [nomarkup][You have no other choice then to deal with the body yourself.][/nomarkup] #line:01d3cc7 
         <<jump pcTakesBody>>
 <<endif>>
 ===
 title: anaTakesBody
 ---
-[nomarkup][You see Anastasia picking the limp body by it's arms and taking it out of the shower. She's dragging it outside.][/nomarkup]
-{$anastasia}: Care to make some room? I want to put it in the closet before you ask.
-[nomarkup][You make room for her to drag the body out and hide it outside the view in the closet. She doesn't seem to be tired by the ordeal and it looks like it's not her first rodeo like this.][/nomarkup]
+[nomarkup][You see Anastasia picking the limp body by it's arms and taking it out of the shower. She's dragging it outside.][/nomarkup] #line:02e995d 
+{$anastasia}: Care to make some room? I want to put it in the closet before you ask. #line:0993f02 
+[nomarkup][You make room for her to drag the body out and hide it outside the view in the closet. She doesn't seem to be tired by the ordeal and it looks like it's not her first rodeo like this.][/nomarkup] #line:00931d5 
 <<jump bodyCompRoll1>>
 ===
 title: pcTakesBody
 ---
-[nomarkup][You take the limp body by it's arms and take it out of the shower dragging it outside the bathroom. It's not easy without help, but you manage to put it into the closet. Just oustide the view.][/nomarkup]
+[nomarkup][You take the limp body by it's arms and take it out of the shower dragging it outside the bathroom. It's not easy without help, but you manage to put it into the closet. Just oustide the view.][/nomarkup] #line:0555d84 
 <<jump bodyCompRoll2>>
 ===
 title: bodyCompRoll1
@@ -48,24 +48,24 @@ title: bodyCompRoll2
 ===
 title: bodyCompRoll1Success
 ---
-[nomarkup][You feel like you should tell something, but it'll not change anything. The guy is dead now. There's no turning back for him - even if you'd want to.][/nomarkup]
+[nomarkup][You feel like you should tell something, but it'll not change anything. The guy is dead now. There's no turning back for him - even if you'd want to.][/nomarkup] #line:0ad7ea2 
 ===
 title: bodyCompRoll1Failure
 ---
--> {$pcName}: His name is Diego…
-{$anastasia}: Huh? He can be Stalin himself for all I care - he's dead now. Nothing will change that.
+-> {$pcName}: His name is Diego… #line:008b91f 
+{$anastasia}: Huh? He can be Stalin himself for all I care - he's dead now. Nothing will change that. #line:035b41d 
 ===
 title: bodyCompRoll2Success
 ---
-[nomarkup][You close your eyes and clench your teeth. It's tragic, but you can't let it take you over now.][/nomarkup]
+[nomarkup][You close your eyes and clench your teeth. It's tragic, but you can't let it take you over now.][/nomarkup] #line:0a0bd63 
 ===
 title: bodyCompRoll2Failure
 ---
-[nomarkup][You just can't help. You start to sob and cry sliding down to the floor. Is it how your every night will look? The crimson tears run down your cheeks.][/nomarkup]
+[nomarkup][You just can't help. You start to sob and cry sliding down to the floor. Is it how your every night will look? The crimson tears run down your cheeks.][/nomarkup] #line:0ee672d 
 <<if GetIsPartyMemberRecruited($anastasia) is true>>
-    {$anastasia}: [nomarkup][She comes closer to you and gives you a hand.][/nomarkup] Come on, don't be a wimp. You won't survive long being like that. Maybe it's your first victim, but it's definately not your last. You either get over it or die.
-    [nomarkup][She may be rude, but some part of you agrees with her. You either accept the fact or you can as well join him the next night.][/nomarkup]
+    {$anastasia}: [nomarkup][She comes closer to you and gives you a hand.][/nomarkup] Come on, don't be a wimp. You won't survive long being like that. Maybe it's your first victim, but it's definately not your last. You either get over it or die. #line:0870460 
+    [nomarkup][She may be rude, but some part of you agrees with her. You either accept the fact or you can as well join him the next night.][/nomarkup] #line:060730c 
 <<else>>
-    [nomarkup][You could use a company right now - to ease your burden? To talk it through? Anything… but you're on your own for tonight. You piece yourself together and stand up.][/nomarkup]
+    [nomarkup][You could use a company right now - to ease your burden? To talk it through? Anything… but you're on your own for tonight. You piece yourself together and stand up.][/nomarkup] #line:04680e9 
 <<endif>>
 ===
