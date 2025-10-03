@@ -3,11 +3,15 @@ tags:
 position: -32,-298
 color: red
 ---
-[nomarkup][Your a little bit tarnished couch that doubles as your bed.][/nomarkup] #line:088b8f3 
--> [nomarkup][Move the couch.] (Strength + Athletics)[/nomarkup] <<if CustomVisited("couchStrRoll") == false>> #line:0fd9d25 
-    <<jump couchStrRoll>>
--> [Take the sheets.] <<if CustomVisited("sheets") == false>> #line:0c4587b 
-    <<jump sheets>>
+<<if IsObjectiveActive("Q_0P_BLOODY_HELL", "BH11_GO_SLEEP")>>
+    <<jump goToSleep>>
+<<else>>
+    [nomarkup][Your a little bit tarnished couch that doubles as your bed.][/nomarkup] #line:088b8f3 
+    -> [nomarkup][Move the couch.] (Strength + Athletics)[/nomarkup] <<if CustomVisited("couchStrRoll") == false>> #line:0fd9d25 
+        <<jump couchStrRoll>>
+    -> [Take the sheets.] <<if CustomVisited("sheets") == false>> #line:0c4587b 
+        <<jump sheets>>
+<<endif>>
 ===
 title: couchStrRoll
 position: 30,5
