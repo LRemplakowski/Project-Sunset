@@ -37,6 +37,12 @@ namespace SunsetSystems.UI
                 _tooltipHookPoint = transform as RectTransform;
         }
 
+        private void OnDisable()
+        {
+            if (_itemEntry.ItemReference != null)
+                OnPointerExitItem?.Invoke(this);
+        }
+
         private void Start()
         {
             TooltipData = new(this);
