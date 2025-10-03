@@ -248,6 +248,7 @@ color: purple
     [nomarkup][This will not be enough. The good news is that you still can try again. Maybe something else will work?][/nomarkup] #line:0d36c2f #lastline
     <<jump windowOptions>>
 <<else>>
+    <<FailObjective "Q_0P_BLOODY_HELL" "BH10_LIGHTPROOF_APARTMENT">>
     [nomarkup][Dawn gets nearer and nearer. You start to feel a tiredness seeping into your mind and body and you can't shake the feeling off. It's like you haven't slept in months and lack of energy is getting to you. You failed to light-proof the window, but you feel unable to do anything else either.][/nomarkup] #line:037387a 
     <<if GetIsPartyMemberRecruited($anastasia) is true>>
         -> {$pcName}: Why... do I feel... so tired? #line:07eb374 
