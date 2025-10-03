@@ -2,7 +2,7 @@
 position: -209,38
 ---
 <<declare $strangeInsightModifier to 0>>
-<<if CurrentObjective("Q_0P_MAIN_SATURDAY_START","GRAB_MEDS")>>
+<<if IsObjectiveActive("Q_0P_MAIN_SATURDAY_START","GRAB_MEDS")>>
     <<CompleteObjective "Q_0P_MAIN_SATURDAY_START" "GRAB_MEDS">>
 <<endif>>
 <<if CustomVisited("DoorFirstVisit")>>
