@@ -125,6 +125,7 @@ title: showerStrRoll
 position: 330,-68
 color: red
 ---
+<<GiveItem IT_Q_SHOWERCURTAIN>>
 <<if Roll("Strength","Athletics") >= 1 or GetCharacterDisciplineRank($pcName,"POTENCE") > 0>>
     <<jump showerStrSuccess>>
 <<else>>
