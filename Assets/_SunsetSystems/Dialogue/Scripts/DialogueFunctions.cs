@@ -113,7 +113,7 @@ namespace SunsetSystems.Dialogue
             return -value;
         }
 
-        [YarnFunction("CurrentObjective")]
+        [YarnFunction("IsObjectiveActive")]
         public static bool GetIsObjectiveActive(string questID, string objectiveID)
         {
             return QuestJournal.Instance.TryGetTrackedObjectiveByReadableID(questID, objectiveID, out _);
@@ -176,12 +176,14 @@ namespace SunsetSystems.Dialogue
         [YarnFunction("GetCharacterDisciplineRank")]
         public static int GetCharacterDisciplineRank(string characterID, string disciplineID)
         {
+            Debug.LogError("DialogueFunctions >>> GetCharacterDisciplineRank is not implemented!");
             return 0;
         }
 
         [YarnFunction("GetPartyHasDiscipline")]
         public static bool GetParyHasDiscipline(string disciplineID)
         {
+            Debug.LogError("DialogueFunctions >>> GetPartyHasDiscipline is not implemented!");
             return true;
         }
 
