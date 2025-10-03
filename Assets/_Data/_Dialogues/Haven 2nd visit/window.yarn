@@ -16,11 +16,9 @@ color: red
 ---
 <<if GetIsPartyMemberRecruited($anastasia) is false>>
     <<if Roll("Wits","Awareness") >= 2>>
-        [nomarkup][You check outside the window and see a woman from the bar pulling up into the drive way. A feeling of slight unease hits you before you tamp it down, remembering the face of the gruff woman at the bar. Why she's here is unclear and as you look at her from the window she waves at you and points at something on your door questioningly.][/nomarkup] #line:0d0f2a9 
-        <<jump frontDoor>>
+        [nomarkup][You check outside the window and see a woman from the bar leaves the drive way. A feeling of slight unease hits you before you tamp it down, remembering the face of the gruff woman at the bar. Why she's here is unclear and as you look at her from the window she waves at you.][/nomarkup] #line:0d0f2a9 
     <<else>>
-        [nomarkup][You check outside the window and see the gleam of chrome as light hits the engine of a motorcycle. The figure on the bike is clearly a woman, but why she's here is less obvious. She points at your door and you get a sense of unease and confusion.][/nomarkup] #line:063abc2 
-        <<jump frontDoor>>
+        [nomarkup][You check outside the window and see the gleam of chrome as light hits the engine of a motorcycle. The figure on the bike is clearly a woman, but why she's here is less obvious. She waves at you as she leaves.][/nomarkup] #line:063abc2 
     <<endif>>
 <<else>>
     <<if $tattooSpotter == true>>
@@ -30,24 +28,24 @@ color: red
         <<endif>>
         [nomarkup][Once the pair of you lock eyes he rolls his shoulders and smiles giving you a little two-finger salute before wheeling around on his bike and driving away.][/nomarkup] #line:0de0d63 
     <<endif>>
-<<endif>>
-{$anastasia}: What are you lookin' at out there? Cops? #line:066fd87 
--> {$pcName}: No it's the... guy. #line:0dccbe5 
-{$anastasia}: Very descriptive Desiree. Try using your words. #line:0dcc9ff 
--> {$pcName}: The long-haired guy I saw at the Embassy. He was in the parking lot sitting on his bike. I think he was waiting for me to spot him. #line:0d64dd1 
-{$anastasia}: Good God can they not understand that bringing work home is the last thing anyone wants to do!? She shakes her head in disgust. Gimmie a fucking break! Want me to go out there and tell him to shove his dick up his ass so he can learn what it feels like to fuck off? #line:08f8796 
--> {$pcName}: I mean he's already gone but yes. #line:0b78efe 
-{$anastasia}: Alrighty Princess one 'teaching men to take a hint' coming up! [nomarkup][She makes for the door.][/nomarkup] #line:02b3ac9 
-[nomarkup][Chuckling, you roll your eyes. Anastasia grins devilishly.][/nomarkup] #line:0881b7f 
-{$anastasia}: Knew you had it in you Princess. You alright?  #line:0a01d00 
--> {$pcName}: I don't feel safe in my own home anymore. #line:06cb466 
-{$anastasia}: Oh. Yeah- yeah, that's about right. Okay well... He's gone. Right? So whatever he was here for didn't involve 'personally fucking with Desiree'. So reasonably, whatever the plan is for tonight - shooting you in the gut isn't a part of that? #line:0dd7399 
--> {$pcName}: Or he'd have done that. #line:0dafef0 
-{$anastasia}: Mind games. [nomarkup][She rolls her eyes.][/nomarkup] The only thing Kindred love more is politics. [nomarkup][Exhausted by her own words, she hangs her head.][/nomarkup] #line:0ddcc74 
--> {$pcName}: It's always like this? #line:07747e5 
-{$anastasia}: Pretty much. [nomarkup][She pulls out a fresh cigarette but thinks better of it.][/nomarkup] Sometimes you meet those not into mind games, at least for a while. [nomarkup][Her eyes grow distant before she snaps back to the present][/nomarkup] But eventually they end up like your stalker friend out there. It's like dropping a freshwater fish into a saltwater tank, if they don't learn to breathe the salt: they die. #line:0d4ac48 
--> {$pcName}: What about you? #line:0219534 
-<<jump windowWitsRoll>>
+    {$anastasia}: What are you lookin' at out there? Cops? #line:066fd87 
+    -> {$pcName}: No it's the... guy. #line:0dccbe5 
+    {$anastasia}: Very descriptive Desiree. Try using your words. #line:0dcc9ff 
+    -> {$pcName}: The long-haired guy I saw at the Embassy. He was in the parking lot sitting on his bike. I think he was waiting for me to spot him. #line:0d64dd1 
+    {$anastasia}: Good God can they not understand that bringing work home is the last thing anyone wants to do!? She shakes her head in disgust. Gimmie a fucking break! Want me to go out there and tell him to shove his dick up his ass so he can learn what it feels like to fuck off? #line:08f8796 
+    -> {$pcName}: I mean he's already gone but yes. #line:0b78efe 
+    {$anastasia}: Alrighty Princess one 'teaching men to take a hint' coming up! [nomarkup][She makes for the door.][/nomarkup] #line:02b3ac9 
+    [nomarkup][Chuckling, you roll your eyes. Anastasia grins devilishly.][/nomarkup] #line:0881b7f 
+    {$anastasia}: Knew you had it in you Princess. You alright?  #line:0a01d00 
+    -> {$pcName}: I don't feel safe in my own home anymore. #line:06cb466 
+    {$anastasia}: Oh. Yeah- yeah, that's about right. Okay well... He's gone. Right? So whatever he was here for didn't involve 'personally fucking with Desiree'. So reasonably, whatever the plan is for tonight - shooting you in the gut isn't a part of that? #line:0dd7399 
+    -> {$pcName}: Or he'd have done that. #line:0dafef0 
+    {$anastasia}: Mind games. [nomarkup][She rolls her eyes.][/nomarkup] The only thing Kindred love more is politics. [nomarkup][Exhausted by her own words, she hangs her head.][/nomarkup] #line:0ddcc74 
+    -> {$pcName}: It's always like this? #line:07747e5 
+    {$anastasia}: Pretty much. [nomarkup][She pulls out a fresh cigarette but thinks better of it.][/nomarkup] Sometimes you meet those not into mind games, at least for a while. [nomarkup][Her eyes grow distant before she snaps back to the present][/nomarkup] But eventually they end up like your stalker friend out there. It's like dropping a freshwater fish into a saltwater tank, if they don't learn to breathe the salt: they die. #line:0d4ac48 
+    -> {$pcName}: What about you? #line:0219534
+    <<jump windowWitsRoll>>
+<<endif>> 
 ===
 title: windowWitsRoll
 position: 1166,-331
