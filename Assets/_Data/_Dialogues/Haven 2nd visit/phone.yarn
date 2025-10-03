@@ -11,9 +11,9 @@ position: -99,-460
     <<jump phoneInt2Duct>>
 <<elseif GetAttributeSkillPoolSize("Intelligence","Technology")==2>>
     <<jump phoneInt2>>
-<<elseif GetAttributeSkillPoolSize("Intelligence","Technology")==3 and GetHasItem("IT_Q_DUCTTAPE")==true>>
+<<elseif GetAttributeSkillPoolSize("Intelligence","Technology")>=3 and GetHasItem("IT_Q_DUCTTAPE")==true>>
     <<jump phoneInt3Duct>>
-<<elseif GetAttributeSkillPoolSize("Intelligence","Technology")==3>>
+<<elseif GetAttributeSkillPoolSize("Intelligence","Technology")>=3>>
     <<jump phoneInt2>>
 <<endif>>
 ===
