@@ -20,7 +20,7 @@ color: red
 ---
 [nomarkup][Pulling off your shirt and pants you can feel the sticky slick of blood and grime clinging to you. It's gotten into your hair and is caked anywhere that it could touch. As you rub your eye in agitation you can feel it seal shut against the agitation of the thick iron smell of blood coming off your hands. You can see blood and bits of gore that Anastasia didn't clean when she was moving Diego's corpse out and as you flick the shower head on, twisting the knob to hot you can see the water turn black as it washes the events of the evening off of you.][/nomarkup] #line:07170ce 
 {$anastasia}: You got any towels or clothes in this whole fuckin' place? Or do you just stand naked in the laundry mat? [nomarkup][She cracks the door and shouts at you from behind it.][/nomarkup] Seriously Princess what's the deal do you not have any jamies? #line:0672bd1 
-<<if Roll("Composure","Resolve") >=2>>
+<<if Roll("Composure","Resolve") >= 2>>
     <<jump showerCompSuccess>>
 <<else>>
     <<jump showerCompFailure>>
@@ -33,7 +33,7 @@ color: red
 [nomarkup][You stare at the water as it swirls around the drain, slowly turning from black to a muddy brown as it soaks off the dirt and starts to slowly work the blood off of your skin. For a moment it's almost as if you're washing away the events of the evening. Resetting yourself back to a few hours ago when things were dire but less so, your eyes simply glaze over as you hear Anastasia's voice fade slightly into simply background noise.][/nomarkup] #line:08c7d65 
 {$anastasia}: De-s-ree! Des-ree! DESIREE!! [nomarkup][Her voice becomes more clear as she knocks on the wall in the bathroom. You can see her silhouette through the shower curtain.][/nomarkup] #line:0add997 
 -> {$pcName}: I don't feel good. [nomarkup][Your voice sounds distant even to you. The pounding noise of the shower feels overwhelming but the idea of standing up is even worse.][/nomarkup] #line:09f80fe 
-<<if GetCompanionInfluence ($anastasia)==1>>
+<<if GetCompanionInfluence ($anastasia) == 1>>
     {$anastasia}: Uh- yeah. Yeah okay? Do you... I don't know what to do here. Do you want me to get in the shower with you?! [nomarkup][Distantly she sounds panicked.][/nomarkup] #line:07c0920 
     -> {$pcName}: Yes. #line:0a9442d 
         <<jump anaInShower>>
@@ -121,7 +121,7 @@ title: showerStrRoll
 position: 330,-68
 color: red
 ---
-<<if Roll("Strength","Athletics") >=1 or GetCharacterDisciplineRank($pcName,"POTENCE")>0>>
+<<if Roll("Strength","Athletics") >= 1 or GetCharacterDisciplineRank($pcName,"POTENCE") > 0>>
     <<jump showerStrSuccess>>
 <<else>>
     <<jump showerStrFailure>>
@@ -143,7 +143,7 @@ position: 227,-348
 color: red
 ---
 <<GiveItem IT_Q_SHOWERCURTAIN>>
-<<if Roll("Intelligence","Craft") >=1>>
+<<if Roll("Intelligence","Craft") >= 1>>
     <<jump showerIntSuccess>>
 <<else>>
     <<jump showerIntFailure>>
@@ -170,7 +170,7 @@ position: -598,-1088
 title: moveDiegoStrRoll
 position: -259,-1102
 ---
-<<if Roll("Strength","Athletics") >=1>>
+<<if Roll("Strength","Athletics") >= 1>>
     <<jump moveDiegoStrSuccess>>
 <<else>>
     <<jump moveDiegoStrFailure>>
@@ -194,7 +194,7 @@ title: showerAlone
 position: -1205,-123
 color: red
 ---
-<<if Roll("Composure","Resolve") >=3>>
+<<if Roll("Composure","Resolve") >= 3>>
     <<jump showerAloneCompSuccess>>
 <<else>>
     <<jump showerAloneCompFailure>>

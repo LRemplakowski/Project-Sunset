@@ -15,7 +15,7 @@ position: 1151,-609
 color: red
 ---
 <<if GetIsPartyMemberRecruited($anastasia) is false>>
-    <<if Roll("Wits","Awareness") >=2>>
+    <<if Roll("Wits","Awareness") >= 2>>
         [nomarkup][You check outside the window and see a woman from the bar pulling up into the drive way. A feeling of slight unease hits you before you tamp it down, remembering the face of the gruff woman at the bar. Why she's here is unclear and as you look at her from the window she waves at you and points at something on your door questioningly.][/nomarkup] #line:0d0f2a9 
         <<jump frontDoor>>
     <<else>>
@@ -37,11 +37,11 @@ color: red
 -> {$pcName}: The long-haired guy I saw at the Embassy. He was in the parking lot sitting on his bike. I think he was waiting for me to spot him. #line:0d64dd1 
 {$anastasia}: Good God can they not understand that bringing work home is the last thing anyone wants to do!? She shakes her head in disgust. Gimmie a fucking break! Want me to go out there and tell him to shove his dick up his ass so he can learn what it feels like to fuck off? #line:08f8796 
 -> {$pcName}: I mean he's already gone but yes. #line:0b78efe 
-{$anastasia}: Alrighty Princess one ‘teaching men to take a hint' coming up! [nomarkup][She makes for the door.][/nomarkup] #line:02b3ac9 
+{$anastasia}: Alrighty Princess one 'teaching men to take a hint' coming up! [nomarkup][She makes for the door.][/nomarkup] #line:02b3ac9 
 [nomarkup][Chuckling, you roll your eyes. Anastasia grins devilishly.][/nomarkup] #line:0881b7f 
 {$anastasia}: Knew you had it in you Princess. You alright?  #line:0a01d00 
 -> {$pcName}: I don't feel safe in my own home anymore. #line:06cb466 
-{$anastasia}: Oh. Yeah- yeah, that's about right. Okay well... He's gone. Right? So whatever he was here for didn't involve ‘personally fucking with Desiree'. So reasonably, whatever the plan is for tonight - shooting you in the gut isn't a part of that? #line:0dd7399 
+{$anastasia}: Oh. Yeah- yeah, that's about right. Okay well... He's gone. Right? So whatever he was here for didn't involve 'personally fucking with Desiree'. So reasonably, whatever the plan is for tonight - shooting you in the gut isn't a part of that? #line:0dd7399 
 -> {$pcName}: Or he'd have done that. #line:0dafef0 
 {$anastasia}: Mind games. [nomarkup][She rolls her eyes.][/nomarkup] The only thing Kindred love more is politics. [nomarkup][Exhausted by her own words, she hangs her head.][/nomarkup] #line:0ddcc74 
 -> {$pcName}: It's always like this? #line:07747e5 
@@ -53,7 +53,7 @@ title: windowWitsRoll
 position: 1166,-331
 color: blue
 ---
-<<if Roll("Wits","Leadership") >=3>>
+<<if Roll("Wits","Leadership") >= 3>>
     <<jump windowWitsSuccess>>
 <<else>>
     <<jump windowWitsFailure>>
@@ -68,7 +68,7 @@ position: 1082,-30
 -> {$pcName}: Do you think you're going to die to the salt? #line:06cb573 
 {$anastasia}: Princess I'm not a fucking fish alright? I... I don't know. Okay? Tonight was a lot. #line:05b384a 
 -> {$pcName}: I thought you were big and bad and an expert at these things? #line:0fa8566 
-{$anastasia}: I say away from the mind games. [nomarkup][Her cross jingles on her neck as she ruffles her hair.][/nomarkup] I got used to them when I was young. Chronicles 28:20 ‘And David said to Solomon his son, Be strong and of good courage, and do it: fear not, nor be dismayed: for the Loes God, even my God, will be with thee; he will not fail thee, nor forsake thee until thou hast finished all the work for the service of the house of the Lord.' Use that shit and justify anything you want. #line:078cc3b 
+{$anastasia}: I say away from the mind games. [nomarkup][Her cross jingles on her neck as she ruffles her hair.][/nomarkup] I got used to them when I was young. Chronicles 28:20 'And David said to Solomon his son, Be strong and of good courage, and do it: fear not, nor be dismayed: for the Loes God, even my God, will be with thee; he will not fail thee, nor forsake thee until thou hast finished all the work for the service of the house of the Lord.' Use that shit and justify anything you want. #line:078cc3b 
 -> {$pcName}: Not a big fan of Christianity? #line:048171c 
 {$anastasia}: I don't seem pious to you. #line:0e584a8 
 -> {$pcName}: Yes. You have a lot of conviction and confidence. Pious I'm not sure. You did just preach at me. #line:0e06804 
@@ -126,7 +126,7 @@ color: red
     <<if GetHasItem("IT_Q_HAMMER")>>
         <<jump windowHaveSheetsAndHammer>>
     <<elseif GetHasItem("IT_Q_DUCTTAPE")>>
-        <<jump windowHaveSheetsAndTape>>>    #line:0c9a0cb 
+        <<jump windowHaveSheetsAndTape>>
     <<endif>>
         -> [nomarkup][Use bed sheets.][/nomarkup] #line:05d62c3 
         <<jump windowHaveSheets>>
@@ -142,7 +142,7 @@ color: red
 <<endif>>
 <<if GetHasItem("IT_Q_PIZZABOXES")>>
     <<if GetHasItem("IT_Q_DUCTTAPE")>>
-        <<jump windowHaveSheetsAndTape>>>    #line:03b1252 
+        <<jump windowHaveSheetsAndTape>> 
     <<endif>>
     -> [nomarkup][Use pizza boxes.][/nomarkup] #line:09ebc04 
     <<jump windowHaveSheets>>
@@ -370,7 +370,7 @@ color: yellow
 <<if GetIsPartyMemberRecruited($anastasia) is true or GetCharacterDisciplineRank($pcName,"POTENCE") > 0>>
     <<set $rollModifier to 1>>
 <<endif>>
-<<if Roll("Strength","Athletics") >=(2-$rollModifier)>>
+<<if Roll("Strength","Athletics") >= (2-$rollModifier)>>
     <<jump windowMoveFridgeSuccess>> 
 <<else>>
     <<jump windowMoveFridgeFailure>>

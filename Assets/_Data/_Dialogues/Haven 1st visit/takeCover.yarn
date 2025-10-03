@@ -146,7 +146,7 @@ tags:
 {$sheriff}: Sure you can. #line:0d2b8f2 
 {$kieran}: [nomarkup][He sighs, glaring tired daggers at Dominic.][/nomarkup] #line:091e88b 
 -> {$pcName}: And you have a wife? #line:0269912 
-    {$sheriff}: [nomarkup][He laughs.][/nomarkup] You sound surprised, but since you asked: my wife, Sam, is the Prince who rules Vegas' vampires. What can I say? I like ‘em powerful. [nomarkup][He sighs.][/nomarkup] Pity you're not gonna meet her. I think she would'a liked you. Even takin' into account... well. Everythin' else. #line:084d5ca 
+    {$sheriff}: [nomarkup][He laughs.][/nomarkup] You sound surprised, but since you asked: my wife, Sam, is the Prince who rules Vegas' vampires. What can I say? I like 'em powerful. [nomarkup][He sighs.][/nomarkup] Pity you're not gonna meet her. I think she would'a liked you. Even takin' into account... well. Everythin' else. #line:084d5ca 
     {$kieran}: Why do you prolong the inevitable Sheriff Evans? You're only making this worse for everyone.   #line:078a912 
     {$sheriff}: [nomarkup][He turns slowly to Kieran.][/nomarkup] ... Kieran, I'm pretendin' I didn't hear you say that so we can continue to be friends. Do you mind if I continue my conversation? #line:0145688 
     {$kieran}: Sure, you can. [nomarkup][Kieran's response is accompanied by a sly smile.][/nomarkup] #line:00b762d 
@@ -184,13 +184,13 @@ tags:
 ---
 <<if $kevinmurdered == true>>
     {$sheriff}: [nomarkup][He drops his cigarette butt in the pool of Kevins' blood mixed with the slurry from the sink. It quenches with a near-silent hiss.][/nomarkup] Well, my friend, it looks like our time has come to an end. I'd have loved to introduce you to the missus, but I can't let you continue to exist.
-    {$sheriff}: Rather than some ‘injustice', think of it as assurance that this nightmare will be over soon. #line:0fd6d0a 
+    {$sheriff}: Rather than some 'injustice', think of it as assurance that this nightmare will be over soon. #line:0fd6d0a 
 <<elseif $coveredinblood == true>>
     {$sheriff}: [nomarkup][He drops the cigarette butt in the pool of bloody slop from the sink. It quenches with a near-silent hiss.][/nomarkup] Well, my friend, it looks like our time has come to an end. I'd have loved to introduce you to the missus but I can't let you continue to exist.
-    {$sheriff}: Rather than some ‘injustice', think of it as assurance that this nightmare will be over soon. #line:08a18af 
+    {$sheriff}: Rather than some 'injustice', think of it as assurance that this nightmare will be over soon. #line:08a18af 
 <<else>>
     {$sheriff}: [nomarkup][He drops the cigarette butt on the ground and quenches it with the heel of his shoe.][/nomarkup] Well, my friend, it looks like our time has come to an end. I'd have loved to introduce you to the missus but I can't let you continue to exist.
-    {$sheriff}: Rather than some ‘injustice', think of it as assurance that this nightmare will be over soon. #line:0c962fb 
+    {$sheriff}: Rather than some 'injustice', think of it as assurance that this nightmare will be over soon. #line:0c962fb 
 <<endif>>
 [nomarkup][Kieran walks around the room, but stops at the investigation board.][/nomarkup] #line:07ed8d2 
 {$sheriff}: [nomarkup][He sighs.][/nomarkup] Let's just get this over with. I'll make it quick. [nomarkup][He draws his .44 Auto Mag pistol. He is perhaps a little too enthusiastic as he steps towards you.][/nomarkup] #line:0d5416f 

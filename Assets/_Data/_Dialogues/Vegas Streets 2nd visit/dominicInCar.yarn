@@ -49,7 +49,7 @@ title: carInteractions
 -> {$pcName}: So... what happens next? <<if CustomVisited("whatsNext") == false>> #line:0236d96 
     <<jump whatsNext>>
 -> [nomarkup][Stay silent.][/nomarkup] #line:0afdc86 
-    {$sheriff}: We are nearly at your place. An' hey, ‘bout the Embassy, I know it ain't an excuse for bein' short but I was pissed. Ain't gonna be like that again. #line:09df32e
+    {$sheriff}: We are nearly at your place. An' hey, 'bout the Embassy, I know it ain't an excuse for bein' short but I was pissed. Ain't gonna be like that again. #line:09df32e
     -> [nomarkup][End dialogue.][/nomarkup] 
 ===
 title: haveACigarette
@@ -74,7 +74,7 @@ title: useADrink
 [nomarkup][When you end your sentence Dominic reaches out to his inner pocket and throws hip flask at your lap.][/nomarkup]
 {$sheriff}: Kid says she could use a drink, I'm sure you could. Take a sip why don't ya? #line:005121e 
 -> {$pcName}: ... but we can't... #line:0517705 
-    {$sheriff}: ‘nd who been goin' around and told you that? Kieran? You think Stanford taught him shit about the world? Don't believe everythin' some fuck with a white coat tells you kiddo, that one's for free. #line:09cd4a5 
+    {$sheriff}: 'nd who been goin' around and told you that? Kieran? You think Stanford taught him shit about the world? Don't believe everythin' some fuck with a white coat tells you kiddo, that one's for free. #line:09cd4a5 
     [nomarkup][You look at Dominic and take a sip from his flask. It's definitely blood, but it's different. It has a heat that burns your throat but doesn't make you want to throw up. You take the next sip... and the next.][/nomarkup] #line:00ae957 
     {$sheriff}: What are you tryin'a do there bleed me dry? [nomarkup][He takes it from your hand and drinks himself.][/nomarkup]
     {$sheriff}: Don't worry {$playerNickname} it tastes the same comin' up as goin' down. #line:053d49e 
@@ -176,7 +176,7 @@ title: wantName
 title: whatHappensWithDiana
 ---
 <<if $dianaGoesToDominic == true>>
-    {$sheriff}: [nomarkup][He looks at his driver's mirror back at silent Diana who looks on the passing streets with an absent look on her face.][/nomarkup] Do you really want to talk ‘bout this right now? #line:0e6fd84 
+    {$sheriff}: [nomarkup][He looks at his driver's mirror back at silent Diana who looks on the passing streets with an absent look on her face.][/nomarkup] Do you really want to talk 'bout this right now? #line:0e6fd84 
 <<endif>>
 {$sheriff}: [nomarkup][He looks at you for a second and back at the street and lets out a sigh.][/nomarkup] I don't think you want to know that. #line:09b5212 
 -> {$pcName}: Just curious. Your politics are quite complicated from what I saw. #line:07cdeec 
@@ -280,7 +280,7 @@ title: anaInMirror
 title: lookAtDiana
 ---
 [nomarkup][Diana sits behind you expressionless staring absently at the window and street passing behind it. It looks like all the will to fight has left her and you see an empty husk of a person.][/nomarkup] #line:03ce531 
-{$sheriff}: Leave'be. She gambled ‘verything an' lost all. There's no need to make it even worse for her than it already is. #line:0d4f300 
+{$sheriff}: Leave'be. She gambled 'verything an' lost all. There's no need to make it even worse for her than it already is. #line:0d4f300 
 -> {$pcName}: Will it get easier? #line:05cd98d 
     {$sheriff}: [nomarkup][He takes a long breath - though you know that he doesn't need to breathe - and stays silent for a while then looks at you taking off his glasses entirely. You know the answer already. His face tells a lot.][/nomarkup] 
     {$sheriff}: No. And it usually only gets worse with each passin' year. [nomarkup][He then put the glasses on.][/nomarkup] #line:0493c3c 
@@ -311,7 +311,7 @@ title: differentSuit
 {$sheriff}: Ya'll should be! Naw, I'm just messin' with ya. Don't feel bad, it was my mistake. I didn't think that fledglin' like you would be able to hit me, if I'm bein' honest. But you really need to change that piece you're usin'. It's a friggin' peashooter. And as you saw - useless against Kindred.
 {$sheriff}: I can set ya up with someone that has good prices. Even for your nearly empty wallet. #line:02c69b5 
 -> {$pcName}: That would be nice. Thank you. #line:0d61624 
-    {$sheriff}: [nomarkup][He starts to rummage in his pockets with one hand and gives you a card.][/nomarkup] Just tell ‘er that Dominic sent ya. She'll set you up. #line:082e1c5
+    {$sheriff}: [nomarkup][He starts to rummage in his pockets with one hand and gives you a card.][/nomarkup] Just tell 'er that Dominic sent ya. She'll set you up. #line:082e1c5
     <<jump carInteractions>> 
 -> {$pcName}: I'll manage. Thanks for the offer though. #line:036e12c 
     {$sheriff}: Your call. If ya change your mind let me know. #line:02a7eeb 
