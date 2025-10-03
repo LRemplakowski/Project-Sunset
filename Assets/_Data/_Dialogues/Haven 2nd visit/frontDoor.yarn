@@ -2,15 +2,20 @@
 tags:
 position: 1,-283
 ---
+//sfx DOOR KNOCK
 KNOCK. KNOCK. KNOCK. #line:018c7a7 
-[nomarkup][The sound brings up unvoluntary memories as you look at your front door.][/nomarkup] #line:0a66899 
 <<if GetIsPartyMemberRecruited($anastasia) is true>>
+    [nomarkup][The sound brings up unvoluntary memories as you look at your front door.][/nomarkup] #line:0a66899 
     {$anastasia}: Who's that? #line:0e17e58 
     -> {$pcName}: I have no idea. #line:0fb402e 
-    [nomarkup][You come closer feeling more comfortable with the thought that you're not alone.][/nomarkup] #line:0db5e01 
+    [nomarkup][You come closer feeling more comfortable with the thought that you're not alone.][/nomarkup] #line:0db5e01
+    -> {$pcName}: Who's there?
+    <<jump doorOptions>>
+<<else>> 
+    [nomarkup][The sound brings up unvoluntary memories as you look at your front door.][/nomarkup] 
+    -> {$pcName}: Who's there? #line:0be4d61 
+    <<jump doorOptions>>
 <<endif>>
--> {$pcName}: Who's there? #line:0be4d61 
-<<jump doorOptions>>
 ===
 title: doorOptions
 position: -12,-16
@@ -18,9 +23,13 @@ position: -12,-16
 [nomarkup][Of course, there's no answer. You take a deep breath trying to compose yourself and come closer to the door reading your weapon.][/nomarkup] #line:05e8ab0 
 -> [nomarkup][Open it.][/nomarkup] #line:00feb7e 
     <<jump doorOpened>>
--> [nomarkup][Look out the peephole.][/nomarkup] <<if CustomVisited("doorOpened") == false>> #line:0cfff56 
-    [nomarkup][You only see the neighbor's door across the hall. If somebody is there, they are hiding.][/nomarkup] #line:0be388c 
-    <<jump doorOptions>>
+-> [nomarkup][Look out the peephole.][/nomarkup] <<if CustomVisited("lookPeephole") == false>> #line:0cfff56 
+    <<jump lookPeephole>>
+===
+title: lookPeephole
+---
+[nomarkup][You only see the neighbor's door across the hall. If somebody is there, they are hiding.][/nomarkup] #line:0be388c 
+<<jump doorOptions>>
 ===
 title: doorOpened
 position: 7,254
