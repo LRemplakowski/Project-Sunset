@@ -205,16 +205,7 @@ position: 568,-716
 <<if GetIsPartyMemberRecruited($anastasia) is true>>
     [nomarkup][Anastasia gets in just after you helping you with covering any gaps you could've missed. She doesn't talk. She just collapses on the floor motionless still holding a rag she grabbed. It looks eerie. Very corpse-like - especially with her near-white complexion.][/nomarkup] #line:0bcdec7 
 <<endif>>
-<<if $diegoMoved == false>>
-    [nomarkup][Seeing the body of your first victim doesn't help. He stares silently at you with his empty eyesocket. It would be by far easier if you moved him first. By now your body is so heavy the only thing you can do is stare back at him.][/nomarkup] #line:0eb7a9e 
-    <<if Roll("Composure","Resolve") >= 3>>
-        [nomarkup][You are nearly crying. Maybe it's because of Diego, maybe it's because of something else. Taking this all in during one night is far too much. You feel really uncomfortable leaning next to the wall on the cold floor, but you can't do anything about it as you drift off into darkness.][/nomarkup] #line:02d2e4c 
-    <<else>>
-        [nomarkup][You can't help but feel something running very slowly down your cheeks. When it reaches your mouth you feel an iron aftertaste in your mouth. You know all too well by now what it is, but you can't do anything about it as you drift off into darkness.][/nomarkup] #line:036e0e7 
-    <<endif>>
-<<else>>
-    [nomarkup][The floor is cold. You feel really uncomfortable leaning next to the wall on the cold floor, but you can't do anything about it as you drift off into darkness.][/nomarkup] #line:069a85e 
-<<endif>>
+[nomarkup][The floor is cold. You feel really uncomfortable leaning next to the wall on the cold floor, but you can't do anything about it as you drift off into darkness.][/nomarkup] #line:069a85e 
 ===
 title: showerKnock
 position: 254,262
