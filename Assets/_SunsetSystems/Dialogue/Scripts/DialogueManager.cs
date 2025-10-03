@@ -4,6 +4,7 @@ using Sirenix.OdinInspector;
 using SunsetSystems.Core;
 using SunsetSystems.Data;
 using SunsetSystems.Game;
+using SunsetSystems.Party;
 using SunsetSystems.Utils;
 using UnityEngine;
 using UnityEngine.Events;
@@ -26,7 +27,7 @@ namespace SunsetSystems.Dialogue
         public UnityEvent<string> OnNodeStarted => _dialogueRunner.onNodeStart;
         public UnityEvent<string> OnNodeFinished => _dialogueRunner.onNodeComplete;
 
-        private IGameStateRequest _dialogueStateRequest = new StateChangeRequest(DIALOGUE_MANAGER_STATE_ID, GameState.Dialogue);
+        private readonly IGameStateRequest _dialogueStateRequest = new StateChangeRequest(DIALOGUE_MANAGER_STATE_ID, GameState.Dialogue);
 
         protected override void Awake()
         {
@@ -94,6 +95,7 @@ namespace SunsetSystems.Dialogue
             }
             _dialogueRunner.StartDialogue(startNode);
             GameManager.Instance.RequestState(_dialogueStateRequest);
+            PartyManager.Instance.StopTheParty();
             return true;
         }   
 

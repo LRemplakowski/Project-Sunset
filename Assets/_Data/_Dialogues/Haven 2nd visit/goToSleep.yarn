@@ -1,11 +1,14 @@
 ﻿title: goToSleep
 tags:
+position: -41,-523
 ---
 //quest for light proofing the window is COMPLETE//
 [nomarkup][It has been an interesting night, to say the least. It lasted like a lifetime to you and in your case it's quite literally. You wish you would wake up from this nightmare and it'd all be over, but you can't even find rest. You turn over and over trying to make yourself comfortable and pray that any cover you've made on the window will be sufficient. But you feel so much anxiety you know you will be unable to sleep... are vampires even sleeping? What do they do during the daytime? What awaits you tomorrow? There are so many unanswered questions and the ones you've heard gave birth to other ones. You can't stop thinking.][/nomarkup] #line:0309851 
     <<jump goToSleepOptions>>
 ===
 title: goToSleepOptions
+position: -39,-299
+color: red
 ---
 [nomarkup][You feel dizzynes that accompanies tiredness. But it's not just being tired. It's like feeling the weight of the ages on your shoulders that pulls you down.][/nomarkup] #line:00561a2 
 <<if $attemptsCounter >= 4>>
@@ -39,16 +42,19 @@ title: goToSleepOptions
     <<jump endNight>>
 ===
 title: askAnastasia
+position: 368,-480
 ---
 {$anastasia}: Fuck off. I'm trying to get comfortable. #line:05c362e 
 [nomarkup][You'll find no companionship in your voyage this morning.][/nomarkup] #line:0b1b7e4 
 <<jump goToSleepOptions>>
 ===
 title: endNight
+position: 902,-286
 ---
 [nomarkup][A cold stillness falls over you before you wade into the murky water of nothingness. You did all you could for today. Maybe you'll be able to tie some loose ends tomorrow.][/nomarkup] #line:0ffffd4 
 ===
 title: thinkAboutArthur
+position: -534,-125
 ---
 [nomarkup][The tape wasn't something you were expecting to find at your doorstep. On the other hand, someone tied to Lucia had to be here to drop it. It's not safe in here - she knows where you live. At the first opportunity, you should find another place to stay.][/nomarkup] #line:0457d63 
 -> {$beast}: I have to think about my safety first. What's done is done. No point in trying to fix that. I can only adapt. #line:05cfaad 
@@ -58,6 +64,7 @@ title: thinkAboutArthur
 <<jump discussionArthur2ndStep>>
 ===
 title: discussionArthur2ndStep
+position: -534,98
 ---
 -> {$beast}: I have to think about possibilities. I have so much potential right now. There's no point in making a decision that will squander it before I can spread my wings. #line:0a913f2 
     [nomarkup][Yes. From what you gathered to this point you can do things that you were unable to do as a normal human being. The conclusion is simple - you're no longer human so you aren't bound by petty morals that you adhered to before Lucia killed you and made you her Childe.][/nomarkup] #line:014c6cf 
@@ -66,6 +73,7 @@ title: discussionArthur2ndStep
 <<jump discussionArthur3rdStep>>
 ===
 title: discussionArthur3rdStep
+position: -543,300
 ---
 -> {$beast}: But first? I need to make a point. To erase that confident smile from her face. Arthur is insignificant. It's between me and her. I won't allow my death to go unavenged. #line:0a775e0 
     <<jump discussionConclussion>>
@@ -73,11 +81,13 @@ title: discussionArthur3rdStep
     <<jump discussionConclussion>>
 ===
 title: discussionConclussion
+position: -547,568
 ---
 [nomarkup][You nod to your thoughts. Yes. This is exactly what you're going to do. Feeling more confident you allow your mind to focus on something else.][/nomarkup] #line:0df73db 
 <<jump goToSleepOptions>>
 ===
 title: thinkAboutVampires
+position: -87,-60
 ---
 -> {$beast}: The “beautiful predators” and “masters of the night”. Yeah, right... Rather stuck up a bunch of self-important pricks. #line:058066b 
     [nomarkup][Like everybody you used to think vampires were just fantasy but then again that was what they wanted you to think. The Masquerade they call it. Like ranchers over cattle. You wonder how high up the chain Kindred rule the world?][/nomarkup] #lastline #line:08ad7f1 
@@ -86,6 +96,7 @@ title: thinkAboutVampires
 <<jump discussionVampires2ndStep>>
 ===
 title: discussionVampires2ndStep
+position: -87,137
 ---
 -> {$beast}: Of course they do. To be on top you have to be ruthless. I need to be ruthless to survive. Otherwise, I'll end up how I started - as no one. Or worse. #line:08a0585 
     [nomarkup][Yes, a lowlife. You have had enough of this. You have ambition, you have your dreams and now you've got a means to make them true. Why should you stop yourself here? You should go and take what you want for yourself.][/nomarkup] #lastline #line:0542d5e 
@@ -94,6 +105,7 @@ title: discussionVampires2ndStep
 <<jump discussionVampires3rdStep>>
 ===
 title: discussionVampires3rdStep
+position: -181,368
 ---
 -> {$beast}: I will show that local bunch how a real vampire should be. Free and independent. Crushing anyone that stands between them and their goal. #line:06bebcd 
     <<jump discussionConclussion>>
@@ -101,6 +113,7 @@ title: discussionVampires3rdStep
     <<jump discussionConclussion>>
 ===
 title: thinkAboutWhatHappened
+position: -783,-129
 ---
 -> {$beast}: Trial by fire. Nothing less and nothing more. And I survived! It tells something, doesn't it? #line:00b8d9f 
     [nomarkup][Trial by fire. Funny you say that - the same fire seems to repel you. Good thing you didn't stay at the Embassy for much longer. Well, you may also consider flying bullets a fire. Then in this case yes, it was a trial by fire.][/nomarkup] #lastline #line:01dcebc 
@@ -109,6 +122,7 @@ title: thinkAboutWhatHappened
 <<jump discussionWhatHappened2ndStep>>
 ===
 title: discussionWhatHappened2ndStep
+position: -813,259
 ---
 -> {$beast}: And this is only the beginning. The Embassy? Lucia? Diana? It was only a sliver of a city. Just to think what happens in other places! And I will be the center of it all. #line:004c7bf 
     [nomarkup][You like the thrill, the attention, and most of all the dynamic that surrounds you. The moments come and go, but you will take them all head-on. You survived your first night. You'll survive the next too. And the one after that.][/nomarkup] #lastline #line:0cb35cd 
@@ -117,6 +131,7 @@ title: discussionWhatHappened2ndStep
 <<jump discussionWhatHappened3rdStep>>
 ===
 title: discussionWhatHappened3rdStep
+position: -829,568
 ---
 -> {$beast}: I loved the feeling of being in control. To decide someone else's fate. Having it in my hands. I need to pursue this control. To feel it again. #line:0f2d2ed 
     <<jump discussionConclussion>>
@@ -124,6 +139,8 @@ title: discussionWhatHappened3rdStep
     <<jump discussionConclussion>>
 ===
 title: thinkAboutPeople
+position: 630,340
+color: red
 ---
 [nomarkup][You've met so many people today. It's not hard to keep track though. You were always good with names and faces. One of the quirks that makes you a good PI. Your thoughts start to spin around...][/nomarkup] #line:0670fc2 
 -> [nomarkup][Kieran.][/nomarkup] <<if CustomVisited("thinkAboutKieran") == false>> #line:0a668c5 
@@ -140,6 +157,7 @@ title: thinkAboutPeople
     <<jump thinkAboutDiana>>
 ===
 title: thinkAboutKieran
+position: 440,823
 ---
 [nomarkup][The person who possibly got you out of this mess. He seems to be calm and calculating most of the time. But at the same time you feel an icy barrier between you two.][/nomarkup]  #line:02ea650 //show Kieran's portrait in this line
 -> {$beast}: He's a total wimp. Trying to be far more important than he is. He probably made the arguments just to have his own pet bound to him as a gesture of goodwill. Or he was just too stupid to play with an older vampire in his own game. I don't like him. #line:066d78b 
@@ -148,6 +166,7 @@ title: thinkAboutKieran
     <<jump thinkAboutPeople>>
 ===
 title: thinkAboutAnastasia
+position: 902,36
 ---
 [nomarkup][The wild girl, a stray. She stuck to you like glue when you said “yes” when she offered help.][/nomarkup]  #line:0015eec //show Ana's portrait in this line
 -> {$beast}: She favors action over standing and looking at how things will go. She knows what she wants and takes it. She isn't afraid of what she is. She embraced it. I like her. I can learn a lot from her. It's good she stayed. We will make a great pair. #line:04fcb4e 
@@ -156,6 +175,7 @@ title: thinkAboutAnastasia
     <<jump thinkAboutPeople>>
 ===
 title: thinkAboutDominic
+position: 21,620
 ---
 [nomarkup][The so-called Sheriff. The local authority with a thing for his gun. He's the one who got you into this place for better or worse.][/nomarkup]  #line:0bdbed0 //show Dominic's portrait in this line
 -> {$beast}: He thinks he can push people around just because he calls himself a “Sheriff”. But at least he isn't a coward. I don't like him, but for now, I need to dance to his music and bear his awful accent. #line:025edc7 
@@ -164,6 +184,7 @@ title: thinkAboutDominic
     <<jump thinkAboutPeople>>
 ===
 title: thinkAboutKate
+position: 321,631
 ---
 [nomarkup][Kate. The real owner of the Embassy. A local celebrity among Kindred that sat on her throne before you stepped inside her club.][/nomarkup] #line:00e5523 
 -> {$beast}: The Wasp. The all-too-sweet and classy woman who in reality is a bulging parasite on someone else's business. A beautiful predator hiding in plain sight. She's so old it's weird she lost control. Her seat of power will probably crumble to dust soon. All because of her self-confidence and arrogance. #line:02125ca 
@@ -172,6 +193,7 @@ title: thinkAboutKate
     <<jump thinkAboutPeople>>
 ===
 title: thinkAboutDiana
+position: 1023,236
 ---
 [nomarkup][The owner, the pet? Or maybe someone trying to break free being a free spirit themselves by nature?][/nomarkup] #line:0a124b5 
 -> {$beast}: Definitely a pet that bites the hand that feeds them. Whatever happened to her is her own doing. This is just an order of things. If you're weak  you get crushed under someone else's shoe. #line:02b3fa0 

@@ -1,4 +1,6 @@
 using Sirenix.OdinInspector;
+using Sirenix.Utilities;
+using SunsetSystems.Entities.Interactable;
 using SunsetSystems.Tooltips;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -19,7 +21,10 @@ namespace SunsetSystems.UI
 
         public void OnHighlightInteractablesAction(InputAction.CallbackContext context)
         {
-            _nameplateManager.OnHighlightInteractables(context);
+            if (context.started)
+                FindObjectsByType<InteractableEntity>(FindObjectsSortMode.None).ForEach(interactable => interactable.ForceHover = true);
+            else if (context.canceled)
+                FindObjectsByType<InteractableEntity>(FindObjectsSortMode.None).ForEach(interactable => interactable.ForceHover = false);
         }
 
         public void OnHelpAction(InputAction.CallbackContext context)

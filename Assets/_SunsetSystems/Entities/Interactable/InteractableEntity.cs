@@ -91,12 +91,30 @@ namespace SunsetSystems.Entities.Interactable
         [Title("Runtime")]
         [ShowInInspector]
         private bool _isHoveredOver;
+        [ShowInInspector]
+        private bool _forceHover = false;
+
         public bool IsHoveredOver
         {
-            get => _isHoveredOver;
+            get => _isHoveredOver || ForceHover;
             set
             {
                 _isHoveredOver = value;
+                HandleHoverHiglight();
+                HandleNameplate();
+            }
+        }
+
+        public bool ForceHover
+        {
+            get
+            {
+                return _forceHover;
+            }
+
+            set
+            {
+                _forceHover = value;
                 HandleHoverHiglight();
                 HandleNameplate();
             }

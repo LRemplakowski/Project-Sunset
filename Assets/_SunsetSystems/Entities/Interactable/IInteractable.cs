@@ -3,6 +3,7 @@ using UnityEngine;
 
 public interface IInteractable
 {
+    bool ForceHover { get; set; }
     bool IsHoveredOver { get; set; }
     float InteractionDistance { get; set; }
     IActionPerformer TargetedBy { get; set; }
