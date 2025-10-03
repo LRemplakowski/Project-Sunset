@@ -2,12 +2,13 @@
 tags:
 position: -170,-235
 ---
+[nomarkup][You turn the TV is on.][/nomarkup]
 <<if CustomVisited("newsReport") == false>>
     <<jump newsReport>>
 <<else>>
     -> [nomarkup][Insert the tape.][/nomarkup] <<if GetHasItem("IT_Q_VHS") and not CustomVisited("tvInsertTape")>> #line:00f170c 
         <<jump tvInsertTape>>
-    -> [nomarkup][Walk away.][/nomarkup] #line:0c461ea 
+    -> [nomarkup][Turn TV off.][/nomarkup] #line:0c461ea 
 <<endif>>
 ===
 title: newsReport
@@ -36,11 +37,12 @@ position: 5,-10
     [nomarkup][The reporter drones on as you see police come and talk with the new station, saying that they suspect a string of violent crimes in the area all to be tied to a resurgence of gang violence and organized crime after a series of arrests late last year. You're witnessing the work of your “primogen,” as Kieran put it, in real-time. You wonder how many other stories you've heard are flights of fancy Kindred have served to the public.][/nomarkup] #line:051ab6d    
     -> [nomarkup][Insert the tape.][/nomarkup] <<if GetHasItem("IT_Q_VHS") and not CustomVisited("tvInsertTape")>> #line:080e42f 
         <<jump tvInsertTape>>
-    -> [nomarkup][Walk away.][/nomarkup] #line:0e2c32c 
+    -> [nomarkup][Turn TV off.][/nomarkup] #line:0e2c32c 
 ===
 title: tvInsertTape
 position: -147,208
 ---
+<<RemoveItem "IT_Q_VHS">>
 [nomarkup][VHS static blur the screen until a face comes into view - one you haven't seen in a long time. Arthur. His once confident demeanor was replaced by an aura of vulnerability you've never witnessed before. Bound hands strain against their restraints, his fingers white-knuckled in a futile attempt to break free. A bloody gash marks his forehead. The cold, unforgiving walls that enclose him, cast ominous shadows that seem to mock his plight. As the camera zooms in closer, Arthur's eyes reflect a mixture of defiance and resignation, silently pleading for rescue from his grim captivity.][/nomarkup] #line:0fce1d3 
 {$sire}: [nomarkup][From around the camera, she steps into view. Placing her hands on Arthur's shoulders.][/nomarkup] Since you've taken something of mine, I figured I'd go ahead and take something of yours. [nomarkup][She licks the gash on his forehead. He whimpers in agony.][/nomarkup] Don't worry. I won't hurt him. Yet. Come and find us. #line:0a941a1 
 [nomarkup][The tape clips and nothing but static returns to the screen. The man you loved is now being primed for slaughter by a madwoman.][/nomarkup] #line:0510d57 
