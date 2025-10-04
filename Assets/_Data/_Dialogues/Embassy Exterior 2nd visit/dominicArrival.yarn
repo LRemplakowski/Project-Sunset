@@ -4,7 +4,8 @@ position: -147,-165
 ---
 //Dominic car comes to view, it's owner comes out with gun in his hand//
 [nomarkup][Dominic nearly jumps out of his immaculate car gleaming mendaciously in the dark. He is holding his gun tightly with a bestial grimace on his face. Looks like not only your evening got ruined. But on the other hand, what he did expect releasing you into the wild woods of vampiric business without any explanation whatsoever. He's either an idiot or he's plainly stupid. Or both. One thing for sure, you don't want his hand cannon to be pointed at you.][/nomarkup] #line:0f3207d 
-{$sheriff}: Somebody cares to explain what the fuck I am doin' here tonight? There I was, sitting with the missus, spending my time in silence and, surprisingly, not pissin' anybody off, and out of the blue I heard that annoyin', screeching noise of the alarm phone line ringin'. You, Kieran, got somethin' to say? When I said to find her daddy I didn't mean to do everythin' to make my night miserable. And especially not makin' the Masquerade FUBAR. Jesus... #line:0d6247b 
+{$sheriff}: Somebody cares to explain what the fuck I am doin' here tonight? There I was, sitting with the missus, spending my time in silence and, surprisingly, not pissin' anybody off, and out of the blue I heard that annoyin', screeching noise of the alarm phone line ringin'.
+{$sheriff}: You, Kieran, got somethin' to say? When I said to find her daddy I didn't mean to do everythin' to make my night miserable. And especially not makin' the Masquerade FUBAR. Jesus... #line:0d6247b 
 {$sforzaMask}: Dominic, as always you are a master of good manners. This is not Kieran's nor his friends doing. #line:01b3be8 
 -> {$pcName}: Hey - I... [nomarkup][You try to cut in just in time for Kieran to speak up. He looks grim.][/nomarkup] #line:0f70d2f 
 {$kieran}: This seemed premeditated, I would suspect it to be an overly complicated lure playing on our... #line:01a14ad 
@@ -144,7 +145,8 @@ position: 544,637
 title: kidredTalk
 position: -87,478
 ---
-[nomarkup][The Kindred collectively stare at you as you compose yourself. The headlights of the car shine off the walls and scatter shadows over all of you. Kieran tries to make himself scarce almost hiding in the shadows while Anastasia boldly stands in the light. Kate's curves are illuminated by the light while her face is cast in shadows, using the headlights to look at her perfectly done nails. Dominic's face is unreadable as his eyes are blocked out by the reflective lights of his car.][/nomarkup] #line:01f732b 
+[nomarkup][The Kindred collectively stare at you as you compose yourself. The headlights of the car shine off the walls and scatter shadows over all of you. Kieran tries to make himself scarce almost hiding in the shadows while Anastasia boldly stands in the light.][/nomarkup]
+[nomarkup][Kate's curves are illuminated by the light while her face is cast in shadows, using the headlights to look at her perfectly done nails. Dominic's face is unreadable as his eyes are blocked out by the reflective lights of his car.][/nomarkup] #line:01f732b 
 {$sheriff}: Do we have anythin' on this Lucia woman other than her bein' your Momma? #line:076d224 
 -> {$pcName}: You wanted someone to ask about my Sire? About what's going on here? She's right there. [nomarkup][You point to Diana who looks at you with hatred. She's apparently not grateful for her life.][/nomarkup] #line:01cddd3 
 {$sheriff}: You got somethin' you want to explain here Kate? #line:0473a3e 
@@ -160,7 +162,8 @@ position: -87,478
 <<endif>>
 {$diana}: Not anymore. #line:0bf00f8 
 {$sheriff}: This is gettin' more and more interestin'. [nomarkup][He looks at Kate with a grin.][/nomarkup] Of all people in Vegas, you'd be the last that I'd accuse of leavin' the latch open on the barn. Doggone, I'd be laughin' if that didn't leave the door open for everyone else too. #line:0b6c9fd 
-{$sforzaMask}: Dominic, clearly it would seem that there's been some sort of malicious plot to embroil me in whatever awful situation Ms. Bardot has found herself run afoul of. I would never have guessed that Diana would be so disloyal to our mutual efforts and prefer these violent outbursts, she was so faithful to our desire for peace here in Las Vegas. #line:0bf6a21 
+{$sforzaMask}: Dominic, clearly it would seem that there's been some sort of malicious plot to embroil me in whatever awful situation Ms. Bardot has found herself run afoul of.
+{$sforzaMask}: I would never have guessed that Diana would be so disloyal to our mutual efforts and prefer these violent outbursts, she was so faithful to our desire for peace here in Las Vegas. #line:0bf6a21 
 {$sheriff}: [nomarkup][He looks very unenthused by Kate's response but turns to Diana with an even more deadpan expression.][/nomarkup] How's that been workin' out for you? #line:0d7b8b2 
 {$diana}: I don't know Dominic, how's it feel to take it up the ass to a woman called the Prince? #line:0d4bfee 
 {$sheriff}: [nomarkup][He makes a thoughtful expression at her and grins][/nomarkup] You know? Haven't tried that yet. Maybe we'll go shoppin' and I'll find out. #line:097e29e 
@@ -240,6 +243,7 @@ position: 357,1380
         <<endif>>
     <<endif>>
 <<else>>
+    [nomarkup][Diana doesn't even fight pinned by you to the wall.][/nomarkup]
     -> {$pcName}: You hired me because you knew I was desperate. Did you think that it was funny? Leading me around? #line:03f08f0 
     {$diana}: ...No. I'm... Desiree... #line:04247b1 
     -> {$pcName}: And now you don't have anything to say for yourself do you? #line:0e18fc8 
