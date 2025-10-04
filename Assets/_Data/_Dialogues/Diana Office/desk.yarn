@@ -13,6 +13,7 @@ position: 135,-1136
 title: deskInteractions
 position: 152,-466
 ---
+[nomarkup][You could use a desk like this in your apartment. It would definately make your office more... prestigious.][/nomarkup]
 -> [nomarkup][Inspect the desk.][/nomarkup] #line:02b7b75 
     <<jump deskExamination>>
 -> [nomarkup][Boot the computer.][/nomarkup] <<if $computerUnusable == false>> #line:001bf2a 
@@ -233,7 +234,7 @@ position: 136,124
     [nomarkup][You dig through several monotonously similar sets of data indicating the financial state of the club. Nearly half an hour is spent on this wearisome slog, and you are nearing admission of defeat, when you spy an entry indicating that Diana ordered a wall mounted safe.][/nomarkup] #success #line:0d51e54 
     [nomarkup][It was quite the expenditure, but as a Vegas club owner, she had the means to afford it. You glance about, scouring the walls for it, but you don't see any indication that it's been installed in plain sight. Maybe it's behind one of the paintings?][/nomarkup]  #line:0c55659 
 <<else>>
-    [nomarkup][You dig through several monotonously similar sets of data indicating the financial state of the club. After a while, though, you decide you've wasted too much time looking at this stuff. You'll find nothing here.][/nomarkup] #line:0ad951e 
+    [nomarkup][You dig through several monotonously similar sets of data indicating the financial state of the club. After a while, though, you decide you've wasted too much time looking at this stuff. You'll find nothing here.][/nomarkup] #failure #line:0ad951e 
 <<endif>>
 <<jump accessGranted>>
 ===

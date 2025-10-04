@@ -28,6 +28,7 @@ position: 714,-1674
 title: bookcaseInteractions
 position: -906,-1095
 ---
+[nomarkup][The bookcase is cluttered nearly to a brim. Only the owner can find an order in this chaos.][/nomarkup]
 -> [nomarkup][Examine the books Kieran is interested in.][/nomarkup] <<if CustomVisited("bookcaseExamine") == false>> #line:065b815 
     <<jump bookcaseExamine>>
 -> [nomarkup][Examine the normal books.][/nomarkup] <<if CustomVisited("bookcaseExcamineNormal") == false>> #line:0821d34 
@@ -150,12 +151,12 @@ position: 1692,-987
     -> [nomarkup][Laying it on a little thick there, isn't she?][/nomarkup] #line:0d9f9d7 
     <<set $layingItOn to 1>>
 <<endif>>
--> [nomarkup][Study Anastasia's expression.][/nomarkup] #line:0320dd7 
+-> [nomarkup][Study Anastasia's expression.][/nomarkup] (Wits+Insight) #line:0320dd7 
 <<if Roll("Wits","Awareness") >= (3 - $layingItOn)>>
     [nomarkup][There it is, the slightest twitch of the corner of her mouth. And for a split-second, her eyes linger on the screen of the TV before being brought from Kieran to you. There is interest there. This, you are sure of.][/nomarkup] #success #line:0c7efa3
     -> {$pcName}: You [nomarkup]<i>do</i>[/nomarkup] seem to like it, though. #line:06d23e3 
     [nomarkup][Anastasia's mouth forms into a taut, straight line. She is intensely not emoting.][/nomarkup] #line:0d22f23 
-    <<if Roll ("Wuts","Insight")>=3>>
+    <<if Roll ("Wits","Insight")>=3>>
         [nomarkup][This is as much confirmation as you're going to get.][/nomarkup] #line:0e824e2 
     <<endif>>
     {$anastasia}: I don't have the slightest idea why you give even a crumb of a shit. Don't you have an investigation to wrap up? #line:023358d 
@@ -214,6 +215,7 @@ position: -1327,1711
 title: poeBookExamineQuestions
 position: -432,-386
 ---
+[nomarkup][You hold old and dusty book in your hands.][/nomarkup]
 -> [nomarkup][Try to recall the code.] (Intelligence+Academics)[/nomarkup] <<if CustomVisited("poeExamineAcademicsRoll") == false and $goldBugCombination == false>> #line:0d8cc1f 
     <<jump poeExamineAcademicsRoll>>
 -> [nomarkup][Try to break the code by yourself.] (Intelligence+Investigation)[/nomarkup] <<if CustomVisited("poeExamineInvestigationRoll") == false and $goldBugCombination == false>> #line:0f3e02d 

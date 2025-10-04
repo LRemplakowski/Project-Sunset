@@ -109,29 +109,25 @@ position: -92,330
 <<jump paintingsInteractions>>
 ===
 title: paintingsOpinion
-position: 775,-49
 ---
-<<if CustomVisited("paintingsOpinion") == false>>
-    [nomarkup][You feel as if you should have an opinion about the art in front of you...][/nomarkup] #line:0676976 
-    -> {$pcName}: It isn't all that aesthetically pleasing, is it? #line:0ec2ef6 
-        {$kieran}: Right, you are. This piece fails to be satisfying to the eye, and moreover is unsuccessful in conveying anything but chaos. Hence, it lacks artistic value. (+1 Kieran Influence) #line:0e0bb0e 
-        <<ModifyInfluence 1 {$kieran}>>
-    -> {$pcName}: You know what? I also think I actually kind of like this painting. I mean, it's a trainwreck, but there's something about it... #line:0a6402e 
-        {$kieran}: Hm. Agree to disagree, I suppose... #line:0a50756 
-        {$anastasia}: Right?! It rules!(+1 Anastasia Influence) #line:0684159 
-        <<ModifyInfluence 1 {$anastasia}>>
-    -> {$pcName}: People like Kieran, huh? I don't think that a person's opinion says nearly as much about them as you claim it does, Anastasia. Least of all me, since I don't really have an opinion. #line:039146c 
-        {$anastasia}: Au contraire, as the residents of Paris, capital of art snobbery, would say. Not having an opinion is still an opinion - just as much as Kiki's or mine. It tells me that you haven't really thought too deeply about the art you consume, for one. That, or you're too tired and stressed to risk prolonging our bickering.   #line:01e7487 
-        {$anastasia}: As for Kieran, well... He believes that the function of art is for it to look good and clearly, explicitly convey something. In a nutshell, it needs to say shit and not look like shit, in order to even be given the title - “art”.  #line:0bfa58c 
-        {$anastasia}: In his personality and belief system, this points to strictness, traditionalism, and just plain old narrow-mindedness - but that isn't really a surprise, at this point. #line:0c3afc8 
-        {$kieran}: Okay, I'll bite. What is the purpose of a piece of art, if it doesn't “mean” anything, in your view? #line:0e7cd4c 
-        {$anastasia}: [nomarkup][She shrugs.][/nomarkup] Doesn't need one. If it's created by someone that can think and feel - someone that has a sense of self - then that's enough. That's art. The product and expression of the creative spirit - nothing more, and nothing less. #line:019c090 
-        {$kieran}: You know what? I may be able to get behind that particular definition... #line:0a13fa9 
-    -> {$pcName}: [nomarkup][No, I don't.][/nomarkup] #line:0455ee3 
-        {$kieran}: We don't have time for this, anyhow. Let us return to the task at hand. #line:094cce7 
-<<else>>
-    <<jump paintingsInteractions>>
-<<endif>>
+[nomarkup][You feel as if you should have an opinion about the art in front of you...][/nomarkup] #line:0676976 
+-> {$pcName}: It isn't all that aesthetically pleasing, is it? #line:0ec2ef6 
+    {$kieran}: Right, you are. This piece fails to be satisfying to the eye, and moreover is unsuccessful in conveying anything but chaos. Hence, it lacks artistic value. (+1 Kieran Influence) #line:0e0bb0e 
+    <<ModifyInfluence 1 {$kieran}>>
+-> {$pcName}: You know what? I also think I actually kind of like this painting. I mean, it's a trainwreck, but there's something about it... #line:0a6402e 
+    {$kieran}: Hm. Agree to disagree, I suppose... #line:0a50756 
+    {$anastasia}: Right?! It rules!(+1 Anastasia Influence) #line:0684159 
+    <<ModifyInfluence 1 {$anastasia}>>
+-> {$pcName}: People like Kieran, huh? I don't think that a person's opinion says nearly as much about them as you claim it does, Anastasia. Least of all me, since I don't really have an opinion. #line:039146c 
+    {$anastasia}: Au contraire, as the residents of Paris, capital of art snobbery, would say. Not having an opinion is still an opinion - just as much as Kiki's or mine. It tells me that you haven't really thought too deeply about the art you consume, for one. That, or you're too tired and stressed to risk prolonging our bickering.   #line:01e7487 
+    {$anastasia}: As for Kieran, well... He believes that the function of art is for it to look good and clearly, explicitly convey something. In a nutshell, it needs to say shit and not look like shit, in order to even be given the title - “art”.  #line:0bfa58c 
+    {$anastasia}: In his personality and belief system, this points to strictness, traditionalism, and just plain old narrow-mindedness - but that isn't really a surprise, at this point. #line:0c3afc8 
+    {$kieran}: Okay, I'll bite. What is the purpose of a piece of art, if it doesn't “mean” anything, in your view? #line:0e7cd4c 
+    {$anastasia}: [nomarkup][She shrugs.][/nomarkup] Doesn't need one. If it's created by someone that can think and feel - someone that has a sense of self - then that's enough. That's art. The product and expression of the creative spirit - nothing more, and nothing less. #line:019c090 
+    {$kieran}: You know what? I may be able to get behind that particular definition... #line:0a13fa9 
+-> {$pcName}: [nomarkup][No, I don't.][/nomarkup] #line:0455ee3 
+    {$kieran}: We don't have time for this, anyhow. Let us return to the task at hand. #line:094cce7 
+<<jump paintingsInteractions>>
 ===
 title: paintingIntelligenceSuccess
 position: 584,623
@@ -217,10 +213,14 @@ position: 748,-378
 [nomarkup][Kieran's voice jolts you back into the land of the living - and indisputably conscious.][/nomarkup] #line:0cc506c 
 {$kieran}: Are you alright? You seemed... transfixed. Did you notice something about the art? #line:0d4385d 
 -> {$pcName}: No, but I think I have an opinion about this piece. #line:05806b8
-<<if GetIsPartyMemberRecruited($anastasia) is true>>
-    <<jump paintingsOpinion>>
+<<if CustomVisited("paintingsOpinion") == false>>
+    <<if GetIsPartyMemberRecruited($anastasia) is true>>
+        <<jump paintingsOpinion>>
+    <<else>>
+        {$kieran}: I do not believe now is the proper time for art connoisseurship.
+        <<jump paintingsInteractions>>
+    <<endif>>
 <<else>>
-    {$kieran}: I do not believe now is the proper time for art connoisseurship.
     <<jump paintingsInteractions>>
 <<endif>>
 ===
