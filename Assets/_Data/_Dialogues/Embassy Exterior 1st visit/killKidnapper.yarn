@@ -17,6 +17,7 @@ Drunk Guy: I'm a pacifist. I have a principled stance against violence of any ki
 title: drunkardOptions
 position: 210,265
 ---
+[nomarkup][The drunk man is standing... barely, even with your help.][/nomarkup]
 -> {$pcName}: (Manipulation + Steetwise) What do you think she would have done to you?<<if CustomVisited("streetwiseRoll") ==false>> #line:0aaf290 
     <<jump streetwiseRoll>>
 -> {$pcName}: (Strength + Intimidate) Do that and you're next.<<if CustomVisited("intimidationRoll") ==false>> #line:07e1194 
@@ -120,6 +121,6 @@ position: -509,170
 <<endif>>
 {$kieran}: We need to get rid of these bodies before anybody comes by. There's a dumpster in the back alley Kate uses for clean up.
 [nomarkup][Sifting through the corpses pockets you find a Bottle of Benzos and Orders from Lucia.][/nomarkup]
-Orders from Lucia: Since you've been getting fucked up on the supply and apparently are too stupid to remember: Once they're good and messed up, bring'em to the Factory for processing. {$sire} #line:00a9c24 
--> [nomarkup][Walk away.][nomarkup]
+Orders from Lucia: Since you've been getting fucked up on the supply and apparently are too stupid to remember: Once they're good and messed up, bring'em to the Factory for processing. Lucia #line:00a9c24 
+-> [nomarkup][Walk away.][/nomarkup]
 ===
