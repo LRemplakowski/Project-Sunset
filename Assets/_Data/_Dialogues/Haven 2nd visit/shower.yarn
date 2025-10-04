@@ -22,7 +22,8 @@ title: takeAShowerWithAna
 position: -969,481
 color: red
 ---
-[nomarkup][Pulling off your shirt and pants you can feel the sticky slick of blood and grime clinging to you. It's gotten into your hair and is caked anywhere that it could touch. As you rub your eye in agitation you can feel it seal shut against the agitation of the thick iron smell of blood coming off your hands. You can see blood and bits of gore that Anastasia didn't clean when she was moving Diego's corpse out and as you flick the shower head on, twisting the knob to hot you can see the water turn black as it washes the events of the evening off of you.][/nomarkup] #line:07170ce 
+[nomarkup][Pulling off your shirt and pants you can feel the sticky slick of blood and grime clinging to you. It's gotten into your hair and is caked anywhere that it could touch.As you rub your eye in agitation you can feel it seal shut against the agitation of the thick iron smell of blood coming off your hands.][/nomarkup]
+[nomarkup][You can see blood and bits of gore that Anastasia didn't clean when she was moving Diego's corpse out and as you flick the shower head on, twisting the knob to hot you can see the water turn black as it washes the events of the evening off of you.][/nomarkup] #line:07170ce 
 {$anastasia}: You got any towels or clothes in this whole fuckin' place? Or do you just stand naked in the laundry mat? [nomarkup][She cracks the door and shouts at you from behind it.][/nomarkup] Seriously Princess what's the deal do you not have any jamies? #line:0672bd1 
 <<if Roll("Composure","Resolve") >= 2>>
     <<jump showerCompSuccess>>
@@ -34,9 +35,11 @@ title: showerCompSuccess
 position: -940,723
 color: red
 ---
-[nomarkup][You stare at the water as it swirls around the drain, slowly turning from black to a muddy brown as it soaks off the dirt and starts to slowly work the blood off of your skin. For a moment it's almost as if you're washing away the events of the evening. Resetting yourself back to a few hours ago when things were dire but less so, your eyes simply glaze over as you hear Anastasia's voice fade slightly into simply background noise.][/nomarkup] #line:08c7d65 
+[nomarkup][You stare at the water as it swirls around the drain, slowly turning from black to a muddy brown as it soaks off the dirt and starts to slowly work the blood off of your skin. For a moment it's almost as if you're washing away the events of the evening.][/nomarkup]
+[nomarkup][Resetting yourself back to a few hours ago when things were dire but less so, your eyes simply glaze over as you hear Anastasia's voice fade slightly into simply background noise.][/nomarkup] #line:08c7d65 
 {$anastasia}: De-s-ree! Des-ree! DESIREE!! [nomarkup][Her voice becomes more clear as she knocks on the wall in the bathroom. You can see her silhouette through the shower curtain.][/nomarkup] #line:0add997 
--> {$pcName}: I don't feel good. [nomarkup][Your voice sounds distant even to you. The pounding noise of the shower feels overwhelming but the idea of standing up is even worse.][/nomarkup] #line:09f80fe 
+-> {$pcName}: I don't feel good.
+[nomarkup][Your voice sounds distant even to you. The pounding noise of the shower feels overwhelming but the idea of standing up is even worse.][/nomarkup] #line:09f80fe 
 <<if GetCompanionInfluence ($anastasia) == 1>>
     {$anastasia}: Uh- yeah. Yeah okay? Do you... I don't know what to do here. Do you want me to get in the shower with you?! [nomarkup][Distantly she sounds panicked.][/nomarkup] #line:07c0920 
     -> {$pcName}: Yes. #line:0a9442d 
@@ -74,7 +77,7 @@ position: -653,682
 title: anaNotInShower
 position: -642,837
 ---
-{$anastasia}: Hey whatever you need. I'm not here to reenact Scream. Okay, I've got a towel out here and some clothes. Cool. #line:03ac465 
+{$anastasia}: Hey whatever you need. I'm not here to reenact Psycho. Okay, I've got a towel out here and some clothes. Cool. #line:03ac465 
 [nomarkup][A long time passes with you seated in the shower, your eyes unfocused as you watch the water slosh around the shower. Your mind racing with thoughts and yet completely empty][/nomarkup] #line:0d14cf2 
 {$innerVoice}: I did what I had to do. #line:0c1daba 
 {$beast}: And I did it well. #line:08c079c 
@@ -90,7 +93,7 @@ position: -642,837
 title: anaAdvice
 position: -677,521
 ---
-{$anastasia}: Goddamnit. Well yeah, Desiree you killed like eight people. Have you ever killed anyone before? #line:0fae98c 
+{$anastasia}: Goddamnit. Well yeah, Desiree you killed at least one person. Have you ever killed anyone before? #line:0fae98c 
 [nomarkup][Your silence answers for you as you stare blankly into the water.][/nomarkup] #line:014b1c1 
 {$beast}: Who is she to judge me? #line:0d22686 
 {$anastasia}: Listen, Princess, the first few are always hard. Eventually, you get the fuck over yourself. Do you think anyone just wakes up one day with nerves of steel and great tits? No. They don't. #line:0018490 
@@ -211,5 +214,6 @@ title: showerKnock
 position: 254,262
 ---
 //SFX knocking on the door
-DEBUG: NO LINE CONTENT! SHOWER END DOOR KNOCK.
+[nomarkup][To your surpise you suddenly hear knocking on the door - softer this time][/nomarkup]
+-> [nomarkup][Go out of the shower.][/nomarkup]
 ===

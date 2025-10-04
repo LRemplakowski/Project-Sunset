@@ -5,12 +5,14 @@ position: -85,-55
 <<if GetIsPartyMemberRecruited($anastasia) is true>>
     [nomarkup][Ana wanders through your home. Checking out the kitchen, and cabinets, looking at your mail. Eventually, she even spots an image of Arthur, smiling and happy in a picture. She smiles as she looks back at you before she sees something in your face and sets it down.][/nomarkup] #line:0f5d28b 
     {$anastasia}: Kind of a shit-hole isn't it? #line:0941406 
-    -> {$pcName}: Thanks. You don't look so great yourself. [nomarkup][You can feel the banter come quickly to you but there's a heaviness as you try to go back and forth with the fast-talking woman.][/nomarkup] #line:0252b89 
+    -> {$pcName}: Thanks. You don't look so great yourself. 
+    [nomarkup][You can feel the banter come quickly to you but there's a heaviness as you try to go back and forth with the fast-talking woman.][/nomarkup] #line:0252b89 
     {$anastasia}: You look like you just crawled out of the grave. #line:0516d0e 
     -> {$pcName}: Hell says hi. #line:0d180bb 
     {$anastasia}: [nomarkup][She snorts and tosses her hair as her lips purse.][/nomarkup] I'm not great at this emotional stuff - #line:0b3df52 
     -> {$pcName}: I can see that. #line:0a73f5e 
-    {$anastasia}: Let me fucking finish okay? I'm not great at this emotional stuff, but, I can't just leave you alone here. And I'm not sure what to do here. Movies say showering with sad music. I say we need to get something over the windows or we're going to fucking die. Two birds with one stone? Shower and cover the windows? #line:0a44c33 
+    {$anastasia}: Let me fucking finish okay? I'm not great at this emotional stuff, but, I can't just leave you alone here. And I'm not sure what to do here. Movies say showering with sad music.
+    {$anastasia}: I say we need to get something over the windows or we're going to fucking die. Two birds with one stone? Shower and cover the windows? #line:0a44c33 
 <<else>>
     [nomarkup][You stand in your home staring at the bills on your counter, the sink dripping a methodical drip of water. Looking at the windows you can see that there is the very edge of a light purple along the horizon. Eventually, the sun will rise and even though you don't feel like moving, don't feel like rising unbidden strength comes to you. You push yourself off the counter with a need to find something to barricade yourself away from the light.][/nomarkup] #line:0297d17 
     {$beast}: I'm not dying after one fucking night. Get a grip. #line:0b4a2f3 

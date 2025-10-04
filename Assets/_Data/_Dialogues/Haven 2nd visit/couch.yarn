@@ -9,8 +9,9 @@ color: red
     [nomarkup][Your a little bit tarnished couch that doubles as your bed.][/nomarkup] #line:088b8f3 
     -> [nomarkup][Move the couch.] (Strength + Athletics)[/nomarkup] <<if CustomVisited("couchStrRoll") == false>> #line:0fd9d25 
         <<jump couchStrRoll>>
-    -> [Take the sheets.] <<if CustomVisited("sheets") == false>> #line:0c4587b 
+    -> [nomarkup][Take the sheets.][/nomarkup] <<if CustomVisited("sheets") == false>> #line:0c4587b 
         <<jump sheets>>
+    -> [nomarkup][Walk away.][/nomarkup]
 <<endif>>
 ===
 title: couchStrRoll
@@ -88,7 +89,7 @@ position: 567,3
 title: sheets
 position: -307,13
 ---
-[nomarkup][You pull the sheets off the pull-out couch and bundle them under your arm with a sigh.][nomarkup] #line:0723feb 
+[nomarkup][You pull the sheets off the pull-out couch and bundle them under your arm with a sigh.][/nomarkup] #line:0723feb 
 <<GiveItem IT_Q_SHEETS>>
 -> {$pcName}: These will help. #line:0e54720 
 <<jump couch>>

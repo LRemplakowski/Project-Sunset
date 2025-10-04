@@ -55,24 +55,24 @@ position: -290,257
 title: bodyCompRoll1Success
 position: 65,516
 ---
-[nomarkup][You feel like you should tell something, but it'll not change anything. The guy is dead now. There's no turning back for him - even if you'd want to.][/nomarkup] #success #line:0ad7ea2 
+[nomarkup][You feel like you should tell something, but it'll not change anything. The guy is dead now. There's no turning back for him - even if you'd want to.][/nomarkup]#line:0ad7ea2 
 ===
 title: bodyCompRoll1Failure
 position: 340,515
 ---
-[nomarkup][You just can't help. You start to sob and cry sliding down to the floor. Is it how your every night will look? The crimson tears run down your cheeks.][/nomarkup] #failure
+[nomarkup][You just can't help. You start to sob and cry sliding down to the floor. Is it how your every night will look? The crimson tears run down your cheeks.][/nomarkup]
 -> {$pcName}: His name is Diego… #line:008b91f 
 {$anastasia}: Huh? He can be Stalin himself for all I care - he's dead now. Nothing will change that. #line:035b41d 
 ===
 title: bodyCompRoll2Success
 position: -216,483
 ---
-[nomarkup][You close your eyes and clench your teeth. It's tragic, but you can't let it take you over now.][/nomarkup] #success #line:0a0bd63 
+[nomarkup][You close your eyes and clench your teeth. It's tragic, but you can't let it take you over now.][/nomarkup] #line:0a0bd63 
 ===
 title: bodyCompRoll2Failure
 position: -459,484
 ---
-[nomarkup][You just can't help. You start to sob and cry sliding down to the floor. Is it how your every night will look? The crimson tears run down your cheeks.][/nomarkup] #failure #line:0ee672d 
+[nomarkup][You just can't help. You start to sob and cry sliding down to the floor. Is it how your every night will look? The crimson tears run down your cheeks.][/nomarkup] #line:0ee672d 
 <<if GetIsPartyMemberRecruited($anastasia) is true>>
     {$anastasia}: [nomarkup][She comes closer to you and gives you a hand.][/nomarkup] Come on, don't be a wimp. You won't survive long being like that. Maybe it's your first victim, but it's definately not your last. You either get over it or die. #line:0870460 
     [nomarkup][She may be rude, but some part of you agrees with her. You either accept the fact or you can as well join him the next night.][/nomarkup] #line:060730c 

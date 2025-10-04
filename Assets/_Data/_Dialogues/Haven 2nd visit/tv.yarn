@@ -2,7 +2,7 @@
 tags:
 position: -170,-235
 ---
-[nomarkup][You turn the TV is on.][/nomarkup]
+[nomarkup][You turn the TV on.][/nomarkup]
 <<if CustomVisited("newsReport") == false>>
     <<jump newsReport>>
 <<else>>
@@ -15,44 +15,55 @@ title: newsReport
 tags:
 position: 5,-10
 ---
-    [nomarkup][The TV buzzes to life behind you having been passively flickering through channels, the news taking over the broadcast as you see the smoking and burnt char of the Embassy highlighted on the grainy TV screen. A woman with bright eyes and a bold red lip starts speaking, her voice devoid of any accent and noted by her teleprompter cadence.][/nomarkup] #line:0c1d192 
-    Cheryl Ahmadi: We come to you tonight looking over the Embassy where a firefight has rocked the local community, turning a once peaceful club on the Strip into a warzone. Shots were heard late this evening when a series of armed men broke through the doors and opened fire. We bring you now to the carnage left over in the wake of this horrific attack. #line:015f715 
-    Reporter: Gunshots were reported at the Embassy nightclub. Police report this can be attributed to gang violence. We're unsure what may have prompted this, but having gotten in contact with the mayor's office he promises that he will swiftly be taking action. #line:0ac45a2 
-    Cheryl Ahmadi: Attempts to get in contact with the owner of the Embassy have failed but all reports indicate that she was still inside when the fighting started. Can you tell me what's happening? #line:077c3c2 
-    <<if $doeEyedManAlive > 0>>
-        [nomarkup][A young man with large brown eyes you recognize from the club is wrapped in a highly reflective blanket. His face looks pale and sallow but he's clearly been attended to by a nurse and is sitting on the curb with a thousand-yard stare. The reporter makes their way over to him.][/nomarkup] #line:0f29c75 
-        Reporter: Yes Cheryl, we've been told that the front of the Embassy was hit the hardest and it's where the majority of the casualties occurred. Young man - young man? #line:0c3c5df 
-        Doe Eyed Man: Y...yes? #line:0b4bfa4 
-        Reporter: Do you have anything you want to say about what happened here tonight? I'm sure this has been one of the worst nights of your life. [nomarkup][The reporter's tone is almost gleeful and you can see his eyes dim slightly.][/nomarkup] #line:0cce8bb 
-        Doe Eyed Man: I just wanted to say thank you to the woman who saved my life. If you're out there - My name is Jesse Ried. I'm... I uh. I work downtown. #line:03dcc9f 
-        Reporter: You said that someone saved you. Do you have a description? #line:0054fc9 
-        Jesse Ried: N... no? Is that okay? [nomarkup][He curls in on himself trying to pull his reflective almost aluminum-looking blanket tighter around his shoulders.][/nomarkup] #line:0c03fd5 
-        Reporter: Alright folks, well you heard it here. There is a guardian angel out in the Embassy here tonight. #line:0a512cd 
-        Jesse Ried: What...? #line:096c3e6 
-        [nomarkup][The reporter gives him a wane look that quickly recovers into a smile as the camera pans away from Jesse and over towards the building as the ceiling catches on fire.][/nomarkup] #line:0fcf3f8 
-    <<else>>
-        [nomarkup][You see a series of stretchers being filmed coming out of the Embassy. From one of them, a hand falls and you can see thick blood staining the idea of where a thigh would be. You can feel your stomach start to turn and a shout from the Reporter as the camera pans away from the injured and dying being pulled from the building and back to the reporter.][/nomarkup] #line:01b536b 
-    <<endif>>
-    Reporter: Yes Cheryl. Efforts are underway currently to try and clear the building of those still trapped inside, it would seem that a broken door in the back alley allowed many to escape. The fire team on duty this evening commented that it likely saved a great many people from smoke annihilation...  #line:066812a 
-    [nomarkup][The reporter drones on as you see police come and talk with the new station, saying that they suspect a string of violent crimes in the area all to be tied to a resurgence of gang violence and organized crime after a series of arrests late last year. You're witnessing the work of your “primogen,” as Kieran put it, in real-time. You wonder how many other stories you've heard are flights of fancy Kindred have served to the public.][/nomarkup] #line:051ab6d    
-    -> [nomarkup][Insert the tape.][/nomarkup] <<if GetHasItem("IT_Q_VHS") and not CustomVisited("tvInsertTape")>> #line:080e42f 
-        <<jump tvInsertTape>>
-    -> [nomarkup][Turn TV off.][/nomarkup] #line:0e2c32c 
+[nomarkup][The TV buzzes to life behind you having been passively flickering through channels, the news taking over the broadcast as you see the smoking and burnt char of the Embassy highlighted on the grainy TV screen.][/nomarkup]
+[nomarkup][A woman with bright eyes and a bold red lip starts speaking, her voice devoid of any accent and noted by her teleprompter cadence.][/nomarkup] #line:0c1d192 
+Cheryl Ahmadi: We come to you tonight looking over the Embassy where a firefight has rocked the local community, turning a once peaceful club on the Strip into a warzone.
+Cheryl Ahmadi: Shots were heard late this evening when a series of armed men broke through the doors and opened fire. We bring you now to the carnage left over in the wake of this horrific attack. #line:015f715 
+Reporter: Gunshots were reported at the Embassy nightclub. Police report this can be attributed to gang violence. We're unsure what may have prompted this, but having gotten in contact with the mayor's office he promises that he will swiftly be taking action. #line:0ac45a2 
+Cheryl Ahmadi: Attempts to get in contact with the owner of the Embassy have failed but all reports indicate that she was still inside when the fighting started. Can you tell me what's happening? #line:077c3c2 
+<<if $doeEyedManAlive > 0>>
+    [nomarkup][A young man with large brown eyes you recognize from the club is wrapped in a highly reflective blanket. His face looks pale and sallow but he's clearly been attended to by a nurse and is sitting on the curb with a thousand-yard stare. The reporter makes their way over to him.][/nomarkup] #line:0f29c75 
+    Reporter: Yes Cheryl, we've been told that the front of the Embassy was hit the hardest and it's where the majority of the casualties occurred. Young man - young man? #line:0c3c5df 
+    Doe Eyed Man: Y...yes? #line:0b4bfa4 
+    Reporter: Do you have anything you want to say about what happened here tonight? I'm sure this has been one of the worst nights of your life. [nomarkup][The reporter's tone is almost gleeful and you can see his eyes dim slightly.][/nomarkup] #line:0cce8bb 
+    Doe Eyed Man: I just wanted to say thank you to the woman who saved my life. If you're out there - My name is Jesse Ried. I'm... I uh. I work downtown. #line:03dcc9f 
+    Reporter: You said that someone saved you. Do you have a description? #line:0054fc9 
+    Jesse Ried: N... no? Is that okay? [nomarkup][He curls in on himself trying to pull his reflective almost aluminum-looking blanket tighter around his shoulders.][/nomarkup] #line:0c03fd5 
+    Reporter: Alright folks, well you heard it here. There is a guardian angel out in the Embassy here tonight. #line:0a512cd 
+    Jesse Ried: What...? #line:096c3e6 
+    [nomarkup][The reporter gives him a wane look that quickly recovers into a smile as the camera pans away from Jesse and over towards the building as the ceiling catches on fire.][/nomarkup] #line:0fcf3f8 
+<<else>>
+    [nomarkup][You see a series of stretchers being filmed coming out of the Embassy. From one of them, a hand falls and you can see thick blood staining the idea of where a thigh would be.][/nomarkup]
+    [nomarkup][You can feel your stomach start to turn and a shout from the Reporter as the camera pans away from the injured and dying being pulled from the building and back to the reporter.][/nomarkup] #line:01b536b 
+<<endif>>
+Reporter: Yes Cheryl. Efforts are underway currently to try and clear the building of those still trapped inside, it would seem that a broken door in the back alley allowed many to escape. The fire team on duty this evening commented that it likely saved a great many people from smoke annihilation...  #line:066812a 
+[nomarkup][The reporter drones on as you see police come and talk with the new station, saying that they suspect a string of violent crimes in the area all to be tied to a resurgence of gang violence and organized crime after a series of arrests late last year.][/nomarkup]
+[nomarkup][You're witnessing the work of your “primogen,” as Kieran put it, in real-time. You wonder how many other stories you've heard are flights of fancy Kindred have served to the public.][/nomarkup] #line:051ab6d    
+-> [nomarkup][Insert the tape.][/nomarkup] <<if GetHasItem("IT_Q_VHS") and not CustomVisited("tvInsertTape")>> #line:080e42f 
+    <<jump tvInsertTape>>
+-> [nomarkup][Turn TV off.][/nomarkup] #line:0e2c32c 
 ===
 title: tvInsertTape
 position: -147,208
 ---
 <<RemoveItem "IT_Q_VHS">>
-[nomarkup][VHS static blur the screen until a face comes into view - one you haven't seen in a long time. Arthur. His once confident demeanor was replaced by an aura of vulnerability you've never witnessed before. Bound hands strain against their restraints, his fingers white-knuckled in a futile attempt to break free. A bloody gash marks his forehead. The cold, unforgiving walls that enclose him, cast ominous shadows that seem to mock his plight. As the camera zooms in closer, Arthur's eyes reflect a mixture of defiance and resignation, silently pleading for rescue from his grim captivity.][/nomarkup] #line:0fce1d3 
+[nomarkup][VHS static blur the screen until a face comes into view - one you haven't seen in a long time. Arthur. His once confident demeanor was replaced by an aura of vulnerability you've never witnessed before.][/nomarkup]
+[nomarkup][Bound hands strain against their restraints, his fingers white-knuckled in a futile attempt to break free. A bloody gash marks his forehead. The cold, unforgiving walls that enclose him, cast ominous shadows that seem to mock his plight. As the camera zooms in closer, Arthur's eyes reflect a mixture of defiance and resignation, silently pleading for rescue from his grim captivity.][/nomarkup] #line:0fce1d3 
 {$sire}: [nomarkup][From around the camera, she steps into view. Placing her hands on Arthur's shoulders.][/nomarkup] Since you've taken something of mine, I figured I'd go ahead and take something of yours. [nomarkup][She licks the gash on his forehead. He whimpers in agony.][/nomarkup] Don't worry. I won't hurt him. Yet. Come and find us. #line:0a941a1 
 [nomarkup][The tape clips and nothing but static returns to the screen. The man you loved is now being primed for slaughter by a madwoman.][/nomarkup] #line:0510d57 
 -> [nomarkup][I have to get him out of there.][/nomarkup] #line:07d3e5c 
     <<if GetIsPartyMemberRecruited($anastasia) is true>>
         <<jump tvTapeAnaComments>>
+    <<else>>
+        {$beast}: Why do I care about this stupid prick? First and foremost I need to think about myself, and if I don't do anything about this window I'll burn to a crisp.
+        -> [nomarkup][Turn the TV off.][/nomarkup]
     <<endif>>
 -> [nomarkup][Good riddance.][/nomarkup] #line:079d03a 
     <<if GetIsPartyMemberRecruited($anastasia) is true>>
         <<jump tvTapeAnaComments>>
+    <<else>>
+        {$beast}: Yea, he was weak. If he wouldn't be he wouldn't get caught. But first and foremost I need to think about myself, and if I don't do anything about this window I'll burn to a crisp.
+        -> [nomarkup][Turn the TV off.][/nomarkup]
     <<endif>>
 ===
 title: tvTapeAnaComments
@@ -60,9 +71,15 @@ position: -138,427
 ---
 {$anastasia}: Who was that? #line:07baec2 
 -> {$pcName}: It was my ex. #line:0cf3afb 
-    {$anastasia}: Ugh really? You can do so much better.  #line:0ec80b6 
+    {$anastasia}: Ugh really? You can do so much better. #line:0ec80b6 
+    {$anastasia}: It's too late to do anything right now, and we still need to do something about your window if we don't want to burn to a crisp.
+    -> [nomarkup][Turn the TV off.][/nomarkup]
 -> {$pcName}: It was someone from my past. #line:0a76d3f 
-    {$anastasia}: Well whoever it is Lucia seems to have their claws into him tight. #line:0d4aaa8 
+    {$anastasia}: Well whoever it is Lucia seems to have their claws into him tight. #line:0d4aaa8
+    {$anastasia}: It's too late to do anything right now, and we still need to do something about your window if we don't want to burn to a crisp.
+    -> [nomarkup][Turn the TV off.][/nomarkup] 
 -> {$pcName}: It's no one. #line:089d547 
-    {$anastasia}: Doesn't seem like just no one to me but if you say so. Whoever it is Lucia seems to have their claws into them tight. #line:0a74afa 
+    {$anastasia}: Doesn't seem like just no one to me but if you say so. Whoever it is Lucia seems to have their claws into them tight. #line:0a74afa
+    {$anastasia}: It's too late to do anything right now, and we still need to do something about your window if we don't want to burn to a crisp.
+    -> [nomarkup][Turn the TV off.][/nomarkup]
 ===
