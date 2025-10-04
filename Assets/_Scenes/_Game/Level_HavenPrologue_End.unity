@@ -3240,7 +3240,7 @@ MonoBehaviour:
     invertFade: 0
     distanceFadeStart: 10000
     distanceFadeEnd: 10000
-    textureOffset: {x: -0, y: -0, z: -0}
+    textureOffset: {x: -6.31504, y: -0, z: -12.63008}
     falloffMode: 0
     maskMode: 0
     materialMask: {fileID: 0}
@@ -20154,7 +20154,7 @@ MonoBehaviour:
     invertFade: 0
     distanceFadeStart: 10000
     distanceFadeEnd: 10000
-    textureOffset: {x: -0, y: -0, z: -0}
+    textureOffset: {x: -6.31504, y: -0, z: -12.63008}
     falloffMode: 0
     maskMode: 0
     materialMask: {fileID: 0}
@@ -27798,7 +27798,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d1796f3dc38e334ca54f2b0a067111d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _id: 29e33bda-a38e-4423-8da9-38b7ef144a73
+  _id: d688490b-ddfb-430f-81be-c688f0e79b5f
 --- !u!1001 &993514431
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33653,6 +33653,9 @@ MonoBehaviour:
     - {fileID: 1913022628}
     - {fileID: 395799825}
     - {fileID: 356536405}
+    - {fileID: 697265258}
+    - {fileID: 988913690}
+    - {fileID: 753230737}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -33664,7 +33667,7 @@ MonoBehaviour:
         SunsetSystems]], System.Core
     - Name: 
       Entry: 12
-      Data: 16
+      Data: 19
     - Name: 
       Entry: 10
       Data: 0
@@ -33713,6 +33716,15 @@ MonoBehaviour:
     - Name: 
       Entry: 10
       Data: 15
+    - Name: 
+      Entry: 10
+      Data: 16
+    - Name: 
+      Entry: 10
+      Data: 17
+    - Name: 
+      Entry: 10
+      Data: 18
     - Name: 
       Entry: 13
       Data: 
@@ -51657,6 +51669,7 @@ GameObject:
   - component: {fileID: 1670215348}
   - component: {fileID: 1670215349}
   - component: {fileID: 1670215350}
+  - component: {fileID: 1670215351}
   m_Layer: 0
   m_Name: === NAVMESH ===
   m_TagString: Untagged
@@ -51786,6 +51799,19 @@ MonoBehaviour:
   movementPlane: 0
   useNavmeshAsObstacle: 1
   drawQuadtree: 0
+--- !u!114 &1670215351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1670215346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df8c077ca577944689559bb9e97f9576, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 1073741824
 --- !u!1001 &1671277525
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -54986,7 +55012,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d1796f3dc38e334ca54f2b0a067111d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _id: 7bcf0595-d35e-4a16-9849-62ccad191f45
+  _id: 6ae23951-35d7-40f9-8f75-721b547a3bdd
 --- !u!1 &1902663733
 GameObject:
   m_ObjectHideFlags: 0
