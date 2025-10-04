@@ -3240,7 +3240,7 @@ MonoBehaviour:
     invertFade: 0
     distanceFadeStart: 10000
     distanceFadeEnd: 10000
-    textureOffset: {x: -5.9672194, y: -0, z: -11.934439}
+    textureOffset: {x: -1.2616667, y: -0, z: -2.5233333}
     falloffMode: 0
     maskMode: 0
     materialMask: {fileID: 0}
@@ -20155,7 +20155,7 @@ MonoBehaviour:
     invertFade: 0
     distanceFadeStart: 10000
     distanceFadeEnd: 10000
-    textureOffset: {x: -5.9672194, y: -0, z: -11.934439}
+    textureOffset: {x: -1.2616667, y: -0, z: -2.5233333}
     falloffMode: 0
     maskMode: 0
     materialMask: {fileID: 0}
@@ -41253,7 +41253,7 @@ MonoBehaviour:
     - {fileID: 840793297}
     - {fileID: 0}
     - {fileID: 842191064}
-    - {fileID: 3648448450239223759}
+    - {fileID: 0}
     - {fileID: 73461561}
     - {fileID: 7499517488833128546}
     - {fileID: 1817112557}
@@ -41946,7 +41946,7 @@ MonoBehaviour:
     - {fileID: 4300054, guid: 9bde7338ed7c8a141b7a2e71c75febbe, type: 3}
     - {fileID: 0}
     - {fileID: 3648448450239223757}
-    - {fileID: 3648448450239223758}
+    - {fileID: 0}
     - {fileID: 1990761263}
     - {fileID: 0}
     - {fileID: 781100931855757370}
@@ -61493,80 +61493,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5184734425426506033, guid: 4561ed69912e7f3449f45375f8141174, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3648448450239223759}
-    - targetCorrespondingSourceObject: {fileID: 5184734425426506033, guid: 4561ed69912e7f3449f45375f8141174, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3648448450239223758}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4561ed69912e7f3449f45375f8141174, type: 3}
 --- !u!1 &3648448450239223757 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5184734425426506033, guid: 4561ed69912e7f3449f45375f8141174, type: 3}
   m_PrefabInstance: {fileID: 3648448450239223756}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3648448450239223758
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3648448450239223757}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0073667097f75464188104dd09be9260, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
-  _fadeOutBeforeDialogue: 0
-  _fadeOutAfterDialogue: 0
-  _fadeTimes: {x: 0, y: 0, z: 0}
-  _onAfterFadeout:
-    m_PersistentCalls:
-      m_Calls: []
-  _onAfterDialogueFadeout:
-    m_PersistentCalls:
-      m_Calls: []
-  _dialogueProject: {fileID: 7545569452688597077, guid: 59763ae367ad6924983ce9ac62e8d6d6, type: 3}
-  <EntryNode>k__BackingField: PhoneStartNode
-  OnDialogueStarted:
-    _PersistentCalls: []
-  OnDialogueFinished:
-    _PersistentCalls: []
-  OnNodeStarted:
-    _PersistentCalls: []
-  OnNodeFinished:
-    _PersistentCalls: []
---- !u!135 &3648448450239223759
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3648448450239223757}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &3648448450239223760 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6396289494811936551, guid: 4561ed69912e7f3449f45375f8141174, type: 3}
