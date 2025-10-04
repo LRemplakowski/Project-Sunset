@@ -101,8 +101,8 @@ position: 228,476
     <<jump convinceDoeEyedRoll>>
 -> {$pcName}: [nomarkup][You grab the doe-eyed man and drag him into cover.][/nomarkup] Get down! NOW! (Charisma+Intimidation) #line:00127b9 
     <<jump intimidateDoeEyedRoll>>
--> [nomarkup][Attempt to treat his wounds.][/nomarkup] #line:0fc7a42 
-    <<jump medicalAssistance>>
+-> [nomarkup][Attempt to treat his wounds.][/nomarkup] (Resolve+Medicine) #line:0fc7a42 
+    <<jump medicalAssistanceRoll>>
 ===
 title: sootheDoeEyedRoll
 position: 537,514
@@ -123,7 +123,7 @@ position: 547,728
 title: gottaStayStrong
 position: 646,1187
 ---
--> {$pcName}: [I gotta stay strong.] #line:0fd907e 
+-> {$pcName}: [nomarkup][I gotta stay strong.][/nomarkup] #line:0fd907e 
 <<ModifyInfluence -1 {$kieran}>>
 <<ModifyInfluence 1 {$anastasia}>>
 <<set $doeEyedManAlive to 1>>
