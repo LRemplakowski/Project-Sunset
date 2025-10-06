@@ -7,8 +7,6 @@ color: red
     <<jump goToSleep>>
 <<else>>
     [nomarkup][Your a little bit tarnished couch that doubles as your bed.][/nomarkup] #line:088b8f3 
-    -> [nomarkup][Move the couch.] (Strength + Athletics)[/nomarkup] <<if CustomVisited("couchStrRoll") == false>> #line:0fd9d25 
-        <<jump couchStrRoll>>
     -> [nomarkup][Take the sheets.][/nomarkup] <<if CustomVisited("sheets") == false>> #line:0c4587b 
         <<jump sheets>>
     -> [nomarkup][Walk away.][/nomarkup]

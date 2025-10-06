@@ -3,8 +3,7 @@ tags:
 position: -149,-121
 color: red
 ---
-[nomarkup][It takes several long seconds to unjam the junk drawer and open it. You remember your dad telling you to always have some duct tape handy, just in case. You find a half-full roll underneath a deck of playing cards and set it on the countertop. Too bad you can't use the tape on the Beast.][/nomarkup] #line:0f8c704 
-<<GiveItem IT_Q_DUCTTAPE>>
+[nomarkup][Sink is filled with old dishes from only God knows when.][/nomarkup] #line:0f8c704 
 <<if $kevinmurdered == true>>
     -> [nomarkup][Move Kevin's body.][/nomarkup] #line:041801a 
         <<jump moveKevin>>
@@ -17,6 +16,15 @@ color: red
     -> [nomarkup][Clean up the floor.][/nomarkup] #line:0f82c14 
         <<jump cleanSlurry>>
 <<endif>>
+-> [nomarkup][Take the tape.][/nomarkup] <<if CustomVisited("sinkTape") == false>>
+    <<GiveItem IT_Q_DUCTTAPE>>
+    <<jump sinkTape>>
+<<if IsObjectiveActive("Q_0P_BLOODY_HELL", "BH10_LIGHTPROOF_APARTMENT")>>
+    -> [nomarkup][Collect pizza boxes.][/nomarkup] <<if CustomVisited("sinkBoxes") == false>>
+        <<GiveItem IT_Q_PIZZABOXES>>
+        <<jump sinkBoxes>>
+<<endif>>
+-> [nomarkup][Walk away.][/nomarkup]
 ===
 title: moveKevin
 position: -302,213
@@ -32,4 +40,12 @@ title: cleanSlurry
 position: -27,207
 ---
 [nomarkup][Since you're crouched you can clean up the bloody slurry from the sink as well - just so it doesn't make your nose - and apparently Beast - annoyed by the smell of the blood. You take an old rag and get to work making the puddle disappear in a few moments.][/nomarkup] #line:05a4242 
+===
+title: sinkBoxes
+---
+[/nomarkup][You collect all the pizza boxes you have collected. It seems that you have jusr enough of them to cover the entire window.][/nomarkup]
+===
+title: sinkTape
+---
+[nomarkup][It takes several long seconds to unjam the junk drawer and open it. You remember your dad telling you to always have some duct tape handy, just in case. You find a half-full roll underneath a deck of playing cards and set it on the countertop. Too bad you can't use the tape on the Beast.][/nomarkup]
 ===

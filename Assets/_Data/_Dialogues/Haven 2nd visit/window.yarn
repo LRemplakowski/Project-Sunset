@@ -221,7 +221,7 @@ title: unsuccesfulProofing
 position: 1020,627
 color: purple
 ---
-<<if $attemptsCounter == 1>>
+<<if $attemptsCounter <= 2>>
     [nomarkup][This will not be enough. The good news is that you still can try again. Maybe something else will work?][/nomarkup] #line:0d36c2f #lastline
     <<jump windowOptions>>
 <<else>>
@@ -318,13 +318,13 @@ title: windowTapingCardboardSuccess
 position: 372,135
 ---
 <<set $windowBoxes to true>>
-[nomarkup][You take all the old card boxes of pizza you have in your apartment. It appears there are quite a few of them - enough to cover your window if you unfold and prepare them right. You rip some so they fit as they should, covering it entirely. Sometimes you have to use scissors or a knife to cut them and remember to do it along the fibers but in the end, you're really satisfied with what you created.][/nomarkup] #success #line:0391cc0 
+[nomarkup][You rip some so they fit as they should, covering it entirely. Sometimes you have to use scissors or a knife to cut them and remember to do it along the fibers but in the end, you're really satisfied with what you created.][/nomarkup] #success #line:0391cc0 
 <<jump successfulProofing>>
 ===
 title: windowTapingCardboardFailure
 position: 636,-169
 ---
-[nomarkup][You take all the old card boxes of pizza you have in your apartment. It appears there are quite a few of them - enough to cover your window if you unfold and prepare them right. You rip some so they fit as they should, covering it entirely. Sometimes you have to use scissors or a knife to cut them. But it appears that this handiwork is too much for you. Some of the boxes are destroyed along the way making them unusable. Not enough is left to cover the entire window.][/nomarkup] #failure #line:0f3bd46 
+[nomarkup][You rip some so they fit as they should, covering it entirely. Sometimes you have to use scissors or a knife to cut them. But it appears that this handiwork is too much for you. Some of the boxes are destroyed along the way making them unusable. Not enough is left to cover the entire window.][/nomarkup] #failure #line:0f3bd46 
 <<jump unsuccesfulProofing>>
 ===
 title: windowUseFurniture
