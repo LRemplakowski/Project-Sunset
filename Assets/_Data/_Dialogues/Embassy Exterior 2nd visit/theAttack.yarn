@@ -50,13 +50,13 @@ position: -30,479
 title: attackDexSuccess
 position: -125,727
 ---
-[nomarkup][You dart backwards, your head swimming as you try to keep your balance. Maneuvering yourself and the man has become a herculean task by you managing to make it past Diana and out towards the parking lot.][/nomarkup] #line:0dcd70f 
+[nomarkup][You dart backwards, your head swimming as you try to keep your balance. Maneuvering yourself and the man has become a herculean task by you managing to make it past Diana and out towards the parking lot.][/nomarkup] #success #line:0dcd70f 
 <<jump havenEscape>>
 //scene changes to Haven exterior//
 ===
 title: attackDexFailure
 position: 88,726
 ---
-[nomarkup][You move backwards directly into Diana who shoves you full force forwards sending you sprawling into the brown eyed woman, Lucia, before you.][/nomarkup] #line:0805dbf 
+[nomarkup][You move backwards directly into Diana who shoves you full force forwards sending you sprawling into the brown eyed woman, Lucia, before you.][/nomarkup] #failure #line:0805dbf 
 <<jump capturedByLucia>>
 ===
