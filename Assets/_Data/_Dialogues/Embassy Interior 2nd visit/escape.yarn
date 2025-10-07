@@ -7,12 +7,15 @@ position: 1,-230
 <<declare $doeEyedRescued to 0>>
 <<declare $carryingNPC to 0>>
 <<declare $ranForIt to 0>>
-[nomarkup][Back downstairs, explosions of feathers, wood chips and couch padding can be seen floating through the air as the gunfire continues - the hail of bullets tearing through the scenery. The club's patrons cower behind makeshift furniture barricades, couches and under tables - doing anything they can to shelter themselves. You're going to have to get through all of that, if you want to escape, but you're safe where you are, for now...][/nomarkup] #line:035bc8f 
+[nomarkup][Back downstairs, explosions of feathers, wood chips and couch padding can be seen floating through the air as the gunfire continues - the hail of bullets tearing through the scenery.][/nomarkup]
+[nomarkup][The club's patrons cower behind makeshift furniture barricades, couches and under tables - doing anything they can to shelter themselves. You're going to have to get through all of that, if you want to escape, but you're safe where you are, for now...][/nomarkup] #line:035bc8f 
 -> {$pcName}: Anyone wanna tell me who these people are? #line:06e5ca8 
 {$kieran}: All we know is that they have guns, and they're shooting at us. The only thing that matters right now is survival. #lastline #line:004aeaa 
 <<if GetIsPartyMemberRecruited($anastasia) is true>>
-    {$anastasia}: Hey, you and I might agree on something, for once, Kiki! But instead of standing here idly alongside you folk, I was going to go and ask 'em. [nomarkup][The maniacal grin that's been plastered onto her face since the first gunshot hasn't left - only gotten wider.][/nomarkup] #line:0163286 
-    {$kieran}: [nomarkup][He grabs Anastasia's wrist as she moves to push open the double-doors into the main floor of Embassy.][/nomarkup] Miss Goth Queen, contain yourself. We'll go in a minute. [nomarkup]<i>Together</i>[/nomarkup]. #lastline #line:0c45ab7 
+    {$anastasia}: Hey, you and I might agree on something, for once, Kiki! But instead of standing here idly alongside you folk, I was going to go and ask 'em.
+    [nomarkup][The maniacal grin that's been plastered onto Anastasia's face since the first gunshot hasn't left - only gotten wider.][/nomarkup] #line:0163286 
+    [nomarkup][Kieran grabs Anastasia's wrist as she moves to push open the double-doors into the main floor of Embassy.][/nomarkup] 
+    {$kieran}: Miss Goth Queen, contain yourself. We'll go in a minute. [nomarkup]<i>Together</i>[/nomarkup]. #lastline #line:0c45ab7 
 <<endif>>
 -> {$pcName}: Understood, Kieran. #line:02e4b75 
 <<jump boom>>
@@ -35,7 +38,8 @@ title: boom
     -> {$pcName}: How would he know that? #line:0d4555b 
     [nomarkup][Both of your companions hold up their hands to shush you.][/nomarkup] #line:09de9db 
     <<if Roll ("Wits","Insight")>=4>>
-        [nomarkup][Oddly, despite the fact that both of them were arguing just minutes ago, they seem to be on the same page in this dire circumstance - both using their powers to gather information and possibly gain an edge over the gunmen assaulting the club they're all trapped inside. This is a synergy that they'd never show unless their next moves could be their last... You just hope you won't have to try and get them to admit they make a good team, in the aftermath.][/nomarkup] #line:05737d7 
+        [nomarkup][Oddly, despite the fact that both of them were arguing just minutes ago, they seem to be on the same page in this dire circumstance - both using their powers to gather information and possibly gain an edge over the gunmen assaulting the club they're all trapped inside.][/nomarkup]
+        [nomarkup][This is a synergy that they'd never show unless their next moves could be their last... You just hope you won't have to try and get them to admit they make a good team, in the aftermath.][/nomarkup] #line:05737d7 
     <<endif>>
     {$kieran}: Semiautomatic. We'll have just enough time to make a run for it, once they stop to reload. #line:00ed14a 
 <<endif>>

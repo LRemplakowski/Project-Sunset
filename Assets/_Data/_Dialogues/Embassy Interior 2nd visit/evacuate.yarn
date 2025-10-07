@@ -241,12 +241,11 @@ position: 434,1848
         -> {$pcName}: No. You can carry him. Right, Anastasia? #line:02449da 
             {$anastasia}: Wha- Me?! Why me? #line:0990860 
             {$kieran}: [nomarkup][Kieran looks at her with deadeyed determination and his eyes narrow ever so slightly. The smallest of shivers flickers with fear up your spine as you see Kieran's eyes go ever so slightly hard. Terrifying.][/nomarkup] #line:05cfbcd 
-            {$beast}: We aren't the only ones with a temper... #line:0222485 
+            {$beast}: I'm not the only one with a temper... #line:0222485 
             -> {$pcName}: You [nomarkup]<i>were</i>[/nomarkup] the one bragging back there that you could easily haul Kieran to the exit, right? #line:088243e 
             {$anastasia}: [nomarkup][She grins.][/nomarkup] Fair enough, you got me there. But if he bleeds too much on my clothes, you owe me a new set, Kiki. #line:0b55d03 
             {$kieran}: So that's the price of a life to you Anastasia? #line:0261752 
             -> {$pcName}: Because you're my adoptive Sire, and I'm broke. #line:00df7b2 
-            [nomarkup][His eyes flicker towards you and you can feel something almost like fear crawl into your throat.][/nomarkup] #line:0f4c121 
             <<if GetCompanionInfluence($kieran)<1>>
                 [nomarkup][The look that Kieran gives you with as you speak has a palpable weight to it. A joke made to try and lighten the tension and ease Anastasia has landed horribly with the other vampire who now looks at you with a dispassionate and almost clinical disgust.][/nomarkup] #line:0f84508 
                 -> [nomarkup][What?][/nomarkup] #line:092be39 
@@ -254,10 +253,12 @@ position: 434,1848
                 -> {$pcName}: Can't take a joke? We're saving him, isn't that enough? #line:0fc767c 
                 {$kieran}: Desiree. Stop. #line:0a70472 
             <<elseif GetCompanionInfluence($kieran)==1>>
+                [nomarkup][His eyes flicker towards you and you can feel something almost like fear crawl into your throat.][/nomarkup]
                 {$kieran}: I'm glad you find this humorous Desiree. #line:0d60392 
                 -> {$pcName}: We're saving him Kieran, focus on that alright? [/nomarkup][You can feel the intensity that Anastasia had when staring at the gunfire now living in Kieran.][nomarkup] #line:03a157a 
                 {$kieran}: We'll talk about this later. #line:0dfa08c 
             <<elseif GetCompanionInfluence($kieran)<=1>>
+                [nomarkup][His eyes flicker towards you and you can feel something almost like fear crawl into your throat.][/nomarkup]
                 {$kieran}: I don't think this is a joking matter. And I would rather not put a price tag on a man's life. #line:0846f66 
                 -> {$pcName}: I was trying to lighten the mood, Anastasia's doing us a favor and she didn't even want to help him. #line:092e055 
                 {$kieran}: I know Desiree, I just hope that he didn't hear you say that. [nomarkup][He looks at the man on Anastasia's shoulder who seems unfocused and mostly trying to deal numb the pain by drifting in and out of consciousness.][/nomarkup] Imagine knowing you're worth as much as someone's shoe. I know it was a joke Desiree, it just wasn't appreciated. #line:0081d17 
@@ -278,16 +279,18 @@ position: 434,1848
             <<endif>>
             <<jump physicalOptionsRun>>
 <<endif>>
-        -> {$pcName}: Yes, either I need to carry him, or we need to take this slow, steady, and stealthily. [nomarkup][Carry him and run for it.][/nomarkup] #line:044b9bd 
-            <<set $carryingNPC to 1>>
-            <<jump physicalOptions>>
+-> {$pcName}: Yes, either I need to carry him, or we need to take this slow, steady, and stealthily. #line:044b9bd 
+    <<set $carryingNPC to 1>>
+    <<jump physicalOptions>>
 ===
 title: medicalAssistanceFailure
 position: 107,1671
 ---
 [nomarkup][There's blood everywhere, screams, shots, you can't concentrate.][/nomarkup] #failure #line:0671482 
 -> {$pcName}: Shit, shit, shit... I don't know what to do... There wasn't a first aid course required for my line of work... #line:03ef806 
-{$kieran}: First of all we need to stop, or suppress the bleeding... [nomarkup][He unclasps his belt.][/nomarkup] Here. I'll block his leg.  Luckily, the blood is too dark to have come from the artery. He just might have a chance of surviving if he's not shot again. [nomarkup][He blocks the doe eyed man's leg with precision and professionalism.][/nomarkup] #line:08afeed 
+{$kieran}: First of all we need to stop, or suppress the bleeding... [nomarkup][He unclasps his belt.][/nomarkup] 
+{$kieran}: Here. I'll block his leg. Luckily, the blood is too dark to have come from the artery. He just might have a chance of surviving if he's not shot again. 
+[nomarkup][Kieran blocks the doe eyed man's leg with precision and professionalism.][/nomarkup] #line:08afeed 
 <<jump kieranHelps>>
 ===
 title: physicalOptions
