@@ -3,7 +3,8 @@ tags:
 position: -147,-165
 ---
 //Dominic car comes to view, it's owner comes out with gun in his hand//
-[nomarkup][Dominic nearly jumps out of his immaculate car gleaming mendaciously in the dark. He is holding his gun tightly with a bestial grimace on his face. Looks like not only your evening got ruined. But on the other hand, what he did expect releasing you into the wild woods of vampiric business without any explanation whatsoever. He's either an idiot or he's plainly stupid. Or both. One thing for sure, you don't want his hand cannon to be pointed at you.][/nomarkup] #line:0f3207d 
+[nomarkup][Dominic nearly jumps out of his immaculate car gleaming mendaciously in the dark. He is holding his gun tightly with a bestial grimace on his face. Looks like not only your evening got ruined. But on the other hand, what he did expect releasing you into the wild woods of vampiric business without any explanation whatsoever.][/nomarkup]
+[nomarkup][He's either an idiot or he's plainly stupid. Or both. One thing for sure, you don't want his hand cannon to be pointed at you.][/nomarkup] #line:0f3207d 
 {$sheriff}: Somebody cares to explain what the fuck I am doin' here tonight? There I was, sitting with the missus, spending my time in silence and, surprisingly, not pissin' anybody off, and out of the blue I heard that annoyin', screeching noise of the alarm phone line ringin'.
 {$sheriff}: You, Kieran, got somethin' to say? When I said to find her daddy I didn't mean to do everythin' to make my night miserable. And especially not makin' the Masquerade FUBAR. Jesus... #line:0d6247b 
 {$sforzaMask}: Dominic, as always you are a master of good manners. This is not Kieran's nor his friends doing. #line:01b3be8 
@@ -49,10 +50,12 @@ position: -147,-165
             {$kieran}: That seems most likely to me. It would at least have bought her time... #line:01f9527 
         <<endif>>> #line:0ead54c 
     <<endif>>
-    [nomarkup][You can feel your head ringing slightly as you tune them out. They aren't listening to you and you can feel the Beast starting to pound itself against your heart and squeeze the breath out of your lungs. No one here is taking you seriously.][/nomarkup] Why aren't any of you listening? #line:07f4fb1 
+    [nomarkup][You can feel your head ringing slightly as you tune them out. They aren't listening to you and you can feel the Beast starting to pound itself against your heart and squeeze the breath out of your lungs. No one here is taking you seriously.][/nomarkup]
+    -> {$pcName}: Why aren't any of you listening? #line:07f4fb1 
     <<jump kindredBickering>>
 -> {$pcName}: [nomarkup][Stay silent.][/nomarkup] #line:0a76f1d 
-    [nomarkup][You can feel your head ringing slightly as you tune them out. They aren't listening to you and you can feel the Beast starting to pound itself against your heart and squeeze the breath out of your lungs. No one here is taking you seriously, and they're unlikely to stop bickering long enough for you to get a word in.][/nomarkup] #line:087d5be 
+    [nomarkup][You can feel your head ringing slightly as you tune them out. They aren't listening to you and you can feel the Beast starting to pound itself against your heart and squeeze the breath out of your lungs.][/nomarkup]
+    [nomarkup][No one here is taking you seriously, and they're unlikely to stop bickering long enough for you to get a word in.][/nomarkup] #line:087d5be 
     <<jump kindredBickering>>
 ===
 title: kindredBickering
@@ -77,8 +80,8 @@ position: 264,-64
 title: herNameChaSuccess
 position: -110,244
 ---
-{$beast}: These insolent blowhards. #line:03430b1 
--> {$pcName}: IF YOU WOULD JUST LISTEN TO ME I MIGHT BE ABLE TO ANSWER YOUR QUESTIONS! [nomarkup][The strange voice is resonating through your own.][/nomarkup] #success #line:014f08a 
+{$beast}: These insolent blowhards. #success #line:03430b1 
+-> {$pcName}: IF YOU WOULD JUST LISTEN TO ME I MIGHT BE ABLE TO ANSWER YOUR QUESTIONS! [nomarkup][The strange voice is resonating through your own.][/nomarkup] #line:014f08a 
 [nomarkup][You can feel your rage building with each word as the Beast growls in your chest. Like a rumble of vitriolic anger that needs to get out.]/[nomarkup] #line:0ddcb6e 
 -> {$pcName}: I may not know everything that's going on, but I know this. I investigated this. Let me do my job, and maybe you'll have the answers you're looking for. #line:04ba123 
 {$sheriff}: [nomarkup][Very slowly he tilts his head down to look at you over the rims of his glasses.][/nomarkup] Look at this. Someone's pitchin' a fit. You've got some temper lil lady. I'll give you that. Okay, let's hear what you gotta say. #line:0efdf3a 
@@ -89,8 +92,10 @@ position: -110,244
 title: herNameChaFailure
 position: 269,248
 ---
-{$beast}: How dare they not listen to me. I know more about this than anyone here... #line:0fa0958 
--> {$pcName}: HER NAME IS LUCIA YOU INSOLENT BLOWHARDS!! IF YOU WOULD JUST LISTEN TO ME I MIGHT BE ABLE TO ANSWER YOUR QUESTIONS! [nomarkup][You can feel rage like an evil thing itching at the corners of your eyes, it curls your lip and drags it's claws over your stopped heart as if trying to restart it.][/nomarkup] SHUT YOUR MOUTHS FOR ONE MINUTE AND LISTEN! #line:0a0449f 
+{$beast}: How dare they not listen to me. I know more about this than anyone here... #failure #line:0fa0958 
+-> {$pcName}: HER NAME IS LUCIA YOU INSOLENT BLOWHARDS!! IF YOU WOULD JUST LISTEN TO ME I MIGHT BE ABLE TO ANSWER YOUR QUESTIONS!
+[nomarkup][You can feel rage like an evil thing itching at the corners of your eyes, it curls your lip and drags it's claws over your stopped heart as if trying to restart it.][/nomarkup]
+-> {$pcName}: SHUT YOUR MOUTHS FOR ONE MINUTE AND LISTEN! #line:0a0449f 
 {$sforzaMask}: Brujah you said? [nomarkup][She looks at Kieran with an air of disgust. He nods silently.][/nomarkup] I would have rather guessed. #line:01fed4e 
 {$sheriff}: [nomarkup][He walks up to you and exhales long and slow, almost like a growl in his throat.][/nomarkup] And they say I'm childish. Stop ptichin' a hissy fit and start talkin' some sense. I ain't here to hold your hand... #line:0e09163 
 [nomarkup][His hand snaps out and covers your mouth.][/nomarkup] #line:01e6d69 
