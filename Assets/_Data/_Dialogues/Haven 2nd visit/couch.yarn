@@ -88,7 +88,7 @@ title: sheets
 position: -307,13
 ---
 [nomarkup][You pull the sheets off the pull-out couch and bundle them under your arm with a sigh.][/nomarkup] #line:0723feb 
-<<GiveItem IT_Q_SHEETS>>
+<<GiveItem "IT_Q_SHEETS">>
 -> {$pcName}: These will help. #line:0e54720 
 <<jump couch>>
 ===

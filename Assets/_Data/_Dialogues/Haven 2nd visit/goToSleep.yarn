@@ -3,8 +3,10 @@ tags:
 position: -41,-523
 ---
 //quest for light proofing the window is COMPLETE//
-[nomarkup][It has been an interesting night, to say the least. It lasted like a lifetime to you and in your case it's quite literally. You wish you would wake up from this nightmare and it'd all be over, but you can't even find rest. You turn over and over trying to make yourself comfortable and pray that any cover you've made on the window will be sufficient. But you feel so much anxiety you know you will be unable to sleep... are vampires even sleeping? What do they do during the daytime? What awaits you tomorrow? There are so many unanswered questions and the ones you've heard gave birth to other ones. You can't stop thinking.][/nomarkup] #line:0309851 
-    <<jump goToSleepOptions>>
+[nomarkup][It has been an interesting night, to say the least. It lasted like a lifetime to you and in your case it's quite literally. You wish you would wake up from this nightmare and it'd all be over, but you can't even find rest.][/nomarkup]
+[nomarkup][You turn over and over trying to make yourself comfortable and pray that any cover you've made on the window will be sufficient. But you feel so much anxiety you know you will be unable to sleep... are vampires even sleeping? What do they do during the daytime? What awaits you tomorrow?][/nomarkup]
+[nomarkup][There are so many unanswered questions and the ones you've heard gave birth to other ones. You can't stop thinking.][/nomarkup] #line:0309851 
+<<jump goToSleepOptions>>
 ===
 title: goToSleepOptions
 position: -39,-299
@@ -34,19 +36,8 @@ color: red
         <<set $attemptsCounter to ($attemptsCounter + 1)>>
     <<endif>>
     <<jump thinkAboutPeople>>
-<<if GetIsPartyMemberRecruited($anastasia) is true and CustomVisited("askAnastasia")==false>>
-    -> {$pcName}: Anastasia? #line:02b2a3b 
-        <<jump askAnastasia>>
-<<endif>>
 -> [nomarkup][It doesn't matter. Quiet your thoughts.][/nomarkup] #line:07f6cfe 
     <<jump endNight>>
-===
-title: askAnastasia
-position: 368,-480
----
-{$anastasia}: Fuck off. I'm trying to get comfortable. #line:05c362e 
-[nomarkup][You'll find no companionship in your voyage this morning.][/nomarkup] #line:0b1b7e4 
-<<jump goToSleepOptions>>
 ===
 title: endNight
 position: 902,-286
@@ -145,16 +136,16 @@ color: red
 [nomarkup][You've met so many people today. It's not hard to keep track though. You were always good with names and faces. One of the quirks that makes you a good PI. Your thoughts start to spin around...][/nomarkup] #line:0670fc2 
 -> [nomarkup][Kieran.][/nomarkup] <<if CustomVisited("thinkAboutKieran") == false>> #line:0a668c5 
     <<jump thinkAboutKieran>>
-<<if GetIsPartyMemberRecruited($anastasia) == true and CustomVisited("thinkAboutAnastasia") == false>>
-    -> [nomarkup][Anastasia.][/nomarkup]  #line:09c00f4 
-        <<jump thinkAboutAnastasia>>
-<<endif>>
+-> [nomarkup][Anastasia.][/nomarkup]  <<if GetIsPartyMemberRecruited($anastasia) is true and CustomVisited("thinkAboutAnastasia")==false>>#line:09c00f4 
+    <<jump thinkAboutAnastasia>>
 -> [nomarkup][Dominic.][/nomarkup] <<if CustomVisited("thinkAboutDominic") == false>> #line:09e4581 
     <<jump thinkAboutDominic>>
 -> [nomarkup][Kate.][/nomarkup] <<if CustomVisited("thinkAboutKate") == false>> #line:0ec0e89 
     <<jump thinkAboutKate>>
 -> [nomarkup][Diana.][/nomarkup] <<if CustomVisited("thinkAboutDiana") == false>> #line:097ccc7 
     <<jump thinkAboutDiana>>
+-> [nomarkup][It doesn't matter. Quiet your thoughts.][/nomarkup]
+    <<jump goToSleepOptions>>
 ===
 title: thinkAboutKieran
 position: 440,823

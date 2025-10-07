@@ -21,7 +21,7 @@ Cheryl Ahmadi: We come to you tonight looking over the Embassy where a firefight
 Cheryl Ahmadi: Shots were heard late this evening when a series of armed men broke through the doors and opened fire. We bring you now to the carnage left over in the wake of this horrific attack. #line:015f715 
 Reporter: Gunshots were reported at the Embassy nightclub. Police report this can be attributed to gang violence. We're unsure what may have prompted this, but having gotten in contact with the mayor's office he promises that he will swiftly be taking action. #line:0ac45a2 
 Cheryl Ahmadi: Attempts to get in contact with the owner of the Embassy have failed but all reports indicate that she was still inside when the fighting started. Can you tell me what's happening? #line:077c3c2 
-<<if $doeEyedManAlive > 0>>
+<<if $doeEyedRescued == 1>>
     [nomarkup][A young man with large brown eyes you recognize from the club is wrapped in a highly reflective blanket. His face looks pale and sallow but he's clearly been attended to by a nurse and is sitting on the curb with a thousand-yard stare. The reporter makes their way over to him.][/nomarkup] #line:0f29c75 
     Reporter: Yes Cheryl, we've been told that the front of the Embassy was hit the hardest and it's where the majority of the casualties occurred. Young man - young man? #line:0c3c5df 
     Doe Eyed Man: Y...yes? #line:0b4bfa4 
