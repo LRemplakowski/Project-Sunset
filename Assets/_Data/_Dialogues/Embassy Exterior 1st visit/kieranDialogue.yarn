@@ -13,10 +13,8 @@ title: askQuestions
 {$kieran}: Yes? Just don't make it too absorbing. I need to focus on the road. #line:05b0327 
 -> {$pcName}: I'll do my best. #line:066c97e
 <<if GetAttributeSkillPoolSize("intelligence","occult")>=4>>
-    {$kieran}: [nomarkup][He sights.][/nomarkup] Okay. Just so long as it will help our investigation. Go ahead and ask.
     <<jump kieranIntOccultRollSuccess>>
 <<else>>
-    {$kieran}: [nomarkup][He sights.][/nomarkup] Okay. Just so long as it will help our investigation. Go ahead and ask. #lastline
     <<jump questionsKieran>>
 <<endif>>
 ===
@@ -27,6 +25,7 @@ title: kieranIntOccultRollSuccess
 ===
 title: questionsKieran
 ---
+{$kieran}: [nomarkup][He sights.][/nomarkup] Okay. Just so long as it will help our investigation. Go ahead and ask.
 -> {$pcName}: So... How many of the stereotypes about vampires are true? Like that we sleep in coffins, or have super speed, are averted by crosses and so on? <<if CustomVisited("kieranIntOccultRollSuccess") == true>> #line:09868f1
     <<jump occultQuestions>>
 -> {$pcName}: You and Dominic don't seem to get along. #line:0431dde 
