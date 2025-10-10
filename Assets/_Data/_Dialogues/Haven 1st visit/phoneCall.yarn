@@ -9,60 +9,46 @@
 title: PhoneCall
 tags:
 ---
-[nomarkup][You pick up the phone. The last voice you want to hear in the disoriented wake of a drunken bender blares out the line - your ex-husband. At the very least, he can't see you right now - something you're exceedingly thankful for.][/nomarkup] #line:03673f5 
-{$exspouse}: Hey Dez, how you been? I was starting to worry. You didn't pick up earlier today. #line:0acac77 
-[nomarkup][The worst part is, you know the concern is sincere.][/nomarkup] #line:08f0ead 
--> {$pcName}: ...Good. #line:0668f0e 
-    {$exspouse}: Glad to hear you're adjusting. #line:0fc5976 
+{$storyteller}: [nomarkup][The last voice you want to hear blares out the line..][/nomarkup] #line:03673f5
+{$storyteller}: [nomarkup][Your ex.][/nomarkup]  
+{$exspouse}: Oh thank God you answered! Are you alright? Nobody has been able to reach you. I was getting worried. #line:0acac77 
+{$storyteller}: [nomarkup][The worst part is you know their concern is sincere.][/nomarkup] #line:08f0ead 
+-> {$pcName}: Sorry, I was sleeping. #line:0668f0e 
+    {$exspouse}: Okay? It's 8. Your phone's been ringing all day. Clients. #line:0fc5976 
 -> {$pcName}: Not going to lie to you, I've been better. #line:064ad29 
-    {$exspouse}: I'm sorry to hear that. This has been hard on both of us. #line:04a938f 
-    {$pcName}: [nomarkup][Yeah, “both of us.”][/nomarkup] #line:09c2c44 
-    [nomarkup][...you almost say, but something stops you. He has been nothing but kind, throughout all of this, after all.][/nomarkup]  #line:04be269 
+    {$exspouse}: Oh, I'm sorry to hear that. #line:04a938f 
 -> {$pcName}: [nomarkup][Hang up.][/nomarkup] #line:05fcbfb 
-    [nomarkup][You hear Arthur desperately mutter some syllables before you hang up the line.][/nomarkup] #line:01792fb 
+    {$storyteller}: [nomarkup][Arthur desperately mutters something before the line clicks.][/nomarkup] #line:01792fb 
     <<jump AfterPhoneCall>>
-{$exspouse}: Listen, I know I'm probably the last person you want to hear from, but I was calling to see if you have any updates on the money I lent you. #line:03744d9 
--> {$pcName}: I'm working on it, give me some time. (Charisma + Persuasion) #line:0c5da88 
+{$exspouse}: Well listen, sorry if this is bad timing, but I'm stressing about the - my mortgage, and I was wondering if you have any updates about the money I lent you. #line:03744d9 
+-> {$pcName}: I'm working on it. Give me time. (Charisma + Persuasion) #line:0c5da88 
     <<if Roll("Charisma","Persuasion") >= 2>>
-        {$exspouse}: Okay. I trust you. Just keep me updated, alright? You know better than anyone I'm not exactly swimming in cash here. [nomarkup][He awkwardly chuckles.][/nomarkup] #success #line:00bd597 
-        {$pcName}: [nomarkup][Guilt hits you like a bag of bricks. He doesn't deserve this. You can feel your throat closing up with emotion. Just have to get a few more words out.][/nomarkup] Will do. #line:0f3f039 
-        {$exspouse}: I'll let you get to it then. Bye Dez. I lo- [nomarkup][He quickly catches his mistake and hangs up the phone. Just force of habit, you tell yourself.][/nomarkup]
-        [nomarkup][The worst part is, you would have reciprocated if he had gone through with it.][/nomarkup] #line:02c8707 
+        {$exspouse}: Okay. I trust you. Just keep me updated, alright? #success #success #line:00bd597  
+        {$exspouse}: I'll let you get to it then. Bye. 
         <<jump AfterPhoneCall>>
     <<else>>
-        {$exspouse}: That's what you said a month ago. Look, I only gave it to you to help you get on your feet. The last thing I want to do is take my ex to court, but I don't know what else to do. #failure #line:0f845ee 
+        {$exspouse}: You've been saying that for months now. Look, I tried to help you get back your feet and start your agency, but I feel like I'm running out of options here #failure #line:0f845ee 
         -> {$pcName}: I understand where you're coming from. I'm sorry. #line:0efc39a 
-            {$exspouse}: It's okay. I know you're good for it. Just keep me updated, alright? You know better than anyone I'm not exactly swimming in cash here. [nomarkup][He awkwardly chuckles, but you can hear the stress in his voice.][/nomarkup] #line:0f7704f 
-            {$pcName}: [nomarkup][Guilt hits you like a bag of bricks. He doesn't deserve this. You can feel your throat closing up with emotion. Just have to get a few more words out.][/nomarkup] Will do. #line:0ab005b 
-            {$exspouse}: I'll let you get to it then. Bye Dez. I lo- [nomarkup][He quickly catches his mistake and hangs up the phone. Just force of habit, you tell yourself.][/nomarkup]
-            [nomarkup][The worst part is, you would have reciprocated if he had gone through with it.][/nomarkup] #line:0fc6182 
+            {$exspouse}: It's okay. I know you're good for it. Just keep me updated, alright? #line:0f7704f 
+            {$exspouse}: I'll let you get to it then. Bye.
             <<jump AfterPhoneCall>>
         -> {$pcName}: Fuck off with your vague threats. #line:08ed2f8 
-            {$exspouse}: Let's not escalate things Dez. I don't want to fight with you anymore. #line:0b97426 
-            {$pcName}: Quit it. You always say this, positioning yourself as the voice of reason - the arbiter of all that is good and just so that next to you, I just look like a monster... #line:0df3b9e 
-            {$exspouse}: Desiree, I... [nomarkup][There are a few long moments of silence on the other end of the line.][/nomarkup] #line:0f8c232 
-            -> [nomarkup][Wait for him to finish his sentence.][/nomarkup] #line:04bd664 
-                {$exspouse}: ...I'm sorry. I can't do this. #line:03ce745 
-                [nomarkup][A moment later, and all that remains is the hum of the dial tone. He's hung up.][/nomarkup] #line:0d5cc7b 
-                <<jump AfterPhoneCall>>
-            -> [nomarkup][Hang up.][/nomarkup] #line:02470df 
-                [nomarkup][You hear Arthur desperately mutter some syllables before you hang up the line.][/nomarkup] #line:0f17bae
-                <<jump AfterPhoneCall>>
+            {$exspouse}: I'm not going to fight with you, just pay me by the end of the month before this escalates. #line:0b97426 
+            {$storyteller}: [nomarkup][The line clicks.][/nomarkup]
         -> {$pcName}: [nomarkup][Hang up.][/nomarkup] #line:0d17798 
-            [nomarkup][You hear Arthur desperately mutter some syllables before you hang up the line.][/nomarkup] #line:07ea3e2 
+            {$storyteller}: [nomarkup][Arthur desperately mutters something before the line clicks.][/nomarkup] #line:07ea3e2 
             <<jump AfterPhoneCall>>
     <<endif>>
 -> [nomarkup][Hang up.][/nomarkup] #line:030676c 
-    [nomarkup][You hear Arthur desperately mutter some syllables before you hang up the line.][/nomarkup] #line:064cff9 
+    {$storyteller}: [nomarkup][Arthur desperately mutters something before the line clicks.][/nomarkup] #line:064cff9 
     <<jump AfterPhoneCall>>
 ===
 title: AfterPhoneCall
 tags:
 ---
-[nomarkup][You didn't want things to end like this. You wish he never gave you that loan, but you also know you'd have never been able to start your agency without it.][/nomarkup]
-[nomarkup][You used to dream about living the quintessential suburban fantasy, with a white-picket fence and two or three kids running around in the backyard, but when it came time to commit to that plan, you weren't ready, and Arthur never pressed.][/nomarkup]
-[nomarkup][Sometimes, you wish he had. At least then, you would have known where things stood before it all fell apart...][/nomarkup] #line:02db9ac 
+{$storyteller}: [nomarkup][You didn't want things to end like this. You wish he never gave you that loan, but you also know you'd have never been able to start your agency without it.][/nomarkup]
+-> {$pcName}: Ugh. #line:02db9ac 
 <<CompleteObjective "Q_0P_MAIN_SATURDAY_START" "ANSWER_PHONE">>
-[nomarkup][Your headache is getting worse by the minute. You rub your fingers against your temple to no avail. You need something to take the edge off.][/nomarkup]  #line:077a6da 
--> [nomarkup][Hang up.][/nomarkup]
+{$storyteller}: [nomarkup][Your body mirrors the weariness of your mind. You need something to take the edge off.][/nomarkup] #line:077a6da 
+-> [nomarkup][Walk away.][/nomarkup]
 ===
