@@ -6,25 +6,27 @@ tags:
 title: Journal
 tags:
 ---
-{$journal}: Saturday, June 14th, 1986. I am Desiree Bardot. A PI working in the heart of Las Vegas. In another life, I was a respected journalist bringing accountability to those in power, but now, I often find myself digging up dirt for those same powerbrokers. 
-{$journal}: When I can find work, that is. I used to have it all: money, a career, and a “happy” marriage. Now, the only company I keep are the cockroaches as I struggle to make rent for my crummy apartment in West Vegas. Things could be worse, I suppose. #line:03a7223 
+{$storyteller}: [nomarkup][Quiet.][/nomarkup]
+{$storyteller}: [nomarkup][You'd let the void take you but you find yourself thrust into somewhere worse. Awake.][/nomarkup]
+{$storyteller}: [nomarkup][PIERCING FLUORESCENT RAYS sear your corneas. Your tongue, a shriveled lump of meat in the back of your throat tasting faintly...][/nomarkup]
+{$storyteller}: [nomarkup][Metallic?][/nomarkup]
+{$storyteller}: [nomarkup][Another day of this precious thing we call life.][/nomarkup]
 <<jump ThePhone>>
 ===
 title: ThePhone
 tags:
 ---
 <<PlaySFX "phone_ring">>
-RING! RING! RING! RING! RING! RING! RING! RING! #line:000849d 
-[nomarkup][The non-stop cacophony pounds at your head like a sledgehammer. You barely manage to open your eyes before the fluorescent light sears your corneas. The light... It burns...][/nomarkup]  #line:000d606 
-[nomarkup][You turn over and try to dig your face deeper into the rough upholstery of the old couch, but you can already tell that you're not going to be able to fall back asleep. Not like this. You're far too hungry, besides.][/nomarkup] #line:036285f 
-[nomarkup][Swallowing, your tongue sits like a dry, shriveled lump of meat in your mouth. You're parched and ravenous, the need for sustenance quickly becoming the sole concern at the forefront of your mind.][/nomarkup]
-[nomarkup][Your stomach echoes this need, its aching emptiness only compounding your discomfort. You're willing to eat almost anything, at this point...][/nomarkup] #line:086b256 
-[nomarkup][You've never been this hungover in your life. It's worse than that one time in college. Strangest of all, the metallic taste of iron lingers in the back of your throat...][/nomarkup] #line:0ebc172 
-[nomarkup][Your body wants - no, it demands - more of that taste. And as you lie there, any attempt at movement rendered languid and slow by the hangover, your mind catches up with it. The situation is dire; you need to find more. Of what, exactly? Your conscious mind remains unsure...][/nomarkup] #line:0740d4c 
-[nomarkup][At least you're still alive, some conciliatory piece of your mind offers, its words of comfort faint. Still, you reason, it would be best not to sit and wait for death to come and take you.][/nomarkup]
-[nomarkup][You sit up, the lethargy making your limbs feel as if they are suspended in some thick, viscous goo as your feet, still slipped into your boots, make contact with the floor. Upright, finally.][/nomarkup]
-[nomarkup][Shaking your head, you attempt to come to your senses and find your balance - standing up on your own two feet.][/nomarkup] #line:0f933d2 
-[nomarkup][As you stand up and look around you feel a slight sting of panic. You can't recall anything that happened last night.][/nomarkup] #line:0b00b20 
+RING! RING! RING! #line:000849d
+{$storyteller}: [nomarkup][The non-stop cacophony pounds at your head like a sledgehammer.][/nomarkup] 
+{$storyteller}: [nomarkup][You barely manage to sit up. Your limbs are stiff as if suspended in a thick, viscous goo.][/nomarkup]
+<<PlaySFX "phone_ring">>
+RING! RING! RING!
+{$storyteller}: [nomarkup][Your clock reads 8pm. That's late? Can't be right but last night's events evade you.][/nomarkup]
+{$storyteller}: [nomarkup][You can't concentrate past your senses. The taste lingers. Whatever you had you're craving more.][/nomarkup]
+<<PlaySFX "phone_ring">>
+RING! RING! RING!
+{$storyteller}: [nomarkup][Whatever it is can wait.][/nomarkup]
 <<StartQuest "Q_0P_MAIN_SATURDAY_START">>
 <<GetUpFromBedDesiree>>
 ===
