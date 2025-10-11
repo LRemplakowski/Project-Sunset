@@ -5,8 +5,7 @@ position: -209,38
 <<if IsObjectiveActive("Q_0P_MAIN_SATURDAY_START","GRAB_MEDS")>>
     <<CompleteObjective "Q_0P_MAIN_SATURDAY_START" "GRAB_MEDS">>
 <<endif>>
-<<if CustomVisited("DoorFirstVisit")>>
-    [nomarkup][The door knob still doesn't budge. It's locked.][/nomarkup] #lastline #line:0506090  
+<<if CustomVisited("DoorFirstVisit")>> 
     <<jump DoorVisit>>
 <<else>>
     <<jump DoorFirstVisit>>
@@ -16,18 +15,15 @@ title: DoorFirstVisit
 tags:
 position: 91,-139
 ---
-<<if GetHasItem("IT_Q_BATHROOM_KEY") == false>>
-    [nomarkup][The door knob doesn't budge. It's locked. Of course it's from the inside. The architect must have been a sadist.][/nomarkup]
-    {$pcName}: [nomarkup][Where did I put that key?][/nomarkup] #lastline #line:0ad2e34
-<<else>>
-    [nomarkup][The door knob doesn't budge. It's locked. Of course it's from the inside. The architect must have been a sadist.][/nomarkup] #lastline
-<<endif>> 
+{$storyteller}: [nomarkup][It's locked. Somehow, from the inside?.][/nomarkup]
+{$storyteller}: [nomarkup][Is someone in there?][/nomarkup]
 <<jump DoorVisit>>
 ===
 title: DoorVisit
 tags:
 position: 114,94
 ---
+{$storyteller}: [nomarkup][The knob doesn't budge.][/nomarkup] #line:0506090 
 -> [nomarkup][Knock.][/nomarkup] <<if CustomVisited("BathroomDoorKnock") == false>> #line:05c9288 
     <<jump BathroomDoorKnock>>
 -> [nomarkup][Try to kick the door open.] (Strength + Brawl)[/nomarkup] <<if CustomVisited("BahtroomDoorKick") == false>> #line:0c702b0 
@@ -42,13 +38,10 @@ title: BathroomDoorKnock
 position: 439,-259
 ---
 KNOCK! KNOCK! KNOCK! #line:0705409 
-[nomarkup][Unsurprisingly, there's no answer.][/nomarkup] #line:0fdd8d6 
+{$storyteller}: [nomarkup][No response.][/nomarkup] #line:0fdd8d6 
 <<if GetAttributeSkillPoolSize("Wits","Insight") >= 5>>
-    {$pcName}: [nomarkup][Why did I do that?][/nomarkup]
-    [nomarkup][You feel the strangest sense that you shouldn't go in there. A shiver runs down your spine.][/nomarkup] #lastline #line:0e82241 
+    {$storyteller}: [nomarkup][A shiver runs down your spine. You feel the strangest sense you shouldn't go in there.][/nomarkup] #line:0e82241 
     <<set $strangeInsightModifier to 1>>
-<<else>>
-    {$pcName}: [nomarkup][Why did I do that?][/nomarkup] #lastline
 <<endif>>
 <<jump DoorVisit>>
 ===
@@ -56,29 +49,22 @@ title: BathroomDoorKick
 position: 567,-63
 ---
 <<if $potence == true>>
-    [nomarkup][You kick the door with a meager amount of force. To your shock, with very little effort, it goes flying off its hinges and into the bathroom beyond. You were never a particularly strong person, so something like this happening is downright fantastical.][/nomarkup]
-    [nomarkup][Or maybe you're still dreaming? From your state, though, it's closer to a nightmare than anything pleasant... At the very least, if it is, you can count on waking up safely in your bed after all this is over...][/nomarkup] #success #line:0237eef 
-    {$pcName}: [nomarkup][The fuck...?][/nomarkup] #line:0898b88 
-    <<set $bathroomdoordestroyed to true>>
+    {$storyteller}: [nomarkup][The door completely flies off its hinges, splintering into the bathroom floor. You underestimate your strength, it seems. Still coming out of your security deposit.][/nomarkup] #lastline #success
     <<CompleteObjective "Q_0P_MAIN_SATURDAY_START" "ENTER_BATHROOM">>
+    <<if $kevinmurdered == true>>
+        {$storyteller}: [nomarkup][Not that it matters now.][/nomarkup]
+        <<set $bathroomdoordestroyed to true>>
+        -> [nomarkup][Go inside.][/nomarkup]
+    <<else>>
+        -> [nomarkup][Go inside.][/nomarkup]
+    <<endif>>
 <<else>>
     <<if Roll("Strength","Brawl") >= (6 - $strangeInsightModifier)>>
-        [nomarkup][You assault the locked door with several weak strikes of your boot. Thud, thud, thud... It feels like an eternity before the door budges.][/nomarkup] #success #line:0a62dfb 
-        <<set $bathroomdoordestroyed to true>> 
-        <<if $kevinmurdered == true>>
-            [nomarkup][Just a little more, and it comes off its hinges, diligently kicked in by your boot. Strangely enough, even after all that, you don't feel the least bit fatigued.][/nomarkup] #line:0365229 
-        <<else>>
-            [nomarkup][Just a little more, and it comes off its hinges, diligently kicked in by your boot.][/nomarkup]
-            [nomarkup][You curse under your breath. Strangely enough, even after all that, you don't feel the least bit fatigued. Surveying the damage, you curse under your breath. If your landlord sees that, he'll be pissed.][/nomarkup] #line:0981350 
-        <<endif>>
+        {$storyteller}: [nomarkup][You strike the door with precisely enough force to bust the door open without damaging the door.][/nomarkup] #success #line:0a62dfb 
         <<CompleteObjective "Q_0P_MAIN_SATURDAY_START" "ENTER_BATHROOM">>
         -> [nomarkup][Go inside.][/nomarkup]
     <<else>>
-        <<if $kevinmurdered == true>>
-            [nomarkup][Despite your best efforts, the door doesn't budge. The architect definitely was a sadist.][/nomarkup] #failure #lastline #line:0082b73 
-        <<else>>
-            [nomarkup][Despite your best efforts, the door doesn't budge. The architect definitely was a sadist. But maybe it's for the best. You don't want to piss your landlord off any more... Your wallet will thank you.][/nomarkup] #failure #lastline #line:0ca4ae0 
-        <<endif>>
+        {$storyteller}:[nomarkup][Despite your best efforts, the door doesn't budge.][/nomarkup] #failure #line:0082b73 
         <<jump DoorVisit>> 
     <<endif>>
 <<endif>>
@@ -87,10 +73,10 @@ title: BathroomDoorCrowbar
 position: 545,316
 ---
 <<if Roll("Strength","Melee") >= 3>>
-    [nomarkup][You jimmy the crowbar just right. With a little elbow grease, you hear a CREAK, and the door glides open.][/nomarkup] #success #line:0495901 
+    {$storyteller}: [nomarkup][You jimmy the crowbar just right. A little elbow grease, and CREAK, the door opens.][/nomarkup] #success #lastline #line:0495901 
 <<else>>
-    [nomarkup][Perhaps you were a little too eager. The door shatters! Splinters jam into your flesh.] [+1 Superficial Damage][/nomarkup] #failure #line:0033fa6 
-    {$pcName}: [nomarkup][Ow! What the fuck!?][/nomarkup] #line:0e0fb25 
+    {$storyteller}: [nomarkup][Perhaps you were a little too eager. The door shatters! Splinters jam into your flesh.] [+1 Superficial Damage][/nomarkup] #failure #lastline #line:0033fa6
+    <<set $bathroomdoordestroyed to true>> 
 <<endif>>
 <<CompleteObjective "Q_0P_MAIN_SATURDAY_START" "ENTER_BATHROOM">>
 -> [nomarkup][Go inside.][/nomarkup]
@@ -98,7 +84,7 @@ position: 545,316
 title: BathroomDoorUnlock
 position: 606,144
 ---
-[nomarkup][You turn the key in the lock, pushing open the bathroom door.][/nomarkup] #line:09dd832 
+[nomarkup][CLICK. The door unlocks.][/nomarkup] #line:09dd832 
 <<CompleteObjective "Q_0P_MAIN_SATURDAY_START" "ENTER_BATHROOM">>
 -> [nomarkup][Go inside.][/nomarkup]
 ===
