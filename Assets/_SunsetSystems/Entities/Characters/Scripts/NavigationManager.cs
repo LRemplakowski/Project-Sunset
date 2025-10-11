@@ -38,7 +38,7 @@ namespace SunsetSystems.Entities.Characters.Navigation
         public Vector3 Position => CurrentNavigationAI.position;
         public bool FinishedCurrentPath => !CurrentNavigationAI.hasPath || CurrentNavigationAI.reachedCrowdedEndOfPath;
         public bool IsMoving => (CurrentNavigationAI.velocity.sqrMagnitude > MOVEMENT_THRESHOLD || !FinishedCurrentPath)
-                                && CurrentNavigationAI.canMove
+                                && CurrentNavigationAI.simulateMovement
                                 && !CurrentNavigationAI.isStopped;
         public float CurrentSpeed => CurrentNavigationAI.velocity.magnitude;
         public float MaxSpeed => CurrentNavigationAI.maxSpeed;
@@ -109,11 +109,9 @@ namespace SunsetSystems.Entities.Characters.Navigation
         public bool CalculatePath(Vector3 targetPosition, out ABPath path)
         {
             path = ABPath.Construct(Position, targetPosition, null);
-            path.nnConstraint = new NNConstraint
+            path.traversalConstraint = new()
             {
                 graphMask = _currentGraphMask,
-                constrainWalkability = true,
-                walkable = true
             };
             AstarPath.StartPath(path);
             path.BlockUntilCalculated(); // synchronous calculation
@@ -153,7 +151,7 @@ namespace SunsetSystems.Entities.Characters.Navigation
         // Set a navigation target for the agent
         public bool SetNavigationTarget(Vector3 target)
         {
-            if (!CurrentNavigationAI.canMove)
+            if (!CurrentNavigationAI.simulateMovement)
                 return false;
             CurrentNavigationAI.isStopped = false;
             CurrentNavigationAI.destination = target;
@@ -163,17 +161,15 @@ namespace SunsetSystems.Entities.Characters.Navigation
 
         public bool SetGridTarget(IGridCell gridCell)
         {
-            if (!CurrentNavigationAI.canMove)
+            if (!CurrentNavigationAI.simulateMovement)
                 return false;
             CurrentNavigationAI.isStopped = false;
             ABPath path = ABPath.Construct(Position, gridCell.WorldPosition, null);
-            path.nnConstraint = new NNConstraint
+            path.traversalConstraint = new()
             {
                 graphMask = _currentGraphMask,
-                constrainWalkability = true,
-                walkable = true,
+                traversalProvider = _traversalProvider
             };
-            path.traversalProvider = _traversalProvider;
             CurrentNavigationAI.SetPath(path);
             return true;
         }
@@ -186,7 +182,7 @@ namespace SunsetSystems.Entities.Characters.Navigation
 
         public void SetNavigationEnabled(bool enabled)
         {
-            CurrentNavigationAI.canMove = enabled;
+            CurrentNavigationAI.simulateMovement = enabled;
         }
 
         public object GetComponentPersistenceData()
@@ -197,7 +193,7 @@ namespace SunsetSystems.Entities.Characters.Navigation
         public void InjectComponentPersistenceData(object data)
         {
             if (data is not NavigatorPeristenceData navData) return;
-            CurrentNavigationAI.canMove = navData.NavigationEnabled;
+            CurrentNavigationAI.simulateMovement = navData.NavigationEnabled;
         }
 
         [Serializable]
@@ -207,7 +203,7 @@ namespace SunsetSystems.Entities.Characters.Navigation
 
             public NavigatorPeristenceData(NavigationManager navigationManager)
             {
-                NavigationEnabled = navigationManager.CurrentNavigationAI.canMove;
+                NavigationEnabled = navigationManager.CurrentNavigationAI.simulateMovement;
             }
 
             public NavigatorPeristenceData()
