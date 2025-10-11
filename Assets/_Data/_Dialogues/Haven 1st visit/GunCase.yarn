@@ -1,7 +1,7 @@
 ﻿title: GunCase
 tags:
 ---
-[nomarkup][You pick up the 9mm Handgun Arthur bought you to keep you safe. The metal is normally cool in your hands, but now it suspiciously has no temperature.][/nomarkup] #line:020c521 
+{$storyteller}: [nomarkup][Your trusted  9mm. The metal is normally cool in your hands, but now it suspiciously has no temperature.][/nomarkup]
 -> [nomarkup][Clean the gun.] (Dexterity + Firearms)[/nomarkup] #line:0f5c611
     <<GiveItem "IT_WPN_RN_HANDGUN_CLN">> 
     <<jump PickUpGun>>
@@ -12,10 +12,11 @@ tags:
 title: PickUpGun
 ---
 <<if Roll("Dexterity","Firearms") >= 3>>
-    {$pcName}: [nomarkup][Good as new.][/nomarkup] +1 Weapon Damage. #success #line:0e1f39e
+    {$storyteller}: [nomarkup][Good as new.][/nomarkup] +1 Weapon Damage. #success #line:0e1f39e
     -> [nomarkup][Walk away.][/nomarkup] 
 <<else>>
-    BANG! [nomarkup][You get careless, putting a bullet hole in the ceiling.][/nomarkup] #failure #line:0c4c45e 
+    BANG! #failure #line:0c4c45e 
+    {$storyteller}: [nomarkup][The responsible gun owner. A bullet hole now dots your ceiling.][/nomarkup] 
     {$pcName}: [nomarkup][Definitely not getting my security deposit back.][/nomarkup] #line:094c254
     -> [nomarkup][Walk away.][/nomarkup] 
 <<endif>>
