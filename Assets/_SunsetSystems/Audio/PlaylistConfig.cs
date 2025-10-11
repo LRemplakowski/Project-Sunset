@@ -1,6 +1,9 @@
 using System.Collections.Generic;
+using Redcode.Awaiting;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 
 namespace SunsetSystems.Audio
 {
@@ -8,51 +11,102 @@ namespace SunsetSystems.Audio
     public class PlaylistConfig : SerializedScriptableObject, IPlaylist
     {
         [SerializeField]
-        private List<AudioClip> _tracks = new();
+        private List<AssetReference> _tracks = new();
+
+        private readonly Dictionary<int, AsyncOperationHandle<AudioClip>> _loadedTrackHandles = new();
 
         private int _currentTrackIndex = 0;
         private bool _firstTrackRequest = true;
-        
 
-        public AudioClip NextTrack()
+        public async Awaitable<AudioClip> NextTrack()
         {
             if (_tracks.Count <= 0)
                 return default;
-            AudioClip track;
-            if (_firstTrackRequest)
-            {
-                track = _tracks[_currentTrackIndex];
-                _firstTrackRequest = false;
-            }
-            else
-            {
-                _currentTrackIndex = _currentTrackIndex + 1 >= _tracks.Count ? 0 : _currentTrackIndex + 1;
-                track = _tracks[_currentTrackIndex];
-            }
-            return track;
+            int nextTrackIndex = GetNextTrackIndex();
+            var result = await LoadOrGetTrackByIndex(nextTrackIndex);
+            _currentTrackIndex = nextTrackIndex;
+            return result;
         }
 
-        public AudioClip PreviousTrack()
+        public async Awaitable<AudioClip> PreviousTrack()
         {
             if (_tracks.Count <= 0)
                 return default;
-            AudioClip track;
+            int previousTrackIndex = GetPreviousTrackIndex();
+            var result = await LoadOrGetTrackByIndex(previousTrackIndex);
+            _currentTrackIndex = previousTrackIndex;
+            return result;
+        }
+
+        private int GetNextTrackIndex()
+        {
+            if (_tracks.Count <= 0)
+                return -1;
+
             if (_firstTrackRequest)
             {
-                track = _tracks[_currentTrackIndex];
                 _firstTrackRequest = false;
+                return _currentTrackIndex;
             }
-            else
+
+            return _currentTrackIndex + 1 >= _tracks.Count ? 0 : _currentTrackIndex + 1;
+        }
+
+        private int GetPreviousTrackIndex()
+        {
+            if (_tracks.Count <= 0)
+                return -1;
+
+            if (_firstTrackRequest)
             {
-                _currentTrackIndex = _currentTrackIndex - 1 <= 0 ? _tracks.Count - 1 : _currentTrackIndex - 1;
-                track = _tracks[_currentTrackIndex];
+                _firstTrackRequest = false;
+                return _currentTrackIndex;
             }
-            return track;
+
+            return _currentTrackIndex - 1 < 0 ? _tracks.Count - 1 : _currentTrackIndex - 1;
         }
 
         public AudioClip GetCurrentTrack()
         {
-            return _tracks[_currentTrackIndex];
+            if (_loadedTrackHandles.TryGetValue(_currentTrackIndex, out var handle) && handle.Status == AsyncOperationStatus.Succeeded)
+            {
+                return handle.Result;
+            }
+            return default;
+        }
+
+        public void ReleaseReferences()
+        {
+            foreach (var handle in _loadedTrackHandles.Values)
+            {
+                if (handle.IsValid())
+                {
+                    Addressables.Release(handle);
+                }
+            }
+            _loadedTrackHandles.Clear();
+        }
+
+        private async Awaitable<AudioClip> LoadOrGetTrackByIndex(int trackIndex)
+        {
+            if (_loadedTrackHandles.TryGetValue(trackIndex, out var existingHandle))
+            {
+                if (existingHandle.Status == AsyncOperationStatus.Succeeded)
+                    return existingHandle.Result;
+            }
+
+            AssetReference track = _tracks[trackIndex];
+            var handle = track.LoadAssetAsync<AudioClip>();
+            await handle;
+
+            if (handle.Status == AsyncOperationStatus.Succeeded)
+            {
+                _loadedTrackHandles[trackIndex] = handle;
+                return handle.Result;
+            }
+
+            Debug.LogError($"Failed to load AudioClip at index {trackIndex} from Addressables.");
+            return default;
         }
     }
 }

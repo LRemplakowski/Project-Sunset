@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Redcode.Awaiting;
 using Sirenix.OdinInspector;
-using SunsetSystems.Core.SceneLoading;
 using SunsetSystems.Game;
 using UnityEngine;
 
@@ -40,7 +39,6 @@ namespace SunsetSystems.Audio
         private Task _cachedPlaylistTask;
         private IPlaylist _lastPlaylist;
         private bool _playSoundtrack;
-        private ScenePlaylistData _lastPlaylistData = new();
 
         private void Awake()
         {
@@ -71,7 +69,6 @@ namespace SunsetSystems.Audio
 
         private bool GetStatePlaylist(GameState state, out IPlaylist playlist)
         {
-            playlist = default;
             if (_playlistOverrides.TryGetValue(state, out playlist))
                 return true;
             else if (_statePlaylistPairs.TryGetValue(state, out playlist))
@@ -94,7 +91,7 @@ namespace SunsetSystems.Audio
             {
                 await FadeOutSource();
                 _soundtrackSource.Stop();
-                AudioClip newTrack = config.NextTrack();
+                AudioClip newTrack = await config.NextTrack();
                 _soundtrackSource.clip = newTrack;
                 _soundtrackSource.Play();
                 await FadeInSource();
@@ -131,32 +128,30 @@ namespace SunsetSystems.Audio
 
         public void InjectPlaylistData(ScenePlaylistData playlistData)
         {
-            //ReleasePreviousDataIfExists();
-            //_lastPlaylistData = playlistData;
-            //Dictionary<GameState, Task<IPlaylist>> operations = new();
             if (playlistData.Exploration != null)
             {
-                //var op = playlistData.Exploration.LoadAssetAsync<IPlaylist>();
-                //operations[GameState.Exploration] = op.Task;
-                _statePlaylistPairs[GameState.Exploration] = playlistData.Exploration;
+                if (_statePlaylistPairs.TryGetValue(GameState.Exploration, out var existing) && existing != playlistData.Exploration)
+                {
+                    existing?.ReleaseReferences();
+                    _statePlaylistPairs[GameState.Exploration] = playlistData.Exploration;
+                }
             }
             if (playlistData.Combat != null)
             {
-                //var op = playlistData.Combat.LoadAssetAsync<IPlaylist>();
-                //operations[GameState.Combat] = op.Task;
-                _statePlaylistPairs[GameState.Combat] = playlistData.Combat;
+                if (_statePlaylistPairs.TryGetValue(GameState.Combat, out var existing) && existing != playlistData.Combat)
+                {
+                    existing?.ReleaseReferences();
+                    _statePlaylistPairs[GameState.Combat] = playlistData.Combat;
+                }
             }
             if (playlistData.Dialogue != null)
             {
-                //var op = playlistData.Dialogue.LoadAssetAsync<IPlaylist>();
-                //operations[GameState.Dialogue] = op.Task;
-                _statePlaylistPairs[GameState.Dialogue] = playlistData.Dialogue;
+                if (_statePlaylistPairs.TryGetValue(GameState.Dialogue, out var existing) && existing != playlistData.Dialogue)
+                {
+                    existing?.ReleaseReferences();
+                    _statePlaylistPairs[GameState.Dialogue] = playlistData.Dialogue;
+                }
             }
-            //await Task.WhenAll(operations.Values);
-            //foreach (var statePlaylist in operations)
-            //{
-            //    _statePlaylistPairs[statePlaylist.Key] = statePlaylist.Value.Result;
-            //}
             PlayStatePlaylist(GameState.Exploration);
         }
 
@@ -164,15 +159,27 @@ namespace SunsetSystems.Audio
         {
             if (playlistData.Exploration != null)
             {
-                _playlistOverrides[GameState.Exploration] = playlistData.Exploration;
+                if (_playlistOverrides.TryGetValue(GameState.Exploration, out var existing) && existing != playlistData.Exploration)
+                {
+                    existing?.ReleaseReferences();
+                    _playlistOverrides[GameState.Exploration] = playlistData.Exploration;
+                }
             }
             if (playlistData.Combat != null)
             {
-                _playlistOverrides[GameState.Combat] = playlistData.Combat;
+                if (_playlistOverrides.TryGetValue(GameState.Combat, out var existing) && existing != playlistData.Combat)
+                {
+                    existing?.ReleaseReferences();
+                    _playlistOverrides[GameState.Combat] = playlistData.Combat;
+                }
             }
             if (playlistData.Dialogue != null)
             {
-                _playlistOverrides[GameState.Dialogue] = playlistData.Dialogue;
+                if (_playlistOverrides.TryGetValue(GameState.Dialogue, out var existing) && existing != playlistData.Dialogue)
+                {
+                    existing?.ReleaseReferences();
+                    _playlistOverrides[GameState.Dialogue] = playlistData.Dialogue;
+                }
             }
             PlayStatePlaylist(GameState.Exploration);
         }
@@ -186,13 +193,6 @@ namespace SunsetSystems.Audio
             return playlistData;
         }
 
-        //private void ReleasePreviousDataIfExists()
-        //{
-        //    _lastPlaylistData.Dialogue?.ReleaseAsset();
-        //    _lastPlaylistData.Combat?.ReleaseAsset();
-        //    _lastPlaylistData.Dialogue?.ReleaseAsset();
-        //}
-
         public void SetStatePlaylistOverride(GameState state, IPlaylist playlistOverride)
         {
             if (_playlistOverrides.TryGetValue(state, out var existingOverride) || existingOverride != playlistOverride)
@@ -202,6 +202,10 @@ namespace SunsetSystems.Audio
 
         public void ClearStatePlaylistOverride(GameState state)
         {
+            if (_playlistOverrides.TryGetValue(state, out var existingOverride))
+            {
+                existingOverride?.ReleaseReferences();
+            }
             _playlistOverrides.Remove(state);
             PlayStatePlaylist(GameManager.Instance.CachedGameState);
         }
