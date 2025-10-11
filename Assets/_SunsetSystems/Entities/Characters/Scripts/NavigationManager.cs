@@ -7,7 +7,6 @@ using SunsetSystems.ActionSystem;
 using SunsetSystems.Combat;
 using SunsetSystems.Combat.Grid;
 using SunsetSystems.Persistence;
-using TMPro;
 using UnityEngine;
 
 namespace SunsetSystems.Entities.Characters.Navigation

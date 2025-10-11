@@ -1,13 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace SunsetSystems.Audio
 {
     public interface IPlaylist
     {
-        AudioClip NextTrack();
-        AudioClip PreviousTrack();
+        Awaitable<AudioClip> NextTrack();
+        Awaitable<AudioClip> PreviousTrack();
         AudioClip GetCurrentTrack();
+
+        void ReleaseReferences();
     }
 }
