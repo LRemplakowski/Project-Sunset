@@ -15,6 +15,7 @@ public class SelectNextAbility : Action
 	{
         var randomAbility = _aiContext.Value.GetAbilityUser()
                                             .GetAllAbilities()
+                                            .Select(abilityRuntime => abilityRuntime.AbilityConfig)
                                             .Where(ability => ability.GetCategories().HasFlag(AbilityCategory.Movement) is false)
                                             .GetRandom();
 		_aiContext.Value.SelectedAbility = randomAbility;

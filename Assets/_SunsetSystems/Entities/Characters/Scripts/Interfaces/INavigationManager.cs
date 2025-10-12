@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Pathfinding;
 using SunsetSystems.Combat.Grid;
 using UnityEngine;
@@ -15,6 +16,7 @@ namespace SunsetSystems.Entities.Characters.Navigation
 
         bool Warp(Vector3 position);
         bool CalculatePath(Vector3 targetPosition, out ABPath path);
+        Dictionary<Vector3, float> CalculateMultiplePaths(Vector3[] targetPositions);
         void FaceDirectionAfterMovementFinished(Vector3 point);
         bool SetNavigationTarget(Vector3 target);
         bool SetGridTarget(IGridCell gridCell);

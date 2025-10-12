@@ -8,14 +8,14 @@ namespace SunsetSystems.Combat.UI
 {
     public interface IAbilityButton
     {
-        void Initialize(IAbilityConfig ability, Action<IAbilityConfig> selectionDelegate);
+        void Initialize(IAbilityConfig ability, IAbilitySource source, Action<IAbilityConfig> selectionDelegate);
         void SetUpdateAmmoCounterEnabled(bool enabled);
-        void OnUpdateAmmoData(WeaponAmmoData ammoData);
+        void UpdateAmmoData(in WeaponAmmoData ammoData);
     }
 
     public interface IAbilityButtonFactory
     {
-        IAbilityButton Create(Transform parent, IAbilityConfig data, Action<IAbilityConfig> selectionDelegate, out Action<WeaponAmmoData> onUpdateAmmoData);
+        IAbilityButton Create(Transform parent, IAbilityConfig data, IAbilitySource source, Action<IAbilityConfig> selectionDelegate);
     }
 
     [CreateAssetMenu(fileName = "New Ability Button Factory", menuName = "Factories/UI/Ability Button Factory")]
@@ -24,13 +24,12 @@ namespace SunsetSystems.Combat.UI
         [SerializeField, AssetsOnly]
         private IAbilityButton _buttonPrefab;
 
-        public IAbilityButton Create(Transform parent, IAbilityConfig data, Action<IAbilityConfig> selectionDelegate, out Action<WeaponAmmoData> onUpdateAmmoData)
+        public IAbilityButton Create(Transform parent, IAbilityConfig data, IAbilitySource source, Action<IAbilityConfig> selectionDelegate)
         {
             var buttonObject = Instantiate(_buttonPrefab as UnityEngine.Object, parent);
             var buttonBehaviour = buttonObject as IAbilityButton;
-            buttonBehaviour.Initialize(data, selectionDelegate);
+            buttonBehaviour.Initialize(data, source, selectionDelegate);
             buttonBehaviour.SetUpdateAmmoCounterEnabled(data is IAmmoAbility ammoAbility && ammoAbility.UsesAmmo);
-            onUpdateAmmoData = buttonBehaviour.OnUpdateAmmoData;
             return buttonBehaviour;
         }
     }

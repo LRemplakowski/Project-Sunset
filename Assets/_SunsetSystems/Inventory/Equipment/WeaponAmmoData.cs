@@ -1,12 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using SunsetSystems.Inventory;
 
 namespace SunsetSystems.Equipment
 {
     public struct WeaponAmmoData
     {
-        public string WeaponID;
+        public IWeapon Weapon;
         public int CurrentAmmo, MaxAmmo;
     }
 }

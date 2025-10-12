@@ -12,8 +12,8 @@ namespace SunsetSystems.AI
         public static IEnumerable<IGridCell> GetPositionsInRange(ICombatant gridActor, int range, GridManager gridManager)
         {
             var currentGridPosition = gridManager.WorldPositionToGridPosition(gridActor.Transform.position);
-            var cellsInRange = gridManager.GetCellsInRange(currentGridPosition, range, gridActor.References.NavigationManager, out var distanceToCells);
-            return cellsInRange.Where(cell => cell.IsFree);
+            var cellsInRange = gridManager.GetUnoccupiedCellsInRange(currentGridPosition, range, gridActor.References.NavigationManager);
+            return cellsInRange.Keys.Where(cell => cell.IsFree);
         }
     }
 }

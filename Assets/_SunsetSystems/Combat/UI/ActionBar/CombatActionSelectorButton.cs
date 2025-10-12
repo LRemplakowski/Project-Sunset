@@ -23,6 +23,8 @@ namespace SunsetSystems.Combat.UI
         [Title("Runtime")]
         [ShowInInspector, ReadOnly]
         private IAbilityConfig _cachedAbility;
+        [ShowInInspector, ReadOnly]
+        private IAbilitySource _cachedAbilitySource;
         private Action<IAbilityConfig> _selectionDelegate;
 
         private void Awake()
@@ -40,9 +42,10 @@ namespace SunsetSystems.Combat.UI
             _selectionDelegate?.Invoke(_cachedAbility);
         }
 
-        public void Initialize(IAbilityConfig ability, Action<IAbilityConfig> selectionDelegate)
+        public void Initialize(IAbilityConfig ability, IAbilitySource source, Action<IAbilityConfig> selectionDelegate)
         {
             CacheAbility(ability);
+            _cachedAbilitySource = source;
             CacheSelectionDelegate(selectionDelegate);
             SetupButtonVisuals(ability);
         }
@@ -52,9 +55,10 @@ namespace SunsetSystems.Combat.UI
             _ammoCounter.SetAmmoCounterVisible(enabled);
         }
 
-        public void OnUpdateAmmoData(WeaponAmmoData ammoData)
+        public void UpdateAmmoData(in WeaponAmmoData ammoData)
         {
-            _ammoCounter.UpdateAmmoData(in ammoData);
+            if (ammoData.Weapon is IAbilitySource abilitySource && _cachedAbilitySource == abilitySource)
+                _ammoCounter.UpdateAmmoData(in ammoData);
         }
 
         private void CacheAbility(IAbilityConfig ability) => _cachedAbility = ability;

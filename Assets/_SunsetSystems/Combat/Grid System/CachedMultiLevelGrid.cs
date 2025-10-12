@@ -87,6 +87,7 @@ namespace SunsetSystems.Combat.Grid
         [SerializeField]
         private bool showGizmosWhenNotSelected = false;
 
+        [Button]
         private async void Start()
         {
             BuildGrid();
@@ -121,9 +122,8 @@ namespace SunsetSystems.Combat.Grid
         {
             //Vector3 localPosition = transform.InverseTransformPoint(worldPosition);
             //Vector3Int gridPosition = Vector3Int.zero;
-            NNConstraint constraint = NNConstraint.Walkable;
+            NearestNodeConstraint constraint = NearestNodeConstraint.Walkable;
             constraint.graphMask = gridGraphMask;
-            constraint.constrainDistance = true;
             constraint.distanceMetric = DistanceMetric.ClosestAsSeenFromAbove();
             var nearestNode = astarPath.GetNearest(worldPosition, constraint);
             foreach (var level in levels)
@@ -221,7 +221,7 @@ namespace SunsetSystems.Combat.Grid
             levels = new GridLevel[gridLevelsCount];
             for (int y = 0; y < gridLevelsCount; y++)
             {
-                GridLevel level = new GridLevel(levelWidth, levelDepth, levelHeight, y, transform.position + Vector3.up * y, gridCellSize);
+                GridLevel level = new(levelWidth, levelDepth, levelHeight, y, transform.position + Vector3.up * y, gridCellSize);
                 level.BuildLevel(astarPath, cachedCoverSourcesInGrid, in gridGraphMask);
                 levels[y] = level;
             }
@@ -356,14 +356,13 @@ namespace SunsetSystems.Combat.Grid
                     // Sample position from custom grid
                     Vector3 samplePosition = levelOrigin + new Vector3(
                         gridPos.x * cellSize,
-                        0f,
+                        levelOrigin.y,
                         gridPos.z * cellSize
                     );
 
                     // Find nearest node first
-                    NNConstraint constraint = NNConstraint.Walkable;
+                    NearestNodeConstraint constraint = NearestNodeConstraint.Walkable;
                     constraint.graphMask = graphMask;
-                    constraint.constrainDistance = true;
                     constraint.distanceMetric = DistanceMetric.ClosestAsSeenFromAbove();
 
                     NNInfo nearest = astarPath.GetNearest(samplePosition, constraint);
@@ -380,7 +379,6 @@ namespace SunsetSystems.Combat.Grid
                     }
                     else
                     {
-                        // Fallback to sample position if no node found
                         worldPos = samplePosition;
                         walkable = false;
                         nearestNode = null;

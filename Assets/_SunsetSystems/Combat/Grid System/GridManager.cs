@@ -114,52 +114,48 @@ namespace SunsetSystems.Combat.Grid
             currentlyHighlightedCell = null;
         }
 
-        public List<GridUnit> GetCellsInRange(Vector3Int gridPosition, float range, INavigationManager agent, out Dictionary<GridUnit, float> distanceToUnitDictionary)
+        public Dictionary<GridUnit, float> GetUnoccupiedCellsInRange(Vector3Int gridPosition, float range, INavigationManager agent)
         {
-            distanceToUnitDictionary = new();
-            List<GridUnit> unitsInRange = new();
             // Calculate the maximum grid distance within _range
             float maxGridDistance = range * managedGrid.GridCellSize;
-
-            foreach (GridUnit unit in managedGrid.GetAllWalkableGridUnits())
+            var unitsInRange = managedGrid.GetAllWalkableGridUnits()
+                .Where(unit => GetDistance(gridPosition, unit.GridPosition) <= maxGridDistance)
+                .Where(unit => unit.IsFree || unit.Occupier.GetContext().MovementManager == agent)
+                .ToArray();
+            var pathDistances = agent.CalculateMultiplePaths(unitsInRange.Select(unit => unit.WorldPosition).ToArray());
+            Dictionary<GridUnit, float> result = new();
+            foreach (var unit in unitsInRange)
             {
-                // Calculate the grid distance between gridPosition and unit's position
-                float gridDistance = (new Vector2(gridPosition.x, gridPosition.z) - new Vector2(unit.GridPosition.x, unit.GridPosition.z)).magnitude;
-
-                if (gridDistance <= maxGridDistance)
+                if (pathDistances.TryGetValue(unit.WorldPosition, out float distance))
                 {
-                    Vector3 unitWorldPosition = GridPositionToWorldPosition(unit.GridPosition);
-                    if (agent.CalculatePath(unitWorldPosition, out ABPath path))
+                    if (distance <= maxGridDistance)
                     {
-                        // Calculate path length
-                        float pathLength = path.GetTotalLength();
-                        if (pathLength <= maxGridDistance)
-                        {
-                            unitsInRange.Add(unit);
-                            distanceToUnitDictionary[unit] = pathLength;
-                        }
+                        result.Add(unit, distance);
                     }
                 }
             }
-            return unitsInRange;
+            return result;
+        }
+
+        private float GetDistance(in Vector3Int from, in Vector3Int to)
+        {
+            return Mathf.Abs(from.x - to.x) + Mathf.Abs(from.z - to.z);
         }
 
         public void ShowCellsInMovementRange(ICombatant combatant)
         {
             HideCellsInMovementRange();
             var mover = combatant.GetContext().MovementManager;
+            if (mover.GetCanMove() == false)
+                return;
             Vector3Int gridPosition = WorldPositionToGridPosition(combatant.References.Transform.position);
             var navigationManager = combatant.References.NavigationManager;
             currentlyHighlitedGridUnits.Clear();
-            currentlyHighlitedGridUnits.AddRange(GetCellsInRange(gridPosition, mover.GetCurrentMovementPoints() + (managedGrid.GridCellSize / 2), navigationManager, out Dictionary<GridUnit, float> distanceToUnitDictionary));
+            currentlyHighlitedGridUnits.AddRange(GetUnoccupiedCellsInRange(gridPosition, mover.GetCurrentMovementPoints() + (managedGrid.GridCellSize / 2), navigationManager).Keys);
             foreach (GridUnit unit in currentlyHighlitedGridUnits)
             {
-                float distanceToUnit = distanceToUnitDictionary[unit];
-                if (distanceToUnit <= mover.GetCurrentMovementPoints() + (managedGrid.GridCellSize / 2) && mover.GetCanMove())
-                {
-                    unit.IsInMoveRange = true;
-                    managedGrid.MarkCellDirty(unit);
-                }
+                unit.IsInMoveRange = true;
+                managedGrid.MarkCellDirty(unit);
                 //if (distanceToUnit <= combatant.SprintRange + (managedGrid.GridCellSize / 2) && !combatant.HasMoved && !combatant.HasActed)
                 //{
                 //    unit.IsInSprintRange = true;

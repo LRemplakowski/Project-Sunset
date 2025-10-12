@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Pathfinding;
 using Sirenix.OdinInspector;
 using SunsetSystems.ActionSystem;
@@ -59,6 +60,7 @@ namespace SunsetSystems.Entities.Characters.Navigation
         {
             CombatManager.OnCombatStart += OnCombatStart;
             CombatManager.OnCombatEnd += OnCombatEnd;
+            CombatManager.OnCombatRoundBegin += OnCombatRoundStart;
 
             BlockManager blockManager = FindAnyObjectByType<BlockManager>();
             _myBlocker.manager = blockManager;
@@ -82,12 +84,18 @@ namespace SunsetSystems.Entities.Characters.Navigation
         {
             _currentGraphMask = _explorationMask;
             CurrentNavigationAI.pathfindingSettings.graphMask = _currentGraphMask;
+            _myBlocker.Unblock();
         }
 
         private void OnCombatStart(IEnumerable<ICombatant> _)
         {
             _currentGraphMask = _combatMask;
             CurrentNavigationAI.pathfindingSettings.graphMask = _currentGraphMask;
+        }
+
+        private void OnCombatRoundStart(ICombatant combatant)
+        {
+            _myBlocker.BlockAtCurrentPosition();
         }
 
         private void OnDestroy()
@@ -105,16 +113,55 @@ namespace SunsetSystems.Entities.Characters.Navigation
         }
 
         // Calculate a path using A* ABPath
+        [Button]
         public bool CalculatePath(Vector3 targetPosition, out ABPath path)
         {
             path = ABPath.Construct(Position, targetPosition, null);
-            path.traversalConstraint = new()
-            {
-                graphMask = _currentGraphMask,
-            };
+            var traversalConstraint = TraversalConstraint.None;
+            traversalConstraint.graphMask = _currentGraphMask;
+            traversalConstraint.traversalProvider = _traversalProvider;
+            path.traversalConstraint = traversalConstraint;
             AstarPath.StartPath(path);
             path.BlockUntilCalculated(); // synchronous calculation
             return path.CompleteState == PathCompleteState.Complete;
+        }
+
+        [Button]
+        public Dictionary<Vector3, float> CalculateMultiplePaths(Vector3[] targetPositions)
+        {
+            Dictionary<Vector3, float> results = new();
+            OnPathDelegate[] pathDelegates = new OnPathDelegate[targetPositions.Length];
+            for (int i = 0; i < pathDelegates.Length; i++)
+            {
+                Vector3 targetPosition = targetPositions[i];
+                pathDelegates[i] = (path) => OnPath(targetPosition, path);
+            }
+            NearestNodeConstraint nodeConstraint = NearestNodeConstraint.Walkable;
+            //nodeConstraint.graphMask = _currentGraphMask;
+            //nodeConstraint.traversalProvider = _traversalProvider;
+            var nearestNode = AstarPath.active.GetNearest(Position, nodeConstraint);
+            var path = MultiTargetPath.Construct(nearestNode.position, targetPositions, pathDelegates);
+            path.nearestNodeDistanceMetric = DistanceMetric.ClosestAsSeenFromAbove(Vector3.up);
+            var traversalConstraint = TraversalConstraint.None;
+            traversalConstraint.graphMask = _currentGraphMask;
+            traversalConstraint.traversalProvider = _traversalProvider;
+            path.traversalConstraint = traversalConstraint;
+            //path.traversalConstraint = new()
+            //{
+            //    graphMask = _currentGraphMask,
+            //    traversalProvider = _traversalProvider
+            //};
+            path.pathsForAll = true;
+            AstarPath.StartPath(path);
+            path.BlockUntilCalculated(); // synchronous calculation
+            return results;
+
+            void OnPath(in Vector3 targetPosition, Path p)
+            {
+                if (p.CompleteState != PathCompleteState.Complete)
+                    return;
+                results[targetPosition] = p.GetTotalLength();
+            }
         }
 
         // Smooth rotation towards a point after movement
@@ -153,23 +200,21 @@ namespace SunsetSystems.Entities.Characters.Navigation
             if (!CurrentNavigationAI.simulateMovement)
                 return false;
             CurrentNavigationAI.isStopped = false;
+            CurrentNavigationAI.pathfindingSettings.traversalProvider = null;
             CurrentNavigationAI.destination = target;
             CurrentNavigationAI.SearchPath();
             return true;
         }
 
+        [Button]
         public bool SetGridTarget(IGridCell gridCell)
         {
             if (!CurrentNavigationAI.simulateMovement)
                 return false;
             CurrentNavigationAI.isStopped = false;
-            ABPath path = ABPath.Construct(Position, gridCell.WorldPosition, null);
-            path.traversalConstraint = new()
-            {
-                graphMask = _currentGraphMask,
-                traversalProvider = _traversalProvider
-            };
-            CurrentNavigationAI.SetPath(path);
+            CurrentNavigationAI.pathfindingSettings.traversalProvider = _traversalProvider;
+            CurrentNavigationAI.destination = gridCell.WorldPosition;
+            CurrentNavigationAI.SearchPath();
             return true;
         }
 

@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
+using Sirenix.Utilities;
 using SunsetSystems.Abilities;
 using SunsetSystems.Equipment;
+using SunsetSystems.Inventory.Data;
 using UnityEngine;
 
 namespace SunsetSystems.Combat.UI
@@ -15,9 +17,8 @@ namespace SunsetSystems.Combat.UI
         [SerializeField, AssetsOnly]
         private IAbilityButtonFactory _buttonFactory;
 
-        private readonly Dictionary<Guid, Action<WeaponAmmoData>> _ammoUpdatesMap = new();
+        private readonly ICollection<IAbilityButton> _abilityButtons = new List<IAbilityButton>();
 
-        private IAbilityConfig _cachedLastSelectedAbility;
         public static event Action<IAbilityConfig> OnAbilitySelected;
 
         public void RefreshAvailableActions()
@@ -25,40 +26,31 @@ namespace SunsetSystems.Combat.UI
             RefreshCoreAbilities();
         }
         
-        // Updated ability should be passed as argument
-        // Weapon should own it's abilities
         public void UpdateAmmoCounter(in WeaponAmmoData ammoData)
         {
-            IAbilityConfig abilityToUpdate = _cachedLastSelectedAbility;
-            if (abilityToUpdate != null && abilityToUpdate is ReloadWeaponAbility reloadAbility)
-                abilityToUpdate = reloadAbility.GetReloadedAbility();
-            if (abilityToUpdate != null && _ammoUpdatesMap.TryGetValue(abilityToUpdate.AbilityID, out var onAmmoUpdate))
+            foreach (var abilityButton in _abilityButtons)
             {
-                onAmmoUpdate?.Invoke(ammoData);
+                abilityButton.UpdateAmmoData(in ammoData);
             }
         }
 
         private void RefreshCoreAbilities()
         {
-            _ammoUpdatesMap.Clear();
+            _abilityButtons.Clear();
             _coreButtonsParent.DestroyChildren();
-            foreach (var ability in GetCoreAbilities())
+            foreach (var abilityData in GetAbilitiesBySource())
             {
-                _buttonFactory.Create(_coreButtonsParent, ability, SelectAbility, out var onAmmoUpdate);
-                if (ability is IAmmoAbility)
-                {
-                    _ammoUpdatesMap.TryAdd(ability.AbilityID, onAmmoUpdate);
-                }
+                var button = _buttonFactory.Create(_coreButtonsParent, abilityData.AbilityConfig, abilityData.AbilitySource, SelectAbility);
+                _abilityButtons.Add(button);
             }
         }
 
         private void SelectAbility(IAbilityConfig ability)
         {
-            _cachedLastSelectedAbility = ability;
             OnAbilitySelected?.Invoke(ability);
         }
 
-        private IEnumerable<IAbilityConfig> GetCoreAbilities()
+        private IEnumerable<AbilityRuntimeData> GetAbilitiesBySource()
         {
             return CombatManager.Instance.CurrentActiveActor.GetContext().AbilityUser.GetCoreAbilities();
         }

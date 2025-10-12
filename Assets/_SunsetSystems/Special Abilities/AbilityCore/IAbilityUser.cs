@@ -9,8 +9,8 @@ namespace SunsetSystems.Abilities
 {
     public interface IAbilityUser
     {
-        IEnumerable<IAbilityConfig> GetCoreAbilities();
-        IEnumerable<IAbilityConfig> GetAllAbilities();
+        IEnumerable<AbilityRuntimeData> GetCoreAbilities();
+        IEnumerable<AbilityRuntimeData> GetAllAbilities();
 
         IAbilityContext GetCurrentAbilityContext();
         bool GetCanAffordAbility(IAbilityConfig ability);
@@ -20,5 +20,17 @@ namespace SunsetSystems.Abilities
         bool ExecuteAbility(IAbilityConfig ability, Action onCompleted = null);
 
         void SetCurrentTargetObject(ITargetable targetable);
+    }
+
+    public readonly struct AbilityRuntimeData
+    {
+        public readonly IAbilityConfig AbilityConfig;
+        public readonly IAbilitySource AbilitySource;
+
+        public AbilityRuntimeData(IAbilityConfig abilityConfig, IAbilitySource abilitySource)
+        {
+            AbilityConfig = abilityConfig;
+            AbilitySource = abilitySource;
+        }
     }
 }

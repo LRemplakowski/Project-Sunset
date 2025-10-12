@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using NPOI.SS.Formula.Functions;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using SunsetSystems.Core.Database;
@@ -16,7 +17,7 @@ namespace SunsetSystems.Entities.Characters
         [field: Title("Data")]
         [field: OdinSerialize, DictionaryDrawerSettings(IsReadOnly = true)]
         public Dictionary<EquipmentSlotID, IEquipmentSlot> EquipmentSlots { get; private set; }
-        public IEnumerable<IBaseItem> EquippedItems => EquipmentSlots.Values.Select(slot => slot.GetEquippedItem());
+        public IEnumerable<IBaseItem> EquippedItems => EquipmentSlots.Values.Select(slot => slot.GetEquippedItem()).ToList();
 
         [Title("Events")]
         public UltEvent<IEquipableItem> ItemEquipped;
@@ -24,11 +25,11 @@ namespace SunsetSystems.Entities.Characters
 
         private void Start()
         {
-            foreach (IEquipableItem item in EquipmentSlots.Values.Select(slot => slot.GetEquippedItem()))
+            foreach (var item in EquippedItems)
             {
-                if (item == null)
+                if (item == null || item is not IEquipableItem equipable)
                     continue;
-                ItemEquipped?.InvokeSafe(item);
+                ItemEquipped?.InvokeSafe(equipable);
             }
         }
 

@@ -716,7 +716,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfe9431ea8ad072f2aecd3041b1524dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  version: 1073741831
+  version: 1073741839
   shape:
     radius: 0.1
     height: 1.8
@@ -752,10 +752,93 @@ MonoBehaviour:
     pathfindingSettings:
       graphMask:
         value: 0
-      tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
       traversableTags: -1
+      tagCostMultipliers:
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      tagEntryCosts: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
     enableLocalAvoidance: 1
     enableGravity: 1
+  managedSettings:
+    pathfindingSettings:
+      graphMask:
+        value: 0
+      traversableTags: -1
+      tagCostMultipliers:
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      - 1
+      tagEntryCosts: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  enableLocalAvoidanceBacking: 1
+  enableGravityBacking: 1
+  rvoSettingsBacking:
+    agentTimeHorizon: 2
+    obstacleTimeHorizon: 0.5
+    maxNeighbours: 10
+    layer: 2
+    collidesWith: -1
+    priority: 0.5
+    debug: 0
+    locked: 0
   autoRepathBacking:
     mode: 2
     period: 2
@@ -1419,7 +1502,10 @@ MonoBehaviour:
       Data: 1
     - Name: _defaultAbilities
       Entry: 7
-      Data: 0|System.Collections.Generic.List`1[[SunsetSystems.Abilities.IAbilityConfig,
+      Data: 0|SunsetSystems.Abilities.AbilityManager+DefaultAbilitySource, SunsetSystems
+    - Name: _defaultAbilities
+      Entry: 7
+      Data: 1|System.Collections.Generic.List`1[[SunsetSystems.Abilities.IAbilityConfig,
         SunsetSystems]], mscorlib
     - Name: 
       Entry: 12
@@ -1429,6 +1515,9 @@ MonoBehaviour:
       Data: 2
     - Name: 
       Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
       Data: 
     - Name: 
       Entry: 8

@@ -1,6 +1,7 @@
-using SunsetSystems.Combat;
+using SunsetSystems.Abilities;
 using SunsetSystems.Inventory.Data;
 using System;
+using System.Collections.Generic;
 using UnityEngine.AddressableAssets;
 
 namespace SunsetSystems.Inventory

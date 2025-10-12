@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Sirenix.OdinInspector;
+using Sirenix.Serialization;
 using SunsetSystems.ActionSystem;
 using SunsetSystems.ActorResources;
 using SunsetSystems.Combat;
@@ -23,11 +24,11 @@ namespace SunsetSystems.Abilities
         private IActionPointUser _actionPointUser;
         [SerializeField]
         private IBloodPointUser _bloodPointUser;
-        [SerializeField]
-        private List<IAbilityConfig> _defaultAbilities = new();
-
+        //[SerializeField]
+        //private List<IAbilityConfig> _defaultAbilities = new();
+        [OdinSerialize]
+        private IAbilitySource _defaultAbilities = new DefaultAbilitySource();
         private AbilityContext _abilityContext;
-
         private ITargetable _characterTarget;
 
         private void Awake()
@@ -109,27 +110,29 @@ namespace SunsetSystems.Abilities
             return ability.IsContextValidForExecution(GetCurrentAbilityContext());
         }
 
-        public IEnumerable<IAbilityConfig> GetAllAbilities()
+        public IEnumerable<AbilityRuntimeData> GetAllAbilities()
         {
-            return GetCoreAbilities().Union(GetAbilitiesFromDisciplines());
+            return GetCoreAbilities().Union(GetAbilitiesFromDisciplines()).ToList();
         }
 
-        public IEnumerable<IAbilityConfig> GetCoreAbilities()
+        public IEnumerable<AbilityRuntimeData> GetCoreAbilities()
         {
-            return _defaultAbilities.Union(GetAbilitiesFromEquipment());
+            return _defaultAbilities.GetAbilities().Select(ability => new AbilityRuntimeData(ability, _defaultAbilities)).Union(GetAbilitiesFromEquipment()).ToList();
         }
 
-        private IEnumerable<IAbilityConfig> GetAbilitiesFromEquipment()
+        private IEnumerable<AbilityRuntimeData> GetAbilitiesFromEquipment()
         {
             var selectedWeapon = _references.WeaponManager.GetSelectedWeapon();
-            return _references.EquipmentManager.EquippedItems.OfType<IAbilitySource>()
-                                                             .Where(item => item is not IWeapon weapon || weapon == selectedWeapon)
-                                                             .SelectMany(item => item.GetAbilities());
+            var equippedItems = _references.EquipmentManager.EquippedItems;
+            return equippedItems.OfType<IAbilitySource>()
+                                .Where(item => item is not IWeapon weapon || weapon == selectedWeapon)
+                                .SelectMany(item => item.GetAbilities()
+                                                        .Select(ability => new AbilityRuntimeData(ability, item)));
         }
 
-        private IEnumerable<IAbilityConfig> GetAbilitiesFromDisciplines()
+        private IEnumerable<AbilityRuntimeData> GetAbilitiesFromDisciplines()
         {
-            return new List<IAbilityConfig>();
+            return new List<AbilityRuntimeData>();
         }
 
         private ITargetable GetCurrentTargetObject()
@@ -163,6 +166,15 @@ namespace SunsetSystems.Abilities
                 _abilityManager = abilityManager;
                 _targetCharacter = abilityManager.GetCurrentTargetObject;
             }
+        }
+
+        [Serializable]
+        private class DefaultAbilitySource : IAbilitySource
+        {
+            [SerializeField]
+            private List<IAbilityConfig> _defaultAbilities = new();
+
+            public IEnumerable<IAbilityConfig> GetAbilities() => _defaultAbilities;
         }
     }
 }
