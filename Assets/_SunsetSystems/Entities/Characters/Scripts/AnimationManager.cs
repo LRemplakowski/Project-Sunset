@@ -25,7 +25,6 @@ namespace SunsetSystems.Animation
         private const string ANIMATION_MANAGER_ID = "ANIMATION_MANAGER";
         private const string ANIMATOR_PARAM_ON_MOVE = "IsMoving";
         private const string ANIMATOR_PARAM_SPEED = "Speed";
-
         private const string ANIMATOR_PARAM_DEATH = "IsDead";
 
         [Title("References")]
@@ -62,6 +61,9 @@ namespace SunsetSystems.Animation
         private GameState _stateOverride = GameState.Combat;
 
         private GameState _stateOverrideLastFrame;
+        private bool _combatAnimationOverrideActive = false;
+        private WeaponAnimationType _combatAnimationTypeOverride = WeaponAnimationType.Brawl;
+        private WeaponAnimationType _currentCombatAnimationType = WeaponAnimationType.Brawl;
 
 
         private readonly int _animatorOnMove = Animator.StringToHash(ANIMATOR_PARAM_ON_MOVE);
@@ -157,12 +159,48 @@ namespace SunsetSystems.Animation
             }
         }
 
+        public void SetCombatAnimationsActive(bool isCombat)
+        {
+            animator.SetBool("IsCombat", isCombat);
+            if (isCombat)
+            {
+                SetActiveAnimationLayer(CreatureAnimationLayer.Combat);
+            }
+            else
+            {
+                SetActiveAnimationLayer(CreatureAnimationLayer.Exploration);
+            }
+        }
+
         public void OnWeaponChanged(IWeaponInstance weaponInstance)
         {
-            if (weaponInstance != null)
-                SetInteger(_weaponAnimationTypeParamHash, (int)(weaponInstance.WeaponAnimationData.AnimationType));
+            _currentCombatAnimationType = weaponInstance != null ? weaponInstance.WeaponAnimationData.AnimationType : WeaponAnimationType.Brawl;
+            UpdateCombatAnimationType();
+        }
+
+        public void SetCombatAnimationTypeOverride(WeaponAnimationType preCastAnimationType)
+        {
+            _combatAnimationOverrideActive = true;
+            _combatAnimationTypeOverride = preCastAnimationType;
+            UpdateCombatAnimationType();
+        }
+
+        public void ClearCombatAnimationTypeOverride()
+        {
+            _combatAnimationOverrideActive = false;
+            UpdateCombatAnimationType();
+        }
+
+        private void UpdateCombatAnimationType()
+        {
+            if (_combatAnimationOverrideActive)
+            {
+                SetInteger(_weaponAnimationTypeParamHash, (int)_combatAnimationTypeOverride);
+            }
             else
-                SetInteger(_weaponAnimationTypeParamHash, (int)WeaponAnimationType.Brawl);
+            {
+                SetInteger(_weaponAnimationTypeParamHash, (int)_currentCombatAnimationType);
+            }
         }
 
         private Rig InitializeRigLayer()
@@ -191,19 +229,6 @@ namespace SunsetSystems.Animation
 
             _initializedOnce = true;
             return layer;
-        }
-
-        public void SetCombatAnimationsActive(bool isCombat)
-        {
-            animator.SetBool("IsCombat", isCombat);
-            if (isCombat)
-            {
-                SetActiveAnimationLayer(CreatureAnimationLayer.Combat);
-            }
-            else
-            {
-                SetActiveAnimationLayer(CreatureAnimationLayer.Exploration);
-            }
         }
 
         public void EnableIK(WeaponAnimationDataProvider ikData)

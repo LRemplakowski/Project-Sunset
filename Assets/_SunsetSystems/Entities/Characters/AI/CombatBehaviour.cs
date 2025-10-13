@@ -95,6 +95,8 @@ namespace SunsetSystems.Combat
         }
 
         #region ITargetable
+        public Transform ProjectileTarget => _raycastOrigin;
+
         public bool IsValidTarget(TargetableEntityType validTargetsFlag) 
         {
             return References.CreatureData.CreatureType switch

@@ -29,13 +29,11 @@ namespace SunsetSystems.Combat.Grid
         public GraphNode GraphNode => unitData.GraphNode;
         public Vector3Int GridPosition => unitData.GridPosition;
         public Vector3 WorldPosition => transform.position;
+        public Transform ProjectileTarget => transform;
 
         public bool IsOccupied => unitData.IsOccupied;
-
         public bool IsFree => unitData.IsFree;
-
         public float CellSize => unitData.CellSize;
-
         public bool Highlighted => unitData.Highlighted;
 
         private void Start()

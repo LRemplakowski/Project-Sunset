@@ -21,4 +21,19 @@ namespace SunsetSystems.Abilities.Execution
             onCompleted?.Invoke();
         }
     }
+
+    public class AttackStrategyFromSpellAbility : IAbilityExecutionStrategy
+    {
+        private readonly SpellAbility _ability;
+
+        public AttackStrategyFromSpellAbility(SpellAbility ability)
+        {
+            _ability = ability;
+        }
+
+        public Awaitable BeginExecute(IAbilityContext context, Action onCompleted)
+        {
+            throw new NotImplementedException();
+        }
+    }
 }

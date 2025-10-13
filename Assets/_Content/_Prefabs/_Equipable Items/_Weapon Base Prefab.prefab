@@ -65,7 +65,7 @@ MonoBehaviour:
   <LeftHandIK>k__BackingField: {fileID: 6731426546134144974}
   <LeftHintLocalPosition>k__BackingField: {x: 0, y: 0, z: 0}
   <RightHintLocalPosition>k__BackingField: {x: 0, y: 0, z: 0}
-  <AnimationType>k__BackingField: 1
+  <AnimationType>k__BackingField: 0
 --- !u!114 &5341368709518589996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97,15 +97,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c754a9bd43cbee419aaa2c763b1aac9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects: []
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes: []
   bulletVelocity: 3
   bulletLifetime: 5
   projectileOrigin: {fileID: 0}
@@ -114,6 +105,7 @@ MonoBehaviour:
   shotSFX: {fileID: 0}
   reloadSFX: {fileID: 0}
   _weaponAudioSource: {fileID: 6362036647279999706}
+  _umaMount: {fileID: 5341368709518589996}
   <WeaponAnimationData>k__BackingField: {fileID: 5349557295720142199}
 --- !u!82 &6362036647279999706
 AudioSource:

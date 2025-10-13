@@ -80,12 +80,20 @@ namespace SunsetSystems.Abilities.Targeting
             ClearTargetingDelegates(context);
             DisableExecutionUI(context);
             context.GetTargetingLineRenderer().SetPosition(0, context.GetCurrentCombatant().AimingOrigin);
+            if (_ability is IAnimatedAbility animatedAbility)
+            {
+                context.GetCurrentCombatant().References.AnimationManager.SetCombatAnimationTypeOverride(animatedAbility.PreCastAnimationType);
+            }
         }
 
         public void ExecuteTargetingEnd(ITargetingContext context)
         {
             ClearTargetingDelegates(context);
             DisableExecutionUI(context);
+            if (_ability is IAnimatedAbility)
+            {
+                context.GetCurrentCombatant().References.AnimationManager.ClearCombatAnimationTypeOverride();
+            }
         }
 
         private void ShowTargetingLine(ITargetingContext context, in Vector3 target, in Color lineColor)

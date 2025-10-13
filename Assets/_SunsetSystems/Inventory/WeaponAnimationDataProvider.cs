@@ -17,9 +17,4 @@ namespace SunsetSystems.Animation
         [field: SerializeField]
         public WeaponAnimationType AnimationType { get; private set; }
     }
-
-    public enum WeaponAnimationType
-    {
-        Brawl = 0, Pistol = 1, Rifle = 2, MeleeOneHanded = 4, MeleeTwoHanded = 5
-    }
 }
