@@ -14,19 +14,39 @@ namespace SunsetSystems
         int CastAnimationHash { get; }
     }
 
+    public interface ISFXAbility
+    {
+        AudioClip PreparatioSFX { get; }
+        AudioClip ExecutionSFX { get; }
+    }
+
+    public interface IVFXAbility
+    {
+        GameObject PreCastVfxPrefab { get; }
+    }
+
     [CreateAssetMenu(fileName = "New Spell Ability", menuName = "Sunset Abilities/Spell Ability")]
-    public class SpellAbility : AbstractAbilityConfig, IAnimatedAbility
+    public class SpellAbility : AbstractAbilityConfig, IAnimatedAbility, ISFXAbility, IVFXAbility
     {
         [SerializeField]
         private int _range;
         [SerializeField]
         private WeaponAnimationType _animationType = WeaponAnimationType.SpellCast;
         [SerializeField]
-        private string _castAnimationTrigger = "Cast1H";
+        private string _castAnimationTrigger;
         [SerializeField]
         private GameObject _preCastVfxPrefab;
         [SerializeField]
         private GameObject _projectileVfxPrefab;
+        [SerializeField]
+        private AudioClip _preparationSFX;
+        [SerializeField]
+        private AudioClip _executionSFX;
+
+        public AudioClip PreparatioSFX => _preparationSFX;
+        public AudioClip ExecutionSFX => _executionSFX;
+        public GameObject PreCastVfxPrefab => _preCastVfxPrefab;
+        public GameObject ProjectileVfxPrefab => _projectileVfxPrefab;
 
         public WeaponAnimationType PreCastAnimationType => _animationType;
         public int CastAnimationHash => Animator.StringToHash(_castAnimationTrigger);

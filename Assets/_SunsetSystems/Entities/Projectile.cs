@@ -26,7 +26,7 @@ namespace SunsetSystems.Entities
         [TabGroup("Behaviour")]
         [SerializeField]
         private float _speed = 10f;
-        [TabGroup("Behaviour")]
+        [TabGroup("Behaviour"), Required]
         [SerializeField]
         private Rigidbody _rigidbody;
         [TabGroup("VFX")]
@@ -68,6 +68,14 @@ namespace SunsetSystems.Entities
             _rigidbody.isKinematic = false;
             _rigidbody.linearVelocity = (_target.ProjectileTarget.position - transform.position).normalized * _speed;
             _projectileImpactCallback = projectileImpactCallback;
+            if (_launchSFX)
+            {
+                _launchSFX.Play();
+            }
+            if (_travelSFX)
+            {
+                _travelSFX.Play();
+            }
             StartCoroutine(SelfDestructAfterLifetime());
         }
 
@@ -83,16 +91,28 @@ namespace SunsetSystems.Entities
         private void Impact()
         {
             _rigidbody.linearVelocity = Vector3.zero;
-            _impactParticleSystem.transform.position = _target.ProjectileTarget.position;
-            _impactParticleSystem.Play();
+            if (_impactParticleSystem)
+            {
+                _impactParticleSystem.transform.position = _target.ProjectileTarget.position;
+                _impactParticleSystem.Play();
+            }
+            if (_trailParticleSystem)
+            {
+                StartCoroutine(FadeOutTrail());
+            }
+            if (_impactSFX)
+            {
+                _impactSFX.Play();
+            }
             _projectileImpactCallback?.Invoke();
-            StartCoroutine(FadeOutTrail());
             _impacted = true;
             _target = null;
         }
 
         private IEnumerator FadeOutTrail()
         {
+            if (_trailParticleSystem == null) yield break;
+
             _trailParticleSystem.Stop(true, ParticleSystemStopBehavior.StopEmitting);
             var main = _trailParticleSystem.main;
 

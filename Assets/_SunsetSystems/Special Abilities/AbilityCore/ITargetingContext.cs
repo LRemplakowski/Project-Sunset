@@ -19,6 +19,7 @@ namespace SunsetSystems.Abilities
         ITargetable GetCurrentTarget();
         GridManager GetCurrentGrid();
         IExecutionConfirmationUI GetExecutionUI();
+        AudioSource GetSFXAudioSource();
 
         bool IsPointerOverUI();
         bool IsTargetLocked();

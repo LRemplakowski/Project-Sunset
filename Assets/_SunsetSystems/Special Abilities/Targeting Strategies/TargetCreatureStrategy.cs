@@ -13,6 +13,8 @@ namespace SunsetSystems.Abilities.Targeting
 
         private readonly IAbilityConfig _ability;
 
+        private GameObject _vfxInstance;
+
         public event Action OnExecutionTriggered;
 
         public TargetCreatureStrategy(IAbilityConfig ability)
@@ -80,9 +82,42 @@ namespace SunsetSystems.Abilities.Targeting
             ClearTargetingDelegates(context);
             DisableExecutionUI(context);
             context.GetTargetingLineRenderer().SetPosition(0, context.GetCurrentCombatant().AimingOrigin);
-            if (_ability is IAnimatedAbility animatedAbility)
+            HandleAnimatedAbility(context);
+            HandleSFXAbility(context);
+            HandleVFXAbility(context);
+
+            void HandleAnimatedAbility(ITargetingContext context)
             {
-                context.GetCurrentCombatant().References.AnimationManager.SetCombatAnimationTypeOverride(animatedAbility.PreCastAnimationType);
+                if (_ability is IAnimatedAbility animatedAbility)
+                {
+                    context.GetCurrentCombatant().References.AnimationManager.SetCombatAnimationTypeOverride(animatedAbility.PreCastAnimationType);
+                }
+            }
+
+            void HandleSFXAbility(ITargetingContext context)
+            {
+                if (_ability is ISFXAbility sfxAbility)
+                {
+                    var audioSource = context.GetSFXAudioSource();
+                    audioSource.clip = sfxAbility.PreparatioSFX;
+                    audioSource.Play();
+                }
+            }
+
+            void HandleVFXAbility(ITargetingContext context)
+            {
+                if (_vfxInstance != null)
+                {
+                    GameObject.Destroy(_vfxInstance);
+                }
+                if (_ability is IVFXAbility vfxAbility)
+                {
+                    var preCastVfxPrefab = vfxAbility.PreCastVfxPrefab;
+                    if (preCastVfxPrefab != null)
+                    {
+                        _vfxInstance = GameObject.Instantiate(preCastVfxPrefab, Vector3.zero, Quaternion.identity, context.GetCurrentCombatant().Transform);
+                    }
+                }
             }
         }
 
@@ -90,9 +125,31 @@ namespace SunsetSystems.Abilities.Targeting
         {
             ClearTargetingDelegates(context);
             DisableExecutionUI(context);
-            if (_ability is IAnimatedAbility)
+            HandleAnimatedAbility(context);
+            HandleVFXAbility(context);
+
+            void HandleAnimatedAbility(ITargetingContext context)
             {
-                context.GetCurrentCombatant().References.AnimationManager.ClearCombatAnimationTypeOverride();
+                if (_ability is IAnimatedAbility)
+                {
+                    context.GetCurrentCombatant().References.AnimationManager.ClearCombatAnimationTypeOverride();
+                }
+            }
+
+            void HandleVFXAbility(ITargetingContext context)
+            {
+                if (_vfxInstance != null)
+                {
+                    if (_vfxInstance.TryGetComponent(out ParticleSystem particleSystem))
+                    {
+                        particleSystem.Stop();
+                        GameObject.Destroy(_vfxInstance, particleSystem.main.startLifetime.constantMax);
+                    }
+                    else
+                    {
+                        GameObject.Destroy(_vfxInstance);
+                    }
+                }
             }
         }
 

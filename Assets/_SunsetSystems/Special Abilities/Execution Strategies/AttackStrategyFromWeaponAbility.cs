@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using SunsetSystems.ActionSystem;
 using UnityEngine;
 
@@ -31,9 +32,12 @@ namespace SunsetSystems.Abilities.Execution
             _ability = ability;
         }
 
-        public Awaitable BeginExecute(IAbilityContext context, Action onCompleted)
+        public async Awaitable BeginExecute(IAbilityContext context, Action onCompleted)
         {
-            throw new NotImplementedException();
+            var actionPerformer = context.SourceActionPerformer;
+            var spellAction = new SpellAbilityAction(_ability, context);
+            await actionPerformer.PerformAction(spellAction);
+            onCompleted?.Invoke();
         }
     }
 }

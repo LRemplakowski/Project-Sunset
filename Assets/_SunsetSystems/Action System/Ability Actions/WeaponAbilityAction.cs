@@ -10,14 +10,13 @@ using UnityEngine;
 
 namespace SunsetSystems.ActionSystem
 {
+
     public class WeaponAbilityAction : HostileAction
     {
         public static event Action<ICombatant, ITargetable, AttackResult> OnAttackResolved;
 
         [SerializeField]
         private FlagWrapper _attackFinished;
-        [SerializeField]
-        private FaceTarget _faceTargetSubaction;
         [SerializeField]
         private WeaponAttackAbility _weaponAbility;
         [SerializeField]
@@ -30,6 +29,7 @@ namespace SunsetSystems.ActionSystem
         private IDamageable _targetDamageable;
 
         private IEnumerator _attackRoutine;
+        private FaceTarget _faceTargetSubaction;
 
         public WeaponAbilityAction(WeaponAttackAbility weaponAbility, IAbilityContext context) : base(context.TargetObject, context.SourceCombatBehaviour)
         {

@@ -163,6 +163,7 @@ namespace SunsetSystems.Input
             public IAbilityConfig GetSelectedAbility() => _inputHandler._selectedActionManager.GetSelectedAbility();
             public LineRenderer GetTargetingLineRenderer() => _inputHandler.GetTargetingLineRenderer();
             public IExecutionConfirmationUI GetExecutionUI() => _inputHandler.GetExecutionUI();
+            public AudioSource GetSFXAudioSource() => GetCurrentCombatant().References.GetCachedComponent<AudioSource>();
 
             public bool IsPointerOverUI() => _inputHandler.GetIsPointerOverGameObject();
             public bool IsTargetLocked() => _inputHandler.GetIsTargetLocked();
