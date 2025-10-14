@@ -16,7 +16,7 @@ namespace SunsetSystems.Entities
     {
         [TabGroup("Behaviour")]
         [SerializeField]
-        private float _maxLifetime = 100f;
+        private float _maxLifetime = 30f;
         [TabGroup("Behaviour")]
         [SerializeField, MinValue("@this._trailFadeOutDuration")]
         private float _lifetimeAfterImpact = 2f;
@@ -98,7 +98,7 @@ namespace SunsetSystems.Entities
             }
             if (_trailParticleSystem)
             {
-                StartCoroutine(FadeOutTrail());
+                _trailParticleSystem.Stop(true, ParticleSystemStopBehavior.StopEmitting);
             }
             if (_impactSFX)
             {
@@ -107,30 +107,6 @@ namespace SunsetSystems.Entities
             _projectileImpactCallback?.Invoke();
             _impacted = true;
             _target = null;
-        }
-
-        private IEnumerator FadeOutTrail()
-        {
-            if (_trailParticleSystem == null) yield break;
-
-            _trailParticleSystem.Stop(true, ParticleSystemStopBehavior.StopEmitting);
-            var main = _trailParticleSystem.main;
-            ParticleSystem.MinMaxGradient startGradient = main.startColor;
-            Color baseColor = startGradient.mode == ParticleSystemGradientMode.Color
-                ? startGradient.color
-                : startGradient.gradient.Evaluate(0f); // fallback if gradient
-            float elapsed = 0f;
-            while (elapsed < _trailFadeOutDuration)
-            {
-                elapsed += Time.deltaTime;
-                float t = Mathf.Clamp01(elapsed / _trailFadeOutDuration);
-                float alpha = Mathf.Lerp(1f, 0f, t);
-                var faded = new Color(baseColor.r, baseColor.g, baseColor.b, alpha);
-                main.startColor = new ParticleSystem.MinMaxGradient(faded);
-                yield return null;
-            }
-            var final = new Color(baseColor.r, baseColor.g, baseColor.b, 0f);
-            main.startColor = new ParticleSystem.MinMaxGradient(final);
         }
 
 
@@ -143,12 +119,22 @@ namespace SunsetSystems.Entities
                 lifeTime += Time.deltaTime;
                 if (_impacted)
                 {
-                    yield return new WaitForSeconds(_lifetimeAfterImpact);
+                    yield return new WaitWhile(() => IsTrailAlive() || IsImpactAlive());
                     Addressables.ReleaseInstance(gameObject);
                     yield break;
                 }
             }
             Addressables.ReleaseInstance(gameObject);
+        }
+
+        private bool IsTrailAlive()
+        {
+            return _trailParticleSystem != null && _trailParticleSystem.IsAlive(true);
+        }
+
+        private bool IsImpactAlive()
+        {
+            return _impactParticleSystem != null && _impactParticleSystem.IsAlive(true);
         }
     }
 }
