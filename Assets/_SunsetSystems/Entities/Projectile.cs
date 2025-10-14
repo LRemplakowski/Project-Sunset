@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using Sirenix.OdinInspector;
 using SunsetSystems.Combat;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
@@ -116,28 +115,20 @@ namespace SunsetSystems.Entities
 
             _trailParticleSystem.Stop(true, ParticleSystemStopBehavior.StopEmitting);
             var main = _trailParticleSystem.main;
-
-            // Cache original startColor; handle MinMaxGradient cases
             ParticleSystem.MinMaxGradient startGradient = main.startColor;
             Color baseColor = startGradient.mode == ParticleSystemGradientMode.Color
                 ? startGradient.color
                 : startGradient.gradient.Evaluate(0f); // fallback if gradient
-
             float elapsed = 0f;
-
             while (elapsed < _trailFadeOutDuration)
             {
                 elapsed += Time.deltaTime;
                 float t = Mathf.Clamp01(elapsed / _trailFadeOutDuration);
                 float alpha = Mathf.Lerp(1f, 0f, t);
-
-                // Apply new alpha while keeping RGB
                 var faded = new Color(baseColor.r, baseColor.g, baseColor.b, alpha);
                 main.startColor = new ParticleSystem.MinMaxGradient(faded);
                 yield return null;
             }
-
-            // Ensure fully transparent at end
             var final = new Color(baseColor.r, baseColor.g, baseColor.b, 0f);
             main.startColor = new ParticleSystem.MinMaxGradient(final);
         }
