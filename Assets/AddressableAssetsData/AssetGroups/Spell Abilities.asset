@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Spell Abilities
+  m_EditorClassIdentifier: 
+  m_GroupName: Spell Abilities
+  m_GUID: 3bf0262da52fe624ea9a5c869f7b9448
+  m_SerializeEntries:
+  - m_GUID: ab135ae63c8c3e34bb4a6f79e29e24af
+    m_Address: Assets/_Content/_Prefabs/_Projectiles/prefab_Blood Bolt Projectile
+      VFX.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Blood Bolt
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c2fd6eadf902be541a7b8115dd3cfb4e
+    m_Address: Assets/_Content/_Prefabs/_VFX/prefab_Blood Bolt PreCast VFX.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Blood Bolt
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: bd008f511717cf8428467100f87b5266, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 3854044229aaf9d4e9fc7517a5edcbda, type: 2}
+    - {fileID: 11400000, guid: 403e700589ec88b4c9de5a478d9f9680, type: 2}

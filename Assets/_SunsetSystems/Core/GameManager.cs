@@ -156,6 +156,7 @@ namespace SunsetSystems.Game
             if (data is not GameManagerSaveData savedData)
                 return false;
             _gameState = savedData.CurrentState;
+            QueueStateUpdate();
             return true;
         }
 

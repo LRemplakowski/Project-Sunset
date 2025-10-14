@@ -14,10 +14,10 @@ namespace SunsetSystems.Abilities
         [TabGroup("UI Data")]
         [SerializeField]
         private string _fallbackName;
-        [BoxGroup("UI Data")]
+        [TabGroup("UI Data")]
         [SerializeField, MultiLineProperty]
         private string _fallbackDescription;
-        [BoxGroup("UI Data")]
+        [TabGroup("UI Data")]
         [SerializeField, DictionaryDrawerSettings(IsReadOnly = true)]
         private Dictionary<IAbilityUIData.IconState, Sprite> _icons = new();
         [SerializeField, TabGroup("Ability Core")]

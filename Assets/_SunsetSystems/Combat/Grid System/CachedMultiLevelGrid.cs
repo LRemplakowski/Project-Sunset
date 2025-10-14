@@ -109,6 +109,8 @@ namespace SunsetSystems.Combat.Grid
 
         private void OnValidate()
         {
+            if (Application.isPlaying)
+                return;
             BuildGrid();
         }
 

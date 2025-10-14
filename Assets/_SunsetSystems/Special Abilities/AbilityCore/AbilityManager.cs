@@ -126,14 +126,20 @@ namespace SunsetSystems.Abilities
             return _defaultAbilities.GetAbilities().Select(ability => new AbilityRuntimeData(ability, _defaultAbilities)).Union(GetAbilitiesFromEquipment()).ToList();
         }
 
+        public IEnumerable<AbilityRuntimeData> GetNonCoreAbilities()
+        {
+            return GetAbilitiesFromDisciplines().ToList();
+        }
+
         private IEnumerable<AbilityRuntimeData> GetAbilitiesFromEquipment()
         {
             var selectedWeapon = _references.WeaponManager.GetSelectedWeapon();
             var equippedItems = _references.EquipmentManager.EquippedItems;
-            return equippedItems.OfType<IAbilitySource>()
+            var result = equippedItems.OfType<IAbilitySource>()
                                 .Where(item => item is not IWeapon weapon || weapon == selectedWeapon)
                                 .SelectMany(item => item.GetAbilities()
                                                         .Select(ability => new AbilityRuntimeData(ability, item)));
+            return result;
         }
 
         private IEnumerable<AbilityRuntimeData> GetAbilitiesFromDisciplines()
@@ -144,8 +150,9 @@ namespace SunsetSystems.Abilities
                 return Enumerable.Empty<AbilityRuntimeData>();
             }
 
-            return _disciplineAbilitySource.GetAbilities()
+            var result = _disciplineAbilitySource.GetAbilities()
                                            .Select(power => new AbilityRuntimeData(power, _disciplineAbilitySource));
+            return result;
         }
 
         private ITargetable GetCurrentTargetObject()

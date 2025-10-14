@@ -10,8 +10,6 @@ namespace SunsetSystems.UI
     public class DisciplineGroupUpdateReciever : MonoBehaviour, IUserInterfaceUpdateReciever<IDisciplineInfo>
     {
         [SerializeField]
-        private DisciplineType _disciplines;
-        [SerializeField]
         private List<DisciplineStatView> _views = new();
         [SerializeField]
         private Transform _viewsParent;

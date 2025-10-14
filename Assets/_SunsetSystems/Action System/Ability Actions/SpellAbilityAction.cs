@@ -1,11 +1,8 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using SunsetSystems.Abilities;
 using SunsetSystems.Combat;
 using SunsetSystems.DynamicLog;
 using SunsetSystems.Entities;
-using SunsetSystems.Inventory;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 
@@ -76,6 +73,8 @@ namespace SunsetSystems.ActionSystem
 
         private async void OnAnimationEvent(string eventArg)
         {
+            if (!_spellAbility.ProjectileVfxPrefab?.RuntimeKeyIsValid() ?? true) return;
+
             if (eventArg == _spellAbility.GetProjectileLaunchEventArg())
             {
                 var handPos = Attacker.References.AnimationManager.GetBonePosition(HumanBodyBones.LeftHand);
@@ -88,7 +87,7 @@ namespace SunsetSystems.ActionSystem
                 }
                 else
                 {
-                    GameObject.Destroy(projectileGO);
+                   Addressables.ReleaseInstance(projectileGO);
                     _projectileHit = true;
                 }
             }

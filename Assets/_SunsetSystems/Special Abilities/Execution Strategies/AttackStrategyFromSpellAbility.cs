@@ -1,15 +1,14 @@
 using System;
-using System.Threading.Tasks;
 using SunsetSystems.ActionSystem;
 using UnityEngine;
 
 namespace SunsetSystems.Abilities.Execution
 {
-    public class AttackStrategyFromWeaponAbility : IAbilityExecutionStrategy
+    public class AttackStrategyFromSpellAbility : IAbilityExecutionStrategy
     {
-        private readonly WeaponAttackAbility _ability;
+        private readonly SpellAbility _ability;
 
-        public AttackStrategyFromWeaponAbility(WeaponAttackAbility ability)
+        public AttackStrategyFromSpellAbility(SpellAbility ability)
         {
             _ability = ability;
         }
@@ -17,8 +16,8 @@ namespace SunsetSystems.Abilities.Execution
         public async Awaitable BeginExecute(IAbilityContext context, Action onCompleted)
         {
             var actionPerformer = context.SourceActionPerformer;
-            var shootingAction = new WeaponAbilityAction(_ability, context);
-            await actionPerformer.PerformAction(shootingAction);
+            var spellAction = new SpellAbilityAction(_ability, context);
+            await actionPerformer.PerformAction(spellAction);
             onCompleted?.Invoke();
         }
     }

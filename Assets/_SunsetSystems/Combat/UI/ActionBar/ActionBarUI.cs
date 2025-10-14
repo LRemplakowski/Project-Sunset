@@ -1,10 +1,8 @@
 using System;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
-using Sirenix.Utilities;
 using SunsetSystems.Abilities;
 using SunsetSystems.Equipment;
-using SunsetSystems.Inventory.Data;
 using UnityEngine;
 
 namespace SunsetSystems.Combat.UI
@@ -14,6 +12,8 @@ namespace SunsetSystems.Combat.UI
         [Title("Config")]
         [SerializeField]
         private Transform _coreButtonsParent;
+        [SerializeField]
+        private Transform _disciplineButtonsParent;
         [SerializeField, AssetsOnly]
         private IAbilityButtonFactory _buttonFactory;
 
@@ -23,7 +23,9 @@ namespace SunsetSystems.Combat.UI
 
         public void RefreshAvailableActions()
         {
+            CleanupPreviousView();
             RefreshCoreAbilities();
+            RefreshDisciplineAbilities();
         }
         
         public void UpdateAmmoCounter(in WeaponAmmoData ammoData)
@@ -34,13 +36,29 @@ namespace SunsetSystems.Combat.UI
             }
         }
 
-        private void RefreshCoreAbilities()
+        private void CleanupPreviousView()
         {
             _abilityButtons.Clear();
             _coreButtonsParent.DestroyChildren();
-            foreach (var abilityData in GetAbilitiesBySource())
+            _disciplineButtonsParent.DestroyChildren();
+        }
+
+        private void RefreshCoreAbilities()
+        {
+            var coreAbilities = GetCoreAbilities();
+            foreach (var abilityData in coreAbilities)
             {
                 var button = _buttonFactory.Create(_coreButtonsParent, abilityData.AbilityConfig, abilityData.AbilitySource, SelectAbility);
+                _abilityButtons.Add(button);
+            }
+        }
+
+        private void RefreshDisciplineAbilities()
+        {
+            var disciplines = GetDisciplineAbilities();
+            foreach (var abilityData in disciplines)
+            {
+                var button = _buttonFactory.Create(_disciplineButtonsParent, abilityData.AbilityConfig, abilityData.AbilitySource, SelectAbility);
                 _abilityButtons.Add(button);
             }
         }
@@ -50,9 +68,14 @@ namespace SunsetSystems.Combat.UI
             OnAbilitySelected?.Invoke(ability);
         }
 
-        private IEnumerable<AbilityRuntimeData> GetAbilitiesBySource()
+        private IEnumerable<AbilityRuntimeData> GetCoreAbilities()
         {
             return CombatManager.Instance.CurrentActiveActor.GetContext().AbilityUser.GetCoreAbilities();
+        }
+
+        private IEnumerable<AbilityRuntimeData> GetDisciplineAbilities()
+        {
+            return CombatManager.Instance.CurrentActiveActor.GetContext().AbilityUser.GetNonCoreAbilities();
         }
     }
 }

@@ -20,8 +20,6 @@ namespace SunsetSystems.Combat.UI
         [SerializeField, Required]
         private ResourceBarDisplay apBar, bpBar;
         [SerializeField, Required]
-        private ActiveAbilitiesDisplayManager disciplineBar;
-        [SerializeField, Required]
         private CanvasGroup _combatCanvasGroup;
 
         private void Awake()
@@ -93,7 +91,6 @@ namespace SunsetSystems.Combat.UI
             currentActorHealth.UpdateHealthDisplay(dataSource);
             apBar.UpdateActiveChunks(apManager.GetCurrentActionPoints());
             bpBar.UpdateActiveChunks(bpManager.GetCurrentBloodPoints());
-            disciplineBar.ShowAbilities(dataSource);
             _actionBarUI.RefreshAvailableActions();
             _actionBarUI.UpdateAmmoCounter(weaponManager.GetSelectedWeaponAmmoData());
         }

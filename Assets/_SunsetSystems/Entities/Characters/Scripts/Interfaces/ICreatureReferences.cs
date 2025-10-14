@@ -6,6 +6,7 @@ using SunsetSystems.Combat;
 using SunsetSystems.Abilities;
 using SunsetSystems.Animation;
 using SunsetSystems.ActorResources;
+using UnityEngine;
 
 namespace SunsetSystems.Entities.Characters
 {
@@ -25,5 +26,6 @@ namespace SunsetSystems.Entities.Characters
         IMovementPointUser MovementManager { get; }
         IActionPointUser ActionPointManager { get; }
         IBloodPointUser BloodPointManager { get; }
+        Transform Body { get; }
     }
 }

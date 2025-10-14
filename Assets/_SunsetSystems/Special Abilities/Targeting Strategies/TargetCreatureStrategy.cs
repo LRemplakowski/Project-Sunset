@@ -100,7 +100,7 @@ namespace SunsetSystems.Abilities.Targeting
 
             async void HandleSFXAbility(ITargetingContext context)
             {
-                if (_ability is ISFXAbility sfxAbility)
+                if (_ability is ISFXAbility sfxAbility && (sfxAbility.PreparationSFX?.RuntimeKeyIsValid() ?? false))
                 {
                     var audioSource = context.GetSFXAudioSource();
                     _sfxLoading = Addressables.LoadAssetAsync<AudioClip>(sfxAbility.PreparationSFX);
@@ -116,12 +116,13 @@ namespace SunsetSystems.Abilities.Targeting
                 {
                     Addressables.ReleaseInstance(_vfxInstance);
                 }
-                if (_ability is IVFXAbility vfxAbility)
+                if (_ability is IVFXAbility vfxAbility && (vfxAbility.PreCastVfxPrefab?.RuntimeKeyIsValid() ?? false))
                 {
 
                     if (vfxAbility.PreCastVfxPrefab != null)
                     {
-                        var loadingOp = Addressables.InstantiateAsync(vfxAbility.PreCastVfxPrefab, Vector3.zero, Quaternion.identity, context.GetCurrentCombatant().Transform);
+                        var body = context.GetCurrentCombatant().References.Body;
+                        var loadingOp = Addressables.InstantiateAsync(vfxAbility.PreCastVfxPrefab, Vector3.zero, Quaternion.identity, body);
                         await loadingOp.Task;
                         _vfxInstance = loadingOp.Result;
                     }

@@ -9,6 +9,7 @@ namespace SunsetSystems.Abilities
     {
         IEnumerable<AbilityRuntimeData> GetCoreAbilities();
         IEnumerable<AbilityRuntimeData> GetAllAbilities();
+        IEnumerable<AbilityRuntimeData> GetNonCoreAbilities();
 
         IAbilityContext GetCurrentAbilityContext();
         bool GetCanAffordAbility(IAbilityConfig ability);

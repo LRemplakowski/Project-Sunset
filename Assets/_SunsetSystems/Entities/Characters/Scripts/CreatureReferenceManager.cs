@@ -6,6 +6,7 @@ using SunsetSystems.Abilities;
 using SunsetSystems.UMA;
 using UnityEngine;
 using SunsetSystems.ActorResources;
+using Sirenix.Serialization;
 
 namespace SunsetSystems.Entities.Characters
 {
@@ -15,6 +16,8 @@ namespace SunsetSystems.Entities.Characters
         public CreatureData CreatureData { get; private set; }
         [field: SerializeField]
         public StatsManager StatsManager { get; private set; }
+        [OdinSerialize]
+        public Transform Body { get; private set; }
         [field: SerializeField]
         public INavigationManager NavigationManager { get; private set; }
         [field: SerializeField]

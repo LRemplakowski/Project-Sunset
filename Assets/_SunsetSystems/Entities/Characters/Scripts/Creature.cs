@@ -144,6 +144,7 @@ namespace SunsetSystems.Entities.Characters
             References.StatsManager.CopyFromTemplate(template);
             References.UMAManager.BuildUMAFromTemplate(template);
             References.EquipmentManager.CopyFromTemplate(template);
+            References.SpellbookManager.CopyFromTemplate(template);
 #if UNITY_EDITOR
             if (UnityEditor.EditorApplication.isPlayingOrWillChangePlaymode is false)
             {
