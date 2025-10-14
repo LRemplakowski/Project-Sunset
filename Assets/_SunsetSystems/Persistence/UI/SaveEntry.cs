@@ -1,3 +1,4 @@
+using System;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
@@ -11,7 +12,7 @@ namespace SunsetSystems.Persistence.UI
         [SerializeField]
         private Image _saveImage;
         [SerializeField]
-        private TextMeshProUGUI _saveName, _saveDate;
+        private TextMeshProUGUI _saveName, _saveActiveQuest, _saveDate;
 
         [Title("Runtime")]
         [ShowInInspector, ReadOnly]
@@ -24,6 +25,7 @@ namespace SunsetSystems.Persistence.UI
             _saveMeta = metaData;
             _saveName.text = metaData.SaveName;
             _saveDate.text = GetFormattedSaveDate(metaData.SaveDate);
+            _saveActiveQuest.text = string.IsNullOrWhiteSpace(metaData.ActiveQuestName) ? "No Active Quest" : metaData.ActiveQuestName;
             var imgTexture = metaData.SaveScreenShot;
             if (imgTexture != null)
                 _saveImage.sprite = Sprite.Create(imgTexture, new(0, 0, imgTexture.width, imgTexture.height), new(.5f, .5f));
@@ -33,6 +35,11 @@ namespace SunsetSystems.Persistence.UI
         private string GetFormattedSaveDate(string dateString)
         {
             return dateString;
+        }
+
+        public void OnSelect()
+        {
+            _saveScreenManager.SetSelectedSave(_saveMeta);
         }
 
         [Button]

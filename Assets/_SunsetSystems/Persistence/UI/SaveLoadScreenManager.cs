@@ -2,12 +2,12 @@ using System.Collections;
 using System.Linq;
 using Sirenix.OdinInspector;
 using SunsetSystems.Core.SceneLoading;
+using SunsetSystems.UI.Utils;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 namespace SunsetSystems.Persistence.UI
 {
-    public class SaveLoadScreenManager : MonoBehaviour
+    public class SaveLoadScreenManager : SerializedMonoBehaviour
     {
         [SerializeField, AssetsOnly, Required]
         private SaveEntry _saveEntryPrefab;
@@ -17,6 +17,8 @@ namespace SunsetSystems.Persistence.UI
         private CanvasGroup _saveLoadCanvasGroup;
         [SerializeField]
         private GameObject _newSaveGameObject;
+        [SerializeField]
+        private IConfirmationPopup<string> _newSaveConfirmationPopup;
 
         private void OnEnable()
         {
@@ -50,6 +52,16 @@ namespace SunsetSystems.Persistence.UI
             }
         }
 
+        public void SetSelectedSave(SaveMetaData saveMetaData)
+        {
+            
+        }
+
+        public void ClearSelectedSave()
+        {
+
+        }
+
         public void LoadSave(SaveMetaData saveMetaData)
         {
             if (_saveLoadCanvasGroup)
@@ -71,6 +83,11 @@ namespace SunsetSystems.Persistence.UI
             SaveLoadManager.CreateNewSaveFile(saveName);
             RefreshSaveScreen(true);
             StartCoroutine(DisableInteractionForSeconds(.5f));
+        }
+
+        public void ShowNewSaveConfirmation()
+        {
+            _newSaveConfirmationPopup.Show(new ConfirmationViewData("New Save", "Enter a name for your new save file."), CreateNewSave);
         }
 
         public void OnCancel()

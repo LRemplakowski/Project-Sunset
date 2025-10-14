@@ -7,6 +7,8 @@ namespace SunsetSystems.UI.Utils
     {
         [SerializeField]
         private TMP_InputField _inputField;
+        [SerializeField]
+        private bool _requireNonEmptyInput = true;
 
         protected override bool TryGetReturnValue(out string result)
         {
@@ -21,7 +23,7 @@ namespace SunsetSystems.UI.Utils
 
         private bool IsInputValid()
         {
-            return !string.IsNullOrWhiteSpace(_inputField.text);
+            return _requireNonEmptyInput && !string.IsNullOrWhiteSpace(_inputField.text);
         }
     }
 }

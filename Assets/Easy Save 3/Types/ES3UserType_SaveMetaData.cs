@@ -19,7 +19,8 @@ namespace ES3Types
 			writer.WriteProperty("SaveID", instance.SaveID, ES3Type_string.Instance);
 			writer.WriteProperty("SaveName", instance.SaveName, ES3Type_string.Instance);
 			writer.WriteProperty("SaveDate", instance.SaveDate, ES3Type_string.Instance);
-			writer.WriteProperty("LevelLoadingData", instance.LevelLoadingData, ES3UserType_LevelLoadingData.Instance);
+            writer.WriteProperty("ActiveQuestName", instance.ActiveQuestName, ES3Type_string.Instance);
+            writer.WriteProperty("LevelLoadingData", instance.LevelLoadingData, ES3UserType_LevelLoadingData.Instance);
 			writer.WriteProperty("PlaylistData", instance.PlaylistData, ES3UserType_ScenePlaylistData.Instance);
 			writer.WriteProperty("SaveScreenShot", instance.SaveScreenShot);
 		}
@@ -42,7 +43,10 @@ namespace ES3Types
 					case "SaveDate":
 						instance.SaveDate = reader.Read<System.String>(ES3Type_string.Instance);
 						break;
-					case "LevelLoadingData":
+					case "ActiveQuestName":
+						instance.ActiveQuestName = reader.Read<System.String>(ES3Type_string.Instance);
+						break;
+                    case "LevelLoadingData":
 						instance.LevelLoadingData = reader.Read<SunsetSystems.Core.SceneLoading.LevelLoadingData>(ES3UserType_LevelLoadingData.Instance);
 						break;
 					case "PlaylistData":

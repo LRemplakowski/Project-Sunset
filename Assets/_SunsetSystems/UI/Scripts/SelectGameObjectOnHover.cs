@@ -7,15 +7,13 @@ using UnityEngine.UI;
 
 namespace SunsetSystems.UI
 {
-    public class SelectGameObjectOnHover : MonoBehaviour, IPointerMoveHandler
+    public class SelectGameObjectOnHover : MonoBehaviour, IPointerEnterHandler
     {
-        public void OnPointerMove(PointerEventData eventData)
+        public void OnPointerEnter(PointerEventData eventData)
         {
             Selectable selectable = default;
             if (eventData.hovered.Any(go => go.TryGetComponent(out selectable)))
                 selectable.Select();
-            else
-                EventSystem.current.SetSelectedGameObject(null, eventData);
         }
     }
 }

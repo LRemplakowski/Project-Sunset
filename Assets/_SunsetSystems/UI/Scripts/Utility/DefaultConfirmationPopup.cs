@@ -5,7 +5,6 @@ using UnityEngine;
 
 namespace SunsetSystems.UI.Utils
 {
-
     public class DefaultConfirmationPopup : SerializedMonoBehaviour, IConfirmationPopup
     {
         [SerializeField]

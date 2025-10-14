@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Sirenix.OdinInspector;
 using SunsetSystems.Audio;
 using SunsetSystems.Core.SceneLoading;
+using SunsetSystems.Journal;
 using UnityEngine;
 
 namespace SunsetSystems.Persistence
@@ -61,6 +63,7 @@ namespace SunsetSystems.Persistence
                 SaveName = saveName,
                 SaveID = saveID,
                 SaveDate = date,
+                ActiveQuestName = QuestJournal.Instance.MainQuests.FirstOrDefault().Name,
                 LevelLoadingData = LevelLoader.Instance.CurrentLoadedLevel,
                 PlaylistData = AudioManager.Instance.GetCurrentPlaylistOverrides(),
                 SaveScreenShot = TakeGameScreenShot(),
