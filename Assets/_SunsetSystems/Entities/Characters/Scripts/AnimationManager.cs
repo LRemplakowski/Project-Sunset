@@ -22,6 +22,8 @@ namespace SunsetSystems.Animation
             Stealth = 2
         }
 
+        public event Action<string> OnAnimationEvent;
+
         private const string ANIMATION_MANAGER_ID = "ANIMATION_MANAGER";
         private const string ANIMATOR_PARAM_ON_MOVE = "IsMoving";
         private const string ANIMATOR_PARAM_SPEED = "Speed";
@@ -306,6 +308,16 @@ namespace SunsetSystems.Animation
         public void SetBool(int hash, bool value)
         {
             animator.SetBool(hash, value);
+        }
+
+        public void HandleAnimationEvent(string eventType)
+        {
+            OnAnimationEvent?.Invoke(eventType);
+        }
+
+        public Vector3 GetBonePosition(HumanBodyBones bone)
+        {
+            return animator.GetBoneTransform(bone).position;
         }
 
         public object GetComponentPersistenceData()

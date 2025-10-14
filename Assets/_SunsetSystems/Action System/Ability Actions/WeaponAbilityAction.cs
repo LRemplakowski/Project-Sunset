@@ -85,6 +85,7 @@ namespace SunsetSystems.ActionSystem
                 yield return new WaitForSeconds(_weaponAbility.GetDelayBetweenAttacks());
             }
             _attackFinished.Value = true;
+            _attackRoutine = null;
 
             static void LogAttack(ICombatant attacker, ITargetable target, in AttackResult result)
             {

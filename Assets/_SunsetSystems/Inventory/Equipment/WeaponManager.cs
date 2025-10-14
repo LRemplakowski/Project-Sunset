@@ -53,6 +53,7 @@ namespace SunsetSystems.Equipment
             CombatManager.OnCombatStart += OnCombatStart;
             CombatManager.OnCombatEnd += OnCombatEnd;
             WeaponSetSelectorButton.OnWeaponSelected += OnWeaponSelected;
+            animationController.OnAnimationEvent += OnAnimationEvent;
         }
 
         private void OnDisable()
@@ -60,6 +61,7 @@ namespace SunsetSystems.Equipment
             CombatManager.OnCombatStart -= OnCombatStart;
             CombatManager.OnCombatEnd -= OnCombatEnd;
             WeaponSetSelectorButton.OnWeaponSelected -= OnWeaponSelected;
+            animationController.OnAnimationEvent -= OnAnimationEvent;
         }
 
         private void Start()

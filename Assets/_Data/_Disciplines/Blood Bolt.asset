@@ -20,17 +20,32 @@ MonoBehaviour:
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: effects
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[SunsetSystems.Abilities.IEffect,
+        SunsetSystems]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   <PowerName>k__BackingField: Blood Bolt
   <PowerIcon>k__BackingField:
     m_AssetGUID: 
     m_SubObjectName: 
     m_SubObjectType: 
+    m_SubObjectGUID: 
     m_EditorAssetChanged: 0
   <PowerGUIButtonAsset>k__BackingField:
     m_AssetGUID: 71a241ac74257e24c87bec96a1d7d8d6
     m_SubObjectName: 
     m_SubObjectType: 
+    m_SubObjectGUID: 
     m_EditorAssetChanged: 0
   <PowerDescription>k__BackingField: 
   <BloodCost>k__BackingField: 0
@@ -41,70 +56,6 @@ MonoBehaviour:
   secondaryType: 0
   secondaryLevel: 0
   _target: 2
-  range: 1
-  hasDiciplinePool: 0
-  disciplinePool:
-    firstPool: 0
-    secondPool: 0
-    attribute: 0
-    secondAttribute: 0
-    skill: 0
-    secondSkill: 0
-    discipline: 0
-    secondDiscipline: 0
-  disciplineRollDifficulty: 0
-  hasAttackPool: 0
-  attackPool:
-    firstPool: 0
-    secondPool: 0
-    attribute: 0
-    secondAttribute: 0
-    skill: 0
-    secondSkill: 0
-    discipline: 0
-    secondDiscipline: 0
-  _hasDefensePool: 0
-  _defensePool:
-    firstPool: 0
-    secondPool: 0
-    attribute: 0
-    secondAttribute: 0
-    skill: 0
-    secondSkill: 0
-    discipline: 0
-    secondDiscipline: 0
-  _targetableCreatureType: 2
-  effects:
-  - effectType: 3
-    _affectedCreature: 1
-    duration: 1
-    rounds: 0
-    attributeEffect:
-      propertyModifier: 0
-      affectedProperty: 0
-      modifierType: 0
-      modifierValue: 0
-    skillEffect:
-      propertyModifier: 0
-      affectedProperty: 0
-      modifierType: 0
-      modifierValue: 0
-    disciplineEffect:
-      propertyModifier: 0
-      affectedProperty: 0
-      modifierType: 0
-      modifierValue: 0
-    trackerEffect:
-      propertyModifier: 0
-      affectedProperty: 0
-      affectedValue: 1
-      modifierType: 0
-      modifierValue: 3
-    scriptEffect:
-      _script:
-        rid: -2
-  references:
-    version: 2
-    RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+  _duration: 1
+  _range: 1
+  _targetableCreatureType: 7

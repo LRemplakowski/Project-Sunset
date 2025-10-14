@@ -13,5 +13,5 @@ public enum AttributeType
     Wits = 1 << 7,
     Resolve = 1 << 8,
     Speed = 1 << 9,
-    Invalid = 1 << 10
+    Invalid = 0
 }

@@ -31,6 +31,8 @@ namespace SunsetSystems
         [SerializeField]
         private int _range;
         [SerializeField]
+        private string _projectileLaunchEvent = "SPELL_1H_PROJECTILE_LAUNCH";
+        [SerializeField]
         private WeaponAnimationType _animationType = WeaponAnimationType.SpellCast;
         [SerializeField]
         private string _castAnimationTrigger;
@@ -42,6 +44,12 @@ namespace SunsetSystems
         private AudioClip _preparationSFX;
         [SerializeField]
         private AudioClip _executionSFX;
+        [SerializeField]
+        private AttributeType _damageAttribute;
+        [SerializeField]
+        private SkillType _damageSkill;
+        [SerializeField]
+        private int _baseDamage;
 
         public AudioClip PreparatioSFX => _preparationSFX;
         public AudioClip ExecutionSFX => _executionSFX;
@@ -70,6 +78,18 @@ namespace SunsetSystems
         protected override RangeData GetAbilityRangeData(IAbilityContext context)
         {
             return new RangeData(0, _range, _range);
+        }
+
+        public int GetDamage(IAbilityContext context)
+        {
+            int attributeBonus = context.SourceCombatBehaviour.References.StatsManager.GetAttribute(_damageAttribute).Value;
+            int skillBonus = context.SourceCombatBehaviour.References.StatsManager.GetSkill(_damageSkill).Value;
+            return _baseDamage * (attributeBonus + skillBonus);
+        }
+
+        public string GetProjectileLaunchEventArg()
+        {
+            return _projectileLaunchEvent;
         }
     }
 }
