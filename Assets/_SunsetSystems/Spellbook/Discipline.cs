@@ -6,7 +6,7 @@ using UnityEngine;
 namespace SunsetSystems.Abilities
 {
     [System.Serializable]
-    public class Discipline : BaseStat
+    public class DisciplineOLD : BaseStat
     {
         [field: SerializeField]
         public Sprite Icon { get; private set; }
@@ -22,7 +22,7 @@ namespace SunsetSystems.Abilities
         [SerializeField]
         private List<DisciplinePower> knownPowers = new();
 
-        public Discipline(Discipline existing) : base(existing)
+        public DisciplineOLD(DisciplineOLD existing) : base(existing)
         {
             baseValue = existing.baseValue;
             knownPowers = new(existing.knownPowers);
@@ -44,7 +44,7 @@ namespace SunsetSystems.Abilities
 
         public List<DisciplinePower> GetKnownPowers() => new(knownPowers);
 
-        public Discipline(DisciplineType disciplineType)
+        public DisciplineOLD(DisciplineType disciplineType)
         {
             this.disciplineType = disciplineType;
         }

@@ -203,7 +203,7 @@ namespace SunsetSystems.ActionSystem
             {
                 AttackModifier heightAttackMod = new();
                 float heightDifference = _attackerContext.Transform.position.y - _targetContext.Transform.position.y;
-                if (heightDifference > 2f && _attacker.References.GetCachedComponentInChildren<SpellbookManager>().GetIsPowerKnown(PassivePowersHelper.Instance.HeightAttackAndDamageBonus))
+                if (heightDifference > 2f && false)
                 {
                     heightAttackMod.HitChanceMod += .1d;
                     heightAttackMod.DamageMod += 2;

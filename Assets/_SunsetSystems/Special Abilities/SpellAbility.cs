@@ -1,12 +1,13 @@
-using SunsetSystems.Abilities;
+using Sirenix.OdinInspector;
 using SunsetSystems.Abilities.Execution;
 using SunsetSystems.Abilities.Targeting;
 using SunsetSystems.Animation;
 using SunsetSystems.Combat;
 using SunsetSystems.Inventory;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
-namespace SunsetSystems
+namespace SunsetSystems.Abilities
 {
     public interface IAnimatedAbility
     {
@@ -16,48 +17,73 @@ namespace SunsetSystems
 
     public interface ISFXAbility
     {
-        AudioClip PreparatioSFX { get; }
-        AudioClip ExecutionSFX { get; }
+        AssetReferenceAudioClip PreparationSFX { get; }
+        AssetReferenceAudioClip ExecutionSFX { get; }
     }
 
     public interface IVFXAbility
     {
-        GameObject PreCastVfxPrefab { get; }
+        AssetReferenceGameObject PreCastVfxPrefab { get; }
     }
 
     [CreateAssetMenu(fileName = "New Spell Ability", menuName = "Sunset Abilities/Spell Ability")]
-    public class SpellAbility : AbstractAbilityConfig, IAnimatedAbility, ISFXAbility, IVFXAbility
+    public class SpellAbility : AbstractAbilityConfig, IAnimatedAbility, ISFXAbility, IVFXAbility, IDisciplinePower
     {
+        [BoxGroup("Discipline Power Data")]
+        [SerializeField]
+        private IDiscipline _discipline;
+        [BoxGroup("Discipline Power Data")]
+        [SerializeField, PropertyRange(1, 5)]
+        private int _powerLevel = 1;
+        [TabGroup("Spell Ability")]
         [SerializeField]
         private int _range;
+        [TabGroup("Spell Ability")]
         [SerializeField]
         private string _projectileLaunchEvent = "SPELL_1H_PROJECTILE_LAUNCH";
+        [TabGroup("Spell Ability")]
         [SerializeField]
         private WeaponAnimationType _animationType = WeaponAnimationType.SpellCast;
+        [TabGroup("Spell Ability")]
         [SerializeField]
         private string _castAnimationTrigger;
+        [TabGroup("Spell Ability")]
         [SerializeField]
-        private GameObject _preCastVfxPrefab;
+        private AssetReferenceGameObject _preCastVfxPrefab;
+        [TabGroup("Spell Ability")]
         [SerializeField]
-        private GameObject _projectileVfxPrefab;
+        private AssetReferenceGameObject _projectileVfxPrefab;
+        [TabGroup("Spell Ability")]
         [SerializeField]
-        private AudioClip _preparationSFX;
+        private AssetReferenceAudioClip _preparationSFX;
+        [TabGroup("Spell Ability")]
         [SerializeField]
-        private AudioClip _executionSFX;
+        private AssetReferenceAudioClip _executionSFX;
+        [TabGroup("Spell Ability")]
         [SerializeField]
         private AttributeType _damageAttribute;
+        [TabGroup("Spell Ability")]
         [SerializeField]
         private SkillType _damageSkill;
+        [TabGroup("Spell Ability")]
         [SerializeField]
         private int _baseDamage;
 
-        public AudioClip PreparatioSFX => _preparationSFX;
-        public AudioClip ExecutionSFX => _executionSFX;
-        public GameObject PreCastVfxPrefab => _preCastVfxPrefab;
-        public GameObject ProjectileVfxPrefab => _projectileVfxPrefab;
+        public AssetReferenceAudioClip PreparationSFX => _preparationSFX;
+        public AssetReferenceAudioClip ExecutionSFX => _executionSFX;
+        public AssetReferenceGameObject PreCastVfxPrefab => _preCastVfxPrefab;
+        public AssetReferenceGameObject ProjectileVfxPrefab => _projectileVfxPrefab;
 
         public WeaponAnimationType PreCastAnimationType => _animationType;
         public int CastAnimationHash => Animator.StringToHash(_castAnimationTrigger);
+
+        #region IDisciplinePower
+        public string ID => AbilityID.ToString();
+        public string Name => GetLocalizedName();
+        public string Description => GetLocalizedDescription();
+        public IDiscipline Discipline => _discipline;
+        public int Level => _powerLevel;
+        #endregion
 
         private IAbilityExecutionStrategy _executionStrategy;
         private IAbilityTargetingStrategy _targetingStrategy;

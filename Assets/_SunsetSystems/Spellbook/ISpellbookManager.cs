@@ -1,16 +1,15 @@
 using System.Collections.Generic;
-using SunsetSystems.Combat;
-using SunsetSystems.Entities.Characters;
 
 namespace SunsetSystems.Abilities
 {
     public interface ISpellbookManager
     {
-        ICreatureReferences References { get; }
+        IReadOnlyCollection<IDisciplinePower> KnownPowers { get; }
+        IReadOnlyCollection<DisciplineData> KnownDisciplines { get; }
 
-        IEnumerable<DisciplinePower> KnownPowers { get; }
-        IEnumerable<Discipline> KnownDisciplines { get; }
+        bool IsPowerKnown(IDisciplinePower power);
+        bool IsPowerKnown(string powerID);
 
-        bool UsePower(DisciplinePower power, ITargetable target);
+        bool TryLearnPower(IDisciplinePower power);
     }
 }

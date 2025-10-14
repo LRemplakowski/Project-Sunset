@@ -5,7 +5,12 @@ using SunsetSystems.Abilities;
 
 namespace SunsetSystems.Dice
 {
-    public abstract class DicePool<T, U> where T : BaseStat where U : BaseStat
+    public interface IIntValue
+    {
+        int GetValue();
+    }
+
+    public abstract class DicePool<T, U> where T : IIntValue where U : IIntValue
     {
         public T First { get; protected set; }
         public U Second { get; protected set; }
@@ -15,15 +20,15 @@ namespace SunsetSystems.Dice
             return First.GetValue() + Second.GetValue();
         }
 
-        public int GetPoolSize(bool includeModifiers)
-        {
-            return First.GetValue(includeModifiers) + Second.GetValue(includeModifiers);
-        }
+        //public int GetPoolSize(bool includeModifiers)
+        //{
+        //    return First.GetValue(includeModifiers) + Second.GetValue(includeModifiers);
+        //}
 
-        public int GetPoolSize(ModifierType modifierTypesFlag)
-        {
-            return First.GetValue(modifierTypesFlag) + Second.GetValue(modifierTypesFlag);
-        }
+        //public int GetPoolSize(ModifierType modifierTypesFlag)
+        //{
+        //    return First.GetValue(modifierTypesFlag) + Second.GetValue(modifierTypesFlag);
+        //}
     }
 
     public sealed class TwoAttributePool : DicePool<CreatureAttribute, CreatureAttribute>
@@ -53,18 +58,18 @@ namespace SunsetSystems.Dice
         }
     }
 
-    public sealed class DisciplineAttributePool : DicePool<Discipline, CreatureAttribute>
+    public sealed class DisciplineAttributePool : DicePool<DisciplineData, CreatureAttribute>
     {
-        public DisciplineAttributePool(Discipline discipline, CreatureAttribute attribute)
+        public DisciplineAttributePool(DisciplineData discipline, CreatureAttribute attribute)
         {
             First = discipline;
             Second = attribute;
         }
     }
 
-    public sealed class DisciplineSkillPool : DicePool<Discipline, Skill>
+    public sealed class DisciplineSkillPool : DicePool<DisciplineData, Skill>
     {
-        public DisciplineSkillPool(Discipline discipline, Skill skill)
+        public DisciplineSkillPool(DisciplineData discipline, Skill skill)
         {
             First = discipline;
             Second = skill;

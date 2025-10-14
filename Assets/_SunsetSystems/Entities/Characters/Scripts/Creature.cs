@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Redcode.Awaiting;
 using Sirenix.OdinInspector;
+using SunsetSystems.Abilities;
 using SunsetSystems.ActionSystem;
 using SunsetSystems.Entities.Data;
 using SunsetSystems.Equipment;
@@ -184,6 +185,7 @@ namespace SunsetSystems.Entities.Characters
                     EquipmentSlotsData[item.Key] = item.Value.GetEquippedItem().ReadableID;
                 }
                 StatsData = new(instance.References.StatsManager.Stats);
+                KnownPowers = instance.References.SpellbookManager.KnownPowers;
             }
 
             public TemplateFromInstance()
@@ -213,6 +215,8 @@ namespace SunsetSystems.Entities.Characters
             public Dictionary<EquipmentSlotID, string> EquipmentSlotsData { get; private set; }
             [ShowInInspector]
             public StatsData StatsData { get; private set; }
+            [ShowInInspector]
+            public IReadOnlyCollection<IDisciplinePower> KnownPowers { get; private set; }
         }
         #endregion
 

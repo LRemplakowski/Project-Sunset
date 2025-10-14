@@ -10,6 +10,7 @@ using SunsetSystems.Inventory;
 
 namespace SunsetSystems.Abilities
 {
+
     [CreateAssetMenu(fileName = "New Power", menuName = "Character/Power")]
     public class DisciplinePower : SerializedScriptableObject, IUserInfertaceDataProvider<DisciplinePower>
     {

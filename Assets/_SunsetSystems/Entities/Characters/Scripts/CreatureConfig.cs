@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
+using SunsetSystems.Abilities;
 using SunsetSystems.Core.Database;
 using SunsetSystems.Entities.Data;
 using SunsetSystems.Equipment;
@@ -28,6 +29,9 @@ namespace SunsetSystems.Entities.Characters
         [SerializeField]
         private StatsConfig _statsConfig;
         public StatsData StatsData => new(_statsConfig);
+        [SerializeField]
+        private List<IDisciplinePower> _startingPowers = new();
+        public IReadOnlyCollection<IDisciplinePower> StartingPowers => _startingPowers;
         [field: SerializeField]
         public InventoryConfig EquipmentConfig { get; private set; }
         [field: SerializeField]
@@ -100,6 +104,8 @@ namespace SunsetSystems.Entities.Characters
 
             public StatsData StatsData { get; private set; }
 
+            public IReadOnlyCollection<IDisciplinePower> KnownPowers { get; private set; }
+
             public TemplateFromCreatureAsset(CreatureConfig asset)
             {
                 this.DatabaseID = asset.DatabaseID;
@@ -120,6 +126,7 @@ namespace SunsetSystems.Entities.Characters
                         this.EquipmentSlotsData[item.Key] = item.Value.GetEquippedItem().ReadableID;
                 }
                 this.StatsData = new(asset.StatsData);
+                this.KnownPowers = asset.StartingPowers;
             }
 
             public TemplateFromCreatureAsset()

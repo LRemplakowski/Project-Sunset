@@ -1,8 +1,11 @@
 using System;
+using System.Collections;
 using SunsetSystems.Combat;
 using SunsetSystems.Entities.Characters;
 using SunsetSystems.Inventory;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 
 namespace SunsetSystems.Abilities.Targeting
 {
@@ -14,6 +17,7 @@ namespace SunsetSystems.Abilities.Targeting
         private readonly IAbilityConfig _ability;
 
         private GameObject _vfxInstance;
+        private AsyncOperationHandle<AudioClip> _sfxLoading;
 
         public event Action OnExecutionTriggered;
 
@@ -94,28 +98,32 @@ namespace SunsetSystems.Abilities.Targeting
                 }
             }
 
-            void HandleSFXAbility(ITargetingContext context)
+            async void HandleSFXAbility(ITargetingContext context)
             {
                 if (_ability is ISFXAbility sfxAbility)
                 {
                     var audioSource = context.GetSFXAudioSource();
-                    audioSource.clip = sfxAbility.PreparatioSFX;
+                    _sfxLoading = Addressables.LoadAssetAsync<AudioClip>(sfxAbility.PreparationSFX);
+                    await _sfxLoading.Task;
+                    audioSource.clip = _sfxLoading.Result;
                     audioSource.Play();
                 }
             }
 
-            void HandleVFXAbility(ITargetingContext context)
+            async void HandleVFXAbility(ITargetingContext context)
             {
                 if (_vfxInstance != null)
                 {
-                    GameObject.Destroy(_vfxInstance);
+                    Addressables.ReleaseInstance(_vfxInstance);
                 }
                 if (_ability is IVFXAbility vfxAbility)
                 {
-                    var preCastVfxPrefab = vfxAbility.PreCastVfxPrefab;
-                    if (preCastVfxPrefab != null)
+
+                    if (vfxAbility.PreCastVfxPrefab != null)
                     {
-                        _vfxInstance = GameObject.Instantiate(preCastVfxPrefab, Vector3.zero, Quaternion.identity, context.GetCurrentCombatant().Transform);
+                        var loadingOp = Addressables.InstantiateAsync(vfxAbility.PreCastVfxPrefab, Vector3.zero, Quaternion.identity, context.GetCurrentCombatant().Transform);
+                        await loadingOp.Task;
+                        _vfxInstance = loadingOp.Result;
                     }
                 }
             }
@@ -127,6 +135,7 @@ namespace SunsetSystems.Abilities.Targeting
             DisableExecutionUI(context);
             HandleAnimatedAbility(context);
             HandleVFXAbility(context);
+            HandleSFXAbility(context);
 
             void HandleAnimatedAbility(ITargetingContext context)
             {
@@ -143,13 +152,32 @@ namespace SunsetSystems.Abilities.Targeting
                     if (_vfxInstance.TryGetComponent(out ParticleSystem particleSystem))
                     {
                         particleSystem.Stop();
-                        GameObject.Destroy(_vfxInstance, particleSystem.main.startLifetime.constantMax);
+                        context.GetCurrentCombatant().CoroutineRunner.StartCoroutine(ReleaseWithDelay(particleSystem.main.startLifetime.constantMax));
                     }
                     else
                     {
-                        GameObject.Destroy(_vfxInstance);
+                        Addressables.ReleaseInstance(_vfxInstance);
+                        _vfxInstance = null;
                     }
                 }
+            }
+
+            void HandleSFXAbility(ITargetingContext context)
+            {
+                if (_ability is ISFXAbility)
+                {
+                    if (_sfxLoading.IsValid())
+                    {
+                        Addressables.Release(_sfxLoading);
+                    }
+                }
+            }
+
+            IEnumerator ReleaseWithDelay(float delay)
+            {
+                yield return new WaitForSeconds(delay);
+                Addressables.ReleaseInstance(_vfxInstance);
+                _vfxInstance = null;
             }
         }
 

@@ -1,5 +1,5 @@
+using SunsetSystems.Abilities;
 using SunsetSystems.UI.Utils;
-using SunsetSystems.Utils.Extensions;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -7,8 +7,7 @@ using UnityEngine.UI;
 
 namespace SunsetSystems.UI
 {
-
-    public class BaseStatView : MonoBehaviour, IUserInterfaceView<BaseStat>
+    public class DisciplineStatView : MonoBehaviour, IUserInterfaceView<IDisciplineInfo>
     {
         [SerializeField]
         private TextMeshProUGUI _text;
@@ -17,13 +16,13 @@ namespace SunsetSystems.UI
         [SerializeField]
         private Sprite _activeChip, _disabledChip;
 
-        public void UpdateView(IUserInfertaceDataProvider<BaseStat> dataProvider)
+        public void UpdateView(IUserInfertaceDataProvider<IDisciplineInfo> dataProvider)
         {
-            BaseStat stat = dataProvider.UIData;
-            _text.text = stat.Name.ToSentenceCase();
+            var stat = dataProvider.UIData;
+            _text.text = stat.Discipline.Name;
             for (int i = 0; i < _chips.Count; i++)
             {
-                _chips[i].sprite = i < stat.GetValue() ? _activeChip : _disabledChip;
+                _chips[i].sprite = i < stat.CurrentLevel ? _activeChip : _disabledChip;
             }
         }
     }

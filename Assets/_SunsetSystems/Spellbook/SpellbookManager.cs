@@ -2,135 +2,58 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Sirenix.OdinInspector;
-using SunsetSystems.Combat;
-using SunsetSystems.Entities.Characters;
+using Sirenix.Serialization;
 using UnityEngine;
 
 namespace SunsetSystems.Abilities
 {
-    /// <summary>
-    /// Component to be added to creature to manage individual powers known by the creature.
-    /// </summary>
-    public class SpellbookManager : SerializedMonoBehaviour, ISpellbookManager
+    public class SpellbookManager : SerializedMonoBehaviour, ISpellbookManager, IAbilitySource
     {
-        [SerializeField]
-        private ICreature _owner;
-        [SerializeField]
-        private IEffectHandler selfEffectHandler;
-        public ICreatureReferences References => _owner.References;
-        [field: SerializeField]
-        private List<Discipline> Disciplines { get; set; }
+        [OdinSerialize]
+        private Dictionary<string, DisciplineData> _knownPowers = new();
 
-        public IEnumerable<DisciplinePower> KnownPowers => Disciplines.SelectMany(d => d.GetKnownPowers());
-        public IEnumerable<Discipline> KnownDisciplines => Disciplines;
+        public IReadOnlyCollection<IDisciplinePower> KnownPowers => _knownPowers.Values.SelectMany(data => data.KnownPowers).ToList();
+        public IReadOnlyCollection<DisciplineData> KnownDisciplines => throw new NotImplementedException();
 
-        private readonly Dictionary<DisciplinePower, int> _powersOnCooldown = new();
-
-        private void Reset()
+        public bool IsPowerKnown(IDisciplinePower power)
         {
-            _owner = GetComponentInParent<ICreature>();
-            Disciplines = new();
-            foreach (DisciplineType disciplineType in Enum.GetValues(typeof(DisciplineType)))
+            return IsPowerKnown(power.ID);
+        }
+
+        public bool IsPowerKnown(string powerID)
+        {
+            return _knownPowers.ContainsKey(powerID);
+        }
+
+        public bool TryLearnPower(IDisciplinePower power)
+        {
+            if (_knownPowers.TryGetValue(power.Discipline.ID, out var disciplineData))
             {
-                Disciplines.Add(new Discipline(disciplineType));
-            }
-        }
-
-        private void OnEnable()
-        {
-            //CombatManager.Instance.OnFullTurnCompleted += DecreaseCooldowns;
-        }
-
-        private void Start()
-        {
-            ApplyPasivePowers();
-        }
-
-        private void OnDisable()
-        {
-            //CombatManager.Instance.OnFullTurnCompleted -= DecreaseCooldowns;
-        }
-
-        private void ApplyPasivePowers()
-        {
-            Debug.LogWarning("PASSIVE POWERS NOT IMPLEMENTED");
-            List<DisciplinePower> passivePowers = Disciplines.SelectMany(d => d.GetKnownPowers()).ToList().FindAll(p => p != null && p.Target is AbilityTargetingType.Self && p.Duration is Duration.Passive);
-            //passivePowers.ForEach(p => p.GetEffects().ForEach(e => selfEffectHandler.HandleEffect(e));
-        }
-
-        public bool UsePower(DisciplinePower power, ITargetable target)
-        {
-            if (_powersOnCooldown.ContainsKey(power))
-                return false;
-            if (GetIsPowerKnown(power) && DeducePowerCost(power))
-            {
-                foreach(var effect in power.GetEffects())
-                {
-                    switch (effect.AffectedEffectHandler)
-                    {
-                        case AffectedHandler.Caster:
-                            if (effect.ValidateTarget(selfEffectHandler.GetContext()))
-                                selfEffectHandler.HandleEffect(effect, this);
-                            else
-                                Debug.LogError($"Target {_owner} is invalid for effect {effect}!");
-                            break;
-                        case AffectedHandler.Target:
-                            //if (effect.ValidateTarget(target.EffectHandler.GetContext()))
-                            //    target.EffectHandler.HandleEffect(effect, this);
-                            //else
-                            //    Debug.LogError($"TargetObject {target} is invalid for effect {effect}!");
-                            break;
-                    }
-                }
-                StartCooldown(power);
-                return true;
+                if (power.Level > disciplineData.CurrentLevel)
+                    disciplineData.SetCurrentLevel(power.Level);
+                return disciplineData.TryAddPower(power);
             }
             else
             {
-                Debug.LogError($"Attempting to use power {power.PowerName} but it is not known by the user!");
-                return false;
+                disciplineData = new DisciplineData();
+                disciplineData.SetCurrentLevel(power.Level);
+                disciplineData.SetDisciplineAsset(power.Discipline);
+                bool result = disciplineData.TryAddPower(power);
+                _knownPowers[power.Discipline.ID] = disciplineData;
+                return result;
             }
         }
 
-        private void StartCooldown(DisciplinePower power)
+        private List<DisciplineData> GetDisciplineDataFromPowers()
         {
-            _powersOnCooldown.Add(power, power.Cooldown);
+            List<DisciplineData> result = new();
+            
+            return result;
         }
 
-        public bool IsPowerOnCooldown(DisciplinePower power)
+        public IEnumerable<IAbilityConfig> GetAbilities()
         {
-            return _powersOnCooldown.ContainsKey(power);
-        }
-
-        public bool GetIsPowerKnown(DisciplinePower power)
-        {
-            return Disciplines.Any(d => d.GetKnownPowers().Contains(power));
-        }
-
-        private void DecreaseCooldowns()
-        {
-            List<DisciplinePower> powersToRemove = new();
-            List<DisciplinePower> powersToDecreaseCooldowns = new();
-            foreach (DisciplinePower power in _powersOnCooldown.Keys)
-            {
-                int cooldown = _powersOnCooldown[power];
-                cooldown -= 1;
-                if (cooldown <= 0)
-                    powersToRemove.Add(power);
-                else
-                    powersToDecreaseCooldowns.Add(power);
-            }
-            powersToRemove.ForEach(p => _powersOnCooldown.Remove(p));
-            powersToDecreaseCooldowns.ForEach(p => _powersOnCooldown[p] -= 1);
-        }
-
-        private bool DeducePowerCost(DisciplinePower power)
-        {
-            return true;
-            //if (_owner.Faction is Faction.PlayerControlled)
-            //    throw new NotImplementedException();
-            //else
-            //    return true;
+            return _knownPowers.OfType<IAbilityConfig>().ToList();
         }
     }
 }

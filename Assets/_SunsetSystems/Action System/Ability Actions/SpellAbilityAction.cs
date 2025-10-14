@@ -7,6 +7,7 @@ using SunsetSystems.DynamicLog;
 using SunsetSystems.Entities;
 using SunsetSystems.Inventory;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 namespace SunsetSystems.ActionSystem
 {
@@ -73,12 +74,14 @@ namespace SunsetSystems.ActionSystem
             _attackFinished.Value = true;
         }
 
-        private void OnAnimationEvent(string eventArg)
+        private async void OnAnimationEvent(string eventArg)
         {
             if (eventArg == _spellAbility.GetProjectileLaunchEventArg())
             {
                 var handPos = Attacker.References.AnimationManager.GetBonePosition(HumanBodyBones.LeftHand);
-                var projectileGO = GameObject.Instantiate(_spellAbility.ProjectileVfxPrefab, handPos, Quaternion.identity);
+                var loadingOp = Addressables.InstantiateAsync(_spellAbility.ProjectileVfxPrefab, handPos, Quaternion.identity);
+                await loadingOp.Task;
+                var projectileGO = loadingOp.Result;
                 if (projectileGO.TryGetComponent(out IProjectile projectile))
                 {
                     projectile.Launch(Target, OnProjectileHit);

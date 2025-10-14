@@ -24,9 +24,9 @@ namespace SunsetSystems.Abilities
         private IActionPointUser _actionPointUser;
         [SerializeField]
         private IBloodPointUser _bloodPointUser;
-        //[SerializeField]
-        //private List<IAbilityConfig> _defaultAbilities = new();
-        [OdinSerialize]
+        [SerializeField]
+        private IAbilitySource _disciplineAbilitySource;
+        [OdinSerialize, HideReferenceObjectPicker]
         private IAbilitySource _defaultAbilities = new DefaultAbilitySource();
         private AbilityContext _abilityContext;
         private ITargetable _characterTarget;
@@ -117,6 +117,12 @@ namespace SunsetSystems.Abilities
 
         public IEnumerable<AbilityRuntimeData> GetCoreAbilities()
         {
+            if (_defaultAbilities == null)
+            {
+                Debug.LogWarning($"{nameof(AbilityManager)} >>> No Default Abilities assigned!");
+                return Enumerable.Empty<AbilityRuntimeData>();
+            }
+
             return _defaultAbilities.GetAbilities().Select(ability => new AbilityRuntimeData(ability, _defaultAbilities)).Union(GetAbilitiesFromEquipment()).ToList();
         }
 
@@ -132,7 +138,14 @@ namespace SunsetSystems.Abilities
 
         private IEnumerable<AbilityRuntimeData> GetAbilitiesFromDisciplines()
         {
-            return new List<AbilityRuntimeData>();
+            if (_disciplineAbilitySource == null)
+            {
+                Debug.LogWarning($"{nameof(AbilityManager)} >>> No Discipline Ability Source assigned!");
+                return Enumerable.Empty<AbilityRuntimeData>();
+            }
+
+            return _disciplineAbilitySource.GetAbilities()
+                                           .Select(power => new AbilityRuntimeData(power, _disciplineAbilitySource));
         }
 
         private ITargetable GetCurrentTargetObject()

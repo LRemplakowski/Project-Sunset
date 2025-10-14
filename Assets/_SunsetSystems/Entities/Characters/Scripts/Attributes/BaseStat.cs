@@ -1,9 +1,10 @@
 using System;
 using System.Collections.Generic;
+using SunsetSystems.Dice;
 using SunsetSystems.UI.Utils;
 
 [Serializable]
-public abstract class BaseStat : IUserInfertaceDataProvider<BaseStat>
+public abstract class BaseStat : IUserInfertaceDataProvider<BaseStat>, IIntValue
 {
     public event Action OnValueChange;
 

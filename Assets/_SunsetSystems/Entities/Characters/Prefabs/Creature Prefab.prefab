@@ -232,97 +232,32 @@ MonoBehaviour:
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 660093643310669083}
-    - {fileID: 5977690044788555726}
+    ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
-    - Name: _owner
-      Entry: 10
+    - Name: _knownPowers
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[SunsetSystems.Abilities.DisciplineData,
+        SunsetSystems]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
       Data: 0
-    - Name: selfEffectHandler
-      Entry: 10
-      Data: 1
-  <Disciplines>k__BackingField:
-  - <Icon>k__BackingField: {fileID: 0}
-    baseValue: 0
-    disciplineType: 1
-    knownPowers: []
-  - <Icon>k__BackingField: {fileID: 0}
-    baseValue: 0
-    disciplineType: 2
-    knownPowers: []
-  - <Icon>k__BackingField: {fileID: 0}
-    baseValue: 0
-    disciplineType: 4
-    knownPowers: []
-  - <Icon>k__BackingField: {fileID: 0}
-    baseValue: 0
-    disciplineType: 8
-    knownPowers: []
-  - <Icon>k__BackingField: {fileID: 0}
-    baseValue: 0
-    disciplineType: 16
-    knownPowers: []
-  - <Icon>k__BackingField: {fileID: 0}
-    baseValue: 0
-    disciplineType: 32
-    knownPowers: []
-  - <Icon>k__BackingField: {fileID: 0}
-    baseValue: 0
-    disciplineType: 64
-    knownPowers: []
-  - <Icon>k__BackingField: {fileID: 0}
-    baseValue: 0
-    disciplineType: 128
-    knownPowers: []
-  - <Icon>k__BackingField: {fileID: 0}
-    baseValue: 0
-    disciplineType: 256
-    knownPowers: []
-  - <Icon>k__BackingField: {fileID: 0}
-    baseValue: 0
-    disciplineType: 512
-    knownPowers: []
-  - <Icon>k__BackingField: {fileID: 0}
-    baseValue: 0
-    disciplineType: 1024
-    knownPowers: []
-  - <Icon>k__BackingField: {fileID: 0}
-    baseValue: 0
-    disciplineType: 2048
-    knownPowers: []
-  - <Icon>k__BackingField: {fileID: 0}
-    baseValue: 0
-    disciplineType: 4096
-    knownPowers: []
-  - <Icon>k__BackingField: {fileID: 0}
-    baseValue: 0
-    disciplineType: 8192
-    knownPowers: []
-  - <Icon>k__BackingField: {fileID: 0}
-    baseValue: 0
-    disciplineType: 16384
-    knownPowers: []
-  - <Icon>k__BackingField: {fileID: 0}
-    baseValue: 0
-    disciplineType: 32768
-    knownPowers: []
-  - <Icon>k__BackingField: {fileID: 0}
-    baseValue: 0
-    disciplineType: 65536
-    knownPowers: []
-  - <Icon>k__BackingField: {fileID: 0}
-    baseValue: 0
-    disciplineType: 131072
-    knownPowers: []
-  - <Icon>k__BackingField: {fileID: 0}
-    baseValue: 0
-    disciplineType: 262144
-    knownPowers: []
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
 --- !u!114 &5977690044788555726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1580,6 +1515,7 @@ MonoBehaviour:
     ReferencedUnityObjects:
     - {fileID: 265292995897044542}
     - {fileID: 1148893699925297192}
+    - {fileID: 1441128836294789900}
     - {fileID: 11400000, guid: 9a5e9c2a480e5d64eafedf840985df93, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
@@ -1598,6 +1534,9 @@ MonoBehaviour:
     - Name: _bloodPointUser
       Entry: 10
       Data: 1
+    - Name: _disciplineAbilitySource
+      Entry: 10
+      Data: 2
     - Name: _defaultAbilities
       Entry: 7
       Data: 0|SunsetSystems.Abilities.AbilityManager+DefaultAbilitySource, SunsetSystems
@@ -1610,7 +1549,7 @@ MonoBehaviour:
       Data: 1
     - Name: 
       Entry: 10
-      Data: 2
+      Data: 3
     - Name: 
       Entry: 13
       Data: 

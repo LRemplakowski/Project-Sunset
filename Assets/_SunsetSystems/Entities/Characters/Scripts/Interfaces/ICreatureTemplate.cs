@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using SunsetSystems.Abilities;
 using SunsetSystems.Entities.Data;
 using SunsetSystems.Equipment;
 
@@ -20,5 +21,6 @@ namespace SunsetSystems.Entities.Characters
 
         Dictionary<EquipmentSlotID, string> EquipmentSlotsData { get; }
         StatsData StatsData { get; }
+        IReadOnlyCollection<IDisciplinePower> KnownPowers { get; }
     }
 }

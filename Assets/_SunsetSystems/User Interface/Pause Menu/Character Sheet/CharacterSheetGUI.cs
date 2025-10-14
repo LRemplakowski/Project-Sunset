@@ -5,6 +5,7 @@ using SunsetSystems.Party;
 using SunsetSystems.Abilities;
 using SunsetSystems.UI.Utils;
 using UnityEngine;
+using System.Linq;
 
 namespace SunsetSystems.UI
 {
@@ -33,10 +34,8 @@ namespace SunsetSystems.UI
             List<IUserInfertaceDataProvider<BaseStat>> skills = new();
             skills.AddRange(data.Skills?.GetSkillList() ?? new());
             _skills.ForEach(skillGroup => skillGroup.UpdateViews(skills));
-            List<IUserInfertaceDataProvider<BaseStat>> disciplines = new();
             ISpellbookManager spellbook = creature.References.SpellbookManager;
-            disciplines.AddRange(spellbook.KnownDisciplines);
-            _disciplines.UpdateViews(disciplines);
+            _disciplines.UpdateViews(spellbook.KnownDisciplines.Cast<IUserInfertaceDataProvider<IDisciplineInfo>>().ToList());
         }
     }
 }

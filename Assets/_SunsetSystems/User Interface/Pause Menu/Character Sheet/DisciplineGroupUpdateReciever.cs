@@ -7,41 +7,41 @@ using UnityEngine;
 
 namespace SunsetSystems.UI
 {
-    public class DisciplineGroupUpdateReciever : MonoBehaviour, IUserInterfaceUpdateReciever<BaseStat>
+    public class DisciplineGroupUpdateReciever : MonoBehaviour, IUserInterfaceUpdateReciever<IDisciplineInfo>
     {
         [SerializeField]
         private DisciplineType _disciplines;
         [SerializeField]
-        private List<BaseStatView> _views = new();
+        private List<DisciplineStatView> _views = new();
         [SerializeField]
         private Transform _viewsParent;
         [SerializeField]
-        private BaseStatView _viewPrefab;
+        private DisciplineStatView _viewPrefab;
 
         public void DisableViews()
         {
             _views.ForEach(v => v.gameObject.SetActive(false));
         }
 
-        public void UpdateViews(List<IUserInfertaceDataProvider<BaseStat>> data)
+        public void UpdateViews(List<IUserInfertaceDataProvider<IDisciplineInfo>> data)
         {
             DisableViews();
-            List<Discipline> stats = data
-                .Select(s => s.UIData as Discipline)
-                .Where(d => d.GetValue() > 0 && (d.GetDisciplineType() & _disciplines) > 0)
-                .OrderBy(d => d.GetDisciplineType())
+            List<IDisciplineInfo> stats = data
+                .Select(s => s.UIData)
+                .Where(d => d.CurrentLevel > 0)
+                .OrderBy(d => d.Discipline)
                 .ToList();
-            foreach (BaseStat stat in stats)
+            foreach (var stat in data)
             {
-                BaseStatView view = GetView();
+                DisciplineStatView view = GetView();
                 view.UpdateView(stat);
                 view.gameObject.SetActive(true);
             }
         }
 
-        public BaseStatView GetView()
+        private DisciplineStatView GetView()
         {
-            BaseStatView view;
+            DisciplineStatView view;
             view = _views.FirstOrDefault(v => v.isActiveAndEnabled == false);
             if (view == null)
             {

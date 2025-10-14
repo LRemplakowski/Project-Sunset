@@ -4,6 +4,7 @@ using Sirenix.OdinInspector;
 using SunsetSystems.Combat;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 namespace SunsetSystems.Entities
 {
@@ -152,11 +153,11 @@ namespace SunsetSystems.Entities
                 if (_impacted)
                 {
                     yield return new WaitForSeconds(_lifetimeAfterImpact);
-                    Destroy(gameObject);
+                    Addressables.ReleaseInstance(gameObject);
                     yield break;
                 }
             }
-            Destroy(gameObject);
+            Addressables.ReleaseInstance(gameObject);
         }
     }
 }

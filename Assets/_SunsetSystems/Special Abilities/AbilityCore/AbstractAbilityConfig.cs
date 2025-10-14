@@ -11,7 +11,7 @@ namespace SunsetSystems.Abilities
         [SerializeField]
         private Guid _abilityID = Guid.NewGuid();
         public Guid AbilityID => _abilityID;
-        [BoxGroup("UI Data")]
+        [TabGroup("UI Data")]
         [SerializeField]
         private string _fallbackName;
         [BoxGroup("UI Data")]
@@ -20,15 +20,15 @@ namespace SunsetSystems.Abilities
         [BoxGroup("UI Data")]
         [SerializeField, DictionaryDrawerSettings(IsReadOnly = true)]
         private Dictionary<IAbilityUIData.IconState, Sprite> _icons = new();
-        [SerializeField, BoxGroup("Ability Core")]
+        [SerializeField, TabGroup("Ability Core")]
         private AbilityCategory _categoryMask;
-        [SerializeField, BoxGroup("Ability Core")]
+        [SerializeField, TabGroup("Ability Core")]
         protected TargetableEntityType _validTargetsMask;
-        [SerializeField, BoxGroup("Ability Core")]
+        [SerializeField, TabGroup("Ability Core")]
         protected AbilityRange _targetingDistanceType;
-        [SerializeField, BoxGroup("Ability Core")]
+        [SerializeField, TabGroup("Ability Core")]
         protected AbilityTargetingType _abilityTargetingType;
-        [SerializeField, BoxGroup("Ability Cost")]
+        [SerializeField, TabGroup("Ability Cost")]
         protected int _baseMovementCost = 0, _baseAPCost = 0, _baseBloodCost = 0;
 
         private void OnValidate()
@@ -63,12 +63,12 @@ namespace SunsetSystems.Abilities
             return new AbilityTargetingData(context, this);
         }
 
-        private string GetLocalizedName()
+        protected string GetLocalizedName()
         {
             return _fallbackName;
         }
 
-        private string GetLocalizedDescription()
+        protected string GetLocalizedDescription()
         {
             return _fallbackDescription;
         }

@@ -1,8 +1,6 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using SunsetSystems.Combat;
-using SunsetSystems.Combat.Grid;
 using UnityEngine;
 
 namespace SunsetSystems.Abilities
