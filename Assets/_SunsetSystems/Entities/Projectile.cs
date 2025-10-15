@@ -57,14 +57,14 @@ namespace SunsetSystems.Entities
 
         private void FixedUpdate()
         {
-            if (VerifyShouldTrackTarget())
+            if (IsHomingProjectile())
             {
                 Vector3 direction = (_target.ProjectileTarget.position - transform.position).normalized;
                 _rigidbody.linearVelocity = direction * _speed;
             }
         }
 
-        private bool VerifyShouldTrackTarget()
+        private bool IsHomingProjectile()
         {
             return !_immediateImpact && _isHoming && !_impacted && _target != null;
         }
