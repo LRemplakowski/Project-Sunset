@@ -61,12 +61,12 @@ namespace SunsetSystems.Combat
         {
             if (!CombatManager.Instance.IsCurrentActiveActor(this))
                 return;
-            if (HasActionsQueued || CanMove(this) || CanAct(this) || GetContext().IsPlayerControlled)
+            if (HasActionsQueued || CanMove() || CanAct() || GetContext().IsPlayerControlled)
                 return;
             SignalEndTurn();
 
-            static bool CanMove(ICombatant combatant) => combatant.GetContext().MovementManager.GetCanMove();
-            static bool CanAct(ICombatant combatant) => combatant.GetContext().ActionPointManager.CanUseActionPoints();
+            bool CanMove() => GetContext().MovementManager.GetCanMove();
+            bool CanAct() => GetContext().ActionPointManager.CanUseActionPoints();
         }
         #endregion
 
@@ -99,13 +99,18 @@ namespace SunsetSystems.Combat
 
         public bool IsValidTarget(TargetableEntityType validTargetsFlag) 
         {
-            return References.CreatureData.CreatureType switch
+            bool validCreatureType = References.CreatureData.CreatureType switch
             {
                 CreatureType.Mortal => validTargetsFlag.HasFlag(TargetableEntityType.Mortal),
                 CreatureType.Ghul => validTargetsFlag.HasFlag(TargetableEntityType.Ghoul),
                 CreatureType.Vampire => validTargetsFlag.HasFlag(TargetableEntityType.Vampire),
                 _ => false,
             };
+            bool validStatus = References.StatsManager.IsAlive()
+                ? validTargetsFlag.HasFlag(TargetableEntityType.Alive) 
+                : validTargetsFlag.HasFlag(TargetableEntityType.Dead);
+
+            return validCreatureType && validStatus;
         }
         #endregion
 
@@ -155,6 +160,10 @@ namespace SunsetSystems.Combat
         public ICombatContext GetContext()
         {
             return _combatContext;
+        }
+        ITargetableContext IContextProvider<ITargetableContext>.GetContext()
+        {
+            return GetContext();
         }
         #endregion
 

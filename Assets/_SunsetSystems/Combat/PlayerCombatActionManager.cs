@@ -97,7 +97,7 @@ namespace SunsetSystems.Combat
         private void ExecuteSelectedAction()
         {
             var selectedAbility = GetSelectedAbility();
-            var abilityUser = _targetingContext.GetCurrentCombatant().GetContext().AbilityUser;
+            var abilityUser = _targetingContext.GetSelf().GetContext().AbilityUser;
             if (abilityUser.ExecuteAbility(selectedAbility, OnFinishedExecution))
                 selectedAbility.GetTargetingStrategy().OnExecutionTriggered -= ExecuteSelectedAction;
 

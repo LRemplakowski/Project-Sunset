@@ -104,6 +104,8 @@ namespace SunsetSystems.Entities.Characters
             return Health.GetValue() > 0;
         }
 
+        public bool IsDead() => !IsAlive();
+
         public void CopyFromTemplate(ICreatureTemplate template)
         {
             Stats = new(template.StatsData);
@@ -184,7 +186,7 @@ namespace SunsetSystems.Entities.Characters
         }
     }
 
-    public struct HealthData
+    public readonly struct HealthData
     {
         public readonly int maxHealth, superficialDamage, aggravatedDamage;
 

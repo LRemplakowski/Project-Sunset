@@ -60,7 +60,7 @@ namespace SunsetSystems.Abilities.Targeting
 
         public void ExecuteTargetingBegin(ITargetingContext context)
         {
-            context.GetCurrentGrid().ShowCellsInMovementRange(context.GetCurrentCombatant());
+            context.GetCurrentGrid().ShowCellsInMovementRange(context.GetSelf());
             context.TargetUpdateDelegate().Invoke(null);
             context.TargetingLineUpdateDelegate().Invoke(false);
             context.TargetLockSetDelegate().Invoke(false);

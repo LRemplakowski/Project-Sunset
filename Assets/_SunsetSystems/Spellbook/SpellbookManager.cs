@@ -48,6 +48,8 @@ namespace SunsetSystems.Abilities
 
         public void CopyFromTemplate(ICreatureTemplate template)
         {
+            if (template.KnownPowers == null) return;
+
             template.KnownPowers.ForEach(power => TryLearnPower(power));
 #if UNITY_EDITOR
             if (!Application.isPlaying)

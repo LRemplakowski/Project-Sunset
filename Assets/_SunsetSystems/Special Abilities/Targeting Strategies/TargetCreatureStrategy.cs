@@ -29,30 +29,30 @@ namespace SunsetSystems.Abilities.Targeting
 
         public void ExecuteSetTargetLock(ITargetingContext context)
         {
-            if (ValidateTarget(context, out ICombatant target) is false)
+            if (ValidateTarget(_ability, context, out ITargetable target) is false)
             {
                 ClearTargetingDelegates(context);
                 DisableExecutionUI(context);
                 return;
             }
-            ICombatant current = context.GetCurrentCombatant();
-            context.TargetUpdateDelegate().Invoke(target.References.Targetable);
+            ICombatant current = context.GetSelf();
+            context.TargetUpdateDelegate().Invoke(target);
             var abilityRange = _ability.GetTargetingData(context.GetAbilityContext()).GetRangeData();
             bool isTargetInRange = IsTargetInRange(current, target, in abilityRange);
-            current.References.NavigationManager.FaceDirectionAfterMovementFinished(target.Transform.position);
+            current.References.NavigationManager.FaceDirectionAfterMovementFinished(target.GetContext().Transform.position);
             context.TargetLockSetDelegate().Invoke(true);
             var executionUI = context.GetExecutionUI();
             if (isTargetInRange)
             {
                 if (CanShowTargetingLine(in abilityRange))
-                    ShowTargetingLine(context, target.AimingOrigin, TargetInRangeColor);
+                    ShowTargetingLine(context, target.ProjectileTarget.position, TargetInRangeColor);
                 executionUI.RegisterConfirmationCallback(TriggerExecution);
                 executionUI.UpdateShowInterface(true, () => context.CanExecuteAbility(_ability));
             }
             else
             {
                 if (CanShowTargetingLine(in abilityRange))
-                    ShowTargetingLine(context, target.AimingOrigin, TargetOutOfRangeColor);
+                    ShowTargetingLine(context, target.ProjectileTarget.position, TargetOutOfRangeColor);
                 executionUI.UnregisterConfirmationCallback(TriggerExecution);
                 executionUI.UpdateShowInterface(true, () => false);
             }
@@ -66,19 +66,19 @@ namespace SunsetSystems.Abilities.Targeting
 
         public void ExecutePointerPosition(ITargetingContext context)
         {
-            if (ValidateTarget(context, out ICombatant target) is false)
+            if (ValidateTarget(_ability, context, out ITargetable target) is false)
             {
                 ClearTargetingDelegates(context);
                 return;
             }
-            context.TargetUpdateDelegate().Invoke(target.References.Targetable);
+            context.TargetUpdateDelegate().Invoke(target);
             var abilityRange = _ability.GetTargetingData(context.GetAbilityContext()).GetRangeData();
-            ICombatant current = context.GetCurrentCombatant();
-            current.References.NavigationManager.FaceDirectionAfterMovementFinished(target.Transform.position);
+            ICombatant current = context.GetSelf();
+            current.References.NavigationManager.FaceDirectionAfterMovementFinished(target.GetContext().Transform.position);
             if (CanShowTargetingLine(in abilityRange))
             {
                 var targetingLineColor = IsTargetInRange(current, target, in abilityRange) ? TargetInRangeColor : TargetOutOfRangeColor;
-                ShowTargetingLine(context, target.AimingOrigin, in targetingLineColor);
+                ShowTargetingLine(context, target.ProjectileTarget.position, in targetingLineColor);
             }
         }
 
@@ -86,7 +86,7 @@ namespace SunsetSystems.Abilities.Targeting
         {
             ClearTargetingDelegates(context);
             DisableExecutionUI(context);
-            context.GetTargetingLineRenderer().SetPosition(0, context.GetCurrentCombatant().AimingOrigin);
+            context.GetTargetingLineRenderer().SetPosition(0, context.GetSelf().AimingOrigin);
             HandleAnimatedAbility(context);
             HandleSFXAbility(context);
             HandleVFXAbility(context);
@@ -95,7 +95,7 @@ namespace SunsetSystems.Abilities.Targeting
             {
                 if (_ability is IAnimatedAbility animatedAbility)
                 {
-                    context.GetCurrentCombatant().References.AnimationManager.SetCombatAnimationTypeOverride(animatedAbility.PreCastAnimationType);
+                    context.GetSelf().References.AnimationManager.SetCombatAnimationTypeOverride(animatedAbility.PreCastAnimationType);
                 }
             }
 
@@ -122,7 +122,7 @@ namespace SunsetSystems.Abilities.Targeting
 
                     if (vfxAbility.PreCastVfxPrefab != null)
                     {
-                        var body = context.GetCurrentCombatant().References.Body;
+                        var body = context.GetSelf().References.Body;
                         var loadingOp = Addressables.InstantiateAsync(vfxAbility.PreCastVfxPrefab, Vector3.zero, Quaternion.identity, body);
                         await loadingOp.Task;
                         _vfxInstance = loadingOp.Result;
@@ -143,7 +143,7 @@ namespace SunsetSystems.Abilities.Targeting
             {
                 if (_ability is IAnimatedAbility)
                 {
-                    context.GetCurrentCombatant().References.AnimationManager.ClearCombatAnimationTypeOverride();
+                    context.GetSelf().References.AnimationManager.ClearCombatAnimationTypeOverride();
                 }
             }
 
@@ -154,7 +154,7 @@ namespace SunsetSystems.Abilities.Targeting
                     if (_vfxInstance.TryGetComponent(out ParticleSystem particleSystem))
                     {
                         particleSystem.Stop();
-                        context.GetCurrentCombatant().CoroutineRunner.StartCoroutine(ReleaseWithDelay(particleSystem.main.startLifetime.constantMax));
+                        context.GetSelf().CoroutineRunner.StartCoroutine(ReleaseWithDelay(particleSystem.main.startLifetime.constantMax));
                     }
                     else
                     {
@@ -211,7 +211,7 @@ namespace SunsetSystems.Abilities.Targeting
             OnExecutionTriggered?.Invoke();
         }
 
-        private static bool ValidateTarget(ITargetingContext context, out ICombatant target)
+        private static bool ValidateTarget(IAbilityConfig ability, ITargetingContext context, out ITargetable target)
         {
             target = default;
             var collider = context.GetLastRaycastCollider();
@@ -219,11 +219,11 @@ namespace SunsetSystems.Abilities.Targeting
                 return false;
             if (collider.TryGetComponent(out ICreature targetCreature) is false)
                 return false;
-            target = targetCreature.References.CombatBehaviour;
-            return target.GetContext().IsAlive;
+            target = targetCreature.References.Targetable;
+            return target.IsValidTarget(ability.GetTargetingData(context.GetAbilityContext()).GetValidEntityTypesFlag());
         }
 
-        private static bool IsTargetInRange(ICombatant attacker, ICombatant target, in RangeData abilityRange)
+        private static bool IsTargetInRange(ICombatant attacker, ITargetable target, in RangeData abilityRange)
         {
             Vector3Int attackerPosition = attacker.GetContext().GridPosition;
             Vector3Int targetPosition = target.GetContext().GridPosition;

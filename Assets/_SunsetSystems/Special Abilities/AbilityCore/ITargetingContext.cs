@@ -15,8 +15,11 @@ namespace SunsetSystems.Abilities
         Collider GetLastRaycastCollider();
         LineRenderer GetTargetingLineRenderer();
         IAbilityContext GetAbilityContext();
-        ICombatant GetCurrentCombatant();
+        ICombatant GetSelf();
+        ITargetable GetSelfTarget();
+        ICombatContext GetSelfContext();
         ITargetable GetCurrentTarget();
+        ITargetableContext GetTargetContext();
         GridManager GetCurrentGrid();
         IExecutionConfirmationUI GetExecutionUI();
         AudioSource GetSFXAudioSource();

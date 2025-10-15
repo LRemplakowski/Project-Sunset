@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace SunsetSystems.Combat
 {
-    public interface ICombatant : IActionPerformer, ITargetable, IContextProvider<ICombatContext>
+    public interface ICombatant : IActionPerformer, IContextProvider<ICombatContext>
     {
         UltEvent<ICombatant> OnDamageTaken { get; set; }
 

@@ -1,4 +1,5 @@
 using System;
+using SunsetSystems.Combat;
 
 namespace SunsetSystems.Abilities.Targeting
 {
@@ -30,7 +31,7 @@ namespace SunsetSystems.Abilities.Targeting
 
         public void ExecuteTargetingBegin(ITargetingContext context)
         {
-            context.TargetUpdateDelegate().Invoke(context.GetCurrentCombatant());
+            context.TargetUpdateDelegate().Invoke(context.GetSelfTarget());
             context.TargetingLineUpdateDelegate().Invoke(false);
             context.TargetLockSetDelegate().Invoke(true);
             var executionUI = context.GetExecutionUI();

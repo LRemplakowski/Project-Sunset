@@ -83,7 +83,7 @@ namespace SunsetSystems.AI
 
         public int GetTargetsInWeaponRange()
         {
-            return _combatManager.LivingActors.Where(actor => IsHostileToMe(actor) && IsInAbilityRange(SelectedAbility, CombatContext, actor)).Count();
+            return _combatManager.LivingActors.Where(actor => IsHostileToMe(actor as ITargetable) && IsInAbilityRange(SelectedAbility, CombatContext, actor)).Count();
         }
 
         private bool IsHostileToMe(ITargetable target)
@@ -98,7 +98,7 @@ namespace SunsetSystems.AI
             if (ability == null || target == null || attacker == null)
                 return false;
             var abilityUser = attacker.AbilityUser;
-            abilityUser.SetCurrentTargetObject(target);
+            abilityUser.SetCurrentTargetObject(target as ITargetable);
             var abilityTargetingData = ability.GetTargetingData(abilityUser.GetCurrentAbilityContext());
             return abilityTargetingData.GetRangeType() switch
             {
@@ -131,7 +131,7 @@ namespace SunsetSystems.AI
         public bool GetHasEnoughActionPoints(IAbilityConfig selectedAbility)
         {
             var abilityUser = CombatContext.AbilityUser;
-            abilityUser.SetCurrentTargetObject(SelectedTarget);
+            abilityUser.SetCurrentTargetObject(SelectedTarget as ITargetable);
             return abilityUser.GetCanAffordAbility(selectedAbility);
         }
     }
