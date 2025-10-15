@@ -105,9 +105,9 @@ namespace SunsetSystems.Playables
         public void AddAttackAction(ICombatant target, bool forceMiss, GridManager gridManager)
         {
             if (forceMiss)
-                _actionSequence.Add(new Attack(target, _actionPerformer.References.CombatBehaviour, new() { HitChanceMod = -200 }, gridManager));
+                _actionSequence.Add(new Attack(target as ITargetable, _actionPerformer.References.CombatBehaviour, new() { HitChanceMod = -200 }, gridManager));
             else
-                _actionSequence.Add(new Attack(target, _actionPerformer.References.CombatBehaviour, gridManager));
+                _actionSequence.Add(new Attack(target as ITargetable, _actionPerformer.References.CombatBehaviour, gridManager));
             UnityEditor.EditorUtility.SetDirty(this);
         }
 

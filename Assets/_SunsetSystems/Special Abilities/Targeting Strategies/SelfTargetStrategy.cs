@@ -1,44 +1,40 @@
-using System;
-
 namespace SunsetSystems.Abilities.Targeting
 {
-    public class SelfTargetStrategy : IAbilityTargetingStrategy
+
+    public class SelfTargetStrategy : AbstractTargetingStrategy
     {
-        private IAbilityConfig _ability;
-
-        public event Action OnExecutionTriggered;
-
-        public SelfTargetStrategy(IAbilityConfig abilityConfig)
-        {
-            _ability = abilityConfig;
-        }
-
-        public void ExecuteSetTargetLock(ITargetingContext context)
+        public SelfTargetStrategy(IAbilityConfig abilityConfig) : base(abilityConfig)
         {
 
         }
 
-        public void ExecuteClearTargetLock(ITargetingContext context)
+        public override void ExecuteSetTargetLock(ITargetingContext context)
+        {
+
+        }
+
+        public override void ExecuteClearTargetLock(ITargetingContext context)
         {
             
         }
 
-        public void ExecutePointerPosition(ITargetingContext context)
+        public override void ExecutePointerPosition(ITargetingContext context)
         {
 
         }
 
-        public void ExecuteTargetingBegin(ITargetingContext context)
+        public override void ExecuteTargetingBegin(ITargetingContext context)
         {
-            context.TargetUpdateDelegate().Invoke(context.GetCurrentCombatant());
+            context.TargetUpdateDelegate().Invoke(context.GetSelfTarget());
             context.TargetingLineUpdateDelegate().Invoke(false);
             context.TargetLockSetDelegate().Invoke(true);
             var executionUI = context.GetExecutionUI();
             executionUI.RegisterConfirmationCallback(TriggerExecution);
             executionUI.UpdateShowInterface(true, () => context.CanExecuteAbility(_ability));
+            base.ExecuteTargetingBegin(context);
         }
 
-        public void ExecuteTargetingEnd(ITargetingContext context)
+        public override void ExecuteTargetingEnd(ITargetingContext context)
         {
             context.TargetUpdateDelegate().Invoke(null);
             context.TargetingLineUpdateDelegate().Invoke(false);
@@ -46,11 +42,7 @@ namespace SunsetSystems.Abilities.Targeting
             var executionUI = context.GetExecutionUI();
             executionUI.UnregisterConfirmationCallback(TriggerExecution);
             executionUI.UpdateShowInterface(false, () => false);
-        }
-
-        private void TriggerExecution()
-        {
-            OnExecutionTriggered?.Invoke();
+            base.ExecuteTargetingEnd(context);
         }
     }
 }

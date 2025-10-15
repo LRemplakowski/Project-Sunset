@@ -1,10 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 namespace SunsetSystems.Entities
 {
-    public interface IContextProvider<T>
+    public interface IContextProvider<out T>
     {
         T GetContext();
     }

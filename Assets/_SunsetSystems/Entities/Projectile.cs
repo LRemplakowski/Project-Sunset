@@ -49,16 +49,22 @@ namespace SunsetSystems.Entities
         private Action _projectileImpactCallback;
         private bool _impacted = false;
 
+        private void Start()
+        {
+            if (_launchSFX) _launchSFX.loop = false;
+            if (_impactSFX) _impactSFX.loop = false;
+        }
+
         private void FixedUpdate()
         {
-            if (VerifyShouldTrackTarget())
+            if (IsHomingProjectile())
             {
                 Vector3 direction = (_target.ProjectileTarget.position - transform.position).normalized;
                 _rigidbody.linearVelocity = direction * _speed;
             }
         }
 
-        private bool VerifyShouldTrackTarget()
+        private bool IsHomingProjectile()
         {
             return !_immediateImpact && _isHoming && !_impacted && _target != null;
         }
@@ -153,7 +159,7 @@ namespace SunsetSystems.Entities
                 lifeTime += Time.deltaTime;
                 if (_impacted)
                 {
-                    yield return new WaitWhile(() => IsTrailAlive() || IsImpactAlive());
+                    yield return new WaitWhile(() => IsTrailAlive() || IsImpactAlive() || IsImpactSoundPlaying());
                     Addressables.ReleaseInstance(gameObject);
                     yield break;
                 }
@@ -169,6 +175,11 @@ namespace SunsetSystems.Entities
         private bool IsImpactAlive()
         {
             return _impactParticleSystem != null && _impactParticleSystem.IsAlive(true);
+        }
+
+        private bool IsImpactSoundPlaying()
+        {
+            return _impactSFX != null && _impactSFX.isPlaying;
         }
     }
 }

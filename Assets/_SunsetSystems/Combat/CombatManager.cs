@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Redcode.Awaiting;
 using Sirenix.OdinInspector;
 using SunsetSystems.ActionSystem;
+using SunsetSystems.Entities;
 using SunsetSystems.Party;
 using UltEvents;
 using UnityEngine;
@@ -24,7 +25,7 @@ namespace SunsetSystems.Combat
 
         [field: ShowInInspector, ReadOnly]
         public List<ICombatant> Actors { get; private set; }
-        public List<ICombatant> LivingActors => Actors.FindAll(a => a.GetContext().IsAlive);
+        public List<ICombatant> LivingActors => Actors.Where(a => a.GetContext().IsAlive).ToList();
 
         public static event Action<IEnumerable<ICombatant>> OnCombatStart;
         public static event Action<IEnumerable<ICombatant>> OnCombatEnd;

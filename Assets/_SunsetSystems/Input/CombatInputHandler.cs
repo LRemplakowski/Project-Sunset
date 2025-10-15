@@ -155,21 +155,24 @@ namespace SunsetSystems.Input
                 _inputHandler = inputHandler;
             }
 
-            public IAbilityContext GetAbilityContext() => GetCurrentCombatant().GetContext().AbilityUser.GetCurrentAbilityContext();
-            public ICombatant GetCurrentCombatant() => CombatManager.Instance.CurrentActiveActor;
+            public IAbilityContext GetAbilityContext() => GetSelf().GetContext().AbilityUser.GetCurrentAbilityContext();
+            public ICombatant GetSelf() => CombatManager.Instance.CurrentActiveActor;
+            public ITargetable GetSelfTarget() => GetSelf() as ITargetable;
+            public ICombatContext GetSelfContext() => GetSelf().GetContext();
             public ITargetable GetCurrentTarget() => _inputHandler.GetCurrentTarget();
+            public ITargetableContext GetTargetContext() => GetCurrentTarget()?.GetContext();
             public GridManager GetCurrentGrid() => CombatManager.Instance.CurrentEncounter.GridManager;
             public Collider GetLastRaycastCollider() => _inputHandler.GetLastHitCollider();
             public IAbilityConfig GetSelectedAbility() => _inputHandler._selectedActionManager.GetSelectedAbility();
             public LineRenderer GetTargetingLineRenderer() => _inputHandler.GetTargetingLineRenderer();
             public IExecutionConfirmationUI GetExecutionUI() => _inputHandler.GetExecutionUI();
-            public AudioSource GetSFXAudioSource() => GetCurrentCombatant().References.GetCachedComponent<AudioSource>();
+            public AudioSource GetSFXAudioSource() => GetSelf().References.GetCachedComponent<AudioSource>();
 
             public bool IsPointerOverUI() => _inputHandler.GetIsPointerOverGameObject();
             public bool IsTargetLocked() => _inputHandler.GetIsTargetLocked();
             public bool CanExecuteAbility(IAbilityConfig ability)
             {
-                var abilityUser = GetCurrentCombatant().GetContext().AbilityUser;
+                var abilityUser = GetSelf().GetContext().AbilityUser;
                 return abilityUser.GetHasValidAbilityContext(ability) && abilityUser.GetCanAffordAbility(ability);
             }
 

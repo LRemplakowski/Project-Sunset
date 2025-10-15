@@ -9,15 +9,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49ca4142550d46348bec21bc432a3a7c, type: 3}
-  m_Name: Melee Attack
+  m_Script: {fileID: 11500000, guid: 05217a9a23e0e7c408686ab0b86c664e, type: 3}
+  m_Name: Oblivion_Touch of Oblivion Ability
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
-    - {fileID: -625936813, guid: 0fada1ce6e2b7f9499463fbd4f780580, type: 3}
-    - {fileID: -1161766016, guid: 0fada1ce6e2b7f9499463fbd4f780580, type: 3}
+    - {fileID: 491356831, guid: 60e9fd4a5f570174f96b947975e33ae1, type: 3}
+    - {fileID: 1106642087, guid: 60e9fd4a5f570174f96b947975e33ae1, type: 3}
+    - {fileID: -1485023557, guid: 60e9fd4a5f570174f96b947975e33ae1, type: 3}
+    - {fileID: -250037007, guid: 60e9fd4a5f570174f96b947975e33ae1, type: 3}
+    - {fileID: 11400000, guid: 7d538cd3c528d154c82b5b057c7d0705, type: 2}
+    - {fileID: 11400000, guid: 7599eb2f2c71e0647844bb9f98b985c7, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -25,7 +29,7 @@ MonoBehaviour:
     SerializationNodes:
     - Name: _abilityID
       Entry: 2
-      Data: e0612f3756db43b6baaa80612238f990
+      Data: ea90d8f4af6d41c8bb0cb21e748ea00e
     - Name: _icons
       Entry: 7
       Data: 0|System.Collections.Generic.Dictionary`2[[SunsetSystems.Abilities.IAbilityUIData+IconState,
@@ -66,7 +70,7 @@ MonoBehaviour:
       Data: 1
     - Name: $v
       Entry: 10
-      Data: 0
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -78,7 +82,7 @@ MonoBehaviour:
       Data: 2
     - Name: $v
       Entry: 10
-      Data: 0
+      Data: 2
     - Name: 
       Entry: 8
       Data: 
@@ -102,7 +106,7 @@ MonoBehaviour:
       Data: 4
     - Name: $v
       Entry: 10
-      Data: 1
+      Data: 3
     - Name: 
       Entry: 8
       Data: 
@@ -112,20 +116,60 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  _fallbackName: Melee
-  _fallbackDescription: BONK!
-  _categoryMask: 2
+    - Name: _discipline
+      Entry: 10
+      Data: 4
+    - Name: _spellEffects
+      Entry: 7
+      Data: 2|System.Collections.Generic.List`1[[SunsetSystems.Abilities.IAbilityEffect,
+        SunsetSystems]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 5
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  _fallbackName: Touch of Oblivion
+  _fallbackDescription: DIE!
+  _categoryMask: 10
   _validTargetsMask: 135
   _targetingDistanceType: 0
   _abilityTargetingType: 2
   _baseMovementCost: 0
   _baseAPCost: 1
-  _baseBloodCost: 0
-  _baseAbilityRange: 1
-  _rangeFalloff: 0
-  _numberOfAttacks: 1
-  _delayBetweenAttacks: 0.2
-  _ammoPerAttack: 0
-  _damageBonus: 0
-  _attackType: 0
-  _damageType: 0
+  _baseBloodCost: 2
+  _powerLevel: 4
+  _range: 1
+  _projectileLaunchEvent: SPELL_1H_PROJECTILE_LAUNCH
+  _animationType: 5
+  _castAnimationTrigger: SpellPunch
+  _preCastVfxPrefab:
+    m_AssetGUID: bd376b6c333060a4a89805b92e91e121
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 1
+  _executionVfxPrefab:
+    m_AssetGUID: ad7af2ce04dabc841b5af0563a1aed6a
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 1
+  _preparationSFX:
+    m_AssetGUID: 
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 0
+  _executionSFX:
+    m_AssetGUID: 
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_SubObjectGUID: 
+    m_EditorAssetChanged: 0

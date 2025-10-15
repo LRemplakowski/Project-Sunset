@@ -5,8 +5,9 @@ using UnityEngine;
 
 namespace SunsetSystems.Abilities
 {
+
     [CreateAssetMenu(fileName = "New Damage Effect", menuName = "Sunset Abilities/Effects/Damage Effect")]
-    public class SingleTargetDamage : SerializedScriptableObject, IAbilityEffect
+    public class DamageEffect : SerializedScriptableObject, IAbilityEffect
     {
         [SerializeField]
         private AttributeType _damageAttribute;
@@ -21,12 +22,12 @@ namespace SunsetSystems.Abilities
             {
                 var damage = GetDamage(ability, context);
                 damageable.TakeDamage(damage);
-                string logMessage = LogUtility.LogMessageFromAttackDamge(context.SourceCombatBehaviour, context.TargetObject, damage);
+                string logMessage = LogUtility.LogMessageFromAbilityDamage(ability, context, damage);
                 DynamicLogManager.Instance.PostLogMessage(logMessage);
             }
             else
             {
-                Debug.LogError("Target object is not damageable.", context.TargetObject as UnityEngine.Object);
+                Debug.Log($"Target object {context.TargetObject} is not damageable.", context.TargetObject as UnityEngine.Object);
             }
         }
 

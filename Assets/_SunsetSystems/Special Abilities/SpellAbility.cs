@@ -102,7 +102,21 @@ namespace SunsetSystems.Abilities
         }
 
         public override IAbilityExecutionStrategy GetExecutionStrategy() => _executionStrategy ??= new AttackStrategyFromSpellAbility(this);
-        public override IAbilityTargetingStrategy GetTargetingStrategy() => _targetingStrategy ??= new TargetCreatureStrategy(this);
+        public override IAbilityTargetingStrategy GetTargetingStrategy()
+        {
+            return _targetingStrategy ??= CreateStrategy();
+        }
+
+        private IAbilityTargetingStrategy CreateStrategy()
+        {
+            return _abilityTargetingType switch
+            {
+                AbilityTargetingType.Friendly => new TargetCreatureStrategy(this),
+                AbilityTargetingType.Hostile => new TargetCreatureStrategy(this),
+                AbilityTargetingType.Self => new SelfTargetStrategy(this),
+                _ => throw new NotImplementedException()
+            };
+        }
 
         protected override RangeData GetAbilityRangeData(IAbilityContext context)
         {

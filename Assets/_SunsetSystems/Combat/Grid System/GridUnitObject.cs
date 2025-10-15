@@ -36,6 +36,14 @@ namespace SunsetSystems.Combat.Grid
         public float CellSize => unitData.CellSize;
         public bool Highlighted => unitData.Highlighted;
 
+        private ITargetableContext _context;
+        public ITargetableContext GetContext() => _context;
+
+        private void Awake()
+        {
+            _context = new GridUnitContext(this, gameObject);
+        }
+
         private void Start()
         {
             defaultCellStateConfig = gridCellMaterialConfigs[new() { BaseState = GridCellBaseState.Default, SubState = GridCellSubState.Default }];
@@ -211,6 +219,21 @@ namespace SunsetSystems.Combat.Grid
             public override int GetHashCode(MaterialPropertyData obj)
             {
                 return (obj.PropertyName, obj.PropertyType).GetHashCode();
+            }
+        }
+
+        private class GridUnitContext : ITargetableContext
+        {
+            private readonly GameObject _go;
+            private readonly IGridCell _gridCell;
+            public GameObject GameObject => _go;
+            public Transform Transform => _go.transform;
+            public Vector3Int GridPosition => _gridCell.GridPosition;
+
+            public GridUnitContext(IGridCell gridCell, GameObject go)
+            {
+                _go = go;
+                _gridCell = gridCell;
             }
         }
     }

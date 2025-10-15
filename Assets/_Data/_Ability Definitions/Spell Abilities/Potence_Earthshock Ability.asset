@@ -10,18 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 05217a9a23e0e7c408686ab0b86c664e, type: 3}
-  m_Name: Touch of Oblivion Ability
+  m_Name: Potence_Earthshock Ability
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
-    - {fileID: 491356831, guid: 60e9fd4a5f570174f96b947975e33ae1, type: 3}
-    - {fileID: 1106642087, guid: 60e9fd4a5f570174f96b947975e33ae1, type: 3}
-    - {fileID: -1485023557, guid: 60e9fd4a5f570174f96b947975e33ae1, type: 3}
-    - {fileID: -250037007, guid: 60e9fd4a5f570174f96b947975e33ae1, type: 3}
-    - {fileID: 11400000, guid: 7d538cd3c528d154c82b5b057c7d0705, type: 2}
-    - {fileID: 11400000, guid: 7599eb2f2c71e0647844bb9f98b985c7, type: 2}
+    - {fileID: 11400000, guid: 5cc2305fa1b0ce349894bf4a6680452f, type: 2}
+    - {fileID: 11400000, guid: 5ee470d2c804d1d4a8052c22a52156d0, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -29,7 +25,7 @@ MonoBehaviour:
     SerializationNodes:
     - Name: _abilityID
       Entry: 2
-      Data: ea90d8f4af6d41c8bb0cb21e748ea00e
+      Data: ab9d1dcd488b427bb908c50f5b33a461
     - Name: _icons
       Entry: 7
       Data: 0|System.Collections.Generic.Dictionary`2[[SunsetSystems.Abilities.IAbilityUIData+IconState,
@@ -57,8 +53,8 @@ MonoBehaviour:
       Entry: 3
       Data: 0
     - Name: $v
-      Entry: 10
-      Data: 0
+      Entry: 6
+      Data: 
     - Name: 
       Entry: 8
       Data: 
@@ -69,8 +65,8 @@ MonoBehaviour:
       Entry: 3
       Data: 1
     - Name: $v
-      Entry: 10
-      Data: 1
+      Entry: 6
+      Data: 
     - Name: 
       Entry: 8
       Data: 
@@ -81,8 +77,8 @@ MonoBehaviour:
       Entry: 3
       Data: 2
     - Name: $v
-      Entry: 10
-      Data: 2
+      Entry: 6
+      Data: 
     - Name: 
       Entry: 8
       Data: 
@@ -93,8 +89,8 @@ MonoBehaviour:
       Entry: 3
       Data: 3
     - Name: $v
-      Entry: 10
-      Data: 0
+      Entry: 6
+      Data: 
     - Name: 
       Entry: 8
       Data: 
@@ -105,8 +101,8 @@ MonoBehaviour:
       Entry: 3
       Data: 4
     - Name: $v
-      Entry: 10
-      Data: 3
+      Entry: 6
+      Data: 
     - Name: 
       Entry: 8
       Data: 
@@ -118,7 +114,7 @@ MonoBehaviour:
       Data: 
     - Name: _discipline
       Entry: 10
-      Data: 4
+      Data: 0
     - Name: _spellEffects
       Entry: 7
       Data: 2|System.Collections.Generic.List`1[[SunsetSystems.Abilities.IAbilityEffect,
@@ -128,39 +124,39 @@ MonoBehaviour:
       Data: 1
     - Name: 
       Entry: 10
-      Data: 5
+      Data: 1
     - Name: 
       Entry: 13
       Data: 
     - Name: 
       Entry: 8
       Data: 
-  _fallbackName: Touch of Oblivion
-  _fallbackDescription: DIE!
+  _fallbackName: Earthshock
+  _fallbackDescription: Brujah smash!
   _categoryMask: 10
-  _validTargetsMask: 7
+  _validTargetsMask: 135
   _targetingDistanceType: 0
-  _abilityTargetingType: 2
+  _abilityTargetingType: 0
   _baseMovementCost: 0
   _baseAPCost: 1
-  _baseBloodCost: 2
+  _baseBloodCost: 3
   _powerLevel: 5
-  _range: 1
+  _range: 0
   _projectileLaunchEvent: SPELL_1H_PROJECTILE_LAUNCH
   _animationType: 5
-  _castAnimationTrigger: SpellPunch
+  _castAnimationTrigger: 
   _preCastVfxPrefab:
-    m_AssetGUID: bd376b6c333060a4a89805b92e91e121
+    m_AssetGUID: 
     m_SubObjectName: 
     m_SubObjectType: 
     m_SubObjectGUID: 
-    m_EditorAssetChanged: 1
+    m_EditorAssetChanged: 0
   _executionVfxPrefab:
-    m_AssetGUID: ad7af2ce04dabc841b5af0563a1aed6a
+    m_AssetGUID: 
     m_SubObjectName: 
     m_SubObjectType: 
     m_SubObjectGUID: 
-    m_EditorAssetChanged: 1
+    m_EditorAssetChanged: 0
   _preparationSFX:
     m_AssetGUID: 
     m_SubObjectName: 
