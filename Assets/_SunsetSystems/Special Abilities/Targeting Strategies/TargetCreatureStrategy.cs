@@ -119,7 +119,7 @@ namespace SunsetSystems.Abilities.Targeting
             if (collider.TryGetComponent(out ICreature targetCreature) is false)
                 return false;
             target = targetCreature.References.Targetable;
-            return target.IsValidTarget(ability.GetTargetingData(context.GetAbilityContext()).GetValidEntityTypesFlag());
+            return target.IsValidTarget(context.GetSelf(), ability.GetTargetingData(context.GetAbilityContext()).GetValidEntityTypesFlag());
         }
 
         private static bool IsTargetInRange(ICombatant attacker, ITargetable target, in RangeData abilityRange)

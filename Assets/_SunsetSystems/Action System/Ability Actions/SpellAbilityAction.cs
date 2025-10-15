@@ -1,4 +1,5 @@
 using System.Collections;
+using Sirenix.OdinInspector;
 using SunsetSystems.Abilities;
 using SunsetSystems.Combat;
 using SunsetSystems.Entities;
@@ -18,8 +19,11 @@ namespace SunsetSystems.ActionSystem
         [SerializeField]
         private ICombatContext _targetContext;
 
+        [ShowInInspector]
         private Coroutine _attackRoutine;
+        [ShowInInspector]
         private FaceTarget _faceTargetSubaction;
+        [ShowInInspector]
         private bool _projectileHit;
 
         public SpellAbilityAction(SpellAbility spellAbility, IAbilityContext context) : base(context.TargetObject, context.SourceCombatBehaviour)
@@ -50,10 +54,13 @@ namespace SunsetSystems.ActionSystem
 
         private IEnumerator ResolveAttack()
         {
-            _faceTargetSubaction = new(Attacker, _targetContext.Transform, 180f);
-            _faceTargetSubaction.Begin();
-            while (_faceTargetSubaction.EvaluateAction() is false)
-                yield return null;
+            if (_spellAbility.GetTargetingData(_abilityContext).GetAbilityTargetingType() != AbilityTargetingType.Self)
+            {
+                _faceTargetSubaction = new(Attacker, _targetContext.Transform, 180f);
+                _faceTargetSubaction.Begin();
+                while (_faceTargetSubaction.EvaluateAction() is false)
+                    yield return null;
+            }
             Attacker.References.AnimationManager.SetTrigger(_spellAbility.CastAnimationHash);
             yield return new WaitUntil(() => _projectileHit);
             var effects = _spellAbility.GetEffects();

@@ -26,7 +26,7 @@ namespace SunsetSystems.Abilities
         {
             var overlapingTargets = Physics.OverlapSphere(context.TargetObject.ProjectileTarget.position, _areaSize, _targetLayer)
                                            .Select(FindTargetable)
-                                           .Where(targetable => targetable != null && targetable.IsValidTarget(_targetableType))
+                                           .Where(targetable => targetable != null && targetable.IsValidTarget(context.SourceCombatBehaviour, _targetableType))
                                            .ToList();
             foreach (var target in overlapingTargets)
             {

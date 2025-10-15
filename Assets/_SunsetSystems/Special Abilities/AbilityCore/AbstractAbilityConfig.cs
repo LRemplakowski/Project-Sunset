@@ -85,7 +85,7 @@ namespace SunsetSystems.Abilities
             {
                 if (flag.HasFlag(TargetableEntityType.Self) && context.SourceCombatBehaviour == context.TargetObject)
                     return true;
-                return context.TargetObject.IsValidTarget(flag);
+                return context.TargetObject.IsValidTarget(context.SourceCombatBehaviour, flag);
             }
         }
 

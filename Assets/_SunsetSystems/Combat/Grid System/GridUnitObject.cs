@@ -133,7 +133,7 @@ namespace SunsetSystems.Combat.Grid
             }
         }
 
-        public bool IsValidTarget(TargetableEntityType validTargetsFlag)
+        public bool IsValidTarget(ICombatant caster, TargetableEntityType validTargetsFlag)
         {
             return validTargetsFlag.HasFlag(TargetableEntityType.Position);
         }

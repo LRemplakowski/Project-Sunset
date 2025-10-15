@@ -45,6 +45,12 @@ namespace SunsetSystems.ActionSystem
 
         private IEnumerator LookAtTargetOverTime()
         {
+            if (lookDirection == Vector3.zero)
+            {
+                Abort();
+                yield break;
+            }
+
             float dotProduct = Vector3.Dot(ownerTransform.forward, lookDirection);
             Quaternion lookRotation = Quaternion.LookRotation(lookDirection);
             while (dotProduct < 1f - MARGIN_OF_ERROR)

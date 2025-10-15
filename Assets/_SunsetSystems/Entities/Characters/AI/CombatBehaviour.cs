@@ -97,7 +97,7 @@ namespace SunsetSystems.Combat
         #region ITargetable
         public Transform ProjectileTarget => _raycastOrigin;
 
-        public bool IsValidTarget(TargetableEntityType validTargetsFlag) 
+        public bool IsValidTarget(ICombatant caster, TargetableEntityType validTargetsFlag) 
         {
             bool validCreatureType = References.CreatureData.CreatureType switch
             {
@@ -109,8 +109,9 @@ namespace SunsetSystems.Combat
             bool validStatus = References.StatsManager.IsAlive()
                 ? validTargetsFlag.HasFlag(TargetableEntityType.Alive) 
                 : validTargetsFlag.HasFlag(TargetableEntityType.Dead);
+            bool validSelf = !ReferenceEquals(this, caster) || validTargetsFlag.HasFlag(TargetableEntityType.Self);
 
-            return validCreatureType && validStatus;
+            return validCreatureType && validStatus && validSelf;
         }
         #endregion
 
