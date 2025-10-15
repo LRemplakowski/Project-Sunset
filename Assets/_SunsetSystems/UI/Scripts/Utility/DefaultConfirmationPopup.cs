@@ -24,8 +24,8 @@ namespace SunsetSystems.UI.Utils
 
         public virtual void OnConfirm()
         {
-            Hide();
             _confirmationDelegate?.Invoke();
+            Hide();
         }
 
         public virtual void OnCancel()
