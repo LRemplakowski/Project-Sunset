@@ -21,6 +21,7 @@ MonoBehaviour:
     - {fileID: 587366616, guid: 60e9fd4a5f570174f96b947975e33ae1, type: 3}
     - {fileID: 459022579, guid: 60e9fd4a5f570174f96b947975e33ae1, type: 3}
     - {fileID: 11400000, guid: 9ed1f2af930747a4989f54dea89481c0, type: 2}
+    - {fileID: 11400000, guid: bd252ea6f44d21b4c8865912dc10921a, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -118,6 +119,22 @@ MonoBehaviour:
     - Name: _discipline
       Entry: 10
       Data: 4
+    - Name: _spellEffects
+      Entry: 7
+      Data: 2|System.Collections.Generic.List`1[[SunsetSystems.Abilities.IAbilityEffect,
+        SunsetSystems]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 5
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   _fallbackName: Blood Bolt
   _fallbackDescription: Blood magic goes brrrrrt!
   _categoryMask: 10
@@ -138,7 +155,7 @@ MonoBehaviour:
     m_SubObjectType: 
     m_SubObjectGUID: 
     m_EditorAssetChanged: 1
-  _projectileVfxPrefab:
+  _executionVfxPrefab:
     m_AssetGUID: ab135ae63c8c3e34bb4a6f79e29e24af
     m_SubObjectName: 
     m_SubObjectType: 
@@ -156,6 +173,3 @@ MonoBehaviour:
     m_SubObjectType: 
     m_SubObjectGUID: 
     m_EditorAssetChanged: 0
-  _damageAttribute: 64
-  _damageSkill: 8388608
-  _baseDamage: 5

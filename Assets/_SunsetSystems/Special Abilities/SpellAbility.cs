@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using SunsetSystems.Abilities.Execution;
 using SunsetSystems.Abilities.Targeting;
@@ -6,9 +8,15 @@ using SunsetSystems.Combat;
 using SunsetSystems.Inventory;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using UnityEngine.Serialization;
 
 namespace SunsetSystems.Abilities
 {
+    public interface IAbilityEffect
+    {
+        void ResolveEffect(IAbilityConfig ability, IAbilityContext context);
+    }
+
     public interface IAnimatedAbility
     {
         WeaponAnimationType PreCastAnimationType { get; }
@@ -24,6 +32,7 @@ namespace SunsetSystems.Abilities
     public interface IVFXAbility
     {
         AssetReferenceGameObject PreCastVfxPrefab { get; }
+        AssetReferenceGameObject ExecutionVfxPrefab { get; }
     }
 
     [CreateAssetMenu(fileName = "New Spell Ability", menuName = "Sunset Abilities/Spell Ability")]
@@ -37,7 +46,7 @@ namespace SunsetSystems.Abilities
         private int _powerLevel = 1;
         [TabGroup("Spell Ability")]
         [SerializeField]
-        private int _range;
+        private float _range;
         [TabGroup("Spell Ability")]
         [SerializeField]
         private string _projectileLaunchEvent = "SPELL_1H_PROJECTILE_LAUNCH";
@@ -51,8 +60,8 @@ namespace SunsetSystems.Abilities
         [SerializeField]
         private AssetReferenceGameObject _preCastVfxPrefab;
         [TabGroup("Spell Ability")]
-        [SerializeField]
-        private AssetReferenceGameObject _projectileVfxPrefab;
+        [SerializeField, FormerlySerializedAs("_projectileVfxPrefab")]
+        private AssetReferenceGameObject _executionVfxPrefab;
         [TabGroup("Spell Ability")]
         [SerializeField]
         private AssetReferenceAudioClip _preparationSFX;
@@ -61,18 +70,12 @@ namespace SunsetSystems.Abilities
         private AssetReferenceAudioClip _executionSFX;
         [TabGroup("Spell Ability")]
         [SerializeField]
-        private AttributeType _damageAttribute;
-        [TabGroup("Spell Ability")]
-        [SerializeField]
-        private SkillType _damageSkill;
-        [TabGroup("Spell Ability")]
-        [SerializeField]
-        private int _baseDamage;
+        private List<IAbilityEffect> _spellEffects = new();
 
         public AssetReferenceAudioClip PreparationSFX => _preparationSFX;
         public AssetReferenceAudioClip ExecutionSFX => _executionSFX;
         public AssetReferenceGameObject PreCastVfxPrefab => _preCastVfxPrefab;
-        public AssetReferenceGameObject ProjectileVfxPrefab => _projectileVfxPrefab;
+        public AssetReferenceGameObject ExecutionVfxPrefab => _executionVfxPrefab;
 
         public WeaponAnimationType PreCastAnimationType => _animationType;
         public int CastAnimationHash => Animator.StringToHash(_castAnimationTrigger);
@@ -103,14 +106,17 @@ namespace SunsetSystems.Abilities
 
         protected override RangeData GetAbilityRangeData(IAbilityContext context)
         {
-            return new RangeData(0, _range, _range);
+            return new()
+            {
+                ShortRange = 0,
+                OptimalRange = _range,
+                MaxRange = _range
+            };
         }
 
-        public int GetDamage(IAbilityContext context)
+        public IReadOnlyCollection<IAbilityEffect> GetEffects()
         {
-            int attributeBonus = context.SourceCombatBehaviour.References.StatsManager.GetAttribute(_damageAttribute).Value;
-            int skillBonus = context.SourceCombatBehaviour.References.StatsManager.GetSkill(_damageSkill).Value;
-            return _baseDamage * (attributeBonus + skillBonus);
+            return _spellEffects;
         }
 
         public string GetProjectileLaunchEventArg()

@@ -1,10 +1,10 @@
 namespace SunsetSystems.Abilities
 {
-    public interface IEffect
+    public interface IEffectOLD
     {
         AffectedHandler AffectedEffectHandler { get; }
 
-        bool ApplyEffect(IEffectHandler handler);
+        bool ApplyEffect(IEffectHandlerOLD handler);
         bool ValidateTarget(EffectHandlerSceneContext context);
     }
 

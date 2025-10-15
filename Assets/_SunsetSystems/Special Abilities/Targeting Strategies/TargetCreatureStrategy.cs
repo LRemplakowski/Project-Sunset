@@ -11,6 +11,7 @@ namespace SunsetSystems.Abilities.Targeting
 {
     public class TargetCreatureStrategy : IAbilityTargetingStrategy
     {
+        private const float TARGETING_RANGE_MARGIN = .5f;
         private static readonly Color TargetInRangeColor = Color.red;
         private static readonly Color TargetOutOfRangeColor = Color.gray;
 
@@ -226,7 +227,9 @@ namespace SunsetSystems.Abilities.Targeting
         {
             Vector3Int attackerPosition = attacker.GetContext().GridPosition;
             Vector3Int targetPosition = target.GetContext().GridPosition;
-            return Vector3Int.Distance(attackerPosition, targetPosition) <= abilityRange.MaxRange;
+            var gridDistance = Vector3Int.Distance(attackerPosition, targetPosition);
+            bool result = gridDistance <= abilityRange.MaxRange + TARGETING_RANGE_MARGIN;
+            return result;
         }
 
         private static bool CanShowTargetingLine(in RangeData abilityRange) => abilityRange.MaxRange > 1;

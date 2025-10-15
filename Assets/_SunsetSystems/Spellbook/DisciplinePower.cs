@@ -60,7 +60,7 @@ namespace SunsetSystems.Abilities
         public DisciplinePower UIData => this;
 
         [SerializeField]
-        private List<IEffect> effects = new();
+        private List<IEffectOLD> effects = new();
 
         private void OnValidate()
         {
@@ -70,7 +70,7 @@ namespace SunsetSystems.Abilities
                 _id = Guid.NewGuid().ToString();
         }
 
-        public IEnumerable<IEffect> GetEffects()
+        public IEnumerable<IEffectOLD> GetEffects()
         {
             return effects;
         }

@@ -2,7 +2,7 @@ namespace SunsetSystems.Abilities
 {
     public struct EffectHandlerSceneContext
     {
-        public EffectHandlerSceneContext(IEffectHandler handler)
+        public EffectHandlerSceneContext(IEffectHandlerOLD handler)
         {
 
         }

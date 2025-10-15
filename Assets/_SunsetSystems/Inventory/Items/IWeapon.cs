@@ -28,6 +28,13 @@ namespace SunsetSystems.Inventory
             OptimalRange = optimalRange;
             MaxRange = maxRange;
         }
+
+        public RangeData(float shortRange, float optimalRange, float maxRange)
+        {
+            ShortRange = shortRange;
+            OptimalRange = optimalRange;
+            MaxRange = maxRange;
+        }
     }
 
     public struct DamageData

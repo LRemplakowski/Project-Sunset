@@ -16,15 +16,15 @@ namespace SunsetSystems.Entities
     {
         [TabGroup("Behaviour")]
         [SerializeField]
+        private bool _immediateImpact;
+        [TabGroup("Behaviour")]
+        [SerializeField]
         private float _maxLifetime = 30f;
         [TabGroup("Behaviour")]
-        [SerializeField, MinValue("@this._trailFadeOutDuration")]
-        private float _lifetimeAfterImpact = 2f;
-        [TabGroup("Behaviour")]
-        [SerializeField]
+        [SerializeField, HideIf("@this._immediateImpact")]
         private bool _isHoming = false;
         [TabGroup("Behaviour")]
-        [SerializeField]
+        [SerializeField, HideIf("@this._immediateImpact")]
         private float _speed = 10f;
         [TabGroup("Behaviour"), Required]
         [SerializeField]
@@ -32,9 +32,6 @@ namespace SunsetSystems.Entities
         [TabGroup("VFX")]
         [SerializeField]
         private ParticleSystem _trailParticleSystem;
-        [TabGroup("VFX")]
-        [SerializeField]
-        private float _trailFadeOutDuration = 1f;
         [TabGroup("VFX")]
         [SerializeField]
         private ParticleSystem _impactParticleSystem;
@@ -54,20 +51,39 @@ namespace SunsetSystems.Entities
 
         private void FixedUpdate()
         {
-            if (_isHoming && !_impacted && _target != null)
+            if (VerifyShouldTrackTarget())
             {
                 Vector3 direction = (_target.ProjectileTarget.position - transform.position).normalized;
                 _rigidbody.linearVelocity = direction * _speed;
             }
         }
 
+        private bool VerifyShouldTrackTarget()
+        {
+            return !_immediateImpact && _isHoming && !_impacted && _target != null;
+        }
+
         [Button]
         public void Launch(ITargetable target, Action projectileImpactCallback = null)
         {
             _target = target;
-            _rigidbody.isKinematic = false;
-            _rigidbody.linearVelocity = (_target.ProjectileTarget.position - transform.position).normalized * _speed;
             _projectileImpactCallback = projectileImpactCallback;
+            if (_immediateImpact)
+            {
+                LaunchImmediateImpact();
+            }
+            else
+            {
+                LaunchAsProjectile();
+            }
+            StartCoroutine(SelfDestructAfterLifetime());
+        }
+
+        private void LaunchImmediateImpact()
+        {
+            _rigidbody.isKinematic = true;
+            _rigidbody.collisionDetectionMode = CollisionDetectionMode.ContinuousSpeculative;
+            _rigidbody.MovePosition(_target.ProjectileTarget.position);
             if (_launchSFX)
             {
                 _launchSFX.Play();
@@ -76,7 +92,21 @@ namespace SunsetSystems.Entities
             {
                 _travelSFX.Play();
             }
-            StartCoroutine(SelfDestructAfterLifetime());
+        }
+
+        private void LaunchAsProjectile()
+        {
+            _rigidbody.isKinematic = false;
+            _rigidbody.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
+            _rigidbody.linearVelocity = (_target.ProjectileTarget.position - transform.position).normalized * _speed;
+            if (_launchSFX)
+            {
+                _launchSFX.Play();
+            }
+            if (_travelSFX)
+            {
+                _travelSFX.Play();
+            }
         }
 
         private void OnTriggerEnter(Collider other)
@@ -99,6 +129,10 @@ namespace SunsetSystems.Entities
             if (_trailParticleSystem)
             {
                 _trailParticleSystem.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+            }
+            if (_travelSFX)
+            {
+                _travelSFX.Stop();
             }
             if (_impactSFX)
             {

@@ -137,10 +137,9 @@ namespace SunsetSystems.ActorResources
         {
             if (_currentResources.TryGetValue(ActorResource.ActionPoints, out var currentAP) && currentAP >= amount)
             {
-                var ap = _currentResources[ActorResource.ActionPoints];
-                ap -= amount;
-                _currentResources[ActorResource.ActionPoints] = ap;
-                OnActionPointUpdate?.Invoke(ap);
+                currentAP -= amount;
+                _currentResources[ActorResource.ActionPoints] = currentAP;
+                OnActionPointUpdate?.Invoke(currentAP);
                 return true;
             }
             return false;
@@ -212,12 +211,11 @@ namespace SunsetSystems.ActorResources
 
         public bool UseBloodPoints(int amount)
         {
-            if (_currentResources.TryGetValue(ActorResource.ActionPoints, out var currentBP) && currentBP >= amount)
+            if (_currentResources.TryGetValue(ActorResource.BloodPoints, out var currentBP) && currentBP >= amount)
             {
-                var bp = _currentResources[ActorResource.BloodPoints];
-                bp -= amount;
-                _currentResources[ActorResource.BloodPoints] = bp;
-                OnBloodPointUpdate?.Invoke(bp);
+                currentBP -= amount;
+                _currentResources[ActorResource.BloodPoints] = currentBP;
+                OnBloodPointUpdate?.Invoke(currentBP);
                 return true;
             }
             return false;

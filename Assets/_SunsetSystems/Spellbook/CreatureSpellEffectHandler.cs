@@ -2,9 +2,9 @@ using Sirenix.OdinInspector;
 
 namespace SunsetSystems.Abilities
 {
-    public class CreatureSpellEffectHandler : SerializedMonoBehaviour, IEffectHandler
+    public class CreatureSpellEffectHandler : SerializedMonoBehaviour, IEffectHandlerOLD
     {
-        public void HandleEffect(IEffect effect, ISpellbookManager caster)
+        public void HandleEffect(IEffectOLD effect, ISpellbookManager caster)
         {
             effect.ApplyEffect(this);
         }
