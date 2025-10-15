@@ -7,6 +7,7 @@ using UnityEngine;
 
 namespace SunsetSystems.Persistence.UI
 {
+
     public class SaveLoadScreenManager : SerializedMonoBehaviour
     {
         [SerializeField, AssetsOnly, Required]
@@ -18,11 +19,16 @@ namespace SunsetSystems.Persistence.UI
         [SerializeField]
         private GameObject _newSaveGameObject;
         [SerializeField]
+        private ISaveView _saveDetailsView;
+        [SerializeField]
+        private IConfirmationPopup _deleteSaveConfirmationPopup;
+        [SerializeField]
         private IConfirmationPopup<string> _newSaveConfirmationPopup;
 
-        private void OnEnable()
+        private void Start()
         {
-            
+            _saveDetailsView.Initialize(this);
+            ClearSelectedSave();
         }
 
         public void ShowScreen(bool includeNewSaveSlot = false)
@@ -47,19 +53,20 @@ namespace SunsetSystems.Persistence.UI
             saveMetaData = saveMetaData.OrderByDescending(save => save.SaveDate);
             foreach (var metaData in saveMetaData)
             {
-                SaveEntry saveEntry = Instantiate(_saveEntryPrefab, _saveEntriesParent);
-                saveEntry.Initialize(this, metaData);
+                ISaveView saveEntry = Instantiate(_saveEntryPrefab, _saveEntriesParent);
+                saveEntry.Initialize(this);
+                saveEntry.Show(metaData);
             }
         }
 
         public void SetSelectedSave(SaveMetaData saveMetaData)
         {
-            
+            _saveDetailsView.Show(saveMetaData);
         }
 
         public void ClearSelectedSave()
         {
-
+            _saveDetailsView.Show(default);
         }
 
         public void LoadSave(SaveMetaData saveMetaData)
@@ -73,9 +80,19 @@ namespace SunsetSystems.Persistence.UI
 
         public void DeleteSave(SaveMetaData saveMetaData)
         {
-            SaveLoadManager.DeleteSaveFile(saveMetaData.SaveID);
-            RefreshSaveScreen(_newSaveGameObject != null && _newSaveGameObject.activeInHierarchy);
-            StartCoroutine(DisableInteractionForSeconds(.5f));
+            _deleteSaveConfirmationPopup.Show(CreatePopupData(saveMetaData), () => ConfirmDeleteSave(saveMetaData));
+
+            void ConfirmDeleteSave(SaveMetaData meta)
+            {
+                SaveLoadManager.DeleteSaveFile(meta.SaveID);
+                RefreshSaveScreen(_newSaveGameObject != null && _newSaveGameObject.activeInHierarchy);
+                StartCoroutine(DisableInteractionForSeconds(.5f));
+            }
+
+            static ConfirmationViewData CreatePopupData(SaveMetaData saveMetaData)
+            {
+                return new ConfirmationViewData("Delete Save", $"Are you sure you want to delete the save file '{saveMetaData.SaveName}'?\nThis action cannot be undone.");
+            }
         }
 
         public void CreateNewSave(string saveName)
@@ -87,7 +104,12 @@ namespace SunsetSystems.Persistence.UI
 
         public void ShowNewSaveConfirmation()
         {
-            _newSaveConfirmationPopup.Show(new ConfirmationViewData("New Save", "Enter a name for your new save file."), CreateNewSave);
+            _newSaveConfirmationPopup.Show(CreatePopupData(), CreateNewSave);
+
+            static ConfirmationViewData CreatePopupData()
+            {
+                return new ConfirmationViewData("New Save", "Enter a name for your new save file.");
+            }
         }
 
         public void OnCancel()

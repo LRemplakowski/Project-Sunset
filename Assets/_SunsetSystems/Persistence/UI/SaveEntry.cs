@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace SunsetSystems.Persistence.UI
 {
-    public class SaveEntry : SerializedMonoBehaviour
+    public class SaveEntry : SerializedMonoBehaviour, ISaveView
     {
         [Title("References")]
         [SerializeField]
@@ -20,7 +20,12 @@ namespace SunsetSystems.Persistence.UI
         [ShowInInspector, ReadOnly]
         private SaveMetaData _saveMeta;
 
-        public void Initialize(SaveLoadScreenManager manager, SaveMetaData metaData)
+        public void Initialize(SaveLoadScreenManager manager)
+        {
+            _saveScreenManager = manager;
+        }
+
+        public void Show(SaveMetaData metaData)
         {
             _saveMeta = metaData;
             _saveName.text = metaData.SaveName;
@@ -29,7 +34,6 @@ namespace SunsetSystems.Persistence.UI
             var imgTexture = metaData.SaveScreenShot;
             if (imgTexture != null)
                 _saveImage.sprite = Sprite.Create(imgTexture, new(0, 0, imgTexture.width, imgTexture.height), new(.5f, .5f));
-            _saveScreenManager = manager;
         }
 
         private string GetFormattedSaveDate(string dateString)

@@ -12,6 +12,7 @@ namespace SunsetSystems.Persistence
         public string SaveName;
         public string SaveDate;
         public string ActiveQuestName;
+        public double PlayTime;
         public readonly string SaveFileName => $"{SaveID}.sav";
         public LevelLoadingData LevelLoadingData;
         public ScenePlaylistData PlaylistData;

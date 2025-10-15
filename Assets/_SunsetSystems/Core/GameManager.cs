@@ -35,6 +35,9 @@ namespace SunsetSystems.Game
             }
         }
 
+        [ShowInInspector, ReadOnly]
+        public double CurrentPlayTime { get; private set; }
+
         [Title("Events")]
         // Called when level is done loading but before injecting persistence data in ISaveable objects
         public UltEvent OnBeforePersistentDataLoad = new();
@@ -64,13 +67,10 @@ namespace SunsetSystems.Game
             _gameState = GetCurrentState();
         }
 
-//        private void Start()
-//        {
-//#if UNITY_EDITOR
-//            BeforePersistentDataLoad();
-//            GameLevelStart();
-//#endif
-//        }
+        private void Update()
+        {
+            CurrentPlayTime += Time.deltaTime;
+        }
 
         private void OnDestroy()
         {
@@ -83,6 +83,8 @@ namespace SunsetSystems.Game
 
         private void BeforePersistentDataCache()
         {
+            _stateRequests.Clear();
+            QueueStateUpdate();
             OnBeforePersistentDataCache?.InvokeSafe();
         }
 
@@ -119,6 +121,11 @@ namespace SunsetSystems.Game
             QueueStateUpdate();
         }
 
+        public void ResetPlayTime()
+        {
+            CurrentPlayTime = 0;
+        }
+
         private void QueueStateUpdate()
         {
             _gameState = GetCurrentState();
@@ -146,7 +153,8 @@ namespace SunsetSystems.Game
         {
             GameManagerSaveData saveData = new()
             {
-                CurrentState = CachedGameState
+                PlayTime = CurrentPlayTime,
+                StateRequests = _stateRequests.ToDictionary(req => req.SourceID, req => req.State),
             };
             return saveData;
         }
@@ -155,14 +163,17 @@ namespace SunsetSystems.Game
         {
             if (data is not GameManagerSaveData savedData)
                 return false;
-            _gameState = savedData.CurrentState;
+            CurrentPlayTime = savedData.PlayTime;
+            _stateRequests.AddRange(savedData.StateRequests.Select(kvp => new StateChangeRequest(kvp.Key, kvp.Value)));
             QueueStateUpdate();
             return true;
         }
 
-        private class GameManagerSaveData : SaveData
+        [Serializable]
+        public class GameManagerSaveData : SaveData
         {
-            public GameState CurrentState;
+            public double PlayTime;
+            public Dictionary<string, GameState> StateRequests = new();
         }
     }
 
@@ -181,6 +192,7 @@ namespace SunsetSystems.Game
         public string SourceID { get; }
         public GameState State { get; }
     }
+
 
     public class StateChangeRequest : IGameStateRequest
     {
