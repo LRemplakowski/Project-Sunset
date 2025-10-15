@@ -16,8 +16,8 @@ namespace SunsetSystems.UI.Utils
         {
             if (TryGetReturnValue(out T result))
             {
-                base.OnConfirm();
                 _confirmationDelegate?.Invoke(result);
+                base.OnConfirm();
             }
         }
 

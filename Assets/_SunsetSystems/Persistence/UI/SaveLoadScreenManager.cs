@@ -82,18 +82,19 @@ namespace SunsetSystems.Persistence.UI
         {
             _deleteSaveConfirmationPopup.Show(CreatePopupData(saveMetaData), () => ConfirmDeleteSave(saveMetaData));
 
-            void ConfirmDeleteSave(SaveMetaData meta)
-            {
-                SaveLoadManager.DeleteSaveFile(meta.SaveID);
-                RefreshSaveScreen(_newSaveGameObject != null && _newSaveGameObject.activeInHierarchy);
-                StartCoroutine(DisableInteractionForSeconds(.5f));
-            }
-
             static ConfirmationViewData CreatePopupData(SaveMetaData saveMetaData)
             {
                 return new ConfirmationViewData("Delete Save", $"Are you sure you want to delete the save file '{saveMetaData.SaveName}'?\nThis action cannot be undone.");
             }
         }
+
+        private void ConfirmDeleteSave(SaveMetaData meta)
+        {
+            SaveLoadManager.DeleteSaveFile(meta.SaveID);
+            RefreshSaveScreen(_newSaveGameObject != null && _newSaveGameObject.activeInHierarchy);
+            StartCoroutine(DisableInteractionForSeconds(.5f));
+        }
+
 
         public void CreateNewSave(string saveName)
         {
