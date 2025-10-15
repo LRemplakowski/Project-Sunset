@@ -87,7 +87,7 @@ namespace SunsetSystems.Abilities
             {
                 var damage = GetDamage(ability, context);
                 damageable.TakeDamage(damage);
-                string logMessage = LogUtility.LogMessageFromAttackDamge(context.SourceCombatBehaviour, context.TargetObject, damage);
+                string logMessage = LogUtility.LogMessageFromAbilityDamage(ability, context, damage);
                 DynamicLogManager.Instance.PostLogMessage(logMessage);
             }
             else

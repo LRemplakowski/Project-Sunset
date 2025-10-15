@@ -1,3 +1,4 @@
+using SunsetSystems.Abilities;
 using SunsetSystems.Combat;
 using SunsetSystems.Inventory.Data;
 using SunsetSystems.Localization;
@@ -7,6 +8,25 @@ namespace SunsetSystems.DynamicLog
 {
     public static class LogUtility
     {
+        public static string LogMessageFromAbilityDamage(IAbilityConfig ability, IAbilityContext context, int damage)
+        {
+            if (context.SourceCombatBehaviour is not INamedObject namedAttacker)
+            {
+                Debug.LogError($"Creating log message from ability damage failed! SourceCombatBehaviour {context.SourceCombatBehaviour} is not ICombatant!");
+                return "";
+            }
+            if (context.TargetObject is not INamedObject namedTarget)
+            {
+                Debug.LogError($"Creating log message from ability damage failed! TargetObject {context.TargetObject} is not ITargetable!");
+                return "";
+            }
+            AttackResult fakeResult = new(0, 0, 0, 0, 0, damage, 0, damage, true, false);
+            string casterName = namedAttacker.GetLocalizedName().Trim();
+            string targetName = namedTarget.GetLocalizedName().Trim();
+            string abilityName = ability.GetAbilityUIData().GetLocalizedName().Trim();
+            return $"{casterName} uses {abilityName} on {targetName} and deals {fakeResult.AdjustedDamage} damage!";
+        }
+
         public static string LogMessageFromAttackDamge(ICombatant attacker, ITargetable target, int damage)
         {
             AttackResult fakeResult = new(0, 0, 0, 0, 0, damage, 0, damage, true, false);

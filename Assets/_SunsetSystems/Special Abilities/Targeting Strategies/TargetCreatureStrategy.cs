@@ -123,7 +123,8 @@ namespace SunsetSystems.Abilities.Targeting
                     if (vfxAbility.PreCastVfxPrefab != null)
                     {
                         var body = context.GetSelf().References.Body;
-                        var loadingOp = Addressables.InstantiateAsync(vfxAbility.PreCastVfxPrefab, Vector3.zero, Quaternion.identity, body);
+                        var position = context.GetSelf().References.AnimationManager.GetBonePosition(HumanBodyBones.LeftHand);
+                        var loadingOp = Addressables.InstantiateAsync(vfxAbility.PreCastVfxPrefab, position, Quaternion.identity, body);
                         await loadingOp.Task;
                         _vfxInstance = loadingOp.Result;
                     }
