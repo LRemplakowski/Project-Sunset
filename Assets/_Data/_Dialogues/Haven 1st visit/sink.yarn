@@ -2,44 +2,34 @@
 tags:
 ---
 <<StartQuest "Q_0P_FIX_SINK">>
-{$journal}: I can't live like this anymore. #line:0a7a0fd 
 <<if $vomit == true>>
-    [nomarkup][You forgot the sink was clogged. Your reflection in the water, now tinted red, stares back at you. You look terrible - even more so than usual... Like you're terminally ill.][/nomarkup] #line:0f33850 
-    [nomarkup][The idea fills you with dread... How's that possible? Yesterday, you were fine! What's worse is, you can't afford a visit to the ER, either.][/nomarkup]
-    [nomarkup][You have no choice but to wait and hope that it's not as serious as it looks... You're not ready to die.][/nomarkup] #lastline #line:0afd30e
+    {$storyteller}: [nomarkup][The sink is filled with red chunky lumps of bile and meat.][/nomarkup] #line:0f33850
+    {$storyteller}: [nomarkup][Something is clearly gravely wrong, but not like you can afford a visit to the ER.][/nomarkup]
 <<else>>
-    [nomarkup][The sink is clogged. Again. You get what you pay for, and this shitty apartment just about cleans you out each time rent is due. It's a pile of crap, but at the very least, it's your pile of crap.][/nomarkup] #lastline #line:0f4b5be 
-<<endif>> 
+    {$storyteller}: [nomarkup][Stagnant dish water ponds in your clogged sink with traces of red. Not the first time. You get what you pay for.][/nomarkup] #line:0f4b5be
+    {$storyteller}: [nomarkup][Maybe by some stroke of luck you will be able to convince your landlord to fix it. Or you can try to do it yourself.][/nomarkup] #lastline
+<<endif>>
 -> [nomarkup][Repair it yourself.] (Resolve + Craft) [/nomarkup] #line:052c893
     <<CompleteObjective "Q_0P_FIX_SINK" "REPAIR_SINK">>
     <<GiveItem "IT_Q_BATHROOM_KEY">>  
     <<if Roll("Resolve","Craft") >= (5 - $strangeInsightModifier)>>
         <<set $police to true>>
-        [nomarkup][As you open up the U-Pipe, what is undeniably cold blood squirts out. The bloody bile looks and feels disgusting on your skin, but despite that fact, you find yourself transfixed by the fluid. You have to put in quite a bit of effort to refocus on unclogging the sink.][/nomarkup] #success #line:0c0b51c 
+        {$storyteller}: [nomarkup][As you open up the U-Pipe, red bile pours out.. You should be disgusted, but you find yourself transfixed by the fluid. You have to put in quite a bit of effort to refocus on the task at hand.][/nomarkup] #success #line:0c0b51c
     <<else>>
         <<set $coveredinblood to true>>
         <<set $police to true>>
-        [nomarkup][The pipe breaks off into your hands. What is undeniably backed-up blood sprays you soaked. The bloody bile looks and feels disgusting on your skin, but despite that fact, you find yourself transfixed by the fluid. You have to put in quite a bit of effort to refocus on unclogging the sink.][/nomarkup] #failure #line:04f3ed7 
+        {$storyteller}: [nomarkup][The pipe breaks at your touch. You are soaked in red bile. You should be disgusted, but you find yourself transfixed by the fluid. You get distracted from the sink and find yourself licking the sludge off your fingers. The taste is foul but satisfying.][/nomarkup] #failure #line:04f3ed7
     <<endif>>
-    [nomarkup][You find the source of the clog, the Bathroom Key and an... eyeball? Your eyes widen, horrified. How did that get in here? Whose eyeball is this? And most importantly, where are they?][/nomarkup] #line:05f01af 
-    {$pcName}: [nomarkup][What the fuck?][/nomarkup] #line:00217e7 
-    -> [nomarkup][Throw the eye quickly back into the sink in a panic.][/nomarkup] #line:06d7db9 
-        [nomarkup][A wet PLOP is audible as it splashes into the half-full, bloodstained sink. It bobs up and down, chaotically spinning until the pupil of its deep brown iris settles on you. Its gaze feels almost accusatory.][/nomarkup] #line:07e083e 
-        <<if $coveredinblood == true>>
-            {$pcName}: [nomarkup][I need a shower.][/nomarkup] #line:0065a93 
-        <<else>>
-            -> [nomarkup][Walk away.][/nomarkup] #line:0fcb8b5 
-        <<endif>>
-    -> [nomarkup][Eat the eye.][/nomarkup] #line:02a5771 
-        [nomarkup][You hesitantly fit the whole eyeball into your mouth. Chewing on it, a slimy, viscous fluid squirts in between your teeth. It's grotesque, but oddly satisfying.][/nomarkup] (-1 Hunger). #line:07e4fad 
-        [nomarkup][You stare at your now-empty, bloodstained palm. A crushing wave of negative emotion washes over you. You feel like bursting into tears.][/nomarkup] #line:0f719a9 
-        {$pcName}: [nomarkup][Is this... guilt? Grief? But why?][/nomarkup] #line:08618af 
-        {$pcName}: [nomarkup][What is happening to me?][/nomarkup] #line:062d4db 
-        {$pcName}: [nomarkup][...][/nomarkup] #line:0c7d3cb 
-        <<if $coveredinblood == true>>
-            {$pcName}: [nomarkup][I need a shower.][/nomarkup] #line:03485a3 
-        <<else>>
-            -> [nomarkup][Walk away.][/nomarkup] #line:0e1b8f6 
-        <<endif>>
+    {$storyteller}: [nomarkup][You found the source of the clog at least, the Bathroom Key and an... eyeball?][/nomarkup] #line:05f01af
+    {$pcName}: [nomarkup][What the fuck?][/nomarkup] #line:00217e7
+    {$storyteller}: [nomarkup][Its deep brown iris settles on you. Its gaze feels almost accusatory.][/nomarkup]
+    -> [nomarkup][Toss it.][/nomarkup] #line:06d7db9
+        {$storyteller}: [nomarkup][A wet PLOP.t splashes and bobs and down in the sink. ][/nomarkup] #line:07e083e
+        -> [nomarkup][Walk away.][/nomarkup] #line:0fcb8b5
+    -> [nomarkup][Eat it.][/nomarkup] #line:02a5771
+        {$storyteller}: [nomarkup][Instinct. You fit the whole eyeball into your mouth. A slimy, viscous fluid squirts in between your teeth. It's grotesque, but oddly satisfying.][/nomarkup] (-1 Hunger). #line:07e4fad
+        {$storyteller}: [nomarkup][You stare at your now-empty, bloodstained palm.][/nomarkup] #line:0f719a9
+        {$pcName}: [nomarkup][...][/nomarkup] #line:0c7d3cb
+        -> [nomarkup][Walk away.][/nomarkup]
 -> [nomarkup][Walk away.][/nomarkup]
 ===
