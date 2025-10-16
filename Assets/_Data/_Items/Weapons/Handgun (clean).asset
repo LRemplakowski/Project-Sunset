@@ -25,7 +25,7 @@ MonoBehaviour:
     SerializationNodes:
     - Name: _grantedAbilities
       Entry: 7
-      Data: 0|System.Collections.Generic.List`1[[SunsetSystems.Abilities.IAbility,
+      Data: 0|System.Collections.Generic.List`1[[SunsetSystems.Abilities.IAbilityConfig,
         SunsetSystems]], mscorlib
     - Name: 
       Entry: 12
@@ -42,16 +42,18 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  <Name>k__BackingField: Handgun
+  <Name>k__BackingField: Desiree's SIG
   <ReadableID>k__BackingField: IT_WPN_RN_HANDGUN_CLN
   <DatabaseID>k__BackingField: b5d357af-76df-4524-8162-2d955343d495
   <ItemCategory>k__BackingField: 1
   _itemCashValue: 0
-  <ItemDescription>k__BackingField: A handgun Chad bought you to keep you safe.
+  <ItemDescription>k__BackingField: A handgun Chad bought you to keep you safe. You've
+    manged to clean it so it shoots like brand new.
   <WorldSpaceRepresentation>k__BackingField:
     m_AssetGUID: 78f69bafe6bc02f4cba6dbf11d21aa77
     m_SubObjectName: 
     m_SubObjectType: 
+    m_SubObjectGUID: 
     m_EditorAssetChanged: 0
   <Icon>k__BackingField: {fileID: -102435599, guid: d82195e50c5192e4c85dd1dcb86520b9, type: 3}
   <Stackable>k__BackingField: 0
@@ -63,12 +65,13 @@ MonoBehaviour:
     m_AssetGUID: 0d35d473138b5b643879372dac63a29d
     m_SubObjectName: 
     m_SubObjectType: 
+    m_SubObjectGUID: 
     m_EditorAssetChanged: 0
-  <DamageModifier>k__BackingField: 4
+  <DamageModifier>k__BackingField: 5
   <DamageType>k__BackingField: 1
   <WeaponType>k__BackingField: 1
   <MaxAmmo>k__BackingField: 3
   <AssociatedAttribute>k__BackingField: 32
   <AssociatedSkill>k__BackingField: 16
-  optimalRange: 5
-  rangeFalloff: 3
+  optimalRange: 6
+  rangeFalloff: 4

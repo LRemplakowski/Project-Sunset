@@ -3,17 +3,20 @@ using Sirenix.OdinInspector;
 using SunsetSystems.Abilities;
 using SunsetSystems.Equipment;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace SunsetSystems.Combat.UI
 {
-    public interface IAbilityButtonTooltip
+    public interface IUITooltip
+    {
+        void Show();
+        void Hide();
+    }
+
+    public interface IAbilityButtonTooltip : IUITooltip
     {
 
         void Initialize(IAbilityConfig ability);
-        void Show();
-        void Hide();
     }
 
     public class CombatActionSelectorButton : SerializedMonoBehaviour, IAbilityButton

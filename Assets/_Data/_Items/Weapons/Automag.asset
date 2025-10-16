@@ -25,7 +25,7 @@ MonoBehaviour:
     SerializationNodes:
     - Name: _grantedAbilities
       Entry: 7
-      Data: 0|System.Collections.Generic.List`1[[SunsetSystems.Abilities.IAbility,
+      Data: 0|System.Collections.Generic.List`1[[SunsetSystems.Abilities.IAbilityConfig,
         SunsetSystems]], mscorlib
     - Name: 
       Entry: 12
@@ -52,6 +52,7 @@ MonoBehaviour:
     m_AssetGUID: 3da89f80b14b5094ea9759c7240e4bd0
     m_SubObjectName: 
     m_SubObjectType: 
+    m_SubObjectGUID: 
     m_EditorAssetChanged: 0
   <Icon>k__BackingField: {fileID: -102435599, guid: d82195e50c5192e4c85dd1dcb86520b9, type: 3}
   <Stackable>k__BackingField: 0
@@ -63,12 +64,13 @@ MonoBehaviour:
     m_AssetGUID: e5fe0fca6e2ab5046ad0857fb59787ef
     m_SubObjectName: 
     m_SubObjectType: 
+    m_SubObjectGUID: 
     m_EditorAssetChanged: 0
-  <DamageModifier>k__BackingField: 5
+  <DamageModifier>k__BackingField: 10
   <DamageType>k__BackingField: 1
   <WeaponType>k__BackingField: 1
-  <MaxAmmo>k__BackingField: 3
+  <MaxAmmo>k__BackingField: 1
   <AssociatedAttribute>k__BackingField: 32
   <AssociatedSkill>k__BackingField: 16
-  optimalRange: 5
-  rangeFalloff: 3
+  optimalRange: 6
+  rangeFalloff: 6
