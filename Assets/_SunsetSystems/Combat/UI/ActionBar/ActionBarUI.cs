@@ -21,6 +21,11 @@ namespace SunsetSystems.Combat.UI
 
         public static event Action<IAbilityConfig> OnAbilitySelected;
 
+        private void Start()
+        {
+            CleanupPreviousView();
+        }
+
         public void RefreshAvailableActions()
         {
             CleanupPreviousView();

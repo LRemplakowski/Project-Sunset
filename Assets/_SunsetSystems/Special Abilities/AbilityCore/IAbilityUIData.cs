@@ -7,6 +7,8 @@ namespace SunsetSystems.Abilities
         Sprite GetAbilityIcon(IconState iconState);
         string GetLocalizedName();
         string GetLocalizedDescription();
+        string GetAPCostText(IAbilityContext context);
+        string GetBloodCostText(IAbilityContext context);
 
         public enum IconState
         {

@@ -126,6 +126,19 @@ namespace SunsetSystems.Abilities
         public abstract IAbilityTargetingStrategy GetTargetingStrategy();
         protected abstract RangeData GetAbilityRangeData(IAbilityContext context);
 
+        protected virtual string GetAPCostText(IAbilityContext context)
+        {
+            if (GetActionPointCost(context) <= 0)
+                return string.Empty;
+            return $"AP: {GetActionPointCost(context)}";
+        }
+        protected virtual string GetBloodCostText(IAbilityContext context)
+        {
+            if (GetBloodPointCost(context) <= 0)
+                return string.Empty;
+            return $"Blood: {GetBloodPointCost(context)}";
+        }
+
         private readonly struct AbilityCost : IAbilityCostData
         {
             public int MovementCost { get; }
@@ -178,12 +191,14 @@ namespace SunsetSystems.Abilities
 
         private readonly struct AbilityUIData : IAbilityUIData
         {
+            private readonly AbstractAbilityConfig _ability;
             public readonly Dictionary<IAbilityUIData.IconState, Sprite> _icons;
             public readonly Func<string> _localizedName;
             public readonly Func<string> _localizedDescription;
 
             public AbilityUIData(AbstractAbilityConfig ability)
             {
+                _ability = ability;
                 _icons = new(ability._icons);
                 _localizedName = ability.GetLocalizedName;
                 _localizedDescription = ability.GetLocalizedDescription;
@@ -202,6 +217,16 @@ namespace SunsetSystems.Abilities
             public string GetLocalizedDescription()
             {
                 return _localizedDescription.Invoke();
+            }
+
+            public string GetAPCostText(IAbilityContext context)
+            {
+                return _ability.GetAPCostText(context);
+            }
+
+            public string GetBloodCostText(IAbilityContext context)
+            {
+                return _ability.GetBloodCostText(context);
             }
         }
     }

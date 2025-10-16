@@ -58,5 +58,12 @@ namespace SunsetSystems.Abilities
 
         public override IAbilityExecutionStrategy GetExecutionStrategy() => _executionStrategy ??= new MoveStrategy(this);
         public override IAbilityTargetingStrategy GetTargetingStrategy() => _targetingStrategy ??= new DoubleClickGridStrategy(this);
+
+        protected override string GetAPCostText(IAbilityContext context)
+        {
+            if (_baseMovementCost <= 0)
+                return string.Empty;
+            return $"AP: {_baseMovementCost} per 5 Tiles";
+        }
     }
 }

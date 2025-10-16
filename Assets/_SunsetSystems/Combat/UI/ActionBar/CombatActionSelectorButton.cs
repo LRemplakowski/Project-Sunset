@@ -3,10 +3,19 @@ using Sirenix.OdinInspector;
 using SunsetSystems.Abilities;
 using SunsetSystems.Equipment;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace SunsetSystems.Combat.UI
 {
+    public interface IAbilityButtonTooltip
+    {
+
+        void Initialize(IAbilityConfig ability);
+        void Show();
+        void Hide();
+    }
+
     public class CombatActionSelectorButton : SerializedMonoBehaviour, IAbilityButton
     {
         [Title("Config")]
@@ -20,6 +29,8 @@ namespace SunsetSystems.Combat.UI
         private CompositeButton _buttonSelected;
         [SerializeField]
         private AmmoDisplay _ammoCounter;
+        [SerializeField]
+        private IAbilityButtonTooltip _buttonTooltip;
         [Title("Runtime")]
         [ShowInInspector, ReadOnly]
         private IAbilityConfig _cachedAbility;
@@ -32,6 +43,11 @@ namespace SunsetSystems.Combat.UI
             ActionBarUI.OnAbilitySelected += OnAbilitySelected;
         }
 
+        private void OnDisable()
+        {
+            _buttonTooltip?.Hide();
+        }
+
         private void OnDestroy()
         {
             ActionBarUI.OnAbilitySelected -= OnAbilitySelected;
@@ -42,12 +58,23 @@ namespace SunsetSystems.Combat.UI
             _selectionDelegate?.Invoke(_cachedAbility);
         }
 
+        public void OnPointerEnter()
+        {
+            _buttonTooltip?.Show();
+        }
+
+        public void OnPointerExit()
+        {
+            _buttonTooltip?.Hide();
+        }
+
         public void Initialize(IAbilityConfig ability, IAbilitySource source, Action<IAbilityConfig> selectionDelegate)
         {
             CacheAbility(ability);
             _cachedAbilitySource = source;
             CacheSelectionDelegate(selectionDelegate);
             SetupButtonVisuals(ability);
+            _buttonTooltip.Initialize(ability);
         }
 
         public void SetUpdateAmmoCounterEnabled(bool enabled)
