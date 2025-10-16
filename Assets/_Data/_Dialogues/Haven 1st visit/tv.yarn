@@ -2,11 +2,18 @@
 tags:
 ---
 <<if GetIsCompanionInParty($kieran) == false>>
-    [nomarkup][You don't have time to watch TV.][/nomarkup] #line:0537fee
-    -> [nomarkup][Walk away.][/nomarkup] 
+       {$storyteller}: [nomarkup][The KLVN Channel 4 decals fizzle into frame, followed by a crisp synth news jingle. The image steadies on the city's premiere local broadcaster, Cheryl Amadi, composed behind the anchor desk with bright eyes and a bold red lip. Her voice is devoid of any accent and noted by her teleprompter cadence..][/nomarkup] #line:0537fee
+Cheryl Ahmadi (KLVN Channel 4): Good evening, Las Vegas. I'm Cheryl Amadi.
+Cheryl Ahmadi (KLVN Channel 4): Local police are addressing growing concern over a rise in missing persons reports centered around the Strip. While several cases have been filed in recent weeks, the Las Vegas Metropolitan Police Department says there's currently no clear pattern linking them.  
+Cheryl Ahmadi (KLVN Channel 4): The Clark County Sheriff's Department suggests that many of the individuals may have come to Las Vegas seeking a fresh start, choosing to cut ties with their previous lives rather than vanishing under suspicious circumstances.
+Cheryl Ahmadi (KLVN Channel 4): Still, some residents are voicing unease, citing unfamiliar faces and fringe groups active in the area. LVMPD advises the public to exercise common sense, remain in well-lit spaces, and avoid individuals of what they describe as 'of a Satanic and/or communist persuasion.'
+Cheryl Ahmadi (KLVN Channel 4): This is Cheryl Amadi, KLVN Channel 4. We'll be back after the break.
+    -> [nomarkup][Walk away.][/nomarkup]
 <<else>>
-    {$kieran}: ...Disappointing. This will not help your case, nor will it help mine. (-1 Kieran Influence) #line:0d04613
+    Cheryl Ahmadi (KLVN Channel 4): Coming up next, are mole people real and if so could be they be susceptible to communist influence.
+    {$kieran}: Now is not the time for distractions.(-1 Kieran Influence) #line:0d04613
+       {$storyteller}: Kieran unplugs the TV.
     <<ModifyInfluence -1 {$kieran}>>
-    -> [nomarkup][Walk away.][/nomarkup] 
+    -> [nomarkup][Walk away.][/nomarkup]
 <<endif>>
 ===

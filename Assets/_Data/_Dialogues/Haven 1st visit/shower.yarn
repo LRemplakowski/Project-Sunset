@@ -1,29 +1,30 @@
 ﻿title: Shower
 tags:
 ---
-[nomarkup][Ready to soak in the relaxing spray of hot water upon your skin, you open the shower curtain, only to find a one-eyed corpse in a pool of old blood half-staring back at you. Your stomach sinks. As if this night couldn't get any worse.][/nomarkup] #line:01e8681 
-{$pcName}: [nomarkup][No! Oh god, please, no!][/nomarkup] #lastline #line:0a9835b
+{$storyteller}: [nomarkup][Hoping for a nice shower, you open the curtain, only to find a one-eyed corpse staring back at you..][/nomarkup]
+{$pcName}: [nomarkup][...!][/nomarkup] #lastline #line:0a9835b
 <<jump ShowerInteractions>>
 ===
 title: ShowerInteractions
 --- 
--> [nomarkup][Find the cause of death.] (Intelligence + Medicine) [/nomarkup] <<if CustomVisited("CauseofDeath") == false>> #line:0ecd4b4 
+-> [nomarkup][Evaluate the cause of death.] (Intelligence + Medicine) [/nomarkup] <<if CustomVisited("CauseofDeath") == false>> #line:0ecd4b4 
     <<jump CauseofDeath>>
 -> [nomarkup][Fleece the body.] (Wits + Streetwise) [/nomarkup] <<if CustomVisited("FleeceBody") == false>> #line:03acf5e 
     <<jump FleeceBody>>
 -> [nomarkup][Walk away.][/nomarkup] #line:0684ec1 
     <<PlaySFX "door_knock_heavy">>
     <<CompleteObjective "Q_0P_MAIN_SATURDAY_START" "TAKE_SHOWER">>
-    [nomarkup][As you look at the body under shower you are surprised to hear persistent banging on your apartment doors... it's not a good time for guests.][/nomarkup]
+    BANG! BANG! BANG!
+    {$storyteller}: [nomarkup][Not a good time for guests.][/nomarkup]
     -> [nomarkup][End dialogue.][/nomarkup]
 ===
 title: CauseofDeath
 tags:
 ---
 <<if Roll("Intelligence","Medicine") >= 3>>
-    [nomarkup][In addition to his missing eye, he has several bruises and gashes across his face and neck. Due to his complexion, he most likely died of blood loss.][/nomarkup] #lastline #success #line:0a668a1 
+    {$storyteller}: [nomarkup][In addition to his missing eye, he has several bruises and gashes across his face and neck. Due to his complexion, he most likely died of blood loss.][/nomarkup] #lastline #success #line:0a668a1 
 <<else>>
-    [nomarkup][You're not sure why he died, specifically, but the missing eye and hole in his neck certainly didn't help.][/nomarkup] #lastline #failure #line:0eb211a 
+    {$storyteller}: [nomarkup][You're not sure why he died, specifically, but the missing eye and hole in his neck certainly didn't help.][/nomarkup] #lastline #failure #line:0eb211a 
 <<endif>>
 <<jump ShowerInteractions>>
 ===
@@ -31,12 +32,11 @@ title: FleeceBody
 tags:
 ---
 <<if Roll("Wits","Streetwise") >= 3>>
-    [nomarkup][You find his wallet containing some money and ID - his name is Diego Vazguez.][/nomarkup] #success #line:0d4bee2 
+    {$storyteller}: [nomarkup][You find his wallet containing some money and ID. His name is Diego Vazguez.][/nomarkup] #success #line:0d4bee2 
     <<AddMoney 50>>
 <<else>>
-    [nomarkup][You find his wallet and ID, but his name is partially smeared in blood. You can only make out his initials - DV.][/nomarkup] #failure #line:0544c71 
+    {$storyteller}: [You find his wallet and ID, but his name is partially smeared in blood. You can only make out his initials - DV.][/nomarkup] #failure #line:0544c71 
 <<endif>>
-[nomarkup][You find a black and white photo of him holding a baby.][/nomarkup] #line:0b217be 
-{$pcName}: [nomarkup][Poor bastard.][/nomarkup] #lastline #line:06db650 
+{$storyteller}: [nomarkup][You find a black and white photo of him holding a baby.][/nomarkup] #lastline #line:0b217be 
 <<jump ShowerInteractions>>
 ===

@@ -1,14 +1,14 @@
 ﻿title: BathroomSink
 tags:
 ---
-[nomarkup][The sink is dirty, but at least it isn't clogged like the one in the kitchen. The mirror from the medicine cabinet is clean though and reflects everything in the room. You included.][/nomarkup] #lastline
+{$storyteller}: [nomarkup][The sink is filthy. You can barely see your reflection in the mirror.][/nomarkup] #lastline
 <<jump BathroomSinkInteractions>>
 ===
 title: BathroomSinkInteractions
 ---
--> [nomarkup][Look in the mirror.][/nomarkup] <<if CustomVisited("MirrorLook") == false>> #line:0f02e54 
+-> [nomarkup][Clean the mirror.][/nomarkup] <<if CustomVisited("MirrorLook") == false>> #line:0f02e54 
     <<jump MirrorLook>>
--> [nomarkup][Look through the clutter near the sink.][/nomarkup] <<if CustomVisited("SinkClutter") == false>> #line:0361f9e 
+-> [nomarkup][Sort your clutter.][/nomarkup] <<if CustomVisited("SinkClutter") == false>> #line:0361f9e 
     <<jump SinkClutter>>
 -> [nomarkup][Search the medicine cabinet.][/nomarkup] <<if CustomVisited("MedCabinet") == false>> #line:078e486 
     <<jump MedCabinet>>
@@ -18,30 +18,27 @@ title: MirrorLook
 tags:
 ---
 <<if $coveredinblood == true>>
-    [nomarkup][Blood is smeared over your tired, sagging eyes. Your clothes are soaked red. Upon closer inspection, you see that your canines have grown into long fangs.][/nomarkup]
-    [nomarkup][This has to be a dream. A nightmare. How else does anything that is happening to you make sense?][/nomarkup] #line:02eb103 
+    {$storyteller}: [nomarkup][Blood is smeared over your tired, sagging eyes. Your clothes are soaked red. Upon closer inspection, you see that your canines have grown into long fangs.][/nomarkup]
+    {$storyteller}: [nomarkup][This can't be real.  A macabre nightmare.][/nomarkup]
 <<else>>
-    [nomarkup][The bags under your eyes are the most prominent they've ever been. Your skin seems strangely ashy and pale. Upon closer inspection, you see that your canines have grown into fangs.][/nomarkup] #line:04aa944 
+    {$storyteller}: [nomarkup][Your eyes are sunken. Cheeks gaunt. Your skin seems egregiously ashy and pallid. Upon closer inspection, you see that your canines have grown into fangs.][/nomarkup]
 <<endif>>
-{$pcName}: [nomarkup][What's happening to me?][/nomarkup] #line:0e5b410 
 <<if GetAttributeSkillPoolSize("Intelligence","Occult") >= 2>>
-    [nomarkup][This can't be, it just…can't. What you're beginning to think you are is… They're not real. This has to be the hangover messing with you.][/nomarkup] #lastline #line:0912bc6 
+    {$storyteller}: [nomarkup][This can't be, it just… can't. What you're beginning to think you are is… They're not real. This has to be the hangover messing with you.][/nomarkup] #lastline
 <<endif>>
 <<jump BathroomSinkInteractions>>
 ===
 title: SinkClutter
 tags:
 ---
-[nomarkup][Sifting through your cosmetic products, you find a Bobby Pin on the counter.][/nomarkup] #line:092338c 
+{$storyteller}: [nomarkup][Sifting through your cosmetic products, you find a Bobby Pin on the counter.][/nomarkup #line:092338c 
 <<GiveItem "IT_Q_BOBBY_PIN">>
-{$pcName}: [nomarkup][Wish I had this sooner.][/nomarkup] #lastline #line:026ddf4 
 <<jump BathroomSinkInteractions>>
 ===
 title: MedCabinet
 tags:
 ---
-[nomarkup][You open up the mirror and grab an off-brand painkiller. Without reading the label, you pop two pills.][/nomarkup] #line:068c180 
-{$pcName}: [nomarkup][What's the worst some more liver damage is gonna do?][/nomarkup] #lastline #line:0d1c5fe 
+{$storyteller}: [nomarkup][You open up the mirror and grab an off-brand painkiller. Without reading the label, you pop two pills.][/nomarkup] #line:068c180 
 <<CompleteObjective "Q_0P_MAIN_SATURDAY_START" "GRAB_MEDS_2">>
 <<jump BathroomSinkInteractions>>
 ===
