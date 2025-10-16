@@ -16,6 +16,8 @@ MonoBehaviour:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
+    - {fileID: 11400000, guid: 345380c614fc89e4f9d1c7ec7cfa0ca4, type: 2}
+    - {fileID: 11400000, guid: 7b68e67c5c4747f4d8e9a2b1ebfb925d, type: 2}
     - {fileID: 11400000, guid: 5c0d993924b9b604a95058740f78cdab, type: 2}
     - {fileID: 11400000, guid: 3bd5a85402e0239438bfa244fc3b575b, type: 2}
     SerializedBytesString: 
@@ -23,17 +25,36 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
-    - Name: <BaseLookWardrobeCollection>k__BackingField
+    - Name: _startingPowers
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[SunsetSystems.Abilities.IDisciplinePower,
+        SunsetSystems]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
       Entry: 10
       Data: 0
+    - Name: 
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: <BaseLookWardrobeCollection>k__BackingField
+      Entry: 10
+      Data: 2
     - Name: <EquipmentSlotsData>k__BackingField
       Entry: 7
-      Data: 0|System.Collections.Generic.Dictionary`2[[SunsetSystems.Equipment.EquipmentSlotID,
+      Data: 1|System.Collections.Generic.Dictionary`2[[SunsetSystems.Equipment.EquipmentSlotID,
         SunsetSystems],[SunsetSystems.Equipment.IEquipmentSlot, SunsetSystems]],
         mscorlib
     - Name: comparer
       Entry: 7
-      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[SunsetSystems.Equipment.EquipmentSlotID,
+      Data: 2|System.Collections.Generic.EnumEqualityComparer`1[[SunsetSystems.Equipment.EquipmentSlotID,
         SunsetSystems]], mscorlib
     - Name: 
       Entry: 12
@@ -55,13 +76,13 @@ MonoBehaviour:
       Data: 0
     - Name: $v
       Entry: 7
-      Data: 2|SunsetSystems.Equipment.EquipmentSlot, SunsetSystems
+      Data: 3|SunsetSystems.Equipment.EquipmentSlot, SunsetSystems
     - Name: <ID>k__BackingField
       Entry: 3
       Data: 0
     - Name: _equippedItem
       Entry: 10
-      Data: 1
+      Data: 3
     - Name: 
       Entry: 8
       Data: 
@@ -76,7 +97,7 @@ MonoBehaviour:
       Data: 1
     - Name: $v
       Entry: 7
-      Data: 3|SunsetSystems.Equipment.EquipmentSlot, SunsetSystems
+      Data: 4|SunsetSystems.Equipment.EquipmentSlot, SunsetSystems
     - Name: <ID>k__BackingField
       Entry: 3
       Data: 1
@@ -97,7 +118,7 @@ MonoBehaviour:
       Data: 2
     - Name: $v
       Entry: 7
-      Data: 4|SunsetSystems.Equipment.EquipmentSlot, SunsetSystems
+      Data: 5|SunsetSystems.Equipment.EquipmentSlot, SunsetSystems
     - Name: <ID>k__BackingField
       Entry: 3
       Data: 2
@@ -118,7 +139,7 @@ MonoBehaviour:
       Data: 3
     - Name: $v
       Entry: 7
-      Data: 5|SunsetSystems.Equipment.EquipmentSlot, SunsetSystems
+      Data: 6|SunsetSystems.Equipment.EquipmentSlot, SunsetSystems
     - Name: <ID>k__BackingField
       Entry: 3
       Data: 3
@@ -139,7 +160,7 @@ MonoBehaviour:
       Data: 4
     - Name: $v
       Entry: 7
-      Data: 6|SunsetSystems.Equipment.EquipmentSlot, SunsetSystems
+      Data: 7|SunsetSystems.Equipment.EquipmentSlot, SunsetSystems
     - Name: <ID>k__BackingField
       Entry: 3
       Data: 4
@@ -160,7 +181,7 @@ MonoBehaviour:
       Data: 5
     - Name: $v
       Entry: 7
-      Data: 7|SunsetSystems.Equipment.EquipmentSlot, SunsetSystems
+      Data: 8|SunsetSystems.Equipment.EquipmentSlot, SunsetSystems
     - Name: <ID>k__BackingField
       Entry: 3
       Data: 5

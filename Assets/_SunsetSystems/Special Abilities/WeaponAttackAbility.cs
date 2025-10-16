@@ -7,8 +7,9 @@ using UnityEngine;
 
 namespace SunsetSystems.Abilities
 {
+
     [CreateAssetMenu(fileName = "New Weapon Ability", menuName = "Sunset Abilities/Weapon Attack")]
-    public sealed class WeaponAttackAbility : AbstractAbilityConfig, IAmmoAbility
+    public class WeaponAttackAbility : AbstractAbilityConfig, IAmmoAbility
     {
         [SerializeField, BoxGroup("Ability Range"), MinValue(0)]
         private float _baseAbilityRange = 1;
@@ -67,12 +68,5 @@ namespace SunsetSystems.Abilities
 
         public override IAbilityExecutionStrategy GetExecutionStrategy() => _executionStrategy ??= new AttackStrategyFromWeaponAbility(this);
         public override IAbilityTargetingStrategy GetTargetingStrategy() => _targetingStrategy ??= new TargetCreatureStrategy(this);
-    }
-
-    public interface IAmmoAbility 
-    {
-        bool UsesAmmo { get; }
-        int GetAmmoPerUse();
-        int GetUsesPerExecution();
     }
 }

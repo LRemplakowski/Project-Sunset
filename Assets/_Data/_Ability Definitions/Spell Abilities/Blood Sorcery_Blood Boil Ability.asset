@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 05217a9a23e0e7c408686ab0b86c664e, type: 3}
-  m_Name: Blood Sorcery_Blood Bolt Ability
+  m_Name: Blood Sorcery_Blood Boil Ability
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
-    - {fileID: 1587691506, guid: 60e9fd4a5f570174f96b947975e33ae1, type: 3}
-    - {fileID: -652768003, guid: 60e9fd4a5f570174f96b947975e33ae1, type: 3}
-    - {fileID: 587366616, guid: 60e9fd4a5f570174f96b947975e33ae1, type: 3}
-    - {fileID: 459022579, guid: 60e9fd4a5f570174f96b947975e33ae1, type: 3}
+    - {fileID: -352146793, guid: 60e9fd4a5f570174f96b947975e33ae1, type: 3}
+    - {fileID: 528394808, guid: 60e9fd4a5f570174f96b947975e33ae1, type: 3}
+    - {fileID: 1225175452, guid: 60e9fd4a5f570174f96b947975e33ae1, type: 3}
+    - {fileID: 311638981, guid: 60e9fd4a5f570174f96b947975e33ae1, type: 3}
     - {fileID: 11400000, guid: 9ed1f2af930747a4989f54dea89481c0, type: 2}
-    - {fileID: 11400000, guid: bd252ea6f44d21b4c8865912dc10921a, type: 2}
+    - {fileID: 11400000, guid: 3723ad4693f199a4fa74c159eba16506, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -29,7 +29,7 @@ MonoBehaviour:
     SerializationNodes:
     - Name: _abilityID
       Entry: 2
-      Data: 1d2fea704f90499e8d77c779ecd23b4c
+      Data: 30dcbc60963e4d2d8b8ee83a9e8d01b0
     - Name: _icons
       Entry: 7
       Data: 0|System.Collections.Generic.Dictionary`2[[SunsetSystems.Abilities.IAbilityUIData+IconState,
@@ -136,16 +136,16 @@ MonoBehaviour:
       Entry: 8
       Data: 
   _fallbackName: Blood Bolt
-  _fallbackDescription: You hurl a projectile made of your own Vitae at a single
-    enemy.
+  _fallbackDescription: You heat up the blood in the veins of your enemies in an
+    area around selected target, dealing massive damage.
   _categoryMask: 10
   _validTargetsMask: 135
   _targetingDistanceType: 1
   _abilityTargetingType: 2
   _baseMovementCost: 0
   _baseAPCost: 1
-  _baseBloodCost: 1
-  _powerLevel: 3
+  _baseBloodCost: 3
+  _powerLevel: 5
   _range: 10
   _projectileLaunchEvent: SPELL_1H_PROJECTILE_LAUNCH
   _animationType: 5
@@ -157,7 +157,7 @@ MonoBehaviour:
     m_SubObjectGUID: 
     m_EditorAssetChanged: 1
   _executionVfxPrefab:
-    m_AssetGUID: ab135ae63c8c3e34bb4a6f79e29e24af
+    m_AssetGUID: 85234e2a782f43844a1d1f6298d08ab4
     m_SubObjectName: 
     m_SubObjectType: 
     m_SubObjectGUID: 

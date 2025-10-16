@@ -7,10 +7,10 @@ using SunsetSystems.DynamicLog;
 using SunsetSystems.Entities;
 using SunsetSystems.Inventory;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 namespace SunsetSystems.ActionSystem
 {
-
     public class WeaponAbilityAction : HostileAction
     {
         public static event Action<ICombatant, ITargetable, AttackResult> OnAttackResolved;
@@ -71,7 +71,8 @@ namespace SunsetSystems.ActionSystem
             _faceTargetSubaction.Begin();
             while (_faceTargetSubaction.EvaluateAction() is false)
                 yield return null;
-            Attacker.References.AnimationManager.PlayFireWeaponAnimation();
+            HandleAttackAnimation();
+            HandleAttackSFX();
             AttackResult result;
             for (int i = 0; i < _weaponAbility.GetUsesPerExecution(); i++)
             {
@@ -80,6 +81,12 @@ namespace SunsetSystems.ActionSystem
                 if (result.Successful)
                 {
                     _targetDamageable.TakeDamage(result.AdjustedDamage);
+                    if (_weaponAbility is IBloodAbility bloodSource && bloodSource.GetBloodGained() > 0)
+                    {
+                        int bloodGained = bloodSource.GetBloodGained();
+                        Attacker.References.BloodPointManager.GainBloodPoints(bloodGained);
+                        DynamicLogManager.Instance.PostLogMessage(LogUtility.LogMessageFromFeeding(Attacker, Target, bloodGained));
+                    }
                 }
                 OnAttackResolved?.Invoke(Attacker, Target, result);
                 yield return new WaitForSeconds(_weaponAbility.GetDelayBetweenAttacks());
@@ -97,6 +104,39 @@ namespace SunsetSystems.ActionSystem
                     $"Attack roll: {result.HitRoll} vs difficulty {result.AttackerHitChance - result.DefenderDodgeChance}\n" +
                     $"Damage dealt: {result.Damage} - {result.DamageReduction} = {result.AdjustedDamage}");
             }
+        }
+
+        private void HandleAttackAnimation()
+        {
+            if (_weaponAbility is IAnimatedAbility animatedAbility)
+            {
+                Attacker.References.AnimationManager.SetTrigger(animatedAbility.CastAnimationHash);
+            }
+            else
+            {
+                Attacker.References.AnimationManager.PlayFireWeaponAnimation();
+            }
+        }
+
+        private void HandleAttackSFX()
+        {
+            if (_weaponAbility is ISFXAbility sfxAbility)
+            {
+                if (sfxAbility.ExecutionSFX.RuntimeKeyIsValid())
+                {
+                    Attacker.CoroutineRunner.StartCoroutine(PlayAudio(sfxAbility.ExecutionSFX));
+                }
+            }
+        }
+
+        private IEnumerator PlayAudio(AssetReferenceAudioClip audio)
+        {
+            var loadingOP = Addressables.LoadAssetAsync<AudioClip>(audio);
+            yield return loadingOP;
+            var audioSource = Attacker.References.GetCachedComponent<AudioSource>();
+            audioSource.clip = loadingOP.Result;
+            audioSource.Play();
+            Addressables.Release(loadingOP);
         }
 
         private readonly struct AttackContextFromWeaponAbilityAction : IAttackContext
@@ -133,8 +173,12 @@ namespace SunsetSystems.ActionSystem
             public readonly int GetAttackDamage()
             {
                 int damage = 0;
-                float weaponDamageMod = _attackerContext.IsUsingPrimaryWeapon ? 1f : 0.6f;
-                damage += _attackerContext.SelectedWeaponDamageBonus;
+                bool isFeedingAttack = _ability is FeedAttackAbility;
+                float weaponDamageMod = _attackerContext.IsUsingPrimaryWeapon || isFeedingAttack ? 1f : 0.6f;
+                if (!isFeedingAttack)
+                {
+                    damage += _attackerContext.SelectedWeaponDamageBonus;
+                }
                 damage += _ability.GetDamageBonus();
                 damage += GetAttackType() switch
                 {

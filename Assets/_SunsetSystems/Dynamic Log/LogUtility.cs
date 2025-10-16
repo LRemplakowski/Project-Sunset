@@ -33,6 +33,23 @@ namespace SunsetSystems.DynamicLog
             return LogMessageFromAttackResult(attacker, target, in fakeResult);
         }
 
+        public static string LogMessageFromFeeding(ICombatant attacker, ITargetable target, int bloodGained)
+        {
+            if (attacker is not INamedObject namedAttacker)
+            {
+                Debug.LogError($"Creating log message from feeding failed! Attacker {attacker} is not INamedObject!");
+                return "";
+            }
+            if (target is not INamedObject namedTarget)
+            {
+                Debug.LogError($"Creating log message from feeding failed! Target {target} is not INamedObject!");
+                return "";
+            }
+            var attackerName = namedAttacker.GetLocalizedName();
+            var targetName = namedTarget.GetLocalizedName();
+            return $"{attackerName.Trim()} feeds on {targetName.Trim()} and gains {bloodGained} blood!";
+        }
+
         public static string LogMessageFromAttackResult(ICombatant attacker, ITargetable target, in AttackResult attack)
         {
             if (attacker is not INamedObject namedAttacker)

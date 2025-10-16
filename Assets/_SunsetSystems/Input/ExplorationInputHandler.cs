@@ -33,7 +33,7 @@ namespace SunsetSystems.Input
             if (context.performed is false)
                 return;
             mousePosition = context.ReadValue<Vector2>();
-            if (InputHelper.IsRaycastHittingUIObject(mousePosition, out var results) && results.Select(r => r.gameObject.GetComponentInParent<CanvasGroup>()).Any(cg => cg.blocksRaycasts))
+            if (IsOverUI())
                 return;
 
             Ray ray = Camera.main.ScreenPointToRay(mousePosition);
@@ -62,6 +62,12 @@ namespace SunsetSystems.Input
                     interactable.IsHoveredOver = true;
                 }
             }
+        }
+
+        private bool IsOverUI()
+        {
+            return InputHelper.IsRaycastHittingUIObject(mousePosition, out var results) && results.Select(r => r.gameObject.GetComponentInParent<CanvasGroup>())
+                                                                                                  .Any(cg => cg == null || cg.blocksRaycasts);
         }
 
         public void HandlePrimaryAction(InputAction.CallbackContext context)

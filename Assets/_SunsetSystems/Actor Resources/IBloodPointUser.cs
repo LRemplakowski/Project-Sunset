@@ -11,6 +11,7 @@ namespace SunsetSystems.ActorResources
 
         bool GetCanUseBloodPoints();
         bool UseBloodPoints(int amount);
+        void GainBloodPoints(int amount);
 
         void AddBloodPointUseBlocker(string sourceID);
         void RemoveBloodPointUseBlocker(string sourceID);

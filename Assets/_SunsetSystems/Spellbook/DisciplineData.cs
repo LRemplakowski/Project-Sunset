@@ -15,17 +15,17 @@ namespace SunsetSystems.Abilities
         [SerializeField]
         private int _currentLevel;
         [OdinSerialize]
-        private HashSet<IDisciplinePower> _knownPowers = new();
+        private Dictionary<string, IDisciplinePower> _knownPowers = new();
 
         public IDisciplineInfo UIData => this;
         public IDiscipline Discipline => _discipline;
         public int CurrentLevel => _currentLevel;
-        public IReadOnlyCollection<IDisciplinePower> KnownPowers => _knownPowers;
+        public IReadOnlyCollection<IDisciplinePower> KnownPowers => _knownPowers.Values;
 
         public int GetValue() => _currentLevel;
 
         public void SetDisciplineAsset(IDiscipline discipline) => _discipline = discipline;
         public void SetCurrentLevel(int level) => _currentLevel = level;
-        public bool TryAddPower(IDisciplinePower power) => _knownPowers.Add(power);
+        public bool TryAddPower(IDisciplinePower power) => _knownPowers.TryAdd(power.ID, power);
     }
 }

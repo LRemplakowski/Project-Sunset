@@ -126,7 +126,8 @@ namespace SunsetSystems.Entities
 
         private void Impact()
         {
-            _rigidbody.linearVelocity = Vector3.zero;
+            if (!_rigidbody.isKinematic)
+                _rigidbody.linearVelocity = Vector3.zero;
             if (_impactParticleSystem)
             {
                 _impactParticleSystem.transform.position = _target.ProjectileTarget.position;

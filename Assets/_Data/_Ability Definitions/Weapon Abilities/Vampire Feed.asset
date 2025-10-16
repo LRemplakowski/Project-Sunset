@@ -9,19 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05217a9a23e0e7c408686ab0b86c664e, type: 3}
-  m_Name: Blood Sorcery_Blood Bolt Ability
+  m_Script: {fileID: 11500000, guid: 18f1b635a553a6347a893dd29c342dd1, type: 3}
+  m_Name: Vampire Feed
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
-    - {fileID: 1587691506, guid: 60e9fd4a5f570174f96b947975e33ae1, type: 3}
-    - {fileID: -652768003, guid: 60e9fd4a5f570174f96b947975e33ae1, type: 3}
-    - {fileID: 587366616, guid: 60e9fd4a5f570174f96b947975e33ae1, type: 3}
-    - {fileID: 459022579, guid: 60e9fd4a5f570174f96b947975e33ae1, type: 3}
-    - {fileID: 11400000, guid: 9ed1f2af930747a4989f54dea89481c0, type: 2}
-    - {fileID: 11400000, guid: bd252ea6f44d21b4c8865912dc10921a, type: 2}
+    - {fileID: -1016113475, guid: 0fada1ce6e2b7f9499463fbd4f780580, type: 3}
+    - {fileID: -617727854, guid: 0fada1ce6e2b7f9499463fbd4f780580, type: 3}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -29,7 +25,7 @@ MonoBehaviour:
     SerializationNodes:
     - Name: _abilityID
       Entry: 2
-      Data: 1d2fea704f90499e8d77c779ecd23b4c
+      Data: 0ad9c2ca18064ecb895171567af20de4
     - Name: _icons
       Entry: 7
       Data: 0|System.Collections.Generic.Dictionary`2[[SunsetSystems.Abilities.IAbilityUIData+IconState,
@@ -70,7 +66,7 @@ MonoBehaviour:
       Data: 1
     - Name: $v
       Entry: 10
-      Data: 1
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -82,7 +78,7 @@ MonoBehaviour:
       Data: 2
     - Name: $v
       Entry: 10
-      Data: 2
+      Data: 0
     - Name: 
       Entry: 8
       Data: 
@@ -106,62 +102,36 @@ MonoBehaviour:
       Data: 4
     - Name: $v
       Entry: 10
-      Data: 3
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: _discipline
-      Entry: 10
-      Data: 4
-    - Name: _spellEffects
-      Entry: 7
-      Data: 2|System.Collections.Generic.List`1[[SunsetSystems.Abilities.IAbilityEffect,
-        SunsetSystems]], mscorlib
-    - Name: 
-      Entry: 12
       Data: 1
     - Name: 
-      Entry: 10
-      Data: 5
+      Entry: 8
+      Data: 
     - Name: 
       Entry: 13
       Data: 
     - Name: 
       Entry: 8
       Data: 
-  _fallbackName: Blood Bolt
-  _fallbackDescription: You hurl a projectile made of your own Vitae at a single
-    enemy.
-  _categoryMask: 10
-  _validTargetsMask: 135
-  _targetingDistanceType: 1
+  _fallbackName: Feed
+  _fallbackDescription: Gain 2 Blood after successful attack.
+  _categoryMask: 2
+  _validTargetsMask: 131
+  _targetingDistanceType: 0
   _abilityTargetingType: 2
   _baseMovementCost: 0
   _baseAPCost: 1
-  _baseBloodCost: 1
-  _powerLevel: 3
-  _range: 10
-  _projectileLaunchEvent: SPELL_1H_PROJECTILE_LAUNCH
-  _animationType: 5
-  _castAnimationTrigger: CastSpell1h
-  _preCastVfxPrefab:
-    m_AssetGUID: c2fd6eadf902be541a7b8115dd3cfb4e
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_SubObjectGUID: 
-    m_EditorAssetChanged: 1
-  _executionVfxPrefab:
-    m_AssetGUID: ab135ae63c8c3e34bb4a6f79e29e24af
-    m_SubObjectName: 
-    m_SubObjectType: 
-    m_SubObjectGUID: 
-    m_EditorAssetChanged: 1
+  _baseBloodCost: 0
+  _baseAbilityRange: 1
+  _rangeFalloff: 0
+  _numberOfAttacks: 1
+  _delayBetweenAttacks: 0.2
+  _ammoPerAttack: 0
+  _damageBonus: 10
+  _attackType: 0
+  _damageType: 3
+  _bloodGainedOnSuccess: 2
+  _weaponAnimationTypeOverride: 0
+  _castAnimationTrigger: Feed
   _preparationSFX:
     m_AssetGUID: 
     m_SubObjectName: 
@@ -169,8 +139,8 @@ MonoBehaviour:
     m_SubObjectGUID: 
     m_EditorAssetChanged: 0
   _executionSFX:
-    m_AssetGUID: 
+    m_AssetGUID: a8ea553315750a442ab12911a7070705
     m_SubObjectName: 
     m_SubObjectType: 
     m_SubObjectGUID: 
-    m_EditorAssetChanged: 0
+    m_EditorAssetChanged: 1

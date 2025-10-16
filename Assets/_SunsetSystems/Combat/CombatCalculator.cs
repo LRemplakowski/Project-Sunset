@@ -83,7 +83,7 @@ namespace SunsetSystems.Combat
             double attributeModifier = attackContext.GetAttributeValue(AttackParticipant.Attacker, AttributeType.Wits);
             double result = 0d;
             int ceiledGridDistance = attackContext.GetGridDistanceBetweenParticipants();
-            if (attackContext.GetAttackRangeData().ShortRange <= ceiledGridDistance)
+            if (attackContext.GetAttackRangeData().ShortRange >= ceiledGridDistance)
             {
                 result -= SHORT_RANGE_HIT_PENALTY;
             }

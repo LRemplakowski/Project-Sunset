@@ -50,7 +50,7 @@ namespace SunsetSystems.ActionSystem
                 Abort();
                 yield break;
             }
-
+            //Owner.References.NavigationManager.FaceDirectionAfterMovementFinished(Owner.Transform.position + lookDirection);
             float dotProduct = Vector3.Dot(ownerTransform.forward, lookDirection);
             Quaternion lookRotation = Quaternion.LookRotation(lookDirection);
             while (dotProduct < 1f - MARGIN_OF_ERROR)

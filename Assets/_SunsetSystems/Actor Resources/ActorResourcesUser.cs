@@ -96,7 +96,7 @@ namespace SunsetSystems.ActorResources
             return resourceType switch
             {
                 ActorResource.ActionPoints => 2,
-                ActorResource.BloodPoints => 5,
+                ActorResource.BloodPoints => 6,
                 _ => 0,
             };
         }
@@ -219,6 +219,17 @@ namespace SunsetSystems.ActorResources
                 return true;
             }
             return false;
+        }
+
+        public void GainBloodPoints(int amount)
+        {
+            if (_currentResources.TryGetValue(ActorResource.BloodPoints, out var currentBP))
+            {
+                currentBP += amount;
+                currentBP = Mathf.Min(currentBP, GetMaxBloodPoints());
+                _currentResources[ActorResource.BloodPoints] = currentBP;
+                OnBloodPointUpdate?.Invoke(currentBP);
+            }
         }
 
         public void AddBloodPointUseBlocker(string sourceID)
