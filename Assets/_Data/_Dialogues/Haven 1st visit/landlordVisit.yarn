@@ -4,42 +4,39 @@ tags:
 KNOCK. KNOCK. KNOCK. #line:015551b 
 <<BringLandlordForVisit>>
 <<if $bathroomdoordestroyed == true>>
-    {$landlord}: The fuck did you do? Was there a reason you felt the need to damage my property? Jesus... I'm billing you for the damages, and I expect the payment to be on time. #line:0d98a67 
-    [nomarkup][It's disappointing that the first thing that your landlord notices is the state of the apartment, rather than the fact that you look inches from death. Kevin certainly isn't the kind of person you would expect basic human decency from, though.][/nomarkup] #line:0fe85a1 
+    {$landlord}: The fuck happened in here? I'm billing you for these damages, and I expect the payment to be on time. #line:0d98a67  
 <<else>>
     <<if $vomit == true>>
-        {$landlord}: [nomarkup][Kevin covers his nose.][/nomarkup] Gah, you look and smell like shit. I hope you're not contagious. #line:0838c3a 
+        {$storyteller}: [nomarkup][Kevin covers his nose.][/nomarkup] #line:0838c3a
+        {$landlord}: Gah, you look and smell like shit. I hope you're not contagious 
     <<else>>
-        {$landlord}: [nomarkup][Kevin covers his nose.][/nomarkup] Gah, what the hell is that smell? #line:0320b76 
-        {$pcName}: What do you mean? #line:0f76088 
-        {$landlord}: You don't smell that? Smells like... nevermind. Let me take a look at that sink. #line:0d4e2b8 
+        {$storyteller}: [nomarkup][Kevin covers his nose.][/nomarkup]
+        {$landlord}: Gah, what the hell is that smell?
     <<endif>>
 <<endif>>
 <<MoveLandlordAndPCToSinkPositions>>
-[nomarkup][As he bends over to examine the pipes under the sink, you find yourself staring at Kevin's exposed neck. You swear you can see his pulse through the spider web of veins under his skin.][/nomarkup] #line:095fa15 
-[nomarkup][He looks appetizing - but not in a sexual way. You don't feel aroused. Anxious, more like, but not nervous. Instead, it's an anticipatory feeling - like your emotions know something that you do not have the foresight to predict.][/nomarkup]
-[nomarkup][Your stomach aches, the hunger gnawing at your insides without mercy. You lean closer. Why are you doing this?][/nomarkup] #line:0ca60a3 
-{$beast}: I'm so hungry... #line:08d7f85 
+{$storyteller}: [nomarkup][As he bends over to examine the pipes under the sink, you find yourself staring at his exposed neck, his pulse][/nomarkup] #line:095fa15 
+{$beast}: [nomarkup][Your stomach aches, the hunger gnawing at your insides without mercy. You lean closer.][/nomarkup] #line:0ca60a3 
 {$landlord}: Here we go. #line:0cee7cc 
-[nomarkup][Kevin leverages his wrench and loosens a bolt. As the pipe opens, blood sprays him, leaving him soaked. The Bathroom Key and an eyeball fall onto Kevin's chest. He jumps up - eyes wide in horror.][/nomarkup] #line:0642da2 
-{$landlord}: UGH! #line:002b9a3 
-{$beast}: FEED! #line:006b587 
-[nomarkup][Kevin brings his attention to you, clearly in shock. The blood soaking his body only makes him more appetizing - the iron smell like a siren's call to your senses. You catch yourself licking your lips.][/nomarkup] #line:008e18d 
-{$landlord}: Stay away! Monster! #line:08e957e 
-[nomarkup][Kevin starts to rush towards the door.][/nomarkup] #line:09649c3 
-{$beast}: YOU CAN'T RUN FROM ME! #line:0cb26a5 
-[nomarkup][You pounce on Kevin as a matter of instinct, sinking your teeth into his neck. Wet, warm blood flows down your throat. This is what you've been craving.][/nomarkup] Hunger 0. #line:0de994d 
+{$storyteller}: [nomarkup][Kevin leverages his wrench and loosens a bolt. As the pipe opens, red bile sprays him, leaving him soaked. The Bathroom Key and an eyeball fall onto Kevin's chest.][/nomarkup] #line:0642da2 
+{$landlord}: UGH! #line:002b9a3  
+{$storyteller}: [nomarkup][He jumps up - eyes wide in horror.][/nomarkup]
+{$storyteller}: [nomarkup][The iron smell coming off of him wafts like a siren's call. You catch yourself licking your lips.][/nomarkup]
+{$landlord}: Stay away! #line:08e957e 
+{$storyteller}: [nomarkup][Kevin starts to rush towards the door.][/nomarkup] #line:09649c3 
+{$beast}: HE CAN'T RUN! #line:0cb26a5 
+{$beast}: [nomarkup][You pounce on Kevin as a matter of instinct, sinking your teeth into his neck. Wet, warm blood flows down your throat. This is what you've been craving.][/nomarkup] Hunger 0. #line:0de994d 
 <<set $kevinmurdered to true>>
 <<set $police to true>>
-[nomarkup][When you retract your bite, his limp body falls to the ground with a sickening thud. The shock of what you've just done hits you all at once.][/nomarkup] #line:0e5ffa4
+{$storyteller}: [nomarkup][When you retract your bite, his limp body falls to the ground with a sickening thud. The shock of what you've just done hits you all at once.][/nomarkup] #line:0e5ffa4
 <<KillKevin>> 
-{$pcName}: [nomarkup][Holy fuck! What did I-?][/nomarkup] #line:0c6778e 
 -> [nomarkup][Try to save him.] (Intelligence + Medicine)[/nomarkup] #line:036197c 
     <<if Roll("Intelligence","Medicine") >= 3>>
-        (Success) [nomarkup][You cover up the wound with a dish rag and administer CPR. Kevin's eyes flutter open. Through exasperated breaths and gurgles you hear him struggle to speak.][/nomarkup] #line:0e0c834 
-        {$landlord}: [nomarkup][He's gurgling, choking on his own blood.][/nomarkup] You... bitch! [nomarkup][His eyes go blank, the light fading from them as he breathes his last breath. At least he died how he lived.][/nomarkup] #line:0b2af3c 
+        {$storyteller}: [nomarkup][You cover up the wound with a dish rag and administer CPR. Kevin's eyes flutter open. Through exasperated breaths and gurgles, you hear him struggle to speak.][/nomarkup] #success
+        {$landlord}: You... bitch! 
+        {$storyteller}: [nomarkup][His eyes go blank, the light fading from them as he breathes his last breath.][/nomarkup] #line:0b2af3c 
     <<else>>
-        (Failure) [nomarkup][You try to administer CPR, but hear the crack of his ribs snapping with the first press of your palms. Shit. What little of his blood remains pools on the floor.][/nomarkup] #line:046a4f5 
+        {$storyteller}: [nomarkup][You try to administer CPR, but hear the crack of his ribs snapping with the first press of your palms. Shit. What little of his blood remains pools on the floor.][/nomarkup] #failure #line:046a4f5 
     <<endif>>
     <<jump KevinMurderAftermath>>
 -> [nomarkup][Leave him to die.][/nomarkup]
@@ -48,10 +45,10 @@ KNOCK. KNOCK. KNOCK. #line:015551b
 title: KevinMurderAftermath
 tags:
 ---
-[nomarkup][He may have been a terrible, abusive, parasitic excuse for a human being, but Kevin didn't deserve to die like this.][/nomarkup]
-[nomarkup][Looking at his mangled corpse, a wave of guilt followed closely by panic washes over you, and you feel yourself begin to drown in it... Breathing doesn't come easy as you struggle to reckon with what has just happened - what <i>you</i> did.][/nomarkup] #lastline #line:0c4827c 
+{$storyteller}: [nomarkup][Looking at his mangled corpse, a wave of guilt followed closely by panic washes over you, and you feel yourself begin to drown in it... Breathing doesn't come easy as you struggle to reckon with what has just happened - what <i>you</i> did.][/nomarkup] #lastline #line:0c4827c 
 <<CompleteObjective "Q_0P_FIX_SINK" "EAT_LANDLORD">>
 -> [nomarkup][Pick up the Bathroom Key.][/nomarkup] #line:05c3efb 
-    [nomarkup][You grab the Bathroom Key up off the floor next to Kevin's corpse.][/nomarkup] #line:0d2efa8 
+    {$storyteller}: [nomarkup][You grab the Bathroom Key up off the floor next to Kevin's corpse.][/nomarkup] #line:0d2efa8
     <<GiveItem "IT_Q_BATHROOM_KEY">>
+    -> [nomarkup][Go away.][/nomarkup] 
 ===
