@@ -2,18 +2,21 @@
 tags:
 ---
 <<if GetIsCompanionInParty($kieran) == false>>
-    [nomarkup][Old takeout boxes and receipts fill the bin.][/nomarkup] #line:08449de
-    -> [nomarkup][Walk away.][/nomarkup] 
+    {$storyteller}: [nomarkup][Old takeout boxes and receipts fill the bin.][/nomarkup] #line:08449de
+    -> [nomarkup][Walk away.][/nomarkup]
 <<else>>
-    [nomarkup][Sifting through your trash, you find a bar tab receipt for the Embassy, a nightclub on the Las Vegas Strip. By the looks of it, you had a fun night.][/nomarkup] #line:04fc883 
-    {$pcName}: I found our next spot. Club Embassy off the Strip. #line:07e9b7e 
-    {$kieran}: [nomarkup][He frowns; you can tell he is surprised.][/nomarkup] Curious... My Sire owns the place, in a sense. #line:02358e5 
-    {$pcName}: "...In a sense?" #line:0b89fa3 
+    {$storyteller}: [nomarkup][Sifting through your trash, you find a bar tab receipt for The Embassy, a nightclub on the Las Vegas Strip. By the looks of it, you racked up quite the tab.][/nomarkup] #line:04fc883
+    {$storyteller}: [nomarkup][Kieran's eyebrows arch at the sight. An agitated frown. A crack in his composed mask.][/nomarkup] 
+    {$kieran}: Is that…? 
+    {$storyteller}: [nomarkup][He grabs the receipt out of your hands and inspects it thoroughly.][/nomarkup]
+    {$kieran}: Curious.  
+    {$kieran}: This city is getting too small for my liking. It seems, you were at The Embassy last night. That is the domain of my own Sire, which for you I would not take as good news. She is… 
+    {$kieran}: A character.
+    {$kieran}: Regardless, we should head there promptly. She may have the answers we are looking for. 
     <<if $coveredinblood == true>>
-        {$kieran}: Pardon me, but we wouldn't be allowed within sight of the place, with how you appear. Please, clean yourself up before we depart. I would recommend a quick shower, but... #line:083e315
+        {$kieran}: Pardon me, but please clean yourself up before we depart, or we will not be allowed within sight of the place. I would recommend a quick shower, but... #lastline #line:083e315
     <<endif>>
     <<CompleteObjective "Q_0P_MAIN_SATURDAY_START" "FIGURE_OUT_WHERE_YOU_WERE">>
-    {$kieran}: I'll share what I know on the way. We need to hurry and investigate; tonight is the first and only chance you will be afforded to prove yourself or die trying. Do not fail, please. You hold more than just your own fate within your hands...
     -> [nomarkup][Walk away.][/nomarkup]
 <<endif>>
 ===
