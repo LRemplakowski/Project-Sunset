@@ -35,6 +35,9 @@ namespace SunsetSystems.Entities
         [TabGroup("VFX")]
         [SerializeField]
         private ParticleSystem _impactParticleSystem;
+        [TabGroup("VFX")]
+        [SerializeField]
+        private bool _playImpactAtBaseTransform = false;
         [TabGroup("SFX")]
         [SerializeField]
         private AudioSource _launchSFX;
@@ -130,7 +133,8 @@ namespace SunsetSystems.Entities
                 _rigidbody.linearVelocity = Vector3.zero;
             if (_impactParticleSystem)
             {
-                _impactParticleSystem.transform.position = _target.ProjectileTarget.position;
+                Transform impactTransform = _playImpactAtBaseTransform ? _target.GetContext().Transform : _target.ProjectileTarget;
+                _impactParticleSystem.transform.position = impactTransform.position;
                 _impactParticleSystem.Play();
             }
             if (_trailParticleSystem)
