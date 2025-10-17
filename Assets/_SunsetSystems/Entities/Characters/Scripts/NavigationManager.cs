@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Cysharp.Threading.Tasks;
+using DG.Tweening.Plugins;
 using Pathfinding;
 using Sirenix.OdinInspector;
 using SunsetSystems.ActionSystem;
@@ -119,14 +121,27 @@ namespace SunsetSystems.Entities.Characters.Navigation
         [Button]
         public bool CalculatePath(Vector3 targetPosition, out ABPath path)
         {
-            path = ABPath.Construct(Position, targetPosition, null);
+            path = StartSinglePath(targetPosition);
+            path.BlockUntilCalculated(); // synchronous calculation
+            return path.CompleteState == PathCompleteState.Complete;
+        }
+
+        public async UniTask<ABPath> CalculatePathAsync(Vector3 targetPosition)
+        {
+            ABPath path = StartSinglePath(targetPosition);
+            await path.WaitForPath();
+            return path;
+        }
+
+        private ABPath StartSinglePath(Vector3 targetPosition)
+        {
+            ABPath path = ABPath.Construct(Position, targetPosition, null);
             var traversalConstraint = TraversalConstraint.None;
             traversalConstraint.graphMask = _currentGraphMask;
             traversalConstraint.traversalProvider = _traversalProvider;
             path.traversalConstraint = traversalConstraint;
             AstarPath.StartPath(path);
-            path.BlockUntilCalculated(); // synchronous calculation
-            return path.CompleteState == PathCompleteState.Complete;
+            return path;
         }
 
         [Button]
@@ -139,6 +154,42 @@ namespace SunsetSystems.Entities.Characters.Navigation
                 Vector3 targetPosition = targetPositions[i];
                 pathDelegates[i] = (path) => OnPath(targetPosition, path);
             }
+            MultiTargetPath path = StartMultiPath(targetPositions, pathDelegates);
+            path.BlockUntilCalculated(); // synchronous calculation
+            return results;
+
+            void OnPath(in Vector3 targetPosition, Path p)
+            {
+                if (p.CompleteState != PathCompleteState.Complete)
+                    return;
+                results[targetPosition] = p.GetTotalLength();
+            }
+        }
+
+        public async UniTask<Dictionary<Vector3, float>> CalculateMultiplePathsAsync(Vector3[] targetPositions)
+        {
+            Dictionary<Vector3, float> results = new();
+            OnPathDelegate[] pathDelegates = new OnPathDelegate[targetPositions.Length];
+            for (int i = 0; i < pathDelegates.Length; i++)
+            {
+                Vector3 targetPosition = targetPositions[i];
+                pathDelegates[i] = (path) => OnPath(targetPosition, path);
+            }
+            MultiTargetPath path = StartMultiPath(targetPositions, pathDelegates);
+            await path.WaitForPath();
+            return results;
+
+            void OnPath(in Vector3 targetPosition, Path p)
+            {
+                if (p.CompleteState != PathCompleteState.Complete)
+                    return;
+                results[targetPosition] = p.GetTotalLength();
+            }
+
+        }
+
+        private MultiTargetPath StartMultiPath(Vector3[] targetPositions, OnPathDelegate[] pathDelegates)
+        {
             NearestNodeConstraint nodeConstraint = NearestNodeConstraint.Walkable;
             nodeConstraint.graphMask = _currentGraphMask;
             nodeConstraint.traversalProvider = _traversalProvider;
@@ -159,15 +210,7 @@ namespace SunsetSystems.Entities.Characters.Navigation
             path.traversalConstraint = traversalConstraint;
             path.pathsForAll = true;
             AstarPath.StartPath(path);
-            path.BlockUntilCalculated(); // synchronous calculation
-            return results;
-
-            void OnPath(in Vector3 targetPosition, Path p)
-            {
-                if (p.CompleteState != PathCompleteState.Complete)
-                    return;
-                results[targetPosition] = p.GetTotalLength();
-            }
+            return path;
         }
 
         // Smooth rotation towards a point after movement

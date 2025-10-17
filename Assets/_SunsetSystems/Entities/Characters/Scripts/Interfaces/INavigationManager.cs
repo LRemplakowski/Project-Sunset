@@ -1,8 +1,8 @@
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 using Pathfinding;
 using SunsetSystems.Combat.Grid;
 using UnityEngine;
-using UnityEngine.AI;
 
 namespace SunsetSystems.Entities.Characters.Navigation
 {
@@ -15,7 +15,9 @@ namespace SunsetSystems.Entities.Characters.Navigation
         float MaxSpeed { get; }
 
         bool Warp(Vector3 position);
+        UniTask<ABPath> CalculatePathAsync(Vector3 targetPosition);
         bool CalculatePath(Vector3 targetPosition, out ABPath path);
+        UniTask<Dictionary<Vector3, float>> CalculateMultiplePathsAsync(Vector3[] targetPosition);
         Dictionary<Vector3, float> CalculateMultiplePaths(Vector3[] targetPositions);
         void FaceDirectionAfterMovementFinished(Vector3 point);
         bool SetNavigationTarget(Vector3 target);

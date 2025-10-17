@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Cysharp.Threading.Tasks;
 using Pathfinding;
 using Sirenix.OdinInspector;
 using SunsetSystems.Entities.Characters;
@@ -114,15 +115,12 @@ namespace SunsetSystems.Combat.Grid
             currentlyHighlightedCell = null;
         }
 
-        public Dictionary<GridUnit, float> GetUnoccupiedCellsInRange(Vector3Int gridPosition, float range, INavigationManager agent)
+        public async UniTask<Dictionary<GridUnit, float>> GetUnoccupiedCellsInRangeAsync(Vector3Int gridPosition, float range, INavigationManager agent)
         {
             // Calculate the maximum grid distance within _range
             float maxGridDistance = range * managedGrid.GridCellSize;
-            var unitsInRange = managedGrid.GetAllWalkableGridUnits()
-                .Where(unit => GetDistance(gridPosition, unit.GridPosition) <= maxGridDistance)
-                .Where(unit => unit.IsFree || unit.Occupier.GetContext().MovementManager == agent)
-                .ToArray();
-            var pathDistances = agent.CalculateMultiplePaths(unitsInRange.Select(unit => unit.WorldPosition).ToArray());
+            GridUnit[] unitsInRange = GetUnitsInRange(gridPosition, agent, maxGridDistance);
+            Dictionary<Vector3, float> pathDistances = await agent.CalculateMultiplePathsAsync(unitsInRange.Select(unit => unit.WorldPosition).ToArray());
             Dictionary<GridUnit, float> result = new();
             foreach (var unit in unitsInRange)
             {
@@ -135,6 +133,34 @@ namespace SunsetSystems.Combat.Grid
                 }
             }
             return result;
+        }
+
+        public Dictionary<GridUnit, float> GetUnoccupiedCellsInRange(Vector3Int gridPosition, float range, INavigationManager agent)
+        {
+            // Calculate the maximum grid distance within _range
+            float maxGridDistance = range * managedGrid.GridCellSize;
+            GridUnit[] unitsInRange = GetUnitsInRange(gridPosition, agent, maxGridDistance);
+            Dictionary<Vector3, float> pathDistances = agent.CalculateMultiplePaths(unitsInRange.Select(unit => unit.WorldPosition).ToArray());
+            Dictionary<GridUnit, float> result = new();
+            foreach (var unit in unitsInRange)
+            {
+                if (pathDistances.TryGetValue(unit.WorldPosition, out float distance))
+                {
+                    if (distance <= maxGridDistance)
+                    {
+                        result.Add(unit, distance);
+                    }
+                }
+            }
+            return result;
+        }
+
+        private GridUnit[] GetUnitsInRange(Vector3Int gridPosition, INavigationManager agent, float maxGridDistance)
+        {
+            return managedGrid.GetAllWalkableGridUnits()
+                .Where(unit => GetDistance(gridPosition, unit.GridPosition) <= maxGridDistance)
+                .Where(unit => unit.IsFree || unit.Occupier.GetContext().MovementManager == agent)
+                .ToArray();
         }
 
         private float GetDistance(in Vector3Int from, in Vector3Int to)
