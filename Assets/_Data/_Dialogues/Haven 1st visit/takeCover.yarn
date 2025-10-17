@@ -1,78 +1,72 @@
 ﻿title: TakeCover
 tags:
 ---
-{$pcName}: [nomarkup][What do I do?][/nomarkup] #line:00bcc02 
--> {$pcName}: [nomarkup][I need to turn myself in.][/nomarkup] #line:0cab1a4 
-    {$beast}: On the other hand, think about it this way: it won't do anything to help him. He's already dead. #line:03fb67f 
--> {$pcName}: [nomarkup][I'm not going to jail.][/nomarkup] #line:0d8572f 
-    {$beast}: Not if I can do something about it. #line:0859767 
-{$pcName}: [nomarkup][There's that voice again.][/nomarkup] #line:0a2a5ee 
 <<PlaySFX "door_knock_heavy">>
-BANG! BANG! BANG! #line:08bca26 
-[nomarkup][It's coming from the front door.][/nomarkup] #line:05cb373 
-{$beast}: Just ignore it. I don't want more witnesses. #line:0ca6bb4 
+BANG! BANG! BANG!
+{$storyteller}: [nomarkup][What are you going to do?][/nomarkup] 
+-> [nomarkup][Turn yourself in.][/nomarkup] #line:0cab1a4 
+    {$beast}: Why would you do that? It won't do anything to help him. He's already dead. #line:03fb67f 
+-> [nomarkup][You're not going to jail.][/nomarkup] #line:0d8572f 
+    {$beast}: Not if you can do something about it. #line:0859767  
 <<PlaySFX "door_knock_heavy">>
 BANG! BANG! BANG! BANG! #line:0f18873 
-{$pcName}: [nomarkup][Oh my God! What if it's the cops?][/nomarkup] #line:0952dab 
-{$beast}: Who cares? It's them or me. #line:0773750
 <<jump DominicKieranScene>>
 ===
 title: DominicKieranScene
 tags:
 --- 
 <<KieranDominicBargeIn>>
-CRACK. [nomarkup][The door bursts open, with two men behind it barging into the room.][/nomarkup] #line:08e78bb 
-[nomarkup][One of them is tall and well-built, his skin unnaturally pale and dark brown hair windswept. The man is clad in a black suit made from some kind of expensive fabric shimmering faintly in your apartment lights.][/nomarkup]
-[nomarkup][Adorned with a little gold pin on one of his suit flaps, the ensemble is brought together - or apart - by the red silk tie dangling from the unbuttoned collar of his white formal shirt.][/nomarkup] #line:087aa79 
-[nomarkup][The buckle of his belt is larger than what's in fashion, featuring a bull's head stamped onto it - similar to what cowboys wear. When he steps closer, you hear a jingle.][/nomarkup]
-[nomarkup][Glancing down for a split-second, you catch a glimpse of his steel-toed cowboy boots - spurs and all, but quickly refocus your gaze on his face.][/nomarkup] #line:0b3c1d6 
-[nomarkup][You are only met with your own reflection in his black aviators as you attempt to catch his eye, though. He doesn't hold any weapon, either, but there is something intimidating about his presence, nonetheless - enough that you can almost feel the hairs on the back of your neck stand on end...][/nomarkup] #line:0b2eb3f 
-[nomarkup][The other one is unnervingly pale, too. A little bit shorter and more slender in contrast.][/nomarkup]
-[nomarkup][He holds his pistol at the ready, scanning the room for additional threats - his brown hair swept to one side and out of his field of vision. Unlike his “friend”, he looks tense; his posture is textbook, but his gait is stiff.][/nomarkup]
-[nomarkup][A glimmer of gold catches your eye as he turns - a circular pendant hung around the collar of his sweater.][/nomarkup] #line:0ef1df2 
-{$sheriff}: Hello M'am, we know you are in here somewhere... [nomarkup][He widens his nostrils and sniffs the air.][/nomarkup] ...and it smells like you've been busy! [nomarkup][The man in sunglasses has an audible Texan accent.][/nomarkup] #line:01e8e04 
-{$kieran}: There is no point in hiding, miss Bardot. This is not a conversation that you wish to delay. #line:0518162 
-{$beast}: Who are they to barge into my home like this? Let's show them some manners. #line:025adfd 
+CRACK!
+{$storyteller}: [nomarkup][The door bursts open as two men barge in. One is tall and broad-shouldered, his satin black suit catching the light, a red silk tie hanging loose from his unbuttoned collar. Spurs jingle as he steps forward, his black aviators reflecting your startled face.][/nomarkup]
+{$storyteller}: [nomarkup][The other, leaner and equally pale, sweeps the room with a pistol in hand. His stance is sharp, but there's tension in his movements; a gold pendant glints against his sweater as he turns.][/nomarkup]
+{$sheriff}: Hello ma'am, we know you are in here somewhere...
+{$kieran}: There is no point in hiding, miss Bardot. This is not a conversation that you wish to delay. #line:0518162
+{$storyteller}: [nomarkup][He has an audible Texan accent.][/nomarkup]
+{$sheriff}: Smells like you've been busy!
+{$kieran}: There is no use in delaying. Come on out, and we can have a conversation.
+{$storyteller}: [nomarkup][Rationality evades you, fury boils in your blood.][/nomarkup]
+{$beast}: [nomarkup][Who are they to barge into your home like this? Show them some manners.][/nomarkup] #line:025adfd 
 -> [nomarkup][Punch the intruder.] (Dexterity + Brawl) [/nomarkup] #line:007495a 
     <<if Roll("Dexterity","Brawl") >= 3>>
-        [nomarkup][Your attack connects solidly with his shoulder, but he seems unaffected. Amused, even.][/nomarkup] #success #line:0f9b326 
+        {$storyteller}: [nomarkup][Your attack connects solidly with his shoulder, but he seems unaffected. Amused, even.][/nomarkup] #success #line:0f9b326 
     <<else>>
-        [nomarkup][Barely moving, the man in the aviators nonchalantly dodges your attack with swagger - one of his hands still stuffed into the pockets of his black suit pants.][/nomarkup] #failure #line:0540c27 
+        {$storyteller}: [nomarkup][Barely moving, he nonchalantly dodges your attack with his hand in his pocket.][/nomarkup] #failure #line:0540c27 
     <<endif>>
 -> [nomarkup][Hit the intruder with the crowbar.] (Dexterity + Melee)[/nomarkup] #line:0919bac 
     <<if Roll("Dexterity","Melee") >= 3>>
-        [nomarkup][Your attack connects, the tip of the crowbar leaving a gnarly gash in the man with aviators, but he seems unaffected. His flesh knits itself back together as the wound heals before your eyes.][/nomarkup] #success
-        [nomarkup][He's clearly unbothered. Amused, even. He grins menacingly, looking you up and down as his hand snatches the crowbar and pulls it from your hands without any visible effort. Then, without taking his eyes off you, he tosses it away from your reach.][/nomarkup] #line:06e97a8 
+        {$storyteller}: [nomarkup][Your attack connects, the tip of the crowbar leaving a gnarly gashs, but he seems unaffected. His flesh knits itself back together as the wound heals before your eyes.][/nomarkup] #success
+        {$storyteller}: [nomarkup][He's clearly unbothered. Amused, even. He grins menacingly, looking you up and down as his hand snatches the crowbar and pulls it from your hands. Without taking his eyes off you, he tosses it away from your reach.][/nomarkup] #line:06e97a8 
     <<else>>
-        [nomarkup][Barely moving, the man in the aviators nonchalantly dodges your attack with swagger - one of his hands still stuffed into the pockets of his black suit pants. The second grabs your weapon and pulls it from your hands without any substantial effort made - throwing it away from your reach.][/nomarkup] #failure #line:0888dbf 
+        {$storyteller}: [nomarkup][Barely moving, he nonchalantly dodges your attack with his hand in his pocket.][/nomarkup] #failure
+        {$storyteller}: [nomarkup][He's clearly unbothered. Amused, even. He grins menacingly, looking you up and down as his hand snatches the crowbar and pulls it from your hands. Without taking his eyes off you, he tosses it away from your reach.][/nomarkup]
     <<endif>>
--> [nomarkup][Shoot the intruder.] (Dexterity + Firearms)[/nomarkup] #line:069f0e5 
+-> [nomarkup][Shoot the intruder.] (Dexterity + Firearms)[/nomarkup] #line:069f0e5
+    BANG!
     <<if Roll("Dexterity","Firearms") >= 3>>
-        [nomarkup][BANG! The gun recoils as the bullet embeds itself in the shoulder of the man in the aviators, but he seems unaffected. His flesh knits itself back together, pushing the lead pellet out and into his waiting hand.][/nomarkup] #success
-        [nomarkup][He's clearly unbothered. Amused, even. The lead bead makes a faint metallic noise as it is tossed nonchalantly onto the ground.][/nomarkup] #line:058033a 
+        {$storyteller}: [nomarkup][Barely moving, nonchalantly dodges your attack with his hand in his pocket.][/nomarkup] #failure
         <<set $dominicshot to true>>
     <<else>>
         [nomarkup][Barely moving, the man in the aviators nonchalantly dodges your attack with swagger - one of his hands still stuffed into the pockets of his black suit pants.][/nomarkup] #failure #line:03b0e31 
     <<endif>>
-    <<set $gotweapon to true>>
+<<set $gotweapon to true>>
 <<if $dominicshot == true>>
-    {$sheriff}: [nomarkup][He briefly inspects the hole in his crisp, clean, and well-pressed suit, a blackened ring  forming where the fabric has been burned by the bullet. His expression shifts from nonchalance to aggravation and disappointment.][/nomarkup] Hell... #line:0ed0c61 
+    {$storyteller}: [nomarkup][He inspects the blackened burnt hole  in his well-pressed suit. His expression shifts from nonchalance to aggravation and disappointment.][/nomarkup]
+    {$sheriff}: Heifer!
 <<else>>
     {$sheriff}: Nice try, kid. #line:0216dcc 
 <<endif>>
 <<HandleAltercationWithDominic>>
-{$sheriff}: [nomarkup][He saunters towards you, pinning you to the fridge, but he doesn't even raise his hands.][/nomarkup] I don't want to be a dick, but we can do this the easy way or the hard way. Your choice. #line:07bce9b 
+{$storyteller}: [nomarkup][He saunters towards you, pinning you to the fridge, but he doesn't even raise his hands.][/nomarkup]  
+{$sheriff}: We can do this the easy way or the hard way. #line:07bce9b 
 -> [nomarkup][Drop your weapon.][/nomarkup] <<if $gotweapon == true>> #line:0bbfd00 
     {$sheriff}: Sharp. #line:01ea142 
 -> [nomarkup][Run.][/nomarkup] #line:0ef42d5 
-    [nomarkup][Before you have the chance to even take a step, man in the suit seemingly reads your mind, moving with inhuman speed to block your exit.][/nomarkup] #line:0b4ff3e 
-{$sheriff}: [nomarkup][He clicks his tongue, but keeps his devilish smirk.][/nomarkup] You sure know how to make an impression. I'll give you that. #line:07a7163 
-[nomarkup][The imposing man pulls out a cigarette and lights it, the flickering flame produced by the zippo lighter in his hand reflected by his sunglasses. The small flame is close enough to make you recoil instinctively, and as it dances in his lenses, you can feel your stomach crawl with discomfort.][/nomarkup]
-[nomarkup][Cornered, there is nowhere to go that isn't pressed further against the fridge. As the man's eyes track you, his smile sends a chill down your spine.][/nomarkup] #line:03b1db4 
-{$sheriff}: Ya'll've proven to be quite the headache. [nomarkup][He taps the ash from his cigarette.][/nomarkup]  I'm gonna be honest with you: you're not walkin' away from this, but I'm debatin' whether I should just go ahead and do it now, or drag you off and let my wife decide. 
-{$sheriff}: Not that I have many options to choose from. [nomarkup][He falls silent for a second, allowing himself to breathe in another dose of thick, tar-laden smoke from his cigarette.][/nomarkup]  #line:0ac98e8 
-{$beast}: It's run, fight, or die. #line:0d33789 
-[nomarkup][You dig your nails into your flesh, hoping the pain will stop the voice plaguing your mind with unwanted advice. You're gonna have to think clearly to get out of this one.][/nomarkup] #line:0a56473 
+    [nomarkup][Before you have the chance to even take a step, hemoves with inhuman speed to block your exit.][/nomarkup] #line:0b4ff3e 
+{$sheriff}: You sure know how to make an impression. I'll give you that. #line:07a7163 
+{$storyteller}: [nomarkup][Imposing. The man pulls out a cigarette and lights it, the flickering flame produced by the zippo lighter in his hand reflected by his sunglasses. The small flame is close enough to make you recoil instinctively.][/nomarkup]
+{$storyteller}: [nomarkup][He taps the ash from his cigarette in your sink][/nomarkup]
+{$sheriff}: I'm gonna be honest with you: you're not walkin' away from this, but I'm debatin' whether I should just go ahead and do it now, or drag you off and let the missus decide.
+{$sheriff}: [nomarkup][He falls silent for a second, allowing himself to breathe in another dose of thick, tar-laden smoke from his cigarette.][/nomarkup]  #line:0ac98e8 
 {$sheriff}: How about this: [nomarkup][He points at you with his cigarette.][/nomarkup] I bettin' you have questions. I'll answer them so you can at least make peace with God or the Devil before your death. That's the least I can do for you in your situation. #line:0a31205 
 [nomarkup][Several thoughts rush through your head at once. You know you can't take them, and it doesn't look like you can make a run for it, either. Not with the other guy lurking around.][/nomarkup]
 [nomarkup][You don't want to die here. Not now. The man waits, patiently watching you as a trail of smoke rises from the lit cigarette dangling out of his mouth.][/nomarkup] #line:08c7fca 

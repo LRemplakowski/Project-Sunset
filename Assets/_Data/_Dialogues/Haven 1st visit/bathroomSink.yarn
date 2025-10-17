@@ -31,14 +31,14 @@ tags:
 title: SinkClutter
 tags:
 ---
-{$storyteller}: [nomarkup][Sifting through your cosmetic products, you find a Bobby Pin on the counter.][/nomarkup #line:092338c 
+{$storyteller}: [nomarkup][Sifting through your cosmetic products, you find a Bobby Pin on the counter.][/nomarkup] #lastline #line:092338c 
 <<GiveItem "IT_Q_BOBBY_PIN">>
 <<jump BathroomSinkInteractions>>
 ===
 title: MedCabinet
 tags:
 ---
-{$storyteller}: [nomarkup][You open up the mirror and grab an off-brand painkiller. Without reading the label, you pop two pills.][/nomarkup] #line:068c180 
+{$storyteller}: [nomarkup][You open up the mirror and grab an off-brand painkiller. Without reading the label, you pop two pills.][/nomarkup] #lastline #line:068c180 
 <<CompleteObjective "Q_0P_MAIN_SATURDAY_START" "GRAB_MEDS_2">>
 <<jump BathroomSinkInteractions>>
 ===
