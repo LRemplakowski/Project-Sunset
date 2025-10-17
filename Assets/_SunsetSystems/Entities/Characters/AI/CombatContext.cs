@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using SunsetSystems.Abilities;
 using SunsetSystems.ActorResources;
+using SunsetSystems.Combat.Grid;
 using SunsetSystems.Equipment;
 using UnityEngine;
 
@@ -9,6 +10,7 @@ namespace SunsetSystems.Combat
 {
     public class CombatContext : ICombatContext
     {
+        private const int ADJACENT_CELL_RANGE = 1;
         private readonly ICombatant _source;
 
         public CombatContext(ICombatant source)
@@ -22,7 +24,7 @@ namespace SunsetSystems.Combat
 
         public Vector3 AimingOrigin => _source.AimingOrigin;
 
-        public Vector3Int GridPosition => CombatManager.Instance.CurrentEncounter.GridManager.WorldPositionToGridPosition(Transform.position);
+        public Vector3Int GridPosition => _source.References.NavigationManager.GetGridPosition(CombatManager.Instance.CurrentEncounter.GridManager);
 
         public bool IsInCover => CurrentCoverSources.Count() > 0;
 
@@ -52,6 +54,8 @@ namespace SunsetSystems.Combat
 
         public IEnumerable<ICover> CurrentCoverSources => GetCoverFromCurrentPosition(Transform.position);
 
+        public IEnumerable<IGridCell> AdjacentGridCells => GetAdjacentCells(_source);
+
         public int GetAttributeValue(AttributeType attribute)
         {
             return _source.References.StatsManager.GetAttribute(attribute).Value;
@@ -60,6 +64,13 @@ namespace SunsetSystems.Combat
         public int GetSkillValue(SkillType skill)
         {
             return _source.References.StatsManager.GetSkill(skill).Value;
+        }
+
+        private static IEnumerable<IGridCell> GetAdjacentCells(ICombatant actor)
+        {
+            var gridManager = CombatManager.Instance.CurrentEncounter.GridManager;
+            var result = gridManager.GetUnoccupiedCellsInRange(actor.GetContext().GridPosition, ADJACENT_CELL_RANGE, actor.References.NavigationManager);
+            return result.Values.OfType<IGridCell>().ToList();
         }
 
         private static IEnumerable<ICover> GetCoverFromCurrentPosition(Vector3 worldPosition)

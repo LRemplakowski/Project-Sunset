@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using SunsetSystems.Abilities;
 using SunsetSystems.ActorResources;
+using SunsetSystems.Combat.Grid;
 using SunsetSystems.Equipment;
 using UnityEngine;
 
@@ -32,6 +33,7 @@ namespace SunsetSystems.Combat
         IWeaponManager WeaponManager { get; }
 
         IEnumerable<ICover> CurrentCoverSources { get; }
+        IEnumerable<IGridCell> AdjacentGridCells { get; }
 
         int GetAttributeValue(AttributeType attribute);
         int GetSkillValue(SkillType skill);
@@ -59,6 +61,7 @@ namespace SunsetSystems.Combat
         public virtual IAbilityUser AbilityUser => null;
         public virtual IWeaponManager WeaponManager => null;
         public virtual IEnumerable<ICover> CurrentCoverSources => new List<ICover>();
+        public virtual IEnumerable<IGridCell> AdjacentGridCells => new List<IGridCell>();
 
         public virtual int GetAttributeValue(AttributeType attribute) => 0;
         public virtual int GetSkillValue(SkillType skill) => 0;
