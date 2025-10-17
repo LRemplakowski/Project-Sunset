@@ -149,7 +149,7 @@ namespace SunsetSystems.Combat.Grid
             var apManager = combatant.GetContext().ActionPointManager;
             if (mover.GetCanMove() == false)
                 return;
-            Vector3Int gridPosition = WorldPositionToGridPosition(combatant.References.Transform.position);
+            Vector3Int gridPosition = combatant.References.NavigationManager.GetGridPosition(this);
             var navigationManager = combatant.References.NavigationManager;
             currentlyHighlitedGridUnits.Clear();
             int currentMovementPoints = mover.GetCurrentMovementPoints();

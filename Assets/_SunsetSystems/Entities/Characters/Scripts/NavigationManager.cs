@@ -236,6 +236,13 @@ namespace SunsetSystems.Entities.Characters.Navigation
             CurrentNavigationAI.simulateMovement = enabled;
         }
 
+        public Vector3Int GetGridPosition(GridManager grid)
+        {
+            if (_currentGridCell != null)
+                return _currentGridCell.GridPosition;
+            return grid.WorldPositionToGridPosition(Position);
+        }
+
         public object GetComponentPersistenceData()
         {
             return new NavigatorPeristenceData(this);

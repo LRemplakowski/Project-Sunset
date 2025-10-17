@@ -22,5 +22,6 @@ namespace SunsetSystems.Entities.Characters.Navigation
         bool SetGridTarget(IGridCell gridCell);
         void StopMovement(bool forceStopImmediate = false);
         void SetNavigationEnabled(bool enabled);
+        Vector3Int GetGridPosition(GridManager grid);
     }
 }
