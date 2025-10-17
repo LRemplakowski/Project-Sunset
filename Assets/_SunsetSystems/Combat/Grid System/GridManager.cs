@@ -146,21 +146,25 @@ namespace SunsetSystems.Combat.Grid
         {
             HideCellsInMovementRange();
             var mover = combatant.GetContext().MovementManager;
+            var apManager = combatant.GetContext().ActionPointManager;
             if (mover.GetCanMove() == false)
                 return;
             Vector3Int gridPosition = WorldPositionToGridPosition(combatant.References.Transform.position);
             var navigationManager = combatant.References.NavigationManager;
             currentlyHighlitedGridUnits.Clear();
-            currentlyHighlitedGridUnits.AddRange(GetUnoccupiedCellsInRange(gridPosition, mover.GetCurrentMovementPoints() + (managedGrid.GridCellSize / 2), navigationManager).Keys);
+            int currentMovementPoints = mover.GetCurrentMovementPoints();
+            var gridDistancesMap = GetUnoccupiedCellsInRange(gridPosition, currentMovementPoints + (managedGrid.GridCellSize / 2), navigationManager);
+            currentlyHighlitedGridUnits.AddRange(gridDistancesMap.Keys);
             foreach (GridUnit unit in currentlyHighlitedGridUnits)
             {
                 unit.IsInMoveRange = true;
                 managedGrid.MarkCellDirty(unit);
-                //if (distanceToUnit <= combatant.SprintRange + (managedGrid.GridCellSize / 2) && !combatant.HasMoved && !combatant.HasActed)
-                //{
-                //    unit.IsInSprintRange = true;
-                //    managedGrid.MarkCellDirty(unit);
-                //}
+                float distance = gridDistancesMap[unit];
+                if (distance >= currentMovementPoints / 2 + (managedGrid.GridCellSize / 2) || apManager.GetCurrentActionPoints() < apManager.GetMaxActionPoints())
+                {
+                    unit.IsInSprintRange = true;
+                    managedGrid.MarkCellDirty(unit);
+                }
             }
         }
 

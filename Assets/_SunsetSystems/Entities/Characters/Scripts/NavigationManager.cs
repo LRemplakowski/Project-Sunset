@@ -49,6 +49,7 @@ namespace SunsetSystems.Entities.Characters.Navigation
         private GraphMask _currentGraphMask;
         private Coroutine _faceTargetCoroutine;
         private BlockManager.TraversalProvider _traversalProvider;
+        private IGridCell _currentGridCell = null;
 
         private void Awake()
         {
@@ -82,6 +83,7 @@ namespace SunsetSystems.Entities.Characters.Navigation
 
         private void OnCombatEnd(IEnumerable<ICombatant> _)
         {
+            _currentGridCell = null;
             _currentGraphMask = _explorationMask;
             CurrentNavigationAI.pathfindingSettings.graphMask = _currentGraphMask;
             _myBlocker.Unblock();
@@ -89,6 +91,7 @@ namespace SunsetSystems.Entities.Characters.Navigation
 
         private void OnCombatStart(IEnumerable<ICombatant> _)
         {
+            _currentGridCell = null;
             _currentGraphMask = _combatMask;
             CurrentNavigationAI.pathfindingSettings.graphMask = _currentGraphMask;
         }
@@ -137,20 +140,23 @@ namespace SunsetSystems.Entities.Characters.Navigation
                 pathDelegates[i] = (path) => OnPath(targetPosition, path);
             }
             NearestNodeConstraint nodeConstraint = NearestNodeConstraint.Walkable;
-            //nodeConstraint.graphMask = _currentGraphMask;
-            //nodeConstraint.traversalProvider = _traversalProvider;
-            var nearestNode = AstarPath.active.GetNearest(Position, nodeConstraint);
-            var path = MultiTargetPath.Construct(nearestNode.position, targetPositions, pathDelegates);
+            nodeConstraint.graphMask = _currentGraphMask;
+            nodeConstraint.traversalProvider = _traversalProvider;
+            MultiTargetPath path;
+            if (_currentGridCell != null)
+            {
+                path = MultiTargetPath.Construct(_currentGridCell.WorldPosition, targetPositions, pathDelegates);
+            }
+            else
+            {
+                var nearestNode = AstarPath.active.GetNearest(Position, nodeConstraint);
+                path = MultiTargetPath.Construct(nearestNode.position, targetPositions, pathDelegates);
+            }
             path.nearestNodeDistanceMetric = DistanceMetric.ClosestAsSeenFromAbove(Vector3.up);
             var traversalConstraint = TraversalConstraint.None;
             traversalConstraint.graphMask = _currentGraphMask;
             traversalConstraint.traversalProvider = _traversalProvider;
             path.traversalConstraint = traversalConstraint;
-            //path.traversalConstraint = new()
-            //{
-            //    graphMask = _currentGraphMask,
-            //    traversalProvider = _traversalProvider
-            //};
             path.pathsForAll = true;
             AstarPath.StartPath(path);
             path.BlockUntilCalculated(); // synchronous calculation
@@ -215,6 +221,7 @@ namespace SunsetSystems.Entities.Characters.Navigation
             CurrentNavigationAI.pathfindingSettings.traversalProvider = _traversalProvider;
             CurrentNavigationAI.destination = gridCell.WorldPosition;
             CurrentNavigationAI.SearchPath();
+            _currentGridCell = gridCell;
             return true;
         }
 

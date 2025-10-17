@@ -176,7 +176,7 @@ namespace SunsetSystems.Combat.Grid
                     {
                         if (gridUnit.IsInSprintRange)
                             result.BaseState = GridCellBaseState.Sprintable;
-                        if (gridUnit.IsInMoveRange)
+                        else if (gridUnit.IsInMoveRange)
                             result.BaseState = GridCellBaseState.Walkable;
                     }
                     if (gridUnit.Highlighted)

@@ -38,6 +38,7 @@ namespace SunsetSystems.Abilities
             var mover = context.SourceCombatBehaviour.GetContext().MovementManager;
             return new()
             {
+                OptimalRange = mover.GetCurrentMovementPoints() / 2,
                 MaxRange = mover.GetCurrentMovementPoints()
             };
         }
@@ -52,7 +53,7 @@ namespace SunsetSystems.Abilities
             var navManager = combatBehaviour.References.NavigationManager;
             var gridManager = context.GridManager;
             navManager.CalculatePath(position.WorldPosition, out var path);
-            var movementCost = Mathf.CeilToInt(path.GetTotalLength() / gridManager.GetGridScale()) * _baseMovementCost;
+            var movementCost = Mathf.RoundToInt(path.GetTotalLength() / gridManager.GetGridScale()) * _baseMovementCost;
             return movementCost;
         }
 
