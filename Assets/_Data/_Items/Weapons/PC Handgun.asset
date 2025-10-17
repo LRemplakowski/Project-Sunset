@@ -7,10 +7,10 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8c7e704b226b1af4ab8aa90b125e1f1d, type: 3}
-  m_Name: Handgun (clean)
+  m_Name: PC Handgun
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -43,12 +43,11 @@ MonoBehaviour:
       Entry: 8
       Data: 
   <Name>k__BackingField: Desiree's SIG
-  <ReadableID>k__BackingField: IT_WPN_RN_HANDGUN_CLN
-  <DatabaseID>k__BackingField: b5d357af-76df-4524-8162-2d955343d495
+  <ReadableID>k__BackingField: IT_WPN_RN_HANDGUN
+  <DatabaseID>k__BackingField: c790f37b-538b-44e8-9b8f-b75e8a1224d3
   <ItemCategory>k__BackingField: 1
   _itemCashValue: 0
-  <ItemDescription>k__BackingField: A handgun Chad bought you to keep you safe. You've
-    manged to clean it so it shoots like brand new.
+  <ItemDescription>k__BackingField: A handgun Chad bought you to keep you safe.
   <WorldSpaceRepresentation>k__BackingField:
     m_AssetGUID: 78f69bafe6bc02f4cba6dbf11d21aa77
     m_SubObjectName: 
@@ -67,11 +66,11 @@ MonoBehaviour:
     m_SubObjectType: 
     m_SubObjectGUID: 
     m_EditorAssetChanged: 0
-  <DamageModifier>k__BackingField: 5
+  <DamageModifier>k__BackingField: 3
   <DamageType>k__BackingField: 1
   <WeaponType>k__BackingField: 1
   <MaxAmmo>k__BackingField: 3
   <AssociatedAttribute>k__BackingField: 32
   <AssociatedSkill>k__BackingField: 16
-  optimalRange: 6
-  rangeFalloff: 4
+  optimalRange: 5
+  rangeFalloff: 3
