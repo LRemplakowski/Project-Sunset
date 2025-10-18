@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Sirenix.OdinInspector;
 using SunsetSystems.Abilities;
 using SunsetSystems.Core.Database;
@@ -104,7 +105,7 @@ namespace SunsetSystems.Entities.Characters
 
             public StatsData StatsData { get; private set; }
 
-            public IReadOnlyCollection<IDisciplinePower> KnownPowers { get; private set; }
+            public List<IDisciplinePower> KnownPowers { get; private set; }
 
             public TemplateFromCreatureAsset(CreatureConfig asset)
             {
@@ -126,7 +127,7 @@ namespace SunsetSystems.Entities.Characters
                         this.EquipmentSlotsData[item.Key] = item.Value.GetEquippedItem().ReadableID;
                 }
                 this.StatsData = new(asset.StatsData);
-                this.KnownPowers = asset.StartingPowers;
+                this.KnownPowers = asset.StartingPowers.ToList();
             }
 
             public TemplateFromCreatureAsset()

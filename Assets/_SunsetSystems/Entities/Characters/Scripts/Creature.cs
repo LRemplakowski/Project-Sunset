@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Redcode.Awaiting;
 using Sirenix.OdinInspector;
@@ -186,7 +187,7 @@ namespace SunsetSystems.Entities.Characters
                     EquipmentSlotsData[item.Key] = item.Value.GetEquippedItem().ReadableID;
                 }
                 StatsData = new(instance.References.StatsManager.Stats);
-                KnownPowers = instance.References.SpellbookManager.KnownPowers;
+                KnownPowers = instance.References.SpellbookManager.KnownPowers.ToList();
             }
 
             public TemplateFromInstance()
@@ -217,7 +218,7 @@ namespace SunsetSystems.Entities.Characters
             [ShowInInspector]
             public StatsData StatsData { get; private set; }
             [ShowInInspector]
-            public IReadOnlyCollection<IDisciplinePower> KnownPowers { get; private set; }
+            public List<IDisciplinePower> KnownPowers { get; private set; }
         }
         #endregion
 

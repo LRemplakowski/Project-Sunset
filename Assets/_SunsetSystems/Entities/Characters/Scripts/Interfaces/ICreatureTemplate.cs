@@ -21,6 +21,6 @@ namespace SunsetSystems.Entities.Characters
 
         Dictionary<EquipmentSlotID, string> EquipmentSlotsData { get; }
         StatsData StatsData { get; }
-        IReadOnlyCollection<IDisciplinePower> KnownPowers { get; }
+        List<IDisciplinePower> KnownPowers { get; }
     }
 }

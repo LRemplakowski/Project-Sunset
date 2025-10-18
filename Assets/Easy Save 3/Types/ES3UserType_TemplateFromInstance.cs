@@ -4,7 +4,7 @@ using UnityEngine;
 namespace ES3Types
 {
 	[UnityEngine.Scripting.Preserve]
-	[ES3PropertiesAttribute("<DatabaseID>k__BackingField", "<ReadableID>k__BackingField", "<FirstName>k__BackingField", "<LastName>k__BackingField", "<Faction>k__BackingField", "<BodyType>k__BackingField", "<CreatureType>k__BackingField", "<BaseLookWardrobeReadableID>k__BackingField", "<EquipmentSlotsData>k__BackingField", "<StatsData>k__BackingField")]
+	[ES3PropertiesAttribute("<DatabaseID>k__BackingField", "<ReadableID>k__BackingField", "<FirstName>k__BackingField", "<LastName>k__BackingField", "<Faction>k__BackingField", "<BodyType>k__BackingField", "<CreatureType>k__BackingField", "<BaseLookWardrobeReadableID>k__BackingField", "<EquipmentSlotsData>k__BackingField", "<StatsData>k__BackingField", "<KnownPowers>k__BackingField")]
 	public class ES3UserType_TemplateFromInstance : ES3ObjectType
 	{
 		public static ES3Type Instance = null;
@@ -26,6 +26,7 @@ namespace ES3Types
 			writer.WritePrivateField("<BaseLookWardrobeReadableID>k__BackingField", instance);
 			writer.WritePrivateField("<EquipmentSlotsData>k__BackingField", instance);
 			writer.WritePrivateField("<StatsData>k__BackingField", instance);
+			writer.WritePrivateField("<KnownPowers>k__BackingField", instance);
 		}
 
 		protected override void ReadObject<T>(ES3Reader reader, object obj)
@@ -65,6 +66,9 @@ namespace ES3Types
 					break;
 					case "<StatsData>k__BackingField":
 					instance = (SunsetSystems.Entities.Characters.Creature.TemplateFromInstance)reader.SetPrivateField("<StatsData>k__BackingField", reader.Read<SunsetSystems.Entities.Data.StatsData>(), instance);
+					break;
+					case "<KnownPowers>k__BackingField":
+					instance = (SunsetSystems.Entities.Characters.Creature.TemplateFromInstance)reader.SetPrivateField("<KnownPowers>k__BackingField", reader.Read<System.Collections.Generic.List<SunsetSystems.Abilities.IDisciplinePower>>(), instance);
 					break;
 					default:
 						reader.Skip();
