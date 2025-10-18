@@ -28,7 +28,6 @@ position: -328,-104
         <<jump ChaSubtKevin>>
     -> {$pcName}: You know I'm friends with tenant lawyers, right? (Manipulation + Intimidation) <<if CustomVisited("ManipIntimKevin") == false>> #line:03c2954
         <<jump ManipIntimKevin>>
-    -> [nomarkup][Hang up.][/nomarkup] #line:02d6236
 ===
 title: ContinueCallLandlord
 tags:
@@ -51,7 +50,6 @@ position: 408,-214
         <<jump ChaSubtKevin>>
     -> {$pcName}: You know I'm friends with tenant lawyers, right? (Manipulation + Intimidation) <<if CustomVisited("ManipIntimKevin") == false>>
         <<jump ManipIntimKevin>>
-    -> [nomarkup][Hang up.][/nomarkup]
 ===     
 title: ManipPersKevin
 tags:

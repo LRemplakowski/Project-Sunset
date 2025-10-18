@@ -9,7 +9,7 @@
 title: PhoneCall
 tags:
 ---
-{$storyteller}: [nomarkup][The last voice you want to hear blares out the line..][/nomarkup] #line:03673f5
+{$storyteller}: [nomarkup][The last voice you want to hear blares out the line.][/nomarkup] #line:03673f5
 {$storyteller}: [nomarkup][Your ex.][/nomarkup]  
 {$exspouse}: Oh thank God you answered! Are you alright? Nobody has been able to reach you. I was getting worried. #line:0acac77 
 {$storyteller}: [nomarkup][The worst part is you know their concern is sincere.][/nomarkup] #line:08f0ead 
@@ -27,7 +27,7 @@ tags:
         {$exspouse}: I'll let you get to it then. Bye. 
         <<jump AfterPhoneCall>>
     <<else>>
-        {$exspouse}: You've been saying that for months now. Look, I tried to help you get back your feet and start your agency, but I feel like I'm running out of options here #failure #line:0f845ee 
+        {$exspouse}: You've been saying that for months now. Look, I tried to help you get back your feet and start your agency, but I feel like I'm running out of options here. #failure #line:0f845ee 
         -> {$pcName}: I understand where you're coming from. I'm sorry. #line:0efc39a 
             {$exspouse}: It's okay. I know you're good for it. Just keep me updated, alright? #line:0f7704f 
             {$exspouse}: I'll let you get to it then. Bye.

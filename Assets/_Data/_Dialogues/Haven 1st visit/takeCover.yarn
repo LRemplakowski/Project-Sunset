@@ -20,10 +20,9 @@ CRACK!
 {$storyteller}: [nomarkup][The door bursts open as two men barge in. One is tall and broad-shouldered, his satin black suit catching the light, a red silk tie hanging loose from his unbuttoned collar. Spurs jingle as he steps forward, his black aviators reflecting your startled face.][/nomarkup]
 {$storyteller}: [nomarkup][The other, leaner and equally pale, sweeps the room with a pistol in hand. His stance is sharp, but there's tension in his movements; a gold pendant glints against his sweater as he turns.][/nomarkup]
 {$sheriff}: Hello ma'am, we know you are in here somewhere...
-{$kieran}: There is no point in hiding, miss Bardot. This is not a conversation that you wish to delay. #line:0518162
+{$sheriff}: Reckon it smells like somebody's been real busy in here.
 {$storyteller}: [nomarkup][He has an audible Texan accent.][/nomarkup]
-{$sheriff}: Smells like you've been busy!
-{$kieran}: There is no use in delaying. Come on out, and we can have a conversation.
+{$kieran}: There is no point in hiding, miss Bardot. This is not a conversation that you wish to delay. #line:0518162
 {$storyteller}: [nomarkup][Rationality evades you, fury boils in your blood.][/nomarkup]
 {$beast}: [nomarkup][Who are they to barge into your home like this? Show them some manners.][/nomarkup] #line:025adfd 
 -> [nomarkup][Punch the intruder.] (Dexterity + Brawl) [/nomarkup] #line:007495a 
@@ -43,117 +42,80 @@ CRACK!
 -> [nomarkup][Shoot the intruder.] (Dexterity + Firearms)[/nomarkup] #line:069f0e5
     BANG!
     <<if Roll("Dexterity","Firearms") >= 3>>
-        {$storyteller}: [nomarkup][Barely moving, nonchalantly dodges your attack with his hand in his pocket.][/nomarkup] #failure
+        {$storyteller}: [nomarkup][His shoulder recoils as the bullet strikes, but he seems unaffected. His flesh knits itself back together, pushing the lead pellet into his waiting hand.][/nomarkup] #success
         <<set $dominicshot to true>>
     <<else>>
-        [nomarkup][Barely moving, the man in the aviators nonchalantly dodges your attack with swagger - one of his hands still stuffed into the pockets of his black suit pants.][/nomarkup] #failure #line:03b0e31 
+        {$storyteller}: [nomarkup][Barely moving, nonchalantly dodges your attack with his hand in his pocket.][/nomarkup] #failure #line:03b0e31 
     <<endif>>
 <<set $gotweapon to true>>
 <<if $dominicshot == true>>
-    {$storyteller}: [nomarkup][He inspects the blackened burnt hole  in his well-pressed suit. His expression shifts from nonchalance to aggravation and disappointment.][/nomarkup]
+    {$storyteller}: [nomarkup][He inspects the blackened burnt hole in his well-pressed suit. His expression shifts from nonchalance to aggravation and disappointment.][/nomarkup]
     {$sheriff}: Heifer!
 <<else>>
     {$sheriff}: Nice try, kid. #line:0216dcc 
 <<endif>>
 <<HandleAltercationWithDominic>>
 {$storyteller}: [nomarkup][He saunters towards you, pinning you to the fridge, but he doesn't even raise his hands.][/nomarkup]  
-{$sheriff}: We can do this the easy way or the hard way. #line:07bce9b 
+{$sheriff}: You want easy - stop strugglin'. You want messy - keep squirmin'. #line:07bce9b 
 -> [nomarkup][Drop your weapon.][/nomarkup] <<if $gotweapon == true>> #line:0bbfd00 
     {$sheriff}: Sharp. #line:01ea142 
 -> [nomarkup][Run.][/nomarkup] #line:0ef42d5 
-    [nomarkup][Before you have the chance to even take a step, hemoves with inhuman speed to block your exit.][/nomarkup] #line:0b4ff3e 
-{$sheriff}: You sure know how to make an impression. I'll give you that. #line:07a7163 
+    [nomarkup][Before you have the chance to even take a step, he moves with inhuman speed to block your exit.][/nomarkup] #line:0b4ff3e 
+{$sheriff}: Heh, you sure know how to make an impression - I'll give you that. #line:07a7163 
 {$storyteller}: [nomarkup][Imposing. The man pulls out a cigarette and lights it, the flickering flame produced by the zippo lighter in his hand reflected by his sunglasses. The small flame is close enough to make you recoil instinctively.][/nomarkup]
-{$storyteller}: [nomarkup][He taps the ash from his cigarette in your sink][/nomarkup]
-{$sheriff}: I'm gonna be honest with you: you're not walkin' away from this, but I'm debatin' whether I should just go ahead and do it now, or drag you off and let the missus decide.
+{$storyteller}: [nomarkup][He taps the ash from his cigarette in your sink.][/nomarkup]
+{$sheriff}: I'm gonna be straight with ya - you ain't walkin' away from this. I'm just debatin' whether to do it now... or haul you off and let the missus decide.
 {$sheriff}: [nomarkup][He falls silent for a second, allowing himself to breathe in another dose of thick, tar-laden smoke from his cigarette.][/nomarkup]  #line:0ac98e8 
-{$sheriff}: How about this: [nomarkup][He points at you with his cigarette.][/nomarkup] I bettin' you have questions. I'll answer them so you can at least make peace with God or the Devil before your death. That's the least I can do for you in your situation. #line:0a31205 
-[nomarkup][Several thoughts rush through your head at once. You know you can't take them, and it doesn't look like you can make a run for it, either. Not with the other guy lurking around.][/nomarkup]
-[nomarkup][You don't want to die here. Not now. The man waits, patiently watching you as a trail of smoke rises from the lit cigarette dangling out of his mouth.][/nomarkup] #line:08c7fca 
+{$sheriff}: How about this, tell me where your sire's hidin' and I'll make it quick.
+{$storyteller}: [nomarkup][Your sire? What is he talking about?][/nomarkup]
+{$storyteller}: [nomarkup][He waits expectantly for your response.][/nomarkup]
 -> {$pcName}: [nomarkup][I need to bide my time.][/nomarkup] #line:0712ce8
-    <<jump dominicDialogueContinuation>>
--> {$pcName}: Do your worst...
-    <<jump DropButt>>
-===
-title: dominicDialogueContinuation
----
-[nomarkup][One question in particular sticks out to me the most.][/nomarkup] #line:0858164 
--> {$pcName}: What's happening to me? #line:09bdeb5 
-[nomarkup][A contemplative look overtakes the man in sunglasses' expression as he checks you over - looking for something, and releasing a puff of smoke as he does.][/nomarkup] #line:0f6a534 
-{$kieran}: Confusion is to be expected, given the nature of your... predicament. #line:04357d2 
-{$sheriff}: [nomarkup][He seems to have come to a decision.][/nomarkup] You mean you still haven't figured it out yet? Well shit, your Daddy really did you dirty. I hate to be a guy to tell you this, but you're a vampire. #line:0d32d70 
-{$pcName}: [nomarkup][That's... that's impossible.][/nomarkup] A... what? #line:0c2651e 
-{$sheriff}: Yes M'am, you heard me. As unbelievable as it sounds from the guy that just barged into your apartment uninvited... [nomarkup][Dominic grimaces, the absurdity of the situation settling in on him as he shakes his head to dispel the feeling.][/nomarkup] #line:0d8b5d9 
-{$kieran}: It would be best for you to collect yourself, miss Bardot. 'Kindred' is the term used in sophisticated circles. #line:015f79e 
-{$sheriff}: Technically, yes. It's a name for uh... higher echelons of our society. You can stick with vampire, for now, though. Just be careful who you call that way. #line:0903793 
-{$kieran}: Her first impression should not be as crude as her brutal and unceremonious introduction to this life. #line:0e428b7 
-{$sheriff}: [nomarkup][He responds with a grin.][/nomarkup] Well, her time in “this life”, as you put it, won't be long enough to have an impression in the first place. At least now she knows she didn't kill for no reason. She was hungry. #line:00482a8 
-[nomarkup][The crazy part is that it makes some amount of sense. Not that it makes you feel any better. At least you have a better explanation than this being a dream, or you going totally bonkers.][/nomarkup] #line:0d0fe7d 
-{$sheriff}: Any other questions? #line:0ebaa58 
--> {$pcName}: Why do you want to kill me? <<if CustomVisited("WantToKill") == false>> #line:046bb83 
-    <<jump WantToKill>>
--> {$pcName}: How did this happen to me? <<if CustomVisited("HowItHappened") == false>> #line:016ffbf 
-    <<jump HowItHappened>>
--> {$pcName}: What did you mean by Sire? <<if CustomVisited("SireInfo") == false>> #line:01a182e 
     <<jump SireInfo>>
--> {$pcName}: Who are you? <<if CustomVisited("WhoAreYou") == false>> #line:021d941 
-    <<jump WhoAreYou>>
--> {$pcName}: How did you find me? <<if CustomVisited("HowFindMe") == false>> #line:004b038 
-    <<jump HowFindMe>>
--> {$pcName}: What happens now? #line:08f5d82 
+-> {$pcName}: Do your worst...
     <<jump DropButt>>
 === 
 title: WantToKill
 tags:
 ---
-{$sheriff}: Darlin', I don't want to kill you. That's just the law of the land. The way it's gotta be. Besides, you already killed someone in cold blood. Isn't that reason enough for justice to be served?		 #line:0047c12 
-{$kieran}: Nobody takes kindly to wanton misconduct in their territory, miss Bardot. The circumstances of your transgressions are the sole reason we are exercising any form of lenience, here. #line:073bfde 
-{$sheriff}: Well, there's that, but it's not like we're saints either. Let's just say we have our own way of doing things, and unfortunately, your blood-sucking is gonna fuck up our blood-sucking if we don't put a stop to it. No hard feelings - it's nothing personal.	  #line:0fb68b5 
-{$pcName}: The 'law of the land'? #line:0d27bba 
-{$sheriff}: Yes ma'am. Sorry, but I don't make the rules here. It's out of my hands. I'm just making sure everyone else is following them to the letter. #line:0690936 
-{$kieran}: There is no time for prolonged debate on the issue of your existence, currently, that is. #line:0c47f00 
-{$pcName}: [nomarkup][Well, shit.][/nomarkup] #line:0fdec00 
-<<jump AnyOtherQuestions>>
-===
-title: HowItHappened
-tags:
----
-{$kieran}: We call it the Embrace. Your Sire killed you by draining all of your blood, and then gave you new life with theirs. #line:025fe58 
-{$sheriff}: Not as kinky as it sounds. Be thankful you don't remember it. It's usually quite a dire experience.  #line:0b4003d 
+{$storyteller}: [nomarkup][Your words bring him to pause.][/nomarkup]
+{$sheriff}: Darlin', don't get me wrong - it ain't personal. It's jus' the law of the jungle. You're an apex predator now, but sloppy, and you've already killed.
+{$kieran}: Consider it for your own benefit.
 <<jump AnyOtherQuestions>>
 ===
 title: SireInfo
 tags:
 ---
-{$sheriff}: Well not to get all “the birds and the bees” on you, but your Sire is... well. #line:071f51b 
-{$kieran}: The person who did this to you. #line:07e49d8 
-{$sheriff}: Your vampire momma... or daddy. Impolite to assume. #line:080498a 
--> {$pcName}: Who is my Sire? #line:0643754 
-    {$sheriff}:  S' likely only God and the Sire themselves know if you don't. Wanted to kill you both in one fell swoop. [nomarkup][He sighs.][/nomarkup] Things can never be easy.   #line:06d335b 
+{$storyteller}: [nomarkup][One question in particular sticks out to you the most.][/nomarkup]
+-> {$pcName}: What did you mean by sire?
+{$storyteller}: [nomarkup][Both men seem a little stunned by your question. They scan you up and down searching for something.][/nomarkup] #line:0f6a534
+{$sheriff}: You don't know, do ya?
+{$kieran}: Confusion is to be expected, given the nature of your...
+{$kieran}: Predicament. #line:04357d2
+{$sheriff}: They sure did ya dirty, didn't they? Hate to be the one tellin' you this, but your sire's the one that turned you into a vampire. #line:0d32d70
+{$storyteller}: [nomarkup][You're sure you must have misunderstood.][/nomarkup]
+{$pcName}: A vampire?
+{$sheriff}: Yes ma'am, you heard me right. You're one of us now.
+{$kieran}: 'Kindred' is the term we use in sophisticated circles. #line:015f79e
+{$sheriff}: Not that it matters to ya now, but at least you know you didn't kill for nothin'. #line:00482a8
+{$sheriff}: You were just hungry.
+{$storyteller}: [nomarkup][The crazy part is that it makes some amount of sense. Not that it makes you feel any better.][/nomarkup] #line:0d0fe7d
 <<jump AnyOtherQuestions>>
 ===
 title: WhoAreYou
 tags:
 ---
-{$sheriff}: Oh, my bad. Wouldn't want to be rude. Name's Evans. Dominic Evans. I'm the Sheriff, but I'm no pig, just the closest thing we Kindred have to law around here. This is Kieran Edevane. He's shy. #line:0e2df3e 
-{$kieran}: [nomarkup][He frowns at Dominic.][/nomarkup] I can introduce myself. #line:00c1a47 
+{$sheriff}: Aw, my bad. Wouldn't wanna be rude. Name's Dominic. I'm the Sheriff 'round here, but don't get it twisted - I ain't no pig. Just the closest thing us Kindred got to law in these parts. Sourface here? That's Kieran. He's a bit shy.
+{$kieran}: I can introduce myself. #line:00c1a47 
 {$sheriff}: Sure you can. #line:0d2b8f2 
-{$kieran}: [nomarkup][He sighs, glaring tired daggers at Dominic.][/nomarkup] #line:091e88b 
--> {$pcName}: And you have a wife? #line:0269912 
-    {$sheriff}: [nomarkup][He laughs.][/nomarkup] You sound surprised, but since you asked: my wife, Sam, is the Prince who rules Vegas' vampires. What can I say? I like 'em powerful. [nomarkup][He sighs.][/nomarkup] Pity you're not gonna meet her. I think she would'a liked you. Even takin' into account... well. Everythin' else. #line:084d5ca 
-    {$kieran}: Why do you prolong the inevitable Sheriff Evans? You're only making this worse for everyone.   #line:078a912 
-    {$sheriff}: [nomarkup][He turns slowly to Kieran.][/nomarkup] ... Kieran, I'm pretendin' I didn't hear you say that so we can continue to be friends. Do you mind if I continue my conversation? #line:0145688 
-    {$kieran}: Sure, you can. [nomarkup][Kieran's response is accompanied by a sly smile.][/nomarkup] #line:00b762d 
+{$storyteller}: [nomarkup][Kieran sighs, glaring tired daggers at Dominic.][/nomarkup] #line:091e88b  
 <<jump AnyOtherQuestions>>
 ===
 title: HowFindMe
 tags:
 ---
 {$sheriff}: We have our ways. #line:0eb9708 
-{$kieran}: We got an anonymous tip. #line:0d7d448 
-{$sheriff}: Oh-why you gotta give up our ways? #line:01a1e9a 
-{$kieran}: [nomarkup][He shrugs.][/nomarkup] It does not require a genius to link those two particular points together, mister Evans. #line:01e4458 
-{$sheriff}: My, why you pickin' tonight of all nights to get yourself a spine? You're gettin' on my nerves Kieran - more than usual. #line:0c954e6 
+{$kieran}: We received an anonymous tip #line:0d7d448 
+{$sheriff}: Man, why you gotta give up our ways? #line:01a1e9a 
 <<jump AnyOtherQuestions>>
 ===
 title: AnyOtherQuestions
@@ -162,10 +124,6 @@ tags:
 {$sheriff}: Any other questions? #line:033b5e0 
 -> {$pcName}: Why do you want to kill me? <<if CustomVisited("WantToKill") == false>> #line:0241df5 
     <<jump WantToKill>>
--> {$pcName}: How did this happen to me? <<if CustomVisited("HowItHappened") == false>> #line:09280ba 
-    <<jump HowItHappened>>
--> {$pcName}: What did you mean by Sire? <<if CustomVisited("SireInfo") == false>> #line:0b15e48 
-    <<jump SireInfo>>
 -> {$pcName}: Who are you? <<if CustomVisited("WhoAreYou") == false>> #line:0a0b43a 
     <<jump WhoAreYou>>
 -> {$pcName}: How did you find me? <<if CustomVisited("HowFindMe") == false>> #line:013b483 

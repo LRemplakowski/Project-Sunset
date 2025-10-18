@@ -19,7 +19,7 @@ tags:
 ---
 <<if $coveredinblood == true>>
     {$storyteller}: [nomarkup][Blood is smeared over your tired, sagging eyes. Your clothes are soaked red. Upon closer inspection, you see that your canines have grown into long fangs.][/nomarkup]
-    {$storyteller}: [nomarkup][This can't be real.  A macabre nightmare.][/nomarkup]
+    {$storyteller}: [nomarkup][This can't be real. A macabre nightmare.][/nomarkup]
 <<else>>
     {$storyteller}: [nomarkup][Your eyes are sunken. Cheeks gaunt. Your skin seems egregiously ashy and pallid. Upon closer inspection, you see that your canines have grown into fangs.][/nomarkup]
 <<endif>>
@@ -31,8 +31,8 @@ tags:
 title: SinkClutter
 tags:
 ---
-{$storyteller}: [nomarkup][Sifting through your cosmetic products, you find a Bobby Pin on the counter.][/nomarkup] #lastline #line:092338c 
 <<GiveItem "IT_Q_BOBBY_PIN">>
+{$storyteller}: [nomarkup][Sifting through your cosmetic products, you find a Bobby Pin on the counter.][/nomarkup] #lastline #line:092338c 
 <<jump BathroomSinkInteractions>>
 ===
 title: MedCabinet
