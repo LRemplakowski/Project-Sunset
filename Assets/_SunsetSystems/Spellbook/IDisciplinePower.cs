@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace SunsetSystems.Abilities
+﻿namespace SunsetSystems.Abilities
 {
     public interface IDisciplinePower
     {
