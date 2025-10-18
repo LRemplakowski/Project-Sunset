@@ -31,6 +31,12 @@ namespace SunsetSystems.Persistence.UI
             ClearSelectedSave();
         }
 
+        private void OnDisable()
+        {
+            _deleteSaveConfirmationPopup.Hide();
+            _newSaveConfirmationPopup.Hide();
+        }
+
         public void ShowScreen(bool includeNewSaveSlot = false)
         {
             gameObject.SetActive(true);

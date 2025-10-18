@@ -10,6 +10,18 @@ namespace SunsetSystems.UI.Utils
         [SerializeField]
         private bool _requireNonEmptyInput = true;
 
+        private string _defaultText;
+
+        private void Awake()
+        {
+            _defaultText = _inputField.text;
+        }
+
+        private void OnDisable()
+        {
+            _inputField.text = _defaultText;
+        }
+
         protected override bool TryGetReturnValue(out string result)
         {
             result = string.Empty;
