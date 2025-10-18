@@ -12,6 +12,7 @@ namespace SunsetSystems.Equipment
         bool EquipItem(EquipmentSlotID slotID, IEquipableItem item, out IEquipableItem previouslyEquipped);
         bool UnequipItem(EquipmentSlotID slotID, out IEquipableItem unequipped);
         bool IsItemEquipped(IEquipableItem item);
+        bool IsItemEquipped(string readableID);
         void CopyFromTemplate(ICreatureTemplate template);
     }
 }

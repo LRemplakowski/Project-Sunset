@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using SunsetSystems.Core.Database;
 using SunsetSystems.Dice;
 using SunsetSystems.Entities.Characters;
@@ -142,7 +143,18 @@ namespace SunsetSystems.Dialogue
         [YarnFunction ("GetHasItem")]
         public static bool GetHasItem(string itemID)
         {
-            return InventoryManager.Instance.GetInventoryContainsItemWithReadableID(itemID, out _);
+            IsItemEquipped(itemID);
+            return IsItemInInventory(itemID) || IsItemEquipped(itemID);
+
+            static bool IsItemEquipped(string itemID)
+            {
+                return PartyManager.Instance.ActiveParty.Select(partyMember => partyMember.References.EquipmentManager).Any(eq => eq.IsItemEquipped(itemID));
+            }
+
+            static bool IsItemInInventory(string itemID)
+            {
+                return InventoryManager.Instance.GetInventoryContainsItemWithReadableID(itemID, out _);
+            }
         }
 
         [YarnFunction("GetIsCompanionInParty")]

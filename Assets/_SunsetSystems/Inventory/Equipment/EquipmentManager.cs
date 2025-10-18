@@ -101,6 +101,11 @@ namespace SunsetSystems.Entities.Characters
             return EquipmentSlots.Values.Any(slot => slot.GetEquippedItem().DatabaseID == item.DatabaseID);
         }
 
+        public bool IsItemEquipped(string readableID)
+        {
+            return EquipmentSlots.Values.Any(slot => slot.GetEquippedItem().ReadableID == readableID);
+        }
+
         private bool ValidateItem(EquipmentSlotID slotID, IEquipableItem item)
         {
             if (EquipmentSlots.TryGetValue(slotID, out IEquipmentSlot slot))
