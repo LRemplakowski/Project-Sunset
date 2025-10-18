@@ -6,6 +6,7 @@ using SunsetSystems.ActionSystem;
 using SunsetSystems.Entities.Interfaces;
 using UltEvents;
 using UnityEngine;
+using SunsetSystems.Dialogue;
 
 namespace SunsetSystems.Entities.Interactable
 {
@@ -159,6 +160,7 @@ namespace SunsetSystems.Entities.Interactable
                 _linkedGameObject.SetActive(true);
             if (_interactionCollider != null)
                 _interactionCollider.enabled = Interactable;
+            DialogueManager.Instance.OnDialogueStarted.AddListener(OnDialogueStarted);
         }
 
         private void OnDisable()
@@ -166,6 +168,7 @@ namespace SunsetSystems.Entities.Interactable
             InteractablesInScene.Remove(this);
             if (_linkedGameObject != null)
                 _linkedGameObject.SetActive(false);
+            DialogueManager.Instance.OnDialogueStarted.RemoveListener(OnDialogueStarted);
         }
 
         protected virtual void Start()
@@ -174,6 +177,11 @@ namespace SunsetSystems.Entities.Interactable
                 _interactionCollider = GetComponentInChildren<Collider>();
             if (_interactionCollider != null)
                 _interactionCollider.enabled = Interactable;
+        }
+
+        private void OnDialogueStarted()
+        {
+            IsHoveredOver = false;
         }
 
         [Button]
