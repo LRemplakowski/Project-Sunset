@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a390ac3025ada234b967667d830b99ff, type: 3}
-  m_Name: Arthur Bardot
+  m_Name: Arthur Taylor
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -21,17 +21,30 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes:
+    - Name: _startingPowers
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[SunsetSystems.Abilities.IDisciplinePower,
+        SunsetSystems]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: <BaseLookWardrobeCollection>k__BackingField
       Entry: 6
       Data: 
     - Name: <EquipmentSlotsData>k__BackingField
       Entry: 7
-      Data: 0|System.Collections.Generic.Dictionary`2[[SunsetSystems.Equipment.EquipmentSlotID,
+      Data: 1|System.Collections.Generic.Dictionary`2[[SunsetSystems.Equipment.EquipmentSlotID,
         SunsetSystems],[SunsetSystems.Equipment.IEquipmentSlot, SunsetSystems]],
         mscorlib
     - Name: comparer
       Entry: 7
-      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[SunsetSystems.Equipment.EquipmentSlotID,
+      Data: 2|System.Collections.Generic.EnumEqualityComparer`1[[SunsetSystems.Equipment.EquipmentSlotID,
         SunsetSystems]], mscorlib
     - Name: 
       Entry: 12
@@ -53,7 +66,7 @@ MonoBehaviour:
       Data: 0
     - Name: $v
       Entry: 7
-      Data: 2|SunsetSystems.Equipment.EquipmentSlot, SunsetSystems
+      Data: 3|SunsetSystems.Equipment.EquipmentSlot, SunsetSystems
     - Name: <ID>k__BackingField
       Entry: 3
       Data: 0
@@ -74,7 +87,7 @@ MonoBehaviour:
       Data: 1
     - Name: $v
       Entry: 7
-      Data: 3|SunsetSystems.Equipment.EquipmentSlot, SunsetSystems
+      Data: 4|SunsetSystems.Equipment.EquipmentSlot, SunsetSystems
     - Name: <ID>k__BackingField
       Entry: 3
       Data: 1
@@ -95,7 +108,7 @@ MonoBehaviour:
       Data: 2
     - Name: $v
       Entry: 7
-      Data: 4|SunsetSystems.Equipment.EquipmentSlot, SunsetSystems
+      Data: 5|SunsetSystems.Equipment.EquipmentSlot, SunsetSystems
     - Name: <ID>k__BackingField
       Entry: 3
       Data: 2
@@ -116,7 +129,7 @@ MonoBehaviour:
       Data: 3
     - Name: $v
       Entry: 7
-      Data: 5|SunsetSystems.Equipment.EquipmentSlot, SunsetSystems
+      Data: 6|SunsetSystems.Equipment.EquipmentSlot, SunsetSystems
     - Name: <ID>k__BackingField
       Entry: 3
       Data: 3
@@ -137,7 +150,7 @@ MonoBehaviour:
       Data: 4
     - Name: $v
       Entry: 7
-      Data: 6|SunsetSystems.Equipment.EquipmentSlot, SunsetSystems
+      Data: 7|SunsetSystems.Equipment.EquipmentSlot, SunsetSystems
     - Name: <ID>k__BackingField
       Entry: 3
       Data: 4
@@ -158,7 +171,7 @@ MonoBehaviour:
       Data: 5
     - Name: $v
       Entry: 7
-      Data: 7|SunsetSystems.Equipment.EquipmentSlot, SunsetSystems
+      Data: 8|SunsetSystems.Equipment.EquipmentSlot, SunsetSystems
     - Name: <ID>k__BackingField
       Entry: 3
       Data: 5
@@ -178,9 +191,9 @@ MonoBehaviour:
       Entry: 8
       Data: 
   <DatabaseID>k__BackingField: 741ab693-39ea-4f96-a698-41e1a8a76da0
-  <ReadableID>k__BackingField: CR_UNIQUE_ARTHUR_BARDOT
+  <ReadableID>k__BackingField: CR_UNIQUE_ARTHUR_TAYLOR
   _name: Arthur
-  _lastName: Bardot
+  _lastName: Taylor
   <Portrait>k__BackingField: {fileID: 0}
   _statsConfig: {fileID: 11400000, guid: cafa7d7bf647bae4aa3257e9ec382b5a, type: 2}
   <EquipmentConfig>k__BackingField: {fileID: 11400000, guid: 0b6daaf148cd22c47b81187ea0efaf99, type: 2}
