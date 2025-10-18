@@ -51,7 +51,7 @@ position: 1589,-1077
 [nomarkup][The ash caked inside the ashtray is stubborn as a mule. After years of heavy use, the mass of soot does not want to slide easily into the wastebasket... You'll probably need to wash the ashtray in order to see clearly what is engraved on its bottom.][/nomarkup] #line:0d1020c 
 -> [nomarkup][Try to read the inscription anyway.] (Resolve+Awareness)[/nomarkup] #line:0e9f52b 
 <<if Roll("Resolve","Awareness") >=3>>
-    [nomarkup][You speak slowly, sounding out the letters surrounding the Union Jack you can manage to decipher.][/nomarkup] Spreading Anarchy in Las Vegas since 19... [nomarkup][It's a miracle you were able to read nearly the entire sentence in one go.]/[nomarkup] #success #line:0508fcc 
+    [nomarkup][You speak slowly, sounding out the letters surrounding the Union Jack you can manage to decipher.][/nomarkup] Spreading Anarchy in Las Vegas since 19... [nomarkup][It's a miracle you were able to read nearly the entire sentence in one go.][/nomarkup] #success #line:0508fcc 
         {$kieran}: It's probably the year when Diana started. 1969. #line:07fa5eb 
         <<set $safeCode to true>>
         [nomarkup][Yout put the ashtray back on the desk.][/nomarkup] #lastline #line:08501c5 

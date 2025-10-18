@@ -2,12 +2,12 @@
 position: -177,-434
 ---
 [nomarkup][It looks just like a normal, civilian-use, wall mounted safe. There's nothing out of the ordinary about it. There is one knob and it probably needs 4 digits to open. It would take ages to guess the combination and time is too precious to waste it around.][/nomarkup] #lastline #line:0e7f551 
-<<if $safeFailCounter >= 4>>
+<<if $safeFailCounter >= 3>>
     <<jump beastOpens>>
 <<else>>
-    -> [nomarkup][Try to open the safe without combination.][Resolve + Larceny][/nomarkup] #line:05d4917 
+    -> [nomarkup][Try to open the safe without combination.] (Resolve + Larceny)[/nomarkup] #line:05d4917 
         <<jump safeResolveRoll>>
-    -> [nomarkup][Try to pry open the safe.][Strength + Larceny][/nomarkup] <<if GetHasItem("IT_WPN_ML_CROWBAR") == true>> #line:03cddc8 
+    -> [nomarkup][Try to pry open the safe.] (Strength + Larceny)[/nomarkup] <<if GetHasItem("IT_WPN_ML_CROWBAR") == true>> #line:03cddc8 
         <<jump safeStrengthRoll>>
     -> [nomarkup][Open the safe with a 1966 combination.][/nomarkup] <<if $satanDate == true and CustomVisited("safeSatan") == false>> #line:08271ae 
         <<jump safeSatan>>
@@ -86,7 +86,7 @@ position: -941,277
     <<jump gunRoll>>
 -> [nomarkup][Examine the documents.][/nomarkup] <<if CustomVisited("safeDocumentsExamine") == false>> #line:05039a5 
     <<jump safeDocumentsExamine>>
--> [nomarkup][Examine the vial.] (Intelligence + Medicine)[/nomarkup] <<if CustomVisited("bloodMedRoll") == false>> #line:06887c6 
+-> [nomarkup][Examine the vial.] (Intelligence + Medicine)[/nomarkup] <<if CustomVisited("bloodMedRoll") == false and CustomVisited("beastOpens") == false>> #line:06887c6 
     <<jump bloodMedRoll>>
 -> [nomarkup][Take the money.][/nomarkup] <<if CustomVisited("takeSafeMoney") == false>> #line:07ec05b 
     <<jump takeSafeMoney>>

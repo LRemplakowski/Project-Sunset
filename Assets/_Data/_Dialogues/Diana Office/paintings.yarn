@@ -246,7 +246,7 @@ title: beastTalk
 position: -1386,57
 ---
 <<set $beastTalk to true>>
-{$kieran}: [nomarkup][He frowns, not out of anger or judgment, but concern.][/nomarkup] I know what you are talking about. Just try your best to suppress those impulses. Otherwise, we may end up with no leads at all, in this investigation. #line:012f469 
+{$kieran}: [nomarkup][He frowns, not out of anger or judgment, but concern.][/nomarkup] Just try your best to suppress those impulses. Otherwise, we may end up with no leads at all, in this investigation. #line:012f469 
 -> {$pcName}: Is there something you're not telling me? #line:0f1eb5b 
 <<if GetIsPartyMemberRecruited($anastasia) is true>>
     {$anastasia}: I'm gonna take a wild guess, here and say: probably a lot. He wants to hide the more “unseemly” facts about our condition and the Beast inside of you for as long as he can. But we all have to face our true natures, eventually. #line:0254f15 
@@ -283,7 +283,7 @@ position: -1386,57
         -> {$pcName}: Yes Kieran, I know, your ass is on the line, you repeat it all the time. #lastline #line:0ca6b02 
     <<endif>>
 <<endif>>
-<<if CustomVisited("beastOpens")>>
+<<if CustomVisited("beastOpens") == true>>
     <<jump safeQuestions>>
 <<else>>
     <<jump paintingsInteractions>>
