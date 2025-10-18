@@ -73,8 +73,7 @@ namespace SunsetSystems.Persistence.UI
         {
             if (_saveLoadCanvasGroup)
                 _saveLoadCanvasGroup.interactable = false;
-            if (_newSaveGameObject == null || _newSaveGameObject.activeInHierarchy is false)
-                _ = LevelLoader.Instance.LoadSavedGame(saveMetaData.SaveID);
+            _ = LevelLoader.Instance.LoadSavedGame(saveMetaData.SaveID);
             //StartCoroutine(DisableInteractionForSeconds(.5f));
         }
 
