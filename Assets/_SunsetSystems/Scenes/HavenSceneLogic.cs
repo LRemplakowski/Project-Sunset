@@ -22,21 +22,9 @@ namespace SunsetSystems.Core
         [SerializeField]
         private GameObject _desireeOnBed;
         [SerializeField]
-        private GameObject _handgun;
-        [SerializeField]
-        private GameObject _crowbar, _gun;
-        [SerializeField]
-        private Weapon _handgunItem;
-        [SerializeField]
-        private IInteractable _kitchenSink;
-        [SerializeField]
         private string landlordDialogueEntryNode;
         [SerializeField]
-        private IDialogueSource _phone;
-        [SerializeField]
         private ICreature _landlord;
-        [SerializeField]
-        private IDialogueSource _landlordDialogue;
         [SerializeField]
         private Waypoint _landlordSpawnWaypoint, _landlordSinkWaypoint, _pcLandlordVisitWaypoint, _pcLandlordSinkWaypoint;
         [SerializeField]
