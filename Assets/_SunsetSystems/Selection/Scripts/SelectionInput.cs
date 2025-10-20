@@ -1,6 +1,7 @@
 ﻿using InsaneSystems.RTSSelection.UI;
 using SunsetSystems.Utils;
 using SunsetSystems.Utils.Input;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -12,7 +13,7 @@ namespace InsaneSystems.RTSSelection
     [RequireComponent(typeof(Selection))]
     public class SelectionInput : Singleton<SelectionInput>
     {
-        SelectionRect SelectionRect => this.FindFirstComponentWithTag<SelectionRect>(TagConstants.SELECTION_RECT);
+        SelectionRect SelectionRect => throw new NotImplementedException();
 
         Vector2 startMousePosition = new();
         Vector2 mousePosition = new();

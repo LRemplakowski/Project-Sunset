@@ -12,7 +12,7 @@ namespace SunsetSystems.Utils
             {
                 if (instance == null)
                 {
-                    instance = FindAnyObjectByType<T>(FindObjectsInactive.Exclude);
+                    instance = FindAnyObjectByType<T>(FindObjectsInactive.Include);
                     if (instance == null)
                     {
                         GameObject obj = new()
@@ -37,6 +37,12 @@ namespace SunsetSystems.Utils
             {
                 Destroy(this.gameObject);
             }
+        }
+
+        protected virtual void OnDestroy()
+        {
+            if (instance == this)
+                instance = null;
         }
     }
 }

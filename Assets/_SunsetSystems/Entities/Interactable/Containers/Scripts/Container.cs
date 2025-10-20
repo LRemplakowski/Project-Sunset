@@ -5,6 +5,7 @@ using SunsetSystems.Inventory;
 using SunsetSystems.Inventory.UI;
 using Sirenix.OdinInspector;
 using SunsetSystems.ActionSystem;
+using System;
 
 namespace SunsetSystems.Entities.Interactable
 {
@@ -29,13 +30,14 @@ namespace SunsetSystems.Entities.Interactable
 
         private void OpenContainer()
         {
-            if (this.TryFindFirstGameObjectWithTag(TagConstants.CONTAINER_GUI, out GameObject guiGO))
-            {
-                if (guiGO.TryGetComponent(out _containerGUI))
-                {
-                    _containerGUI.OpenContainerGUI(_myInventory, "TEST");
-                }
-            }
+            throw new NotImplementedException();
+            //if (this.TryFindFirstGameObjectWithTag(TagConstants.CONTAINER_GUI, out GameObject guiGO))
+            //{
+            //    if (guiGO.TryGetComponent(out _containerGUI))
+            //    {
+            //        _containerGUI.OpenContainerGUI(_myInventory, "TEST");
+            //    }
+            //}
         }
     }
 }

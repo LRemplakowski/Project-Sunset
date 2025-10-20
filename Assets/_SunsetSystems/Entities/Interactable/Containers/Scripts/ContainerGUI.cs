@@ -5,7 +5,6 @@ using UnityEngine;
 
 namespace SunsetSystems.Inventory.UI
 {
-    [RequireComponent(typeof(Tagger))]
     public class ContainerGUI : UIWindow
     {
         [SerializeField]

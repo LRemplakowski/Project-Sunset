@@ -12,10 +12,11 @@ using Yarn.Unity;
 
 namespace SunsetSystems.Dialogue
 {
-    [RequireComponent(typeof(Tagger))]
-    public class DialogueManager : Singleton<DialogueManager>, IResetable
+    public class DialogueManager : SerializedMonoBehaviour, IResetable
     {
         private const string DIALOGUE_MANAGER_STATE_ID = "STATE_SOURCE_DIALOGUE_MANAGER";
+
+        public static DialogueManager Instance { get; private set; }
 
         [SerializeField]
         private DialogueRunner _dialogueRunner;
@@ -29,8 +30,17 @@ namespace SunsetSystems.Dialogue
 
         private readonly IGameStateRequest _dialogueStateRequest = new StateChangeRequest(DIALOGUE_MANAGER_STATE_ID, GameState.Dialogue);
 
-        protected override void Awake()
+        protected void Awake()
         {
+            if (Instance == null)
+            {
+                Instance = this;
+            }
+            else
+            {
+                Destroy(gameObject);
+                return;
+            }
             _dialogueRunner = _dialogueRunner != null ? _dialogueRunner : GetComponent<DialogueRunner>();
             if (PlayerPrefs.HasKey(SettingsConstants.TYPEWRITER_SPEED_KEY))
             {
@@ -55,9 +65,12 @@ namespace SunsetSystems.Dialogue
             _dialogueRunner.onNodeStart.AddListener(MarkNodeVisitedCustom);
         }
 
-        private void OnDestroy()
+        protected void OnDestroy()
         {
-            _dialogueRunner.onNodeStart.RemoveListener(MarkNodeVisitedCustom);
+            if (Instance == this)
+                Instance = null;
+            if (_dialogueRunner != null)
+                _dialogueRunner.onNodeStart.RemoveListener(MarkNodeVisitedCustom);
         }
 
         private void MarkNodeVisitedCustom(string nodeID)

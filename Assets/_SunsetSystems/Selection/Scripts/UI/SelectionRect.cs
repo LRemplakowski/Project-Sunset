@@ -4,7 +4,6 @@ using UnityEngine.InputSystem;
 
 namespace InsaneSystems.RTSSelection.UI
 {
-    [RequireComponent(typeof(Tagger))]
     /// <summary> This class describes selection UI rectangle, which will visually show multiselection area. </summary>
     public class SelectionRect : MonoBehaviour
     {
