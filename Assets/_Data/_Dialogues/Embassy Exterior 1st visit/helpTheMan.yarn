@@ -3,47 +3,49 @@ tags:
 ---
 <<StartQuest "Q_0P_NEVER_TRUST_WHITE_VAN">>
 <<declare $smileInsincere to 0>>
-[nomarkup][An out of place looking soccer mom half-carries a heavily intoxicated man across the parking lot; his feet dragging against the concrete.][/nomarkup] #line:0ba4542 
--> {$pcName}: [nomarkup][Ignore them.][/nomarkup] #line:0c7ae60 
+{$storyteller}: [nomarkup][An out-of-place looking soccer mom half-carries a heavily intoxicated man across the parking lot; his feet dragging against the concrete.][/nomarkup] #line:0ba4542
+-> {$pcName}: [nomarkup][Ignore them.][/nomarkup] #line:0c7ae60
     <<jump ignoredVan>>
--> {$pcName}: [nomarkup][Approach them.][/nomarkup] #line:0eff3e4 
+-> {$pcName}: [nomarkup][Approach them.][/nomarkup] #line:0eff3e4
     <<jump approachKiddnaper>>
 ===
 title: ignoredVan
 ---
-[nomarkup][The woman shoves the man into the back seat of her van and drives off.][/nomarkup] #line:05aa9ea 
-{$innerVoice}: He'll be fine. #line:00338ea 
-[nomarkup][You're not so sure.][/nomarkup] #line:08e31dc 
+{$storyteller}: [nomarkup][The woman shoves the man into the back seat of her van and drives off.][/nomarkup] #line:05aa9ea
+{$kieran}: That was certainly… weird?
+{$storyteller}: [nomarkup][You see that Kieran looks confused. You want to believe that everything will be fine for this guy, but you're not so sure about it as you see the van driving away.][/nomarkup]
 <<FailObjective "Q_0P_NEVER_TRUST_WHITE_VAN" "O_0P_WHITE_VAN_HELP_THE_MAN">>
+-> [nomarkup][Walk away.][/nomarkup]
 ===
 title: approachKiddnaper
 ---
-[nomarkup][As the soccer mom notices you approaching, her face glowers for a second before beaming a smile.][/nomarkup] #line:030ec26 
+{$storyteller}: [nomarkup][As the soccer mom notices you approaching, her face glowers for a second before beaming a smile.][/nomarkup] #line:030ec26
 <<if GetAttributeSkillPoolSize("Wits", "Insight") >= 4>>
-    [nomarkup][It's obviously insincere.][/nomarkup] #line:0e50a44 
+    {$storyteller}: [nomarkup][It's obviously insincere.][/nomarkup] #line:0e50a44
     <<set $smileInsincere to 1>>
 <<endif>>
-Soccer Mom: Can I help you? #line:07039b0 
--> {$pcName}: Nevermind #line:0ebf603 
-    Soccer Mom: ... Alright then. #line:02eb218 
-    [nomarkup][The man mouths, “Help me.”][/nomarkup] #line:0e43181 
-    [nomarkup][Suspicious, she looks over her shoulder the rest of her trek to her van.][/nomarkup] #line:011eb50 
--> {$pcName}: Is he alright? (Wits + Awarness) #line:0d92186 
+Soccer Mom: Can I help you? #line:07039b0
+-> {$pcName}: Nevermind #line:0ebf603
+    Soccer Mom: ... Alright then. #line:02eb218
+    {$storyteller}: [nomarkup][The man mouths, “Help me.”][/nomarkup] #line:0e43181
+    {$storyteller}: [nomarkup][Suspicious, she looks over her shoulder the rest of her trek to her van.][/nomarkup] #line:011eb50
+    {$storyteller}: [nomarkup][The man plummets to the ground as she loosens her grip and draws her gun. Two men donned in all black emerge from her van.][/nomarkup] #line:0b4d86b
+    Soccer Mom: Get'em boys!  #line:0017b0e
+    -> [nomarkup][Draw your weapon.][/nomarkup]
+-> {$pcName}: Is he alright? (Wits + Awarness) #line:0d92186
     <<if Roll("Wits","Awarness")>=2-$smileInsincere>>
-        [nomarkup][She's jumpy and sweating bullets. Looking her over, you spy the shimmer of the gun she is holding to the man's side.][/nomarkup] #success #line:0b3b1fb 
-        {$beast}: My, you are subtle as a bag of bricks. #line:08f5d2e 
+        {$storyteller}: [nomarkup][She's jumpy and sweating bullets. Looking her over, you spy the shimmer of the gun she is holding to the man's side.][/nomarkup] #success #line:0b3b1fb
     <<else>>
-        {$pcName}: [nomarkup][You try to discern what the problem could be, but find yourself distracted by her horrible fashion choices.][/nomarkup] #failure #line:0a45fe8 
-        {$innerVoice}: Those jeans with that top? #line:04f1670 
+        {$storyteller}: [nomarkup][You try to discern what the problem could be, but find yourself distracted by her horrible fashion choices.][/nomarkup] #failure #line:0a45fe8
     <<endif>>
-    Soccer Mom: He's fine, why do you ask? #line:0732979 
-    [nomarkup][The man mouths, “Help me.”][/nomarkup] #line:0594efd 
-    {$kieran}: He doesn't look “fine.” #line:03cfabe 
-    Soccer Mom: [nomarkup][Laughing anxiously][/nomarkup] He just had a little too much to drink. #line:00eac00 
-    Soccer Mom: ... #line:0f1f735 
-    [nomarkup][The tension in the air brought on by the stand-off is palpable. She knows the jig is up.][/nomarkup] #line:0854555 
-    Soccer Mom: Ah, fuck it! #line:0e39fbc 
-[nomarkup][The man plummets to the ground as she loosens her grip and draws her gun. Two men donned in all black emerge from her van.][/nomarkup] #line:0b4d86b 
-Soccer Mom: Get'em boys!  #line:0017b0e 
--> [nomarkup][Draw your weapon.][/nomarkup]
+    Soccer Mom: He's fine, why do you ask? #line:0732979
+    {$storyteller}: [nomarkup][The man mouths, “Help me.”][/nomarkup] #line:0594efd
+    {$kieran}: He doesn't look “fine.” #line:03cfabe
+    Soccer Mom: [nomarkup][Laughing anxiously][/nomarkup] He just had a little too much to drink. #line:00eac00
+    Soccer Mom: ... #line:0f1f735
+    {$storyteller}: [nomarkup][The tension in the air brought on by the stand-off is palpable. She knows the jig is up.][/nomarkup] #line:0854555
+    Soccer Mom: Ah, fuck it! #line:0e39fbc
+    {$storyteller}: [nomarkup][The man plummets to the ground as she loosens her grip and draws her gun. Two men donned in all black emerge from her van.][/nomarkup]
+    Soccer Mom: Get'em boys!
+    -> [nomarkup][Draw your weapon.][/nomarkup]
 ===
