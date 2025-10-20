@@ -13,13 +13,13 @@ tags:
 <<declare $bartender to "Bartender">>
 <<declare $anaTalkedTo to false>>
 <<declare $dianaOffice to false>>
-[nomarkup][A neon haze mists the air, the temperature of the room brought higher by the mass of bodies dancing and mingling. It's a pretty popular place, that much is for certain... Despite the familiar environment, you still don't remember the previous night, however.][/nomarkup] #line:0236402 
-{$kieran}: It would be best not to test Kate's patience. Talk to her first before doing anything else. After she welcomes us, we may wander freely - so long as we don't commit some outrageous offense and force her to rescind her welcome. #line:0e1aaa4
+{$storyteller}: [nomarkup][A neon haze mists the air, the temperature of the room brought higher by the mass of bodies dancing and mingling.][/nomarkup]
+{$storyteller}: [nomarkup][It's a pretty popular place, that much is for certain... Despite the familiar environment, you still don't remember the previous night, however.][/nomarkup] #line:0236402
+{$kieran}: It would be best not to test Kate's patience. Talk to her first before doing anything else.
+{$kieran}: After she welcomes us, we may wander freely - so long as we don't commit some outrageous offense and force her to rescind her welcome. #line:0e1aaa4
 <<if Roll("Wits","Insight")>=3>>
-    [nomarkup][He seems to be somewhat nervous at the prospect - the anxiety seeping through his otherwise calm demeanor. It seems like he wants to meet this Kate, or perhaps get the ensuing conversation over with - as fast as he can.][/nomarkup] #line:05db851 
+    {$storyteller}: [nomarkup][He seems to be somewhat nervous at the prospect - the anxiety seeping through his otherwise calm demeanor.][/nomarkup]
 <<endif>>
-{$kieran}: She sits right there, in that lodge. [nomarkup][He points to your right with his head.][/nomarkup]
--> {$pcName}: Aren't you her um... vampire offspring? Can't you just come and go as you please? #line:0ae26ef 
-{$kieran}: Childe. [nomarkup][He corrects you calmly.][/nomarkup] Yes, I am. But I am also the individual tasked with guiding you, an unknown guest, so I am obliged to ensure you properly announce yourself to her. #line:0dfc307 
+{$kieran}: She'll be up those stairs in her VIP section.
 -> [nomarkup][End dialogue.][/nomarkup]
 ===
