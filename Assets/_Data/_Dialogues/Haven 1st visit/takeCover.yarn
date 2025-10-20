@@ -33,6 +33,7 @@ CRACK!
     <<endif>>
 -> [nomarkup][Hit the intruder with the crowbar.] (Dexterity + Melee)[/nomarkup] #line:0919bac 
     <<if Roll("Dexterity","Melee") >= 3>>
+        <<set $dominicshot to true>>
         {$storyteller}: [nomarkup][Your attack connects, the tip of the crowbar leaving a gnarly gashs, but he seems unaffected. His flesh knits itself back together as the wound heals before your eyes.][/nomarkup] #success
         {$storyteller}: [nomarkup][He's clearly unbothered. Amused, even. He grins menacingly, looking you up and down as his hand snatches the crowbar and pulls it from your hands. Without taking his eyes off you, he tosses it away from your reach.][/nomarkup] #line:06e97a8 
     <<else>>
@@ -49,7 +50,7 @@ CRACK!
     <<endif>>
 <<set $gotweapon to true>>
 <<if $dominicshot == true>>
-    {$storyteller}: [nomarkup][He inspects the blackened burnt hole in his well-pressed suit. His expression shifts from nonchalance to aggravation and disappointment.][/nomarkup]
+    {$storyteller}: [nomarkup][He inspects the hole in his well-pressed suit. His expression shifts from nonchalance to aggravation and disappointment.][/nomarkup]
     {$sheriff}: Heifer!
 <<else>>
     {$sheriff}: Nice try, kid. #line:0216dcc 

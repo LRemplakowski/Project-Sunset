@@ -63,7 +63,7 @@ title: kieranDominicRelations
         -> {$pcName}: Accounting? #line:017f074 
                 {$kieran}: You are my adoptive Childe, for  tonight at least. Thus, you are under my Accounting, of sorts.
                 -> {$pcName}: This sounds... awkward. #line:0b15454 
-                {$kieran}: If you are referring to the implication that I am your paternal figure now, then yes. I agree. #line:0f11c17 #lastline
+                {$kieran}: If you are referring to the implication that I am your paternal figure now, then yes. I agree. #line:0f11c17
                 <<jump questionsKieran>>
 ===
 title: vampisismExplained
@@ -72,9 +72,9 @@ title: vampisismExplained
     -> {$pcName}: Not even a crash course? #line:0a9b893 
         <<if CustomVisited("SireInfo") == true>>
             {$kieran}: The one you had back in your apartment was not sufficient? #line:0b6fda2
-		    {$kieran}:Listen, I understand what you are saying, but we really have to get going. #line:00ec54f #lastline
+		    {$kieran}:Listen, I understand what you are saying, but we really have to get going. #line:00ec54f
         <<else>>
-	        {$kieran}: I would give you one, I just do not think we have the time for this. You will learn as we go. #lastline
+	        {$kieran}: I would give you one, I just do not think we have the time for this. You will learn as we go.
         <<endif>>
  <<jump questionsKieran>>
 ===
@@ -89,18 +89,18 @@ title: willHeKillUs
 ===
 title: kieransAge
 ---
-{$kieran}: Old enough to know that age holds no relevance to one's maturity, other than giving people more time to experience the world. That is to say, around 45. I have been a Kindred since 1972, but my entire lifetime is barely a drop in the bucket, compared to many other Kindred. #line:0a081dd #lastline 
+{$kieran}: Old enough to know that age holds no relevance to one's maturity, other than giving people more time to experience the world. That is to say, around 45. I have been a Kindred since 1972, but my entire lifetime is barely a drop in the bucket, compared to many other Kindred. #line:0a081dd
 <<jump questionsKieran>>
 ===
 title: drinks
 ---
 {$kieran}: Technically, we can't drink alcohol... #line:05fc18d 
 <<if GetCompanionInfluence($kieran)>=2>>
-    {$kieran}: ... but I just may take you up on it, if only for the purpose of showing you a workaround. Not all mortal pleasures have to be forfeit. #line:03abe24 #lastline
+    {$kieran}: ... but I just may take you up on it, if only for the purpose of showing you a workaround. Not all mortal pleasures have to be forfeit. #line:03abe24
 <<elseif GetCompanionInfluence($kieran)<=-2>>
-    {$kieran}: ...and no amount would make it worth your prolonged company. #line:0ddc428 #lastline
+    {$kieran}: ...and no amount would make it worth your prolonged company. #line:0ddc428
 <<else>>
-    {$kieran}: ... but I don't know if such a thing would be... appropriate. #line:0a4ea6d #lastline
+    {$kieran}: ... but I don't know if such a thing would be... appropriate. #line:0a4ea6d
 <<endif>>
 <<jump questionsKieran>>
 ===
@@ -147,7 +147,7 @@ title: catherinasAge
 ===
 title: wantToKnowMoreAboutKieran
 ---
-{$kieran}: Sorry, but that will have to wait. It is unimportant right now. Not that I do not enjoy chatting about myself. #line:08eb29b #lastline
+{$kieran}: Sorry, but that will have to wait. It is unimportant right now. Not that I do not enjoy chatting about myself. #line:08eb29b
 <<jump questionsKieran>>
 ===
 title: occultQuestions

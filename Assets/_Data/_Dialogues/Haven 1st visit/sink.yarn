@@ -4,11 +4,11 @@ tags:
 <<StartQuest "Q_0P_FIX_SINK">>
 <<if $vomit == true>>
     {$storyteller}: [nomarkup][The sink is filled with red chunky lumps of bile and meat.][/nomarkup] #line:0f33850
-    {$storyteller}: [nomarkup][Something is clearly gravely wrong, but not like you can afford a visit to the ER.][/nomarkup] #lastline
+    {$storyteller}: [nomarkup][Something is clearly gravely wrong, but not like you can afford a visit to the ER.][/nomarkup]
 <<else>>
     {$storyteller}: [nomarkup][Stagnant dish water ponds in your clogged sink with traces of red. Not the first time. You get what you pay for.][/nomarkup] #line:0f4b5be
-    {$storyteller}: [nomarkup][Maybe by some stroke of luck you will be able to convince your landlord to fix it. Or you can try to do it yourself.][/nomarkup] #lastline
 <<endif>>
+{$storyteller}: [nomarkup][Maybe by some stroke of luck you will be able to convince your landlord to fix it. Or you can try to do it yourself.][/nomarkup]
 -> [nomarkup][Repair it yourself.] (Resolve + Craft) [/nomarkup] #line:052c893
     <<CompleteObjective "Q_0P_FIX_SINK" "REPAIR_SINK">>
     <<GiveItem "IT_Q_BATHROOM_KEY">>  
@@ -24,7 +24,7 @@ tags:
     {$pcName}: [nomarkup][What the fuck?][/nomarkup] #line:00217e7
     {$storyteller}: [nomarkup][Its deep brown iris settles on you. Its gaze feels almost accusatory.][/nomarkup]
     -> [nomarkup][Toss it.][/nomarkup] #line:06d7db9
-        {$storyteller}: [nomarkup][A wet PLOP.t splashes and bobs and down in the sink.][/nomarkup] #line:07e083e
+        {$storyteller}: [nomarkup][With a wet PLOP it splashes and bobs and down in the sink.][/nomarkup] #line:07e083e
         -> [nomarkup][Walk away.][/nomarkup] #line:0fcb8b5
     -> [nomarkup][Eat it.][/nomarkup] #line:02a5771
         {$storyteller}: [nomarkup][Instinct. You fit the whole eyeball into your mouth. A slimy, viscous fluid squirts in between your teeth. It's grotesque, but oddly satisfying.][/nomarkup] (-1 Hunger). #line:07e4fad
