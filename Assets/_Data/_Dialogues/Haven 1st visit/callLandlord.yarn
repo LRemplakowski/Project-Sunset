@@ -15,9 +15,9 @@ position: -328,-104
     -> {$pcName}: I'll pay you for your time. #line:02582fe
         {$landlord}: Now you're speaking my language. I'll have to charge you a-uh- a late night fee, of course. #line:07f776e
         -> {$pcName}: Sure.#line:025fbad
-            {$landlord}: Let me get dressed. I'll see you shortly. 
+            {$landlord}: Let me get dressed. I'll see you shortly.
+            <<CompleteObjective "Q_0P_FIX_SINK" "CALL_LANDLORD">> 
             [nomarkup][He hangs up.][/nomarkup] #line:0de55de
-            <<CompleteObjective "Q_0P_FIX_SINK" "CALL_LANDLORD">>
             -> [nomarkup][Hang up.][/nomarkup]
         -> {$pcName}: That's a rip off! #line:04a227e
             {$landlord}: I'm a capitalist. Take it or leave it. I'm going back to bed. #line:007cdae

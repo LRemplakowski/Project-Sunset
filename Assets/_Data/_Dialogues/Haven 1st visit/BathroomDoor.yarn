@@ -60,8 +60,8 @@ position: 567,-63
     <<endif>>
 <<else>>
     <<if Roll("Strength","Brawl") >= (6 - $strangeInsightModifier)>>
-        {$storyteller}: [nomarkup][You strike the door with precisely enough force to bust the door open without damaging the door.][/nomarkup] #success #line:0a62dfb 
         <<CompleteObjective "Q_0P_MAIN_SATURDAY_START" "ENTER_BATHROOM">>
+        {$storyteller}: [nomarkup][You strike the door with precisely enough force to bust the door open without damaging the door.][/nomarkup] #success #line:0a62dfb 
         -> [nomarkup][Go inside.][/nomarkup]
     <<else>>
         {$storyteller}:[nomarkup][Despite your best efforts, the door doesn't budge.][/nomarkup] #failure #line:0082b73 
@@ -72,19 +72,19 @@ position: 567,-63
 title: BathroomDoorCrowbar
 position: 545,316
 ---
+<<CompleteObjective "Q_0P_MAIN_SATURDAY_START" "ENTER_BATHROOM">>
 <<if Roll("Strength","Melee") >= 3>>
     {$storyteller}: [nomarkup][You jimmy the crowbar just right. A little elbow grease, and CREAK, the door opens.][/nomarkup] #success #lastline #line:0495901 
 <<else>>
     {$storyteller}: [nomarkup][Perhaps you were a little too eager. The door shatters! Splinters jam into your flesh.] [+1 Superficial Damage][/nomarkup] #failure #lastline #line:0033fa6
     <<set $bathroomdoordestroyed to true>> 
 <<endif>>
-<<CompleteObjective "Q_0P_MAIN_SATURDAY_START" "ENTER_BATHROOM">>
 -> [nomarkup][Go inside.][/nomarkup]
 ===
 title: BathroomDoorUnlock
 position: 606,144
 ---
-[nomarkup][CLICK. The door unlocks.][/nomarkup] #line:09dd832 
 <<CompleteObjective "Q_0P_MAIN_SATURDAY_START" "ENTER_BATHROOM">>
+[nomarkup][CLICK. The door unlocks.][/nomarkup] #line:09dd832 
 -> [nomarkup][Go inside.][/nomarkup]
 ===
