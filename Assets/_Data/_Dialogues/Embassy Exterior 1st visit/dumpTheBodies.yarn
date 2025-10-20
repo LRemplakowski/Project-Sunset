@@ -2,44 +2,45 @@
 tags:
 ---
 <<declare $toldKieranAboutVision to false>>
-[nomarkup][As you round the corner, a force comes over you that makes you stop in your tracks. Déjà Vu. You feel like you've been here last night.][/nomarkup] #line:0659906 
-{$beast}: Turn back. #line:02f8b5a 
+{$storyteller}: [nomarkup][As you round the corner, a force comes over you that makes you stop in your tracks. Déjà Vu. You feel like you've been here last night.][/nomarkup] #line:0659906
 <<jump flashback>>
 ===
 title: flashback
 ---
-[nomarkup][You walk down the alley with the man whose corpse was in your shower. You exchange drunken flirty lines, until he decides to hug you from behind. You feel your breath go hot. He leans against your for support, and you hold him up. At the end of the alleyway, where the passage opens up to the street you see a woman that waits for you.][/nomarkup] #line:0c2c0f6 
-Mysterious Woman: Surprise, sweetie. #line:066a4a7 
+{$storyteller}: [nomarkup][You are walking down the alley with a man you have trouble recognizing. Not just any man.][/nomarkup]
+{$storyteller}: [nomarkup][He is the man you found dead in your shower earlier tonight.][/nomarkup]
+{$storyteller}: [nomarkup][At the end of the alleyway, where the passage opens up to the street you see a woman that waits for you.][/nomarkup] #line:0c2c0f6
+Mysterious Woman: You made it. #line:066a4a7
 <<jump kieranInterrupts>>
 ===
 title: kieranInterrupts
 ---
-[nomarkup][Kieran stands in front of you, waving his hand before your eyes...][/nomarkup] #line:033a717 
-{$kieran}: Miss Bardot, can you hear me?  #line:0276754 
-[nomarkup][You catch your bearings, Kieran's voice grounding you.][/nomarkup] #line:05445cd 
-{$kieran}: You spaced out for a while. Is everything alright? #line:05ffba6 
--> {$pcName}: Yeah. #line:0b7d0ed 
-    {$kieran}: What happened? You looked like a deer in the headlights for a moment, there. #line:0c2cfbb 
-    -> {$pcName}: I had some sort of “vision.” #line:07814b4 
-        <<set $toldKieranAboutVision to true>>
-        <<jump toldAboutVision>>
-    -> {$pcName}: Don't worry about it. #line:04dd301 
-        <<jump dontTellAboutVision>>
+{$storyteller}: [nomarkup][Kieran waves his hand before your eyes.][/nomarkup] #line:033a717
+{$kieran}: Can you hear me?  #line:0276754
+{$storyteller}: [nomarkup][You catch your bearings, Kieran's voice grounding you.][/nomarkup] #line:05445cd
+{$kieran}: You spaced out. Is everything alright? #line:05ffba6
+-> {$pcName}: I had some sort of “vision.” #line:07814b4
+    <<set $toldKieranAboutVision to true>>
+    <<jump toldAboutVision>>
+-> {$pcName}: Don't worry about it. #line:04dd301
+    <<jump dontTellAboutVision>>
 ===
 title: toldAboutVision
 ---
 <<ModifyInfluence 1 {$kieran}>>
-{$kieran}: [nomarkup][He laughs.][/nomarkup] Don't tell me Dominic was wrong, and you're actually a Malkavian. (+1 Kieran Influence) #line:094a46c 
--> {$pcName}: What's a Malkavian? #line:0bb2389 
-{$kieran}: Another Bloodline of Kindred, just as the Brujah are. Might be of relevelace later, so keep the name in mind. But please, tell me about this vision. #line:017c8bd 
--> {$pcName}: I was in this alley last night with the guy... #line:0e53e4b 
-{$kieran}: The one in your shower. #line:088ce81 
--> {$pcName}: ... A woman was with us too. #line:06a1d4a 
-{$kieran}: Could be your Sire. It seems as if we are hot on her trail, if your recollection is to be trusted. That certainly would be a stroke of luck I wouldn't turn my nose up at. [nomarkup][His expression visibly brightens just the tiniest bit, at the notion. It's a proverbial light at the end of the tunnel - something to latch onto.][/nomarkup] #line:083b5f9 
+{$kieran}: Don't tell me Dominic was wrong, and you're actually a Malkavian. (+1 Kieran Influence) #line:094a46c
+-> {$pcName}: What's a Malkavian? #line:0bb2389
+{$kieran}: Another clan. Not important right now.. Please, tell me about this vision. #line:017c8bd
+-> {$pcName}: I was in this alley last night with the guy... #line:0e53e4b
+{$kieran}: The man you killed? #line:088ce81
+-> {$pcName}: ...A woman was with us too. #line:06a1d4a
+{$kieran}: Could be your Sire. It seems as if we are hot on her trail, if your recollection is to be trusted.
+{$storyteller}: [nomarkup][His expression visibly brightens just the tiniest bit, at the notion. It's a proverbial light at the end of the tunnel - something to latch onto.][/nomarkup] #line:083b5f9
 <<jump backDoor>>
 ===
 title: dontTellAboutVision
 ---
-{$kieran}: [nomarkup][He sounds incredulous.][/nomarkup] Your dissociation is one thing, but withholding potentially helpful information is another. It did not seem like nothing. If you're sure, though... I will take your word for it. Do your best to maintain focus. We are running short on time. #line:04c605f 
+{$kieran}: Your dissociation is one thing, but withholding potentially helpful information is another. It did not seem like nothing. If you're sure, though... I will take your word for it.
+{$kieran}: Do your best to maintain focus. We are running short on time. #line:04c605f
 <<jump backDoor>>
 ===
