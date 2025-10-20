@@ -1,32 +1,33 @@
 ﻿title: embassyArrival
 tags:
 ---
-[nomarkup][Kieran chauffeurs you to Embassy, parallel parking neatly next to the sidewalk a block or two down from the main entrance to this - the city's best (and only) British rock club. An ominous glow from the neon Union Jack illuminates the sidewalk as you both exit Kieran's vehicle.][/nomarkup] #line:00aef1c 
-{$kieran}: As I was saying prior to you wresting control of the radio to blast that discordant cacophony you call music, the Embassy is my Sire, Kate's Domain. On the books, however, the club is run by her ghoul, Diana. #lastline #line:01bda99
+{$storyteller}: [nomarkup][Kieran chauffeurs you to Embassy, parallel parking neatly next to the sidewalk a down from the main entrance to this - the city's best (and only) British rock club.][/nomarkup]
+{$storyteller}: [nomarkup][An ominous glow from the neon Union Jack illuminates the sidewalk as you both exit Kieran's vehicle.][/nomarkup] #line:00aef1c
+{$kieran}: As I was saying the Embassy is my Sire, Kate's Domain. Off the books, of course, the club's day to day operations are run by her ghoul, Diana. #lastline #line:01bda99
 <<jump ArrivalQuestions>>
 ===
 title: ArrivalQuestions
 ---
--> {$pcName}: [nomarkup][You raise an eyebrow at that.][/nomarkup] You're telling me "ghouls" are real too? <<if CustomVisited("vampiricWeaknesses") == false>> #line:0a1597d 
+-> {$pcName}: You're telling me "ghouls" are real too? <<if CustomVisited("vampiricWeaknesses") == false>> #line:0a1597d 
     <<jump vampiricWeaknesses>>
--> {$pcName}: You've mentioned it a few times now. What do you mean by 'domain'? <<if CustomVisited("whatIsDomain") == false>> #line:091d4cf 
+-> {$pcName}: What do you mean by 'domain'? <<if CustomVisited("whatIsDomain") == false>> #line:091d4cf 
     <<jump whatIsDomain>>
--> {$pcName}: You don't like my music? <<if CustomVisited("musicTastes") == false>> #line:0819a63 
-    <<jump musicTastes>>
 -> {$pcName}: Let's go. #line:0c36d66 
     <<jump letsGo>>
 ===
 title: vampiricWeaknesses
 position: 217,-136
 ---
-{$kieran}: Being Kindred is uncharted territory for you, miss Bardot. A re-evaluation of your beliefs would be prudent. [nomarkup][He takes a brief pause.][/nomarkup]  #line:06a28c3 
-{$kieran}: When a mortal drinks some of a Kindred's blood, they become creatures subservient to us - ghouls. They share the longevity of their master, given they do not bite the hand that feeds them... #line:03b7150 
--> {$pcName}: So we do live forever? #line:02593b4 
-    {$kieran}:Those who keep away from trouble most certainly can live long enough for it to feel so, but we do not share this prospect in our current situation, miss Bardot. I will gladly answer the questions you have about Kindred as soon as we are off the hook. #lastline #line:07bca25 
+{$kieran}: Being Kindred is uncharted territory for you. A re-evaluation of your beliefs would be prudent. #line:06a28c3
+{$kieran}: When a mortal drinks some of a Kindred's blood, they become creatures subservient to us - ghouls. They share the longevity of their master, given they do not bite the hand that feeds them... #line:03b7150
+-> {$pcName}: So we do live forever? #line:02593b4
+    {$kieran}:Those who keep away from trouble most certainly can live long enough for it to feel so, but we do not share this prospect in our current situation.
+    {$kieran}: I will gladly answer the questions you have about Kindred as soon as we are off the hook. #lastline #line:07bca25
     <<jump ArrivalQuestions>>
--> {$pcName}: What does it take to kill us? #line:0a5e59d 
-    {$kieran}: Sunlight, fire, decapitation... Dominic's jokes. [nomarkup][He adds this with an irritated amusement.][/nomarkup] Though, most of the time, getting on the bad side of someone more influential is enough. But there are things worse than death, miss Bardot. #line:0e9ae35
-    {$kieran}: Death is merciful. And we are not immune to the pain brought by torture - physical or otherwise. #lastline #line:04463b4 
+-> {$pcName}: What does it take to kill us? #line:0a5e59d
+    {$kieran}: Sunlight, fire, decapitation... Dominic's jokes. 
+    {$storyteller}: [nomarkup][He adds this with an irritated amusement.][/nomarkup]
+    {$kieran}: Though, most of the time, getting on the bad side of someone more influential is enough. But there are things worse than final death. #line:0e9ae35
     <<if Roll ("Intelligence","Occult") >=4>>
         <<jump stakes>>
     <<else>>
@@ -35,31 +36,23 @@ position: 217,-136
 ===
 title: garlicBread
 ---
--> {$pcName}: Can I not eat garlic bread anymore? That doesn't seem like a life worth living. #line:0c462b8 
-{$kieran}: [nomarkup][Your remark puts a blink-and-you'll-miss-it smile on his usual stiff and borderline-pessimistic expression.][/nomarkup] I miss food as well - cookies, in particular. That being said, life without those indulgences will not kill you. Kindred can no longer take in food as humans do. Our digestive system finds anything but blood...troubling. #line:0be75d2 
-{$innerVoice}: Fuck! I didn't even think about desserts. #lastline #line:0f04483 
+-> {$pcName}: Can I not eat garlic bread anymore? #line:0c462b8
+{$storyteller}: [nomarkup][Your remark puts a blink-and-you'll-miss-it smile on his usual stiff and borderline-pessimistic expression.][/nomarkup] 
+{$kieran}: I miss food as well - cookies, in particular. That being said, life without those indulgences will not kill you.
+{$kieran}: Kindred can no longer take in food as humans do. Our digestive system finds anything but blood... troubling. #line:0be75d2
 <<jump ArrivalQuestions>>
 ===
 title: whatIsDomain
 ---
-{$kieran}: The basic concept is identical to the original meaning of the word: a region or territory controlled by a ruler or governmental body. This generally still holds true in Kindred society. Domain is only bestowed upon people who have proven themselves in some significant way. #line:06c0d19 
--> {$pcName}: Do you have one? #line:0a49f43 
-{$kieran}: [nomarkup][Kieran is taken aback by the bluntness of the question, but recovers quickly.][/nomarkup] No, miss Bardot. I do not. #line:08bef4e 
--> {$pcName}: Touchy topic? #line:04bd3c2 
-{$kieran}: No. Not at all. I'm only surprised you would assume I might have one after such an explanation. I'm not a young man, but I am a very young Kindred. One that is yet to earn the standing and influence necessary to claim a Domain. #line:05b714a 
-{$beast}: Blind leading the blind, as one would say? #lastline #line:091bec4 
-<<jump ArrivalQuestions>>
-===
-title: musicTastes
-position: 164,153
----
-{$kieran}: I usually pay it no mind, but I was trying to ponder solutions to our predicament. I couldn't concentrate. I am sorry if I sounded unpleasant. #line:0c71b0a 
--> {$pcName}: I was trying to calm down. #line:0274f5f 
-    {$kieran}: Look, I know that this is a lot to process, but we're in the same boat right now. If we want to live to see another night, we need to work together to achieve that. #line:067022e 
--> {$pcName}: I was trying to tune you out. #line:09fde6f 
-    {$kieran}: By all means. See how well that works out for you. (-1 Kieran Influence) #line:033e151 
-    <<ModifyInfluence -1 {$kieran}>>
-{$kieran}: [nomarkup][He sighs wearily.][/nomarkup] Do not get me wrong. I am trying to help. I know it may sound patronizing, but I have more experience with Kindred than you. Aside from that, in light of our laws, I am responsible for you, so I may as well give you some advice so that we can avoid such disasters in the future. You may not like it - I know I didn't - but this is how things must be done. #lastline #line:0b60692 
+{$kieran}: The basic concept is identical to the original meaning of the word: a region or territory controlled by a ruler or governmental body.
+{$kieran}: This generally still holds true in Kindred society. Domain is only bestowed upon people who have proven themselves in some significant way. #line:06c0d19
+-> {$pcName}: Do you have one? #line:0a49f43
+{$storyteller}: [nomarkup][Kieran is taken aback by the bluntness of the question, but recovers quickly.][/nomarkup]
+{$kieran}: No. I do not. #line:08bef4e
+-> {$pcName}: Touchy topic? #line:04bd3c2
+{$kieran}: No. Not at all. I'm only surprised you would assume I might have one after such an explanation.
+{$kieran}: I'm not a young man, but I am a very young Kindred. One that is yet to earn the standing and influence necessary to claim a Domain. #line:05b714a
+{$beast}: Blind leading the blind. #lastline #line:091bec4
 <<jump ArrivalQuestions>>
 ===
 title: letsGo
@@ -73,6 +66,6 @@ position: -52,-156
 title: stakes
 ---
 -> {$pcName}: What about stakes? #line:088b4bc 
-    {$kieran}: A stake to the heart will only immobilize us, invoking a paralysis that we cannot escape from without assistance. #line:0a1de9a 
+{$kieran}: A stake to the heart will only immobilize us, invoking a paralysis that we cannot escape from without assistance. #line:0a1de9a 
 <<jump garlicBread>>
 ===
