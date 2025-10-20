@@ -94,7 +94,8 @@ namespace SunsetSystems.Dialogue
 
         private void OnDestroy()
         {
-            DialogueManager.Instance.UnregisterView(this);
+            if (DialogueManager.Instance != null)
+                DialogueManager.Instance.UnregisterView(this);
         }
 
         private void Update()

@@ -168,7 +168,8 @@ namespace SunsetSystems.Entities.Interactable
             InteractablesInScene.Remove(this);
             if (_linkedGameObject != null)
                 _linkedGameObject.SetActive(false);
-            DialogueManager.Instance.OnDialogueStarted.RemoveListener(OnDialogueStarted);
+            if (DialogueManager.Instance != null)
+                DialogueManager.Instance.OnDialogueStarted.RemoveListener(OnDialogueStarted);
         }
 
         protected virtual void Start()

@@ -85,7 +85,7 @@ namespace SunsetSystems
             if (data is not RelationshipSaveData saveData)
                 return false;
             _influenceData = saveData.InfluenceData;
-            return false;
+            return true;
         }
 
         [Serializable]
