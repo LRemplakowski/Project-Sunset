@@ -49,7 +49,20 @@ namespace SunsetSystems.Combat
 
         private void Awake()
         {
-            Instance = this;
+            if (Instance == null)
+            {
+                Instance = this;
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+        }
+
+        private void OnDestroy()
+        {
+            if (Instance == this)
+                Instance = null;
         }
 
         private void SetCurrentActiveActor(int index)
@@ -85,7 +98,6 @@ namespace SunsetSystems.Combat
                 OnFullTurnCompleted?.Invoke(CurrentActiveActor);
             }
             OnCombatRoundBegin?.Invoke(CurrentActiveActor);
-            SetCombatUIActive(IsActiveActorPlayerControlled());
             Debug.Log("Combat Manager: " + CurrentActiveActor.References.GameObject.name + " begins round " + turnCounter + "!");
         }
 

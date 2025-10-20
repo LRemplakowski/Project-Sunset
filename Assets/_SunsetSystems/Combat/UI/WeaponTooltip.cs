@@ -38,7 +38,20 @@ namespace SunsetSystems.Combat.UI
 
         private void SetTooltipData()
         {
-            var weaponManager = CombatManager.Instance.CurrentActiveActor.References.WeaponManager;
+            if (CombatManager.Instance == null)
+            {
+                Debug.LogError($"{nameof(WeaponTooltip)} >>> COMBAT MANAGER HAS A NULL INSTANCE!", gameObject);
+                Debug.Break();
+                return;
+            }
+            var currentActor = CombatManager.Instance.CurrentActiveActor;
+            if (currentActor == null)
+            {
+                Debug.LogError($"{nameof(WeaponTooltip)} >>> CURRENT ACTOR IS NULL IN COMBAT!", gameObject);
+                Debug.Break();
+                return;
+            }
+            var weaponManager = currentActor.References.WeaponManager;
             var weapon = GetWeapon(weaponManager);
             if (weapon != null)
             {

@@ -107,6 +107,7 @@ namespace SunsetSystems.Entities.Characters.Navigation
         {
             CombatManager.OnCombatStart -= OnCombatStart;
             CombatManager.OnCombatEnd -= OnCombatEnd;
+            CombatManager.OnCombatRoundBegin -= OnCombatRoundStart;
         }
 
         // Warp agent instantly to a position
