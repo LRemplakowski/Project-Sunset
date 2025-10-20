@@ -114,7 +114,7 @@ title: HowFindMe
 tags:
 ---
 {$sheriff}: We have our ways. #line:0eb9708 
-{$kieran}: We received an anonymous tip #line:0d7d448 
+{$kieran}: We received an anonymous tip. #line:0d7d448 
 {$sheriff}: Man, why you gotta give up our ways? #line:01a1e9a 
 <<jump AnyOtherQuestions>>
 ===
@@ -154,7 +154,7 @@ tags:
 {$sheriff}: Any last words?
 {$pcName}: ...
 {$storyteller}: [nomarkup][Before you can speak, Kieran interrupts, staring intently at the documents on your desk.][/nomarkup]
-{$kieran}: Wait a minute, Sheriff. She's not some random fledgling. It appears we barged into the apartment of the journalist who brought down the Pride...
+{$kieran}: Wait a minute, Sheriff. She is not some random fledgling. It appears we barged into the apartment of the journalist who brought down the Pride...
 {$sheriff}: [nomarkup][He looks back at Kieran, hand still firm around your neck.][/nomarkup] ... What?
 <<if GetAttributeSkillPoolSize("Composure","Insight") >= 4>>
     {$storyteller}: [nomarkup][You can't shake off a feeling that Dominic shows signs of relief for some reason. It's discreet, but it's there. His posture got less tense.][/nomarkup] #line:0f02589
@@ -162,7 +162,7 @@ tags:
 {$kieran}: She has proven to be very resourceful and insightful in the past. Killing her will only a waste of resources and potential. 
 {$kieran}: She managed to put the heat on the Prince. She was also very close to discovering Kindred's existence.
 {$kieran}: If we hope to find her sire, let's not waste her talents and use them in this endeavor. Two birds with one stone, so to speak.
-{$storyteller}: [nomarkup][He slightly loosens his iron grip, but remains steadfast. His brow furrows, and you can practically see the cogs in his mind beginning to spin.][/nomarkup]
+{$storyteller}: [nomarkup][Dominic slightly loosens his iron grip, but remains steadfast. His brow furrows, and you can practically see the cogs in his mind beginning to spin.][/nomarkup]
 {$sheriff}: I see why Kate keeps you around, Kieran. You make good points, but Sam would be pissed if she found out I allowed a fledgling loose let alone. Tellin' her name would not make it any easier. 
 {$kieran}: Like you stated, she is not experienced in our ways. Tracking her down would not be challenging. Especially now, when we know of her identity and appearance.
 {$storyteller}: [nomarkup][He looks straight at you in a way that makes every fibre in your body tighten.][/nomarkup]
@@ -205,7 +205,7 @@ tags:
 {$kieran}: You come from an ancient bloodline of Kindred known for their... strong convictions. #line:0efa0eb 
 {$sheriff}: Guess it ain't your fault you're the kinda trouble only a sire could love. #line:06773aa 
 {$storyteller}: [nomarkup][Coming from this guy, of all people...][/nomarkup]
-{$sheriff}: Heh... judge by the strength o' your blood, your Sire ain't small potatoes. Good luck - you're both gonna need it #line:073f51b 
+{$sheriff}: Heh... judge by the strength o' your blood, your sire ain't small potatoes. Good luck - you're both gonna need it #line:073f51b 
 {$sheriff}: I'm off. I'll have a team swing by to clean up soon. Pleasure meetin' you, Desiree. I'll be in touch.
 {$storyteller}: [nomarkup][He lowers his shades a bit and winks.][/nomarkup]  #line:079d346 
 <<CompleteObjective "Q_0P_MAIN_SATURDAY_START" "TAKE_COVER">>
@@ -223,15 +223,16 @@ tags:
 {$storyteller}: [nomarkup][You rub your temple. The clinical tone of the questions is not dissimilar to the kind of prodding inquiry one would receive in therapy.][/nomarkup]
 {$storyteller}: [nomarkup][Sadly, you seem to come up short - no matter how hard you try. You sigh and shake your head.][/nomarkup]	 #line:020d9cc 
 {$storyteller}: [nomarkup][He stares at you, analyzing your every move.][/nomarkup]
-{$kieran}: Nothing? That is alright... One's memory may be feeble at times - especially if the event one is remembering is traumatizing. Next, we should search the apartment. Perhaps something will jog your mind. #line:0fd0013 
+{$kieran}: Nothing? That's alright... One's memory may be feeble at times - especially if the event one is remembering is traumatizing. Next, we should search the apartment. Perhaps something will jog your mind. #line:0fd0013 
 {$storyteller}: [nomarkup][Before the conversation comes to an end, you feel the need to say one last thing.][/nomarkup] #line:097de2e 
 -> {$pcName}: Thanks for saving me. #line:095235a 
     {$storyteller}: [nomarkup][He raises his head a bit.][/nomarkup] 
-    {$kieran}: This isn't sympathy, so please don't take it as such. My good will extends only as far as your resolve. (+1 Kieran Influence) #line:07a4702
+    {$kieran}: This is not sympathy, so please do not take it as such. My good will extends only as far as your resolve. (+1 Kieran Influence) #line:07a4702
     <<ModifyInfluence 1 {$kieran}>> 
 -> {$pcName}: So you're my jailor. #line:0cebb89 
     {$storyteller}: [nomarkup][He crosses his arms, glaring at you coldly.][/nomarkup] 
     {$kieran}: That would imply I will come out of this ordeal unscathed should you fail, and I believe Dominic made himself clear: you are my responsibility now. #line:03eb161 
+    <<ModifyInfluence -1 {$kieran}>> 
 {$pcName}: Why did you do it, then, if you knew the risks? #line:0d89e29 
 {$storyteller}: [nomarkup][He looks at you intently for several seconds - trying to gather his thoughts.][/nomarkup]
 {$kieran}: It seems we may have a chance to emerge from this predicament unscathed. We merely need to continue moving. 
@@ -241,5 +242,6 @@ tags:
     {$storyteller}: [nomarkup][He miscalculated, and he's ashamed of that fact.][/nomarkup]  #line:094d354 
 <<endif>>
 {$pcName}: That doesn't answer my question. #line:0c48e22 
-{$kieran}: I know. But it will have to suffice. For now. #line:045022a 
+{$kieran}: I know. But it will have to suffice. For now. #line:045022a
+-> [nomarkup][End conversation.][/nomarkup] 
 ===
