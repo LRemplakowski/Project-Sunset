@@ -3,20 +3,27 @@ tags:
 ---
 <<if IsObjectiveActive("Q_0P_NEVER_TRUST_WHITE_VAN","O_0P_WHITE_VAN_GET_RID_OF_BODIES") == true>>
     <<CompleteObjective "Q_0P_NEVER_TRUST_WHITE_VAN" "O_0P_WHITE_VAN_GET_RID_OF_BODIES">>
-    [nomarkup][One by one, you heave the bodies into the dumpster. There's a soft thud as they hit the metal.][/nomarkup] #line:08438ac 
-    -> {$pcName}: Won't these be found? #line:0bffeae 
-    {$kieran}: We have a lot of drop points like this across the city. See that logo? [nomarkup][He points to a faded picture on the side of a dumpster. It looks like it belongs to Ardus Enterprises.][/nomarkup]You can dispose of bodies in dumpsters with it. No questions asked. #line:06df308 
-    <<jump financeRoll>>
+    {$storyteller}: [nomarkup][One by one, you heave the bodies into the dumpster. There's a soft thud as they hit the metal.][/nomarkup] #line:08438ac
+    -> {$pcName}: Won't these be found? #line:0bffeae
+        {$kieran}: We have a lot of drop points like this across the city. See that logo? 
+        {$storyteller}: [nomarkup][He points to a faded picture on the side of a dumpster. It looks like it belongs to Ardus Enterprises.][/nomarkup]
+        {$kieran}: You can dispose of bodies in dumpsters with it. No questions asked. #lastline #line:06df308
+        <<jump financeRoll>>
 <<else>>
-    [nomarkup][An old, weathered dumpster with the Ardus Enterprises logo on it. You're not sure if it's blood or rust lining the sides.][/nomarkup] #line:02aad1b 
+    {$storyteller}: [nomarkup][An old, weathered dumpster with the Ardus Enterprises logo on it. You're not sure if it's blood or rust lining the sides.][/nomarkup] #line:02aad1b
     -> [nomarkup][Walk away.][/nomarkup]
 <<endif>>
 ===
 title: financeRoll
 ---
 <<if (Roll("Intelligence","Streetwise") >= 3) or (Roll("Intelligence","Finance") >= 3)>>
-    [nomarkup][Ardus Enterprises is a large trash processing company that cleans most of Vegas's districts. These days, they also push hard for the Yucca Mountain Nuclear Waste Repository. In the past, you heard, and even investigated, some stories about bodies found in the dumpsters. Even in smaller containers next to private houses...][/nomarkup] #line:024628d 
-    [nomarkup][You can't help but wonder how many of those corpses were created due to vampiric influence in the city. Do the Kindred have some kind of connection to Ardus? Did they strike a mutual agreement? The questions are piling up one after another - just like the bodies you throw into a dumpster's hungry maw to most likely never be seen again.][/nomarkup] #line:04b6459 
+    {$storyteller}: [nomarkup][Ardus Enterprises is a large trash processing company that cleans most of Vegas's districts. These days, they also push hard for the Yucca Mountain Nuclear Waste Repository.][/nomarkup]
+    {$storyteller}: [nomarkup][In the past, you heard, and even investigated, some stories about bodies found in the dumpsters. Even in smaller containers next to private houses...][/nomarkup] #line:024628d
+    {$storyteller}: [nomarkup][You can't help but wonder how many of those corpses were created due to vampiric influence in the city.][/nomarkup]
+    {$storyteller}: [nomarkup][Do the Kindred have some kind of connection to Ardus? Did they strike a mutual agreement?][/nomarkup]
+    {$storyteller}: [nomarkup][The questions are piling up one after another - just like the bodies you throw into a dumpster's hungry maw to most likely never be seen again.][/nomarkup] #line:04b6459
+    -> [nomarkup][Walk away.][/nomarkup]
+<<else>>
     -> [nomarkup][Walk away.][/nomarkup]
 <<endif>>
 ===
