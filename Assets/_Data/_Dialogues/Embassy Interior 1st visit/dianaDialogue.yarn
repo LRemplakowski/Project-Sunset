@@ -2,66 +2,51 @@
 position: 136,-238
 ---
 <<set $dianaMet to true>>
-[nomarkup][Despite the sea of UK memorabilia, for the first time tonight you hear an authentic British accent slice through the crowd.][/nomarkup] #line:055b0be 
-{$diana}: -love, the answer to your question is no. Get your arse the fuck out of my building. I'm not asking twice because I. Didn't. Ask. #line:0cb40ac 
-[nomarkup][Diana's eyes are fixed on you as she approaches, dark brown and dancing with intent. You talk, and she smiles at you, thankful... Then, she turns and looks over her shoulder and back at you. Did you follow her here?][/nomarkup] #line:0b1137c 
-{$diana}: Bad evening? #line:05026cb 
--> {$pcName}: The worst. #line:0ac27e4 
-[nomarkup][Your speech is slow as you reach for words, this feels so familiar but from where? That smile feels like something you've seen, how many times has she asked you this? When...][/nomarkup]
-<<if GetIsPartyMemberRecruited($anastasia) is true>>
-    {$anastasia}: Well, if she's done spacing out and you two already have some kind of plan, I'd like to hear it. Sharing is caring. #line:0af9e59 
-    {$kieran}: [nomarkup][Kieran frowns.][/nomarkup] She does that, sometimes. Please, pay it no mind. #line:09a1f03
-<<endif>>
+{$storyteller}: [nomarkup][Despite the sea of UK memorabilia, for the first time tonight you hear an authentic British accent slice through the crowd.][/nomarkup] #line:055b0be 
+{$diana}: -love, the answer to your question is no. Get your arse the fuck out of my building. I'm not asking twice.
+{$storyteller}: [nomarkup][Diana is dressing down a rowdy patron, but her eyes becometransfixed on you as she notices you approach.][/nomarkup]
+{$storyteller}: [nomarkup][You recognize her as the woman from your vision.][/nomarkup]
 <<if $toldKieranAboutVision is true>>
-    {$kieran}: Another vision? #line:07c09de
+    {$kieran}: Another vision?
 <<endif>>
 [nomarkup][You see Kieran looking at you a little bit confused.][/nomarkup]
--> {$pcName}: That's the woman I've been seeing. <<if CustomVisited("tellAboutVision") == false>> #line:0a3a355 
+-> {$pcName}: She was here with me last night. <<if CustomVisited("tellAboutVision") == false>> #line:0a3a355 
 <<jump tellAboutVision>> 
 ===
 title: tellAboutVision
 ---
-<<if GetIsPartyMemberRecruited($anastasia) is true>>
-    {$anastasia}: I don't envy you. It's always awkward running into an ex. #line:081cd9b 
-    -> {$pcName}: Not like that. #line:017ce07 
-<<endif>>
-{$kieran}: Diana is here almost every night. Her presence is hardly surprising if you recognize her. After all, she runs this place. #line:0ec512e 
--> {$pcName}: She talked to me, smiled... The interaction was... kind. #line:0412e1f 
-    <<jump approachDiana>>
+{$kieran}: Who Diana? She is here every night. That is hardly surprising.
+-> {$pcName}: It was more than that.
+<<jump approachDiana>>
 ===
 title: approachDiana
 ---
-{$kieran}: [nomarkup][As you weave through the crowd making your way to the bar, Kieran grabs your shoulder.][/nomarkup] Proceed with caution. Diana is Kate's favorite ghoul. If something were to happen to her, she would be pissed. #line:022383f 
-<<if GetIsPartyMemberRecruited($anastasia) is true>>
-    {$anastasia}: [nomarkup][Under her breath.][/nomarkup] Funny way to say pet. #line:0c35de6 
-<<endif>>
-{$beast}: I bet he doesn't care for her. Just for his own business.
+{$storyteller}: [nomarkup][As you weave through the crowd making your way to the bar, Kieran grabs your shoulder.][/nomarkup] 
+{$kieran}: Proceed with caution. Diana is Kate's favorite ghoul. If something were to happen to her, she would be pissed
 -> {$pcName}: [nomarkup][Nod.][/nomarkup] #line:0c46c4d 
-    {$kieran}: [nomarkup][Kieran nods back.][/nomarkup](+1 Kieran Influence) #line:0399fb7 
-    <<ModifyInfluence 1 {$kieran}>>
+    {$kieran}: [nomarkup][Kieran nods back.][/nomarkup]
     <<jump dianaApproached>>
--> {$pcName}: Geez, I'm not some psycho killer...  #line:02e8b49
+-> {$pcName}: I'm not going to hurt her.  #line:02e8b49
     <<if $kevinmurdered == true>>
-        {$kieran}: The corpses in your apartment imply otherwise. (-1 Kieran Influence) #line:0a21169 
+        {$kieran}: The corpses in your apartment imply otherwise. #line:0a21169 
     <<else>>
-        {$kieran}: The corpse in your bathroom implies otherwise. (-1 Kieran Influence)
+        {$kieran}: The corpse in your bathroom implies otherwise.
     <<endif>>
-    <<ModifyInfluence -1 {$kieran}>>
     <<if GetIsPartyMemberRecruited($anastasia) is true>>
-        {$anastasia}: Hey, you can't knock the girl for wanting to have some fun, you know? #line:0df12ed 
+    {$anastasia}: And you think I'm dangerous.
     <<endif>>
     <<jump dianaApproached>>
 ===
 title: dianaApproached
 ---
-[nomarkup][You whip your head back around to find yourself making direct eye contact with Diana. She clearly wasn't expecting you.][/nomarkup] #line:0fbdaeb 
--> {$pcName}: Last night was pretty crazy, huh? (Composure + Etiquette) #line:050201a 
+{$storyteller}: [nomarkup][You whip your head back around to find yourself making direct eye contact with Diana. She clearly wasn't expecting you.][/nomarkup]
+-> {$pcName}: Hey, how are you? (Composure + Etiquette) #line:050201a 
     <<if Roll("Composure","Etiquette") >=3>>
         <<jump dianaApproachedSuccess>>
     <<else>>
         <<jump dianaApproachedFailure>>
     <<endif>>
--> {$pcName}: Yeah, it's me! Care to tell me what the fuck happened last night?! (Manipulation + Intimidation) #line:0b3a30e 
+-> {$pcName}: Tell me what happened last night?! (Manipulation + Intimidation) #line:0b3a30e 
     <<if Roll("Manipulation","Intimidation") >=3>>
         <<jump dianaThreatenedSuccess>>
     <<else>>
@@ -70,29 +55,29 @@ title: dianaApproached
 ===
 title: dianaApproachedSuccess
 ---
-{$diana}: How much do you remember about last night, exactly? #success #line:06d8310 
+{$diana}: Better than you, I bet. How much do you remember about last night, exactly? #success #line:06d8310 
 -> {$pcName}: Enough to know things got pretty crazy. #line:0032d67 
-    {$diana}: [nomarkup][Chuckling][/nomarkup] That's a description for it... Absolutely bloody mental is another. Say, want to come to my office for a drink? #line:0c93b0a 
-    <<set $dianaOffice to true>>
-    <<jump dianaInvitation>>
+{$diana}: [nomarkup][Chuckling][/nomarkup] That's a description for it... Absolutely bloody mental is another. Say, want to come to my office for a drink? #line:0c93b0a 
+{$diana}: Say, want to come by my office for a drink?
+<<set $dianaOffice to true>>
+<<jump dianaInvitation>>
 ===
 title: dianaApproachedFailure
 ---
-{$diana}:  Night was as bland as any other. Lots of club-goers filtering in and out - only a few of them proper trollied... Did you lose your wallet or something? Then I'd leg it over to the staff in the coat room rather than bothering me with your minor cock-up. #failure #lastline #line:0871d44 
+{$diana}: Sorry, I'm busy right now, mate. Did you lose your wallet or something? Leg it over to the staff in the coat room rather than bothering me with your minor cock-up. #failure #lastline #line:0871d44
 <<jump blownOffByDiana>>
 ===
 title: dianaThreatenedSuccess
 ---
-{$diana}: What in the bloody- #success #line:05b323b 
-    -> {$pcName}: Recognize this face? #line:0fd8977 
-        {$diana}: Under different lighting, I might. Let's take this to my office, I don't field complaints in a public forum. #line:0a48e2c 
-        <<set $dianaOffice to true>>
-        <<jump dianaInvitation>>
+{$diana}: What in the bloody- #success #line:05b323b
+{$diana}: Let's take this to my office, I don't field complaints in a public forum. #line:0a48e2c
+<<set $dianaOffice to true>>
+<<jump dianaInvitation>>
 ===
 title: dianaThreatenedFailure
 ---
-[nomarkup][The crowd around the bar side-eyes you for making a scene. Everyone is uncomfortable.][/nomarkup] #failure #line:02b6647 
-{$diana}: Sod off before I have you thrown out. [nomarkup][She turns to the crowd.][/nomarkup] Great stuff. Some ladies just can't handle their liquor, am I right? #lastline #line:0c47a9a 
+{$storyteller}: [nomarkup][The crowd around the bar side-eyes you for making a scene. Everyone is uncomfortable.][/nomarkup] #failure #line:02b6647
+{$diana}: Sod off before I have you thrown out. 
 <<jump blownOffByDiana>>
 ===
 title: dianaInvitation
@@ -101,10 +86,7 @@ title: dianaInvitation
 ===
 title: blownOffByDiana
 ---
--> {$pcName}: You're not just gonna blow me off!    #line:00f5f4d 
-[nomarkup][She, in fact, blows you off. A barely-subdued anger washes over you.][/nomarkup] #line:0f325cd 
-{$beast}: I will [nomarkup]<i>not</i>[/nomarkup] be casually brushed aside like some insignificant fool. #line:0a5cbd9 
-[nomarkup][But Diana has already turned away, walking off...][/nomarkup] #line:0a2597f
--> [nomarkup][Walk away.][/nomarkup] 
-//cut to black, Diana dissapears//
+-> {$pcName}: You're not just gonna blow me off!    #line:00f5f4d
+{$storyteller}: [nomarkup][She, in fact, blows you off. Vanishing into the crowd..][/nomarkup] #line:0f325cd
+//cut to black, Diana disappears//
 ===
