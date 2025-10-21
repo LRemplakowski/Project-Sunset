@@ -3,7 +3,7 @@ tags:
 position: 135,-1136
 ---
 [nomarkup][This desk looks like a solid piece of furniture. Surely, anyone who sits behind it is something of a king - or in this case, queen, and the club is their castle. Its surface isn't neat, though, breaking the illusion of regality.][/nomarkup] #line:004eb48 
-[nomarkup][You do not touch the clutter, instead scanning for anything that could tell you why things are so disorganized. A computer, you think, rests on its side.][/nomarkup] #lastline #line:02f5560 
+[nomarkup][You do not touch the clutter, instead scanning for anything that could tell you why things are so disorganized. A computer, you think, rests on its side.][/nomarkup] #line:02f5560 
 <<if Roll ("Intelligence","Technology")>=4>>
     [nomarkup][Upon closer inspection, it looks to be an IBM model. It's sad that such a technological marvel seems to be so haphazardly disrespected - especially since it's a relatively new model - only made available to consumers a year or two ago.][/nomarkup] #line:04edffd 
     <<set $computerModelIdentified to 1>>
@@ -314,7 +314,7 @@ position: 1220,677
     -> [nomarkup][Give in to the feeling.][/nomarkup] #line:029a945 
         <<jump drawerDestroyed>>
 <<else>>
-    -> [nomarkup][This is ridiculous. You count to ten, breathing slowly. And hope nothing of importance is hidden inside the drawer.][/nomarkup] #lastline #line:0e95273 
+    -> [nomarkup][This is ridiculous. You count to ten, breathing slowly. And hope nothing of importance is hidden inside the drawer.][/nomarkup] #line:0e95273 
         <<jump deskInteractions>>
 <<endif>>
 ===
