@@ -22,7 +22,7 @@ position: 714,-1674
     {$kieran}: Not when you get to know her better. She has never shown any interest in magic nor the occult. She was satisfied with running the show for Kate, or at least, she seemed to be... #line:096dd74 
 <<endif>>
 [nomarkup][Kieran leans towards the shelf, scrutinizing the titles more closely.][/nomarkup] #line:0750a97 
-{$kieran}: Diana has been pretty successful in remaining secretive about her interest in such topics, I have to admit. That being said, some of these books [nomarkup]<i>do</i>[/nomarkup] seem out of place. Take a look, but don't touch anything just yet. #lastline #line:0fcafe3 
+{$kieran}: Diana has been pretty successful in remaining secretive about her interest in such topics, I have to admit. That being said, some of these books [nomarkup]<i>do</i>[/nomarkup] seem out of place. Take a look, but don't touch anything just yet. #line:0fcafe3 
 <<jump bookcaseInteractions>>
 ===
 title: bookcaseInteractions
@@ -83,7 +83,7 @@ position: -1628,-1244
         {$anastasia}: She, at the very least, does seem to believe in anarchy. For those people, it's hard to say that organized religion doesn't represent an unjustified hierarchy. #line:0bc86e8 
         -> {$pcName}: I'm not talking about that. This book is like a Bible, for Thelema; she consults it often. #line:0f499be 
     <<endif>>
-    {$kieran}: Well, it is often the first stop for any prospective apprentice of the magical arts. Maybe she's finally decided to start doing her homework? #line:03d51b3 #lastline
+    {$kieran}: Well, it is often the first stop for any prospective apprentice of the magical arts. Maybe she's finally decided to start doing her homework? #line:03d51b3
 <<elseif Roll ("Intelligence","Academics")>=4>>
     -> {$pcName}: It looks like Diana is interested in some majorly esoteric stuff. Does Kate know? #line:05beb70 
     <<set $thelema to true>>
@@ -94,7 +94,7 @@ position: -1628,-1244
     {$kieran}: [nomarkup][He stares at it intensely for a few moments.][/nomarkup] It's not one that I know of, nor is it Thelema's hexagram. Maybe it's someone's sigil? I am sure it's not Kate's, at the very least. #lastline #line:0326a7d 
 <<endif>>
 <<if $thelema == true>>
-    [nomarkup][You don't think you'll find anything else in this book... You put it back on the shelf.][/nomarkup] #line:0898f9f #lastline
+    [nomarkup][You don't think you'll find anything else in this book... You put it back on the shelf.][/nomarkup] #line:0898f9f
 <<else>>
     <<set $safeFailCounter to inc($safeFailCounter)>>
     [nomarkup][On second thought there is nothing interesting about that book.][/nomarkup]
@@ -112,7 +112,7 @@ position: 2202,1634
 <<if $safeDiscovered == true>>
     <<jump poeBookExamine>>
 <<else>>
-    [nomarkup][It's probably just a circumstancial book laying around. You put it back at its place.][/nomarkup] #lastline #line:03915d7 
+    [nomarkup][It's probably just a circumstancial book laying around. You put it back at its place.][/nomarkup] #line:03915d7 
     <<jump bookcaseInteractions>>
 <<endif>>
 ===
@@ -173,7 +173,7 @@ position: 1692,-987
         {$anastasia}: No. Not in this lifetime, or the next. #line:02c7a80 
         [nomarkup][Guess you were mistaken...][/nomarkup] #line:0f4d5d3 
         -> [nomarkup][You turn the TV off.][/nomarkup] #line:0abfddd
-        [nomarkup][TV goes silent again.][/nomarkup] #lastline
+        [nomarkup][TV goes silent again.][/nomarkup]
     <<endif>>
 <<endif>>
 <<jump bookcaseInteractions>>
@@ -190,20 +190,24 @@ Radio: Thank you for your insight, Josh! It's always good to know what's happeni
 <<endif>>
 {$kieran}: [nomarkup][He scratches his chin, rolling up his sleeve.][/nomarkup] It can't be that late... [nomarkup][He looks at the clock, his eyes gradually widening in surprise.][/nomarkup] Oh. It [nomarkup]<i>is</i>[/nomarkup] that late... We need to hurry; and unfortunately, I do not think that Ms. Richmond will have any useful information for us. #line:0f76799 
 <<if GetIsPartyMemberRecruited($anastasia) is true>>    
-    [nomarkup][You turn the radio off, much to Anastasia's disappointment.][/nomarkup] #line:0513daf #lastline
+    [nomarkup][You turn the radio off, much to Anastasia's disappointment.][/nomarkup] #line:0513daf
     <<jump bookcaseInteractions>>
 <<else>>
-    [nomarkup][You turn the radio off.][/nomarkup] #line:00b99d0 #lastline
+    [nomarkup][You turn the radio off.][/nomarkup] #line:00b99d0
     <<jump bookcaseInteractions>>
 <<endif>>
 ===
 title: poeBookExamine
 position: -591,2368
 ---
-[nomarkup][Poe was considered a master of ciphers during his time... Maybe a safe combination is hidden within one of his short stories? You leaf through the book, searching for answers... or maybe just a nudge in the right direction?][/nomarkup] #line:08cb261 
-[nomarkup][It's hard to say which you'll find within its pages; you <i>are</i> operating on a gut feeling and not much else, here. The Gold-Bug is marked, though, that much is certain.][/nomarkup] #line:0c8d71d 
-[nomarkup][In your perusal, you notice a set of signs and numbers typed neatly in the text. Your knowledge of literature seems like it will be useful, after all...][/nomarkup] #line:029181d
-<<jump poeCode>>
+<<if CustomVisited("poeBookExamineMentalSuccess") == false>>
+    [nomarkup][Poe was considered a master of ciphers during his time... Maybe a safe combination is hidden within one of his short stories? You leaf through the book, searching for answers... or maybe just a nudge in the right direction?][/nomarkup] #line:08cb261 
+    [nomarkup][It's hard to say which you'll find within its pages; you <i>are</i> operating on a gut feeling and not much else, here. The Gold-Bug is marked, though, that much is certain.][/nomarkup] #line:0c8d71d 
+    [nomarkup][In your perusal, you notice a set of signs and numbers typed neatly in the text. Your knowledge of literature seems like it will be useful, after all...][/nomarkup] #line:029181d
+    <<jump poeCode>>
+<<else>>
+    <<jump poeBookExamine>>
+<<endif>>
 ===
 title: poeCode
 position: -1327,1711
@@ -248,7 +252,7 @@ position: 485,-384
 title: poeBookExamineMentalSuccess
 position: 881,-95
 ---
-A good glass in the bishop's hostel and in the devil's seat...\\n Forty-one degrees and thirteen minutes...\\n Northeast and by north...\\n The main branch, seventh limb, east side...\\n Shoot from the left eye of the death's-head...\\n A beeline from the tree, through the shot fifty feet out. #lastline #line:08b5f85 
+A good glass in the bishop's hostel and in the devil's seat...\\n Forty-one degrees and thirteen minutes...\\n Northeast and by north...\\n The main branch, seventh limb, east side...\\n Shoot from the left eye of the death's-head...\\n A beeline from the tree, through the shot fifty feet out. #line:08b5f85 
 <<set $goldBugCombination to true>>
 <<if $safeDiscovered == true>>
     {$kieran}: Desiree, do you think there is a code for a safe hidden in this riddle? #line:026658d 
