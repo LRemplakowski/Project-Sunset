@@ -1,20 +1,18 @@
 ﻿title: bartenderDialogue
 position: 136,-238
 ---
-Bartender: [nomarkup][She's drying a glass with a dishrag. Looking up from her work, she spots you on the other side of the counter.][/nomarkup] Sorry about that. What can I get you? #line:0cd8bf9
--> {$pcName}: I'll have a Bloody Mary. <<if GetHasItem("IT_Q_EMBASSYDRINK") == false and GetCurrentMoney() >= 5>> #line:0981561 
+{$storyteller}: [nomarkup][She's drying a glass with a dishrag. Looking up from her work, she spots you on the other side of the counter.][/nomarkup] 
+Bartender: Sorry about that. What can I get you? #line:0cd8bf9
+-> {$pcName}: I'll have a Bloody Mary. <<if GetHasItem("IT_Q_EMBASSYDRINK") == false and GetCurrentMoney() >= 5>> #line:0981561
     <<RemoveMoney 5>>
     <<GiveItem "IT_Q_EMBASSYDRINK">>
-    Bartender: Coming right up! [nomarkup][She rushes to the other end of the bar and starts making your drink.][/nomarkup] #line:0609bbe 
-    {$kieran}: You know you won't be able to drink it right? #line:0e25896 
-    <<if GetIsPartyMemberRecruited($anastasia) is true>>
-        {$anastasia}: Oh come on, a little bit of bile and blood never hurt anyone. Or clogged toilet. #line:0f462fc 
-    <<endif>>
+    Bartender: Coming right up!
+    {$storyteller}: [nomarkup][She rushes to the other end of the bar and starts making your drink.][/nomarkup] #line:0609bbe
     -> [nomarkup][Walk away.][nomarkup]
--> {$pcName}: So, what can you tell me about Diana? #line:01a3bca 
-    Bartender: She's nice enough. Been seeing someone who kinda gives me a bad feeling, but I can't put my finger on why. #line:0c8425a 
-    -> {$pcName}: Bad feeling? #line:0fd6f3c 
-        Bartender: Very suspicious - always skulking around. She only visits her office when Kate isn't here. #line:079b3e8
-        -> [nomarkup][Walk away.][nomarkup] 
--> {$pcName}: Nothing, nevermind. #line:07b7b43 
+-> {$pcName}: So, what can you tell me about Diana? #line:01a3bca
+    Bartender: She's nice enough. Been seeing someone who kinda gives me a bad feeling, but I can't put my finger on why. #line:0c8425a
+    -> {$pcName}: Bad feeling? #line:0fd6f3c
+    Bartender: Very suspicious - always skulking around. She only visits her office when Kate isn't here. #line:079b3e8
+    -> [nomarkup][Walk away.][nomarkup]
+    -> {$pcName}: Nothing, nevermind. #line:07b7b43
 ===
