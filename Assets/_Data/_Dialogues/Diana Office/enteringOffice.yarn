@@ -1,8 +1,6 @@
 ﻿title: enteringOffice
 tags:
 ---
-<<declare $missKaminska to false>>
-<<declare $kieranOutburst to false>>
 <<declare $paintingsAreDestroyed to false>>
 <<declare $aidanFoster to false>>
 <<declare $safeCode to false>>
@@ -23,103 +21,15 @@ tags:
 <<declare $hiddenArts to false>>
 <<declare $layingItOn to 0>>
 <<declare $safeFailCounter to 0>>
-[nomarkup][The small office is a blend of cozy and gaudy. Rude British accents like a bust of Queen Victoria make the room almost feel like a real embassy office, but the neon glow of the Union Jack and the rich bar rack tell you it's still a nightclub.][/nomarkup] #line:0c681c1 
-[nomarkup][A citrus perfume wafts in the air. The smell is awfully familiar, but its owner is nowhere to be seen.][/nomarkup] #line:0c43c18 
+{$storyteller}: [nomarkup][The small office is a blend of cozy and gaudy. Rude British accents like a bust of Queen Victoria make the room almost feel like a real embassy’s office, but the neon glow of the Union Jack and the rich bar rack tell you it's still a nightclub.][/nomarkup]
+{$storyteller}: [nomarkup][A citrus perfume wafts in the air. The smell is awfully familiar, but its owner is nowhere to be seen.][/nomarkup]
 {$kieran}: Where did she go? #line:015caec 
 <<if GetIsPartyMemberRecruited($anastasia) is true>>
-    <<jump anastasiaIsPresent>>
+    {$anastasia}: Looks, like she got out of dodge the second she saw us coming. 
+    {$storyteller}: [nomarkup][She shakes her head in dissaproval.][/nomarkup]
+    {$anastasia}: You have the nerve to accuse me but meanwhile you Cammies can't even keep your own ghouls in line.
+    {$kieran}: …
+    {$storyteller}: [nomarkup][Kieran appears disgruntled but does not refute her.][/nomarkup] #lastline
 <<endif>>
-===
-title: anastasiaIsPresent
----
-{$anastasia}: Maybe she fucked off somewhere for a wank. #line:0d5bda5 
-{$kieran}: ... #line:02f35ed 
-{$kieran}: Why must you always resort to crassness of a sexual nature? Quite repetitive, Ms Goth Queen. No originality. #line:00aae6e 
-{$anastasia}: It still succeeded in annoying you, though, huh, Kiki? And not all of us are virgins. #line:0ee4faa 
-{$kieran}: Not all of us are nymphomaniacs. #line:086e9e3 
-{$anastasia}: Oooh spicy. Kate's favorite dog has some bite, after all. Or do you only roll over and take it when your Sire dearest is involved? #line:016ffd5 
--> {$pcName}: What exactly is your problem, Anastasia? #line:0ab7a5c 
-    <<jump sidingWithKieran>>
--> {$pcName}: Lighten up, Kieran. #line:066e62b 
-    <<jump sidingWithAnastasia>>
--> {$pcName}: Guys, priorities! #line:045c1d6 
-    <<jump neutralResponse>>
-===
-title: sidingWithKieran
----
-{$anastasia}: Problems? I don't have any... At least for now. Try not to be a narc, and we can keep it that way. (-1 Anastasia Influence) #line:0fc5743 
-<<ModifyInfluence -1 {$anastasia}>>
-{$kieran}: [nomarkup][He blinks, then straightens up with a deep frown etched on his face, crossing his arms sternly.][/nomarkup] And what is that intended to mean, miss Kaminska? #line:029543c 
-<<if Roll ("Intelligence","Awareness")>=3>>
-    <<set $missKaminska to true>>
-    [nomarkup][Kieran hasn't ever called her that, before... The change in how he's addressing her could be a subtle indication that Anastasia is treading headlong into dangerous territory. That Kieran is uncomfortable and may lash out, if she continues to insult him.][/nomarkup] #line:00250d6 
-    [nomarkup][She smirks, opening her mouth to speak...][/nomarkup] #line:0d66efc 
-<<endif>>
-<<if $missKaminska == true>>
-    -> [nomarkup][Redirect everyone towards the investigation at hand.] (Charisma + Leadership)[/nomarkup] #line:0818717 
-    <<if Roll ("Charisma","Leadership")>=3>>
-        [nomarkup][..but you cut in before she can utter a word.][/nomarkup] #succees #line:045bf4f 
-        -> {$pcName}: Guys, I think it's time we stopped bickering and focused on the task at hand. Time is running short, and we still haven't the faintest clue who my Sire is. #line:0fa839a 
-        {$anastasia}: Nice pep talk, but I've got no horse in this race. #line:0c6ade5 
-        -> {$pcName}: But you [nomarkup]<i>are</i>[/nomarkup] curious about who they are, right? #line:077e93e 
-        {$anastasia}: [nomarkup][She huffs out a sigh, rolling her eyes dramatically.][/nomarkup] Fiiiine. You got me. I'm pretty solidly hooked on this dollar-store detective mystery you got going on, at this point, so I'll behave. #line:07058cd 
-        {$kieran}: [nomarkup][He lets go of the breath he had been holding, the building tension draining from his posture.] (+1 Kieran Influence)[/nomarkup] #line:028f566 
-        <<ModifyInfluence 1 {$kieran}>>
-        <<jump neutralResponse>>
-    <<else>>
-        [nomarkup][You try to cut in, but Anastasia just bulldozes on through with what she was going to say, anyhow. Looks like you aren't the assertive, inspiring type of leader this group desperately needs.][/nomarkup] #failure #line:037559a 
-        <<jump anaKieranBanter>>
-    <<endif>>
-    -> [nomarkup][Try to resolve this diplomatically.][/nomarkup] #line:088eec5 
-    <<if Roll ("Wits","Politics")>=3>>
-        [nomarkup][..but you cut in before she can utter a word.][/nomarkup] #succees #line:0553c89 
-        -> {$pcName}: Anastasia, I know how fun you find pushing Kieran's buttons, but guess who's going to have to clean up the mess if this comes to blows... That's right, it's you. Doesn't that sound like a drag? And Kieran, you don't need more work, right? All in all, this seems like a silly argument to have, given how boring the consequences will be. #line:08769c0 
-        {$anastasia}: I don't wanna admit it, but when you're right, you're right. S'not worth the hassle. #line:040b725 
-        {$kieran}: Yes, well put. [nomarkup][He lets go of the breath he had been holding,  the building tension draining from his posture.][/nomarkup] (+1 Kieran Influence) #line:04ba0ac 
-        <<ModifyInfluence 1 {$kieran}>>
-        <<jump neutralResponse>>
-    <<else>>
-        [nomarkup][...but you cut in before she can utter a word.][/nomarkup] #failure #line:0ea4adb 
-        -> {$pcName}: Can't we all just get along? #line:0184f57 
-        {$anastasia}: [nomarkup][She bursts out into peals of borderline-unhinged, maniacal laughter.][/nomarkup] Really...? That's the best you've got? Where'd you rip that one from, an episode of Sesame Street? #line:0fc3833 
-        -> {$pcName}: ... [nomarkup][You don't seem to have a comeback for that one.][/nomarkup] #line:0194c70 
-        <<jump anaKieranBanter>>
-    <<endif>>
-    -> [nomarkup][Let her talk.][/nomarkup] #line:04752fd 
-<<else>>
-    <<jump anaKieranBanter>>
-<<endif>>
-===
-title: anaKieranBanter
----
-{$anastasia}: Oh, look. It's Kieran - the wettest of blankets, here to make some for me. Just remember, little puppy, you already introduced me to the one who holds your leash, so you're gonna have to come up with a different subject to be annoying about. I'm sure it'll be easy for you, though, given your track record. #line:0272c2c 
-{$kieran}: [nomarkup][He scowls, glaring daggers at Anastasia. Something about what she said seems to have struck a chord with him. The next words he utters are polite, but frigid - the tone of them harsh.][/nomarkup] This aggression is unnecessary, miss Kaminska. I suggest you cease your provocations before you say something you will truly regret... #line:09bee4e 
-<<if Roll ("Wits","Awareness")>=3>>
-    [nomarkup][He gets the words out, but from the tension still lingering in his jaw, it is clear that he is restraining a temper threatening to violently erupt.][/nomarkup] #line:03f46c9 
-    <<set $kieranOutburst to true>>
-<<endif>>
-<<if Roll ("Intelligence","Insight")>=4>>
-    [nomarkup][Kieran doesn't generally react this way to goading or ridicule, and the only piece of that statement that was unique is the reference to him as an irresponsible puppy dog - collared and led by Kate's leash. Given how upset he got, perhaps there is more to their relationship than meets the eye? Something to ask Kieran about later, maybe.][/nomarkup] #line:03a3aa2 
-    <<set $kieranOutburst to true>>
-<<endif>>
-{$anastasia}: Fine, can do. Dunno what his problem is, though. [nomarkup][She shrugs, the ghost of a smirk still present on her lips, turning on her heel and wandering off to idly browse the office.][/nomarkup] #line:0a58448 
-{$kieran}: [nomarkup][As soon as she backs off, the tension drains from Kieran's posture. He huffs out a long sigh, then turns to you.][/nomarkup] Ready to return to the investigation, miss Bardot? (+1 Kieran Influence) #line:03301db 
-<<ModifyInfluence 1 {$kieran}>>
-<<jump neutralResponse>>
-===
-title: sidingWithAnastasia
----
-{$kieran}: [nomarkup][He frowns.][/nomarkup] I apologize if I'm not eager to “mess around” with a miscreant like her when my objective and the consequences for failure have been made abundantly clear. They should be just as comprehensible and urgent, to you. (-1 Kieran Influence) #line:019aac3 
-<<ModifyInfluence -1 kieran>>
-{$anastasia}: [nomarkup][She sticks out her tongue at Kieran, then shows her teeth in a satisfied grin.][/nomarkup] I win. Sucks to suck, Fido - looks like you're in the dog house on this one. (+1 Anastasia Influence) #line:0107fc8 
-<<ModifyInfluence 1 anastasia>>
-[nomarkup][Kieran rolls his eyes and sighs, disappointed. With whom? Hard to say. And he isn't eager to clarify his qualms, either.][/nomarkup] #line:08429d7 
-<<jump neutralResponse>>
-===
-title: neutralResponse
----
-{$kieran}: Yes, we have much more important things to do than wasting time bickering childishly. #line:0483a57 
-{$anastasia}: Geez, you both are so stiff... #line:091156c 
-{$kieran}: Well... considering that we [nomarkup]are[/nomarkup] all of the same lineage of the dead... I would say that stiffness runs in the family. Or it would, had any of us been dead long enough for rigor mortis to set in. [nomarkup][He brightens up a bit at his own joke.][/nomarkup] #line:0e3e76f 
-{$anastasia}: Touche. [nomarkup][She's trying not to grin, but the joke was too terrible not to crack at least a little bit of a smile.][/nomarkup] #line:0ecfb2f 
+->[nomarkup][End conversation.][/nomarkup]
 ===
