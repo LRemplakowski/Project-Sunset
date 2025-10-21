@@ -10,7 +10,7 @@ position: 136,-238
 [nomarkup][Your speech is slow as you reach for words, this feels so familiar but from where? That smile feels like something you've seen, how many times has she asked you this? When...][/nomarkup]
 <<if GetIsPartyMemberRecruited($anastasia) is true>>
     {$anastasia}: Well, if she's done spacing out and you two already have some kind of plan, I'd like to hear it. Sharing is caring. #line:0af9e59 
-    {$kieran}: [nomarkup][Kieran frowns.][/nomarkup] She does that, sometimes. Please, pay it no mind. #lastline #line:09a1f03
+    {$kieran}: [nomarkup][Kieran frowns.][/nomarkup] She does that, sometimes. Please, pay it no mind. #line:09a1f03
 <<endif>>
 <<if $toldKieranAboutVision is true>>
     {$kieran}: Another vision? #line:07c09de
@@ -33,7 +33,7 @@ title: approachDiana
 ---
 {$kieran}: [nomarkup][As you weave through the crowd making your way to the bar, Kieran grabs your shoulder.][/nomarkup] Proceed with caution. Diana is Kate's favorite ghoul. If something were to happen to her, she would be pissed. #line:022383f 
 <<if GetIsPartyMemberRecruited($anastasia) is true>>
-    {$anastasia}: [nomarkup][Under her breath.][/nomarkup] Funny way to say pet. #lastline #line:0c35de6 
+    {$anastasia}: [nomarkup][Under her breath.][/nomarkup] Funny way to say pet. #line:0c35de6 
 <<endif>>
 {$beast}: I bet he doesn't care for her. Just for his own business.
 -> {$pcName}: [nomarkup][Nod.][/nomarkup] #line:0c46c4d 
