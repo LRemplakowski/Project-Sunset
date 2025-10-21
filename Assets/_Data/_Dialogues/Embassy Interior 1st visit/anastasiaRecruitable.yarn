@@ -53,23 +53,16 @@ position: -130,38
     //<<set $anaIsVampire to true>>
     //<<jump anastasiaKnowIsKindred>>
 <<else>>
-    {$anastasia}: If you're gonna stare at my tits, at least flirt with me first. #failure #line:0cc08af 
-    {$kieran}: I just wonder why you are here. I don't know you, and if I do not know you, the owner of this place does not know you either. Which is a mistake on your part. And a transgression. #line:06b0ecb 
-    {$anastasia}: Oh my. Was that a threat? Going to kick me out? #line:0346a6c 
+    {$anastasia}: [nonmarkup][waving her hand in your face][/nonmarkup] Woohoo! Eyes up here. #failure #failure #line:0cc08af 
+    {$kieran}: I just wonder why you are here. I don't know you, and if I do not know you, the owner of this place does not know you either. Which is a mistake on your part and a transgression. #line:06b0ecb 
+    {$anastasia}: Whoah! Jeez! Calm down, big guy. #line:0346a6c 
     [nomarkup][Kieran is staring intently at you, like he's trying to convey something without any words.][/nomarkup] #line:017d94a 
-    <<jump insightRoll>>
-<<endif>>
-===
-title: insightRoll
----
-<<if Roll("Intelligence","Insight") >= 3>>
     <<set $anaIsVampire to true>> 
-    <<jump anastasiaKnowIsKindred>>
-<<else>>
     {$kieran}: I know what you are. #line:0d4eed3 
-    {$anastasia}: What? A lesbian? Anyone a mile away could tell you that. #line:09dd861 
-    {$kieran}: No, a Kindred. And you should be aware of the laws we adhere to. #line:0fe2b2a 
-    {$anastasia}: [nomarkup][She rolls her eyes.][/nomarkup] Gosh... your panties are in a bunch, aren't they? #lastline #line:0e1949e 
+    {$anastasia}: [nomarkup][Laughing.][/nomarkup] Excuse me and what might that be.  #line:09dd861 
+    {$kieran}: Don't play coy, Kindred. You should be aware of the laws we adhere to. #line:0fe2b2a
+    {$storyteller}: [nomarkup][A crack forms in her bravado. She's been caught.][/nomarkup] 
+    {$anastasia}: Look, forgive me, I didn't realize. I don't want to cause any trouble. #lastline  #line:0e1949e 
     <<jump anaIsSire>>
 <<endif>>
 ===
@@ -77,43 +70,47 @@ title: anastasiaSubsequent
 position: 138,93
 ---
 <<if $anaIsVampire is true>>
-    {$anastasia}: Miss me already? So you did need my help, after all... #line:0bcb40c 
-    -> {$pcName}: You know what? Sure. Why not? #line:0b190c8 
-        [nomarkup][Kieran rubs his temple exasperatedly.][/nomarkup] #line:08ac438 
+    {$anastasia}: Coming to arrest me. #line:0bcb40c 
+    -> {$pcName}: Follow us. #line:0b190c8 
         <<RecruitAnastasia>>
-        {$anastasia}: Great! Let's go then. No use in standing next to not interested bartender.
-    -> {$pcName}: Sorry, but I'm gonna have to pass. #line:0d0b960 
-        {$anastasia}: Your loss, toots. #line:061506c 
-        {$kieran}: A sensible decision, for once. [/nomarkup][He nods once, indicating his approval.][nomarkup] #line:0e7b902 
+        {$anastasia}: Let's get this over with.
+        ->[nomarkup][End conversation.][/nomarkup]
+    -> {$pcName}: Nevermind. #line:0d0b960 
+        {$anastasia}: Thank you. #line:061506c
+        ->[nomarkup][End conversation.][/nomarkup] 
 <<else>>
-    {$anastasia}: Look you're cute and all, but I don't like people who blow their first chance. #line:03d8ad1 
+    {$anastasia}: I'm about to head out. This place blows.
+    ->[nomarkup][End conversation.][/nomarkup]
 <<endif>>
 ===
 title: anastasiaKnowIsKindred
 position: -323,308
 ---
 -> {$pcName}: I know what you are. #line:0f1ec73 
-{$anastasia}: What? A lesbian? Anyone a mile away could tell you that. #line:0bec9f6 
--> {$pcName}: No. A vampire. #line:0f3a8a1 
-{$anastasia}: ... #line:0c1e9d6 
-{$anastasia}: Pretty and blunt. I like you. #lastline #line:08cbf5a 
+{$anastasia}: [nomarkup][Laughing.][/nomarkup] Excuse me and what might that be.
+{$kieran}: Don't play coy, Kindred. You should be aware of the laws we adhere to.
+{$storyteller}: [nomarkup][A crack forms in her bravado. She's been caught.][/nomarkup] 
+{$anastasia}: Look, forgive me, I didn't realize. I don't want to cause any trouble. #lastline
 <<jump anaIsSire>>
 ===
 title: anaIsSire
 ---
-[nomarkup][Judging from the way he chose to speak to her just now... Those were strong words, and getting Kate involved? Could she possibly be a vampire, too?][/nomarkup]
 -> {$pcName}: Are you my Sire? #line:08ada90 
-{$anastasia}: [nomarkup][She's caught by surprise, bursting into laughter - almost like music to your ears.][/nomarkup] I'm too old to be having kids, but I'll be your mommy if you ask nicely. [nomarkup][She winks at you.][/nomarkup] #line:048d68c 
--> {$pcName}: I don't believe you. #line:0710c86 
-{$anastasia}: Look I'm sorry your Sire didn't come back with the milk, but that's not my problem. #line:0536cfc 
--> {$pcName}: Then who is my Sire, if it's not you? #line:09576e5 
-{$anastasia}: How should I know? Other Kindred's bed affairs are none of my business as long as I'm not involved. #line:0a6638a 
-{$anastasia}: I am amused by this whole ordeal. How about I help you out and then once we get this mess sorted you and I will go grab a few “drinks”? [nomarkup][She waggles her eyebrows up and down a few times.][/nomarkup] #line:0fbc6f8 
--> {$pcName}: You know what? Sure. Why not? #line:01f183c 
-    [nomarkup][Kieran rubs his temple exasperatedly.][/nomarkup] #line:0e5b9b2 
+{$storyteller}: [nomarkup][The notion catches her by surprise.][/nomarkup]
+{$anastasia}: Look I may play fast and loose with the Camarilla's rules more than most, but even I am smart enough to not run around embracing illegitimate childe.
+{$anastasia}: Besides, I can tell you're not a Lasombra just by looking at you so that acquits me. 
+{$kieran}: You're a Lasombra? Bold of you to announce yourself so, Sabbat spy! You're coming with us!
+{$anastasia}: My clan alone makes me no more Sabbat than you are, bigot. I am trying to be straightforward with you.
+-> {$pcName}: Lasombra?
+{$kieran}: A bloodline of shadowcasters. Known to make up the ranks of the Sabbat.
+{$anastasia}: And here I came to Vegas hoping it would live up to the promises your Prince pretends to espouse about equality. Don't we have a spokesperson on the Primogen Council?
+{$kieran}: A Lasombra who works with the Camarilla is one thing, but one who does not so much as announce herself in another's vampire's domain proves other intentions.
+-> {$pcName}: You're coming with us. #line:01f183c 
     <<RecruitAnastasia>>
-    {$anastasia}: Great! Let's go then. No use in standing next to not interested bartender.
--> {$pcName}: Sorry, but I'm gonna have to pass. #line:06c93f1 
-    {$anastasia}: Your loss, toots. #line:0fdedb9 
-    {$kieran}: A sensible decision, for once. [nomarkup][He nods once, indicating his approval.][/nomarkup] #line:01d4128 
+    {$anastasia}:{$anastasia}: Let's get this over with.
+    ->[nomarkup][End conversation.][/nomarkup]
+-> {$pcName}: Kieran, let's go. #line:06c93f1 
+    {$storyteller}: [nomarkup][Kieran rubs his temple exasperatedly.][/nomarkup] #line:0e5b9b2
+    {$anastasia}: Thank you.
+    ->[nomarkup][End conversation.][/nomarkup]
 ===
