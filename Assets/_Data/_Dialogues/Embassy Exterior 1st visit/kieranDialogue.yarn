@@ -51,9 +51,9 @@ title: kieranDominicRelations
 ---
 {$kieran}: Is it that obvious?
 {$kieran}: Let's just say that I did not want to tag along with him, and he did not want a partner. We all have our duties to uphold, however. #line:0d5b72a 
-<<if GetCompanionInfluence($kieran)>=2>>
+<<if GetCompanionInfluence($kieran)>=1>>
     {$kieran}: As bad as this situation is, I am happy to be relieved from the company of that... manchild at last. #line:06aae8f #lastline
-<<elseif GetCompanionInfluence($kieran)<=-2>>> #line:0770a2d 
+<<elseif GetCompanionInfluence($kieran)<=-1>>> #line:0770a2d 
     {$kieran}: Out of the two evils, you actually seem to cause me more anguish. #line:04e607f #lastline
 <<else>>
     {$kieran}: To be honest, I do not know if the exchange is for better or worse quite yet... #line:08cb6ce #lastline
@@ -95,9 +95,9 @@ title: kieransAge
 title: drinks
 ---
 {$kieran}: Technically, we can't drink alcohol... #line:05fc18d 
-<<if GetCompanionInfluence($kieran)>=2>>
+<<if GetCompanionInfluence($kieran)>=1>>
     {$kieran}: ... but I just may take you up on it, if only for the purpose of showing you a workaround. Not all mortal pleasures have to be forfeit. #line:03abe24
-<<elseif GetCompanionInfluence($kieran)<=-2>>
+<<elseif GetCompanionInfluence($kieran)<=-1>>
     {$kieran}: ...and no amount would make it worth your prolonged company. #line:0ddc428
 <<else>>
     {$kieran}: ... but I don't know if such a thing would be... appropriate. #line:0a4ea6d
@@ -194,20 +194,18 @@ title: kieransClan
         {$kieran}: [nomarkup][A heavy, beleaguered sigh.][/nomarkup] Fine. I'm a Tremere. #success #line:01fff8a 
         -> {$pcName}: Cool. That means absolutely nothing to me. #line:005c7c6 
         -> {$pcName}: [nomarkup][You raise an eyebrow in question.][/nomarkup] Care to elaborate? #line:04e8016 
-            <<if GetCompanionInfluence($kieran)>=2>>
+            <<if GetCompanionInfluence($kieran)>=1>>
                 {$kieran}: Tremere are a Clan of blood mages, renowned for our loyalty and skill, but simultaneously distrusted by broader Kindred society due to our secrecy. That is, our magic is an indispensable resource of any Camarilla Domain, but as much as it brings us fortune, it also serves to isolate us... #line:0188efd 
-            <<elseif GetCompanionInfluence($kieran)==2>>
+            <<elseif GetCompanionInfluence($kieran)==0>>
                 {$kieran}: The first thing you must know when attempting to learn about the Tremere is that we are highly secretive - often for good reason... #line:01db9ce 
             <<else>>
                 {$kieran}: No. Figure it out on your own time. #line:0149275 
             <<endif>>
     <<else>>
-        {$kieran}: Dominic was correct. You are indeed annoying. But no. (-1 Kieran Influence) #failure #line:03f1c4a 
-        <<ModifyInfluence -1 {$kieran}>>
+        {$kieran}: Dominic was correct. You are indeed annoying. But no.
     <<endif>>
 -> {$pcName}: [nomarkup][Leave it be.][/nomarkup] Alright, then. #line:0d98606 
-    {$kieran}: [nomarkup][He visibly relaxes, his posture and expression softening.][/nomarkup](+1 Kieran Influence) #line:064a109 
-    <<ModifyInfluence 1 {$kieran}>>
+    {$kieran}: [nomarkup][He visibly relaxes, his posture and expression softening.][/nomarkup]
 <<jump occultChoices>>
 ===
 title: unaware

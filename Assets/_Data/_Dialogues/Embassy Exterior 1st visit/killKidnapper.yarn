@@ -83,7 +83,7 @@ Drunk Guy: Why are you looking at me like that? Stay away! #line:01c9b51
 {$storyteller}: [nomarkup][The man attempts to fight, but it's no use. Already in a weakened state, he goes down with a single blow][/nomarkup] #line:0f90220
 {$storyteller}: [nomarkup][Kieran's disappointment turns into barely restrained anger - his frown deep and his nostrils flaring.][/nomarkup]
 {$kieran}: So that is your solution? Reducing people down to obstacles to be removed? It sure is convenient, is it not? The overwhelming force you have been gifted with. (-2 Kieran Influence) #line:0da39f3
-<<ModifyInfluence -2 {$kieran}>>>>
+<<ModifyInfluence -2 {$kieran}>>
 {$kieran}: Just remember, you're not the only one...  #line:00f8949
 {$storyteller}: [nomarkup][He closes his eyes, taking a deep breath in an attempt to calm himself down. All that remains afterward is a glare steeped in bitter resignation.][/nomarkup]
 {$kieran}: We need to clean up the scene, if we hope to have a chance of getting out of this mess. Why did you even bother with pretenses to begin with? #line:05e509a
@@ -92,7 +92,7 @@ Drunk Guy: Why are you looking at me like that? Stay away! #line:01c9b51
 title: drunkardSuccess
 position: -140,238
 ---
-{$storyteller}: [nomarkup][The man limps away into the night.][/nomarkup] #line:02a3e0e #lastline
+{$storyteller}: [nomarkup][The man limps away into the night.][/nomarkup] #line:02a3e0e
 <<jump kieranComment>>
 ===
 title: kieranComment
