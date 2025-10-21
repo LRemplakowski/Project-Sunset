@@ -1,23 +1,27 @@
 ﻿title: safeExamine
 position: -177,-434
 ---
-[nomarkup][It looks just like a normal, civilian-use, wall mounted safe. There's nothing out of the ordinary about it. There is one knob and it probably needs 4 digits to open. It would take ages to guess the combination and time is too precious to waste it around.][/nomarkup] #lastline #line:0e7f551 
-<<if $safeFailCounter >= 3>>
-    <<jump beastOpens>>
+<<if CustomVisited("safeOpened") == false>>
+    [nomarkup][It looks just like a normal, civilian-use, wall mounted safe. There's nothing out of the ordinary about it. There is one knob and it probably needs 4 digits to open. It would take ages to guess the combination and time is too precious to waste it around.][/nomarkup] #lastline #line:0e7f551 
+    <<if $safeFailCounter >= 3>>
+        <<jump beastOpens>>
+    <<else>>
+        -> [nomarkup][Try to open the safe without combination.] (Resolve + Larceny)[/nomarkup] #line:05d4917 
+            <<jump safeResolveRoll>>
+        -> [nomarkup][Try to pry open the safe.] (Strength + Larceny)[/nomarkup] <<if GetHasItem("IT_WPN_ML_CROWBAR") == true>> #line:03cddc8 
+            <<jump safeStrengthRoll>>
+        -> [nomarkup][Open the safe with a 1966 combination.][/nomarkup] <<if $satanDate == true and CustomVisited("safeSatan") == false>> #line:08271ae 
+            <<jump safeSatan>>
+        -> [nomarkup][Open the safe with a 1969 combination.][/nomarkup] <<if $safeCode == true>> #line:03859ca 
+            <<jump safeOpenedwCode>>
+        -> [nomarkup][Open the safe with a 1972 combination.][/nomarkup] <<if $aidanFoster == true and CustomVisited("safeFoster") == false>>
+            <<jump safeFoster>>
+        -> [nomarkup][Open the safe with a 4113 combination.][/nomarkup] <<if $goldBug == true and CustomVisited("safeGoldBug") == false>> #line:0278058 
+            <<jump safeGoldBug>>
+        -> [nomarkup][Step away.][/nomarkup] #line:0cf47c3 
+    <<endif>>
 <<else>>
-    -> [nomarkup][Try to open the safe without combination.] (Resolve + Larceny)[/nomarkup] #line:05d4917 
-        <<jump safeResolveRoll>>
-    -> [nomarkup][Try to pry open the safe.] (Strength + Larceny)[/nomarkup] <<if GetHasItem("IT_WPN_ML_CROWBAR") == true>> #line:03cddc8 
-        <<jump safeStrengthRoll>>
-    -> [nomarkup][Open the safe with a 1966 combination.][/nomarkup] <<if $satanDate == true and CustomVisited("safeSatan") == false>> #line:08271ae 
-        <<jump safeSatan>>
-    -> [nomarkup][Open the safe with a 1969 combination.][/nomarkup] <<if $safeCode == true>> #line:03859ca 
-        <<jump safeOpenedwCode>>
-    -> [nomarkup][Open the safe with a 1972 combination.][/nomarkup] <<if $aidanFoster == true and CustomVisited("safeFoster") == false>>
-        <<jump safeFoster>>
-    -> [nomarkup][Open the safe with a 4113 combination.][/nomarkup] <<if $goldBugCode == true and CustomVisited("safeGoldBug") == false>> #line:0278058 
-        <<jump safeGoldBug>>
-    -> [nomarkup][Step away.][/nomarkup] #line:0cf47c3 
+    <<jump safeQuestions>>
 <<endif>>
 ===
 title: safeResolveRoll
@@ -82,6 +86,7 @@ position: -1111,-157
 title: safeQuestions
 position: -941,277
 ---
+[nomarkup][The safe is now opened. You can see it contents.][/nomarkup]
 -> [nomarkup][Examine the gun.] (Intelligence + Firearms)[/nomarkup] <<if CustomVisited("gunRoll") == false>> #line:010783e
     <<jump gunRoll>>
 -> [nomarkup][Examine the documents.][/nomarkup] <<if CustomVisited("safeDocumentsExamine") == false>> #line:05039a5 
