@@ -22,8 +22,15 @@ namespace SunsetSystems.Abilities
             return _knownPowers.TryGetValue(power.Discipline.ID, out var disciplineData) && disciplineData.KnownPowers.Contains(power);
         }
 
+        [Button]
         public bool TryLearnPower(IDisciplinePower power)
         {
+#if UNITY_EDITOR
+            if (!Application.isPlaying)
+            {
+                UnityEditor.EditorUtility.SetDirty(this);
+            }
+#endif
             if (_knownPowers.TryGetValue(power.Discipline.ID, out var disciplineData))
             {
                 if (power.Level > disciplineData.CurrentLevel)
