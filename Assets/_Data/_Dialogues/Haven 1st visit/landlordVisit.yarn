@@ -34,9 +34,9 @@ KNOCK. KNOCK. KNOCK. #line:015551b
     <<if Roll("Intelligence","Medicine") >= 3>>
         {$storyteller}: [nomarkup][You cover up the wound with a dish rag and administer CPR. Kevin's eyes flutter open. Through exasperated breaths and gurgles, you hear him struggle to speak.][/nomarkup] #success
         {$landlord}: You... bitch! 
-        {$storyteller}: [nomarkup][His eyes go blank, the light fading from them as he breathes his last breath.][/nomarkup] #lastline #line:0b2af3c 
+        {$storyteller}: [nomarkup][His eyes go blank, the light fading from them as he breathes his last breath.][/nomarkup] #line:0b2af3c 
     <<else>>
-        {$storyteller}: [nomarkup][You try to administer CPR, but hear the crack of his ribs snapping with the first press of your palms. Shit. What little of his blood remains pools on the floor.][/nomarkup] #failure #lastline #line:046a4f5 
+        {$storyteller}: [nomarkup][You try to administer CPR, but hear the crack of his ribs snapping with the first press of your palms. Shit. What little of his blood remains pools on the floor.][/nomarkup] #failure #line:046a4f5 
     <<endif>>
     <<jump KevinMurderAftermath>>
 -> [nomarkup][Leave him to die.][/nomarkup]

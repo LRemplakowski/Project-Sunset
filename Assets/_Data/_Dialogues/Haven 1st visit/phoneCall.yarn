@@ -35,6 +35,7 @@ tags:
         -> {$pcName}: Fuck off with your vague threats. #line:08ed2f8 
             {$exspouse}: I'm not going to fight with you, just pay me by the end of the month before this escalates. #line:0b97426 
             {$storyteller}: [nomarkup][The line clicks.][/nomarkup]
+            <<jump AfterPhoneCall>>
         -> {$pcName}: [nomarkup][Hang up.][/nomarkup] #line:0d17798 
             {$storyteller}: [nomarkup][Arthur desperately mutters something before the line clicks.][/nomarkup] #line:07ea3e2 
             <<jump AfterPhoneCall>>
