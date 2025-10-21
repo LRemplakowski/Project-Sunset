@@ -31,7 +31,7 @@ namespace SunsetSystems.Abilities
                 UnityEditor.EditorUtility.SetDirty(this);
             }
 #endif
-            if (_knownPowers.TryGetValue(power.Discipline.ID, out var disciplineData))
+            if (_knownPowers.TryGetValue(power.Discipline.ID, out var disciplineData) && disciplineData != null)
             {
                 if (power.Level > disciplineData.CurrentLevel)
                     disciplineData.SetCurrentLevel(power.Level);
