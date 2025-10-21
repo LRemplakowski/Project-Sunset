@@ -4,7 +4,7 @@ position: 136,-238
 <<set $dianaMet to true>>
 {$storyteller}: [nomarkup][Despite the sea of UK memorabilia, for the first time tonight you hear an authentic British accent slice through the crowd.][/nomarkup] #line:055b0be 
 {$diana}: -love, the answer to your question is no. Get your arse the fuck out of my building. I'm not asking twice.
-{$storyteller}: [nomarkup][Diana is dressing down a rowdy patron, but her eyes becometransfixed on you as she notices you approach.][/nomarkup]
+{$storyteller}: [nomarkup][Diana is dressing down a rowdy patron, but her eyes become transfixed on you as she notices you approach.][/nomarkup]
 {$storyteller}: [nomarkup][You recognize her as the woman from your vision.][/nomarkup]
 <<if $toldKieranAboutVision is true>>
     {$kieran}: Another vision?
@@ -57,14 +57,14 @@ title: dianaApproachedSuccess
 ---
 {$diana}: Better than you, I bet. How much do you remember about last night, exactly? #success #line:06d8310 
 -> {$pcName}: Enough to know things got pretty crazy. #line:0032d67 
-{$diana}: [nomarkup][Chuckling][/nomarkup] That's a description for it... Absolutely bloody mental is another. Say, want to come to my office for a drink? #line:0c93b0a 
+{$diana}: [nomarkup][Chuckling.][/nomarkup] That's a description for it... Absolutely bloody mental is another. Say, want to come to my office for a drink? #line:0c93b0a 
 {$diana}: Say, want to come by my office for a drink?
 <<set $dianaOffice to true>>
 <<jump dianaInvitation>>
 ===
 title: dianaApproachedFailure
 ---
-{$diana}: Sorry, I'm busy right now, mate. Did you lose your wallet or something? Leg it over to the staff in the coat room rather than bothering me with your minor cock-up. #failure #lastline #line:0871d44
+{$diana}: Sorry, I'm busy right now, luv. Did you lose your wallet or something? Leg it over to the staff in the coat room rather than bothering me with your minor cock-up. #failure #lastline #line:0871d44
 <<jump blownOffByDiana>>
 ===
 title: dianaThreatenedSuccess
@@ -87,6 +87,6 @@ title: dianaInvitation
 title: blownOffByDiana
 ---
 -> {$pcName}: You're not just gonna blow me off!    #line:00f5f4d
-{$storyteller}: [nomarkup][She, in fact, blows you off. Vanishing into the crowd..][/nomarkup] #line:0f325cd
+{$storyteller}: [nomarkup][She, in fact, blows you off. Vanishing into the crowd.][/nomarkup] #line:0f325cd
 //cut to black, Diana disappears//
 ===

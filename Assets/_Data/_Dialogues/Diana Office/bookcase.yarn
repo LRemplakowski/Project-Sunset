@@ -37,7 +37,7 @@ position: -906,-1095
     <<jump bookcaseTV>>
 -> [nomarkup][Turn on the radio.][/nomarkup] <<if CustomVisited("bookcaseRadio") == false>> #line:0f01e3f 
     <<jump bookcaseRadio>>
--> [nomarkup][Examine Poe's book.][/nomarkup] <<if CustomVisited("bookcaseExcamineNormal") == true>> #line:0de685b 
+-> [nomarkup][Examine Poe's book.][/nomarkup] <<if $safeDiscovered == true and CustomVisited("bookcaseExcamineNormal") == true>> #line:0de685b 
     <<jump poeBookExamine>>
 -> [nomarkup][Step back.][/nomarkup] #line:02ac943 
 ===

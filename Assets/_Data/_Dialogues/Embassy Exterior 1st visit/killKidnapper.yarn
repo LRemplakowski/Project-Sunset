@@ -86,25 +86,24 @@ Drunk Guy: Why are you looking at me like that? Stay away! #line:01c9b51
 <<ModifyInfluence -2 {$kieran}>>
 {$kieran}: Just remember, you're not the only one...  #line:00f8949
 {$storyteller}: [nomarkup][He closes his eyes, taking a deep breath in an attempt to calm himself down. All that remains afterward is a glare steeped in bitter resignation.][/nomarkup]
-{$kieran}: We need to clean up the scene, if we hope to have a chance of getting out of this mess. Why did you even bother with pretenses to begin with? #line:05e509a
+{$kieran}: Why did you even bother with pretenses to begin with? #lastline #line:05e509a
 <<jump kieranComment>>
 ===
 title: drunkardSuccess
 position: -140,238
 ---
-{$storyteller}: [nomarkup][The man limps away into the night.][/nomarkup] #line:02a3e0e
+{$storyteller}: [nomarkup][The man limps away into the night.][/nomarkup] #lastline #line:02a3e0e
 <<jump kieranComment>>
 ===
 title: kieranComment
 position: -509,170
 ---
 <<if $disciplineUse ==true>>
--> {$pcName}: You told that guy to forget that something happened and he did.
-{$storyteller}: [nomarkup][He seems not to understand at first what you are referring to, but then you see the realization in his eyes.][/nomarkup] 
-{$kieran}: Ah, you mean Disciplines. With the powers of my blood, the mind can be dominated and bent to another's will - up to and including memory erasure. #line:09ff9d3 
--> {$pcName}: Can you teach me that? #line:09b478a 
-{$kieran}: Sadly, no. At least, not so easily. Your blood has other useful, hidden powers, but now is not the time nor place. #line:0e36b59
-{$kieran}: We need to get rid of these bodies before anybody comes by. There's a dumpster in the back alley Kate uses for clean up.
+    -> {$pcName}: You told that guy to forget that something happened and he did.
+    {$storyteller}: [nomarkup][He seems not to understand at first what you are referring to, but then you see the realization in his eyes.][/nomarkup] 
+    {$kieran}: Ah, you mean Disciplines. With the powers of my blood, the mind can be dominated and bent to another's will - up to and including memory erasure. #line:09ff9d3 
+    -> {$pcName}: Can you teach me that? #line:09b478a 
+    {$kieran}: Sadly, no. At least, not so easily. Your blood has other useful, hidden powers, but now is not the time nor place. #line:0e36b59
 <<endif>> 
 <<jump dumpsterCleanup>>
 ===

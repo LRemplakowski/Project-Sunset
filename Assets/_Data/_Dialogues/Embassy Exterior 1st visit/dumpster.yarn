@@ -7,7 +7,6 @@ tags:
     -> {$pcName}: Won't these be found? #line:0bffeae
         {$kieran}: We have a lot of drop points like this across the city. See that logo? 
         {$storyteller}: [nomarkup][He points to a faded picture on the side of a dumpster. It looks like it belongs to Ardus Enterprises.][/nomarkup]
-        {$kieran}: You can dispose of bodies in dumpsters with it. No questions asked. #line:06df308
         <<jump financeRoll>>
 <<else>>
     {$storyteller}: [nomarkup][An old, weathered dumpster with the Ardus Enterprises logo on it. You're not sure if it's blood or rust lining the sides.][/nomarkup] #line:02aad1b
@@ -17,6 +16,7 @@ tags:
 title: financeRoll
 ---
 <<if (Roll("Intelligence","Streetwise") >= 3) or (Roll("Intelligence","Finance") >= 3)>>
+    {$kieran}: You can dispose of bodies in dumpsters with it. No questions asked. #line:06df308
     {$storyteller}: [nomarkup][Ardus Enterprises is a large trash processing company that cleans most of Vegas's districts. These days, they also push hard for the Yucca Mountain Nuclear Waste Repository.][/nomarkup]
     {$storyteller}: [nomarkup][In the past, you heard, and even investigated, some stories about bodies found in the dumpsters. Even in smaller containers next to private houses...][/nomarkup] #line:024628d
     {$storyteller}: [nomarkup][You can't help but wonder how many of those corpses were created due to vampiric influence in the city.][/nomarkup]
@@ -24,6 +24,7 @@ title: financeRoll
     {$storyteller}: [nomarkup][The questions are piling up one after another - just like the bodies you throw into a dumpster's hungry maw to most likely never be seen again.][/nomarkup] #line:04b6459
     -> [nomarkup][Walk away.][/nomarkup]
 <<else>>
+    {$kieran}: You can dispose of bodies in dumpsters with it. No questions asked.
     -> [nomarkup][Walk away.][/nomarkup]
 <<endif>>
 ===

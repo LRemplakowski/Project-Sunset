@@ -16,7 +16,7 @@ position: -177,-434
             <<jump safeOpenedwCode>>
         -> [nomarkup][Open the safe with a 1972 combination.][/nomarkup] <<if $aidanFoster == true and CustomVisited("safeFoster") == false>>
             <<jump safeFoster>>
-        -> [nomarkup][Open the safe with a 4113 combination.][/nomarkup] <<if $goldBug == true and CustomVisited("safeGoldBug") == false>> #line:0278058 
+        -> [nomarkup][Open the safe with a 4113 combination.][/nomarkup] <<if $goldBugCombination == true and CustomVisited("safeGoldBug") == false>> #line:0278058 
             <<jump safeGoldBug>>
         -> [nomarkup][Step away.][/nomarkup] #line:0cf47c3 
     <<endif>>

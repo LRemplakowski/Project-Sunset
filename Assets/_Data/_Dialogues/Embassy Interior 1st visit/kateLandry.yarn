@@ -91,6 +91,7 @@ position: 78,-418
         {$storyteller}: [nomarkup][Kate raises her delicate hand up in a sweeping wave, indicating to you a woman decked out in studded leather garments and steel-toed cleats.][/nomarkup]
         <<jump kateNudgesTowardAnastasia>>
     <<endif>>
+    <<jump subsequentQuestions>>
 <<else>>
 <<jump subsequentQuestions>>
 <<endif>>
