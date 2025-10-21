@@ -16,10 +16,10 @@ position: -540,-238
 {$storyteller}: [nomarkup][Bathed in soft vermillion light, her armchair is her throne, the perch of this room's red queen.][/nomarkup]
 <<if GetIsPartyMemberRecruited($anastasia) is false>>
     {$sforzaMask}: Kieran. Back so soon? Hope Dominic didn't run you off. Who's your friend?
-    {$storyteller}: [nomarkup][Her eyes are turned on you. She speaks with an Italian accent.?][/nomarkup]
+    {$storyteller}: [nomarkup][Her eyes are turned on you. She speaks with an Italian accent?][/nomarkup]
 <<else>>
     {$sforzaMask}: Kieran, back so soon? Hope Dominic didn't run you off. Who are your friends?
-    {$storyteller}: [nomarkup][Her eyes are turned on you. She speaks with an Italian accent. ][/nomarkup] #line:069afd3
+    {$storyteller}: [nomarkup][Her eyes are turned on you. She speaks with an Italian accent.][/nomarkup] #line:069afd3
     <<set $anastasiaIntroduced to true>>
     {$anastasia}: Anastasia, charmed m'lady. 
     {$storyteller}: [nomarkup][Kate seems unimpressed, a deadpan expression.][/nomarkup]
@@ -39,10 +39,10 @@ position: -540,-238
 {$storyteller}: [nomarkup][This is not how events unfolded in your apartment. It was Kieran who needed to convince Dominic of your competence, not the other way around...][/nomarkup] #line:01efab0 
 {$sforzaMask}: Interesting. 
 {$storyteller}: [nomarkup][She gives you an ocular pat down, eyeing the length of your figure and smiles.][/nomarkup] 
-{$sforzaMask}: I suppose if Dominic believes you're worth violating  our Traditions over, then you must be something quite special?
+{$sforzaMask}: I suppose if Dominic believes you're worth violating our Traditions over, then you must be something quite special?
 {$sforzaMask}: Good luck with this little test my dear, and do come back if you succeed? Oh, but don't forget to  tell me all about it, I'm so curious!
 -> {$pcName}: Thank you. #line:099b710 
-    {$sforzaMask}: At least you know your manners. That helps. (+1 Kieran Influence) #line:05b5dd3 
+    {$sforzaMask}: At least you know your manners. That helps. (+1 Kieran Influence) #lastline #line:05b5dd3 
     <<ModifyInfluence 1 {$kieran}>>
     <<jump questionsAboutLastNight>>
 -> {$pcName}: Probably not. 
@@ -52,7 +52,7 @@ position: -540,-238
     {$kieran}: She does have a fiery temperament, but... it's to be expected, given her Blood. #line:00590a3 
     {$sforzaMask}: Another Brujah? 
     {$storyteller}: [nomarkup][She sighs and rolls her eyes.][/nomarkup] 
-    {$sforzaMask}: I would heartily endorse some anger management classes and, if you would like to live a long prosperous life, to not lean on excuses. #line:0179d9d 
+    {$sforzaMask}: I would heartily endorse some anger management classes and, if you would like to live a long prosperous life, to not lean on excuses. #lastline #line:0179d9d 
     <<jump questionsAboutLastNight>>
 ===
 title: questionsAboutLastNight
@@ -113,7 +113,7 @@ position: -502,87
 <<else>>
     <<if $anastasiaIntroduced is false and GetIsPartyMemberRecruited($anastasia) is true>>
         <<set $anastasiaIntroduced to true>>
-        {$anastasia}: Anastasia, charmed m’lady. 
+        {$anastasia}: Anastasia, charmed m'lady. 
         {$storyteller}: [nomarkup][Kate seems unimpressed, a deadpan expression.][/nomarkup]
         {$sforzaMask}: A pleasure for you to finally introduce yourself! I cannot imagine why we didn't get together sooner. Were you afraid that I'd bite?
         {$storyteller}: [nomarkup][Kate's smile doesn't reach her eyes, but she allows this particular insult to go unpunished.][/nomarkup]
@@ -130,11 +130,11 @@ title: subsequentQuestions
     <<jump howSheStarted>>
 -> {$pcName}: Tell me about yourself. #line:023a789 
     <<jump kateTalksAboutHerself>>
--> {$pcName}: What do you think about the Prince? <<if CustomVisited("kateTalksAboutHerself") == true>> #line:0dfc750 
+-> {$pcName}: What do you think about the Prince? <<if CustomVisited("howSheStarted") == true>> #line:0dfc750 
     <<jump katePrinceOpinion>>
--> {$pcName}: Who is the Prince? <<if CustomVisited("kateTalksAboutHerself") == true>> #line:002b53c 
+-> {$pcName}: Who is the Prince? <<if CustomVisited("howSheStarted") == true>> #line:002b53c 
     <<jump princeExplained>>
--> {$pcName}: What happened to the previous Prince? <<if CustomVisited("kateTalksAboutHerself") == true>> #line:0b0ed9e 
+-> {$pcName}: What happened to the previous Prince? <<if CustomVisited("howSheStarted") == true>> #line:0b0ed9e 
     <<jump previousPrince>>
 -> {$pcName}: Sabbat? <<if CustomVisited("previousPrince") == true>> #line:01d00d6 
     <<jump whatIsSabbat>>
