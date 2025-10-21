@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Linq;
 using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 using Redcode.Awaiting;
 using Sirenix.OdinInspector;
 using SunsetSystems.Core.Database;
@@ -145,7 +146,7 @@ namespace SunsetSystems.UMA
             }
             if (CanUpdateUma() is false)
             {
-                await new WaitUntil(CanUpdateUma);
+                await UniTask.WaitUntil(CanUpdateUma);
             }
             _umaAvatar.BuildCharacterEnabled = false;
             if (_baseLookWardrobeCollection != null)
