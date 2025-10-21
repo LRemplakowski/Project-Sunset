@@ -8,11 +8,11 @@ Bartender: Sorry about that. What can I get you? #line:0cd8bf9
     <<GiveItem "IT_Q_EMBASSYDRINK">>
     Bartender: Coming right up!
     {$storyteller}: [nomarkup][She rushes to the other end of the bar and starts making your drink.][/nomarkup] #line:0609bbe
-    -> [nomarkup][Walk away.][nomarkup]
+    -> [nomarkup][Walk away.][/nomarkup]
 -> {$pcName}: So, what can you tell me about Diana? #line:01a3bca
     Bartender: She's nice enough. Been seeing someone who kinda gives me a bad feeling, but I can't put my finger on why. #line:0c8425a
     -> {$pcName}: Bad feeling? #line:0fd6f3c
     Bartender: Very suspicious - always skulking around. She only visits her office when Kate isn't here. #line:079b3e8
-    -> [nomarkup][Walk away.][nomarkup]
+    -> [nomarkup][Walk away.][/nomarkup]
     -> {$pcName}: Nothing, nevermind. #line:07b7b43
 ===
