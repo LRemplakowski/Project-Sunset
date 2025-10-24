@@ -2,13 +2,13 @@
 tags:
 position: -273,-1167
 ---
-{$storyteller}: [nomarkup][The paintings hanging before you are geometric post-modern pieces.[/nomarkup]
+{$storyteller}: [nomarkup][The paintings hanging before you are geometric post-modern pieces.][/nomarkup]
 <<jump paintingsInteractions>>
 ===
 title: paintingsInteractions
 position: -225,-696
 ---
-[nomarkup][This afront to the art still hangs on the wall.][/nomarkup]
+{$storyteller}: [nomarkup][This afront to the art still hangs on the wall.][/nomarkup]
 -> [nomarkup][Examine the paintings.] (Resolve+Awareness)[/nomarkup] <<if CustomVisited("paintingAwarenessRoll") == false>> #line:0d08a4a 
     <<jump paintingAwarenessRoll>>
 -> [nomarkup][Think about the art trade.] (Intelligence+Finance)[/nomarkup] <<if CustomVisited("paintingIntelligenceRoll") == false>> #line:0770fad 
@@ -17,7 +17,7 @@ position: -225,-696
     <<jump paintingsDestroyed>>
 -> [nomarkup][Examine the safe.][/nomarkup] <<if $paintingsPutDown == true>> #line:0847f88 
     <<jump safeExamine>>
--> [nomarkup][Take down one of the paintings.][/nomarkup] <<if CustomVisited("successContinued") == false and $safeDiscovered == true>> #line:033b9e3 
+-> [nomarkup][Take down one of the paintings.][/nomarkup] <<if CustomVisited("successContinued") == false and $safeDiscovered == true and CustomVisited("paintingsDestroyed") == false>> #line:033b9e3 
     <<jump successContinued>>
 -> [nomarkup][Examine destroyed paintings.][/nomarkup] <<if CustomVisited("paintingsDestroyed") and CustomVisited("examineScraps") is false>>
     <<jump examineScraps>>
@@ -86,8 +86,8 @@ position: 1740,623
 <<set $aidanFoster to true>>
 <<set $safeCode to true>>
 {$storyteller}: [nomarkup][You squat and squint your eyes trying to read what is written on the piece of paper glued to the canvas.][/nomarkup]
-{$storyteller}: [nomarkup][ The paper is yellowed. The text indicates that it was bought at the Vibrant Vistas Gallery. It also says that this particular piece was bought on June 17th, 1969.][/nomarkup]
-{$kieran}: Vibrant Vistas Gallery... The address... I believe it's somewhere around downtown. And the date:the 17th of June, 1969. This is probably when it was bought. #line:0d53691 
+{$storyteller}: [nomarkup][The paper is yellowed. The text indicates that it was bought at the Vibrant Vistas Gallery. It also says that this particular piece was bought on June 17th, 1969.][/nomarkup]
+{$kieran}: Vibrant Vistas Gallery... The address... I believe it's somewhere around downtown. And the date: the 17th of June, 1969. This is probably when it was bought. #line:0d53691 
 {$storyteller}: [nomarkup][Your attention is caught by a small handwritten note on the stamp - “For my beloved Diana, on one of the most important days of her life. - Aidan Foster.”][/nomarkup]
 -> {$pcName}: Does the name Aidan Foster ring any bells? #line:0266774
 {$kieran}:  Aiden Foster. I've seen that name once before. Before I was Embraced, I was one of Kate's other ghouls. I helped Diana from time to time with the papers and stumbled upon an envelope with the guy's name on it. Asking her about it was a touchy subject.
@@ -115,6 +115,6 @@ position: -1440,-287
 title: examineScraps
 position: 219,24
 ---
-{$storyteller}: [nomarkup][In the midst of the wanton desbris, you spy  the ripped remnats of a  paper stamp. The most glaring detail you missed was the safe tucked away in the alcove behind where the artwork was displayed.][/nomarkup]
+{$storyteller}: [nomarkup][In the midst of the wanton debris, you spy  the ripped remnants of a  paper stamp. The most glaring detail you missed was the safe tucked away in the alcove behind where the artwork was displayed.][/nomarkup]
 <<jump successContinued>>
 ===
