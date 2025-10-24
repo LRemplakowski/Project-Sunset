@@ -5,221 +5,113 @@ position: -206,-1792
 <<if CustomVisited("firstBookcaseVisit") == false>>
     <<jump firstBookcaseVisit>>
 <<else>>
-    [nomarkup][The bookcase is filled with a myriad of items. Not only books, but a large TV, radio, some decorative vases... Modern books sit upon the shelves, but there are also several occult tomes which line the wall - the faint scent of lignin permeating the air. These books must be pretty old.][/nomarkup] #lastline #line:071c765 
+    {$storyteller}: [nomarkup][The bookcase is filled with a myriad of items.][/nomarkup] #line:071c765
+    <<jump bookcaseInteractions>>
 <<endif>>
-<<jump bookcaseInteractions>>
 ===
 title: firstBookcaseVisit
 position: 714,-1674
 ---
-[nomarkup][The bookcase is filled with a myriad of items. Not only books, but a large TV, radio, some decorative vases... Modern books sit upon the shelves, but there are also several occult tomes which line the wall - the faint scent of lignin permeating the air. These books must be pretty old.][/nomarkup] #line:0723eb9 
-[nomarkup][Several scrolls lean against the farthest shelf on top, and you ponder whether they are made from paper or parchment. A traditional quill is even nestled amongst them, gaining dust with time. What a strange, dissonant fusion of new and old...][/nomarkup] #line:04c2c4b 
-{$kieran}: Oh my... do you see these books? #line:0bd847a 
+{$storyteller}: [nomarkup][The bookcase is filled with a myriad of items. The larger ones being a TV, a radio, and some decorative vases.][/nomarkup] #line:0723eb9
+{$storyteller}: [nomarkup][The books are a mix of modern titles and esoteric occult tomes. The faint scent of lignin permeates the air.][/nomarkup]
+{$storyteller}: [nomarkup][Several scrolls lean against the farthest shelf on top, and you ponder whether they are made from paper or parchment.][/nomarkup]
+{$storyteller}: [nomarkup][A traditional quill is even nestled amongst them, gathering dust with time. What a strange, dissonant fusion of new and old.][/nomarkup] #line:04c2c4b
+{$kieran}: Curious, some of these books look out of place.#line:0bd847a
 <<if GetIsPartyMemberRecruited($anastasia) is true>>
-    {$anastasia}: What, not alphabetized and color-coded, poindexter? #line:0dd14c8 
-    {$kieran}: [nomarkup][He just rolls his eyes.][/nomarkup] No? Take a closer look: occult books lying next to normal, present day non-fiction. Popular literature. #line:0fd9b77 
-    {$anastasia}: So what? She [nomarkup]<i>is</i>[/nomarkup] Kate's ghoul. It's obvious that she would be interested in this stuff. #line:07b2bb1 
-    {$kieran}: Not when you get to know her better. She has never shown any interest in magic nor the occult. She was satisfied with running the show for Kate, or at least, she seemed to be... #line:096dd74 
+    {$anastasia}: So what? She [nomarkup]<i>is</i>[/nomarkup] a Tremere's ghoul. Isn't it obvious that she would be interested in this stuff? #line:07b2bb1
 <<endif>>
-[nomarkup][Kieran leans towards the shelf, scrutinizing the titles more closely.][/nomarkup] #line:0750a97 
-{$kieran}: Diana has been pretty successful in remaining secretive about her interest in such topics, I have to admit. That being said, some of these books [nomarkup]<i>do</i>[/nomarkup] seem out of place. Take a look, but don't touch anything just yet. #line:0fcafe3 
+{$kieran}: She has never shown any interest in magic nor the occult. She was satisfied with running the show for Kate, or at least, she seemed to be... #line:096dd74
 <<jump bookcaseInteractions>>
 ===
 title: bookcaseInteractions
 position: -906,-1095
 ---
-[nomarkup][The bookcase is cluttered nearly to a brim. Only the owner can find an order in this chaos.][/nomarkup]
--> [nomarkup][Examine the books Kieran is interested in.][/nomarkup] <<if CustomVisited("bookcaseExamine") == false>> #line:065b815 
+{$storyteller}: [nomarkup][The bookcase is cluttered nearly to a brim. Only the owner can find an order in this chaos.][/nomarkup]
+-> [nomarkup][Examine the occult tomes.][/nomarkup] <<if CustomVisited("bookcaseExamine") == false>> #line:065b815
     <<jump bookcaseExamine>>
--> [nomarkup][Examine the normal books.][/nomarkup] <<if CustomVisited("bookcaseExcamineNormal") == false>> #line:0821d34 
+-> [nomarkup][Examine the normal books.][/nomarkup] <<if CustomVisited("bookcaseExcamineNormal") == false>> #line:0821d34
     <<jump bookcaseExcamineNormal>>
--> [nomarkup][Turn on the TV.][/nomarkup] <<if CustomVisited("bookcaseTV") == false>> #line:0ed4221 
+-> [nomarkup][Turn on the TV.][/nomarkup] <<if CustomVisited("bookcaseTV") == false>> #line:0ed4221
     <<jump bookcaseTV>>
--> [nomarkup][Turn on the radio.][/nomarkup] <<if CustomVisited("bookcaseRadio") == false>> #line:0f01e3f 
+-> [nomarkup][Turn on the radio.][/nomarkup] <<if CustomVisited("bookcaseRadio") == false>> #line:0f01e3f
     <<jump bookcaseRadio>>
--> [nomarkup][Examine Poe's book.][/nomarkup] <<if $safeDiscovered == true and CustomVisited("bookcaseExcamineNormal") == true>> #line:0de685b 
+-> [nomarkup][Examine “The Gold-Bug and Other Short Stories”.][/nomarkup] <<if CustomVisited("bookcaseExcamineNormal") == true>> #line:0de685b
     <<jump poeBookExamine>>
--> [nomarkup][Step back.][/nomarkup] #line:02ac943 
+-> [nomarkup][Step back.][/nomarkup] #line:02ac943
 ===
 title: bookcaseExamine
 position: -1609,-2088
 ---
-[nomarkup][The books are placed together in disorganized chaos - with no rhyme or reason to their presence.][/nomarkup] #lastline #line:04334e9 
-<<if Roll ("Intelligence","Awareness")>=4>>
-    [nomarkup][That is, they are at first glance... When you examine them more closely, you notice a pattern. Several titles that can be directly linked to something known as the “Hidden Arts” repeat themselves, and a volume of one of them seems to be especially heavily used... It is titled - “The Book of Law” by Aleister Crowley.][/nomarkup] #lastline #line:07c9215
-    <<set $hiddenArts to true>>
-    <<if Roll ("Intelligence","Occult") >=5>>
-        [nomarkup][Aleister Crowley... You recognize that name. He was a prominent English occultist and ceremonial magician. If he's in a vampire's bookshelf, then maybe not all of his body of work is nonsense...][/nomarkup] #line:07ae103
-    <<elseif Roll ("Wits","Occult")>=3>> 
-        [nomarkup][The “Hidden Arts”, huh? Sounds paranormal enough. You probably shouldn't touch the volume...][/nomarkup] #line:04102b4
-    <<endif>>
+{$storyteller}: [nomarkup][One volume sticks out  as the most heavily used with a weathered, wrinkled spine.“The Book of Law” by Aleister Crowley.][/nomarkup] #line:07c9215
+<<if Roll ("Intelligence","Occult") >=5>>
+    [nomarkup][You recognize the author. He was a prominent English occultist and ceremonial magician.][/nomarkup] #line:07ae103 #lastline
 <<endif>>
-<<if $hiddenArts == true>>
-    -> {$pcName}: [nomarkup][Take the book.][/nomarkup] #line:08a5386 
-        {$kieran}: [nomarkup][He peers for a while at the book you pointed out and its volumes.][/nomarkup] [nomarkup]<i>Liber Al vel Legis</i>[/nomarkup] by Aleister Crowley. Good eyes. Let me check them first. I do not think there is a trap, but with matters of the occult, you're better safe than sorry. (+1 Kieran Influence) #line:0f594d6
-        <<ModifyInfluence 1 {$kieran}>>
-        <<jump booksHaveTeeth>>
-<<else>>
-    -> {$pcName}: Diana has quite the collection. She appears to read this one quite often, though. [nomarkup][You point at it.][/nomarkup] #line:01a1e74 
-        {$kieran}: [nomarkup][He peers for a while at the book you pointed out and its volumes.][/nomarkup] [nomarkup]<i>Liber Al vel Legis</i>[/nomarkup] by Aleister Crowley. Good eyes. Let me check them first. I do not think there is a trap, but with matters of the occult, you're better safe than sorry. (+1 Kieran Influence)
-        <<ModifyInfluence 1 {$kieran}>>
-        <<jump booksHaveTeeth>>
-<<endif>>
-<<jump bookcaseInteractions>>
+-> {$pcName}: [nomarkup][Examine “The Book of Law”.][/nomarkup] #line:08a5386
+{$kieran}: [nomarkup]<i>Liber Al vel Legis</i>[/nomarkup] Good eye. Let me check it first. I do not think there is a trap, but with matters of the occult, you're better safe than sorry. (+1 Kieran Influence) #line:0f594d6
+<<ModifyInfluence 1 {$kieran}>>
+<<jump booksHaveTeeth>>
 ===
 title: booksHaveTeeth
 position: -1628,-1244
 ---
 <<if GetIsPartyMemberRecruited($anastasia) is true>>
-    {$anastasia}: What? Now even books have teeth? #line:06ff0e5 
-    {$kieran}: Not generally, no. But in the event they do, you need only gently stroke their spine. You weren't aware, Ms. Goth Queen? [nomarkup][He chuckles.][/nomarkup] #line:05ea42d 
+    {$anastasia}: Are you afraid it has teeth?#line:06ff0e5
+    {$kieran}: [nomarkup][Chuckling.][/nomarkup] You'd be surprised. #line:05ea42d
 <<endif>>
-{$kieran}: [nomarkup][He examines the book for a while without taking it from the shelf.][/nomarkup] Everything looks to be in order. #line:0157695 
-[nomarkup][You remove the book from its shelf and open it up to a random page - leafing through it. There's nothing special about it, at first glance. No marks, no hidden compartments cut into the pages...][/nomarkup] #line:057f624 #lastline
-<<if Roll ("Wits","Insight")>=4>>
-    -> {$pcName}: Diana doesn't seem like the religious type, to me... #line:0c51020 
-    <<set $thelema to true>>
-    <<if GetIsPartyMemberRecruited($anastasia) is true>>
-        {$anastasia}: She, at the very least, does seem to believe in anarchy. For those people, it's hard to say that organized religion doesn't represent an unjustified hierarchy. #line:0bc86e8 
-        -> {$pcName}: I'm not talking about that. This book is like a Bible, for Thelema; she consults it often. #line:0f499be 
-    <<endif>>
-    {$kieran}: Well, it is often the first stop for any prospective apprentice of the magical arts. Maybe she's finally decided to start doing her homework? #line:03d51b3
-<<elseif Roll ("Intelligence","Academics")>=4>>
-    -> {$pcName}: It looks like Diana is interested in some majorly esoteric stuff. Does Kate know? #line:05beb70 
-    <<set $thelema to true>>
-    {$kieran}: [nomarkup][He thinks for a second, but ultimately shakes his head.][/nomarkup] I do not think so. Like I said, she never showed interest in such topics. [nomarkup][He rubs his forehead.][/nomarkup] I don't know what may have happened to change that. Maybe her reason for reading it so diligently is more about Thelema, and not magick, in particular? #line:0cc5e56 
-<<elseif Roll ("Resolve","Investigation")>=4>>
-    -> {$pcName}: [nomarkup][You thoroughly examine the book's cover, revealing a small monogram on the front page.][/nomarkup] Do you recognize that symbol, Kieran? #line:0fb486b 
-    <<set $thelema to true>>
-    {$kieran}: [nomarkup][He stares at it intensely for a few moments.][/nomarkup] It's not one that I know of, nor is it Thelema's hexagram. Maybe it's someone's sigil? I am sure it's not Kate's, at the very least. #lastline #line:0326a7d 
-<<endif>>
-<<if $thelema == true>>
-    [nomarkup][You don't think you'll find anything else in this book... You put it back on the shelf.][/nomarkup] #line:0898f9f
-<<else>>
-    <<set $safeFailCounter to inc($safeFailCounter)>>
-    [nomarkup][On second thought there is nothing interesting about that book.][/nomarkup]
-<<endif>>
+{$storyteller}: [nomarkup][He rubs the spine of the book without taking it off the shelf.][/nomarkup] 
+{$kieran}: Everything looks to be in order. #line:0157695
+{$storyteller}: [nomarkup][You leaf through the book and notice one word highlighted and underlined at multiple points throughout the text.][/nomarkup] #line:057f624
+{$storyteller}: [nomarkup][“The word of the law is <i>Thelema<i>. Do what thou wilt shall be the whole of the Law.”][/nomarkup]
+{$storyteller}: [nomarkup][Kieran rubs his forehead.][/nomarkup]
+{$kieran}: Thelema? Interesting. Occult terminology for self-actualization. Maybe her reason for reading it so diligently is more about Thelema, and not magic, in particular? #line:0cc5e56
+<<set $thelema to true>>
 <<jump bookcaseInteractions>>
 ===
 title: bookcaseExcamineNormal
 position: 2202,1634
 ---
-[nomarkup][Nothing too interesting here. Some biographies, trivia books. Advice and reference books about the economy and business management. One book stands out, though. The Gold-Bug and Other Short Stories by Edgar Allan Poe.][/nomarkup] #line:0442577 
+{$storyteller}: [nomarkup][Various works of fiction, self-help, and business management books line the shelf.][/nomarkup]
+{$storyteller}: [nomarkup][One book catches your eye slightly jutted out compared to the rest, “The Gold-Bug and Other Short Stories” by Edgar Allan Poe.][/nomarkup] #line:0442577
+{$kieran}: From what I recall of literature, “The Gold Bug” is a story about deciphering a message leading to a hidden treasure.
 <<set $goldBugPassword to true>>
-[nomarkup][Maybe it's you, or maybe it's here for a reason. None of the other books on the shelves are anthologies. Not to mention poems or similar.][/nomarkup] #line:09ca8e2 
--> [nomarkup][Open the book.][/nomarkup] #line:0738468 
-[nomarkup][You open the book and search through it. The short story which gives the anthology its name is marked. From what you recall from English lessons, this one was about deciphering a message leading to a hidden treasure.][/nomarkup] #line:0499b1a 
-<<if $safeDiscovered == true>>
-    <<jump poeBookExamine>>
-<<else>>
-    [nomarkup][It's probably just a circumstancial book laying around. You put it back at its place.][/nomarkup] #line:03915d7 
-    <<jump bookcaseInteractions>>
-<<endif>>
+<<jump poeBookExamine>>
 ===
 title: bookcaseTV
 position: 2125,-412
 ---
-[nomarkup][You find yourself watching late night MTV. From what you can see, it's one of the latest video clips from Madonna. You aren't really that well-versed in modern day music - not enough to discern for sure which album it's from, but in the video, the young performer looks similar to a famous photo of Marilyn Monroe.][/nomarkup] #line:0738db3 
-{$kieran}: Why are we doing this, exactly? #line:0514757 
--> {$pcName}: I don't know. I just hit the button out of curiosity. #line:0cc7cb9 
-    {$kieran}: Well, it would be best to keep moving, so would you shut it off, please? #line:0714c92 
-    <<if GetIsPartyMemberRecruited($anastasia) is true>>
-        <<jump bookcaseTVAnaTenderMoment>>
-    <<else>>
-        [nomarkup][You turn the TV off.][/nomarkup] #line:0c2bfdf 
-        <<jump bookcaseInteractions>>
-    <<endif>>
--> {$pcName}: I'm curious what Diana likes to watch. You know, to get into her head. #line:03caa76 
-    {$kieran}: And? Did it give you any new insight? #line:06415f6 
-    -> {$pcName}: Not much more than what we already know. It's obvious she's interested in the latest music trends, though I suppose one would expect her to like something more “underground” and “punk”. #line:04222ca 
-    {$kieran}: Well, it would be best to keep moving, so would you shut it off, please?  #line:02f7eaf 
-    <<if GetIsPartyMemberRecruited($anastasia) is true>>
-        <<jump bookcaseTVAnaTenderMoment>>
-    <<else>>
-        [nomarkup][You turn the TV off.][/nomarkup] #line:0ee42c3 
-        <<jump bookcaseInteractions>>
-    <<endif>>
-===
-title: bookcaseTVAnaTenderMoment
-position: 1692,-987
----
-[nomarkup][You move to press the power button, but Anastasia stops you. You glance over at her in surprise.][/nomarkup] #line:002a837 
-{$kieran}: Oh, do you like this kind of music, Ms. Goth Queen? What an interesting surprise. #line:0dc9de1 
-[nomarkup][Anastasia furrows her brows, leveling a baffled look at Kieran for several long seconds, before sighing and rolling her eyes. She scoffs.][/nomarkup] #line:0d673e0 
-{$anastasia}: Hell no, do I look like the kind of ditz that likes pop music, to you? This is for posers and middle school girls. #lastline #line:05ed0e1 
-<<if Roll ("Composure","Insight") >= 4>>
-    -> [nomarkup][Laying it on a little thick there, isn't she?][/nomarkup] #line:0d9f9d7 
-    <<set $layingItOn to 1>>
-<<endif>>
--> [nomarkup][Study Anastasia's expression.][/nomarkup] (Wits+Insight) #line:0320dd7 
-<<if Roll("Wits","Awareness") >= (3 - $layingItOn)>>
-    [nomarkup][There it is, the slightest twitch of the corner of her mouth. And for a split-second, her eyes linger on the screen of the TV before being brought from Kieran to you. There is interest there. This, you are sure of.][/nomarkup] #success #line:0c7efa3
-    -> {$pcName}: You [nomarkup]<i>do</i>[/nomarkup] seem to like it, though. #line:06d23e3 
-    [nomarkup][Anastasia's mouth forms into a taut, straight line. She is intensely not emoting.][/nomarkup] #line:0d22f23 
-    <<if Roll ("Wits","Insight")>=3>>
-        [nomarkup][This is as much confirmation as you're going to get.][/nomarkup] #line:0e824e2 
-    <<endif>>
-    {$anastasia}: I don't have the slightest idea why you give even a crumb of a shit. Don't you have an investigation to wrap up? #line:023358d 
-    -> [nomarkup][You turn the TV off.][/nomarkup] #line:0d1cd53
-    [nomarkup][TV goes silent again.][/nomarkup] #lastline
-<<else>>
-    [nomarkup][You don't catch any signs that Anastasia feels any differently than she has been trying to convey.][/nomarkup] #failure #line:0b883ae 
-    -> {$pcName}: [nomarkup][Perhaps Kieran was wrong.][/nomarkup] You'd agree with me that this kind of ridicule is a little childish, right Kieran? #line:0081625 
-        {$kieran}: You're impugning [nomarkup]<i>me</i>[/nomarkup]? I have only returned the attitude that has been served to me in kind. (-1 Kieran Influence) #lastline #line:0286661 
-        <<ModifyInfluence -1 {$kieran}>>
-    <<if $layingItOn > 0>>
-    -> {$pcName}: You [nomarkup]<i>do</i>[/nomarkup] seem to like it, though. #line:02631c3 
-        {$anastasia}: [nomarkup][She laughs so hard you're sure it is heard down below in the club. Between the breathless wheezes, she speaks.][/nomarkup] Oh my god, that would be a new low. Me? Listening to pop music?  #line:020e3ca 
-        {$anastasia}: No. Not in this lifetime, or the next. #line:02c7a80 
-        [nomarkup][Guess you were mistaken...][/nomarkup] #line:0f4d5d3 
-        -> [nomarkup][You turn the TV off.][/nomarkup] #line:0abfddd
-        [nomarkup][TV goes silent again.][/nomarkup]
-    <<endif>>
-<<endif>>
+{$storyteller}: [nomarkup][A late-night music video for a young, blonde pop star plays on the TV.][/nomarkup] #line:0738db3
 <<jump bookcaseInteractions>>
 ===
 title: bookcaseRadio
 position: 2087,315
 ---
-[nomarkup][The radio crackles to life. It seems that the current broadcast is already in progress.][/nomarkup] #line:045b27a 
-Radio: Thank you for your insight, Josh! It's always good to know what's happening in the city! Aaaaand... in other news... #line:0b9a54a 
-[nomarkup][You know that voice... It's a local late night radio show, “Olive Branch”. Broadcasted for nearly a decade straight thus far, this program covers anything from news and current events, to gossip and advice. You believe that the name of the woman you hear speaking is the current and only host, Olive Richmond.][/nomarkup] #line:04c2926 
-[nomarkup][If anyone knows anything about important events taking place in the city, it'll 100% be Olive. What a shame that your death probably wasn't as important to others as it was to you.][/nomarkup] #line:0dfe933 
+{$storyteller}: [nomarkup][The radio crackles to life. The current broadcast is already in progress.][/nomarkup] #line:045b27a
+Radio: Reports are coming in from all across Nevada, strange lights dancing over the mountains, unexplained radio signals, and people claiming to have seen beings… beings that don't quite look human. And all eyes are turning toward the most secretive military installation in the state: Area 51.
+Radio: For years, the government has denied any extraterrestrial activity, but locals whisper about blacked-out hangars, odd aircraft, and scientists working in shadows.
+{$kieran}: What conspiratorial nonsense.
 <<if GetIsPartyMemberRecruited($anastasia) is true>>
-    {$anastasia}: Oh! It's Olive time! [nomarkup][She claps her hands a little in recognition - no mockery or derision present in her eager stance. She seems to be a genuine fan.][/nomarkup] #line:0075c9b 
+    {$anastasia}: A lot of people would say that about us. Who knows what's out there. 
 <<endif>>
-{$kieran}: [nomarkup][He scratches his chin, rolling up his sleeve.][/nomarkup] It can't be that late... [nomarkup][He looks at the clock, his eyes gradually widening in surprise.][/nomarkup] Oh. It [nomarkup]<i>is</i>[/nomarkup] that late... We need to hurry; and unfortunately, I do not think that Ms. Richmond will have any useful information for us. #line:0f76799 
-<<if GetIsPartyMemberRecruited($anastasia) is true>>    
-    [nomarkup][You turn the radio off, much to Anastasia's disappointment.][/nomarkup] #line:0513daf
-    <<jump bookcaseInteractions>>
-<<else>>
-    [nomarkup][You turn the radio off.][/nomarkup] #line:00b99d0
-    <<jump bookcaseInteractions>>
-<<endif>>
+<<jump bookcaseInteractions>>
 ===
 title: poeBookExamine
 position: -591,2368
 ---
-<<if CustomVisited("poeBookExamineMentalSuccess") == false>>
-    [nomarkup][Poe was considered a master of ciphers during his time... Maybe a safe combination is hidden within one of his short stories? You leaf through the book, searching for answers... or maybe just a nudge in the right direction?][/nomarkup] #line:08cb261 
-    [nomarkup][It's hard to say which you'll find within its pages; you <i>are</i> operating on a gut feeling and not much else, here. The Gold-Bug is marked, though, that much is certain.][/nomarkup] #line:0c8d71d 
-    [nomarkup][In your perusal, you notice a set of signs and numbers typed neatly in the text. Your knowledge of literature seems like it will be useful, after all...][/nomarkup] #line:029181d
-    <<jump poeCode>>
-<<else>>
-    <<jump poeBookExamineQuestions>>
-<<endif>>
+{$storyteller}: [nomarkup][Poe was considered a master of ciphers during his time. You leaf through the book, searching for answers. or maybe just a nudge in the right direction.][/nomarkup]
+{$storyteller}: [nomarkup][In your perusal, you notice a set of signs and numbers typed neatly in the text. Your knowledge of literature seems like it will be useful, after all...][/nomarkup]
+<<jump poeCode>>
 ===
 title: poeCode
 position: -1327,1711
 ---
-:[nomarkup][53‡‡†305))6*;4826)4‡.)4‡);80<br>6*;48†8¶60))85;1‡(;;‡*8†83(88)<br>5*†;46(;88*96*?;8)*‡(;485);5*†<br>2:*‡(;4956*2(5*-4)8¶8*;40692<br>85);)6†8)4‡‡;1(‡9;48081;8:8‡1<br>;48†85;4)485†528806*81(‡9;48<br>;(88;4(‡?34;48)4‡;161;:188;‡?;][/nomarkup] #line:0fea452 
-[nomarkup][You search carefully for the decryption key. It was present in the original story, as was the solution, but the pages on which those would have been written are ripped away.][/nomarkup] #lastline #line:09be44e 
+[nomarkup][53‡‡†305))6*;4826)4‡.)4‡);80<br>6*;48†8¶60))85;1‡(;;‡*8†83(88)<br>5*†;46(;88*96*?;8)*‡(;485);5*†<br>2:*‡(;4956*2(5*-4)8¶8*;40692<br>85);)6†8)4‡‡;1(‡9;48081;8:8‡1<br>;48†85;4)485†528806*81(‡9;48<br>;(88;4(‡?34;48)4‡;161;:188;‡?;][/nomarkup] #line:0fea452 
+{$storyteller}: [nomarkup][You search the pages carefully for some sort of decryption key. Some pages are ripped and missing.][/nomarkup]
 <<jump poeBookExamineQuestions>>
 ===
 title: poeBookExamineQuestions
 position: -432,-386
 ---
-[nomarkup][You hold old and dusty book in your hands.][/nomarkup]
+{$storyteller}: [nomarkup][You hold old and dusty book in your hands.][/nomarkup]
 -> [nomarkup][Try to recall the code.] (Intelligence+Academics)[/nomarkup] <<if CustomVisited("poeExamineAcademicsRoll") == false and $goldBugCombination == false>> #line:0d8cc1f 
     <<jump poeExamineAcademicsRoll>>
 -> [nomarkup][Try to break the code by yourself.] (Intelligence+Investigation)[/nomarkup] <<if CustomVisited("poeExamineInvestigationRoll") == false and $goldBugCombination == false>> #line:0f3e02d 
@@ -230,9 +122,8 @@ position: -432,-386
     <<jump poeExamineAthleticsRoll>>
 -> [nomarkup][Look at the code again.][/nomarkup] #line:00656fb 
     <<jump poeCode>>
--> [nomarkup][Leave the book alone.][/nomarkup] #line:03aa97c 
-    [nomarkup][It's probably just a regular old book laying around. Maybe Diana likes poetry or prose? You put it back in its place.][/nomarkup] #line:07f4d8f 
-    <<jump bookcase>>
+-> [nomarkup][Put the book back.][/nomarkup] #line:03aa97c  
+    <<jump bookcaseInteractions>>
 ===
 title: poeExamineAcademicsRoll
 position: 262,-912
@@ -246,7 +137,7 @@ position: 262,-912
 title: poeExamineAcademicsRollSuccess
 position: 485,-384
 ---
-[nomarkup][Focusing on the jumble of strange symbols in front of you, your memory of the code comes back to you. Then, through trial and error, you piece the decryption key together, deciphering the message.][/nomarkup] #success #line:06d8d75 
+{$storyteller}:[nomarkup][Focusing on the jumble of strange symbols in front of you, your memory of the code comes back to you. Then, through trial and error, you piece the decryption key together, deciphering the message.][/nomarkup] #success #line:06d8d75 
 <<jump poeBookExamineMentalSuccess>>
 ===
 title: poeBookExamineMentalSuccess
@@ -254,23 +145,12 @@ position: 881,-95
 ---
 A good glass in the bishop's hostel and in the devil's seat...\\n Forty-one degrees and thirteen minutes...\\n Northeast and by north...\\n The main branch, seventh limb, east side...\\n Shoot from the left eye of the death's-head...\\n A beeline from the tree, through the shot fifty feet out. #line:08b5f85 
 <<set $goldBugCombination to true>>
-<<if $safeDiscovered == true>>
-    {$kieran}: Desiree, do you think there is a code for a safe hidden in this riddle? #line:026658d 
-    <<if GetIsPartyMemberRecruited($anastasia) is true>>
-        {$anastasia}: [nomarkup][She sighs.][/nomarkup] Why are you people always so complicated? Couldn't she have kept a note with the safe code written out straight upon her desk? #line:0674883 
-        {$kieran}:  That would be stupid, so no. #line:0bb0a04 
-        {$anastasia}: Maybe. But things'd be far easier for us. #line:0493131 
-        {$kieran}: Exactly my point. Thank you, Anastasia. #line:0a41657 
-        {$anastasia}: [nomarkup][She groans.][/nomarkup] You know the point I was trying to make. #line:04b1ace 
-        {$kieran}: [nomarkup][A devilish smirk finds its was to his lips.][/nomarkup] Yes, but this is more fun, right, Miss Goth Queen? #line:0a1dc14
-    <<endif>> 
-<<endif>>
 <<jump bookcaseInteractions>>
 ===
 title: poeExamineFailure
 position: -1308,-317
 ---
-[nomarkup][It's no use. You could spend the entire evening trying to break this code, but all you would gain is a headache... or maybe a lack of it, since by the next night, you wouldn't have any head to speak of...][/nomarkup] #failure #lastline #line:047d4a2 
+{$storyteller}: [nomarkup][It's no use. All your getting from this code is a headache.][/nomarkup] #failure 
 <<jump poeBookExamineQuestions>>
 ===
 title: poeExamineInvestigationRoll
@@ -286,7 +166,8 @@ title: poeExamineInvestigationRollSuccess
 position: -1067,669
 ---
 <<set $goldBugCombination to true>>
-[nomarkup][Alright, deep breath. In your time as a PI, you've had to deal with this kind of stuff more than once. This one doesn't look to be too difficult. You would guess it's a simple substitution cipher, which means that all you need to do is to recreate the decryption key using logic and common linguistic patterns...][/nomarkup] #success #line:0b81818 
+{$storyteller}: [nomarkup][In your time as a PI, you've had to deal with this kind of encryption more than once. This one doesn't look to be too difficult.][/nomarkup] #success 
+{$storyteller}: [nomarkup][You deduce it's a simple substitution cipher, which means that all you need to do is to recreate the decryption key using logic and common linguistic patterns...][/nomarkup]
 <<jump poeBookExamineMentalSuccess>>
 ===
 title: poeExamineAwarenessRoll
@@ -301,8 +182,7 @@ position: -561,911
 title:poeExamineAwarenessRollSuccess
 position: 504,736
 ---
-[nomarkup][You don't have time to play around with some stupid riddle from a story that's nearly 100 years old. There has to be a simpler solution than breaking the code. It's from a book, after all - and a well-known one, at that...][/nomarkup] #success #line:0fc704f
-[nomarkup][You look around the shelves. Then up. As you glance toward the top of the shelf, you see a piece of paper tucked under a pile of other books, protruding just off the edge.][/nomarkup] #line:00a3aab 
+{$storyteller}: [nomarkup][You look around the shelves. Then up. As you glance toward the top of the shelf, you see a piece of paper tucked under a pile of other books, protruding just off the edge.][/nomarkup] #success
 -> [nomarkup][Try to reach it.] (Dexterity+Athletics)[/nomarkup] #line:075d965 
     <<jump poeMissingPagesDexterityRoll>>
 ===
@@ -318,25 +198,25 @@ position: 1389,-509
 title: poeMissingPagesDexteritySuccess
 position: 925,624
 ---
-[nomarkup][The shelf is really high up there. Even on your tip-toes, it's a stretch. You look around for something you can climb on, but all you can see is heavy furniture. Praying that the shelves won't break under your weight, you decide to use them as an improvised ladder.][/nomarkup] #success #line:00e598f 
-[nomarkup][Luckily for you, the bookshelf is made from solid mahogany, and you are able to reach the pages before causing any damage. Just as suspected, these are the missing pages containing the decryption key and riddle solution from the story.][/nomarkup]  #line:04a2a95 
+{$storyteller}: [nomarkup][The shelf is really high up there. Even on your tip-toes, it's a stretch. You look around for something you can climb on, but all you can see is heavy furniture.][/nomarkup] #success
+{$storyteller}: [nomarkup][Praying that the shelves won't break under your weight, you decide to use them as an improvised ladder. Luckily for you, the bookshelf is made from solid mahogany, and you are able to reach the pages before causing any damage.][/nomarkup] 
+{$storyteller}: [nomarkup][Just as suspected, these are the missing pages containing the decryption key and riddle solution from the story.][/nomarkup]
 <<jump poeBookExamineMentalSuccess>>
 ===
 title: poeMissingPagesDexterityFailure
 position: 270,1119
 ---
-[nomarkup][The shelf is really high up there. Even on your tip-toes, it's a stretch. You look around for something you can climb on, but all you can see is heavy furniture and nothing else. Praying that the shelves won't break under your weight, you decide to use them as an improvised ladder, but all you achieve is wounded pride as you slip and fall on your ass...][/nomarkup] #failure #line:0fb4b9b 
+{$storyteller}: [nomarkup][Praying that the shelves won't break under your weight, you decide to use them as an improvised ladder. It cracks immediately however. You slip and fall onto the floor.][/nomarkup] #failure
 <<if GetIsPartyMemberRecruited($anastasia) is true>>
-    {$anastasia}: Graceful as a swan. [nomarkup][She chuckles.][/nomarkup] #line:0e53648 
+    {$anastasia}: Graceful.  #line:0e53648 
 <<endif>>
-{$kieran}: You're alright? #line:00d9332 
--> {$pcName}: Yes, I'm fine... #line:0ce6006 
+{$kieran}: You alright? 
 <<jump poeBookExamineQuestions>>
 ===
 title: poeExamineFailureAwareness
 position: -173,1699
 ---
-[nomarkup][You look around - even under the shelf. You find nothing relevant to the current search.][/nomarkup] #failure #lastline #line:06936b9 
+{$storyteller}: [nomarkup][You look around butfind nothing relevant to the current search.][/nomarkup] #failure
 <<jump poeBookExamineQuestions>>
 ===
 title: poeExamineAthleticsRoll
@@ -352,19 +232,19 @@ title: poeExamineAthleticsSuccess
 position: 1318,189
 ---
 <<if GetPartyHasDiscipline ("Potence") == true>>
-    [nomarkup][This CRT TV is heavier than it looks, but with a good grip and no assistance (thank you very much), you are able to tilt the TV out of the shelf as far as the cable allows.][/nomarkup] #success #line:058d792 
-    [nomarkup][Aside from dust, you see a folded page lying under the box, which looks like it has been ripped from a book. You take it, placing the TV gently back in its spot and unfold this little mystery. It looks like you found the missing page containing the riddle solution!][/nomarkup]  #line:03e2f46 
+    {$storyteller}: [nomarkup][This CRT TV is heavier than it looks, but with a good grip and no assistance (thank you very much), you are able to tilt the TV out of the shelf as far as the cable allows.][/nomarkup] #success #line:058d792
+    {$storyteller}: [nomarkup][Aside from dust, you see a folded page lying under the box, which looks like it has been ripped from a book.][/nomarkup] 
+    {$storyteller}: [nomarkup][You take it, placing the TV gently back in its spot and unfold this little mystery. It looks like you found the missing page containing the riddle solution!][/nomarkup]  
 <<else>>
-    [nomarkup][This CRT TV is heavier than it looks, but with a good grip and help from one of your companions, you are able to tilt the TV out of the shelf as far as the cable allows. Aside from dust, you see a folded page lying under the box, which looks like it has been ripped from a book.][/nomarkup] #success #line:0385030 
-    [nomarkup][You take it, placing the TV gently back in its spot and unfold this little mystery. It looks like you found the missing page containing the riddle solution!][/nomarkup]  #line:0200b43 
+    {$storyteller}: [nomarkup][This CRT TV is heavier than it looks, but with a good grip and help from one of your companions, you are able to tilt the TV out of the shelf as far as the cable allows.][/nomarkup]  #success
+    {$storyteller}: [nomarkup][Aside from dust, you see a folded page lying under the box, which looks like it has been ripped from a book.][/nomarkup] #line:0385030
+    {$storyteller}: [nomarkup][You take it, placing the TV gently back in its spot and unfold this little mystery. It looks like you found the missing page containing the riddle solution!][/nomarkup]  #line:0200b43
 <<endif>>
 <<jump poeBookExamineMentalSuccess>>
 ===
 title:  poeExamineAthleticsFailure
 position: 904,1585
 ---
-[nomarkup][The TV is too heavy; you barely manage to shift it a smidgen. Not to mention, you've pulled it just out of its resting place on the shelf, disturbing the dust around it.][/nomarkup] #failure #line:0364ad5 
-[nomarkup][The debris rise into the air in plumes of particles irritating to your newly dead respiratory system, since you haven't remembered to stop breathing - at least not yet. Force of habit.][/nomarkup]  #line:01dc525 
--> {$pcName}: [nomarkup][Cough, cough!][/nomarkup] #line:00f58c3 
+{$storyteller}: [nomarkup][The TV is too heavy; you barely manage to shift it a smidgen before it falls directly onto your foot...][/nomarkup] #failure 
 <<jump poeBookExamineQuestions>>
 ===
