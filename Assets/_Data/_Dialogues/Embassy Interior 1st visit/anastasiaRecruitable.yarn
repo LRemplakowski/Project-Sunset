@@ -16,14 +16,14 @@ position: -407,-310
 {$bartender}: Ma'am, for the last time, I'm not responsible for the music. Go ask the DJ. 
 {$anastasia}: He told me to talk to you. You Tories are giving me more run around than the church.
 {$storyteller}: [nomarkup][She speaks with a thick Eastern European accent.][/nomarkup]
-{$anastasia}: C’mon, you know you can play something harder.
+{$anastasia}: C'mon, you know you can play something harder.
 {$bartender}: Look, there's a lot of different clubs in the area. If you don't like it here go somewhere else.
 {$anastasia}: [nomarkup][Scoffs.][/nomarkup] This is why I left Europe.
 {$storyteller}: [nomarkup][The bartender locks eyes with you, silently pleading for help.][/nomarkup]
 -> {$pcName}: I agree. This music sucks.
 {$storyteller}: [nomarkup][The punk turns her attention towards you now, half-grinning, half-sneering.][/nomarkup]
 {$anastasia}: You hear it too!? All noise, no skill. Guys worried more about their mohawks than their guitar skills. 
-{$bartender}: [nomarkup][Under her breath.][/nomarkup] Don’t get paid enough for this.
+{$bartender}: [nomarkup][Under her breath.][/nomarkup] Don't get paid enough for this.
 {$storyteller}: [nomarkup][An uneasy beat passes. The bartender busies herself with a stack of glasses, pretending not to hear.][/nomarkup]
 -> {$pcName}: I'll have a Bloody Mary. (Pay 5$) <<if GetCurrentMoney() >= 5>> #line:097575b 
     {$bartender}: Coming right up!
