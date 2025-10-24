@@ -2,13 +2,12 @@
 tags:
 position: 142,-134
 ---
-{$kieran}: You are spacing out again? Again? Right now?  #line:05bf684 
-[nomarkup][Your senses come to. The person, no, the monster who did this to you is standing directly before you.][/nomarkup] #line:02d07da 
-{$diana}: Your Childe just killed some of our men. #line:00a4e36 
+{$storyteller}: [nomarkup][Your senses come to. The person, no, the monster who killed you is standing directly before you.][/nomarkup]
+{$diana}: Your Childe  killed more of our men. #line:00a4e36
 {$sire}: I'm almost proud. #line:02699f8 
--> [nomarkup][Sneak up on the pair.] (Dexterity + Stealth)[/nomarkup] #line:0b0b714 
+-> [nomarkup][Sneak up on the pair.] (Dexterity + Stealth)[/nomarkup] #line:0b0b714
     <<jump dianaLuciaDexRoll>>
--> {$pcName}: Who has the most to lose now? #line:05eeefb 
+-> [nomarkup][Yell.][/nomarkup] 
     <<jump looser>>
 ===
 title: dianaLuciaDexRoll
@@ -23,40 +22,40 @@ position: -333,171
 title: dianaLuciaDexSuccess
 position: -21,193
 ---
-[nomarkup][You approach Lucia from behind.][/nomarkup] #success #line:0010765 
-//+dmg agains Lucia, or make Lucia wounded at the start of the fight//
--> {$pcName}: Who has the most to lose now? #line:05c0e34 
+{$storyteller}: [nomarkup][You try to approach Lucia from behind and strike her.][/nomarkup] #success #line:0010765
 <<jump looser>>
 ===
 title: dianaLuciaDexFailure
 position: -204,422
 ---
 //stepping on broken glass SFX//
-[nomarkup][You step on a glass bottle..][/nomarkup] #failure #line:09a8344 
+{$storyteller}: [nomarkup][You step on a glass bottle.][/nomarkup] #failure #line:09a8344
 <<jump looser>>
 ===
 title: looser
 position: 146,541
 ---
-{$sire}: Ah there you are, my blood. So glad you could make it. [nomarkup][She isn't surprised to see you. If anything she looks pleased.][/nomarkup] #line:02bbc24 
-{$beast}: Arrogant bitch. I need to show her her place. Who does she think she is? #line:0f16831 
-[nomarkup][There's so much you want to say to her. The woman who killed you. Ironically, you have to admit that since dying, you've never felt more alive. In the moment though only one thing comes to mind.][/nomarkup] #line:0c8b3f3 
--> {$pcName}: Take me with you. #line:0080e49 
+{$sire}: Ah, there you are, my blood. So glad you could make it. 
+{$storyteller}: [nomarkup][She isn't surprised to see you. If anything she looks pleased.][/nomarkup] #line:02bbc24
+{$beast}: Arrogant bitch. I need to show her her place. Who does she think she is? #line:0f16831
+{$storyteller}: [nomarkup][There's so much you want to say to her. In the moment though only one thing comes to mind.][/nomarkup] #line:0c8b3f3
+-> [nomarkup][Charge at her.] (Strength + Brawl)[/nomarkup] #line:0dda2ad
+    <<jump chargeStrRoll>>
+-> {$pcName}: You'll get what's coming to you.  #line:0444260
+    <<jump youHadThatComing>>
+-> {$pcName}: Take me with you. #line:0080e49
     <<set $wannabeDefector to true>>
     <<jump wannabeDefector>>
--> [nomarkup][Charge at her.] (Strength + Brawl)[/nomarkup] #line:0dda2ad 
-    <<jump chargeStrRoll>>
--> {$pcName}: You'll get what's coming to you.  #line:0444260 
-    <<jump youHadThatComing>>
 ===
 title: wannabeDefector
 position: -272,782
 ---
-[nomarkup][There's a shift in the air as you deliver those words. Nobody was expecting that.][/nomarkup] #line:08ea324 
-{$kieran}: Turncoat. (-1 Kieran Influence) #line:00d618c 
+{$storyteller}: [nomarkup][There's a shift in the air as you deliver those words. Nobody was expecting that.][/nomarkup] #line:08ea324
+{$kieran}: Are you kidding me? (-1 Kieran Influence) #line:00d618c
 <<ModifyInfluence -1 {$kieran}>>
 <<if GetIsPartyMemberRecruited($anastasia) is true>>
-    {$anastasia}: Bahahaha! [nomarkup][She can't get a word out. She's cackling so hard.][/nomarkup] #line:001466a 
+    {$anastasia}: Bahahaha! 
+    {$storyteller}: [nomarkup][She can't get a word out. She's cackling so hard.][/nomarkup] #line:001466a
 <<endif>>
 <<jump vanComes>>
 ===
@@ -72,51 +71,53 @@ position: 175,777
 title: chargeStrSuccess
 position: 59,1065
 ---
-[nomarkup][You crash into her.][/nomarkup] #success #line:02618ce 
-//+dmg agains Lucia, or make Lucia wounded at the start of the fight, cumulative with earlier//
+{$storyteller}: [nomarkup][You crash into her.][/nomarkup] #success #line:02618ce
 <<jump vanComes>>
 ===
 title:  chargeStrFailure
 position: 282,1065
 ---
-[nomarkup][You were a little too eager. You barrel past Lucia and end up falling into a pile of trash.][/nomarkup] #failure #line:0542add 
+{$storyteller}: [nomarkup][You were a little too eager. You barrel past Lucia and end up falling into a pile of trash.][/nomarkup] #failure #line:0542add
 <<DealDamage $pcName 1>>
-{$sire}: Hah! How disappointing. #line:03c592f 
+{$sire}: Hah! How disappointing. #line:03c592f
 <<jump vanComes>>
 ===
 title: youHadThatComing
 position: -43,779
 ---
-{$sire}: Will I now? I'm looking forward to it. #line:0804033 
+{$sire}: Will I now? I'm looking forward to it. #line:0804033
 <<jump vanComes>>
 ===
 title: vanComes
 position: -138,1383
 ---
 //SFX for screeching tires, black van comes into the scene, ghouls come out of it//
-[nomarkup][As if on cue, a van rips through the concrete. There's a loud SCREECH as the brakes hit a sudden stop before Lucia. The doors fly open before her. What you assume to be ghouls are at the ready with assault weapons, waiting for a cue.][/nomarkup] #line:0e684c6 
-{$sire}: I'm flattered love. Truly. But now isn't the time.  So close, but you still have yet to prove your worth.  #line:0123834 
-[nomarkup][One of the ghouls takes her by the hand to guide her into the van. Diana tries to follow, but the ghouls stand in her way.][/nomarkup] #line:0ee5fe3 
-{$diana}: What the fuck? Let me pass. #line:01c8d95 
-[nomarkup][The ghouls do not budge.][/nomarkup] #line:0adba1b 
-{$diana}: Lucia! #line:00654e4 
-{$sire}: Sorry love. You've outlived your usefulness. Tada. [nomarkup][She signals to the ghouls to close the doors.][/nomarkup] #line:0670f3f 
-{$diana}: You bitch! I loved you! I ruined my whole life and you betrayed me like this! [nomarkup][The punk before you is distraught. In a way, you know how it feels.][/nomarkup]  #line:03f65aa 
+{$storyteller}: [nomarkup][As if on cue, a van rips through the concrete. There's a loud SCREECH as the brakes hit a sudden stop before Lucia. The doors fly open before her. Who you assume to be more ghouls are at the ready with assault weapons, waiting for a cue.][/nomarkup] #line:0e684c6
+{$sire}: I'm flattered, love. Truly, but now isn't the time.  #line:0123834
+{$storyteller}: [nomarkup][One of the ghouls takes her by the hand to guide her into the van. Diana tries to follow, but the ghouls stand in her way.][/nomarkup] #line:0ee5fe3
+{$diana}: What the fuck? Let me pass. #line:01c8d95
+{$storyteller}: [nomarkup][The ghouls do not budge.][/nomarkup] #line:0adba1b
+{$diana}: Lucia! #line:00654e4
+{$sire}: Sorry, Di. You were a wonderful sport, but you've outlived your usefulness. Tada. 
+{$storyteller}: [nomarkup][She signals to the ghouls to close the doors. Diana is left in shell shock.][/nomarkup] #line:0670f3f
+{$diana}: Lucia… 
+{$storyteller}: [nomarkup][The van tears off.][/nomarkup] 
 <<jump afterVanLeaves>>
 ===
 title: afterVanLeaves
 position: -138,1624
 ---
-{$diana}: [nomarkup][Eventually, Diana turns towards you.][/nomarkup] This is all your fault! #line:0192490 
--> {$pcName}: Mine? You're joking right? #line:0443ad0 
-    {$diana}: If you hadn't shown up she would have Embraced me instead! I should be the one being tested! #line:0f71ade 
+{$storyteller}: [nomarkup][Diana turns her attention towards you.][/nomarkup] 
+{$diana}: This is all your fault! #line:0192490
+-> {$pcName}: You're joking right? #line:0443ad0
+    {$diana}: If you hadn't shown up she would have Embraced me instead! I should be the one being tested! #line:0f71ade
     -> [nomarkup][Draw your weapon.][/nomarkup]
     //initiate combat//
 -> {$pcName}: She would have abandoned you either way. Surrender. (Manipulation + Leadership) #line:04f6096
     <<jump dianaManipRoll>>
--> {$pcName}: I could say the same to you. #line:0af1fa5 
-    {$diana}: You don't even appreciate what's she given you. Yet you rub my face in it. #line:02fd19a
-    -> [nomarkup][Draw your weapon.][/nomarkup] 
+-> {$pcName}: I could say the same to you. #line:0af1fa5
+    {$diana}: You don't even appreciate what she's given you. Yet you rub my face in it. #line:02fd19a
+    -> [nomarkup][Draw your weapon.][/nomarkup]
     //initiate combat//
 ===
 title: dianaManipRoll
@@ -131,14 +132,15 @@ position: -142,1852
 title: dianaManipSuccess
 position: -28,2097
 ---
-{$diana}: [nomarkup][You watch those words weigh upon her face. There's a painful period of silence as she's lost in reflection.][/nomarkup] You - you're right. #success #line:00de38f
--> [nomarkup][Draw your weapon.][/nomarkup] 
+{$storyteller}: [nomarkup][You watch your words weigh upon her face. There's a painful period of silence as she's lost in reflection.][/nomarkup] #success
+{$diana}: You - you're right. #line:00de38f
+-> [nomarkup][Draw your weapon.][/nomarkup]
 //combat starts without Diana
 ===
 title: dianaManipFailure
 position: -295,2091
 ---
-{$diana}: How would you even know that? You don't know her like I do. #failure #line:04bfba2
--> [nomarkup][Draw your weapon.][/nomarkup] 
+{$diana}: You don't know her like I do. #failure #line:04bfba2
+-> [nomarkup][Draw your weapon.][/nomarkup]
 //initiate combat//
 ===
