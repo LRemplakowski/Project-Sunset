@@ -1,25 +1,15 @@
 ﻿title: kateDialogue
 tags:
 ---
-{$sforzaMask}: [nomarkup][She ducks behind the car door after firing a few shots.][/nomarkup] Piccola mia? Kieran? What are you doing here? #line:07f2cf6 
--> {$pcName}: You're alive? #line:05202f1 
-    {$sforzaMask}: Pronounced dead some years ago I'm afraid... [nomarkup][She pauses to chuckle.][/nomarkup]
-    {$sforzaMask}: Don't mind my teasing. Yes my dear, I am very much alive. A lady must always have a few tricks up her sleeve. This would not be the first time I've found something important to me put in danger.
-    {$sforzaMask}: Eventually, though, most of our kind grow tired of making the effort to care - becoming so used to losing the things we love. I plan to stave off that tendency for as long as I am able. #lastline #line:01c217c 
-    <<jump kateJoins>>
--> {$pcName}: We're still looking for my Sire. #line:053b9c3 
-    {$sforzaMask}: Yes, I would suspect so! Quite a lot of chaos, your investigation has kicked up, hasn't it? Given that, I believe I saw something you would find... interesting? Good heavens, it might even be related! #line:0a46ae8 
-    [nomarkup][Wow, and here you thought you'd never hear words like those, again...][/nomarkup] #lastline #line:0e5d3de 
-    <<jump kateJoins>>
-===
-title: kateJoins
----
--> {$pcName}: What are you doing here? #line:05c73da 
-    {$sforzaMask}: I saw a woman with the most beautiful Louis Vuitton shoes escape right through this door. [nomarkup][She smiles and touches the very tip of your nose with her finger.][/nomarkup]
-    {$sforzaMask}: Oh, and their leader? Don't let me get in your way my dear. In fact, why don't you allow me to help? You and I seem to have something of a common goal this evening? If you will have me, then please, lead the way. #line:005d155 
-    -> {$pcName}: I could use a hand... #line:03b5282 
-        <<RecruitCaterina>>
+{$storyteller}: [nomarkup][Kate ducks behind the car door after firing a few shots.][/nomarkup]
+{$kieran}: Glad, you're alive.
+{$sforzaMask}: [nomarkup][Chuckling.][/nomarkup] Pronounced dead some years ago, I'm afraid.
+{$sforzaMask}: Quite a lot of chaos, your investigation has kicked up, hasn't it? Something tells me this attack is related. #line:0a46ae8
+{$sforzaMask}: Their leader is a Kindred, possibly your sire. She is around here somewhere if we get through her fodder first.
+{$sforzaMask}: You and I seem to have something of a common goal this evening? Why don't we help each other? #line:005d155
+-> {$pcName}: We could use a hand. #line:03b5282
+    <<RecruitCaterina>>
     //Kate joins as temporary companion//
-    -> {$pcName}: I think I'll manage. #line:0e45332 
-//in either case combat starts, after combat proceed to luciaDianaAppear//
+-> {$pcName}: I think we'll manage. #line:0e45332
+    //in either case combat starts, after combat proceed to luciaDianaAppear//
 ===
