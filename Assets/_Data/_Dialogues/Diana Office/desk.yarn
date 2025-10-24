@@ -2,18 +2,22 @@
 tags:
 position: 135,-1136
 ---
-[nomarkup][This desk looks like a solid piece of furniture. Surely, anyone who sits behind it is something of a king - or in this case, queen, and the club is their castle. Its surface isn't neat, though, breaking the illusion of regality.][/nomarkup] #line:004eb48 
-[nomarkup][You do not touch the clutter, instead scanning for anything that could tell you why things are so disorganized. A computer, you think, rests on its side.][/nomarkup] #line:02f5560 
-<<if Roll ("Intelligence","Technology")>=4>>
-    [nomarkup][Upon closer inspection, it looks to be an IBM model. It's sad that such a technological marvel seems to be so haphazardly disrespected - especially since it's a relatively new model - only made available to consumers a year or two ago.][/nomarkup] #line:04edffd 
-    <<set $computerModelIdentified to 1>>
+<<if CustomVisited("desk") == false>>
+    {$storyteller}: [nomarkup][This desk looks like a fine piece of handcrafted furniture. Surely, anyone who sits behind it is something of a monarch and The Embassy is their castle. Its surface is cluttered, though, breaking the illusion of regality.][/nomarkup]
+    {$kieran}: She made a mess of the place before she left. What did she grab?
+    {$storyteller}: [nomarkup][You do not touch the clutter, instead scanning for anything that could tell you why things are so disorganized. What you think is a computerrests on its side.][/nomarkup] #lastline 
+    <<if Roll ("Intelligence","Technology")>=4>>
+        {$storyteller}: [nomarkup][Upon closer inspection you recognize the model. It's sad that such a technological marvel seems to be so haphazardly disrespected - especially since it's a relatively new model - only made available to consumers a year or two ago.][/nomarkup] #lastline
+        <<set $computerModelIdentified to 1>>
+    <<endif>>
+<<else>>
+    <<jump deskInteractions>>
 <<endif>>
-<<jump deskInteractions>>
 ===
 title: deskInteractions
 position: 152,-466
 ---
-[nomarkup][You could use a desk like this in your apartment. It would definately make your office more... prestigious.][/nomarkup]
+{$storyteller}: [nomarkup][You could use a desk like this in your apartment. It would definately make your office more... prestigious.][/nomarkup]
 -> [nomarkup][Inspect the desk.][/nomarkup] #line:02b7b75 
     <<jump deskExamination>>
 -> [nomarkup][Boot the computer.][/nomarkup] <<if $computerUnusable == false>> #line:001bf2a 
@@ -25,8 +29,8 @@ position: 152,-466
 title: deskExamination
 position: 715,-686
 ---
-[nomarkup][There are several items strewn about the desk. A newspaper, an ashtray, several pens and pencils, some documents as well as blank pieces of paper, and some books. None of these are in any way out of the ordinary. The ashtray, though, seems to commemorate something...][/nomarkup] #line:0e26f1d 
-[nomarkup][In the middle, a Union Jack with letters surrounding it is engraved, but you aren't sure what they say without a closer look. That is, you'll have to empty the ashtray of its contents, including an unfinished cigarette still smoldering.][/nomarkup] #lastline #line:0b35655 
+{$storyteller}: [nomarkup][There are several items strewn about the desk. Mostly office supplies and stationary. A newspaper and some of the missing books from the shelf.][/nomarkup]
+{$storyteller}: [nomarkup][An ornate designer ashtray shines through, it seems commemorative with a dazzling gemstone Union Jack. There's an engraving in the lining, but you can't make it out past the accumulated smudges of ash.][/nomarkup] #lastline
 <<jump deskExaminationOptions>>
 ===
 title: deskExaminationOptions
@@ -36,8 +40,6 @@ position: 1275,-633
     <<jump throwAsh>>
 -> [nomarkup][Smoke the remaining cigarette.][/nomarkup] <<if CustomVisited("smokeCigarette") == false>> #line:0aba136 
     <<jump smokeCigarette>>
--> [nomarkup][Inspect the buds.][/nomarkup] #line:0288b54 
-    <<jump inspectBuds>>
 -> [nomarkup][Inspect the books.][/nomarkup] #line:09d398e 
     <<jump deskBook>>
 -> [nomarkup][Inspect the newspaper.][/nomarkup] #line:0156f74 
@@ -48,93 +50,72 @@ position: 1275,-633
 title: throwAsh
 position: 1589,-1077
 ---
-[nomarkup][The ash caked inside the ashtray is stubborn as a mule. After years of heavy use, the mass of soot does not want to slide easily into the wastebasket... You'll probably need to wash the ashtray in order to see clearly what is engraved on its bottom.][/nomarkup] #line:0d1020c 
+{$storyteller}: [nomarkup][After years of heavy use, the mass of soot does not want to slide easily into the wastebasket. You'll probably need to wash the ashtray in order to see clearly what is engraved on its bottom.][/nomarkup]
 -> [nomarkup][Try to read the inscription anyway.] (Resolve+Awareness)[/nomarkup] #line:0e9f52b 
-<<if Roll("Resolve","Awareness") >=3>>
-    [nomarkup][You speak slowly, sounding out the letters surrounding the Union Jack you can manage to decipher.][/nomarkup] Spreading Anarchy in Las Vegas since 19... [nomarkup][It's a miracle you were able to read nearly the entire sentence in one go.][/nomarkup] #success #line:0508fcc 
-        {$kieran}: It's probably the year when Diana started. 1969. #line:07fa5eb 
+    <<if Roll("Resolve","Awareness") >=3>>
+        {$storyteller}: [nomarkup][You are barely able to make out the numerals: “969.”.][/nomarkup]
+        {$kieran}: Diana told me she came to America and opened The Embassy in 1969.
         <<set $safeCode to true>>
-        [nomarkup][Yout put the ashtray back on the desk.][/nomarkup] #lastline #line:08501c5 
+        {$storyteller}: [nomarkup][You put the ashtray back on the desk.][/nomarkup] #lastline 
         <<jump deskExaminationOptions>>
-<<else>>
-    [nomarkup][The ashtray silently stares back at you, the stubborn black soot still caked to it. Maybe it's nothing special after all, and you're putting an irrational amount of importance on this?][/nomarkup] #lastline #failure #line:0b38984 
-    <<jump deskExaminationOptions>>
-<<endif>>
+    <<else>>
+        {$storyteller}: [nomarkup][Maybe it's nothing special after all, and you're putting an irrational amount of importance on this?][/nomarkup] #lastline
+        <<jump deskExaminationOptions>>
+    <<endif>>
 -> [nomarkup][Is this ashtray unique?] (Intelligence+Investigation)[/nomarkup] #line:0fa0839 
-<<if Roll("Intelligence","Investigation") >=3>>
-    [nomarkup][You saw these same ashtrays downstairs. You didn't pay too much attention to how they were decorated, though. Maybe it's something similar to casino chips? They often have the year the gambling establishment they belong to opened written on them...][/nomarkup] #success #line:090f77c 
-    -> {$pcName}: When was The Embassy opened? #line:03bc814 
-        {$kieran}: In 1969. Why do you ask? #line:0867d06 
+    <<if Roll("Intelligence","Investigation") >=3>>
+        {$storyteller}: [nomarkup][You saw these same ashtrays downstairs. Maybe it's similar to casino chips? They often have the year the establishment opened written on them...][/nomarkup] #success
+        -> {$pcName}: When was The Embassy opened? #line:03bc814 
+        {$kieran}: Around 1969, when Diana arrived in America.
         <<set $safeCode to true>>
-        -> {$pcName}: Nothing. Just asking out of curiosity. #line:0172ed3 
-            [nomarkup][You put the ashtray back on the desk.][/nomarkup] #lastline #line:0f7fd6b 
-            <<jump deskExaminationOptions>>
-<<else>>
-    <<set $safeFailCounter to inc($safeFailCounter)>> 
-    [nomarkup][The ashtray silently stares back at you, the stubborn black soot still caked to it. Maybe it's nothing special after all, and you're putting an irrational amount of importance on this?][/nomarkup] #lastline #line:03f5de0 
-    <<jump deskExaminationOptions>>
-<<endif>>
+        {$storyteller}: [nomarkup][You put the ashtray back on the desk.][/nomarkup] #lastline #line:0f7fd6b 
+        <<jump deskExaminationOptions>>
+    <<else>>
+        {$storyteller}: [nomarkup][Maybe it's nothing special after all, and you're putting an irrational amount of importance on this?][/nomarkup] #lastline
+        <<jump deskExaminationOptions>>
+    <<endif>>
 ===
 title: smokeCigarette
 position: 1736,-943
 ---
-[nomarkup][You pluck the remaining cigarette from the ashtray and take a drag. These are not menthols or some other kind of aromatized tobacco. They're strong though. Definitely a good brand...][/nomarkup] #line:01525c3 
-[nomarkup][But you can't recall the name; you gave up the cigarettes fueling your nicotine addiction some time ago, when your financial situation began to really go poorly. Well, at least you've had the pleasure of smoking something like this, now.][/nomarkup] #line:09a1746 
+{$storyteller}: [nomarkup][You pluck the remaining cigarette from the ashtray and take a drag. You have to force the smoke through your lungs almost mechanically. You've already adjusted to no longer breathing.][/nomarkup]
+{$storyteller}: [nomarkup][But you can't recall the name; you gave up the cigarettes fueling your nicotine addiction some time ago, when your financial situation began to really go poorly. Well, at least you've had the pleasure of smoking something like this, now.][/nomarkup] #line:09a1746 
 <<if GetIsPartyMemberRecruited($anastasia) is true>>
     {$anastasia}: Won't kill you now, at least. One of the many upsides to being dead. #line:052ee8e 
 <<endif>>
-{$kieran}: I'll bet that Dominic would be able to tell which brand it is just by sniffing the smoke. #lastline #line:05ffa43 
-<<jump deskExaminationOptions>>
-===
-title: inspectBuds
-position: 1953,-745
----
-[nomarkup][Typical buds from your typical cigarettes. You can just barely read the brand name - “Embassy” - written on the edge of the filter. Diana seems to be a big fan of this word. And those cigarettes - nearly every one of them - have lipstick stains.][/nomarkup] #lastline #line:09725ec 
+{$kieran}: You should give one to Dominic as a farewell gift. #lastline
 <<jump deskExaminationOptions>>
 ===
 title: deskBook
 position: 1801,-177
 ---
-[nomarkup][Nothing of particular interest. Well, maybe aside from the biography of Anton LaVey with several bookmarks poking out of its pages. When you pick it up, Kieran chuckles. Raising both eyebrows, you stare at him.][/nomarkup] #line:07e4f9f 
-{$kieran}: I apologize. It's just... I've met the individual in the past. Quite the showman, to be honest. Please don't ask me to elaborate further. I was on... an investigation, of sorts... #line:0b4692f 
+{$storyteller}: [nomarkup][A biography of Anton LaVey with several bookmarks poking out of its pages. When you pick it up, Kieran chuckles a little to himself. Raising both eyebrows, you stare at him.][/nomarkup]
+{$kieran}: I apologize. It's just... I've met this individual in the past. Quite the showman, to be honest.
 {$kieran}: The point is, I mentioned him once in passing when I was talking with Diana. Didn't think she would remember him, much less purchase a biography of his life to scrutinize so thoroughly. #line:0adec2b 
 <<if GetIsPartyMemberRecruited($anastasia) is true>>
-    {$anastasia}: It sounds like almost everyone here is a PI. Didn't know it was such a popular pastime. #line:0942ee9 
-    {$kieran}: [nomarkup][He shakes his head.][/nomarkup] No, no. It wasn't anything quite so formal - or required, as this is. I was searching... for something. #line:07c06c2 
-    {$anastasia}: Vague. But it still sounds pretty similar to PI business to me. And we [nomarkup]<i>are</i>[/nomarkup] searching for something - or rather someone. A vampire who broke the Camarilla Code of Chastity. #line:0f7102d 
-    {$kieran}: It is the Tradition of Progeny. You know this, Miss Goth Queen. #line:0186885 
-    {$anastasia}: Yup, but I like my version better. Names for things are at least fifty percent more cool when you repeat the letters at the beginnings of each word like that. I know there's a term for it. What is it, again?  #line:08f8e8f 
-    {$kieran}: [nomarkup][He sighs wearily.][/nomarkup] Alliteration? #line:0477207 
-    {$anastasia}: Alliteration, eh? That's a mouthful. And a word that describes a very specific thing - so specific that I'll almost never use it. But thanks anyway, Kiki! #line:0b65972 
-    {$kieran}: [nomarkup][He just blinks - slowly. He's not going to take the bait. Nope. Not tonight...][/nomarkup] You're welcome. #lastline #line:0a43699 
+    {$anastasia}: Diana seems like the obsessive type. #lastline
 <<endif>>
 -> [nomarkup][Inspect the bookmarked pages.][/nomarkup] #line:0ee85bf 
-[nomarkup][One of the bookmarks tells you the date of founding of the Church of Satan - 30th April, 1966.][/nomarkup] #line:0744d63 
+{$storyteller}: [nomarkup][One of the bookmarks tells you the date of founding of the Church of Satan - April 30th, 1966.][/nomarkup] #lastline
 <<set $satanDate to true>>
 <<set $satanCode to true>>
-<<if GetIsPartyMemberRecruited($anastasia) is true>>
-    {$anastasia}: [nomarkup][She snorts.][/nomarkup] 69 - nice. #line:00c76e1 
-    {$kieran}: '66 actually. #line:0d3e4fb 
-    {$anastasia}: You [nomarkup]<i>would</i>[/nomarkup] be a little spoon, wouldn't you, Tinker Bell? #line:0d89fd6 #lastline
-<<endif>>
 <<jump deskExaminationOptions>>
 ===
 title: deskNewspaper
 position: 1400,-1286
 ---
-[nomarkup][It's the local newspaper of Las Vegas - The Daily Preview. There are several articles about recent local happenings. One of the advertisements even raises awareness for an upcoming event in the Embassy itself.][/nomarkup] #line:0f8ea1b 
-<<if GetIsPartyMemberRecruited($anastasia) is true>>
-    {$anastasia}: Why are you looking at this? It's not like someone is gonna post your obituary. #line:07f4e86 
-    [nomarkup][Sadly, she's right. And you'd like it to stay that way. Not only because of the issues your death would undoubtedly cause, but also because it would make your passing real - more so than you are willing or capable of acknowledging at the current moment.][/nomarkup] #line:05ea9e1 
-    [nomarkup][Somewhere deep inside, you still hold onto the faint hope that this is just some absurd nightmare, conjured in the wake of yet another drunken stupor...][/nomarkup] #line:014343c #lastline
-<<endif>>
+{$storyteller}: [nomarkup][Today's copy of the Nevada Sands.][/nomarkup]
+{$storyteller}: “The Nevada Sands — Saturday, June 14, 1986. “The British are Coming - For Our Nightlife” By Leonard Quill, Staff Writer.
+{$storyteller}: [nomarkup][The article is a puff piece about The Embassy. It mentions the venue opened in 1969.][/nomarkup]
+<<set $safeCode to true>>
 <<jump deskExaminationOptions>>
 ===
 title: computerTurnedOn
 position: -673,-267
 ---
-[nomarkup][As soon as you flip the switch on the side of the box nesting the screen, it flashes to life. A series of scratches and metallic bleeps are emitted from the steel cube. The glass screen shows a series of letters, which disappear less than a second later, the system prompting you for a password.][/nomarkup] #line:0239e06 
--> [nomarkup][Maybe you don't own one of these machines yourself (and you won't anytime soon), but you know some tricks that may help you here.] (Intelligence + Technology)[/nomarkup] <<if (CustomVisited("hackingFailure") and CustomVisited("hackingSuccess")) is false >> #line:07dd03a 
+{$storyteller}: [nomarkup][You flip the switch on the side of the box nesting the screen, it flashes to life. A series of scratches and metallic bleeps are emitted from the steel cube.][/nomarkup]
+{$storyteller}: [nomarkup][The glass screen shows a series of letters, which disappear less than a second later. The system promps you for a password.][/nomarkup]
+-> [nomarkup][Hack the computer.] (Intelligence + Technology)[/nomarkup]
     <<if Roll("intelligence","technology")>=(4-$computerModelIdentified)>>
         <<jump hackingSuccess>>
     <<else>>
@@ -142,25 +123,19 @@ position: -673,-267
     <<endif>>
 -> [nomarkup][Enter the password - “Thelema”.][/nomarkup] <<if $thelema == true>> #line:0e990ce 
     <<jump accessGranted>>
--> [nomarkup][Enter the password - "Satan".][/nomarkup] <<if $satanDate == true>> #line:019d5c0 
-    [nomarkup][It was worth a shot. Hope this computer doesn't need an exorcism, now...][/nomarkup] #line:0baf60c 
+-> [nomarkup][Enter the password - "Satan".][/nomarkup] <<if $satanDate == true>> #line:019d5c0  
     <<jump wrongPassword>>
 -> [nomarkup][Enter the password - "LaVey".][/nomarkup] <<if $satanDate == true>> #line:03c429b 
-    [nomarkup][It was worth a shot. Diana seems to have gone through his biography with a fine-toothed comb, after all...][/nomarkup] #line:07e6146 
     <<jump wrongPassword>>
--> [nomarkup][Enter the password - "Anarchy".][/nomarkup] #line:0f38d4b 
-    [nomarkup][It was worth a shot, given Diana's general demeanor.][/nomarkup] #line:0c862f7 
+-> [nomarkup][Enter the password - "Britain".][/nomarkup]
     <<jump wrongPassword>>
 -> [nomarkup][Enter the password - "Embassy".][/nomarkup] #line:0144ca1 
-    [nomarkup][It was worth a shot. This place seems important to her, after all...][/nomarkup] #line:009c1be 
     <<jump wrongPassword>>
 -> [nomarkup][Enter the password - "Password".][/nomarkup] #line:0ae5f04 
-    :[nomarkup][Ah, the old standby. You also try replacing the letters with special characters: from Passw0rd all the way up to the almost-illegible P@$$w0rd. You hope that Diana is <i>so</i> predictable.][/nomarkup] #line:00cccee 
     <<jump wrongPassword>>
 -> [nomarkup][Enter the password - "Gold-Bug".][/nomarkup] <<if $goldBugPassword == true>> #line:0535c12 
     <<jump wrongPassword>>
 -> [nomarkup][Enter the password - "Aidan".][/nomarkup] <<if $aidanFoster == true>> #line:08098b0 
-    [nomarkup][It was worth a shot. A long-lost lover immortalized in a computer password might have been too cheesy for her, though.][/nomarkup] #line:0147b49 
     <<jump wrongPassword>>
 -> [nomarkup][Leave computer as it is.][/nomarkup] #line:0aa3bb5 
     <<jump deskInteractions>>
@@ -168,61 +143,37 @@ position: -673,-267
 title: hackingSuccess
 position: -274,98
 ---
-[nomarkup][You don't own one of these machines yourself (and you won't anytime soon), but you know some tricks of the trade that may help you out here. Your fingers brush the keyboard gently as you type. A few commands here and there, and a backdoor is constructed, bypassing the password prompt with ease. The case of your death is justification enough for hacking into Diana's computer. Right?][/nomarkup] #success #line:0ef4d63 
+{$storyteller}: [nomarkup][You don't own one of these machines yourself but you know your way around contemporary operating systems.][/nomarkup] #success
+{$storyteller}: [nomarkup][A few commands here and there, and a backdoor is constructed, bypassing the password prompt with ease.][/nomarkup]
 <<if GetIsPartyMemberRecruited($anastasia) is true>>
     {$anastasia}: Show off. #line:081408a 
 <<endif>>
-{$kieran}: I was not aware you knew how to do that. Impressive. Maybe there's something useful on that computer. #line:0fff652 
+{$kieran}: I was not aware you knew how to do that. Impressive. 
 <<jump accessGranted>>
 ===
 title: hackingFailure
 position: -917,97
 ---
 <<set $safeFailCounter to inc($safeFailCounter)>>
-[nomarkup][Stupid machine! Despite your every attempt, the computer refuses to allow you past the login screen - the input cursor's incessant flashing taunting you relentlessly... Your frustration and anger threaten to boil over into a white-hot rage.][/nomarkup] #failure #lastline #line:0d9f1de 
-<<if GetBloodPoints($pcName) >1>>
-    -> [nomarkup][Try to suppress the feeling.][-1 Willpower][/nomarkup] #line:0d18ca5 
-        <<DecreaseWillpower ($pcName, 1)>>
-        <<jump computerTurnedOn>>
-    -> [nomarkup][Give in to the feeling.][/nomarkup] #line:0c1013c 
-        <<jump computerDestroyed>>
-<<else>>
-    -> [nomarkup][You grit your teeth, staring daggers at the computer screen. You can't reason with a machine, and a machine has infinite patience.][/nomarkup] #line:03833e3 
-        <<jump computerTurnedOn>>
-<<endif>>
-===
-title: computerDestroyed
-position: -930,367
----
-[nomarkup][You are pissed... Everything in your life tonight is going completely haywire, and this soulless machine is only adding to the distress. Your vision goes red. You don't even remember punching the  screen and breaking the glass...][/nomarkup] #line:0ba1f9c 
-[nomarkup][Only the pain of lacerated skin and the smell of burnt circuitry has brought you back to your senses.][/nomarkup] #line:0cea852 
-<<DealDamage $pcName 2>>
-<<if Roll ("Intelligence","Science")>=3>>
-    [nomarkup][It's a miracle that your outburst didn't cause a power shortage.][/nomarkup] #line:00f52ea 
-<<endif>>
-<<if GetIsPartyMemberRecruited($anastasia) is true>>
-    {$anastasia}: Haha! Right between the eyes! #line:00b827a 
-<<endif>>
-{$kieran}: Goddamnit! There could have been some useful data in there! #line:01caa19 
--> {$pcName}: Don't yell at me! I don't even know what happened! <<if CustomVisited("beastTalk") == false>> #line:02f5132 
-    <<jump beastTalk>>
-<<jump deskInteractions>>
+{$storyteller}: [nomarkup][The input cursor's incessant flashing taunting you relentlessly. Despite your every attempt, the computer refuses to allow you past the login screen.][/nomarkup] #failure
+<<jump computerTurnedOn>>
 ===
 title: wrongPassword
 position: -1225,-21
 ---
-[nomarkup][You write the password in every possible way that got into your head. It looks like it isn't it.][/nomarkup] #lastline #line:0b2980b 
+BEEP!
+{$storyteller}: [nomarkup][Wrong password.][/nomarkup] 
 <<jump computerTurnedOn>>
 ===
 title: accessGranted
 position: -376,373
 ---
-[nomarkup][Just after you hit enter, the screen's display changes, bringing you to the welcome page for Diana. Dismissing that window, there are several files on the homepage. Mostly financial stuff dating back to 1969. You guess that she may have had to move the records from paper. Probably a good call? Definitely would have been, for you.][/nomarkup] #line:03e8efc 
+{$storyteller}: [nomarkup][After you hit enter, the screen's display changes, bringing you to Diana's home page.][/nomarkup] 
 -> [nomarkup][Examine recent logs.] (Resolve + Investigation)[/nomarkup] <<if CustomVisited("recentLogs") == false>> #line:0ff1350 
     <<jump recentLogs>>
--> [nomarkup][Examine older logs.] (Intelligence + Finance)[/nomarkup] <<if CustomVisited("olderLogs") == false>> #line:0c00f59 
+-> [nomarkup][Examine financial records.] (Intelligence + Finance)[/nomarkup] <<if CustomVisited("olderLogs") == false>>
     <<jump olderLogs>>
--> [nomarkup][Search logs for “safe” keyword.][/nomarkup] <<if CustomVisited("searchQuerry") == false and $safeDiscovered == true>> #line:085e30a 
+-> [nomarkup][Search logs for the keyword “safe”.][/nomarkup] <<if CustomVisited("searchQuerry") == false and $safeDiscovered == true>>
     <<jump searchQuerry>>
 -> [nomarkup][Leave computer as it is.][/nomarkup] #line:03c5c3c 
 ===
@@ -231,121 +182,42 @@ position: 136,124
 ---
 <<if Roll("Resolve","Investigation")>=4>>
     <<set $safeDiscovered to true>>
-    [nomarkup][You dig through several monotonously similar sets of data indicating the financial state of the club. Nearly half an hour is spent on this wearisome slog, and you are nearing admission of defeat, when you spy an entry indicating that Diana ordered a wall mounted safe.][/nomarkup] #success #line:0d51e54 
-    [nomarkup][It was quite the expenditure, but as a Vegas club owner, she had the means to afford it. You glance about, scouring the walls for it, but you don't see any indication that it's been installed in plain sight. Maybe it's behind one of the paintings?][/nomarkup]  #line:0c55659 
+    {$storyteller}: [nomarkup][You dig through several monotonously similar sets of data indicating the financial state of the club.][/nomarkup] #success
+    {$storyteller}: [nomarkup][Nearly half an hour is spent on this wearisome slog, and you are nearing admission of defeat, when you spy an entry indicating that Diana ordered a wall mounted safe.][/nomarkup] #line:0d51e54
+    {$storyteller}: [nomarkup][It was quite the expenditure, but as a Vegas club owner, she had the means to afford it.][/nomarkup]
+    {$storyteller}: [nomarkup][You glance about, scouring the walls for it, but you don't see any indication that it's been installed in plain sight.][/nomarkup]
+    {$storyteller}: [nomarkup][Maybe it's behind one of the paintings?][/nomarkup]  #line:0c55659
+    <<jump accessGranted>>
 <<else>>
-    [nomarkup][You dig through several monotonously similar sets of data indicating the financial state of the club. After a while, though, you decide you've wasted too much time looking at this stuff. You'll find nothing here.][/nomarkup] #failure #line:0ad951e 
+    {$storyteller}: [nomarkup][You dig through several monotonously similar sets of data indicating the financial state of the club.][/nomarkup] #failure
+    {$storyteller}: [nomarkup][After a while, though, you decide you've wasted too much time looking at this stuff. You'll find nothing here.][/nomarkup] #line:0ad951e
+    <<jump accessGranted>>
 <<endif>>
-<<jump accessGranted>>
 ===
 title: olderLogs
 position: -515,799
 ---
 <<if Roll("Inteligence","Finance")>=3>>
-    [nomarkup][Nothing too incriminating, here. Just some “creative accounting”, employed  to the benefit of everyone's pocketbooks.][/nomarkup] #line:06479de 
-        -> [nomarkup][Look for a floppy disc and save the data.][/nomarkup] #line:0f2f61f 
-            [nomarkup][It may be a small thing, but it could prove quite useful if you'd like to do a bit of blackmail.][/nomarkup] #line:057ec4d 
-            <<if GetAttributeSkillPoolSize("Wits","Politics") >=4>>
-                [nomarkup][You think... But then again, you probably don't want to use it as leverage against Diana, since she's the “ghoul” of someone quite important to the political ecosystem of Vegas, if your impressions of her are correct.. At least, you don't want to use it <i>right now,</i> when you don't have any backing. Best to sit on it for a bit.][/nomarkup] #line:0fda57c 
-                <<jump accessGranted>>
-            <<endif>>
+    {$storyteller}: [nomarkup][Nothing too incriminating, here. Just some “creative accounting”, employed  to the benefit of everyone's pocketbooks.][/nomarkup] #line:06479de
+    {$storyteller}: [nomarkup][You look for a floppy disc to save the data.][/nomarkup] #line:0f2f61f
+    {$storyteller}: [nomarkup][It may be a small thing, but it could prove quite useful if you'd like to do a bit of blackmail.][/nomarkup] #line:057ec4d
+    <<jump accessGranted>>
 <<else>>
-    [nomarkup][Nothing of interest, at least to you. You're no accountant, and you can't tell if someone has been cooking the books.][/nomarkup] #failure #line:00382e1 
+    {$storyteller}: [nomarkup][Nothing of interest, at least to you. You're no accountant.][/nomarkup] #failure #line:00382e1
     <<jump accessGranted>>
 <<endif>>
 ===
 title: searchQuerry
 position: -853,720
 ---
-[nomarkup][The computer sifts through the files in search of anything “safe”-related. A few long moments of waiting, and... bingo! You find that Diana ordered one some time ago, and the file indicates that the code is set to 1969.][/nomarkup] #line:050058e 
+{$storyteller}: [nomarkup][The computer automatically sifts through the files. A few long moments of waiting, and... bingo!][/nomarkup]
+{$storyteller}: [nomarkup][You find that Diana ordered one some time ago, and the file indicates that the code is set to 1969.][/nomarkup] #line:050058e
 <<set $safeCode to true>>
 <<jump accessGranted>>
 ===
 title: deskDrawers
 position: 487,238
 ---
-[nomarkup][Not much in here. Most of them contain paper, writing utensils, and other miscellaneous items... In one, there is even an unopened pack of Embassy cigarettes. A single drawer, however, remains locked to you, and takes a key. But the lock doesn't look too complicated...][/nomarkup] #lastline #line:07b41ed 
--> [nomarkup][Pick the drawer open.] (Dexterity + Larceny)[/nomarkup] <<if CustomVisited("drawerDexRoll") == false and GetHasItem("IT_Q_BOBBY_PIN") is true>> #line:03db049
-    <<jump drawerDexRoll>> 
--> [nomarkup][Break the lock by force.] (Strength + Larceny) [/nomarkup] <<if CustomVisited("drawerStrRoll") == false>> #line:007fa6d
-    <<jump drawerStrRoll>> 
-===
-title: drawerDexRoll
-position: 921,308
----
-<<if Roll("Dexterity","Larceny") >=3>>
-    <<jump drawerLockpickSuccess>>
-<<else>>
-    <<jump drawerFailure>>
-<<endif>>
-===
-title: drawerStrRoll
-position: 459,746
----
-<<if Roll("Strength","Larceny") >=4>>
-    <<jump drawerStrengthSuccess>>
-<<elseif GetPartyHasDiscipline ("Potence") == true>>
-    <<jump drawerStrengthSuccess>>
-<<else>>
-    <<jump drawerFailure>>
-<<endif>>
-===
-title: drawerLockpickSuccess
-position: 1311,239
----
-[nomarkup][The lock isn't a challenge for you. All you needed was the bobby pin you found in your bathroom and a little patience.][/nomarkup] #success #line:09769ab 
-<<jump drawerSuccess>>
-===
-title: drawerStrengthSuccess
-position: 1129,909
----
-[nomarkup][The lock isn't strong. It breaks easily when you apply sufficient force while pulling the drawer.][/nomarkup] #success #line:09b29ad 
-<<jump drawerSuccess>>
-===
-title: drawerFailure
-position: 1220,677
----
-[nomarkup][The lock seems to be stronger than you thought. What secrets may it be hiding, if it's as resilient as an armored safe? You'll never know...][/nomarkup] #failure #line:0ceed23 
-[nomarkup][This is getting more and more exasperating - as if everything around you is sworn to stand in your way...][/nomarkup] #lastline #line:0f3b4b3 
-<<if GetBloodPoints($pcName) >1>>
-    -> [nomarkup][Try to suppress the feeling.][-1 Willpower][/nomarkup] #line:0f7fb97 
-        <<DecreaseWillpower $pcName 1>>
-        <<jump deskInteractions>>
-    -> [nomarkup][Give in to the feeling.][/nomarkup] #line:029a945 
-        <<jump drawerDestroyed>>
-<<else>>
-    -> [nomarkup][This is ridiculous. You count to ten, breathing slowly. And hope nothing of importance is hidden inside the drawer.][/nomarkup] #line:0e95273 
-        <<jump deskInteractions>>
-<<endif>>
-===
-title: drawerDestroyed
-position: 1927,286
----
-[nomarkup][This is NOT how things are supposed to occur. In your line of work, you are the master of your surroundings. Not the other way around! You yank the drawer towards yourself, unhinging it from its track and launching it across the room. Papers that were stored inside it go flying. Now, there's no way now to make any sort of sense of them - at least not within the precious few hours you have until dawn.][/nomarkup] #line:077a990 
-<<if GetIsPartyMemberRecruited($anastasia) is true>>
-    {$anastasia}: Hey! At least let me know if you're gonna throw something! #line:07f5833 
-<<endif>>
-{$kieran}: By the Blood! That's not how lockpicking works! #line:03a425d 
--> {$pcName}: Don't scream at me! I don't even know what happened! <<if CustomVisited("beastTalk") == false>> #line:0521161 
-    <<jump beastTalk>>
+{$storyteller}: [nomarkup][Not much in here. More office supplies and stashed cigarettes.][/nomarkup]
 <<jump deskInteractions>>
-===
-title: drawerSuccess
-position: 1754,795
----
-[nomarkup][You pull the drawer open - the lock no longer an obstacle to your snoopery.][/nomarkup] #line:024ed6f 
-<<if GetIsPartyMemberRecruited($anastasia) is true>>
-    {$anastasia}: You [nomarkup]<i>are</i>[/nomarkup] thorough, aren't you? [nomarkup][She purrs.][/nomarkup] #line:04b2d6d 
-<<endif>>
-{$kieran}: Something useful in there? #lastline #line:0b15cea
--> [nomarkup][Sift through the documents.] (Resolve + Investigation)[/nomarkup] #line:0aba321 
-<<if Roll ("Resolve","Investigation") >=4>>
-    <<set $safeCode to true>>
-    [nomarkup][Most of what you discover as you search are receipts, placed here for safe-keeping. Eventually, though, you find one about a wall safe, filed along with its manual, as well as a note stating its combination - 1969.][/nomarkup] #lastline #success #line:030c021 
-    <<jump deskInteractions>>
-<<else>>
-    <<set $safeFailCounter to inc($safeFailCounter)>>
-    [nomarkup][You see nothing you can use, but the oldest documents here are from 1969.][/nomarkup] #lastline #failure #line:061b72d 
-    <<jump deskInteractions>>
-<<endif>>
 ===
