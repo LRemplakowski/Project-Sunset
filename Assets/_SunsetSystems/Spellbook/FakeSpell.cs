@@ -10,6 +10,8 @@ namespace SunsetSystems.Abilities
         [SerializeField]
         private Guid _id = Guid.NewGuid();
         [SerializeField]
+        private string _uniqueScriptName = string.Empty;
+        [SerializeField]
         private string _name = "New Fake Power";
         [SerializeField, MultiLineProperty]
         private string _description = string.Empty;
@@ -19,6 +21,7 @@ namespace SunsetSystems.Abilities
         private int _level = 1;
 
         public string ID => _id.ToString();
+        public string ScriptName => _uniqueScriptName;
         public string Name => _name;
         public string Description => _description;
         public IDiscipline Discipline => _discipline;

@@ -7,6 +7,7 @@ namespace SunsetSystems.Core.Database
     public abstract class AbstractDatabaseEntry<T> : SerializedScriptableObject, IDatabaseEntry<T>
     {
         public abstract string DatabaseID { get; protected set; }
+        [LabelText("Data Script Name")]
         public abstract string ReadableID { get; protected set; }
 
         protected abstract void RegisterToDatabase();

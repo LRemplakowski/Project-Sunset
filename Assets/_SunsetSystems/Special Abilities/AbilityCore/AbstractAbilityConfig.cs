@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
+using SunsetSystems.Core.Database;
 using SunsetSystems.Inventory;
 using UnityEngine;
 
@@ -8,9 +9,14 @@ namespace SunsetSystems.Abilities
 {
     public abstract class AbstractAbilityConfig : SerializedScriptableObject, IAbilityConfig
     {
+        public string DatabaseID => AbilityID.ToString();
+        public string ReadableID => _uniqueScriptName;
+
         [SerializeField]
         private Guid _abilityID = Guid.NewGuid();
         public Guid AbilityID => _abilityID;
+        [SerializeField]
+        private string _uniqueScriptName = string.Empty;
         [TabGroup("UI Data")]
         [SerializeField]
         private string _fallbackName;
@@ -40,6 +46,10 @@ namespace SunsetSystems.Abilities
                 {
                     _icons[iconState] = null;
                 }
+            }
+            if (string.IsNullOrWhiteSpace(_uniqueScriptName))
+            {
+                _uniqueScriptName = this.name;
             }
         }
 

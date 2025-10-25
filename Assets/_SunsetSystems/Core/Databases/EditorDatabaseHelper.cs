@@ -12,6 +12,7 @@ namespace SunsetSystems.Core.Database
         public static ObjectiveDatabase ObjectiveDB { get; set; }
         public static UMAWardrobeDatabase WardrobeDB { get; set; }
         public static WorldMapEntryDatabase WorldMapDB { get; set; }
+        public static AbilityDatabase AbilityDB { get; set; }
     }
 }
 #endif

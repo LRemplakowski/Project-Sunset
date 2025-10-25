@@ -105,7 +105,7 @@ namespace SunsetSystems.Entities.Characters
 
             public StatsData StatsData { get; private set; }
 
-            public List<IDisciplinePower> KnownPowers { get; private set; }
+            public List<string> KnownPowers { get; private set; }
 
             public TemplateFromCreatureAsset(CreatureConfig asset)
             {
@@ -127,7 +127,7 @@ namespace SunsetSystems.Entities.Characters
                         this.EquipmentSlotsData[item.Key] = item.Value.GetEquippedItem().ReadableID;
                 }
                 this.StatsData = new(asset.StatsData);
-                this.KnownPowers = asset.StartingPowers.ToList();
+                this.KnownPowers = asset.StartingPowers.Select(power => power.ScriptName).ToList();
             }
 
             public TemplateFromCreatureAsset()

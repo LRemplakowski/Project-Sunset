@@ -21,6 +21,8 @@ namespace SunsetSystems.Editor
             EditorDatabaseHelper.WardrobeDB = AssetDatabase.LoadAssetAtPath<UMAWardrobeDatabase>(wardrobePath);
             string worldMapPath = EditorPrefs.GetString("WorldMapDatabase");
             EditorDatabaseHelper.WorldMapDB = AssetDatabase.LoadAssetAtPath<WorldMapEntryDatabase>(worldMapPath);
+            string abilityPath = EditorPrefs.GetString("AbilityDatabase");
+            EditorDatabaseHelper.AbilityDB = AssetDatabase.LoadAssetAtPath<AbilityDatabase>(abilityPath);
         }
 
         [InitializeOnEnterPlayMode]
@@ -38,6 +40,8 @@ namespace SunsetSystems.Editor
             EditorDatabaseHelper.WardrobeDB = AssetDatabase.LoadAssetAtPath<UMAWardrobeDatabase>(wardrobePath);
             string worldMapPath = EditorPrefs.GetString("WorldMapDatabase");
             EditorDatabaseHelper.WorldMapDB = AssetDatabase.LoadAssetAtPath<WorldMapEntryDatabase>(worldMapPath);
+            string abilityPath = EditorPrefs.GetString("AbilityDatabase");
+            EditorDatabaseHelper.AbilityDB = AssetDatabase.LoadAssetAtPath<AbilityDatabase>(abilityPath);
         }
     }
 }

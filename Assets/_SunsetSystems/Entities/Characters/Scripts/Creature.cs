@@ -187,7 +187,7 @@ namespace SunsetSystems.Entities.Characters
                     EquipmentSlotsData[item.Key] = item.Value.GetEquippedItem().ReadableID;
                 }
                 StatsData = new(instance.References.StatsManager.Stats);
-                KnownPowers = instance.References.SpellbookManager.KnownPowers.ToList();
+                KnownPowers = instance.References.SpellbookManager.KnownPowerIDs.ToList();
             }
 
             public TemplateFromInstance()
@@ -218,7 +218,7 @@ namespace SunsetSystems.Entities.Characters
             [ShowInInspector]
             public StatsData StatsData { get; private set; }
             [ShowInInspector]
-            public List<IDisciplinePower> KnownPowers { get; private set; }
+            public List<string> KnownPowers { get; private set; }
         }
         #endregion
 

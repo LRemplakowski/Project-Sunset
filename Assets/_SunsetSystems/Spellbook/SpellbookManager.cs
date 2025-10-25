@@ -14,12 +14,23 @@ namespace SunsetSystems.Abilities
         [OdinSerialize]
         private Dictionary<string, DisciplineData> _knownPowers = new();
 
+        public IReadOnlyCollection<string> KnownPowerIDs => _knownPowers.Values.SelectMany(data => data.KnownPowers).Select(power => power.ID).ToList();
         public IReadOnlyCollection<IDisciplinePower> KnownPowers => _knownPowers.Values.SelectMany(data => data.KnownPowers).ToList();
         public IReadOnlyCollection<IDisciplineInfo> KnownDisciplines => _knownPowers.Values;
 
         public bool IsPowerKnown(IDisciplinePower power)
         {
             return _knownPowers.TryGetValue(power.Discipline.ID, out var disciplineData) && disciplineData.KnownPowers.Contains(power);
+        }
+
+        public bool TryLearnPower(string powerID)
+        {
+            var abDatabase = AbilityDatabase.Instance;
+            if (abDatabase && abDatabase.TryGetEntryByReadableID(powerID, out var powerConfig) && powerConfig is IDisciplinePower disciplinePpwer)
+            {
+                return TryLearnPower(disciplinePpwer);
+            }
+            return false;
         }
 
         [Button]

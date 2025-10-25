@@ -30,6 +30,8 @@ namespace SunsetSystems.Editor
         public UMAWardrobeDatabase WardrobeDatabase;
         [AssetsOnly]
         public WorldMapEntryDatabase WorldMapDatabase;
+        [AssetsOnly]
+        public AbilityDatabase AbilityDatabase;
 
         [MenuItem("Tools/Database Setup")]
         public static void OpenWindow()
@@ -67,6 +69,8 @@ namespace SunsetSystems.Editor
             WardrobeDatabase = AssetDatabase.LoadAssetAtPath<UMAWardrobeDatabase>(wardrobePath);
             string worldMapPath = EditorPrefs.GetString("WorldMapDatabase");
             WorldMapDatabase = AssetDatabase.LoadAssetAtPath<WorldMapEntryDatabase>(worldMapPath);
+            string abilityPath = EditorPrefs.GetString("AbilityDatabase");
+            AbilityDatabase = AssetDatabase.LoadAssetAtPath<AbilityDatabase>(abilityPath);
         }
 
         private void SaveDatabaseReferences()
@@ -83,6 +87,8 @@ namespace SunsetSystems.Editor
             EditorPrefs.SetString("WardrobeDatabase", wardrobePath);
             string worldMapPath = AssetDatabase.GetAssetPath(WorldMapDatabase);
             EditorPrefs.SetString("WorldMapDatabase", worldMapPath);
+            string abilityPath = AssetDatabase.GetAssetPath(AbilityDatabase);
+            EditorPrefs.SetString("AbilityDatabase", abilityPath);
         }
 
         private void UpdateStaticReferences()
@@ -94,6 +100,7 @@ namespace SunsetSystems.Editor
             EditorDatabaseHelper.ObjectiveDB = ObjectiveDatabase;
             EditorDatabaseHelper.WardrobeDB = WardrobeDatabase;
             EditorDatabaseHelper.WorldMapDB = WorldMapDatabase;
+            EditorDatabaseHelper.AbilityDB = AbilityDatabase;
         }
     }
 }

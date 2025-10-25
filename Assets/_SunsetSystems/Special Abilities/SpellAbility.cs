@@ -81,7 +81,8 @@ namespace SunsetSystems.Abilities
         public int CastAnimationHash => Animator.StringToHash(_castAnimationTrigger);
 
         #region IDisciplinePower
-        public string ID => AbilityID.ToString();
+        public string ID => DatabaseID;
+        public string ScriptName => ReadableID;
         public string Name => GetLocalizedName();
         public string Description => GetLocalizedDescription();
         public IDiscipline Discipline => _discipline;

@@ -1,8 +1,9 @@
 using System;
+using SunsetSystems.Core.Database;
 
 namespace SunsetSystems.Abilities
 {
-    public interface IAbilityConfig
+    public interface IAbilityConfig : IDatabaseEntry<IAbilityConfig>
     {
         Guid AbilityID { get; }
         IAbilityTargetingData GetTargetingData(IAbilityContext context);
