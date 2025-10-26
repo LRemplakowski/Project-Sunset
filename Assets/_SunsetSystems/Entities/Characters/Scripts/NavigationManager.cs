@@ -114,7 +114,7 @@ namespace SunsetSystems.Entities.Characters.Navigation
         public bool Warp(Vector3 position)
         {
             // Set agent position directly
-            CurrentNavigationAI.Teleport(position);
+            CurrentNavigationAI.Teleport(position, true);
             return true;
         }
 
