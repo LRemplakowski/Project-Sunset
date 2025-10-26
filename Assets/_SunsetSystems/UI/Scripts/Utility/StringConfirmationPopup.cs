@@ -17,6 +17,11 @@ namespace SunsetSystems.UI.Utils
             _defaultText = _inputField.text;
         }
 
+        private void OnEnable()
+        {
+            _inputField.Select();
+        }
+
         private void OnDisable()
         {
             _inputField.text = _defaultText;
