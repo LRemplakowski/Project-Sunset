@@ -1,43 +1,42 @@
 using SunsetSystems.Audio;
 using SunsetSystems.Core;
 using SunsetSystems.Dialogue;
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using SunsetSystems.UI;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace SunsetSystems
 {
     public class SettingsUIManager : MonoBehaviour
     {
         [SerializeField]
-        private Slider _musicSlider, _sfxSlider, _typewriterSlider;
+        private VolumeSliderView _musicSlider, _sfxSlider;
+        [SerializeField]
+        private TypewriterSliderView _typewriterSlider;
 
         private void OnEnable()
         {
             if (PlayerPrefs.HasKey(SettingsConstants.MUSIC_VOLUME_KEY))
-                _musicSlider.value = PlayerPrefs.GetFloat(SettingsConstants.MUSIC_VOLUME_KEY);
+                _musicSlider.InitializeView(PlayerPrefs.GetFloat(SettingsConstants.MUSIC_VOLUME_KEY));
             else
-                _musicSlider.value = AudioManager.Instance.MusicDefaultValue;
+                _musicSlider.InitializeView(AudioManager.Instance.MusicDefaultValue);
             if (PlayerPrefs.HasKey(SettingsConstants.SFX_VOLUME_KEY))
-                _sfxSlider.value = PlayerPrefs.GetFloat(SettingsConstants.SFX_VOLUME_KEY);
+                _sfxSlider.InitializeView(PlayerPrefs.GetFloat(SettingsConstants.SFX_VOLUME_KEY));
             else
-                _sfxSlider.value = AudioManager.Instance.SFXDefaultValue;
+                _sfxSlider.InitializeView(AudioManager.Instance.SFXDefaultValue);
             if (PlayerPrefs.HasKey(SettingsConstants.TYPEWRITER_SPEED_KEY))
-                _typewriterSlider.value = PlayerPrefs.GetInt(SettingsConstants.TYPEWRITER_SPEED_KEY);
+                _typewriterSlider.InitializeView(PlayerPrefs.GetInt(SettingsConstants.TYPEWRITER_SPEED_KEY));
             else
-                _typewriterSlider.value = DialogueManager.Instance.DefaultTypewriterValue;
-            _musicSlider.onValueChanged.AddListener(SignalMusicVolumeChange);
-            _sfxSlider.onValueChanged.AddListener(SignalSFXVolumeChange);
-            _typewriterSlider.onValueChanged.AddListener(SignalTypewriterSpeedChange);
+                _typewriterSlider.InitializeView(DialogueManager.Instance.DefaultTypewriterValue);
+            _musicSlider.OnValueChange += SignalMusicVolumeChange;
+            _sfxSlider.OnValueChange += SignalSFXVolumeChange;
+            _typewriterSlider.OnValueChange += SignalTypewriterSpeedChange;
         }
 
         private void OnDisable()
         {
-            _musicSlider.onValueChanged.RemoveListener(SignalMusicVolumeChange);
-            _sfxSlider.onValueChanged.RemoveListener(SignalSFXVolumeChange);
-            _typewriterSlider.onValueChanged.RemoveListener(SignalTypewriterSpeedChange);
+            _musicSlider.OnValueChange -= SignalMusicVolumeChange;
+            _sfxSlider.OnValueChange -= SignalSFXVolumeChange;
+            _typewriterSlider.OnValueChange -= SignalTypewriterSpeedChange;
         }
 
         public void SignalMusicVolumeChange(float volume)

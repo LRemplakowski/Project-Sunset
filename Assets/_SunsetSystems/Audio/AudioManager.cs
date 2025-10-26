@@ -33,16 +33,30 @@ namespace SunsetSystems.Audio
             {
                 Destroy(gameObject);
             }
+            if (PlayerPrefs.HasKey(SettingsConstants.MUSIC_VOLUME_KEY))
+            {
+                SetMusicVolume(PlayerPrefs.GetFloat(SettingsConstants.MUSIC_VOLUME_KEY));
+            }
+            else
+            {
+                SetMusicVolume(MusicDefaultValue);
+            }
+
+            if (PlayerPrefs.HasKey(SettingsConstants.SFX_VOLUME_KEY))
+            {
+                SetSFXVolume(PlayerPrefs.GetFloat(SettingsConstants.SFX_VOLUME_KEY));
+            }
+            else
+            {
+                SetSFXVolume(SFXDefaultValue);
+            }
+
+                GameManager.OnGameStateChanged += OnGameStateChanged;
         }
 
         private void Start()
         {
-            if (PlayerPrefs.HasKey(SettingsConstants.MUSIC_VOLUME_KEY))
-                SetMusicVolume(PlayerPrefs.GetFloat(SettingsConstants.MUSIC_VOLUME_KEY));
-            if (PlayerPrefs.HasKey(SettingsConstants.SFX_VOLUME_KEY))
-                SetSFXVolume(PlayerPrefs.GetFloat(SettingsConstants.SFX_VOLUME_KEY));
             OnGameStateChanged(GameManager.Instance.CachedGameState);
-            GameManager.OnGameStateChanged += OnGameStateChanged;
         }
 
         private void OnDestroy()

@@ -36,7 +36,7 @@ namespace SunsetSystems.Audio
             }
         }
 
-        private static System.Random _random = new();
+        private static readonly System.Random _random = new();
 
         public bool DoPlayTypewriterLoop { get; set; }
 
