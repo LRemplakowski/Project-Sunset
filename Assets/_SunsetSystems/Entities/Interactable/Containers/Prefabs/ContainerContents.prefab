@@ -390,15 +390,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -536,7 +538,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8614606707938248977}
   m_HandleRect: {fileID: 6042198269234028662}
   m_Direction: 2
-  m_Value: 0
+  m_Value: 1
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -753,7 +755,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2466723123754355256}
   - component: {fileID: 3913768978055167084}
-  - component: {fileID: 1648676122178192507}
   m_Layer: 0
   m_Name: ContainerContents
   m_TagString: Untagged
@@ -798,19 +799,6 @@ MonoBehaviour:
   _containerEntryPrefab: {fileID: 5905448543197393379, guid: 65d701a271384d74ebdad08f68dbb7fc, type: 3}
   _title: {fileID: 3833617934260016427}
   _contentParent: {fileID: 6256614416297396766}
---- !u!114 &1648676122178192507
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3751186077721888207}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd3f36d87db2ac447a3cb25339c61571, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tag: CONTAINER_GUI
 --- !u!1 &4743969412266787050
 GameObject:
   m_ObjectHideFlags: 0
@@ -1044,7 +1032,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.00008106232, y: 0}
+  m_AnchoredPosition: {x: -0.00008106232, y: -0.000030517578}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &6477359494883861868
@@ -1342,15 +1330,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0

@@ -3,12 +3,17 @@ using Sirenix.OdinInspector;
 using Sirenix.Utilities;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.UI;
 using UnityEngine.UI;
 
 public class SunsetInputHandler : SerializedMonoBehaviour
 {
     [SerializeField]
     private PlayerInput _playerInput;
+    [SerializeField]
+    private InputSystemUIInputModule _uiInputModule;
+
+    private PlayerInputMapping _input;
 
     // Mouse input
     public static event Action<InputAction.CallbackContext> OnPrimaryAction;
@@ -27,7 +32,26 @@ public class SunsetInputHandler : SerializedMonoBehaviour
     [Button]
     private void Awake()
     {
+        _input ??= new();
+        //SubscribePlayerActions();
+        //_input.Enable();
+        //_input.Player.Enable();
+        //_input.UI.Enable();
         _playerInput.actions.actionMaps.ForEach(map => map.Enable());
+        //_uiInputModule.actionsAsset = _input.asset;
+    }
+
+    private void SubscribePlayerActions()
+    {
+        _input.Player.LeftClick.started += PrimaryAction;
+        _input.Player.LeftClick.performed += PrimaryAction;
+        _input.Player.LeftClick.canceled += PrimaryAction;
+        _input.Player.RightClick.started += SecondaryAction;
+        _input.Player.RightClick.performed += SecondaryAction;
+        _input.Player.RightClick.canceled += SecondaryAction;
+        _input.Player.MousePosition.started += PointerPosition;
+        _input.Player.MousePosition.performed += PointerPosition;
+        _input.Player.MousePosition.canceled += PointerPosition;
     }
 
     public void PrimaryAction(InputAction.CallbackContext context)

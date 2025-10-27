@@ -204,7 +204,7 @@ public partial class @PlayerInputMapping: IInputActionCollection2, IDisposable
                     ""name"": ""SkipDialogue"",
                     ""type"": ""Button"",
                     ""id"": ""b430a763-75d6-4ca3-b8da-f1c7000e8ece"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -571,10 +571,10 @@ public partial class @PlayerInputMapping: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Scroll"",
+                    ""name"": ""ScrollWheel"",
                     ""type"": ""PassThrough"",
                     ""id"": ""96522dbe-f560-44ea-b7f9-867121f3cde1"",
-                    ""expectedControlType"": ""Axis"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -592,7 +592,7 @@ public partial class @PlayerInputMapping: IInputActionCollection2, IDisposable
                     ""name"": ""Submit"",
                     ""type"": ""Button"",
                     ""id"": ""7f799ec4-2fbf-44ff-9ee2-6af14c409070"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -601,6 +601,15 @@ public partial class @PlayerInputMapping: IInputActionCollection2, IDisposable
                     ""name"": ""Forward Dialogue"",
                     ""type"": ""Button"",
                     ""id"": ""3e128fb0-89e6-48de-8215-96a35ed4c387"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MiddleClick"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""6ae20f30-b82c-4237-8d29-512907a6f615"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -648,7 +657,7 @@ public partial class @PlayerInputMapping: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Scroll"",
+                    ""action"": ""ScrollWheel"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -659,7 +668,7 @@ public partial class @PlayerInputMapping: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Scroll"",
+                    ""action"": ""ScrollWheel"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -693,6 +702,17 @@ public partial class @PlayerInputMapping: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Forward Dialogue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""afc345bb-230b-413c-8fb1-f1474c7f300c"",
+                    ""path"": ""<Mouse>/middleButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MiddleClick"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -784,10 +804,11 @@ public partial class @PlayerInputMapping: IInputActionCollection2, IDisposable
         m_UI_Click = m_UI.FindAction("Click", throwIfNotFound: true);
         m_UI_Point = m_UI.FindAction("Point", throwIfNotFound: true);
         m_UI_Cancel = m_UI.FindAction("Cancel", throwIfNotFound: true);
-        m_UI_Scroll = m_UI.FindAction("Scroll", throwIfNotFound: true);
+        m_UI_ScrollWheel = m_UI.FindAction("ScrollWheel", throwIfNotFound: true);
         m_UI_RightClick = m_UI.FindAction("RightClick", throwIfNotFound: true);
         m_UI_Submit = m_UI.FindAction("Submit", throwIfNotFound: true);
         m_UI_ForwardDialogue = m_UI.FindAction("Forward Dialogue", throwIfNotFound: true);
+        m_UI_MiddleClick = m_UI.FindAction("MiddleClick", throwIfNotFound: true);
     }
 
     ~@PlayerInputMapping()
@@ -1122,10 +1143,11 @@ public partial class @PlayerInputMapping: IInputActionCollection2, IDisposable
     private readonly InputAction m_UI_Click;
     private readonly InputAction m_UI_Point;
     private readonly InputAction m_UI_Cancel;
-    private readonly InputAction m_UI_Scroll;
+    private readonly InputAction m_UI_ScrollWheel;
     private readonly InputAction m_UI_RightClick;
     private readonly InputAction m_UI_Submit;
     private readonly InputAction m_UI_ForwardDialogue;
+    private readonly InputAction m_UI_MiddleClick;
     /// <summary>
     /// Provides access to input actions defined in input action map "UI".
     /// </summary>
@@ -1150,9 +1172,9 @@ public partial class @PlayerInputMapping: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @Cancel => m_Wrapper.m_UI_Cancel;
         /// <summary>
-        /// Provides access to the underlying input action "UI/Scroll".
+        /// Provides access to the underlying input action "UI/ScrollWheel".
         /// </summary>
-        public InputAction @Scroll => m_Wrapper.m_UI_Scroll;
+        public InputAction @ScrollWheel => m_Wrapper.m_UI_ScrollWheel;
         /// <summary>
         /// Provides access to the underlying input action "UI/RightClick".
         /// </summary>
@@ -1165,6 +1187,10 @@ public partial class @PlayerInputMapping: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "UI/ForwardDialogue".
         /// </summary>
         public InputAction @ForwardDialogue => m_Wrapper.m_UI_ForwardDialogue;
+        /// <summary>
+        /// Provides access to the underlying input action "UI/MiddleClick".
+        /// </summary>
+        public InputAction @MiddleClick => m_Wrapper.m_UI_MiddleClick;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1200,9 +1226,9 @@ public partial class @PlayerInputMapping: IInputActionCollection2, IDisposable
             @Cancel.started += instance.OnCancel;
             @Cancel.performed += instance.OnCancel;
             @Cancel.canceled += instance.OnCancel;
-            @Scroll.started += instance.OnScroll;
-            @Scroll.performed += instance.OnScroll;
-            @Scroll.canceled += instance.OnScroll;
+            @ScrollWheel.started += instance.OnScrollWheel;
+            @ScrollWheel.performed += instance.OnScrollWheel;
+            @ScrollWheel.canceled += instance.OnScrollWheel;
             @RightClick.started += instance.OnRightClick;
             @RightClick.performed += instance.OnRightClick;
             @RightClick.canceled += instance.OnRightClick;
@@ -1212,6 +1238,9 @@ public partial class @PlayerInputMapping: IInputActionCollection2, IDisposable
             @ForwardDialogue.started += instance.OnForwardDialogue;
             @ForwardDialogue.performed += instance.OnForwardDialogue;
             @ForwardDialogue.canceled += instance.OnForwardDialogue;
+            @MiddleClick.started += instance.OnMiddleClick;
+            @MiddleClick.performed += instance.OnMiddleClick;
+            @MiddleClick.canceled += instance.OnMiddleClick;
         }
 
         /// <summary>
@@ -1232,9 +1261,9 @@ public partial class @PlayerInputMapping: IInputActionCollection2, IDisposable
             @Cancel.started -= instance.OnCancel;
             @Cancel.performed -= instance.OnCancel;
             @Cancel.canceled -= instance.OnCancel;
-            @Scroll.started -= instance.OnScroll;
-            @Scroll.performed -= instance.OnScroll;
-            @Scroll.canceled -= instance.OnScroll;
+            @ScrollWheel.started -= instance.OnScrollWheel;
+            @ScrollWheel.performed -= instance.OnScrollWheel;
+            @ScrollWheel.canceled -= instance.OnScrollWheel;
             @RightClick.started -= instance.OnRightClick;
             @RightClick.performed -= instance.OnRightClick;
             @RightClick.canceled -= instance.OnRightClick;
@@ -1244,6 +1273,9 @@ public partial class @PlayerInputMapping: IInputActionCollection2, IDisposable
             @ForwardDialogue.started -= instance.OnForwardDialogue;
             @ForwardDialogue.performed -= instance.OnForwardDialogue;
             @ForwardDialogue.canceled -= instance.OnForwardDialogue;
+            @MiddleClick.started -= instance.OnMiddleClick;
+            @MiddleClick.performed -= instance.OnMiddleClick;
+            @MiddleClick.canceled -= instance.OnMiddleClick;
         }
 
         /// <summary>
@@ -1484,12 +1516,12 @@ public partial class @PlayerInputMapping: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnCancel(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "Scroll" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "ScrollWheel" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnScroll(InputAction.CallbackContext context);
+        void OnScrollWheel(InputAction.CallbackContext context);
         /// <summary>
         /// Method invoked when associated input action "RightClick" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
@@ -1511,5 +1543,12 @@ public partial class @PlayerInputMapping: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnForwardDialogue(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "MiddleClick" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnMiddleClick(InputAction.CallbackContext context);
     }
 }
