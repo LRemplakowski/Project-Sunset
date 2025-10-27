@@ -38,6 +38,12 @@ namespace SunsetSystems.Cinematics
             }
         }
 
+        public void SetDirector(PlayableDirector director)
+        {
+            StopCutscene();
+            _playableDirector = director;
+        }
+
         public void PlayCutscene(PlayableAsset asset, DirectorWrapMode wrapMode)
         {
             _crossFade.CycleFade(() => DoPlayNextCutscene(asset, wrapMode));

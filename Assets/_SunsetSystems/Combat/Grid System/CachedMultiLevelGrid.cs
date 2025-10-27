@@ -312,7 +312,12 @@ namespace SunsetSystems.Combat.Grid
 
         public GridUnit this[int x, int z]
         {
-            get => gridCells[x, z];
+            get
+            {
+                if (gridCells.GetLength(0) <= x || gridCells.GetLength(1) <= z) return null;
+                return gridCells[x, z];
+            }
+
             set => gridCells[x, z] = value;
         }
 
