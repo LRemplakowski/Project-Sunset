@@ -2,11 +2,11 @@
 position: -177,-434
 ---
 <<if CustomVisited("safeOpened") == false>>
-        {$storyteller}: [nomarkup][It requires a 4-digit code to unlock.][/nomarkup] #lastline #line:0e7f551
-    <<if $safeFailCounter >= 4>>
+    {$storyteller}: [nomarkup][It requires a 4-digit code to unlock.][/nomarkup] #lastline #line:0e7f551
+    <<if $safeFailCounter >= 3>>
         <<jump beastOpens>>
     <<else>>
-        -> [nomarkup][Try to open the safe without a combination.][Resolve + Larceny][/nomarkup] #line:05d4917
+        -> [nomarkup][Try to open the safe without a combination.] (Resolve + Larceny)[/nomarkup] #line:05d4917
             <<jump safeResolveRoll>>
         -> [nomarkup][Try to pry open the safe.] (Strength + Larceny)[/nomarkup] <<if GetHasItem("IT_WPN_ML_CROWBAR") == true>> #line:03cddc8
             <<jump safeStrengthRoll>>
@@ -80,7 +80,6 @@ position: -1111,-157
     {$kieran}: [nomarkup][Grimacing.][/nomarkup] I will not take Diana's money, and I suggest you do not, either. #line:0bec761
 <<endif>>
 <<jump safeQuestions>>
-
 ===
 title: safeQuestions
 position: -941,277
