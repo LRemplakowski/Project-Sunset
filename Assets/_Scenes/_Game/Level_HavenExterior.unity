@@ -22999,6 +22999,22 @@ MonoBehaviour:
   OnExitZoneEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &564853320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 564852001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 064469f931de6cf41a579753ac53affd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playableCharacters:
+  - {fileID: 564852001}
+  isInitialized: 0
+  effectOffIfPlayerDisabled: 0
 --- !u!114 &564853321 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7559868318605313084, guid: 4769f016047210d478f53803138aacf5, type: 3}
@@ -54616,6 +54632,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7174810521220774900, guid: 4769f016047210d478f53803138aacf5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 564853319}
+    - targetCorrespondingSourceObject: {fileID: 7174810521220774900, guid: 4769f016047210d478f53803138aacf5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 564853320}
     - targetCorrespondingSourceObject: {fileID: 1306159107545690711, guid: 4769f016047210d478f53803138aacf5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 522144691}

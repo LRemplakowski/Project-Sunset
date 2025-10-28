@@ -33,7 +33,6 @@ Material:
   m_InvalidKeywords:
   - _ANIMATIONENABLED_ON
   - _CROSSSECTIONUVSCALEDBYDISTANCE_ON
-  - _ENABLEDEFAULTEFFECTRADIUS_ON
   - _HASCLIPPEDSHADOWS_ON
   - _ISREFERENCEMATERIAL_ON
   - _SYNCCULLMODE_ON
@@ -122,7 +121,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _ObstructionCurve:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 6f1110ef1ae3ad9429b30663562c0d5c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecularColorMap:
@@ -196,7 +195,7 @@ Material:
     - _CeilingPlayerYOffset: 1
     - _CeilingY: 1
     - _CeilingYGradientLength: 0.1
-    - _CircleObstructionDestroyRadius: 5
+    - _CircleObstructionDestroyRadius: 10
     - _CircleStrength: 1
     - _CoatMask: 0
     - _ConeObstructionDestroyRadius: 10
@@ -207,12 +206,12 @@ Material:
     - _CrossSectionUVScaledByDistance: 1
     - _CullMode: 2
     - _CullModeForward: 2
-    - _CurveObstructionDestroyRadius: 10
+    - _CurveObstructionDestroyRadius: 6.9
     - _CurveStrength: 1
     - _Cutoff: 0.5
-    - _CylinderObstructionDestroyRadius: 84.2
+    - _CylinderObstructionDestroyRadius: 5.89
     - _CylinderStrength: 0.753
-    - _DefaultEffectRadius: 186.04
+    - _DefaultEffectRadius: 10
     - _DepthOffsetEnable: 0
     - _DetailAlbedoScale: 1
     - _DetailNormalScale: 1
@@ -222,10 +221,10 @@ Material:
     - _DisplacementLockObjectScale: 1
     - _DisplacementLockTilingScale: 1
     - _DisplacementMode: 0
-    - _DissolveColorSaturation: 0.926
-    - _DissolveEmission: 0.546
+    - _DissolveColorSaturation: 1
+    - _DissolveEmission: 1
     - _DissolveEmissionBooster: 1
-    - _DissolveFallOff: 0.363
+    - _DissolveFallOff: 0.58
     - _DissolveMaskEnabled: 0
     - _DissolveMethod: 1
     - _DissolveTexSpace: 0
@@ -278,7 +277,7 @@ Material:
     - _ObjectSpaceUVMapping: 0
     - _ObjectSpaceUVMappingEmissive: 0
     - _Obstruction: 6
-    - _ObstructionPlayerOffset: 0
+    - _ObstructionPlayerOffset: 1
     - _OpaqueCullMode: 2
     - _PPDLodThreshold: 5
     - _PPDMaxSamples: 15
@@ -329,7 +328,7 @@ Material:
     - _TexWorldScale: 1
     - _TexWorldScaleEmissive: 1
     - _TexturedEmissionEdge: 1
-    - _TexturedEmissionEdgeStrength: 0.476
+    - _TexturedEmissionEdgeStrength: 0.493
     - _Thickness: 1
     - _TransitionDuration: 2
     - _TransmissionEnable: 1
@@ -368,7 +367,7 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _CrossSectionColor: {r: 1, g: 0, b: 0, a: 1}
     - _DiffusionProfileAsset: {r: 0, g: 0, b: 0, a: 0}
-    - _DissolveColor: {r: 1, g: 0.1745283, b: 0.1745283, a: 0.4627451}
+    - _DissolveColor: {r: 1, g: 1, b: 1, a: 1}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - _EmissiveColor: {r: 0, g: 0, b: 0, a: 1}
