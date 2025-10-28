@@ -37,11 +37,12 @@ position: 408,-214
 -> {$pcName}: I'll pay you for your time.
         {$landlord}: Now you're speaking my language. I'll have to charge you a-uh- a late night fee, of course.
         -> {$pcName}: Sure.
-            {$landlord}: Let me get dressed. I'll see you shortly. 
+            {$landlord}: Let me get dressed. I'll see you shortly.
+            <<CompleteObjective "Q_0P_FIX_SINK" "CALL_LANDLORD">> 
             [nomarkup][He hangs up.][/nomarkup]
-            <<CompleteObjective "Q_0P_FIX_SINK" "CALL_LANDLORD">>
             -> [nomarkup][Hang up.][/nomarkup]
         -> {$pcName}: That's a rip off!
+            <<FailObjective "Q_0P_FIX_SINK" "CALL_LANDLORD">>
             {$landlord}: I'm a capitalist. Take it or leave it. I'm going back to bed.
             -> [nomarkup][Hang up.][/nomarkup]
     -> {$pcName}: Please? I'm trying to get my life together. (Manipulation + Persuasion) <<if CustomVisited("ManipPersKevin") == false>>
@@ -57,9 +58,9 @@ position: 113,-107
 ---            
 <<if Roll("Manipulation","Persuasion") >= (3 + $kevinRollModifier)>>
     {$landlord}: It must be hard for you, not having a man in your life. Wearing the pants is more difficult than you'd expect, huh? #success #line:048fb02 
-    {$landlord}: Let me get dressed. I'll see you shortly. #line:047c5ab  
+    {$landlord}: Let me get dressed. I'll see you shortly. #line:047c5ab
+    <<CompleteObjective "Q_0P_FIX_SINK" "CALL_LANDLORD">>  
     [nomarkup][He hangs up.][/nomarkup] #line:006c4c6 
-    <<CompleteObjective "Q_0P_FIX_SINK" "CALL_LANDLORD">>
     -> [nomarkup][Hang up.][/nomarkup]   
 <<else>>
     {$landlord}: Don't act like we're friends. You don't even know my last name. I only let you sign the lease because I pitied you. You're on your own. #failure #line:0bc3d9f 
@@ -73,9 +74,9 @@ position: 157,51
 ---
 <<if Roll("Charisma","Subterfuge") >= (3 + $kevinRollModifier)>>
     {$landlord}: Oh... anything you say? #success #line:0a58c93 
-    {$landlord}: Let me get dressed. I'll see you shortly. 
-    [nomarkup][He hangs up.][/nomarkup] #line:042db95 
-    <<CompleteObjective "Q_0P_FIX_SINK" "CALL_LANDLORD">>   
+    {$landlord}: Let me get dressed. I'll see you shortly.
+    <<CompleteObjective "Q_0P_FIX_SINK" "CALL_LANDLORD">> 
+    [nomarkup][He hangs up.][/nomarkup] #line:042db95    
     -> [nomarkup][Hang up.][/nomarkup]
 <<else>>
     {$landlord}: Nice try, dear. I know I'm a catch, but I don't stick my dick in divorcees. Too much baggage. #failure #line:0d976d4 
@@ -88,8 +89,8 @@ tags:
 position: 85,-289
 ---
 <<if Roll("Manipulation","Intimidation") >= (3 + $kevinRollModifier)>>
-    {$landlord}: Oh, I didn't know that. I'll uhm- I'll be right over. #success #line:04512a2 
-    <<CompleteObjective "Q_0P_FIX_SINK" "CALL_LANDLORD">>  
+    <<CompleteObjective "Q_0P_FIX_SINK" "CALL_LANDLORD">> 
+    {$landlord}: Oh, I didn't know that. I'll uhm- I'll be right over. #success #line:04512a2  
     -> [nomarkup][Hang up.][/nomarkup] #line:0a463c8  
 <<else>>
     {$storyteller}: [nomarkup][He snorts out a laugh on the other end.][/nomarkup] #failure #line:0401975 
