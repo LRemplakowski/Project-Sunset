@@ -15,6 +15,7 @@ title: PickUpGun
     {$storyteller}: [nomarkup][Good as new.][/nomarkup] +1 Weapon Damage. #success #line:0e1f39e
     -> [nomarkup][Walk away.][/nomarkup] 
 <<else>>
+    <<PlaySFX "gunshot_single">>
     BANG! #failure #line:0c4c45e 
     {$storyteller}: [nomarkup][The responsible gun owner. A bullet hole now dots your ceiling.][/nomarkup] 
     {$pcName}: [nomarkup][Definitely not getting my security deposit back.][/nomarkup] #line:094c254

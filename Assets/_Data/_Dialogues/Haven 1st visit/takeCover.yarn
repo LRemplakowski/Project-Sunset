@@ -41,6 +41,7 @@ CRACK!
         {$storyteller}: [nomarkup][He's clearly unbothered. Amused, even. He grins menacingly, looking you up and down as his hand snatches the crowbar and pulls it from your hands. Without taking his eyes off you, he tosses it away from your reach.][/nomarkup]
     <<endif>>
 -> [nomarkup][Shoot the intruder.] (Dexterity + Firearms)[/nomarkup] #line:069f0e5
+    <<PlaySFX "gunshot_single">>
     BANG!
     <<if Roll("Dexterity","Firearms") >= 3>>
         {$storyteller}: [nomarkup][His shoulder recoils as the bullet strikes, but he seems unaffected. His flesh knits itself back together, pushing the lead pellet into his waiting hand.][/nomarkup] #success
