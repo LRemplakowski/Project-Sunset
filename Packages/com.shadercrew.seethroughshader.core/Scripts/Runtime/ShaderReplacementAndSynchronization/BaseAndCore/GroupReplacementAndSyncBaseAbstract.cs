@@ -115,7 +115,7 @@ namespace ShaderCrew.SeeThroughShader
             {
                 if (referenceMaterial != null && referenceMaterial.HasProperty(SeeThroughShaderConstants.STS_SHADER_IDENTIFIER_PROPERTY))
                 {
-                    SynchronizeSTSMaterialsWithReferenceMaterial();
+                    SynchronizeSTSMaterialsWithReferenceMaterial(true);
 
                 }
             }
@@ -133,7 +133,7 @@ namespace ShaderCrew.SeeThroughShader
             }
         }
 
-        private void SynchronizeSTSMaterialsWithReferenceMaterial()
+        private void SynchronizeSTSMaterialsWithReferenceMaterial(bool force = false)
         {
             //if (transformsWithSTS != null && seeThroughShaderName != null && referenceMaterial != null)
             if (UnityToSTSShaderMapping != null && referenceMaterial != null && referenceMaterial.HasProperty(SeeThroughShaderConstants.STS_SHADER_IDENTIFIER_PROPERTY))
@@ -143,7 +143,7 @@ namespace ShaderCrew.SeeThroughShader
                     if (materialList != null && materialList.Count > 0)
                     {
                         //GeneralUtils.updateSeeThroughShaderMaterialProperties(transformsWithSTS, seeThroughShaderName, referenceMaterial);
-                        GeneralUtils.updateSeeThroughShaderMaterialPropertiesAndKeywords(materialList.ToArray(), UnityToSTSShaderMapping.Values.ToList(), referenceMaterial);
+                        GeneralUtils.updateSeeThroughShaderMaterialPropertiesAndKeywords(materialList.ToArray(), UnityToSTSShaderMapping.Values.ToList(), referenceMaterial, force);
                     }
                     //else
                     //{
@@ -155,7 +155,7 @@ namespace ShaderCrew.SeeThroughShader
                     if (transformsWithSTS != null && transformsWithSTS.Length > 0)
                     {
 
-                        GeneralUtils.updateSeeThroughShaderMaterialPropertiesAndKeywords(transformsWithSTS, UnityToSTSShaderMapping.Values.ToList(), referenceMaterial);
+                        GeneralUtils.updateSeeThroughShaderMaterialPropertiesAndKeywords(transformsWithSTS, UnityToSTSShaderMapping.Values.ToList(), referenceMaterial, force);
 
                     }
                     //else
@@ -228,7 +228,12 @@ namespace ShaderCrew.SeeThroughShader
                     {
                         if (!string.IsNullOrEmpty(triggerID))
                         {
+#if UNITY_6000
+                            TriggerObjectId[] idObjects = GameObject.FindObjectsByType<TriggerObjectId>(FindObjectsSortMode.None);
+#else
                             TriggerObjectId[] idObjects = GameObject.FindObjectsOfType<TriggerObjectId>();
+#endif
+
                             foreach (TriggerObjectId item in idObjects)
                             {
                                 if (item.gameObject.GetComponent<TriggerObjectId>() != null && item.gameObject.GetComponent<TriggerObjectId>().triggerID == triggerID)

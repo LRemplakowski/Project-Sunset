@@ -23,130 +23,131 @@ void DoSeeThroughShading(
                                     float llllllllllllllllll0, float lllllllllllllllllll0, float llllllllllllllllllll0, float lllllllllllllllllllll0,
                                     bool llllllllllllllllllllll0,
                                     float lllllllllllllllllllllll0,
-                                    float llllllllllllllllllllllll0,
-                                    float lllllllllllllllllllllllll0, float llllllllllllllllllllllllll0,
-                                    float lllllllllllllllllllllllllll0, float llllllllllllllllllllllllllll0,
-                                    float lllllllllllllllllllllllllllll0, float llllllllllllllllllllllllllllll0,
-                                    float lllllllllllllllllllllllllllllll0, float l1,
-                                    float ll1,
+                                    float llllllllllllllllllllllll0, 
+                                    float lllllllllllllllllllllllll0,
+                                    float llllllllllllllllllllllllll0, float lllllllllllllllllllllllllll0,
+                                    float llllllllllllllllllllllllllll0, float lllllllllllllllllllllllllllll0,
+                                    float llllllllllllllllllllllllllllll0, float lllllllllllllllllllllllllllllll0,
+                                    float l1, float ll1,
                                     float lll1,
                                     float llll1,
                                     float lllll1,
-                                    float llllll1, float lllllll1,
-                                    float llllllll1, float lllllllll1, float llllllllll1,
-                                    float lllllllllll1, float llllllllllll1, float lllllllllllll1, float llllllllllllll1, float lllllllllllllll1, float llllllllllllllll1,
-                                    float lllllllllllllllll1, float llllllllllllllllll1, float lllllllllllllllllll1, float llllllllllllllllllll1, float lllllllllllllllllllll1, float llllllllllllllllllllll1,
-                                    float lllllllllllllllllllllll1, float llllllllllllllllllllllll1,
-                                    float lllllllllllllllllllllllll1,
-                                    bool llllllllllllllllllllllllll1,
-                                    float lllllllllllllllllllllllllll1, float llllllllllllllllllllllllllll1, float lllllllllllllllllllllllllllll1, float llllllllllllllllllllllllllllll1,
-                                    float lllllllllllllllllllllllllllllll1, float l2,
-                                    float ll2,
+                                    float llllll1,
+                                    float lllllll1, float llllllll1,
+                                    float lllllllll1, float llllllllll1, float lllllllllll1,
+                                    float llllllllllll1, float lllllllllllll1, float llllllllllllll1, float lllllllllllllll1, float llllllllllllllll1, float lllllllllllllllll1,
+                                    float llllllllllllllllll1, float lllllllllllllllllll1, float llllllllllllllllllll1, float lllllllllllllllllllll1, float llllllllllllllllllllll1, float lllllllllllllllllllllll1,
+                                    float llllllllllllllllllllllll1, float lllllllllllllllllllllllll1,
+                                    float llllllllllllllllllllllllll1,
+                                    bool lllllllllllllllllllllllllll1,
+                                    float llllllllllllllllllllllllllll1, float lllllllllllllllllllllllllllll1, float llllllllllllllllllllllllllllll1, float lllllllllllllllllllllllllllllll1,
+                                    float l2, float ll2,
                                     float lll2,
+                                    float llll2,
 #ifdef USE_UNITY_TEXTURE_2D_TYPE
-                                    UnityTexture2D llll2,
                                     UnityTexture2D lllll2,
                                     UnityTexture2D llllll2,
+                                    UnityTexture2D lllllll2,
 #else
-                                    sampler2D llll2,
                                     sampler2D lllll2,
                                     sampler2D llllll2,
-                                    float4 lllllll2,
+                                    sampler2D lllllll2,
                                     float4 llllllll2,
                                     float4 lllllllll2,
+                                    float4 llllllllll2,
 #endif
-                                    out half3 llllllllll2,
                                     out half3 lllllllllll2,
-                                    out float llllllllllll2
+                                    out half3 llllllllllll2,
+                                    out float lllllllllllll2
 )
 {
     ShaderData d;
     d.worldSpaceNormal = llll0;
     d.worldSpacePosition = lll0;
-    float3 lllllllllllll2 = float3(0, 0, 0);
+    float3 llllllllllllll2 = float3(0, 0, 0);
 #ifdef _HDRP
-        lllllllllllll2 = mul(UNITY_MATRIX_I_M, float4(GetCameraRelativePositionWS(d.worldSpacePosition), 1)).xyz;
+        llllllllllllll2 = mul(UNITY_MATRIX_I_M, float4(GetCameraRelativePositionWS(d.worldSpacePosition), 1)).xyz;
 #else
-    lllllllllllll2 = mul(UNITY_MATRIX_I_M, float4(d.worldSpacePosition, 1)).xyz;
+    llllllllllllll2 = mul(UNITY_MATRIX_I_M, float4(d.worldSpacePosition, 1)).xyz;
 #endif
     Surface o;
     o.Normal = ll0;
     o.Albedo = half3(0, 0, 0) + l0;
     o.Emission = half3(0, 0, 0);
-    llllllllll2 = half3(0, 0, 0);
     lllllllllll2 = half3(0, 0, 0);
-    llllllllllll2 = 1;
-    float llllllllllllll2 = _Time.y;
-    if (llllllllllllllllllllllllll1)
+    llllllllllll2 = half3(0, 0, 0);
+    lllllllllllll2 = 1;
+    float lllllllllllllll2 = _Time.y;
+    if (lllllllllllllllllllllllllll1)
     {
-        llllllllllllll2 = _STSCustomTime;
+        lllllllllllllll2 = _STSCustomTime;
     }
-    bool lllllllllllllll2 = (llllll0 > 0 || lllllll0 == -1 && llllllllllllll2 - llllllll0 < lllllllllllllllllllllllll1) || (llllll0 >= 0 && lllllll0 == 1);
-    bool llllllllllllllll2 = !llllllllll0 && !lllllllllll0;
-    float lllllllllllllllll2 = 0;
-    half4 llllllllllllllllll2 = half4(0, 0, 0, 0);
-    if (!llllllllllll0 && (lllllllllllllll2 || llllllllllllllll2))
+    bool llllllllllllllll2 = (llllll0 > 0 || lllllll0 == -1 && lllllllllllllll2 - llllllll0 < llllllllllllllllllllllllll1) || (llllll0 >= 0 && lllllll0 == 1);
+    bool lllllllllllllllll2 = !llllllllll0 && !lllllllllll0;
+    float llllllllllllllllll2 = 0;
+    half4 lllllllllllllllllll2 = half4(0, 0, 0, 0);
+    if (!llllllllllll0 && (llllllllllllllll2 || lllllllllllllllll2))
     {
-        float4 lllllllllllllllllll2 = float4(0, 0, 0, 0);
         float4 llllllllllllllllllll2 = float4(0, 0, 0, 0);
         float4 lllllllllllllllllllll2 = float4(0, 0, 0, 0);
+        float4 llllllllllllllllllllll2 = float4(0, 0, 0, 0);
 #ifdef USE_UNITY_TEXTURE_2D_TYPE
-        lllllllllllllllllll2 = llll2.texelSize;
-        lllllllllllllllllllll2 = llllll2.texelSize;
         llllllllllllllllllll2 = lllll2.texelSize;
+        llllllllllllllllllllll2 = lllllll2.texelSize;
+        lllllllllllllllllllll2 = llllll2.texelSize;
 #else
-        lllllllllllllllllll2 = lllllll2;
-        lllllllllllllllllllll2 = lllllllll2;
         llllllllllllllllllll2 = llllllll2;
+        llllllllllllllllllllll2 = llllllllll2;
+        lllllllllllllllllllll2 = lllllllll2;
 #endif
-        if (lllll1 < 0)
+        if (llllll1 < 0)
         {
-            lllll1 = 0;
+            llllll1 = 0;
         }
-        half llllllllllllllllllllll2 = 0;
+        half lllllllllllllllllllllll2 = 0;
         if (lllllllllllll0 == 0) 
         {
             if (llllllllllllll0 == 0 || llllllllllllll0 == 1)
             {
-                float3 lllllllllllllllllllllll2 = float3(0, 0, 0);
+                float3 llllllllllllllllllllllll2 = float3(0, 0, 0);
                 if (llllllllllllll0 == 0) 
                 {
-                    lllllllllllllllllllllll2 = lllllllllllll2 / (-1.0 * abs(lllllllllllllllll0));
+                    llllllllllllllllllllllll2 = llllllllllllll2 / (-1.0 * abs(lllllllllllllllll0));
                 }
                 else 
                 {
-                    lllllllllllllllllllllll2 = d.worldSpacePosition / (-1.0 * abs(lllllllllllllllll0));
+                    llllllllllllllllllllllll2 = d.worldSpacePosition / (-1.0 * abs(lllllllllllllllll0));
                 }
-                if (lllllllllllllllllllllll1)
+                if (llllllllllllllllllllllll1)
                 {
-                    lllllllllllllllllllllll2 = lllllllllllllllllllllll2 + abs(((llllllllllllll2) * llllllllllllllllllllllll1));
+                    llllllllllllllllllllllll2 = llllllllllllllllllllllll2 + abs(((lllllllllllllll2) * lllllllllllllllllllllllll1));
                 }
-                float3 llllllllllllllllllllllll2 = tex2D(llll2, lllllllllllllllllllllll2.yz).rgb;
-                float3 lllllllllllllllllllllllll2 = tex2D(llll2, lllllllllllllllllllllll2.xz).rgb;
-                float3 llllllllllllllllllllllllll2 = tex2D(llll2, lllllllllllllllllllllll2.xy).rgb;
-                float lllllllllllllllllllllllllll2 = abs(d.worldSpaceNormal.x);
-                float llllllllllllllllllllllllllll2 = abs(d.worldSpaceNormal.z);
-                float3 lllllllllllllllllllllllllllll2 = lerp(lllllllllllllllllllllllll2, llllllllllllllllllllllll2, lllllllllllllllllllllllllll2).rgb;
-                float3 llllllllllllllllllllllllllllll2 = lerp(lllllllllllllllllllllllllllll2, llllllllllllllllllllllllll2, llllllllllllllllllllllllllll2).rgb;
-                llllllllllllllllllllll2 = llllllllllllllllllllllllllllll2.r;
+                float3 lllllllllllllllllllllllll2 = tex2D(lllll2, llllllllllllllllllllllll2.yz).rgb;
+                float3 llllllllllllllllllllllllll2 = tex2D(lllll2, llllllllllllllllllllllll2.xz).rgb;
+                float3 lllllllllllllllllllllllllll2 = tex2D(lllll2, llllllllllllllllllllllll2.xy).rgb;
+                float llllllllllllllllllllllllllll2 = abs(d.worldSpaceNormal.x);
+                float lllllllllllllllllllllllllllll2 = abs(d.worldSpaceNormal.z);
+                float3 llllllllllllllllllllllllllllll2 = lerp(llllllllllllllllllllllllll2, lllllllllllllllllllllllll2, llllllllllllllllllllllllllll2).rgb;
+                float3 lllllllllllllllllllllllllllllll2 = lerp(llllllllllllllllllllllllllllll2, lllllllllllllllllllllllllll2, lllllllllllllllllllllllllllll2).rgb;
+                lllllllllllllllllllllll2 = lllllllllllllllllllllllllllllll2.r;
             }
             else if (llllllllllllll0 == 2) 
             {
-                float2 lllllllllllllllllllllllllllllll2 = lllll0.xy / max(0.01, lllll0.w);
-                if (lllllllllllllllllllllll1)
+                float2 l3 = lllll0.xy / max(0.01, lllll0.w);
+                if (llllllllllllllllllllllll1)
                 {
-                    lllllllllllllllllllllllllllllll2 = lllllllllllllllllllllllllllllll2 + abs(((llllllllllllll2) * llllllllllllllllllllllll1));
+                    l3 = l3 + abs(((lllllllllllllll2) * lllllllllllllllllllllllll1));
                 }
-                float2 l3 = lllllllllllllllllllllllllllllll2 * _ScreenParams.xy;                
-                float2 ll3 = frac(l3 * lllllllllllllllllll2.xy); 
-                float lll3 = tex2D(llll2, ll3 * abs(lllllllllllllllll0)).r;
-                llllllllllllllllllllll2 = lll3;
+                float2 ll3 = l3 * _ScreenParams.xy;                
+                float2 lll3 = frac(ll3 * llllllllllllllllllll2.xy); 
+                float llll3 = tex2D(lllll2, lll3 * abs(lllllllllllllllll0)).r;
+                lllllllllllllllllllllll2 = llll3;
             }
         }
         else if (lllllllllllll0 == 1) 
         {
-            float4 llll3 = float4(lllll0.xy / max(0.01, lllll0.w), 0, 0);
-            float2 lllll3 = llll3 * _ScreenParams.xy;
+            float4 lllll3 = float4(lllll0.xy / max(0.01, lllll0.w), 0, 0);
+            float2 llllll3 = lllll3 * _ScreenParams.xy;
             float DITHER_THRESHOLDS[16] =
             {
                 1.0 / 17.0, 9.0 / 17.0, 3.0 / 17.0, 11.0 / 17.0,
@@ -154,357 +155,357 @@ void DoSeeThroughShading(
                 4.0 / 17.0, 12.0 / 17.0, 2.0 / 17.0, 10.0 / 17.0,
                 16.0 / 17.0, 8.0 / 17.0, 14.0 / 17.0, 6.0 / 17.0
             };
-            uint llllllllllllllllll7 = (uint(lllll3.x) % 4) * 4 + uint(lllll3.y) % 4;
-            llllllllllllllllllllll2 = DITHER_THRESHOLDS[llllllllllllllllll7];
+            uint llllllllllllllllllllll7 = (uint(llllll3.x) % 4) * 4 + uint(llllll3.y) % 4;
+            lllllllllllllllllllllll2 = DITHER_THRESHOLDS[llllllllllllllllllllll7];
         }
         else 
         {
-            llllllllllllllllllllll2 = 0.5; 
+            lllllllllllllllllllllll2 = 0.5; 
         }
-        float3 lllllll3 = UNITY_MATRIX_V[2].xyz;
+        float3 llllllll3 = UNITY_MATRIX_V[2].xyz;
 #ifdef _HDRP
-                lllllll3 =  mul(UNITY_MATRIX_M, transpose(mul(UNITY_MATRIX_I_M, UNITY_MATRIX_I_V)) [2]).xyz;
+                llllllll3 =  mul(UNITY_MATRIX_M, transpose(mul(UNITY_MATRIX_I_M, UNITY_MATRIX_I_V)) [2]).xyz;
 #else
-        lllllll3 = mul(UNITY_MATRIX_M, transpose(mul(UNITY_MATRIX_I_M, UNITY_MATRIX_I_V))[2]).xyz;
+        llllllll3 = mul(UNITY_MATRIX_M, transpose(mul(UNITY_MATRIX_I_M, UNITY_MATRIX_I_V))[2]).xyz;
 #endif
-        float llllllll3 = 0;
         float lllllllll3 = 0;
-        float llllllllll3 = 1;
-        bool lllllllllll3 = false;
-        float llllllllllll3 = 0;
+        float llllllllll3 = 0;
+        float lllllllllll3 = 1;
+        bool llllllllllll3 = false;
         float lllllllllllll3 = 0;
         float llllllllllllll3 = 0;
         float lllllllllllllll3 = 0;
         float llllllllllllllll3 = 0;
         float lllllllllllllllll3 = 0;
+        float llllllllllllllllll3 = 0;
 #if defined(_ZONING)  
-                if(lllllllllllllllllllllllllll1) {
-                    float llllllllllllllllll3 = 0;
+                if(llllllllllllllllllllllllllll1) {
+                    float lllllllllllllllllll3 = 0;
                     for (int z = 0; z < _ZonesDataCount; z++){
-                        bool lllllllllllllllllll3 = false;
-                        float llllllllllllllllllll3 = llllllllllllllllll3;
-                        if (_ZDFA[llllllllllllllllll3 + 1] == 0) { 
+                        bool llllllllllllllllllll3 = false;
+                        float lllllllllllllllllllll3 = lllllllllllllllllll3;
+                        if (_ZDFA[lllllllllllllllllll3 + 1] == 0) { 
 #if !_EXCLUDE_ZONEBOXES
-                            float lllllllllllllllllllll3 = llllllllllllllllll3 + 2; 
-                            float3 llllllllllllllllllllll3 = d.worldSpacePosition - float3(_ZDFA[lllllllllllllllllllll3],_ZDFA[lllllllllllllllllllll3+1], _ZDFA[lllllllllllllllllllll3+2]);
-                            float3 lllllllllllllllllllllll3 =     float3(_ZDFA[lllllllllllllllllllll3+ 3],_ZDFA[lllllllllllllllllllll3+ 4], _ZDFA[lllllllllllllllllllll3+ 5]);
-                            float3 llllllllllllllllllllllll3 =     float3(_ZDFA[lllllllllllllllllllll3+ 6],_ZDFA[lllllllllllllllllllll3+ 7], _ZDFA[lllllllllllllllllllll3+ 8]);
-                            float3 lllllllllllllllllllllllll3 =     float3(_ZDFA[lllllllllllllllllllll3+ 9],_ZDFA[lllllllllllllllllllll3+10], _ZDFA[lllllllllllllllllllll3+11]);
-                            float3 llllllllllllllllllllllllll3 = float3(_ZDFA[lllllllllllllllllllll3+12],_ZDFA[lllllllllllllllllllll3+13], _ZDFA[lllllllllllllllllllll3+14]);
-                            float lllllllllllllllllllllllllll3 = abs(dot(llllllllllllllllllllll3, lllllllllllllllllllllll3));
-                            float llllllllllllllllllllllllllll3 = abs(dot(llllllllllllllllllllll3, llllllllllllllllllllllll3));
-                            float lllllllllllllllllllllllllllll3 = abs(dot(llllllllllllllllllllll3, lllllllllllllllllllllllll3));
-                            lllllllllllllllllll3 =    lllllllllllllllllllllllllll3 <= llllllllllllllllllllllllll3.x &&
-                                        llllllllllllllllllllllllllll3 <= llllllllllllllllllllllllll3.y &&
-                                        lllllllllllllllllllllllllllll3 <= llllllllllllllllllllllllll3.z;
-                            if(lllllllllllllllllll3 && lllllllllllllllll1 == 1 && lllllllllllllllllllllllllllllll1) {
-                                llllllllllllll3 = _ZDFA[lllllllllllllllllllll3+1] - _ZDFA[lllllllllllllllllllll3+13];  
-                                if(llllllllllllllllll1 == 0) {                                    
-                                    bool llllllllllllllllllllllllllllll3 = ((llllllllllllll3 - l2)  <= lllllllllllllllllll1); 
-                                    if(!llllllllllllllllllllllllllllll3) {
-                                        lllllllllllllllllll3 = false;
+                            float llllllllllllllllllllll3 = lllllllllllllllllll3 + 2; 
+                            float3 lllllllllllllllllllllll3 = d.worldSpacePosition - float3(_ZDFA[llllllllllllllllllllll3],_ZDFA[llllllllllllllllllllll3+1], _ZDFA[llllllllllllllllllllll3+2]);
+                            float3 llllllllllllllllllllllll3 =     float3(_ZDFA[llllllllllllllllllllll3+ 3],_ZDFA[llllllllllllllllllllll3+ 4], _ZDFA[llllllllllllllllllllll3+ 5]);
+                            float3 lllllllllllllllllllllllll3 =     float3(_ZDFA[llllllllllllllllllllll3+ 6],_ZDFA[llllllllllllllllllllll3+ 7], _ZDFA[llllllllllllllllllllll3+ 8]);
+                            float3 llllllllllllllllllllllllll3 =     float3(_ZDFA[llllllllllllllllllllll3+ 9],_ZDFA[llllllllllllllllllllll3+10], _ZDFA[llllllllllllllllllllll3+11]);
+                            float3 lllllllllllllllllllllllllll3 = float3(_ZDFA[llllllllllllllllllllll3+12],_ZDFA[llllllllllllllllllllll3+13], _ZDFA[llllllllllllllllllllll3+14]);
+                            float llllllllllllllllllllllllllll3 = abs(dot(lllllllllllllllllllllll3, llllllllllllllllllllllll3));
+                            float lllllllllllllllllllllllllllll3 = abs(dot(lllllllllllllllllllllll3, lllllllllllllllllllllllll3));
+                            float llllllllllllllllllllllllllllll3 = abs(dot(lllllllllllllllllllllll3, llllllllllllllllllllllllll3));
+                            llllllllllllllllllll3 =    llllllllllllllllllllllllllll3 <= lllllllllllllllllllllllllll3.x &&
+                                        lllllllllllllllllllllllllllll3 <= lllllllllllllllllllllllllll3.y &&
+                                        llllllllllllllllllllllllllllll3 <= lllllllllllllllllllllllllll3.z;
+                            if(llllllllllllllllllll3 && llllllllllllllllll1 == 1 && l2) {
+                                lllllllllllllll3 = _ZDFA[llllllllllllllllllllll3+1] - _ZDFA[llllllllllllllllllllll3+13];  
+                                if(lllllllllllllllllll1 == 0) {                                    
+                                    bool lllllllllllllllllllllllllllllll3 = ((lllllllllllllll3 - ll2)  <= llllllllllllllllllll1); 
+                                    if(!lllllllllllllllllllllllllllllll3) {
+                                        llllllllllllllllllll3 = false;
                                     }
                                 }
                             }
-                            if(lllllllllllllllllll3) {
-                                float lllllllllllllllllllllllllllllll3 = llllllllllllllllllllllllll3.x - lllllllllllllllllllllllllll3;
-                                float l4 = llllllllllllllllllllllllll3.y - llllllllllllllllllllllllllll3;
-                                float ll4 = llllllllllllllllllllllllll3.z - lllllllllllllllllllllllllllll3;
-                                float lll4 = min(l4,lllllllllllllllllllllllllllllll3);
-                                lll4 = min(lll4,ll4);
-                                lllllllllllll3 = max(lll4,lllllllllllll3);
-                                if(lll4<0) {
-                                    lllllllllllll3 = 0;
+                            if(llllllllllllllllllll3) {
+                                float l4 = lllllllllllllllllllllllllll3.x - llllllllllllllllllllllllllll3;
+                                float ll4 = lllllllllllllllllllllllllll3.y - lllllllllllllllllllllllllllll3;
+                                float lll4 = lllllllllllllllllllllllllll3.z - llllllllllllllllllllllllllllll3;
+                                float llll4 = min(ll4,l4);
+                                llll4 = min(llll4,lll4);
+                                llllllllllllll3 = max(llll4,llllllllllllll3);
+                                if(llll4<0) {
+                                    llllllllllllll3 = 0;
                                 }
                             }
-                            if (lllllllllllllllllll3)
+                            if (llllllllllllllllllll3)
                             {
-                                if (lllllllllll3 == false)
+                                if (llllllllllll3 == false)
                                 {
-                                    llllllllllll3 = _ZDFA[llllllllllllllllllll3];
-                                    lllllllllll3 = true;
-                                    lllllllllllllll3 = _ZDFA[llllllllllllllllllll3 + 17];
-                                    lllllllllllllllll3 = _ZDFA[llllllllllllllllllll3 + 18];
-                                    llllllllllllllll3 = _ZDFA[llllllllllllllllllll3 + 19];
+                                    lllllllllllll3 = _ZDFA[lllllllllllllllllllll3];
+                                    llllllllllll3 = true;
+                                    llllllllllllllll3 = _ZDFA[lllllllllllllllllllll3 + 17];
+                                    llllllllllllllllll3 = _ZDFA[lllllllllllllllllllll3 + 18];
+                                    lllllllllllllllll3 = _ZDFA[lllllllllllllllllllll3 + 19];
                                 }                     
                             }
 #endif        
-                            llllllllllllllllll3 = llllllllllllllllll3 + 17 + 3;
-                        } else if (_ZDFA[llllllllllllllllll3 + 1] == 1) { 
+                            lllllllllllllllllll3 = lllllllllllllllllll3 + 17 + 3;
+                        } else if (_ZDFA[lllllllllllllllllll3 + 1] == 1) { 
 #if !_EXCLUDE_ZONESPHERES
-                            float llll4 = llllllllllllllllll3 + 2; 
-                            float3 lllll4 = float3(_ZDFA[llll4], _ZDFA[llll4 + 1], _ZDFA[llll4 + 2]);
-                            float llllll4 = _ZDFA[llll4 + 3];
-                            float lllllll4 = distance(d.worldSpacePosition, lllll4);
-                            lllllllllllllllllll3 = lllllll4 < llllll4;
-                            if (lllllllllllllllllll3 && lllllllllllllllll1 == 1 && lllllllllllllllllllllllllllllll1)
+                            float lllll4 = lllllllllllllllllll3 + 2; 
+                            float3 llllll4 = float3(_ZDFA[lllll4], _ZDFA[lllll4 + 1], _ZDFA[lllll4 + 2]);
+                            float lllllll4 = _ZDFA[lllll4 + 3];
+                            float llllllll4 = distance(d.worldSpacePosition, llllll4);
+                            llllllllllllllllllll3 = llllllll4 < lllllll4;
+                            if (llllllllllllllllllll3 && llllllllllllllllll1 == 1 && l2)
                             {
-                                llllllllllllll3 = _ZDFA[llll4 + 1] - _ZDFA[llll4 + 3];
-                                if (llllllllllllllllll1 == 0)
+                                lllllllllllllll3 = _ZDFA[lllll4 + 1] - _ZDFA[lllll4 + 3];
+                                if (lllllllllllllllllll1 == 0)
                                 {
-                                    bool llllllllllllllllllllllllllllll3 = ((llllllllllllll3 - l2) <= lllllllllllllllllll1);
-                                    if (!llllllllllllllllllllllllllllll3)
+                                    bool lllllllllllllllllllllllllllllll3 = ((lllllllllllllll3 - ll2) <= llllllllllllllllllll1);
+                                    if (!lllllllllllllllllllllllllllllll3)
                                     {
-                                        lllllllllllllllllll3 = false;
+                                        llllllllllllllllllll3 = false;
                                     }
                                 }
                             }
-                            if (lllllllllllllllllll3)
+                            if (llllllllllllllllllll3)
                             {
-                                if (lllllllllll3 == false)
+                                if (llllllllllll3 == false)
                                 {
-                                    llllllllllll3 = _ZDFA[llllllllllllllllllll3];
-                                    lllllllllll3 = true;
-                                    lllllllllllllll3 = _ZDFA[llllllllllllllllllll3 + 6];
-                                    lllllllllllllllll3 = _ZDFA[llllllllllllllllllll3 + 7];
-                                    llllllllllllllll3 = _ZDFA[llllllllllllllllllll3 + 8];
+                                    lllllllllllll3 = _ZDFA[lllllllllllllllllllll3];
+                                    llllllllllll3 = true;
+                                    llllllllllllllll3 = _ZDFA[lllllllllllllllllllll3 + 6];
+                                    llllllllllllllllll3 = _ZDFA[lllllllllllllllllllll3 + 7];
+                                    lllllllllllllllll3 = _ZDFA[lllllllllllllllllllll3 + 8];
                                 }
                             }
-                            if (lllllllllllllllllll3)
+                            if (llllllllllllllllllll3)
                              {
-                                float lll4 = max(0, (llllll4 - lllllll4));
-                                lllllllllllll3 = max(lll4, lllllllllllll3);
+                                float llll4 = max(0, (lllllll4 - llllllll4));
+                                llllllllllllll3 = max(llll4, llllllllllllll3);
                             }
 #endif
-                            llllllllllllllllll3 = llllllllllllllllll3 + 6 + 3;
-                        } else if (_ZDFA[llllllllllllllllll3 + 1] == 2) { 
+                            lllllllllllllllllll3 = lllllllllllllllllll3 + 6 + 3;
+                        } else if (_ZDFA[lllllllllllllllllll3 + 1] == 2) { 
 #if !_EXCLUDE_ZONECYLINDERS
-                            float llllllllll4 = llllllllllllllllll3 + 2;
-                            float3 lllllllllll4 = float3(_ZDFA[llllllllll4], _ZDFA[llllllllll4 + 1], _ZDFA[llllllllll4 + 2]);
-                            float3 llllllllllll4 = float3(_ZDFA[llllllllll4 + 3], _ZDFA[llllllllll4 + 4], _ZDFA[llllllllll4 + 5]);
-                            float lllllllllllll4 = dot(d.worldSpacePosition.xyz - lllllllllll4, llllllllllll4);
-                            float llllllllllllll4 = _ZDFA[llllllllll4 + 6];
-                            float lllllllllllllll4 = _ZDFA[llllllllll4 + 7];
-                            float llllllllllllllll4 = length((d.worldSpacePosition.xyz - lllllllllll4) - lllllllllllll4 * llllllllllll4);
-                            lllllllllllllllllll3 = (abs(lllllllllllll4) < lllllllllllllll4/2) && (llllllllllllllll4 < llllllllllllll4);
-                            if (lllllllllllllllllll3)
+                            float lllllllllll4 = lllllllllllllllllll3 + 2;
+                            float3 llllllllllll4 = float3(_ZDFA[lllllllllll4], _ZDFA[lllllllllll4 + 1], _ZDFA[lllllllllll4 + 2]);
+                            float3 lllllllllllll4 = float3(_ZDFA[lllllllllll4 + 3], _ZDFA[lllllllllll4 + 4], _ZDFA[lllllllllll4 + 5]);
+                            float llllllllllllll4 = dot(d.worldSpacePosition.xyz - llllllllllll4, lllllllllllll4);
+                            float lllllllllllllll4 = _ZDFA[lllllllllll4 + 6];
+                            float llllllllllllllll4 = _ZDFA[lllllllllll4 + 7];
+                            float lllllllllllllllll4 = length((d.worldSpacePosition.xyz - llllllllllll4) - llllllllllllll4 * lllllllllllll4);
+                            llllllllllllllllllll3 = (abs(llllllllllllll4) < llllllllllllllll4/2) && (lllllllllllllllll4 < lllllllllllllll4);
+                            if (llllllllllllllllllll3)
                             {
-                                if (lllllllllll3 == false)
+                                if (llllllllllll3 == false)
                                 {
-                                    llllllllllll3 = _ZDFA[llllllllllllllllllll3];
-                                    lllllllllll3 = true;
-                                    lllllllllllllll3 = _ZDFA[llllllllllllllllllll3 + 10];
-                                    lllllllllllllllll3 = _ZDFA[llllllllllllllllllll3 + 11];
-                                    llllllllllllllll3 = _ZDFA[llllllllllllllllllll3 + 12];
+                                    lllllllllllll3 = _ZDFA[lllllllllllllllllllll3];
+                                    llllllllllll3 = true;
+                                    llllllllllllllll3 = _ZDFA[lllllllllllllllllllll3 + 10];
+                                    llllllllllllllllll3 = _ZDFA[lllllllllllllllllllll3 + 11];
+                                    lllllllllllllllll3 = _ZDFA[lllllllllllllllllllll3 + 12];
                                 }
                             }
-                            if (lllllllllllllllllll3)
+                            if (llllllllllllllllllll3)
                             {
-                                float lll4 = max(0, (llllllllllllll4 - llllllllllllllll4));
-                                lll4 = min(lll4, (lllllllllllllll4/2 - abs(lllllllllllll4)));
-                                lllllllllllll3 = max(lll4, lllllllllllll3);
+                                float llll4 = max(0, (lllllllllllllll4 - lllllllllllllllll4));
+                                llll4 = min(llll4, (llllllllllllllll4/2 - abs(llllllllllllll4)));
+                                llllllllllllll3 = max(llll4, llllllllllllll3);
                             }
 #endif
-                            llllllllllllllllll3 = llllllllllllllllll3 + 10 + 3;
+                            lllllllllllllllllll3 = lllllllllllllllllll3 + 10 + 3;
                         }
-                        else if (_ZDFA[llllllllllllllllll3 + 1] == 3) { 
+                        else if (_ZDFA[lllllllllllllllllll3 + 1] == 3) { 
 #if !_EXCLUDE_ZONECONES
-                            float llllllllll4 = llllllllllllllllll3 + 2;
-                            float3 lllllllllll4 = float3(_ZDFA[llllllllll4], _ZDFA[llllllllll4 + 1], _ZDFA[llllllllll4 + 2]);
-                            float3 llllllllllll4 = float3(_ZDFA[llllllllll4 + 3], _ZDFA[llllllllll4 + 4], _ZDFA[llllllllll4 + 5]);
-                            float lllllllllllll4 = dot(d.worldSpacePosition.xyz - lllllllllll4, llllllllllll4);
-                            float llllllllllllllllllllll4 = _ZDFA[llllllllll4 + 6];
-                            float lllllllllllllllllllllll4 = _ZDFA[llllllllll4 + 7];
-                            float3 llllllllllllllllllllllll4 = lllllllllll4 + (llllllllllll4 * lllllllllllllllllllllll4/2); 
-                            float lllllllllllllllllllllllll4 = dot(llllllllllllllllllllllll4 - d.worldSpacePosition.xyz, llllllllllll4);
-                            float llllllllllllllllllllllllll4 = (lllllllllllllllllllllllll4 / lllllllllllllllllllllll4) * llllllllllllllllllllll4;
-                            float llllllllllllllll4 = length((llllllllllllllllllllllll4 - d.worldSpacePosition.xyz) - lllllllllllllllllllllllll4 * llllllllllll4);        
-                            lllllllllllllllllll3 = (abs(lllllllllllll4) < lllllllllllllllllllllll4/2) && (llllllllllllllll4 < llllllllllllllllllllllllll4);
-                            if (lllllllllllllllllll3)
+                            float lllllllllll4 = lllllllllllllllllll3 + 2;
+                            float3 llllllllllll4 = float3(_ZDFA[lllllllllll4], _ZDFA[lllllllllll4 + 1], _ZDFA[lllllllllll4 + 2]);
+                            float3 lllllllllllll4 = float3(_ZDFA[lllllllllll4 + 3], _ZDFA[lllllllllll4 + 4], _ZDFA[lllllllllll4 + 5]);
+                            float llllllllllllll4 = dot(d.worldSpacePosition.xyz - llllllllllll4, lllllllllllll4);
+                            float lllllllllllllllllllllll4 = _ZDFA[lllllllllll4 + 6];
+                            float llllllllllllllllllllllll4 = _ZDFA[lllllllllll4 + 7];
+                            float3 lllllllllllllllllllllllll4 = llllllllllll4 + (lllllllllllll4 * llllllllllllllllllllllll4/2); 
+                            float llllllllllllllllllllllllll4 = dot(lllllllllllllllllllllllll4 - d.worldSpacePosition.xyz, lllllllllllll4);
+                            float lllllllllllllllllllllllllll4 = (llllllllllllllllllllllllll4 / llllllllllllllllllllllll4) * lllllllllllllllllllllll4;
+                            float lllllllllllllllll4 = length((lllllllllllllllllllllllll4 - d.worldSpacePosition.xyz) - llllllllllllllllllllllllll4 * lllllllllllll4);        
+                            llllllllllllllllllll3 = (abs(llllllllllllll4) < llllllllllllllllllllllll4/2) && (lllllllllllllllll4 < lllllllllllllllllllllllllll4);
+                            if (llllllllllllllllllll3)
                             {
-                                if (lllllllllll3 == false)
+                                if (llllllllllll3 == false)
                                 {
-                                    llllllllllll3 = _ZDFA[llllllllllllllllllll3];
-                                    lllllllllll3 = true;
-                                    lllllllllllllll3 = _ZDFA[llllllllllllllllllll3 + 10];
-                                    lllllllllllllllll3 = _ZDFA[llllllllllllllllllll3 + 11];
-                                    llllllllllllllll3 = _ZDFA[llllllllllllllllllll3 + 12];
+                                    lllllllllllll3 = _ZDFA[lllllllllllllllllllll3];
+                                    llllllllllll3 = true;
+                                    llllllllllllllll3 = _ZDFA[lllllllllllllllllllll3 + 10];
+                                    llllllllllllllllll3 = _ZDFA[lllllllllllllllllllll3 + 11];
+                                    lllllllllllllllll3 = _ZDFA[lllllllllllllllllllll3 + 12];
                                 }
                             }
-                            if (lllllllllllllllllll3)
+                            if (llllllllllllllllllll3)
                             {
-                                float lll4 = max(0, (llllllllllllllllllllllllll4 - llllllllllllllll4));
-                                lll4 = min(lll4, (lllllllllllllllllllllll4 - lllllllllllllllllllllllll4));
-                                lllllllllllll3 = max(lll4, lllllllllllll3);
+                                float llll4 = max(0, (lllllllllllllllllllllllllll4 - lllllllllllllllll4));
+                                llll4 = min(llll4, (llllllllllllllllllllllll4 - llllllllllllllllllllllllll4));
+                                llllllllllllll3 = max(llll4, llllllllllllll3);
                             }
 #endif
-                            llllllllllllllllll3 = llllllllllllllllll3 + 10 + 3;
+                            lllllllllllllllllll3 = lllllllllllllllllll3 + 10 + 3;
                         }
-                        else if (_ZDFA[llllllllllllllllll3 + 1] == 4) { 
+                        else if (_ZDFA[lllllllllllllllllll3 + 1] == 4) { 
 #if !_EXCLUDE_ZONEPLANES
-                            float lllllllllllllllllllllllllllll4 = llllllllllllllllll3 + 2;
-                            float3 llllllllllllllllllllllllllllll4 = float3(_ZDFA[lllllllllllllllllllllllllllll4], _ZDFA[lllllllllllllllllllllllllllll4 + 1], _ZDFA[lllllllllllllllllllllllllllll4 + 2]);
-                            float lllllllllllllllllllllllllllllll4 = _ZDFA[lllllllllllllllllllllllllllll4 + 3];       
-                            float l5 = dot(d.worldSpacePosition.xyz, llllllllllllllllllllllllllllll4.xyz) + lllllllllllllllllllllllllllllll4;
-                            lllllllllllllllllll3 = l5 < 0;
-                            if (lllllllllllllllllll3)
+                            float llllllllllllllllllllllllllllll4 = lllllllllllllllllll3 + 2;
+                            float3 lllllllllllllllllllllllllllllll4 = float3(_ZDFA[llllllllllllllllllllllllllllll4], _ZDFA[llllllllllllllllllllllllllllll4 + 1], _ZDFA[llllllllllllllllllllllllllllll4 + 2]);
+                            float l5 = _ZDFA[llllllllllllllllllllllllllllll4 + 3];       
+                            float ll5 = dot(d.worldSpacePosition.xyz, lllllllllllllllllllllllllllllll4.xyz) + l5;
+                            llllllllllllllllllll3 = ll5 < 0;
+                            if (llllllllllllllllllll3)
                             {
-                                if (lllllllllll3 == false)
+                                if (llllllllllll3 == false)
                                 {
-                                    llllllllllll3 = _ZDFA[llllllllllllllllllll3];
-                                    lllllllllll3 = true;
-                                    lllllllllllllll3 = _ZDFA[llllllllllllllllllll3 + 6];
-                                    lllllllllllllllll3 = _ZDFA[llllllllllllllllllll3 + 7];
-                                    llllllllllllllll3 = _ZDFA[llllllllllllllllllll3 + 8];
+                                    lllllllllllll3 = _ZDFA[lllllllllllllllllllll3];
+                                    llllllllllll3 = true;
+                                    llllllllllllllll3 = _ZDFA[lllllllllllllllllllll3 + 6];
+                                    llllllllllllllllll3 = _ZDFA[lllllllllllllllllllll3 + 7];
+                                    lllllllllllllllll3 = _ZDFA[lllllllllllllllllllll3 + 8];
                                 }
                             }
-                            if (lllllllllllllllllll3)
+                            if (llllllllllllllllllll3)
                             {
-                                float lll4 = max(0, 0 - l5);
-                                lllllllllllll3 = max(lll4, lllllllllllll3);
+                                float llll4 = max(0, 0 - ll5);
+                                llllllllllllll3 = max(llll4, llllllllllllll3);
                             }
 #endif
-                            llllllllllllllllll3 = llllllllllllllllll3 + 6 + 3;
+                            lllllllllllllllllll3 = lllllllllllllllllll3 + 6 + 3;
                         }
                 }
             }
 #endif
-        float lll5 = 0;
-        float llll5 = lllllllllll3;
+        float llll5 = 0;
+        float lllll5 = llllllllllll3;
 #if !defined(_PLAYERINDEPENDENT)
 #if defined(_ZONING)
-                    if(lllllllllll3 && lllllllllllllllll1 == 1 && llllllllllllllllll1 == 1 && lllllllllllllllllllllllllllllll1) {
-                        float lllll5 = 0;
-                        bool llllll5 = false;
+                    if(llllllllllll3 && llllllllllllllllll1 == 1 && lllllllllllllllllll1 == 1 && l2) {
+                        float llllll5 = 0;
+                        bool lllllll5 = false;
                         for (int i = 0; i < _ArrayLength; i++){
-                            float lllllll5 = _PlayersDataFloatArray[lllll5+1]; 
-                            float3 llllllll5 = _PlayersPosVectorArray[lllllll5].xyz - _WorldSpaceCameraPos;               
-                            if(dot(lllllll3,llllllll5) <= 0) {       
-                                if(!llllllllllllllll2) {
-                                    float lllllllll5 = lllll5 + 3;
-                                    float llllllllll5 = 4;
-                                    for (int llllllllllll8 = 0; llllllllllll8 < _PlayersDataFloatArray[lllll5 + 2]; llllllllllll8++){
-                                        float lllllllllll5 = _PlayersDataFloatArray[lllllllll5 + llllllllllll8 * llllllllll5 + 2];
-                                        if (lllllllllll5 != 0 && lllllllllll5 == lllllllll0) {
-                                            float llllllllllll5 = _PlayersDataFloatArray[lllllllll5 + llllllllllll8 * llllllllll5 ];
-                                            float lllllllllllll5 = _PlayersDataFloatArray[lllllllll5 + llllllllllll8 * llllllllll5 + 1];
-                                            if ((lllllllllllll5 == -1 && llllllllllllll2 - llllllllllll5 < lllllllllllllllllllllllll1 )|| (lllllllllllll5 == 1) ) {
-                                                float llllllllllllll5 = _PlayersPosVectorArray[lllllll5].y+ llllllllllllllllllll1;
-                                                if(ll2) {
+                            float llllllll5 = _PlayersDataFloatArray[llllll5+1]; 
+                            float3 lllllllll5 = _PlayersPosVectorArray[llllllll5].xyz - _WorldSpaceCameraPos;               
+                            if(dot(llllllll3,lllllllll5) <= 0) {       
+                                if(!lllllllllllllllll2) {
+                                    float llllllllll5 = llllll5 + 3;
+                                    float lllllllllll5 = 4;
+                                    for (int llllllllllllllll8 = 0; llllllllllllllll8 < _PlayersDataFloatArray[llllll5 + 2]; llllllllllllllll8++){
+                                        float llllllllllll5 = _PlayersDataFloatArray[llllllllll5 + llllllllllllllll8 * lllllllllll5 + 2];
+                                        if (llllllllllll5 != 0 && llllllllllll5 == lllllllll0) {
+                                            float lllllllllllll5 = _PlayersDataFloatArray[llllllllll5 + llllllllllllllll8 * lllllllllll5 ];
+                                            float llllllllllllll5 = _PlayersDataFloatArray[llllllllll5 + llllllllllllllll8 * lllllllllll5 + 1];
+                                            if ((llllllllllllll5 == -1 && lllllllllllllll2 - lllllllllllll5 < llllllllllllllllllllllllll1 )|| (llllllllllllll5 == 1) ) {
+                                                float lllllllllllllll5 = _PlayersPosVectorArray[llllllll5].y+ lllllllllllllllllllll1;
+                                                if(lll2) {
                                                     if(i==0) {
-                                                        lll5 = llllllllllllll5;
+                                                        llll5 = lllllllllllllll5;
                                                     } else {
-                                                        lll5 = max(lll5,llllllllllllll5);
+                                                        llll5 = max(llll5,lllllllllllllll5);
                                                     }
                                                 }
-                                                bool lllllllllllllll5 = llllllllllllll3 >= llllllllllllll5 + l2; 
-                                                if(!lllllllllllllll5) {
-                                                    llllll5 = true;
+                                                bool llllllllllllllll5 = lllllllllllllll3 >= lllllllllllllll5 + ll2; 
+                                                if(!llllllllllllllll5) {
+                                                    lllllll5 = true;
                                                 } 
                                             }                        
                                         }
                                     }
-                                } else if (lllllll1 == 0 || distance(_PlayersPosVectorArray[lllllll5].xyz, d.worldSpacePosition.xyz) < llllll1) {
-                                    float llllllllllllll5 = _PlayersPosVectorArray[lllllll5].y+ llllllllllllllllllll1;
-                                    if(ll2) {
+                                } else if (llllllll1 == 0 || distance(_PlayersPosVectorArray[llllllll5].xyz, d.worldSpacePosition.xyz) < lllllll1) {
+                                    float lllllllllllllll5 = _PlayersPosVectorArray[llllllll5].y+ lllllllllllllllllllll1;
+                                    if(lll2) {
                                         if(i==0) {
-                                            lll5 = llllllllllllll5;
+                                            llll5 = lllllllllllllll5;
                                         } else {
-                                            lll5 = max(lll5,llllllllllllll5);
+                                            llll5 = max(llll5,lllllllllllllll5);
                                         }
                                     }
-                                    bool lllllllllllllll5 = llllllllllllll3 >= llllllllllllll5 + l2; 
-                                    if(!lllllllllllllll5) {
-                                        llllll5 = true;
+                                    bool llllllllllllllll5 = lllllllllllllll3 >= lllllllllllllll5 + ll2; 
+                                    if(!llllllllllllllll5) {
+                                        lllllll5 = true;
                                     } 
                                 }
-                                lllll5 = lllll5 + _PlayersDataFloatArray[lllll5 + 2]*4 + 3; 
-                                lllll5 = lllll5 + _PlayersDataFloatArray[lllll5]*4 + 1; 
+                                llllll5 = llllll5 + _PlayersDataFloatArray[llllll5 + 2]*4 + 3; 
+                                llllll5 = llllll5 + _PlayersDataFloatArray[llllll5]*4 + 1; 
                             }
                         }
-                        if(!llllll5) {
-                            lllllllllll3 = false;
+                        if(!lllllll5) {
+                            llllllllllll3 = false;
                         }
                     }
 #endif
-        float lllll5 = 0;
+        float llllll5 = 0;
         for (int i = 0; i < _ArrayLength; i++)
         {
-            float lllllll5 = _PlayersDataFloatArray[lllll5 + 1];
-            if (sign(_PlayersPosVectorArray[lllllll5].w) != -1) 
+            float llllllll5 = _PlayersDataFloatArray[llllll5 + 1];
+            if (sign(_PlayersPosVectorArray[llllllll5].w) != -1) 
             {
-                float3 llllllll5 = _PlayersPosVectorArray[lllllll5].xyz - _WorldSpaceCameraPos;
-                float lllllllllllllllllllll5 = 0;
-                float llllllllll5 = 4;
-                if (!llllllllllllllll2)
+                float3 lllllllll5 = _PlayersPosVectorArray[llllllll5].xyz - _WorldSpaceCameraPos;
+                float llllllllllllllllllllll5 = 0;
+                float lllllllllll5 = 4;
+                if (!lllllllllllllllll2)
                 {
-                    float lllllllll5 = lllll5 + 3;
-                    for (int llllllllllll8 = 0; llllllllllll8 < _PlayersDataFloatArray[lllll5 + 2]; llllllllllll8++)
+                    float llllllllll5 = llllll5 + 3;
+                    for (int llllllllllllllll8 = 0; llllllllllllllll8 < _PlayersDataFloatArray[llllll5 + 2]; llllllllllllllll8++)
                     {
-                        float lllllllllll5 = _PlayersDataFloatArray[lllllllll5 + llllllllllll8 * llllllllll5 + 2];
-                        if (lllllllllll5 != 0 && lllllllllll5 == lllllllll0)
+                        float llllllllllll5 = _PlayersDataFloatArray[llllllllll5 + llllllllllllllll8 * lllllllllll5 + 2];
+                        if (llllllllllll5 != 0 && llllllllllll5 == lllllllll0)
                         {
-                            float llllllllllll5 = _PlayersDataFloatArray[lllllllll5 + llllllllllll8 * llllllllll5];
-                            float lllllllllllll5 = _PlayersDataFloatArray[lllllllll5 + llllllllllll8 * llllllllll5 + 1];
-                            lllllllllllllllllllll5 = 1;
-                            if (lllllllllllll5 != 0 && llllllllllll5 != 0 && llllllllllllll2 - llllllllllll5 < lllllllllllllllllllllllll1)
+                            float lllllllllllll5 = _PlayersDataFloatArray[llllllllll5 + llllllllllllllll8 * lllllllllll5];
+                            float llllllllllllll5 = _PlayersDataFloatArray[llllllllll5 + llllllllllllllll8 * lllllllllll5 + 1];
+                            llllllllllllllllllllll5 = 1;
+                            if (llllllllllllll5 != 0 && lllllllllllll5 != 0 && lllllllllllllll2 - lllllllllllll5 < llllllllllllllllllllllllll1)
                             {
-                                if (lllllllllllll5 == 1)
+                                if (llllllllllllll5 == 1)
                                 {
-                                    lllllllllllllllllllll5 = ((lllllllllllllllllllllllll1 - (llllllllllllll2 - llllllllllll5)) / lllllllllllllllllllllllll1);
+                                    llllllllllllllllllllll5 = ((llllllllllllllllllllllllll1 - (lllllllllllllll2 - lllllllllllll5)) / llllllllllllllllllllllllll1);
                                 }
                                 else
                                 {
-                                    lllllllllllllllllllll5 = ((llllllllllllll2 - llllllllllll5) / lllllllllllllllllllllllll1);
+                                    llllllllllllllllllllll5 = ((lllllllllllllll2 - lllllllllllll5) / llllllllllllllllllllllllll1);
                                 }
                             }
-                            else if (lllllllllllll5 == -1)
+                            else if (llllllllllllll5 == -1)
                             {
-                                lllllllllllllllllllll5 = 1;
+                                llllllllllllllllllllll5 = 1;
                             }
-                            else if (lllllllllllll5 == 1)
+                            else if (llllllllllllll5 == 1)
                             {
-                                lllllllllllllllllllll5 = 0;
+                                llllllllllllllllllllll5 = 0;
                             }
                             else
                             {
-                                lllllllllllllllllllll5 = 1;
+                                llllllllllllllllllllll5 = 1;
                             }
-                            lllllllllllllllllllll5 = 1 - lllllllllllllllllllll5;
+                            llllllllllllllllllllll5 = 1 - llllllllllllllllllllll5;
                         }
                     }
                 }
-                lllll5 = lllll5 + _PlayersDataFloatArray[lllll5 + 2] * 4 + 3;
-                float lllllllllllllllllllllllllll5 = 0;
+                llllll5 = llllll5 + _PlayersDataFloatArray[llllll5 + 2] * 4 + 3;
                 float llllllllllllllllllllllllllll5 = 0;
                 float lllllllllllllllllllllllllllll5 = 0;
-                float llllllllllllllllllllllllllllll5 = llllllllllllllllllllllllllll5;
-                bool lllllllllllllllllllllllllllllll5 = distance(_PlayersPosVectorArray[lllllll5].xyz, d.worldSpacePosition) > llllll1;
-                if ((lllllllllllllllllllll5 != 0) || ((!llllllllll0 && !lllllllllll0) && (lllllll1 == 0 || !lllllllllllllllllllllllllllllll5)))
+                float llllllllllllllllllllllllllllll5 = 0;
+                float lllllllllllllllllllllllllllllll5 = lllllllllllllllllllllllllllll5;
+                bool l6 = distance(_PlayersPosVectorArray[llllllll5].xyz, d.worldSpacePosition) > lllllll1;
+                if ((llllllllllllllllllllll5 != 0) || ((!llllllllll0 && !lllllllllll0) && (llllllll1 == 0 || !l6)))
                 {
 #if defined(_ZONING)
-                            if(lllllllllllllllllllllllllll1) {
-                                if(lllllllllll3) 
+                            if(llllllllllllllllllllllllllll1) {
+                                if(llllllllllll3) 
                                 {
-                                    if(lllllllllllllllllllllllllllll1) {
-                                        float lllllllll5 = lllll5 + 1;
-                                        for (int llllllllllll8 = 0; llllllllllll8 < _PlayersDataFloatArray[lllll5]; llllllllllll8++){
-                                            float lllllllllll5 = _PlayersDataFloatArray[lllllllll5 + llllllllllll8 * llllllllll5 + 2];
-                                            if (lllllllllll5 != 0 && lllllllllll5 == llllllllllll3) {
-                                                float llllllllllll5 = _PlayersDataFloatArray[lllllllll5 + llllllllllll8 * llllllllll5 ];
-                                                float lllllllllllll5 = _PlayersDataFloatArray[lllllllll5 + llllllllllll8 * llllllllll5 + 1];
-                                                lllllllllllllllllllllllllll5 = 1;
-                                                float lllll6 = _PlayersDataFloatArray[lllllllll5 + llllllllllll8 * llllllllll5 + 3];
-                                                if( lllllllllllll5!= 0 && llllllllllll5 != 0 && llllllllllllll2-llllllllllll5 < lllll6) {
-                                                    if(lllllllllllll5 == 1) {
-                                                        lllllllllllllllllllllllllll5 = ((lllll6-(llllllllllllll2-llllllllllll5))/lllll6);
+                                    if(llllllllllllllllllllllllllllll1) {
+                                        float llllllllll5 = llllll5 + 1;
+                                        for (int llllllllllllllll8 = 0; llllllllllllllll8 < _PlayersDataFloatArray[llllll5]; llllllllllllllll8++){
+                                            float llllllllllll5 = _PlayersDataFloatArray[llllllllll5 + llllllllllllllll8 * lllllllllll5 + 2];
+                                            if (llllllllllll5 != 0 && llllllllllll5 == lllllllllllll3) {
+                                                float lllllllllllll5 = _PlayersDataFloatArray[llllllllll5 + llllllllllllllll8 * lllllllllll5 ];
+                                                float llllllllllllll5 = _PlayersDataFloatArray[llllllllll5 + llllllllllllllll8 * lllllllllll5 + 1];
+                                                llllllllllllllllllllllllllll5 = 1;
+                                                float llllll6 = _PlayersDataFloatArray[llllllllll5 + llllllllllllllll8 * lllllllllll5 + 3];
+                                                if( llllllllllllll5!= 0 && lllllllllllll5 != 0 && lllllllllllllll2-lllllllllllll5 < llllll6) {
+                                                    if(llllllllllllll5 == 1) {
+                                                        llllllllllllllllllllllllllll5 = ((llllll6-(lllllllllllllll2-lllllllllllll5))/llllll6);
                                                     } else {
-                                                        lllllllllllllllllllllllllll5 = ((llllllllllllll2-llllllllllll5)/lllll6);
+                                                        llllllllllllllllllllllllllll5 = ((lllllllllllllll2-lllllllllllll5)/llllll6);
                                                     }
-                                                } else if(lllllllllllll5 ==-1) {
-                                                    lllllllllllllllllllllllllll5 = 1;
-                                                } else if(lllllllllllll5 == 1) {
-                                                    lllllllllllllllllllllllllll5 = 0;
+                                                } else if(llllllllllllll5 ==-1) {
+                                                    llllllllllllllllllllllllllll5 = 1;
+                                                } else if(llllllllllllll5 == 1) {
+                                                    llllllllllllllllllllllllllll5 = 0;
                                                 } else {
-                                                    lllllllllllllllllllllllllll5 = 1;
+                                                    llllllllllllllllllllllllllll5 = 1;
                                                 }
-                                                lllllllllllllllllllllllllll5 = 1 - lllllllllllllllllllllllllll5;
+                                                llllllllllllllllllllllllllll5 = 1 - llllllllllllllllllllllllllll5;
                                             }
-                                            if(llllllllllllllllllllllllllll1 == 0 && lllllllllllllllllllllllllllll1) {
-                                                float llllll6 = 1 / llllllllllllllllllllllllllllll1;
-                                                if (lllllllllllll3 < llllllllllllllllllllllllllllll1)  {
-                                                    float lllllll6 = ((llllllllllllllllllllllllllllll1-lllllllllllll3) * llllll6);
-                                                    lllllllllllllllllllllllllll5 =  max(lllllllllllllllllllllllllll5,lllllll6);
+                                            if(lllllllllllllllllllllllllllll1 == 0 && llllllllllllllllllllllllllllll1) {
+                                                float lllllll6 = 1 / lllllllllllllllllllllllllllllll1;
+                                                if (llllllllllllll3 < lllllllllllllllllllllllllllllll1)  {
+                                                    float llllllll6 = ((lllllllllllllllllllllllllllllll1-llllllllllllll3) * lllllll6);
+                                                    llllllllllllllllllllllllllll5 =  max(llllllllllllllllllllllllllll5,llllllll6);
                                                 }
                                             }
                                         }
@@ -514,598 +515,601 @@ void DoSeeThroughShading(
                                 }
                             }
 #endif
-                    if (dot(lllllll3, llllllll5) <= 0)
+                    if (dot(llllllll3, lllllllll5) <= 0)
                     {
                         if (lllllllllllllllllllllll0 == 2 || lllllllllllllllllllllll0 == 3 || lllllllllllllllllllllll0 == 4 || lllllllllllllllllllllll0 == 5 || lllllllllllllllllllllll0 == 6 || lllllllllllllllllllllll0 == 7)
                         {
-                            float4 llllllll6 = float4(0, 0, 0, 0);
                             float4 lllllllll6 = float4(0, 0, 0, 0);
-                            float llllllllll6 = 0;
-                            if (lll1 || lllllllllllllllllllllll0 == 6)
+                            float4 llllllllll6 = float4(0, 0, 0, 0);
+                            float lllllllllll6 = 0;
+                            if (llll1 || lllllllllllllllllllllll0 == 6)
                             {
-                                float lllllllllll6 = _ScreenParams.x / _ScreenParams.y;
+                                float llllllllllll6 = _ScreenParams.x / _ScreenParams.y;
 #ifdef _HDRP
-                                        float4 llllllllllll6 = mul(UNITY_MATRIX_VP, float4(GetCameraRelativePositionWS(_PlayersPosVectorArray[lllllll5].xyz), 1.0));
-                                        lllllllll6 = ComputeScreenPos(llllllllllll6 , _ProjectionParams.x);
+                                        float4 lllllllllllll6 = mul(UNITY_MATRIX_VP, float4(GetCameraRelativePositionWS(_PlayersPosVectorArray[llllllll5].xyz), 1.0));
+                                        llllllllll6 = ComputeScreenPos(lllllllllllll6 , _ProjectionParams.x);
 #else
-                                float4 llllllllllll6 = mul(UNITY_MATRIX_VP, float4(_PlayersPosVectorArray[lllllll5].xyz, 1.0));
-                                lllllllll6 = ComputeScreenPos(llllllllllll6);
+                                float4 lllllllllllll6 = mul(UNITY_MATRIX_VP, float4(_PlayersPosVectorArray[llllllll5].xyz, 1.0));
+                                llllllllll6 = ComputeScreenPos(lllllllllllll6);
+#endif
+                                llllllllll6.xy /= llllllllll6.w;
+                                llllllllll6.x *= llllllllllll6;
+#ifdef _HDRP
+                                        float4 lllllllllllllll6 = mul(UNITY_MATRIX_VP, float4(GetCameraRelativePositionWS(d.worldSpacePosition.xyz), 1.0));
+                                        lllllllll6 = ComputeScreenPos(lllllllllllllll6 , _ProjectionParams.x);
+#else
+                                float4 lllllllllllllll6 = mul(UNITY_MATRIX_VP, float4(d.worldSpacePosition.xyz, 1.0));
+                                lllllllll6 = ComputeScreenPos(lllllllllllllll6);
 #endif
                                 lllllllll6.xy /= lllllllll6.w;
-                                lllllllll6.x *= lllllllllll6;
-#ifdef _HDRP
-                                        float4 llllllllllllll6 = mul(UNITY_MATRIX_VP, float4(GetCameraRelativePositionWS(d.worldSpacePosition.xyz), 1.0));
-                                        llllllll6 = ComputeScreenPos(llllllllllllll6 , _ProjectionParams.x);
-#else
-                                float4 llllllllllllll6 = mul(UNITY_MATRIX_VP, float4(d.worldSpacePosition.xyz, 1.0));
-                                llllllll6 = ComputeScreenPos(llllllllllllll6);
-#endif
-                                llllllll6.xy /= llllllll6.w;
-                                llllllll6.x *= lllllllllll6;
+                                lllllllll6.x *= llllllllllll6;
 #if defined(_DISSOLVEMASK)
-                                        if(lll1) {
-                                                llllllllll6 = max(llllllllllllllllllll2.z,llllllllllllllllllll2.w);
+                                        if(llll1) {
+                                                lllllllllll6 = max(lllllllllllllllllllll2.z,lllllllllllllllllllll2.w);
                                         }
 #endif
                             }
-                            float3 llllllllllllllll6 = _WorldSpaceCameraPos - _PlayersPosVectorArray[lllllll5].xyz;
-                            float3 lllllllllllllllll6 = normalize(llllllllllllllll6);
-                            float lllllllllllll4 = dot(d.worldSpacePosition.xyz - _PlayersPosVectorArray[lllllll5].xyz, lllllllllllllllll6);
-                            float lllllllllllllllllll6 = 0;
-                            float llllllllllllllllllll6 = 0;
-                            float2 lllllllllllllllllllll6 = float2(0, 0);
+                            float3 lllllllllllllllll6 = _PlayersPosVectorArray[llllllll5].xyz;
+                            float3 llllllllllllllllll6 = _WorldSpaceCameraPos -  lllllllllllllllll6;
+                            float3 lllllllllllllllllll6 = normalize(llllllllllllllllll6);
+                            float3 llllllllllllllllllll6 = lllllllllllllllll6 + (llllllllllllllllllllllll0 * lllllllllllllllllll6);
+                            float3 lllllllllllllllllllll6 = _WorldSpaceCameraPos - llllllllllllllllllll6;
+                            float llllllllllllll4 = dot(d.worldSpacePosition.xyz - llllllllllllllllllll6, lllllllllllllllllll6);
+                            float lllllllllllllllllllllll6 = 0;
+                            float llllllllllllllllllllllll6 = 0;
+                            float2 lllllllllllllllllllllllll6 = float2(0, 0);
                             if (lllllllllllllllllllllll0 == 2 || lllllllllllllllllllllll0 == 3)
                             {
-                                lllllllllllllllllll6 = lllllllllllllllllllllllll0;
-                                float llllllllllllllll4 = length((d.worldSpacePosition.xyz - _PlayersPosVectorArray[lllllll5].xyz) - lllllllllllll4 * lllllllllllllllll6);
-                                float lllllllllllllllllllllll4 = length(llllllllllllllll6);
-                                float llllllllllllllllllllll4 = llllllllllllllllllllllllll0;
-                                float llllllllllllllllllllllllll4 = (lllllllllllll4 / lllllllllllllllllllllll4) * llllllllllllllllllllll4;
+                                lllllllllllllllllllllll6 = llllllllllllllllllllllllll0;
+                                float lllllllllllllllll4 = length((d.worldSpacePosition.xyz - llllllllllllllllllll6) - llllllllllllll4 * lllllllllllllllllll6);
+                                float llllllllllllllllllllllll4 = length(lllllllllllllllllllll6);
+                                float lllllllllllllllllllllll4 = lllllllllllllllllllllllllll0;
+                                float lllllllllllllllllllllllllll4 = (llllllllllllll4 / llllllllllllllllllllllll4) * lllllllllllllllllllllll4;
 #if _DISSOLVEMASK
-                                        float llllllllllllllllllllllllll6 = (2*llllllllllllllllllllllllll4) / llllllllll6;
-                                        float2 lllllllllllllllllllllllllll6 = llllllll6.xy - lllllllll6.xy;
-                                        lllllllllllllllllllllllllll6 =  normalize(lllllllllllllllllllllllllll6)*llllllllllllllll4;
-                                        lllllllllllllllllllll6 = lllllllllllllllllllllllllll6 /llllllllllllllllllllllllll6;
+                                        float llllllllllllllllllllllllllllll6 = (2*lllllllllllllllllllllllllll4) / lllllllllll6;
+                                        float2 lllllllllllllllllllllllllllllll6 = lllllllll6.xy - llllllllll6.xy;
+                                        lllllllllllllllllllllllllllllll6 =  normalize(lllllllllllllllllllllllllllllll6)*lllllllllllllllll4;
+                                        lllllllllllllllllllllllll6 = lllllllllllllllllllllllllllllll6 /llllllllllllllllllllllllllllll6;
 #else
-                                float llllllllllllllllllllllllllll6 = llllllllllllllll4 < llllllllllllllllllllllllll4;
-                                if (llllllllllllllllllllllllllll6)
+                                float l7 = lllllllllllllllll4 < lllllllllllllllllllllllllll4;
+                                if (l7)
                                 {
-                                    float lllllllllllllllllllllllllllll6 = llllllllllllllll4 / llllllllllllllllllllllllll4;
-                                    llllllllllllllllllll6 = lllllllllllllllllllllllllllll6;
+                                    float ll7 = lllllllllllllllll4 / lllllllllllllllllllllllllll4;
+                                    llllllllllllllllllllllll6 = ll7;
                                 }
                                 else
                                 {
-                                    llllllllllllllllllll6 = -1;
+                                    llllllllllllllllllllllll6 = -1;
                                 }
 #endif
                             }
                             else if (lllllllllllllllllllllll0 == 4 || lllllllllllllllllllllll0 == 5)
                             {
-                                lllllllllllllllllll6 = lllllllllllllllllllllllllll0;
-                                float llllllllllllllll4 = length((d.worldSpacePosition.xyz - _PlayersPosVectorArray[lllllll5].xyz) - lllllllllllll4 * lllllllllllllllll6);
-                                float llllllllllllll4 = llllllllllllllllllllllllllll0;
-                                float l7 = (llllllllllllllll4 < llllllllllllll4) && lllllllllllll4 > 0;
+                                lllllllllllllllllllllll6 = llllllllllllllllllllllllllll0;
+                                float lllllllllllllllll4 = length((d.worldSpacePosition.xyz - llllllllllllllllllll6) - llllllllllllll4 * lllllllllllllllllll6);
+                                float lllllllllllllll4 = lllllllllllllllllllllllllllll0;
+                                float lllll7 = (lllllllllllllllll4 < lllllllllllllll4) && llllllllllllll4 > 0;
 #if _DISSOLVEMASK
-                                        float llllllllllllllllllllllllll6 = (2*llllllllllllll4) / llllllllll6;
-                                        float2 lllllllllllllllllllllllllll6 = llllllll6.xy - lllllllll6.xy;
-                                        lllllllllllllllllllllllllll6 =  normalize(lllllllllllllllllllllllllll6)*llllllllllllllll4;
-                                        lllllllllllllllllllll6 = lllllllllllllllllllllllllll6 /llllllllllllllllllllllllll6;
+                                        float llllllllllllllllllllllllllllll6 = (2*lllllllllllllll4) / lllllllllll6;
+                                        float2 lllllllllllllllllllllllllllllll6 = lllllllll6.xy - llllllllll6.xy;
+                                        lllllllllllllllllllllllllllllll6 =  normalize(lllllllllllllllllllllllllllllll6)*lllllllllllllllll4;
+                                        lllllllllllllllllllllllll6 = lllllllllllllllllllllllllllllll6 /llllllllllllllllllllllllllllll6;
 #else
-                                if (l7)
+                                if (lllll7)
                                 {
-                                    float lllllllllllllllllllllllllllll6 = llllllllllllllll4 / llllllllllllll4;
-                                    llllllllllllllllllll6 = lllllllllllllllllllllllllllll6;
+                                    float ll7 = lllllllllllllllll4 / lllllllllllllll4;
+                                    llllllllllllllllllllllll6 = ll7;
                                 }
                                 else
                                 {
-                                    llllllllllllllllllll6 = -1;
+                                    llllllllllllllllllllllll6 = -1;
                                 }
 #endif
                             }
                             else if (lllllllllllllllllllllll0 == 6)
                             {
-                                lllllllllllllllllll6 = lllllllllllllllllllllllllllll0;
-                                float lllll7 = length(llllllllllllllll6);
-                                float lllllllllll6 = _ScreenParams.x / _ScreenParams.y;
-                                float lllllll7 = min(1, lllllllllll6);
-                                float llllllll7 = distance(llllllll6.xy, lllllllll6.xy) < llllllllllllllllllllllllllllll0 / lllll7 * lllllll7;
-                                float lllllllll7 = (llllllll7) && lllllllllllll4 > 0;
+                                lllllllllllllllllllllll6 = llllllllllllllllllllllllllllll0;
+                                float lllllllll7 = length(lllllllllllllllllllll6);
+                                float llllllllllll6 = _ScreenParams.x / _ScreenParams.y;
+                                float lllllllllll7 = min(1, llllllllllll6);
+                                float llllllllllll7 = distance(lllllllll6.xy, llllllllll6.xy) < lllllllllllllllllllllllllllllll0 / lllllllll7 * lllllllllll7;
+                                float lllllllllllll7 = (llllllllllll7) && llllllllllllll4 > 0;
 #if _DISSOLVEMASK
-                                        float llllllllll7 = llllllllllllllllllllllllllllll0/lllll7*lllllll7;
-                                        float llllllllllllllllllllllllll6 = (2*llllllllll7) / llllllllll6;
-                                        float2 lllllllllllllllllllllllllll6 = llllllll6.xy - lllllllll6.xy;
-                                        lllllllllllllllllllll6 = lllllllllllllllllllllllllll6 /llllllllllllllllllllllllll6;
+                                        float llllllllllllll7 = lllllllllllllllllllllllllllllll0/lllllllll7*lllllllllll7;
+                                        float llllllllllllllllllllllllllllll6 = (2*llllllllllllll7) / lllllllllll6;
+                                        float2 lllllllllllllllllllllllllllllll6 = lllllllll6.xy - llllllllll6.xy;
+                                        lllllllllllllllllllllllll6 = lllllllllllllllllllllllllllllll6 /llllllllllllllllllllllllllllll6;
 #else
-                                if (lllllllll7)
+                                if (lllllllllllll7)
                                 {
-                                    float lllllllllllll7 = (distance(llllllll6.xy, lllllllll6.xy) / (llllllllllllllllllllllllllllll0 / lllll7 * lllllll7));
-                                    llllllllllllllllllll6 = lllllllllllll7;
+                                    float lllllllllllllllll7 = (distance(lllllllll6.xy, llllllllll6.xy) / (lllllllllllllllllllllllllllllll0 / lllllllll7 * lllllllllll7));
+                                    llllllllllllllllllllllll6 = lllllllllllllllll7;
                                 }
                                 else
                                 {
-                                    llllllllllllllllllll6 = -1;
+                                    llllllllllllllllllllllll6 = -1;
                                 }
 #endif
                             }
                             else if (lllllllllllllllllllllll0 == 7)
                             {
 #if _OBSTRUCTION_CURVE
-                                        lllllllllllllllllll6 = lllllllllllllllllllllllllllllll0;
-                                        float llllllllllllllll4 = length((d.worldSpacePosition.xyz  - _PlayersPosVectorArray[lllllll5].xyz) - lllllllllllll4 * lllllllllllllllll6);
-                                        float lllll7 = length(llllllllllllllll6);
-                                        float4 llllllllllllllll7 = float4(0,0,0,0);
-                                        float lllllllllllllllll7 = lllllllllllllllllllll2.z;
-                                        float llllllllllllllllll7 = (lllllllllllll4/lllll7) * lllllllllllllllll7;
-                                        float4 lllllllllllllllllll7 = float4(0,0,0,0);
-                                        lllllllllllllllllll7 = lllllllllllllllllllll2;
-                                        float2 llllllllllllllllllll7 = (llllllllllllllllll7+0.5) * lllllllllllllllllll7.xy;
-                                            llllllllllllllll7 = tex2D(llllll2, llllllllllllllllllll7);
-                                        float lllllllllllllllllllll7 = llllllllllllllll7.r * l1;
-                                        float llllllllllllllllllllll7 = (llllllllllllllll4 < lllllllllllllllllllll7) && lllllllllllll4 > 0 ;
+                                        lllllllllllllllllllllll6 = l1;
+                                        float lllllllllllllllll4 = length((d.worldSpacePosition.xyz  - llllllllllllllllllll6) - llllllllllllll4 * lllllllllllllllllll6);
+                                        float lllllllll7 = length(lllllllllllllllllllll6);
+                                        float4 llllllllllllllllllll7 = float4(0,0,0,0);
+                                        float lllllllllllllllllllll7 = llllllllllllllllllllll2.z;
+                                        float llllllllllllllllllllll7 = (llllllllllllll4/lllllllll7) * lllllllllllllllllllll7;
+                                        float4 lllllllllllllllllllllll7 = float4(0,0,0,0);
+                                        lllllllllllllllllllllll7 = llllllllllllllllllllll2;
+                                        float2 llllllllllllllllllllllll7 = (llllllllllllllllllllll7+0.5) * lllllllllllllllllllllll7.xy;
+                                            llllllllllllllllllll7 = tex2D(lllllll2, llllllllllllllllllllllll7);
+                                        float lllllllllllllllllllllllll7 = llllllllllllllllllll7.r * ll1;
+                                        float llllllllllllllllllllllllll7 = (lllllllllllllllll4 < lllllllllllllllllllllllll7) && llllllllllllll4 > 0 ;
 #if _DISSOLVEMASK
-                                            float llllllllllllllllllllllllll6 = (2*lllllllllllllllllllll7) / llllllllll6;
-                                            float2 lllllllllllllllllllllllllll6 = llllllll6.xy - lllllllll6.xy;
-                                            lllllllllllllllllllllllllll6 =  normalize(lllllllllllllllllllllllllll6)*llllllllllllllll4;
-                                            lllllllllllllllllllll6 = lllllllllllllllllllllllllll6 /llllllllllllllllllllllllll6;
+                                            float llllllllllllllllllllllllllllll6 = (2*lllllllllllllllllllllllll7) / lllllllllll6;
+                                            float2 lllllllllllllllllllllllllllllll6 = lllllllll6.xy - llllllllll6.xy;
+                                            lllllllllllllllllllllllllllllll6 =  normalize(lllllllllllllllllllllllllllllll6)*lllllllllllllllll4;
+                                            lllllllllllllllllllllllll6 = lllllllllllllllllllllllllllllll6 /llllllllllllllllllllllllllllll6;
 #else
-                                            if(llllllllllllllllllllll7){
-                                                float lllllllllllllllllllllllllllll6 = llllllllllllllll4/lllllllllllllllllllll7;
-                                                llllllllllllllllllll6 = lllllllllllllllllllllllllllll6;
+                                            if(llllllllllllllllllllllllll7){
+                                                float ll7 = lllllllllllllllll4/lllllllllllllllllllllllll7;
+                                                llllllllllllllllllllllll6 = ll7;
                                             } else {
-                                                llllllllllllllllllll6 = -1;
+                                                llllllllllllllllllllllll6 = -1;
                                             }
 #endif
 #endif
                             }
 #if defined(_DISSOLVEMASK)
-                                    if(lll1) {
-                                        float4 llllllllllllllllllllllllll7 = float4(0,0,0,0);
-                                        llllllllllllllllllllllllll7 = llllllllllllllllllll2;
-                                        float2 lllllllllllllllllllllllllll7 = float2(llllllllllllllllllllllllll7.z/2,llllllllllllllllllllllllll7.w/2);
-                                        float2 llllllllllllllllllllllllllll7 = lllllllllllllllllllllllllll7 + lllllllllllllllllllll6;
-                                        float2 lllllllllllllllllllllllllllll7 = (llllllllllllllllllllllllllll7+0.5) * llllllllllllllllllllllllll7.xy;
+                                    if(llll1) {
                                         float4 llllllllllllllllllllllllllllll7 = float4(0,0,0,0);
-                                            llllllllllllllllllllllllllllll7 = tex2D(lllll2, lllllllllllllllllllllllllllll7);
-                                        float lllllllllllllllllllllllllllllll7 = -1;
-                                        if(llllllllllllllllllllllllllll7.x <= llllllllllllllllllllllllll7.z && llllllllllllllllllllllllllll7.x >= 0 && llllllllllllllllllllllllllll7.y <= llllllllllllllllllllllllll7.w && llllllllllllllllllllllllllll7.y >= 0 && llllllllllllllllllllllllllllll7.x <= 0 && lllllllllllll4 > 0 ){
-                                            float l8 = sqrt(pow(llllllllllllllllllllllllll7.z,2)+pow(llllllllllllllllllllllllll7.w,2))/2;
-                                            float ll8 = 40;
-                                            float lll8 = l8/ll8;
-                                            float llll8 = 0;
-                                            lllllllllllllllllllllllllllllll7 = 0;     
-                                                for (int i = 0; i < ll8; i++){
-                                                    float2 lllll8 = lllllllllllllllllllllllllll7 + (lllllllllllllllllllll6 + ( normalize(lllllllllllllllllllll6)*lll8*i));
-                                                    float2 llllll8 = (lllll8+0.5) * llllllllllllllllllllllllll7.xy;
-                                                    float4 lllllll8 = tex2Dlod(lllll2, float4(llllll8, 0.0, 0.0)); 
-                                                    float2 llllllll8 = step(float2(0,0), lllll8) - step(float2(llllllllllllllllllllllllll7.z,llllllllllllllllllllllllll7.w), lllll8);
-                                                    if(lllllll8.x <= 0) {
-                                                        llll8 +=  (1/ll8) * (llllllll8.x * llllllll8.y);
+                                        llllllllllllllllllllllllllllll7 = lllllllllllllllllllll2;
+                                        float2 lllllllllllllllllllllllllllllll7 = float2(llllllllllllllllllllllllllllll7.z/2,llllllllllllllllllllllllllllll7.w/2);
+                                        float2 l8 = lllllllllllllllllllllllllllllll7 + lllllllllllllllllllllllll6;
+                                        float2 ll8 = (l8+0.5) * llllllllllllllllllllllllllllll7.xy;
+                                        float4 lll8 = float4(0,0,0,0);
+                                            lll8 = tex2D(llllll2, ll8);
+                                        float llll8 = -1;
+                                        if(l8.x <= llllllllllllllllllllllllllllll7.z && l8.x >= 0 && l8.y <= llllllllllllllllllllllllllllll7.w && l8.y >= 0 && lll8.x <= 0 && llllllllllllll4 > 0 ){
+                                            float lllll8 = sqrt(pow(llllllllllllllllllllllllllllll7.z,2)+pow(llllllllllllllllllllllllllllll7.w,2))/2;
+                                            float llllll8 = 40;
+                                            float lllllll8 = lllll8/llllll8;
+                                            float llllllll8 = 0;
+                                            llll8 = 0;     
+                                                for (int i = 0; i < llllll8; i++){
+                                                    float2 lllllllll8 = lllllllllllllllllllllllllllllll7 + (lllllllllllllllllllllllll6 + ( normalize(lllllllllllllllllllllllll6)*lllllll8*i));
+                                                    float2 llllllllll8 = (lllllllll8+0.5) * llllllllllllllllllllllllllllll7.xy;
+                                                    float4 lllllllllll8 = tex2Dlod(llllll2, float4(llllllllll8, 0.0, 0.0)); 
+                                                    float2 llllllllllll8 = step(float2(0,0), lllllllll8) - step(float2(llllllllllllllllllllllllllllll7.z,llllllllllllllllllllllllllllll7.w), lllllllll8);
+                                                    if(lllllllllll8.x <= 0) {
+                                                        llllllll8 +=  (1/llllll8) * (llllllllllll8.x * llllllllllll8.y);
                                                     }                                            
                                                 }   
-                                            lllllllllllllllllllllllllllllll7 = 1-llll8;  
+                                            llll8 = 1-llllllll8;  
                                         }         
-                                        llllllllllllllllllll6 = lllllllllllllllllllllllllllllll7;
+                                        llllllllllllllllllllllll6 = llll8;
                                     }
 #endif
-                            if (ll1 <= 1)
+                            if (lll1 <= 1)
                             {
-                                if (llllllllllllllllllll6 != -1)
+                                if (llllllllllllllllllllllll6 != -1)
                                 {
-                                    float lllllllll8 = max(ll1, 0.00001);
-                                    float llllllllll8 = 1 - lllllllllllllllllll6;
-                                    float lllllllllll8 = exp(lllllllll8 * 6);
-                                    float llllllllllll8 = llllllllllllllllllll6;
-                                    float lllllllllllll8 = llllllllll8 / (lllllllll8 / (lllllllll8 * llllllllll8 - 0.15 * (lllllllll8 - llllllllll8)));
-                                    float llllllllllllll8 = ((llllllllllll8 - lllllllllllll8) / (lllllllllll8 * (1 - llllllllllll8) + llllllllllll8)) + lllllllllllll8;
-                                    llllllllllllll8 = 1 - llllllllllllll8;
-                                    llllllllllllllllllllllllllll5 = llllllllllllll8 * sign(lllllllllllllllllll6);
+                                    float lllllllllllll8 = max(lll1, 0.00001);
+                                    float llllllllllllll8 = 1 - lllllllllllllllllllllll6;
+                                    float lllllllllllllll8 = exp(lllllllllllll8 * 6);
+                                    float llllllllllllllll8 = llllllllllllllllllllllll6;
+                                    float lllllllllllllllll8 = llllllllllllll8 / (lllllllllllll8 / (lllllllllllll8 * llllllllllllll8 - 0.15 * (lllllllllllll8 - llllllllllllll8)));
+                                    float llllllllllllllllll8 = ((llllllllllllllll8 - lllllllllllllllll8) / (lllllllllllllll8 * (1 - llllllllllllllll8) + llllllllllllllll8)) + lllllllllllllllll8;
+                                    llllllllllllllllll8 = 1 - llllllllllllllllll8;
+                                    lllllllllllllllllllllllllllll5 = llllllllllllllllll8 * sign(lllllllllllllllllllllll6);
                                 }
                             }
                             else
                             {
-                                llllllllllllllllllllllllllll5 = llllllllllllllllllll6;
+                                lllllllllllllllllllllllllllll5 = llllllllllllllllllllllll6;
                             }
                         }
                         if (lllllllllllllllllllllll0 == 1 || lllllllllllllllllllllll0 == 3 || lllllllllllllllllllllll0 == 5)
                         {
-                            float lllllllllllllll8 = distance(_WorldSpaceCameraPos, _PlayersPosVectorArray[lllllll5].xyz);
-                            float llllllllllllllll8 = distance(_WorldSpaceCameraPos, d.worldSpacePosition.xyz);
-                            float3 lllllllllllllllll8 = d.worldSpacePosition.xyz - _PlayersPosVectorArray[lllllll5].xyz;
-                            float3 llllllllllllllllll8 = d.worldSpaceNormal;
-                            float lllllllllllllllllll8 = acos(dot(lllllllllllllllll8, llllllllllllllllll8) / (length(lllllllllllllllll8) * length(llllllllllllllllll8)));
-                            if (lllllllllllllllllll8 <= 1.5 && lllllllllllllll8 > llllllllllllllll8)
+                            float lllllllllllllllllll8 = distance(_WorldSpaceCameraPos, _PlayersPosVectorArray[llllllll5].xyz);
+                            float llllllllllllllllllll8 = distance(_WorldSpaceCameraPos, d.worldSpacePosition.xyz);
+                            float3 lllllllllllllllllllll8 = d.worldSpacePosition.xyz - _PlayersPosVectorArray[llllllll5].xyz;
+                            float3 llllllllllllllllllllll8 = d.worldSpaceNormal;
+                            float lllllllllllllllllllllll8 = acos(dot(lllllllllllllllllllll8, llllllllllllllllllllll8) / (length(lllllllllllllllllllll8) * length(llllllllllllllllllllll8)));
+                            if (lllllllllllllllllllllll8 <= 1.5 && lllllllllllllllllll8 > llllllllllllllllllll8)
                             {
-                                float llllllllllllllllllll8 = (sqrt((lllllllllllllll8 - llllllllllllllll8)) * 25 / lllllllllllllllllll8) * llllllllllllllllllllllll0;
-                                llllllllllllllllllllllllllll5 += max(0, log(llllllllllllllllllll8 * 0.2));
+                                float llllllllllllllllllllllll8 = (sqrt((lllllllllllllllllll8 - llllllllllllllllllll8)) * 25 / lllllllllllllllllllllll8) * lllllllllllllllllllllllll0;
+                                lllllllllllllllllllllllllllll5 += max(0, log(llllllllllllllllllllllll8 * 0.2));
                             }
                         }
                     }
-                    float lllllllllllllllllllll8 = llllllllllllllllllllllllllll5;
-                    float llllllllllllllllllllll8 = 0;
-                    float lllllllllllllllllllllll8 = 0;
-                    if (llll1 == 1 && llllllllllllllllllllllllllll1 == 0 && !lllllllllllllllllllllllllllll1)
+                    float lllllllllllllllllllllllll8 = lllllllllllllllllllllllllllll5;
+                    float llllllllllllllllllllllllll8 = 0;
+                    float lllllllllllllllllllllllllll8 = 0;
+                    if (lllll1 == 1 && lllllllllllllllllllllllllllll1 == 0 && !llllllllllllllllllllllllllllll1)
                     {
-                        llllllllllllllllllllllllllll5 = min((1 * lllll1), 1);
-                        lllllllllllllllllllllllllllll5 = llllllllllllllllllllllllllll5;
+                        lllllllllllllllllllllllllllll5 = min((1 * llllll1), 1);
+                        llllllllllllllllllllllllllllll5 = lllllllllllllllllllllllllllll5;
                     }
                     else
                     {
-                        llllllllllllllllllllllllllll5 = min(llllllllllllllllllllllllllll5 + (1 * lllll1), 1);
-                        lllllllllllllllllllllllllllll5 = min((1 * lllll1), 1);
+                        lllllllllllllllllllllllllllll5 = min(lllllllllllllllllllllllllllll5 + (1 * llllll1), 1);
+                        llllllllllllllllllllllllllllll5 = min((1 * llllll1), 1);
                     }
-                    if (lllllllllll3)
+                    if (llllllllllll3)
                     {
-                        if (llllllllllllllllllllllllllll1 == 1)
+                        if (lllllllllllllllllllllllllllll1 == 1)
                         {
-                            float llllll6 = 1 / llllllllllllllllllllllllllllll1;
-                            if (lllllllllllll3 < llllllllllllllllllllllllllllll1)
+                            float lllllll6 = 1 / lllllllllllllllllllllllllllllll1;
+                            if (llllllllllllll3 < lllllllllllllllllllllllllllllll1)
                             {
-                                float lllllllllllllllllllllllll8 = 1 - ((llllllllllllllllllllllllllllll1 - lllllllllllll3) * llllll6);
-                                llllllllllllllllllllllllllll5 = min(llllllllllllllllllllllllllll5, lllllllllllllllllllllllll8);
-                                lllllllllllllllllllllllllllll5 = min(lllllllllllllllllllllllllllll5, lllllllllllllllllllllllll8);
+                                float lllllllllllllllllllllllllllll8 = 1 - ((lllllllllllllllllllllllllllllll1 - llllllllllllll3) * lllllll6);
+                                lllllllllllllllllllllllllllll5 = min(lllllllllllllllllllllllllllll5, lllllllllllllllllllllllllllll8);
+                                llllllllllllllllllllllllllllll5 = min(llllllllllllllllllllllllllllll5, lllllllllllllllllllllllllllll8);
                             }
                         }
-                        else if (llllllllllllllllllllllllllll1 == 0 && !lllllllllllllllllllllllllllll1)
+                        else if (lllllllllllllllllllllllllllll1 == 0 && !llllllllllllllllllllllllllllll1)
                         {
-                            if (llll1 == 1)
+                            if (lllll1 == 1)
                             {
-                                float llllllllllllllllllllllllll8 = ((lllllllllllllllllllll8) / llllllllllllllllllllllllllllll1);
-                                if (lllllllllllll3 < llllllllllllllllllllllllllllll1 && lllllllllllllllllllll8 > 0 && saturate(lllllllllllllllllllll8) > lllll1)
+                                float llllllllllllllllllllllllllllll8 = ((lllllllllllllllllllllllll8) / lllllllllllllllllllllllllllllll1);
+                                if (llllllllllllll3 < lllllllllllllllllllllllllllllll1 && lllllllllllllllllllllllll8 > 0 && saturate(lllllllllllllllllllllllll8) > llllll1)
                                 {
-                                    float lllllllllllllllllllllllll8 = ((llllllllllllllllllllllllllllll1 - lllllllllllll3) * (llllllllllllllllllllllllll8));
-                                    lllllllllllllllllllll8 = lllllllllllllllllllll8 - (lllllllllllllllllllllllll8);
+                                    float lllllllllllllllllllllllllllll8 = ((lllllllllllllllllllllllllllllll1 - llllllllllllll3) * (llllllllllllllllllllllllllllll8));
+                                    lllllllllllllllllllllllll8 = lllllllllllllllllllllllll8 - (lllllllllllllllllllllllllllll8);
                                 }
                                 else
                                 {
                                 }
                             }
-                            if (lllllllllllll3 < llllllllllllllllllllllllllllll1)
+                            if (llllllllllllll3 < lllllllllllllllllllllllllllllll1)
                             {
-                                float llllll6 = llllllllllllllllllllllllllll5 / llllllllllllllllllllllllllllll1;
-                                float lllllllllllllllllllllllll8 = ((llllllllllllllllllllllllllllll1 - lllllllllllll3) * llllll6);
-                                llllllllllllllllllllllllllll5 = max(0, lllllllllllllllllllllllll8);
-                                float llllllllllllllllllllllllllllll8 = lllllllllllllllllllllllllllll5 / llllllllllllllllllllllllllllll1;
-                                float lllllllllllllllllllllllllllllll8 = ((llllllllllllllllllllllllllllll1 - lllllllllllll3) * llllllllllllllllllllllllllllll8);
-                                lllllllllllllllllllllllllllll5 = max(0, lllllllllllllllllllllllllllllll8);
-                                llllllllllllllllllllll8 = llllllllllllllllllllllllllll5;
-                                lllllllllllllllllllllll8 = lllllllllllllllllllllllllllll5;
-                                if (llll1 == 0 || llll1 == 1)
+                                float lllllll6 = lllllllllllllllllllllllllllll5 / lllllllllllllllllllllllllllllll1;
+                                float lllllllllllllllllllllllllllll8 = ((lllllllllllllllllllllllllllllll1 - llllllllllllll3) * lllllll6);
+                                lllllllllllllllllllllllllllll5 = max(0, lllllllllllllllllllllllllllll8);
+                                float lll9 = llllllllllllllllllllllllllllll5 / lllllllllllllllllllllllllllllll1;
+                                float llll9 = ((lllllllllllllllllllllllllllllll1 - llllllllllllll3) * lll9);
+                                llllllllllllllllllllllllllllll5 = max(0, llll9);
+                                llllllllllllllllllllllllll8 = lllllllllllllllllllllllllllll5;
+                                lllllllllllllllllllllllllll8 = llllllllllllllllllllllllllllll5;
+                                if (lllll1 == 0 || lllll1 == 1)
                                 {
-                                    llllllllllllllllllllllllllll5 = max(lllllllllllllllllllll8, lllllllllllllllllllllllll8);
+                                    lllllllllllllllllllllllllllll5 = max(lllllllllllllllllllllllll8, lllllllllllllllllllllllllllll8);
                                 }
                             }
                             else
                             {
-                                llllllllllllllllllllllllllll5 = 0;
                                 lllllllllllllllllllllllllllll5 = 0;
-                                llllllllllllllllllllll8 = llllllllllllllllllllllllllll5;
-                                lllllllllllllllllllllll8 = lllllllllllllllllllllllllllll5;
-                                if (llll1 == 0 || llll1 == 1)
+                                llllllllllllllllllllllllllllll5 = 0;
+                                llllllllllllllllllllllllll8 = lllllllllllllllllllllllllllll5;
+                                lllllllllllllllllllllllllll8 = llllllllllllllllllllllllllllll5;
+                                if (lllll1 == 0 || lllll1 == 1)
                                 {
-                                    llllllllllllllllllllllllllll5 = max(lllllllllllllllllllll8, llllllllllllllllllllllllllll5);
+                                    lllllllllllllllllllllllllllll5 = max(lllllllllllllllllllllllll8, lllllllllllllllllllllllllllll5);
                                 }
                             }
                         }
                     }
-                    if (llllllll1)
+                    if (lllllllll1)
                     {
-                        float l9 = llllllllllllllllllllllllllll5 / llllllllll1;
-                        float ll9 = lllllllllllllllllllllllllllll5 / llllllllll1;
-                        float3 llllllll5 = _PlayersPosVectorArray[lllllll5].xyz - _WorldSpaceCameraPos;
-                        float3 llll9 = d.worldSpacePosition.xyz - _WorldSpaceCameraPos;
-                        float lllll9 = dot(llll9, normalize(llllllll5));
-                        if (lllll9 - lllllllll1 >= length(llllllll5))
+                        float lllll9 = lllllllllllllllllllllllllllll5 / lllllllllll1;
+                        float llllll9 = llllllllllllllllllllllllllllll5 / lllllllllll1;
+                        float3 lllllllll5 = _PlayersPosVectorArray[llllllll5].xyz - _WorldSpaceCameraPos;
+                        float3 llllllll9 = d.worldSpacePosition.xyz - _WorldSpaceCameraPos;
+                        float lllllllll9 = dot(llllllll9, normalize(lllllllll5));
+                        if (lllllllll9 - llllllllll1 >= length(lllllllll5))
                         {
-                            float llllll9 = lllll9 - lllllllll1 - length(llllllll5);
-                            if (llllll9 < 0)
+                            float llllllllll9 = lllllllll9 - llllllllll1 - length(lllllllll5);
+                            if (llllllllll9 < 0)
                             {
-                                llllll9 = 0;
+                                llllllllll9 = 0;
                             }
-                            if (llllll9 < llllllllll1)
+                            if (llllllllll9 < lllllllllll1)
                             {
-                                llllllllllllllllllllllllllll5 = (llllllllll1 - llllll9) * l9;
-                                lllllllllllllllllllllllllllll5 = (llllllllll1 - llllll9) * ll9;
+                                lllllllllllllllllllllllllllll5 = (lllllllllll1 - llllllllll9) * lllll9;
+                                llllllllllllllllllllllllllllll5 = (lllllllllll1 - llllllllll9) * llllll9;
                             }
                             else
                             {
-                                llllllllllllllllllllllllllll5 = 0;
                                 lllllllllllllllllllllllllllll5 = 0;
+                                llllllllllllllllllllllllllllll5 = 0;
                             }
                         }
                     }
-                    if (lllllllllllllllllllllllllll1 && !lllllllllll3)
+                    if (llllllllllllllllllllllllllll1 && !llllllllllll3)
                     {
-                        if (llllllllllllllllllllllllllll1 == 1)
+                        if (lllllllllllllllllllllllllllll1 == 1)
                         {
-                            llllllllllllllllllllllllllll5 = 0;
                             lllllllllllllllllllllllllllll5 = 0;
+                            llllllllllllllllllllllllllllll5 = 0;
                         }
                     }
-                    if (lllllllllll1 == 1)
+                    if (llllllllllll1 == 1)
                     {
-                        float lllllll9 = 0;
-                        float llllllll9 = 0;
-                        if (lllllllllllll1 == 0)
+                        float lllllllllll9 = 0;
+                        float llllllllllll9 = 0;
+                        if (llllllllllllll1 == 0)
                         {
-                            lllllll9 = llllllllllllllllllllllllllll5 / llllllllllllllll1;
-                            llllllll9 = lllllllllllllllllllllllllllll5 / llllllllllllllll1;
+                            lllllllllll9 = lllllllllllllllllllllllllllll5 / lllllllllllllllll1;
+                            llllllllllll9 = llllllllllllllllllllllllllllll5 / lllllllllllllllll1;
                         }
-                        else if (lllllllllllll1 == 1)
+                        else if (llllllllllllll1 == 1)
                         {
-                            float lllllllll9 = 1 - llllllllllllllllllllllllllll5;
-                            float llllllllll9 = 1 - lllllllllllllllllllllllllllll5;
-                            if (lllllllllllllllllllllllllll1 && lllllllllll3 && lllllllllllllllllllllllllllll1)
+                            float lllllllllllll9 = 1 - lllllllllllllllllllllllllllll5;
+                            float llllllllllllll9 = 1 - llllllllllllllllllllllllllllll5;
+                            if (llllllllllllllllllllllllllll1 && llllllllllll3 && llllllllllllllllllllllllllllll1)
                             {
-                                lllllllll9 = max(1 - llllllllllllllllllllllllllll5, 1 - (llllllllllllllllllllllllllll5 * lllllllllllllllllllllllllll5));
-                                llllllllll9 = max(1 - lllllllllllllllllllllllllllll5, 1 - (lllllllllllllllllllllllllllll5 * lllllllllllllllllllllllllll5));
+                                lllllllllllll9 = max(1 - lllllllllllllllllllllllllllll5, 1 - (lllllllllllllllllllllllllllll5 * llllllllllllllllllllllllllll5));
+                                llllllllllllll9 = max(1 - llllllllllllllllllllllllllllll5, 1 - (llllllllllllllllllllllllllllll5 * llllllllllllllllllllllllllll5));
                             }
-                            lllllll9 = lllllllll9 / llllllllllllllll1;
-                            llllllll9 = llllllllll9 / llllllllllllllll1;
+                            lllllllllll9 = lllllllllllll9 / lllllllllllllllll1;
+                            llllllllllll9 = llllllllllllll9 / lllllllllllllllll1;
                         }
-                        if (llllllllllll1 == 1)
+                        if (lllllllllllll1 == 1)
                         {
-                            if (d.worldSpacePosition.y > (_PlayersPosVectorArray[lllllll5].y + lllllllllllllll1))
+                            if (d.worldSpacePosition.y > (_PlayersPosVectorArray[llllllll5].y + llllllllllllllll1))
                             {
-                                float llllll9 = d.worldSpacePosition.y - (_PlayersPosVectorArray[lllllll5].y + lllllllllllllll1);
-                                if (llllll9 < 0)
+                                float llllllllll9 = d.worldSpacePosition.y - (_PlayersPosVectorArray[llllllll5].y + llllllllllllllll1);
+                                if (llllllllll9 < 0)
                                 {
-                                    llllll9 = 0;
+                                    llllllllll9 = 0;
                                 }
-                                if (lllllllllllll1 == 0)
+                                if (llllllllllllll1 == 0)
                                 {
-                                    if (llllll9 < llllllllllllllll1)
+                                    if (llllllllll9 < lllllllllllllllll1)
                                     {
-                                        llllllllllllllllllllllllllll5 = ((llllllllllllllll1 - llllll9) * lllllll9);
-                                        lllllllllllllllllllllllllllll5 = ((llllllllllllllll1 - llllll9) * llllllll9);
+                                        lllllllllllllllllllllllllllll5 = ((lllllllllllllllll1 - llllllllll9) * lllllllllll9);
+                                        llllllllllllllllllllllllllllll5 = ((lllllllllllllllll1 - llllllllll9) * llllllllllll9);
                                     }
                                     else
                                     {
-                                        llllllllllllllllllllllllllll5 = 0;
                                         lllllllllllllllllllllllllllll5 = 0;
+                                        llllllllllllllllllllllllllllll5 = 0;
                                     }
                                 }
                                 else
                                 {
-                                    if (llllll9 < llllllllllllllll1)
+                                    if (llllllllll9 < lllllllllllllllll1)
                                     {
-                                        llllllllllllllllllllllllllll5 = 1 - ((llllllllllllllll1 - llllll9) * lllllll9);
-                                        lllllllllllllllllllllllllllll5 = 1 - ((llllllllllllllll1 - llllll9) * llllllll9);
+                                        lllllllllllllllllllllllllllll5 = 1 - ((lllllllllllllllll1 - llllllllll9) * lllllllllll9);
+                                        llllllllllllllllllllllllllllll5 = 1 - ((lllllllllllllllll1 - llllllllll9) * llllllllllll9);
                                     }
                                     else
                                     {
-                                        llllllllllllllllllllllllllll5 = 1;
                                         lllllllllllllllllllllllllllll5 = 1;
+                                        llllllllllllllllllllllllllllll5 = 1;
                                     }
-                                    lllllllllllllllllllllllllll5 = 1;
+                                    llllllllllllllllllllllllllll5 = 1;
                                 }
                             }
                         }
                         else
                         {
-                            if (d.worldSpacePosition.y > llllllllllllll1)
+                            if (d.worldSpacePosition.y > lllllllllllllll1)
                             {
-                                float llllll9 = d.worldSpacePosition.y - llllllllllllll1;
-                                if (llllll9 < 0)
+                                float llllllllll9 = d.worldSpacePosition.y - lllllllllllllll1;
+                                if (llllllllll9 < 0)
                                 {
-                                    llllll9 = 0;
+                                    llllllllll9 = 0;
                                 }
-                                if (lllllllllllll1 == 0)
+                                if (llllllllllllll1 == 0)
                                 {
-                                    if (llllll9 < llllllllllllllll1)
+                                    if (llllllllll9 < lllllllllllllllll1)
                                     {
-                                        llllllllllllllllllllllllllll5 = ((llllllllllllllll1 - llllll9) * lllllll9);
-                                        lllllllllllllllllllllllllllll5 = ((llllllllllllllll1 - llllll9) * llllllll9);
+                                        lllllllllllllllllllllllllllll5 = ((lllllllllllllllll1 - llllllllll9) * lllllllllll9);
+                                        llllllllllllllllllllllllllllll5 = ((lllllllllllllllll1 - llllllllll9) * llllllllllll9);
                                     }
                                     else
                                     {
-                                        llllllllllllllllllllllllllll5 = 0;
                                         lllllllllllllllllllllllllllll5 = 0;
+                                        llllllllllllllllllllllllllllll5 = 0;
                                     }
                                 }
                                 else
                                 {
-                                    if (llllll9 < llllllllllllllll1)
+                                    if (llllllllll9 < lllllllllllllllll1)
                                     {
-                                        llllllllllllllllllllllllllll5 = 1 - ((llllllllllllllll1 - llllll9) * lllllll9);
-                                        lllllllllllllllllllllllllllll5 = 1 - ((llllllllllllllll1 - llllll9) * llllllll9);
+                                        lllllllllllllllllllllllllllll5 = 1 - ((lllllllllllllllll1 - llllllllll9) * lllllllllll9);
+                                        llllllllllllllllllllllllllllll5 = 1 - ((lllllllllllllllll1 - llllllllll9) * llllllllllll9);
                                     }
                                     else
                                     {
-                                        llllllllllllllllllllllllllll5 = 1;
                                         lllllllllllllllllllllllllllll5 = 1;
+                                        llllllllllllllllllllllllllllll5 = 1;
                                     }
-                                    lllllllllllllllllllllllllll5 = 1;
+                                    llllllllllllllllllllllllllll5 = 1;
                                 }
                             }
                         }
                     }
-                    float lllllllllllll9 = llllllllllllllllllllllllllll5;
-                    float llllllllllllll9 = lllllllllllllllllllllllllllll5;
-                    if (lllllllllllllllll1 == 1)
+                    float lllllllllllllllll9 = lllllllllllllllllllllllllllll5;
+                    float llllllllllllllllll9 = llllllllllllllllllllllllllllll5;
+                    if (llllllllllllllllll1 == 1)
                     {
-                        float lllllllllllllll9 = llllllllllllllllllllllllllll5 / lllllllllllllllllllll1;
-                        float llllllllllllllll9 = lllllllllllllllllllllllllllll5 / lllllllllllllllllllll1;
-                        if (llllllllllllllllll1 == 1)
+                        float lllllllllllllllllll9 = lllllllllllllllllllllllllllll5 / llllllllllllllllllllll1;
+                        float llllllllllllllllllll9 = llllllllllllllllllllllllllllll5 / llllllllllllllllllllll1;
+                        if (lllllllllllllllllll1 == 1)
                         {
-                            if (d.worldSpacePosition.y < (_PlayersPosVectorArray[lllllll5].y + llllllllllllllllllll1))
+                            if (d.worldSpacePosition.y < (_PlayersPosVectorArray[llllllll5].y + lllllllllllllllllllll1))
                             {
-                                float llllll9 = (_PlayersPosVectorArray[lllllll5].y + llllllllllllllllllll1) - d.worldSpacePosition.y;
-                                if (llllll9 < 0)
+                                float llllllllll9 = (_PlayersPosVectorArray[llllllll5].y + lllllllllllllllllllll1) - d.worldSpacePosition.y;
+                                if (llllllllll9 < 0)
                                 {
-                                    llllll9 = 0;
+                                    llllllllll9 = 0;
                                 }
-                                if (llllll9 < lllllllllllllllllllll1)
+                                if (llllllllll9 < llllllllllllllllllllll1)
                                 {
-                                    llllllllllllllllllllllllllll5 = (lllllllllllllllllllll1 - llllll9) * lllllllllllllll9;
-                                    lllllllllllllllllllllllllllll5 = (lllllllllllllllllllll1 - llllll9) * llllllllllllllll9;
+                                    lllllllllllllllllllllllllllll5 = (llllllllllllllllllllll1 - llllllllll9) * lllllllllllllllllll9;
+                                    llllllllllllllllllllllllllllll5 = (llllllllllllllllllllll1 - llllllllll9) * llllllllllllllllllll9;
                                 }
                                 else
                                 {
-                                    llllllllllllllllllllllllllll5 = 0;
                                     lllllllllllllllllllllllllllll5 = 0;
+                                    llllllllllllllllllllllllllllll5 = 0;
                                 }
                             }
                         }
                         else
                         {
-                            if (d.worldSpacePosition.y < lllllllllllllllllll1)
+                            if (d.worldSpacePosition.y < llllllllllllllllllll1)
                             {
-                                float llllll9 = lllllllllllllllllll1 - d.worldSpacePosition.y;
-                                if (llllll9 < 0)
+                                float llllllllll9 = llllllllllllllllllll1 - d.worldSpacePosition.y;
+                                if (llllllllll9 < 0)
                                 {
-                                    llllll9 = 0;
+                                    llllllllll9 = 0;
                                 }
-                                if (llllll9 < lllllllllllllllllllll1)
+                                if (llllllllll9 < llllllllllllllllllllll1)
                                 {
-                                    llllllllllllllllllllllllllll5 = (lllllllllllllllllllll1 - llllll9) * lllllllllllllll9;
-                                    lllllllllllllllllllllllllllll5 = (lllllllllllllllllllll1 - llllll9) * llllllllllllllll9;
+                                    lllllllllllllllllllllllllllll5 = (llllllllllllllllllllll1 - llllllllll9) * lllllllllllllllllll9;
+                                    llllllllllllllllllllllllllllll5 = (llllllllllllllllllllll1 - llllllllll9) * llllllllllllllllllll9;
                                 }
                                 else
                                 {
-                                    llllllllllllllllllllllllllll5 = 0;
                                     lllllllllllllllllllllllllllll5 = 0;
+                                    llllllllllllllllllllllllllllll5 = 0;
                                 }
                             }
                         }
-                        if (llllllllllllllllllllll1 == 0) 
+                        if (lllllllllllllllllllllll1 == 0) 
                         {
                         }
-                        else if (llllllllllllllllllllll1 == 1) 
+                        else if (lllllllllllllllllllllll1 == 1) 
                         {
-                            if (lllllllllll3)
+                            if (llllllllllll3)
                             {
-                                llllllllllllllllllllllllllll5 = max(llllllllllllllllllllll8, llllllllllllllllllllllllllll5);
-                                lllllllllllllllllllllllllllll5 = max(lllllllllllllllllllllll8, lllllllllllllllllllllllllllll5);
+                                lllllllllllllllllllllllllllll5 = max(llllllllllllllllllllllllll8, lllllllllllllllllllllllllllll5);
+                                llllllllllllllllllllllllllllll5 = max(lllllllllllllllllllllllllll8, llllllllllllllllllllllllllllll5);
                             }
                             else
                             {
-                                llllllllllllllllllllllllllll5 = lllllllllllll9;
-                                lllllllllllllllllllllllllllll5 = llllllllllllll9;
+                                lllllllllllllllllllllllllllll5 = lllllllllllllllll9;
+                                llllllllllllllllllllllllllllll5 = llllllllllllllllll9;
                             }
                         }
-                        else if (llllllllllllllllllllll1 == 2) 
+                        else if (lllllllllllllllllllllll1 == 2) 
                         {
-                            if (lllllllllll3)
+                            if (llllllllllll3)
                             {
-                                llllllllllllllllllllllllllll5 = min(llllllllllllllllllllll8, llllllllllllllllllllllllllll5);
-                                llllllllllllllllllllllllllll5 = max(lllllllllllllllllllll8, llllllllllllllllllllllllllll5);
-                                lllllllllllllllllllllllllllll5 = min(lllllllllllllllllllllll8, lllllllllllllllllllllllllllll5);
+                                lllllllllllllllllllllllllllll5 = min(llllllllllllllllllllllllll8, lllllllllllllllllllllllllllll5);
+                                lllllllllllllllllllllllllllll5 = max(lllllllllllllllllllllllll8, lllllllllllllllllllllllllllll5);
+                                llllllllllllllllllllllllllllll5 = min(lllllllllllllllllllllllllll8, llllllllllllllllllllllllllllll5);
                             }
                         }
                     }
                     if (!llllllllll0 && !lllllllllll0)
                     {
-                        if (lllllll1 == 1 && distance(_PlayersPosVectorArray[lllllll5].xyz, d.worldSpacePosition) > llllll1)
+                        if (llllllll1 == 1 && distance(_PlayersPosVectorArray[llllllll5].xyz, d.worldSpacePosition) > lllllll1)
                         {
-                            llllllllllllllllllllllllllll5 = 0;
                             lllllllllllllllllllllllllllll5 = 0;
+                            llllllllllllllllllllllllllllll5 = 0;
                         }
                     }
                 }
-                lllll5 = lllll5 + _PlayersDataFloatArray[lllll5] * 4 + 1;
-                if (lllllllllllllllllllllllllll1 && lllllllllll3 && lllllllllllllllllllllllllllll1)
+                llllll5 = llllll5 + _PlayersDataFloatArray[llllll5] * 4 + 1;
+                if (llllllllllllllllllllllllllll1 && llllllllllll3 && llllllllllllllllllllllllllllll1)
                 {
-                    lllllllllllllllllllll5 = lllllllllllllllllllll5 * lllllllllllllllllllllllllll5;
+                    llllllllllllllllllllll5 = llllllllllllllllllllll5 * llllllllllllllllllllllllllll5;
                 }
                 if (llllllllll0 || lllllllllll0)
                 {
-                    llllllllllllllllllllllllllll5 = lllllllllllllllllllll5 * llllllllllllllllllllllllllll5;
-                    lllllllllllllllllllllllllllll5 = lllllllllllllllllllll5 * lllllllllllllllllllllllllllll5;
+                    lllllllllllllllllllllllllllll5 = llllllllllllllllllllll5 * lllllllllllllllllllllllllllll5;
+                    llllllllllllllllllllllllllllll5 = llllllllllllllllllllll5 * llllllllllllllllllllllllllllll5;
                 }
                 else
                 {
-                    if (lllllllllllllllllllllllllll1)
+                    if (llllllllllllllllllllllllllll1)
                     {
-                        if (lllllllllll3)
+                        if (llllllllllll3)
                         {
-                            if (lllllllllllllllllllllllllllll1)
+                            if (llllllllllllllllllllllllllllll1)
                             {
-                                llllllllllllllllllllllllllll5 = lllllllllllllllllllllllllll5 * llllllllllllllllllllllllllll5;
-                                lllllllllllllllllllllllllllll5 = lllllllllllllllllllllllllll5 * lllllllllllllllllllllllllllll5;
+                                lllllllllllllllllllllllllllll5 = llllllllllllllllllllllllllll5 * lllllllllllllllllllllllllllll5;
+                                llllllllllllllllllllllllllllll5 = llllllllllllllllllllllllllll5 * llllllllllllllllllllllllllllll5;
                             }
                         }
                         else
                         {
-                            if (llllllllllllllllllllllllllll1 == 1)
+                            if (lllllllllllllllllllllllllllll1 == 1)
                             {
-                                llllllllllllllllllllllllllll5 = lllllllllllllllllllllllllll5 * llllllllllllllllllllllllllll5;
-                                lllllllllllllllllllllllllllll5 = lllllllllllllllllllllllllll5 * lllllllllllllllllllllllllllll5;
+                                lllllllllllllllllllllllllllll5 = llllllllllllllllllllllllllll5 * lllllllllllllllllllllllllllll5;
+                                llllllllllllllllllllllllllllll5 = llllllllllllllllllllllllllll5 * llllllllllllllllllllllllllllll5;
                             }
                         }
                     }
                 }
-                llllllll3 = max(llllllll3, llllllllllllllllllllllllllll5);
                 lllllllll3 = max(lllllllll3, lllllllllllllllllllllllllllll5);
+                llllllllll3 = max(llllllllll3, llllllllllllllllllllllllllllll5);
             }
             else
             {
-                lllll5 = lllll5 + _PlayersDataFloatArray[lllll5 + 2] * 4 + 3;
-                lllll5 = lllll5 + _PlayersDataFloatArray[lllll5] * 4 + 1;
+                llllll5 = llllll5 + _PlayersDataFloatArray[llllll5 + 2] * 4 + 3;
+                llllll5 = llllll5 + _PlayersDataFloatArray[llllll5] * 4 + 1;
             }
         }
 #else
-        float lllllllllllllllllllll5 = 0;
-        if (!llllllllllllllll2)
+        float llllllllllllllllllllll5 = 0;
+        if (!lllllllllllllllll2)
         {
-            lllllllllllllllllllll5 = 1;
-            if (lllllll0 != 0 && llllllll0 != 0 && llllllllllllll2 - llllllll0 < lllllllllllllllllllllllll1)
+            llllllllllllllllllllll5 = 1;
+            if (lllllll0 != 0 && llllllll0 != 0 && lllllllllllllll2 - llllllll0 < llllllllllllllllllllllllll1)
             {
                 if (lllllll0 == 1)
                 {
-                    lllllllllllllllllllll5 = ((lllllllllllllllllllllllll1 - (llllllllllllll2 - llllllll0)) / lllllllllllllllllllllllll1);
+                    llllllllllllllllllllll5 = ((llllllllllllllllllllllllll1 - (lllllllllllllll2 - llllllll0)) / llllllllllllllllllllllllll1);
                 }
                 else
                 {
-                    lllllllllllllllllllll5 = ((llllllllllllll2 - llllllll0) / lllllllllllllllllllllllll1);
+                    llllllllllllllllllllll5 = ((lllllllllllllll2 - llllllll0) / llllllllllllllllllllllllll1);
                 }
             }
             else if (lllllll0 == -1)
             {
-                lllllllllllllllllllll5 = 1;
+                llllllllllllllllllllll5 = 1;
             }
             else if (lllllll0 == 1)
             {
-                lllllllllllllllllllll5 = 0;
+                llllllllllllllllllllll5 = 0;
             }
             else
             {
-                lllllllllllllllllllll5 = 1;
+                llllllllllllllllllllll5 = 1;
             }
-            lllllllllllllllllllll5 = 1 - lllllllllllllllllllll5;
+            llllllllllllllllllllll5 = 1 - llllllllllllllllllllll5;
         }
+        float lllllllllllllllllllllllllllll5 = 0;
         float llllllllllllllllllllllllllll5 = 0;
-        float lllllllllllllllllllllllllll5 = 0;
-        bool lllllllllllllllllllllllllllllll5 = distance(_WorldSpaceCameraPos, d.worldSpacePosition) > llllll1;
-        if ((lllllllllllllllllllll5 != 0) || ((!llllllllll0 && !lllllllllll0) && (lllllll1 == 0 || !lllllllllllllllllllllllllllllll5) ))
+        bool l6 = distance(_WorldSpaceCameraPos, d.worldSpacePosition) > lllllll1;
+        if ((llllllllllllllllllllll5 != 0) || ((!llllllllll0 && !lllllllllll0) && (llllllll1 == 0 || !l6) ))
         {
 #if defined(_ZONING)
-                        if(lllllllllllllllllllllllllll1) {
-                            if(lllllllllll3) 
+                        if(llllllllllllllllllllllllllll1) {
+                            if(llllllllllll3) 
                             {
-                                if(lllllllllllllllllllllllllllll1) {
-                                    float llllllllllll5 = lllllllllllllll3;
-                                    float lllllllllllll5 = lllllllllllllllll3;
-                                    lllllllllllllllllllllllllll5 = 1;
-                                    float lllll6 = llllllllllllllll3;
-                                    if( lllllllllllll5!= 0 && llllllllllll5 != 0 && llllllllllllll2-llllllllllll5 < lllll6) {
-                                        if(lllllllllllll5 == 1) {
-                                            lllllllllllllllllllllllllll5 = ((lllll6-(llllllllllllll2-llllllllllll5))/lllll6);
+                                if(llllllllllllllllllllllllllllll1) {
+                                    float lllllllllllll5 = llllllllllllllll3;
+                                    float llllllllllllll5 = llllllllllllllllll3;
+                                    llllllllllllllllllllllllllll5 = 1;
+                                    float llllll6 = lllllllllllllllll3;
+                                    if( llllllllllllll5!= 0 && lllllllllllll5 != 0 && lllllllllllllll2-lllllllllllll5 < llllll6) {
+                                        if(llllllllllllll5 == 1) {
+                                            llllllllllllllllllllllllllll5 = ((llllll6-(lllllllllllllll2-lllllllllllll5))/llllll6);
                                         } else {
-                                            lllllllllllllllllllllllllll5 = ((llllllllllllll2-llllllllllll5)/lllll6);
+                                            llllllllllllllllllllllllllll5 = ((lllllllllllllll2-lllllllllllll5)/llllll6);
                                         }
-                                    } else if(lllllllllllll5 ==-1) {
-                                        lllllllllllllllllllllllllll5 = 1;
-                                    } else if(lllllllllllll5 == 1) {
-                                        lllllllllllllllllllllllllll5 = 0;
+                                    } else if(llllllllllllll5 ==-1) {
+                                        llllllllllllllllllllllllllll5 = 1;
+                                    } else if(llllllllllllll5 == 1) {
+                                        llllllllllllllllllllllllllll5 = 0;
                                     } else {
-                                        lllllllllllllllllllllllllll5 = 1;
+                                        llllllllllllllllllllllllllll5 = 1;
                                     }
-                                    lllllllllllllllllllllllllll5 = 1 - lllllllllllllllllllllllllll5;
-                                    if(llllllllllllllllllllllllllll1 == 0 && lllllllllllllllllllllllllllll1) {
-                                        float llllll6 = 1 / llllllllllllllllllllllllllllll1;
-                                        if (lllllllllllll3 < llllllllllllllllllllllllllllll1)  {
-                                            float lllllll6 = ((llllllllllllllllllllllllllllll1-lllllllllllll3) * llllll6);
-                                            lllllllllllllllllllllllllll5 =  max(lllllllllllllllllllllllllll5,lllllll6);
+                                    llllllllllllllllllllllllllll5 = 1 - llllllllllllllllllllllllllll5;
+                                    if(lllllllllllllllllllllllllllll1 == 0 && llllllllllllllllllllllllllllll1) {
+                                        float lllllll6 = 1 / lllllllllllllllllllllllllllllll1;
+                                        if (llllllllllllll3 < lllllllllllllllllllllllllllllll1)  {
+                                            float llllllll6 = ((lllllllllllllllllllllllllllllll1-llllllllllllll3) * lllllll6);
+                                            llllllllllllllllllllllllllll5 =  max(llllllllllllllllllllllllllll5,llllllll6);
                                         }
                                     }
                                 } else { 
@@ -1114,145 +1118,145 @@ void DoSeeThroughShading(
                             }
                         }
 #endif
-            llllllllllllllllllllllllllll5 = min(llllllllllllllllllllllllllll5 + (1 * lllll1), 1);
-            if (lllllllllll3)
+            lllllllllllllllllllllllllllll5 = min(lllllllllllllllllllllllllllll5 + (1 * llllll1), 1);
+            if (llllllllllll3)
             {
-                if (llllllllllllllllllllllllllll1 == 1)
+                if (lllllllllllllllllllllllllllll1 == 1)
                 {
-                    float llllll6 = 1 / llllllllllllllllllllllllllllll1;
-                    if (lllllllllllll3 < llllllllllllllllllllllllllllll1)
+                    float lllllll6 = 1 / lllllllllllllllllllllllllllllll1;
+                    if (llllllllllllll3 < lllllllllllllllllllllllllllllll1)
                     {
-                        float lllllllllllllllllllllllllllll9 = 1 - ((llllllllllllllllllllllllllllll1 - lllllllllllll3) * llllll6);
-                        llllllllllllllllllllllllllll5 = min(llllllllllllllllllllllllllll5, lllllllllllllllllllllllllllll9);
+                        float ll10 = 1 - ((lllllllllllllllllllllllllllllll1 - llllllllllllll3) * lllllll6);
+                        lllllllllllllllllllllllllllll5 = min(lllllllllllllllllllllllllllll5, ll10);
                     }
                 }
-                else if (llllllllllllllllllllllllllll1 == 0 && !lllllllllllllllllllllllllllll1)
+                else if (lllllllllllllllllllllllllllll1 == 0 && !llllllllllllllllllllllllllllll1)
                 {
-                    float llllll6 = llllllllllllllllllllllllllll5 / llllllllllllllllllllllllllllll1;
-                    if (lllllllllllll3 < llllllllllllllllllllllllllllll1)
+                    float lllllll6 = lllllllllllllllllllllllllllll5 / lllllllllllllllllllllllllllllll1;
+                    if (llllllllllllll3 < lllllllllllllllllllllllllllllll1)
                     {
-                        float lllllllllllllllllllllllllllll9 = ((llllllllllllllllllllllllllllll1 - lllllllllllll3) * llllll6);
-                        llllllllllllllllllllllllllll5 = max(0, lllllllllllllllllllllllllllll9);
+                        float ll10 = ((lllllllllllllllllllllllllllllll1 - llllllllllllll3) * lllllll6);
+                        lllllllllllllllllllllllllllll5 = max(0, ll10);
                     }
                     else
                     {
-                        llllllllllllllllllllllllllll5 = 0;
+                        lllllllllllllllllllllllllllll5 = 0;
                     }
                 }
             }
-            if (lllllllllllllllllllllllllll1 && !lllllllllll3)
+            if (llllllllllllllllllllllllllll1 && !llllllllllll3)
             {
-                if (llllllllllllllllllllllllllll1 == 1)
+                if (lllllllllllllllllllllllllllll1 == 1)
                 {
-                    llllllllllllllllllllllllllll5 = 0;
+                    lllllllllllllllllllllllllllll5 = 0;
                 }
             }
-            if (lllllllllll1 == 1 && llllllllllll1 == 0)
+            if (llllllllllll1 == 1 && lllllllllllll1 == 0)
             {
-                float lllllll9 = 0;
-                if (lllllllllllll1 == 0)
+                float lllllllllll9 = 0;
+                if (llllllllllllll1 == 0)
                 {
-                    lllllll9 = (llllllllllllllllllllllllllll5) / llllllllllllllll1;
+                    lllllllllll9 = (lllllllllllllllllllllllllllll5) / lllllllllllllllll1;
                 }
-                else if (lllllllllllll1 == 1)
+                else if (llllllllllllll1 == 1)
                 {
-                    float lllllllll9 = 1 - llllllllllllllllllllllllllll5;
-                    if (lllllllllllllllllllllllllll1 && lllllllllll3 && lllllllllllllllllllllllllllll1)
+                    float lllllllllllll9 = 1 - lllllllllllllllllllllllllllll5;
+                    if (llllllllllllllllllllllllllll1 && llllllllllll3 && llllllllllllllllllllllllllllll1)
                     {
-                        lllllllll9 = max(1 - llllllllllllllllllllllllllll5, 1 - (llllllllllllllllllllllllllll5 * lllllllllllllllllllllllllll5));
+                        lllllllllllll9 = max(1 - lllllllllllllllllllllllllllll5, 1 - (lllllllllllllllllllllllllllll5 * llllllllllllllllllllllllllll5));
                     }
-                    lllllll9 = lllllllll9 / llllllllllllllll1;
+                    lllllllllll9 = lllllllllllll9 / lllllllllllllllll1;
                 }
-                if (d.worldSpacePosition.y > llllllllllllll1)
+                if (d.worldSpacePosition.y > lllllllllllllll1)
                 {
-                    float llllll9 = d.worldSpacePosition.y - llllllllllllll1;
-                    if (llllll9 < 0)
+                    float llllllllll9 = d.worldSpacePosition.y - lllllllllllllll1;
+                    if (llllllllll9 < 0)
                     {
-                        llllll9 = 0;
+                        llllllllll9 = 0;
                     }
-                    if (lllllllllllll1 == 0)
+                    if (llllllllllllll1 == 0)
                     {
-                        if (llllll9 < llllllllllllllll1)
+                        if (llllllllll9 < lllllllllllllllll1)
                         {
-                            llllllllllllllllllllllllllll5 = ((llllllllllllllll1 - llllll9) * lllllll9);
+                            lllllllllllllllllllllllllllll5 = ((lllllllllllllllll1 - llllllllll9) * lllllllllll9);
                         }
                         else
                         {
-                            llllllllllllllllllllllllllll5 = 0;
+                            lllllllllllllllllllllllllllll5 = 0;
                         }
                     }
                     else
                     {
-                        if (llllll9 < llllllllllllllll1)
+                        if (llllllllll9 < lllllllllllllllll1)
                         {
-                            llllllllllllllllllllllllllll5 = 1 - ((llllllllllllllll1 - llllll9) * lllllll9);
+                            lllllllllllllllllllllllllllll5 = 1 - ((lllllllllllllllll1 - llllllllll9) * lllllllllll9);
                         }
                         else
                         {
-                            llllllllllllllllllllllllllll5 = 1;
+                            lllllllllllllllllllllllllllll5 = 1;
                         }
-                        lllllllllllllllllllllllllll5 = 1;
+                        llllllllllllllllllllllllllll5 = 1;
                     }
                 }
             }
-            if (lllllllllllllllll1 == 1 && llllllllllllllllll1 == 0)
+            if (llllllllllllllllll1 == 1 && lllllllllllllllllll1 == 0)
             {
-                float lllllllllllllll9 = llllllllllllllllllllllllllll5 / lllllllllllllllllllll1;
-                if (d.worldSpacePosition.y < lllllllllllllllllll1)
+                float lllllllllllllllllll9 = lllllllllllllllllllllllllllll5 / llllllllllllllllllllll1;
+                if (d.worldSpacePosition.y < llllllllllllllllllll1)
                 {
-                    float llllll9 = lllllllllllllllllll1 - d.worldSpacePosition.y;
-                    if (llllll9 < 0)
+                    float llllllllll9 = llllllllllllllllllll1 - d.worldSpacePosition.y;
+                    if (llllllllll9 < 0)
                     {
-                        llllll9 = 0;
+                        llllllllll9 = 0;
                     }
-                    if (llllll9 < lllllllllllllllllllll1)
+                    if (llllllllll9 < llllllllllllllllllllll1)
                     {
-                        llllllllllllllllllllllllllll5 = (lllllllllllllllllllll1 - llllll9) * lllllllllllllll9;
+                        lllllllllllllllllllllllllllll5 = (llllllllllllllllllllll1 - llllllllll9) * lllllllllllllllllll9;
                     }
                     else
                     {
-                        llllllllllllllllllllllllllll5 = 0;
+                        lllllllllllllllllllllllllllll5 = 0;
                     }
                 }
             }
         }
-        if (lllllllllllllllllllllllllll1 && lllllllllll3 && lllllllllllllllllllllllllllll1)
+        if (llllllllllllllllllllllllllll1 && llllllllllll3 && llllllllllllllllllllllllllllll1)
         {
-            lllllllllllllllllllll5 = lllllllllllllllllllll5 * lllllllllllllllllllllllllll5;
+            llllllllllllllllllllll5 = llllllllllllllllllllll5 * llllllllllllllllllllllllllll5;
         }
         if (llllllllll0 || lllllllllll0)
         {
-            llllllllllllllllllllllllllll5 = lllllllllllllllllllll5 * llllllllllllllllllllllllllll5;
+            lllllllllllllllllllllllllllll5 = llllllllllllllllllllll5 * lllllllllllllllllllllllllllll5;
         }
         else
         {
-            llllllllllllllllllllllllllll5 = llllllllllllllllllllllllllll5;
-            if (lllllllllllllllllllllllllll1)
+            lllllllllllllllllllllllllllll5 = lllllllllllllllllllllllllllll5;
+            if (llllllllllllllllllllllllllll1)
             {
-                if (lllllllllll3)
+                if (llllllllllll3)
                 {
-                    if (lllllllllllllllllllllllllllll1)
+                    if (llllllllllllllllllllllllllllll1)
                     {
-                        llllllllllllllllllllllllllll5 = lllllllllllllllllllllllllll5 * llllllllllllllllllllllllllll5;
+                        lllllllllllllllllllllllllllll5 = llllllllllllllllllllllllllll5 * lllllllllllllllllllllllllllll5;
                     }
                 }
                 else
                 {
-                    if (llllllllllllllllllllllllllll1 == 1)
+                    if (lllllllllllllllllllllllllllll1 == 1)
                     {
-                        llllllllllllllllllllllllllll5 = lllllllllllllllllllllllllll5 * llllllllllllllllllllllllllll5;
+                        lllllllllllllllllllllllllllll5 = llllllllllllllllllllllllllll5 * lllllllllllllllllllllllllllll5;
                     }
                 }
             }
         }
-        llllllll3 = max(llllllll3, llllllllllllllllllllllllllll5);
+        lllllllll3 = max(lllllllll3, lllllllllllllllllllllllllllll5);
 #endif
-        float llllllllllllllllllllllllllllll5 = llllllll3;
-        if (!ll2)
+        float lllllllllllllllllllllllllllllll5 = lllllllll3;
+        if (!lll2)
         {
-            if (llllllllllllllllllllllllllllll5 == 1)
+            if (lllllllllllllllllllllllllllllll5 == 1)
             {
-                llllllllllllllllllllllllllllll5 = 10;
+                lllllllllllllllllllllllllllllll5 = 10;
             }
             if (!llllllllllllllllllllll0) 
             {
@@ -1261,26 +1265,26 @@ void DoSeeThroughShading(
                 if (!any(unity_LightShadowBias))
                 {
 #if !defined(NO_STS_CLIPPING)
-                        clip(llllllllllllllllllllll2 - llllllllllllllllllllllllllllll5);
+                        clip(lllllllllllllllllllllll2 - lllllllllllllllllllllllllllllll5);
 #endif
-                    llllllllllll2 = llllllllllllllllllllll2 - llllllllllllllllllllllllllllll5;
+                    lllllllllllll2 = lllllllllllllllllllllll2 - lllllllllllllllllllllllllllllll5;
                 }
                 else
                 {
                     if(llllllllllllllllllllll0) 
                     {
 #if !defined(NO_STS_CLIPPING)
-                        clip(llllllllllllllllllllll2 - llllllllllllllllllllllllllllll5);
+                        clip(lllllllllllllllllllllll2 - lllllllllllllllllllllllllllllll5);
 #endif
-                        llllllllllll2 = llllllllllllllllllllll2 - llllllllllllllllllllllllllllll5;
+                        lllllllllllll2 = lllllllllllllllllllllll2 - lllllllllllllllllllllllllllllll5;
                     }
                 }
 #endif
 #else
 #if !defined(NO_STS_CLIPPING)
-                clip(llllllllllllllllllllll2 - llllllllllllllllllllllllllllll5);
+                clip(lllllllllllllllllllllll2 - lllllllllllllllllllllllllllllll5);
 #endif
-                llllllllllll2 = llllllllllllllllllllll2 - llllllllllllllllllllllllllllll5;
+                lllllllllllll2 = lllllllllllllllllllllll2 - lllllllllllllllllllllllllllllll5;
 #endif
             }
             else
@@ -1294,139 +1298,139 @@ void DoSeeThroughShading(
                     }
                     else
                     {
-                        llllllllllllllllllllllllllllll5 = lllllllll3;
-                        if (llllllllllllllllllllllllllllll5 == 1)
+                        lllllllllllllllllllllllllllllll5 = llllllllll3;
+                        if (lllllllllllllllllllllllllllllll5 == 1)
                         {
-                            llllllllllllllllllllllllllllll5 = 10;
+                            lllllllllllllllllllllllllllllll5 = 10;
                         }                    
                     }                
 #endif
 #endif
                 }
 #if !defined(NO_STS_CLIPPING)
-                clip(llllllllllllllllllllll2 - llllllllllllllllllllllllllllll5);
+                clip(lllllllllllllllllllllll2 - lllllllllllllllllllllllllllllll5);
 #endif
-                llllllllllll2 = llllllllllllllllllllll2 - llllllllllllllllllllllllllllll5;
+                lllllllllllll2 = lllllllllllllllllllllll2 - lllllllllllllllllllllllllllllll5;
             }
-            if (llllllllllllllllllllll2 - llllllllllllllllllllllllllllll5 < 0)
+            if (lllllllllllllllllllllll2 - lllllllllllllllllllllllllllllll5 < 0)
             {
-                llllllllllll2 = 0;
+                lllllllllllll2 = 0;
             }
             else
             {
-                llllllllllll2 = 1;
+                lllllllllllll2 = 1;
             }
         }
-        if (ll2)
+        if (lll2)
         {
-            lllllllllllllllll2 = 1;
-            if ((llllllllllllllllllllll2 - llllllllllllllllllllllllllllll5) < 0)
+            llllllllllllllllll2 = 1;
+            if ((lllllllllllllllllllllll2 - lllllllllllllllllllllllllllllll5) < 0)
             {
-                llllllllllllllllll2 = half4(1, 1, 1, 1);
+                lllllllllllllllllll2 = half4(1, 1, 1, 1);
                 o.Emission = 1;
             }
             else
             {
-                llllllllllllllllll2 = half4(0, 0, 0, 1);
+                lllllllllllllllllll2 = half4(0, 0, 0, 1);
             }
-            if (llll5)
+            if (lllll5)
             {
-                if ((llllllllllllllllllllll2 - llllllllllllllllllllllllllllll5) < 0)
+                if ((lllllllllllllllllllllll2 - lllllllllllllllllllllllllllllll5) < 0)
                 {
-                    llllllllllllllllll2 = half4(0.5, 1, 0.5, 1);
+                    lllllllllllllllllll2 = half4(0.5, 1, 0.5, 1);
                     o.Emission = 0;
                 }
                 else
                 {
-                    llllllllllllllllll2 = half4(0, 0.1, 0, 1);
+                    lllllllllllllllllll2 = half4(0, 0.1, 0, 1);
                 }
             }
-            if (lllllllllll3 && lllllllllllllllll1 == 1 && lllllllllllllllllllllllllllllll1)
+            if (llllllllllll3 && llllllllllllllllll1 == 1 && l2)
             {
-                float lllllll10 = 0;
-                if (llllllllllllllllll1 == 1)
+                float lllllllllll10 = 0;
+                if (lllllllllllllllllll1 == 1)
                 {
-                    lll5 = lll5 + l2;
-                    lllllll10 = lll5;
+                    llll5 = llll5 + ll2;
+                    lllllllllll10 = llll5;
                 }
                 else
                 {
-                    lllllll10 = lllllllllllllllllll1 + l2;
+                    lllllllllll10 = llllllllllllllllllll1 + ll2;
                 }
-                if (d.worldSpacePosition.y > (lllllll10 - lll2) && d.worldSpacePosition.y < (lllllll10 + lll2))
+                if (d.worldSpacePosition.y > (lllllllllll10 - llll2) && d.worldSpacePosition.y < (lllllllllll10 + llll2))
                 {
-                    llllllllllllllllll2 = half4(1, 0, 0, 1);
+                    lllllllllllllllllll2 = half4(1, 0, 0, 1);
                 }
             }
         }
         else
         {
-            half3 llllllll10 = lerp(1, lllllllllllllll0, llllllllllllllll0).rgb;
+            half3 llllllllllll10 = lerp(1, lllllllllllllll0, llllllllllllllll0).rgb;
             if (llllllllllllllllllll0)
             {
                 lllllllllllllllllllll0 = 0.2 + (lllllllllllllllllllll0 * (0.8 - 0.2));
-                o.Emission = o.Emission + min(clamp(llllllll10 * clamp(((llllllllllllllllllllllllllllll5 / lllllllllllllllllllll0) - llllllllllllllllllllll2), 0, 1), 0, 1) * sqrt(llllllllllllllllll0 * lllllllllllllllllll0), clamp(llllllll10 * llllllllllllllllllllllllllllll5, 0, 1) * sqrt(llllllllllllllllll0 * lllllllllllllllllll0));
+                o.Emission = o.Emission + min(clamp(llllllllllll10 * clamp(((lllllllllllllllllllllllllllllll5 / lllllllllllllllllllll0) - lllllllllllllllllllllll2), 0, 1), 0, 1) * sqrt(llllllllllllllllll0 * lllllllllllllllllll0), clamp(llllllllllll10 * lllllllllllllllllllllllllllllll5, 0, 1) * sqrt(llllllllllllllllll0 * lllllllllllllllllll0));
             }
             else
             {
-                o.Emission = o.Emission + clamp(llllllll10 * llllllllllllllllllllllllllllll5, 0, 1) * sqrt(llllllllllllllllll0 * lllllllllllllllllll0);
+                o.Emission = o.Emission + clamp(llllllllllll10 * lllllllllllllllllllllllllllllll5, 0, 1) * sqrt(llllllllllllllllll0 * lllllllllllllllllll0);
             }
         }
     }
-    if (lllllllllllllllll2)
+    if (llllllllllllllllll2)
     {
-        o.Albedo = llllllllllllllllll2.rgb;
+        o.Albedo = lllllllllllllllllll2.rgb;
     }
-    llllllllll2 = o.Albedo;
-    lllllllllll2 = o.Emission;
+    lllllllllll2 = o.Albedo;
+    llllllllllll2 = o.Emission;
     #ifdef _HDRP  
-        float lllllllll10 = 0;
-        float llllllllll10 = 0;
+        float lllllllllllll10 = 0;
+        float llllllllllllll10 = 0;
     #if SHADEROPTIONS_PRE_EXPOSITION
-            llllllllll10 =  LOAD_TEXTURE2D(_ExposureTexture, int2(0, 0)).x * _ProbeExposureScale;
+            llllllllllllll10 =  LOAD_TEXTURE2D(_ExposureTexture, int2(0, 0)).x * _ProbeExposureScale;
     #else
-            llllllllll10 = _ProbeExposureScale;
+            llllllllllllll10 = _ProbeExposureScale;
     #endif
-            float lllllllllll10 = 0;
-            float llllllllllll10 = llllllllll10;
-            lllllllllll10 = rcp(llllllllllll10 + (llllllllllll10 == 0.0));
-            float3 lllllllllllll10 = o.Emission * lllllllllll10;
-            o.Emission = lerp(lllllllllllll10, o.Emission, lllllllll10);
-        lllllllllll2 = o.Emission;
+            float lllllllllllllll10 = 0;
+            float llllllllllllllll10 = llllllllllllll10;
+            lllllllllllllll10 = rcp(llllllllllllllll10 + (llllllllllllllll10 == 0.0));
+            float3 lllllllllllllllll10 = o.Emission * lllllllllllllll10;
+            o.Emission = lerp(lllllllllllllllll10, o.Emission, lllllllllllll10);
+        llllllllllll2 = o.Emission;
     #endif
 }
 void DoCrossSection(
-                    half llllllllllllll10,
-                    half4 lllllllllllllll10,
-                    half llllllllllllllll10,
-                    sampler2D lllllllllllllllll10,
-                    float llllllllllllllllll10,
-                    half lllllllllllllllllll10,
-                    bool llllllllllllllllllll10,
+                    half llllllllllllllllll10,
+                    half4 lllllllllllllllllll10,
+                    half llllllllllllllllllll10,
+                    sampler2D lllllllllllllllllllll10,
+                    float llllllllllllllllllllll10,
+                    half lllllllllllllllllllllll10,
+                    bool llllllllllllllllllllllll10,
                     float4 lllll0,
-                    inout half4 llllllllllllllllllllll10
+                    inout half4 llllllllllllllllllllllllll10
                     )
 {
-    if (llllllllllllll10 == 1)
+    if (llllllllllllllllll10 == 1)
     {
-        if (llllllllllllllllllll10 == false)
+        if (llllllllllllllllllllllll10 == false)
         {
-            if (llllllllllllllll10 == 1)
+            if (llllllllllllllllllll10 == 1)
             {
-                float2 llllll8 = lllll0.xy / lllll0.w;
-                if (lllllllllllllllllll10 == 1)
+                float2 llllllllll8 = lllll0.xy / lllll0.w;
+                if (lllllllllllllllllllllll10 == 1)
                 {
-                    float4 llllllllllllllllllllllll10 = mul(UNITY_MATRIX_M, float4(0, 0, 0, 1));
-                    llllll8.xy *= distance(_WorldSpaceCameraPos, llllllllllllllllllllllll10);
+                    float4 llllllllllllllllllllllllllll10 = mul(UNITY_MATRIX_M, float4(0, 0, 0, 1));
+                    llllllllll8.xy *= distance(_WorldSpaceCameraPos, llllllllllllllllllllllllllll10);
                 }
-                float lllllllllll6 = _ScreenParams.x / _ScreenParams.y;
-                llllll8.x *= lllllllllll6;
-                half3 llllllllllllllllllllllllll10 = tex2D(lllllllllllllllll10, llllll8 * llllllllllllllllll10).rgb;
-                llllllllllllllllllllll10 = half4(llllllllllllllllllllllllll10, 1) * lllllllllllllll10;
+                float llllllllllll6 = _ScreenParams.x / _ScreenParams.y;
+                llllllllll8.x *= llllllllllll6;
+                half3 llllllllllllllllllllllllllllll10 = tex2D(lllllllllllllllllllll10, llllllllll8 * llllllllllllllllllllll10).rgb;
+                llllllllllllllllllllllllll10 = half4(llllllllllllllllllllllllllllll10, 1) * lllllllllllllllllll10;
             }
             else
             {
-                llllllllllllllllllllll10 = lllllllllllllll10;
+                llllllllllllllllllllllllll10 = lllllllllllllllllll10;
             }
         }
     }

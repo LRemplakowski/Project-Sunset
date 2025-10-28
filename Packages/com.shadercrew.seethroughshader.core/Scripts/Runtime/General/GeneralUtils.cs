@@ -14,13 +14,13 @@ namespace ShaderCrew.SeeThroughShader
         "SeeThroughShader/BiRP/Unlit/Color",
         "SeeThroughShader/BiRP/Unlit/Texture",
 
-        "SeeThroughShader/HDRP/2023/Lit",
+        "SeeThroughShader/HDRP/Unity6/Lit",
         "SeeThroughShader/HDRP/2022/Lit",
         "SeeThroughShader/HDRP/2021/Lit",
         "SeeThroughShader/HDRP/2020/Lit",
         "SeeThroughShader/HDRP/2019/Lit",
 
-        "SeeThroughShader/URP/2023/Lit",
+        "SeeThroughShader/URP/Unity6/Lit",
         "SeeThroughShader/URP/2022/Lit",
         "SeeThroughShader/URP/2021/Lit",
         "SeeThroughShader/URP/2020/Lit",
@@ -46,9 +46,9 @@ namespace ShaderCrew.SeeThroughShader
         {
 
 #if UNITY_2023 || UNITY_6000
-            //{ "HDRP/Unlit", "SeeThroughShader/HDRP/2023/Unlit" },
-            { "HDRP/Lit", "SeeThroughShader/HDRP/2023/Lit" },
-            { SeeThroughShaderConstants.STS_SHADER_DEFAULT_KEY, "SeeThroughShader/HDRP/2023/Lit" },
+            //{ "HDRP/Unlit", "SeeThroughShader/HDRP/Unity6/Unlit" },
+            { "HDRP/Lit", "SeeThroughShader/HDRP/Unity6/Lit" },
+            { SeeThroughShaderConstants.STS_SHADER_DEFAULT_KEY, "SeeThroughShader/HDRP/Unity6/Lit" },
 #elif UNITY_2022
             //{ "HDRP/Unlit", "SeeThroughShader/HDRP/2022/Unlit" },
             { "HDRP/Lit", "SeeThroughShader/HDRP/2022/Lit" },
@@ -76,9 +76,9 @@ namespace ShaderCrew.SeeThroughShader
 
 
 #if UNITY_2023 || UNITY_6000
-        //{ "URP/Unlit", "SeeThroughShader/URP/2023/Lit" },
-        { "URP/Lit", "SeeThroughShader/URP/2023/Lit" },
-        { SeeThroughShaderConstants.STS_SHADER_DEFAULT_KEY, "SeeThroughShader/URP/2023/Lit" },
+        //{ "URP/Unlit", "SeeThroughShader/URP/Unity6/Lit" },
+        { "URP/Lit", "SeeThroughShader/URP/Unity6/Lit" },
+        { SeeThroughShaderConstants.STS_SHADER_DEFAULT_KEY, "SeeThroughShader/URP/Unity6/Lit" },
 #elif UNITY_2022
         //{ "URP/Unlit", "SeeThroughShader/URP/2022/Lit" },
         { "URP/Lit", "SeeThroughShader/URP/2022/Lit" },
@@ -144,6 +144,8 @@ namespace ShaderCrew.SeeThroughShader
         //Textures:
 
         "_DissolveTex", "_DissolveMask", "_ObstructionCurve", "_CrossSectionTexture",
+
+        "_ObstructionPlayerOffset",
 
     };
 
@@ -277,8 +279,8 @@ namespace ShaderCrew.SeeThroughShader
                     }
                     else
                     {
-                        shaderString = "SeeThroughShader/HDRP/2023/Lit";
-                        shaderFolder = "SeeThroughShader/HDRP/2023/...";
+                        shaderString = "SeeThroughShader/HDRP/Unity6/Lit";
+                        shaderFolder = "SeeThroughShader/HDRP/Unity6/...";
                     }
 
                 }
@@ -307,8 +309,8 @@ namespace ShaderCrew.SeeThroughShader
                     }
                     else
                     {
-                        shaderString = "SeeThroughShader/URP/2023/Lit";
-                        shaderFolder = "SeeThroughShader/URP/2023/...";
+                        shaderString = "SeeThroughShader/URP/Unity6/Lit";
+                        shaderFolder = "SeeThroughShader/URP/Unity6/...";
                     }
                 }
             }
@@ -590,14 +592,26 @@ namespace ShaderCrew.SeeThroughShader
             return materialList;
         }
 
-        public static void updateSeeThroughShaderMaterialPropertiesAndKeywords(Transform[] transforms, string seeThroughShaderName, Material referenceMaterial)
+        public static void updateSeeThroughShaderMaterialPropertiesAndKeywords(Transform[] transforms, string seeThroughShaderName, Material referenceMaterial, bool force = false)
         {
 
             Material firstInstancedMaterial = getFirstInstancedMaterial(transforms, seeThroughShaderName);
             if (firstInstancedMaterial != null)
             {
-                List<string> namesOfChangedProperties = getNamesOfAllChangedPropertyValues(firstInstancedMaterial, referenceMaterial);
-                List<string> namesOfChangedKeywords = getNamesOfAllChangedKeywordValues(firstInstancedMaterial, referenceMaterial);
+                List<string> namesOfChangedProperties;
+                List<string> namesOfChangedKeywords;
+
+                if (force)
+                {
+                    namesOfChangedProperties = GeneralUtils.STS_SYNC_PROPERTIES_LIST;
+                    namesOfChangedKeywords = GeneralUtils.STS_KEYWORDS_LIST;
+                }
+                else
+                {
+                    namesOfChangedProperties = getNamesOfAllChangedPropertyValues(firstInstancedMaterial, referenceMaterial);
+                    namesOfChangedKeywords = getNamesOfAllChangedKeywordValues(firstInstancedMaterial, referenceMaterial);
+                }
+
                 if(namesOfChangedProperties != null && namesOfChangedKeywords != null)
                 {
                     //if (namesOfChangedProperties.Count > 0 || namesOfChangedKeywords.Count > 0)
@@ -618,11 +632,11 @@ namespace ShaderCrew.SeeThroughShader
                         }
                     }
                 }   
-                else
-                {
-                    Debug.LogWarning("namesOfChangedProperties == null: " + (namesOfChangedProperties == null));
-                    Debug.LogWarning("namesOfChangedKeywords == null: " + (namesOfChangedKeywords == null));
-                }
+                //else
+                //{
+                //    Debug.LogWarning("namesOfChangedProperties == null: " + (namesOfChangedProperties == null));
+                //    Debug.LogWarning("namesOfChangedKeywords == null: " + (namesOfChangedKeywords == null));
+                //}
             }
             else
             {
@@ -631,14 +645,28 @@ namespace ShaderCrew.SeeThroughShader
         }
 
 
-        public static void updateSeeThroughShaderMaterialPropertiesAndKeywords(Transform[] transforms, List<Shader> STSShaders, Material referenceMaterial)
+        public static void updateSeeThroughShaderMaterialPropertiesAndKeywords(Transform[] transforms, List<Shader> STSShaders, Material referenceMaterial, bool force = false)
         {
 
             Material firstInstancedMaterial = getFirstInstancedMaterial(transforms, STSShaders);
             if (firstInstancedMaterial != null)
             {
-                List<string> namesOfChangedProperties = getNamesOfAllChangedPropertyValues(firstInstancedMaterial, referenceMaterial);
-                List<string> namesOfChangedKeywords = getNamesOfAllChangedKeywordValues(firstInstancedMaterial, referenceMaterial);
+                List<string> namesOfChangedProperties;
+                List<string> namesOfChangedKeywords;
+
+                if(force)
+                {
+                    namesOfChangedProperties = GeneralUtils.STS_SYNC_PROPERTIES_LIST;
+                    namesOfChangedKeywords = GeneralUtils.STS_KEYWORDS_LIST;
+                }
+                else
+                {
+                    namesOfChangedProperties = getNamesOfAllChangedPropertyValues(firstInstancedMaterial, referenceMaterial);
+                    namesOfChangedKeywords = getNamesOfAllChangedKeywordValues(firstInstancedMaterial, referenceMaterial);
+                }
+
+
+
                 //if (namesOfChangedProperties.Count > 0 || namesOfChangedKeywords.Count > 0)
                 if ((namesOfChangedProperties != null && namesOfChangedProperties.Count > 0) || (namesOfChangedKeywords != null && namesOfChangedKeywords.Count > 0))
                 {
@@ -652,6 +680,8 @@ namespace ShaderCrew.SeeThroughShader
 
                         if (namesOfChangedKeywords.Count > 0)
                         {
+                            //Debug.Log("namesOfChangedKeywords.Count > 0");
+
                             updateMaterialKeywords(material, referenceMaterial, namesOfChangedKeywords);
                         }
                     }
@@ -663,7 +693,7 @@ namespace ShaderCrew.SeeThroughShader
             }
         }
 
-        public static void updateSeeThroughShaderMaterialKeywordsAndCulling(Transform[] transforms, List<Shader> STSShaders, Material referenceMaterial)
+        public static void updateSeeThroughShaderMaterialKeywordsAndCulling(Transform[] transforms, List<Shader> STSShaders, Material referenceMaterial, bool force = false)
         {
 
             Material firstInstancedMaterial = getFirstInstancedMaterial(transforms, STSShaders);
@@ -671,7 +701,17 @@ namespace ShaderCrew.SeeThroughShader
             {
                 //List<string> namesOfChangedProperties = getNamesOfAllChangedPropertyValues(firstInstancedMaterial, referenceMaterial);
 
-                List<string> namesOfChangedKeywords = getNamesOfAllChangedKeywordValues(firstInstancedMaterial, referenceMaterial);
+                List<string> namesOfChangedKeywords;
+
+                if (force)
+                {
+                    namesOfChangedKeywords = GeneralUtils.STS_KEYWORDS_LIST;
+                }
+                else
+                {
+                    namesOfChangedKeywords = getNamesOfAllChangedKeywordValues(firstInstancedMaterial, referenceMaterial);
+                }
+                //List<string> namesOfChangedKeywords = getNamesOfAllChangedKeywordValues(firstInstancedMaterial, referenceMaterial);
                 if ((namesOfChangedKeywords != null && namesOfChangedKeywords.Count > 0) || (referenceMaterial.HasProperty("_SyncCullMode") && referenceMaterial.GetFloat("_SyncCullMode") == 1) )
                 {
                     List<Material> allSTSMaterials = getAllSTSMaterialsFromTransforms(transforms, STSShaders, referenceMaterial);
@@ -705,7 +745,7 @@ namespace ShaderCrew.SeeThroughShader
         }
 
 
-        public static void updateSeeThroughShaderMaterialPropertiesAndKeywords(Material[] materialsWithSTS, List<Shader> STSShaders, Material referenceMaterial)
+        public static void updateSeeThroughShaderMaterialPropertiesAndKeywords(Material[] materialsWithSTS, List<Shader> STSShaders, Material referenceMaterial, bool force = false)
         {
             Material firstInstancedMaterial = null;
             foreach (Material material in materialsWithSTS)
@@ -719,8 +759,22 @@ namespace ShaderCrew.SeeThroughShader
             if (firstInstancedMaterial != null)
             {
 
-                List<string> namesOfChangedProperties = getNamesOfAllChangedPropertyValues(firstInstancedMaterial, referenceMaterial);
-                List<string> namesOfChangedKeywords = getNamesOfAllChangedKeywordValues(firstInstancedMaterial, referenceMaterial);
+                List<string> namesOfChangedProperties;
+                List<string> namesOfChangedKeywords;
+
+                if (force)
+                {
+                    namesOfChangedProperties = GeneralUtils.STS_SYNC_PROPERTIES_LIST;
+                    namesOfChangedKeywords = GeneralUtils.STS_KEYWORDS_LIST;
+                }
+                else
+                {
+                    namesOfChangedProperties = getNamesOfAllChangedPropertyValues(firstInstancedMaterial, referenceMaterial);
+                    namesOfChangedKeywords = getNamesOfAllChangedKeywordValues(firstInstancedMaterial, referenceMaterial);
+                }
+
+                //List<string> namesOfChangedProperties = getNamesOfAllChangedPropertyValues(firstInstancedMaterial, referenceMaterial);
+                //List<string> namesOfChangedKeywords = getNamesOfAllChangedKeywordValues(firstInstancedMaterial, referenceMaterial);
                 //if (namesOfChangedProperties.Count > 0 || namesOfChangedKeywords.Count > 0)
                 if ((namesOfChangedProperties != null && namesOfChangedProperties.Count > 0) || (namesOfChangedKeywords != null && namesOfChangedKeywords.Count > 0))
                 {
@@ -1028,7 +1082,6 @@ namespace ShaderCrew.SeeThroughShader
                     GeneralUtils.STS_SHADER_LIST.Contains(referenceMaterial.shader.name) || STSCustomShaderMappingsStorage.Instance.STSCustomShaderMappingsDict.ContainsValue(referenceMaterial.shader.name)
                     )
                 {
-
                     Shader shader = referenceMaterial.shader;
                     List<string> namesOfChangedProperties = new List<string>();
                     foreach (string propertyName in GeneralUtils.STS_SYNC_PROPERTIES_LIST)

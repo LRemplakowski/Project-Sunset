@@ -2,15 +2,23 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 6
+  serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: refMaterialPlayerCircle
   m_Shader: {fileID: 4800000, guid: a36763ecf55485140aca584a79f8b477, type: 3}
-  m_ShaderKeywords: _ANIMATIONENABLED_ON _CROSSSECTIONUVSCALEDBYDISTANCE_ON _FLOOR_ON
-    _HASCLIPPEDSHADOWS_ON _ISREFERENCEMATERIAL_ON _ISREPLACEMENTSHADER_ON _TEXTUREDEMISSIONEDGE_ON
+  m_ValidKeywords:
+  - _REPLACEMENT
+  m_InvalidKeywords:
+  - _ANIMATIONENABLED_ON
+  - _CROSSSECTIONUVSCALEDBYDISTANCE_ON
+  - _FLOOR_ON
+  - _HASCLIPPEDSHADOWS_ON
+  - _ISREFERENCEMATERIAL_ON
+  - _ISREPLACEMENTSHADER_ON
+  - _TEXTUREDEMISSIONEDGE_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -84,6 +92,7 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
     - _AddPrecomputedVelocity: 0
     - _AffectedAreaFloor: 0
@@ -151,6 +160,7 @@ Material:
     - _Metallic: 0
     - _Mode: 0
     - _Obstruction: 6
+    - _ObstructionPlayerOffset: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _PlayerPosYOffset: 0.91

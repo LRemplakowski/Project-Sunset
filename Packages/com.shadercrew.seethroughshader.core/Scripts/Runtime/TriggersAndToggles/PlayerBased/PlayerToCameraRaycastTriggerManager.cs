@@ -151,11 +151,11 @@ namespace ShaderCrew.SeeThroughShader
                     if (player != null)
                     {
 
-                        if (player.GetComponent<SeeThroughShaderPlayer>() == null)
-                        {
-                            Gizmos.color = new Color(0, 1, 0, 0.2f);
-                            Gizmos.DrawSphere(player.transform.position, 1);
-                        }
+                        //if (player.GetComponent<SeeThroughShaderPlayer>() != null)
+                        //{
+                        //    Gizmos.color = new Color(0, 1, 0, 0.2f);
+                        //    Gizmos.DrawSphere(player.transform.position, 1);
+                        //}
 
                         // iterates through all raycast hits and if one hit or its parents contain the "ManualTriggerByParent" component, ActivateTrigger(player) 
                         // will be called with the current player as it's argument. It's a bit complex but we have to keep track of which player already activated

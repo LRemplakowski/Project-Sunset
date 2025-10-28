@@ -147,8 +147,13 @@ namespace ShaderCrew.SeeThroughShader
                             }
                         }
                     }
-
+#if UNITY_6000
+                    TriggerByBox[] groupMembersFoundScene = GameObject.FindObjectsByType<TriggerByBox>(FindObjectsSortMode.None);
+#else
                     TriggerByBox[] groupMembersFoundScene = GameObject.FindObjectsOfType<TriggerByBox>();
+#endif
+
+
                     if (groupMembersFoundScene.Length > 0)
                     {
                         foreach (TriggerByBox item in groupMembersFoundScene)
@@ -190,7 +195,11 @@ namespace ShaderCrew.SeeThroughShader
                         }
                     }
 
+#if UNITY_6000
+                    TriggerByBox[] groupMembersFoundScene = GameObject.FindObjectsByType<TriggerByBox>(FindObjectsSortMode.None);
+#else
                     TriggerByBox[] groupMembersFoundScene = GameObject.FindObjectsOfType<TriggerByBox>();
+#endif
                     if (groupMembersFoundScene.Length > 0)
                     {
                         foreach (TriggerByBox item in groupMembersFoundScene)

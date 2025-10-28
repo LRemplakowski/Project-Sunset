@@ -1,4 +1,6 @@
-﻿namespace ShaderCrew.SeeThroughShader
+﻿using UnityEngine;
+
+namespace ShaderCrew.SeeThroughShader
 {
     public static class Strings
     {
@@ -11,6 +13,7 @@
 
         public const string COMPONENTMENU_SHADER_REPLACEMENT_FOLDER = COMPONENTMENU_FOLDER + "Shader Replacement and Sync/"; //FOLDER
         public const string COMPONENTMENU_GLOBAL_SHADER_REPLACEMENT = COMPONENTMENU_SHADER_REPLACEMENT_FOLDER + "STS-Global Shader Replacement";
+        public const string COMPONENTMENU_GLOBAL_SHADER_PROPERTY_SYNC = COMPONENTMENU_SHADER_REPLACEMENT_FOLDER + "STS-Global Shader Property Sync";
         public const string COMPONENTMENU_GROUP_SHADER_REPLACEMENT = COMPONENTMENU_SHADER_REPLACEMENT_FOLDER +"STS-Group Shader Replacement";
         public const string COMPONENTMENU_SHADER_EXEMPTION = COMPONENTMENU_SHADER_REPLACEMENT_FOLDER + "STS-Shader Exemption";
         public const string COMPONENTMENU_SHADER_PROPERTY_SYNC = COMPONENTMENU_SHADER_REPLACEMENT_FOLDER + "STS-Shader Property Sync";
@@ -53,6 +56,7 @@
         /////////////
         public static readonly string PLAYER_POSITION_MANAGER_TITLE = "Playable Characters Position Manager";
         public static readonly string GLOBAL_SHADER_REPLACEMENT_TITLE = "Global Shader Replacement Manager";
+        public static readonly string GLOBAL_SHADER_PROPERTY_SYNC_TITLE = "Global Shader Property Synchronizer";
         public static readonly string GROUP_SHADER_REPLACEMENT_TITLE = "Shader Replacement By Group";
         public static readonly string STS_EXEMPTION_TITLE = "";
         public static readonly string SHADER_PROPERTY_SYNC_TITLE = "Shader Property Synchronizer";
@@ -84,7 +88,12 @@
                                                                              " globally to all GameObjects that are on the LayerMasks supplied</b>. \n\nIt is mostly " +
                                                                                 "used to easily add the shader to all materials at once in contrast to the “SeeThroughShaderGroupReplacement” " +
                                                                                 "script, which works locally from a parent GameObject downwards. " +
-                                                                                "\n\nIt also synchronizes the property settings from its assigned reference material to all affected materials.";
+                                                                                "\n\nIt also synchronizes the property settings from its assigned reference material to all affected materials.";    
+        
+        public static readonly string GLOBAL_SHADER_PROPERTY_SYNC_DESCRIPTION = "This component <b>synchronizes the <i>See-through Shader</i> property settings from its assigned reference material" +
+                                                                             " globally to all GameObjects that are on the LayerMasks supplied</b>. \n\nIt is mostly " +
+                                                                                "used to easily synchronize the shader properties of the ref material to all materials at once in contrast to the “STS-ShaderPropertySync” " +
+                                                                                "script, which works locally from a parent GameObject downwards or a list of materials.";
 
 
         public static readonly string GROUP_SHADER_REPLACEMENT_DESCRIPTION = "This script <b>assigns the <i>See-through Shader</i> to elements beneath a parent.</b> " +

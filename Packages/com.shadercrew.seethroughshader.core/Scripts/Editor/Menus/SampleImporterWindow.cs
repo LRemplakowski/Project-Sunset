@@ -11,14 +11,13 @@ namespace ShaderCrew.SeeThroughShader
         private ListRequest listRequest;
         private AddRequest addRequest;
         private bool sampleImported = false;
-        private string packageName = "com.shadercrew.seethroughshader.core"; // Change this to the package name you want
+        private string packageName = "com.shadercrew.seethroughshader.core"; 
         private GUIStyle redTextStyle;
         private GUIStyle textAreaBoldStyle;
 
         [MenuItem("Window/See-through Shader/Sample Importer")]
         public static void ShowWindow()
         {
-            // Show existing window instance. If one doesn't exist, make one.
             EditorWindow.GetWindow(typeof(SampleImporterWindow), false, "See-through Shader/Sample Importer");
         }
 
@@ -49,7 +48,7 @@ namespace ShaderCrew.SeeThroughShader
         void ImportSample()
         {
             Debug.Log("Starting package list request.");
-            listRequest = Client.List(); // This does not include samples information inherently
+            listRequest = Client.List(); 
             EditorApplication.update += ProgressList;
         }
 
@@ -73,12 +72,6 @@ namespace ShaderCrew.SeeThroughShader
                                 sampleImported = item.isImported;
 
                             }
-
-
-
-
-
-
                         }
                     }
 

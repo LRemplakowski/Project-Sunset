@@ -18,6 +18,10 @@ Shader "SeeThroughShader/ShaderExtensionExamples/Handwritten/BiRP/UnityUnlitExte
 
 	    [Enum(STSInteractionMode)] _InteractionMode ("Interaction Mode", Float) = 0
 	    [Enum(ObstructionMode)] _Obstruction ("Obstruction Mode", Float) = 0
+
+	    _ObstructionPlayerOffset("Player Offset", Float) = 0.0
+
+
 	    _AngleStrength("Angle Obstruction Strength", Range(0,1)) = 1.0
         
 	    _ConeStrength ("Cone Obstruction Strength", Range(0,1)) = 1.0
@@ -142,10 +146,10 @@ Shader "SeeThroughShader/ShaderExtensionExamples/Handwritten/BiRP/UnityUnlitExte
             sampler2D _MainTex;
             float4 _MainTex_ST;
 
-            //////////////////
-            //Add dependency//
-            //////////////////
-            #include "Packages/com.shadercrew.seethroughshader.core/Scripts/Shaders/ShaderCustomization/STS Handwritten Shader Extension/HandwrittenShaderExtension.hlsl"
+//////////////////
+//Add dependency//
+//////////////////
+            #include "Packages/com.shadercrew.seethroughshader.core/Scripts/Shaders/ShaderCustomization/STS Handwritten Shader Extension/HandwrittenShaderExtension_BiRP.hlsl"
 
             struct appdata
             {

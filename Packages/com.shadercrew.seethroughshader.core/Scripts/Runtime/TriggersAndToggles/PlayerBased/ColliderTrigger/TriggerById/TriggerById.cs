@@ -81,7 +81,11 @@ namespace ShaderCrew.SeeThroughShader
                 {
                     seeThroughShaderController = new TransitionController(listGameObjects);
                 }
+#if UNITY_6000
+                groupMembersFoundScene = GameObject.FindObjectsByType<TriggerById>(FindObjectsSortMode.None);
+#else
                 groupMembersFoundScene = GameObject.FindObjectsOfType<TriggerById>();
+#endif
                 //seeThroughShader = Shader.Find(seeThroughShaderName);
             }
         }
@@ -295,7 +299,12 @@ namespace ShaderCrew.SeeThroughShader
 
             if (!string.IsNullOrEmpty(triggerID))
             {
+#if UNITY_6000
+                TriggerObjectId[] idObjects = GameObject.FindObjectsByType<TriggerObjectId>(FindObjectsSortMode.None);
+#else
                 TriggerObjectId[] idObjects = GameObject.FindObjectsOfType<TriggerObjectId>();
+#endif
+
                 List<GameObject> listGameObjects = new List<GameObject>();
 
                 foreach (TriggerObjectId item in idObjects)

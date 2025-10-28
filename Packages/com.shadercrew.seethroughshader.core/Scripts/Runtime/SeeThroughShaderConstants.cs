@@ -92,5 +92,87 @@ namespace ShaderCrew.SeeThroughShader
         //public static readonly string URP_STS_LIT = STS_FOLDER + "Lit";
 
         public static readonly string STS_SHADER_DEFAULT_KEY = "default";
+
+
+
+
+
+
+
+
+
+        public static readonly string STS_SHADER_NAME_FOLDER = "SeeThroughShader";
+        //public static readonly string STS_SHADER_NAME = "/SeeThroughShader";
+        public static readonly string STS_SHADER_NAME_LIT = "/Lit";
+
+
+        /// BiRP ///
+        public static readonly string STS_SHADER_NAME_BIRP_FOLDER = STS_SHADER_NAME_FOLDER + "/BiRP";
+
+        public static readonly string STS_SHADER_NAME_BIRP_STANDARD = STS_SHADER_NAME_BIRP_FOLDER + "/Standard";
+        public static readonly string STS_SHADER_NAME_BIRP_UNLIT_COLOR = STS_SHADER_NAME_BIRP_FOLDER + "/Unlit/Color";
+        public static readonly string STS_SHADER_NAME_BIRP_UNLIT_TEXTURE = STS_SHADER_NAME_BIRP_FOLDER + "/Unlit/Texture";
+
+        /// URP ///
+        public static readonly string STS_SHADER_NAME_URP_FOLDER = STS_SHADER_NAME_FOLDER + "/URP";
+
+        /// URP 2019///
+        public static readonly string STS_SHADER_NAME_URP_2019 = STS_SHADER_NAME_URP_FOLDER + "/2019" + STS_SHADER_NAME_LIT;
+        /// URP 2020///
+        public static readonly string STS_SHADER_NAME_URP_2020 = STS_SHADER_NAME_URP_FOLDER + "/2020" + STS_SHADER_NAME_LIT;
+        /// URP 2021///
+        public static readonly string STS_SHADER_NAME_URP_2021 = STS_SHADER_NAME_URP_FOLDER + "/2021" + STS_SHADER_NAME_LIT;
+        /// URP 2022///
+        public static readonly string STS_SHADER_NAME_URP_2022 = STS_SHADER_NAME_URP_FOLDER + "/2022" + STS_SHADER_NAME_LIT;
+        /// URP 6///
+        public static readonly string STS_SHADER_NAME_URP_UNITY6 = STS_SHADER_NAME_URP_FOLDER + "/Unity6" + STS_SHADER_NAME_LIT;
+
+
+        /// HDRP ///
+        public static readonly string STS_SHADER_NAME_HDRP_FOLDER = STS_SHADER_NAME_FOLDER + "/HDRP";
+
+        /// HDRP 2019///
+        public static readonly string STS_SHADER_NAME_HDRP_2019 = STS_SHADER_NAME_HDRP_FOLDER + "/2019" + STS_SHADER_NAME_LIT;
+        /// HDRP 2020///
+        public static readonly string STS_SHADER_NAME_HDRP_2020 = STS_SHADER_NAME_HDRP_FOLDER + "/2020" + STS_SHADER_NAME_LIT;
+        /// HDRP 2021///
+        public static readonly string STS_SHADER_NAME_HDRP_2021 = STS_SHADER_NAME_HDRP_FOLDER + "/2021" + STS_SHADER_NAME_LIT;
+        /// HDRP 2022///
+        public static readonly string STS_SHADER_NAME_HDRP_2022 = STS_SHADER_NAME_HDRP_FOLDER + "/2022" + STS_SHADER_NAME_LIT;
+        /// HDRP 6///
+        public static readonly string STS_SHADER_NAME_HDRP_UNITY6 = STS_SHADER_NAME_HDRP_FOLDER + "/Unity6" + STS_SHADER_NAME_LIT;
+
+
+
+        /// BiRP ///
+        public static readonly string STS_SHADER_FILENAME_BIRP_STANDARD = "/BiRP(Built-in)" + "/SeeThroughShader_Standard_BiRP";
+        public static readonly string STS_SHADER_FILENAME_BIRP_UNLIT_COLOR = "/BiRP(Built-in)" + "/SeeThroughShader_UnlitColor_BiRP";
+        public static readonly string STS_SHADER_FILENAME_BIRP_UNLIT_TEXTURE = "/BiRP(Built-in)" + "/SeeThroughShader_UnlitTexture_BiRP";
+
+        /// URP 2019///
+        public static readonly string STS_SHADER_FILENAME_URP_2019 = "/URP" + "/2019" + "/SeeThroughShader" + "_Lit" + "_URP2019";
+        /// URP 2020///
+        public static readonly string STS_SHADER_FILENAME_URP_2020 = "/URP" + "/2020" + "/SeeThroughShader" + "_Lit" + "_URP2020";
+        /// URP 2021///
+        public static readonly string STS_SHADER_FILENAME_URP_2021 = "/URP" + "/2021" + "/SeeThroughShader" + "_Lit" + "_URP2021";
+        /// URP 2022///
+        public static readonly string STS_SHADER_FILENAME_URP_2022 = "/URP" + "/2022" + "/SeeThroughShader" + "_Lit" + "_URP2022";
+        /// URP 6///
+        public static readonly string STS_SHADER_FILENAME_URP_UNITY6 = "/URP" + "/Unity6" + "/SeeThroughShader" + "_Lit" + "_URPUnity6";
+
+
+        /// HDRP 2019///
+        public static readonly string STS_SHADER_FILENAME_HDRP_2019 = "/HDRP" + "/2019" + "/SeeThroughShader" + "_Lit" + "_HDRP2019";
+        /// HDRP 2020///
+        public static readonly string STS_SHADER_FILENAME_HDRP_2020 = "/HDRP" + "/2020" + "/SeeThroughShader" + "_Lit" + "_HDRP2020";
+        /// HDRP 2021///
+        public static readonly string STS_SHADER_FILENAME_HDRP_2021 = "/HDRP" + "/2021" + "/SeeThroughShader" + "_Lit" + "_HDRP2021";
+        /// HDRP 2022///
+        public static readonly string STS_SHADER_FILENAME_HDRP_2022 = "/HDRP" + "/2022" + "/SeeThroughShader" + "_Lit" + "_HDRP2022";
+        /// HDRP 6///
+        public static readonly string STS_SHADER_FILENAME_HDRP_UNITY6 = "/HDRP" + "/Unity6" + "/SeeThroughShader" + "_Lit" + "_HDRPUnity6";
+
+
+
     }
 }

@@ -5,9 +5,9 @@ Shader "SeeThroughShader/ShaderExtensionExamples/Handwritten/URP/CustomUnlitExte
     { 
         _BaseColor("Base Color", Color) = (1, 1, 1, 1)
 
-    ////////////////////////////////////////////////////////////////////
-    //Add STS Properties from 'STSPropertiesToBeAddedToYourShader.txt'//
-    ////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////
+//Add STS Properties from 'STSPropertiesToBeAddedToYourShader.txt'//
+////////////////////////////////////////////////////////////////////
 	    _DissolveColor("Dissolve Color", Color) = (1,1,1,1)
 	    _DissolveColorSaturation("Dissolve Color Saturation", Range(0,1)) = 1.0
 	    _DissolveEmission("Dissolve Emission", Range(0,1)) = 1.0
@@ -20,6 +20,10 @@ Shader "SeeThroughShader/ShaderExtensionExamples/Handwritten/URP/CustomUnlitExte
 
 	    [Enum(STSInteractionMode)] _InteractionMode ("Interaction Mode", Float) = 0
 	    [Enum(ObstructionMode)] _Obstruction ("Obstruction Mode", Float) = 0
+
+
+	    _ObstructionPlayerOffset("Player Offset", Float) = 0.0
+
 	    _AngleStrength("Angle Obstruction Strength", Range(0,1)) = 1.0
         
 	    _ConeStrength ("Cone Obstruction Strength", Range(0,1)) = 1.0
@@ -138,11 +142,6 @@ Shader "SeeThroughShader/ShaderExtensionExamples/Handwritten/URP/CustomUnlitExte
             #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"            
 
 
-            //////////////////
-            //Add dependency//
-            //////////////////
-            #include "Packages/com.shadercrew.seethroughshader.core/Scripts/Shaders/ShaderCustomization/STS Handwritten Shader Extension/HandwrittenShaderExtension.hlsl"
-
 
             struct Attributes
             {
@@ -159,10 +158,10 @@ Shader "SeeThroughShader/ShaderExtensionExamples/Handwritten/URP/CustomUnlitExte
             };
 
 
-            // add this function to compute the ScreenPos, normally you would use several Unity #includes that already contain this function 
-            // this would contain the function but requires other dependencies: 
-            // #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/ShaderGraphFunctions.hlsl"
-            // So if you have this #include declared, don't declare ComputeScreenPos(float4 pos, float projectionSign) again
+// add this function to compute the ScreenPos, normally you would use several Unity #includes that already contain this function 
+// this would contain the function but requires other dependencies: 
+// #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/ShaderGraphFunctions.hlsl"
+// So if you have this #include declared, don't declare ComputeScreenPos(float4 pos, float projectionSign) again
             float4 ComputeScreenPos(float4 pos, float projectionSign)
             {
                 float4 o = pos * 0.5f;
@@ -173,7 +172,105 @@ Shader "SeeThroughShader/ShaderExtensionExamples/Handwritten/URP/CustomUnlitExte
 
             CBUFFER_START(UnityPerMaterial)
                 half4 _BaseColor;
+
+
+////////////////////////////////////////////////////////////////////
+//Add STS Uniforms from 'STSUniformsToBeAddedToYourShadersCBuffer.txt' to the CBuffer//
+////////////////////////////////////////////////////////////////////
+                float _SyncCullMode;
+
+                float _IsReplacementShader;
+                float _TriggerMode;
+                float _RaycastMode;
+                float _IsExempt;
+                float _isReferenceMaterial;
+                float _InteractionMode;
+
+                float _tDirection = 0;
+                float _numOfPlayersInside = 0;
+                float _tValue = 0;
+                float _id = 0;
+
+
+                half _TextureVisibility;
+                half _AngleStrength;
+                float _Obstruction;
+
+                half _ObstructionPlayerOffset;
+
+                float _UVs;
+                float4 _DissolveTex_TexelSize;
+                float4 _ObstructionCurve_TexelSize;
+                float _DissolveMaskEnabled;
+                float4 _DissolveMask_TexelSize;
+                float4 _DissolveColor;
+                float _DissolveColorSaturation;
+                float _DissolveEmission;
+                float _DissolveEmissionBooster;
+                float _hasClippedShadows;
+                float _ConeStrength;
+                float _ConeObstructionDestroyRadius;
+                float _CylinderStrength;
+                float _CylinderObstructionDestroyRadius;
+                float _CircleStrength;
+                float _CircleObstructionDestroyRadius;
+                float _CurveStrength;
+                float _CurveObstructionDestroyRadius;
+                float _IntrinsicDissolveStrength;
+                float _DissolveFallOff;
+                float _AffectedAreaPlayerBasedObstruction;
+                float _PreviewMode;
+                float _PreviewIndicatorLineThickness;
+                float _AnimationEnabled;
+                float _AnimationSpeed;
+                float _DefaultEffectRadius;
+                float _EnableDefaultEffectRadius;
+                float _TransitionDuration;
+                float _TexturedEmissionEdge;
+                float _TexturedEmissionEdgeStrength;
+                float _IsometricExclusion;
+                float _IsometricExclusionDistance;
+                float _IsometricExclusionGradientLength;
+                float _Floor;
+                float _FloorMode;
+                float _FloorY;
+                float _FloorYTextureGradientLength;
+                float _PlayerPosYOffset;
+                float _AffectedAreaFloor;
+                float _Ceiling;
+                float _CeilingMode;
+                float _CeilingBlendMode;
+                float _CeilingY;
+                float _CeilingPlayerYOffset;
+                float _CeilingYGradientLength;
+                float _Zoning;
+                float _ZoningMode;
+                float _ZoningEdgeGradientLength;
+                float _IsZoningRevealable;
+                float _SyncZonesWithFloorY;
+                float _SyncZonesFloorYOffset;
+                float _UseCustomTime;
+
+                half _DissolveMethod;
+                half _DissolveTexSpace;
+
+
             CBUFFER_END
+
+
+
+
+
+//////////////////
+//Add dependency//
+//////////////////
+            #if UNITY_VERSION  >= 202120
+                            #include_with_pragmas "Packages/com.shadercrew.seethroughshader.core/Scripts/Shaders/ShaderCustomization/STS Handwritten Shader Extension/HandwrittenShaderExtension.hlsl"
+            #else
+                            #include "Packages/com.shadercrew.seethroughshader.core/Scripts/Shaders/ShaderCustomization/STS Handwritten Shader Extension/HandwrittenShaderExtension.hlsl"
+            #endif
+
+
 
             Varyings vert(Attributes IN)
             {
@@ -194,7 +291,7 @@ Shader "SeeThroughShader/ShaderExtensionExamples/Handwritten/URP/CustomUnlitExte
                 float3 emission = float3(0, 0, 0); // your emission values
                 float alphaForClipping = 0; // you can use this if you dont want to use clipping and instead a alpha blend/fade shader
     
-                //Call function from HandwrittenShaderExtension.hlsl
+//Call function from HandwrittenShaderExtension.hlsl
                 AddSeeThroughShaderToShader(albedo, emission, alphaForClipping, IN.worldPos, IN.worldNormal, IN.screenPos);
 
     
@@ -205,9 +302,9 @@ Shader "SeeThroughShader/ShaderExtensionExamples/Handwritten/URP/CustomUnlitExte
         }
     }
 
-    ////////////////////////////////////////
-    // Add custom editor! Very important! //
-    ////////////////////////////////////////
+////////////////////////////////////////
+// Add custom editor! Very important! //
+////////////////////////////////////////
     CustomEditor"ShaderCrew.SeeThroughShader.STSShaderGraphGenericEditor" 
 
 }

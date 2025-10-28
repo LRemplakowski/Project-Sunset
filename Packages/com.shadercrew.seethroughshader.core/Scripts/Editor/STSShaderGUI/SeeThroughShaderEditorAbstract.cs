@@ -148,6 +148,9 @@ namespace ShaderCrew.SeeThroughShader
             //centerPosition = FindProperty("_CenterPosition", props);
 
             seeThroughShaderGUI.obstructionMode = FindProperty("_Obstruction", props);
+
+            seeThroughShaderGUI.obstructionPlayerOffset = FindProperty("_ObstructionPlayerOffset", props);
+
             seeThroughShaderGUI.angleStrength = FindProperty("_AngleStrength", props);
             seeThroughShaderGUI.coneStrength = FindProperty("_ConeStrength", props);
             seeThroughShaderGUI.coneObstructionDestroyRadius = FindProperty("_ConeObstructionDestroyRadius", props);

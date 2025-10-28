@@ -32,12 +32,20 @@ namespace ShaderCrew.SeeThroughShader
         {
             if (posManager == null)
             {
+#if UNITY_6000
+                posManager = GameObject.FindFirstObjectByType<PlayersPositionManager>();
+#else
                 posManager = GameObject.FindObjectOfType<PlayersPositionManager>();
+#endif
             }
 
             if (plrRaycastTriggerMgr == null)
             {
+#if UNITY_6000
+                plrRaycastTriggerMgr = GameObject.FindFirstObjectByType<PlayerToCameraRaycastTriggerManager>();
+#else
                 plrRaycastTriggerMgr = GameObject.FindObjectOfType<PlayerToCameraRaycastTriggerManager>();
+#endif
             }
 
             if (posManager != null)

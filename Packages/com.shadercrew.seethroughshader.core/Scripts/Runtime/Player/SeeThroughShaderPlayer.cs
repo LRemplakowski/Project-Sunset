@@ -58,8 +58,13 @@ namespace ShaderCrew.SeeThroughShader
 
         private void Awake()
         {
+#if UNITY_6000
+            posManager = GameObject.FindFirstObjectByType<PlayersPositionManager>();
+            plrRaycastTriggerMgr = GameObject.FindFirstObjectByType<PlayerToCameraRaycastTriggerManager>();
+#else
             posManager = GameObject.FindObjectOfType<PlayersPositionManager>();
             plrRaycastTriggerMgr = GameObject.FindObjectOfType<PlayerToCameraRaycastTriggerManager>();
+#endif
 
         }
 

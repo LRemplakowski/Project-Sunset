@@ -87,6 +87,7 @@ namespace ShaderCrew.SeeThroughShader
         //MaterialProperty centerPosition = null;
 
         public MaterialProperty obstructionMode = null;
+        public MaterialProperty obstructionPlayerOffset = null;
         public MaterialProperty angleStrength = null;
         public MaterialProperty coneStrength = null;
         public MaterialProperty coneObstructionDestroyRadius = null;
@@ -1386,6 +1387,9 @@ namespace ShaderCrew.SeeThroughShader
                 if (obstructionMode.floatValue != (float)ObstructionMode.None && obstructionMode.floatValue != (float)ObstructionMode.AngleOnly)
                 {
                     m_MaterialEditor.ShaderProperty(dissolveFallOff, "FallOff");
+
+
+                    m_MaterialEditor.ShaderProperty(obstructionPlayerOffset, "Player Offset");
                 }
 
                 EditorGUILayout.Space();

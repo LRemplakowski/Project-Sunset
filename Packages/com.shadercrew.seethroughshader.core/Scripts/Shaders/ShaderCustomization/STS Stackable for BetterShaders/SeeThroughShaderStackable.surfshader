@@ -27,6 +27,10 @@ BEGIN_PROPERTIES
 
 	[Enum(STSInteractionMode)] _InteractionMode ("Interaction Mode", Float) = 0
 	[Enum(ObstructionMode)] _Obstruction ("Obstruction Mode", Float) = 0
+
+	_ObstructionPlayerOffset("Player Offset", Float) = 0.0
+
+
 	_AngleStrength("Angle Obstruction Strength", Range(0,1)) = 1.0
         
 	_ConeStrength ("Cone Obstruction Strength", Range(0,1)) = 1.0
@@ -152,6 +156,9 @@ BEGIN_CBUFFER
     half _TextureVisibility;
     half _AngleStrength;
     float _Obstruction;
+    
+    half _ObstructionPlayerOffset;
+
     float _UVs;
     float4 _ObstructionCurve_TexelSize;      
     float _DissolveMaskEnabled;
@@ -215,6 +222,8 @@ BEGIN_CBUFFER
 
     half _DissolveMethod;
     half _DissolveTexSpace;
+
+
 
 
 END_CBUFFER
@@ -318,6 +327,9 @@ BEGIN_CODE
         half _DissolveMethodGlobal;
         half _DissolveTexSpaceGlobal;
 
+
+        half _ObstructionPlayerOffsetGlobal;
+
         float4 _DissolveTexGlobal_TexelSize;
     #endif
 
@@ -355,6 +367,7 @@ BEGIN_CODE
 #endif
 
 #include "Packages/com.shadercrew.seethroughshader.core/Scripts/Shaders/xxSharedSTSDependencies/SeeThroughShaderFunction.hlsl"
+//#include "Assets/See-throughShaderBuilder/PreObfuscatedShaderCode/SeeThroughShaderFunctionDEV.hlsl"
 
 
 
@@ -381,6 +394,7 @@ BEGIN_CODE
                         _hasClippedShadowsGlobal,
 
                         _ObstructionGlobal,
+                        _ObstructionPlayerOffsetGlobal,
                         _AngleStrengthGlobal,
                         _ConeStrengthGlobal, _ConeObstructionDestroyRadiusGlobal,
                         _CylinderStrengthGlobal, _CylinderObstructionDestroyRadiusGlobal,
@@ -431,6 +445,7 @@ BEGIN_CODE
                         _hasClippedShadows,
 
                         _Obstruction,
+                        _ObstructionPlayerOffset,
                         _AngleStrength,
                         _ConeStrength, _ConeObstructionDestroyRadius,
                         _CylinderStrength, _CylinderObstructionDestroyRadius,

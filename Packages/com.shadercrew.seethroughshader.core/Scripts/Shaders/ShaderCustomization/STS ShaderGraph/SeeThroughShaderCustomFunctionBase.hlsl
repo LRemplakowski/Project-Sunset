@@ -22,6 +22,7 @@ float _PlayersDataFloatArray[500];
         float _DissolveEmissionGlobal;
         float _DissolveEmissionBoosterGlobal;
         float _ObstructionGlobal;
+        float _ObstructionPlayerOffsetGlobal;
         float _AngleStrengthGlobal;
         float _ConeStrengthGlobal;
         float _ConeObstructionDestroyRadiusGlobal;
@@ -132,6 +133,8 @@ void DoSeeThroughShaderEffect_float(float3 inColor,
                                     float _InteractionMode,
 
                                     float _Obstruction,
+                                    half _ObstructionPlayerOffset,
+
                                     float _AngleStrength,
                                     float _ConeStrength, float _ConeObstructionDestroyRadius,
                                     float _CylinderStrength, float _CylinderObstructionDestroyRadius,
@@ -186,6 +189,7 @@ void DoSeeThroughShaderEffect_float(float3 inColor,
                                     _hasClippedShadowsGlobal,
 
                                     _ObstructionGlobal,
+                                    _ObstructionPlayerOffsetGlobal,
                                     _AngleStrengthGlobal,
                                     _ConeStrengthGlobal, _ConeObstructionDestroyRadiusGlobal,
                                     _CylinderStrengthGlobal, _CylinderObstructionDestroyRadiusGlobal,
@@ -235,6 +239,7 @@ void DoSeeThroughShaderEffect_float(float3 inColor,
                                     _hasClippedShadows,
 
                                     _Obstruction,
+                                    _ObstructionPlayerOffset,
                                     _AngleStrength,
                                     _ConeStrength, _ConeObstructionDestroyRadius,
                                     _CylinderStrength, _CylinderObstructionDestroyRadius,
@@ -294,6 +299,7 @@ void DoSeeThroughShaderEffectAlphaOnly_float(float3 inColor,
                                     float _InteractionMode,
 
                                     float _Obstruction,
+                                    half _ObstructionPlayerOffset,
                                     float _AngleStrength,
                                     float _ConeStrength, float _ConeObstructionDestroyRadius,
                                     float _CylinderStrength, float _CylinderObstructionDestroyRadius,
@@ -347,6 +353,7 @@ void DoSeeThroughShaderEffectAlphaOnly_float(float3 inColor,
                                     _hasClippedShadowsGlobal,
 
                                     _ObstructionGlobal,
+                                    _ObstructionPlayerOffsetGlobal,
                                     _AngleStrengthGlobal,
                                     _ConeStrengthGlobal, _ConeObstructionDestroyRadiusGlobal,
                                     _CylinderStrengthGlobal, _CylinderObstructionDestroyRadiusGlobal,
@@ -396,6 +403,7 @@ void DoSeeThroughShaderEffectAlphaOnly_float(float3 inColor,
                                     _hasClippedShadows,
 
                                     _Obstruction,
+                                    _ObstructionPlayerOffset,
                                     _AngleStrength,
                                     _ConeStrength, _ConeObstructionDestroyRadius,
                                     _CylinderStrength, _CylinderObstructionDestroyRadius,
