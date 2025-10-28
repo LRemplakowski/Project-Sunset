@@ -7132,7 +7132,7 @@ MonoBehaviour:
     - {fileID: 309774654}
     - {fileID: 309774655}
     - {fileID: 309775861}
-    - {fileID: 309775932}
+    - {fileID: 0}
     - {fileID: 309775933}
     - {fileID: 309775934}
     - {fileID: 309775935}
@@ -8647,7 +8647,7 @@ MonoBehaviour:
     - {fileID: 309775170}
     - {fileID: 309775171}
     - {fileID: 309775172}
-    - {fileID: 309775174}
+    - {fileID: 0}
     - {fileID: 309776578}
     - {fileID: 309775175}
     - {fileID: 309776868}
@@ -22503,17 +22503,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1478822593068060573, guid: 4769f016047210d478f53803138aacf5, type: 3}
   m_PrefabInstance: {fileID: 309774647}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &309775174 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1563005795421086484, guid: 4769f016047210d478f53803138aacf5, type: 3}
-  m_PrefabInstance: {fileID: 309774647}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 309776578}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd3f36d87db2ac447a3cb25339c61571, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &309775175 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3819386089420954371, guid: 4769f016047210d478f53803138aacf5, type: 3}
@@ -26006,17 +25995,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 782f37418c3607d43af41b4d7193b6b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &309775932 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8400243579288208856, guid: 4769f016047210d478f53803138aacf5, type: 3}
-  m_PrefabInstance: {fileID: 309774647}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 309775937}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd3f36d87db2ac447a3cb25339c61571, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &309775933 stripped
@@ -50216,18 +50194,18 @@ MonoBehaviour:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
-    - {fileID: 9004222733306578357}
-    - {fileID: 5135634278718082678}
     - {fileID: 6810282402838054528}
-    - {fileID: 337944793638444894}
-    - {fileID: 6216623185040811584}
-    - {fileID: 405509940611007120}
+    - {fileID: 7717312302181153061}
+    - {fileID: 8165350680761484523}
     - {fileID: 8134098342766710913}
     - {fileID: 4465382662236084939}
-    - {fileID: 8165350680761484523}
-    - {fileID: 7717312302181153061}
-    - {fileID: 3294543174635250179}
     - {fileID: 4950092096058045171}
+    - {fileID: 3294543174635250179}
+    - {fileID: 405509940611007120}
+    - {fileID: 337944793638444894}
+    - {fileID: 5135634278718082678}
+    - {fileID: 6216623185040811584}
+    - {fileID: 9004222733306578357}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -50252,7 +50230,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: KEVIN_ENTER_APARTMENT
+      Data: DOMINIC_FRIDGE
     - Name: $v
       Entry: 10
       Data: 0
@@ -50264,7 +50242,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: TAKE_COVER
+      Data: PC_KEVIN_ENTER
     - Name: $v
       Entry: 10
       Data: 1
@@ -50276,7 +50254,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: DOMINIC_FRIDGE
+      Data: KIERAN_ENTER_APARTMENT
     - Name: $v
       Entry: 10
       Data: 2
@@ -50288,7 +50266,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: PC_FRIDGE
+      Data: KIERAN_LOOK_AROUND
     - Name: $v
       Entry: 10
       Data: 3
@@ -50300,7 +50278,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: AREA_START
+      Data: PC_KEVIN_SINK
     - Name: $v
       Entry: 10
       Data: 4
@@ -50312,7 +50290,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: KEVIN_SINK_FIX
+      Data: DOMINIC_LEAVE_AREA
     - Name: $v
       Entry: 10
       Data: 5
@@ -50324,7 +50302,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: KIERAN_LOOK_AROUND
+      Data: DOMINIC_ENTER_APARTMENT
     - Name: $v
       Entry: 10
       Data: 6
@@ -50336,7 +50314,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: PC_KEVIN_SINK
+      Data: KEVIN_SINK_FIX
     - Name: $v
       Entry: 10
       Data: 7
@@ -50348,7 +50326,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: KIERAN_ENTER_APARTMENT
+      Data: PC_FRIDGE
     - Name: $v
       Entry: 10
       Data: 8
@@ -50360,7 +50338,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: PC_KEVIN_ENTER
+      Data: TAKE_COVER
     - Name: $v
       Entry: 10
       Data: 9
@@ -50372,7 +50350,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: DOMINIC_ENTER_APARTMENT
+      Data: AREA_START
     - Name: $v
       Entry: 10
       Data: 10
@@ -50384,7 +50362,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: DOMINIC_LEAVE_AREA
+      Data: KEVIN_ENTER_APARTMENT
     - Name: $v
       Entry: 10
       Data: 11
@@ -75138,7 +75116,7 @@ MonoBehaviour:
   <EnablePersistence>k__BackingField: 1
   _interactionCollider: {fileID: 7335221984747757838}
   _linkedGameObject: {fileID: 5363628252765409755}
-  _interactionDistance: 1
+  _interactionDistance: 0.5
   _interactionTransform: {fileID: 6180615114752232633}
   _interactable: 0
   _nameplateName: Dirty Sink
@@ -85477,7 +85455,7 @@ Transform:
   m_GameObject: {fileID: 6328721641960226772}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.55, y: -2.131, z: -4.36}
+  m_LocalPosition: {x: 0.381, y: -2.131, z: -4.43}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -85712,7 +85690,7 @@ Transform:
   m_GameObject: {fileID: 6130141005146808758}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.0746577, z: -0, w: 0.99720925}
-  m_LocalPosition: {x: 5.107, y: 0.25, z: 1.359}
+  m_LocalPosition: {x: 5.152, y: 0.25, z: 1.548}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
