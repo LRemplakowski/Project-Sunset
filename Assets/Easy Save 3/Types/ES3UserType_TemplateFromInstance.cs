@@ -68,7 +68,7 @@ namespace ES3Types
 					instance = (SunsetSystems.Entities.Characters.Creature.TemplateFromInstance)reader.SetPrivateField("<StatsData>k__BackingField", reader.Read<SunsetSystems.Entities.Data.StatsData>(), instance);
 					break;
 					case "<KnownPowers>k__BackingField":
-					instance = (SunsetSystems.Entities.Characters.Creature.TemplateFromInstance)reader.SetPrivateField("<KnownPowers>k__BackingField", reader.Read<System.Collections.Generic.List<SunsetSystems.Abilities.IDisciplinePower>>(), instance);
+					instance = (SunsetSystems.Entities.Characters.Creature.TemplateFromInstance)reader.SetPrivateField("<KnownPowers>k__BackingField", reader.Read<System.Collections.Generic.List<System.String>>(), instance);
 					break;
 					default:
 						reader.Skip();
