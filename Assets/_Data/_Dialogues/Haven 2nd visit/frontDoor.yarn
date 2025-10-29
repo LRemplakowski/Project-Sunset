@@ -3,40 +3,38 @@ tags:
 position: 1,-283
 ---
 //sfx DOOR KNOCK
-KNOCK. KNOCK. KNOCK. #line:018c7a7 
+//sfx DOOR KNOCK
+KNOCK! KNOCK! KNOCK! #line:018c7a7
+{$storyteller}: [nomarkup][The sound brings up involuntary memories.][/nomarkup] #line:0a66899
 <<if GetIsPartyMemberRecruited($anastasia) is true>>
-    [nomarkup][The sound brings up unvoluntary memories as you look at your front door.][/nomarkup] #line:0a66899 
-    {$anastasia}: Who's that? #line:0e17e58 
-    -> {$pcName}: I have no idea. #line:0fb402e 
-    [nomarkup][You come closer feeling more comfortable with the thought that you're not alone.][/nomarkup] #line:0db5e01
-    -> {$pcName}: Who's there?
-    <<jump doorOptions>>
-<<else>> 
-    [nomarkup][The sound brings up unvoluntary memories as you look at your front door.][/nomarkup] 
-    -> {$pcName}: Who's there? #line:0be4d61 
-    <<jump doorOptions>>
+    {$anastasia}: Who's that? #line:0e17e58
+    {$storyteller}:  [nomarkup][At least you’re not alone this time.][/nomarkup] #line:0db5e01
 <<endif>>
+-> {$pcName}: Who's there?
+    <<jump doorOptions>>
+-> [nonmarkup][Stay quiet.][/nonmarkup]
+    <<jump doorOptions>>
 ===
 title: doorOptions
 position: -12,-16
 ---
-[nomarkup][Of course, there's no answer. You take a deep breath trying to compose yourself and come closer to the door reading your weapon.][/nomarkup] #line:05e8ab0 
--> [nomarkup][Open it.][/nomarkup] #line:00feb7e 
+{$storyteller}: [nomarkup][No answer.][/nomarkup] #line:05e8ab0
+-> [nomarkup][Open it.][/nomarkup] #line:00feb7e
     <<jump doorOpened>>
--> [nomarkup][Look out the peephole.][/nomarkup] <<if CustomVisited("lookPeephole") == false>> #line:0cfff56 
+-> [nomarkup][Look out the peephole.][/nomarkup] <<if CustomVisited("lookPeephole") == false>> #line:0cfff56
     <<jump lookPeephole>>
 ===
 title: lookPeephole
 ---
-[nomarkup][You only see the neighbor's door across the hall. If somebody is there, they are hiding.][/nomarkup] #line:0be388c 
+{$storyteller}: [nomarkup][You only see the neighbor's door across the hall. If somebody is there, they are hiding.][/nomarkup] #line:0be388c 
 <<jump doorOptions>>
 ===
 title: doorOpened
 position: 7,254
 ---
-[nomarkup][You creak the door open to find an empty hallway. On the ground before you is an unlabelled VHS tape.][/nomarkup] #line:09aa606 
+{$storyteller}: [nomarkup][You creak the door open to find an empty hallway. On the ground before you is an unlabelled VHS tape.][/nomarkup] #line:09aa606
 <<GiveItem "IT_Q_VHS">>
 <<if GetIsPartyMemberRecruited($anastasia) is true>>
-    {$anastasia}: Did you rent a movie? Let's put it on. #line:00b214d 
+    {$anastasia}: Did you rent a movie? Let's put it on. #line:00b214d
 <<endif>>
 ===
