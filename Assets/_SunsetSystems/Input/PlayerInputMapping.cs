@@ -147,42 +147,6 @@ public partial class @PlayerInputMapping: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""CharacterSheet"",
-                    ""type"": ""Button"",
-                    ""id"": ""bc103939-7778-4ea1-9f4f-f7e5275e5908"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Inventory"",
-                    ""type"": ""Button"",
-                    ""id"": ""73be0c94-55bc-420a-a277-b86ba3a225f3"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Journal"",
-                    ""type"": ""Button"",
-                    ""id"": ""eede28a6-5c14-43a7-a43c-1233ea383bea"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Escape"",
-                    ""type"": ""Button"",
-                    ""id"": ""cb12a3a9-ae32-40ce-8347-9952e1df95aa"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""MouseScrollHold"",
                     ""type"": ""Button"",
                     ""id"": ""8d5b08d9-3a82-43e7-9a70-274ccee14ac5"",
@@ -199,33 +163,6 @@ public partial class @PlayerInputMapping: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""SkipDialogue"",
-                    ""type"": ""Button"",
-                    ""id"": ""b430a763-75d6-4ca3-b8da-f1c7000e8ece"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""HighlightInteractables"",
-                    ""type"": ""Button"",
-                    ""id"": ""28bba3a0-357d-4bc6-9e21-3d9cdc1ecc33"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Help"",
-                    ""type"": ""Button"",
-                    ""id"": ""c6071cb5-f65a-4c95-9e14-427763b30f7c"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -362,39 +299,6 @@ public partial class @PlayerInputMapping: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""53fef48a-d061-4b6f-8652-97be2b95b72d"",
-                    ""path"": ""<Keyboard>/i"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Inventory"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""706555bf-8d5a-4a18-b141-d47a6fbbc117"",
-                    ""path"": ""<Keyboard>/escape"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Escape"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""b410a5c6-eed7-43d0-aa9a-171bddafad48"",
-                    ""path"": ""<Keyboard>/c"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""CharacterSheet"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
                     ""name"": ""2D Vector"",
                     ""id"": ""bde42faa-9041-4021-bfd6-88a3af3b3a0c"",
                     ""path"": ""2DVector"",
@@ -492,50 +396,6 @@ public partial class @PlayerInputMapping: IInputActionCollection2, IDisposable
                     ""action"": ""LeftMouseHold"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""f36a3433-d443-43d9-9374-042b373515ef"",
-                    ""path"": ""<Keyboard>/j"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Journal"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""8b327874-152c-4d8f-9157-957ae10d4097"",
-                    ""path"": ""<Keyboard>/space"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""SkipDialogue"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""5e9e6e18-fe6c-468e-94df-a94c6f48cd27"",
-                    ""path"": ""<Keyboard>/tab"",
-                    ""interactions"": ""Hold(duration=0.01)"",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""HighlightInteractables"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""a1283f60-7285-4a1f-bd3d-a5e9bb753c8b"",
-                    ""path"": ""<Keyboard>/f1"",
-                    ""interactions"": ""Hold(duration=0.01)"",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Help"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -548,6 +408,15 @@ public partial class @PlayerInputMapping: IInputActionCollection2, IDisposable
                     ""type"": ""PassThrough"",
                     ""id"": ""86b97aa0-db6e-4428-a27e-7552b836bf4f"",
                     ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Navigate"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""b65a58c1-602b-4a72-b56f-f363e9b83b73"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -627,6 +496,270 @@ public partial class @PlayerInputMapping: IInputActionCollection2, IDisposable
                     ""action"": ""Click"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Gamepad"",
+                    ""id"": ""15c8f98d-bcf4-4d07-bb90-93c5a24e8e9f"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""d8ea42b9-2dd1-4346-b190-60d009aa86a0"",
+                    ""path"": ""<Gamepad>/leftStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""42445e72-0a9d-40ad-a02e-b19e417be97b"",
+                    ""path"": ""<Gamepad>/rightStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""6ed4dd5d-5216-49bb-bbeb-a45a089c75f3"",
+                    ""path"": ""<Gamepad>/leftStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""2ba3da8d-63b4-49de-bbdd-afb259501bba"",
+                    ""path"": ""<Gamepad>/rightStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""aee518d2-10fe-49d0-8e6e-71c039be7c71"",
+                    ""path"": ""<Gamepad>/leftStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""064154dc-3932-4515-9862-6a03c068c875"",
+                    ""path"": ""<Gamepad>/rightStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""a4e3dbaa-05cf-4e96-a094-0de470600f4f"",
+                    ""path"": ""<Gamepad>/leftStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""8a3167f1-fdd8-4672-8d71-e6419201d3a3"",
+                    ""path"": ""<Gamepad>/rightStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0af4b651-b6c5-42d1-9291-b00bb06d9cd1"",
+                    ""path"": ""<Gamepad>/dpad"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Joystick"",
+                    ""id"": ""9ea3c29e-e86a-4915-bdb5-39c0f4e7bc92"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""59fc599b-1936-4ca2-9823-87b474aa25c0"",
+                    ""path"": ""<Joystick>/stick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Joystick"",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""2fc12d9f-f493-4d4d-9d01-5f1f5e7fb95a"",
+                    ""path"": ""<Joystick>/stick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Joystick"",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""bc4a09e8-55ee-4c1d-809e-32fec906e12a"",
+                    ""path"": ""<Joystick>/stick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Joystick"",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""9f8de57c-a39a-4fec-a2e2-71b134a22400"",
+                    ""path"": ""<Joystick>/stick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Joystick"",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Keyboard"",
+                    ""id"": ""32e6645d-acd9-4304-84be-8566c3aad4de"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""51579e67-d64d-412b-a4f0-ae66d1530b7f"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""a337527f-a153-4924-9306-befa4e23e7c5"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""44984ad7-3b26-466e-b180-ccf983d15c13"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""a4b751ed-4e8a-4ed6-834c-25c41b68aced"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""004a2766-68e0-4b8e-abc8-03063be718ec"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""ef865996-77a6-4843-bb05-1e784096884b"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""b4b0c87e-ce41-440c-9fc8-912e47f75a94"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""eea95e9e-9e9e-40dd-8c1d-e69bca4c873b"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Navigate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 },
                 {
                     ""name"": """",
@@ -717,6 +850,134 @@ public partial class @PlayerInputMapping: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Shortcuts"",
+            ""id"": ""f846f97b-f623-4ef1-bcb5-c6e09655663e"",
+            ""actions"": [
+                {
+                    ""name"": ""Escape"",
+                    ""type"": ""Button"",
+                    ""id"": ""ba4b575f-da26-421c-aed4-cf3b54638bc3"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""HighlightInteractables"",
+                    ""type"": ""Button"",
+                    ""id"": ""a9c1a77e-5a25-425c-8668-fcae9b8bda6a"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Help"",
+                    ""type"": ""Button"",
+                    ""id"": ""d6b034c0-de44-4713-b3ab-7570570adb36"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CharacterSheet"",
+                    ""type"": ""Button"",
+                    ""id"": ""4140c2e6-7c35-4fe9-8f93-693d01eb7191"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Inventory"",
+                    ""type"": ""Button"",
+                    ""id"": ""1d160c2c-6067-4dad-943a-3591e858b68c"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Journal"",
+                    ""type"": ""Button"",
+                    ""id"": ""e73891de-425d-4292-99d1-0b1b3d922d9d"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""69856370-920d-4cb8-9647-441bc04759d4"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Escape"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5ad602a3-6fd0-4901-8c26-2734643be0c6"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": ""Hold(duration=0.01)"",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""HighlightInteractables"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""eb215429-4cad-473e-8e54-a8cc74e08774"",
+                    ""path"": ""<Keyboard>/f1"",
+                    ""interactions"": ""Hold(duration=0.01)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Help"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d8dfa93d-37c8-496f-a3f1-93fef9d81993"",
+                    ""path"": ""<Keyboard>/c"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""CharacterSheet"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""941b5b11-8a63-44b2-bbb7-4c9f49e9c729"",
+                    ""path"": ""<Keyboard>/i"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Inventory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1ebf034e-a2c9-47e9-abf4-8a12ae332390"",
+                    ""path"": ""<Keyboard>/j"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Journal"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -790,18 +1051,12 @@ public partial class @PlayerInputMapping: IInputActionCollection2, IDisposable
         m_Player_LeftClick = m_Player.FindAction("LeftClick", throwIfNotFound: true);
         m_Player_RightClick = m_Player.FindAction("RightClick", throwIfNotFound: true);
         m_Player_LeftMouseHold = m_Player.FindAction("LeftMouseHold", throwIfNotFound: true);
-        m_Player_CharacterSheet = m_Player.FindAction("CharacterSheet", throwIfNotFound: true);
-        m_Player_Inventory = m_Player.FindAction("Inventory", throwIfNotFound: true);
-        m_Player_Journal = m_Player.FindAction("Journal", throwIfNotFound: true);
-        m_Player_Escape = m_Player.FindAction("Escape", throwIfNotFound: true);
         m_Player_MouseScrollHold = m_Player.FindAction("MouseScrollHold", throwIfNotFound: true);
         m_Player_MousePosition = m_Player.FindAction("MousePosition", throwIfNotFound: true);
-        m_Player_SkipDialogue = m_Player.FindAction("SkipDialogue", throwIfNotFound: true);
-        m_Player_HighlightInteractables = m_Player.FindAction("HighlightInteractables", throwIfNotFound: true);
-        m_Player_Help = m_Player.FindAction("Help", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Click = m_UI.FindAction("Click", throwIfNotFound: true);
+        m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
         m_UI_Point = m_UI.FindAction("Point", throwIfNotFound: true);
         m_UI_Cancel = m_UI.FindAction("Cancel", throwIfNotFound: true);
         m_UI_ScrollWheel = m_UI.FindAction("ScrollWheel", throwIfNotFound: true);
@@ -809,12 +1064,21 @@ public partial class @PlayerInputMapping: IInputActionCollection2, IDisposable
         m_UI_Submit = m_UI.FindAction("Submit", throwIfNotFound: true);
         m_UI_ForwardDialogue = m_UI.FindAction("Forward Dialogue", throwIfNotFound: true);
         m_UI_MiddleClick = m_UI.FindAction("MiddleClick", throwIfNotFound: true);
+        // Shortcuts
+        m_Shortcuts = asset.FindActionMap("Shortcuts", throwIfNotFound: true);
+        m_Shortcuts_Escape = m_Shortcuts.FindAction("Escape", throwIfNotFound: true);
+        m_Shortcuts_HighlightInteractables = m_Shortcuts.FindAction("HighlightInteractables", throwIfNotFound: true);
+        m_Shortcuts_Help = m_Shortcuts.FindAction("Help", throwIfNotFound: true);
+        m_Shortcuts_CharacterSheet = m_Shortcuts.FindAction("CharacterSheet", throwIfNotFound: true);
+        m_Shortcuts_Inventory = m_Shortcuts.FindAction("Inventory", throwIfNotFound: true);
+        m_Shortcuts_Journal = m_Shortcuts.FindAction("Journal", throwIfNotFound: true);
     }
 
     ~@PlayerInputMapping()
     {
         UnityEngine.Debug.Assert(!m_Player.enabled, "This will cause a leak and performance issues, PlayerInputMapping.Player.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_UI.enabled, "This will cause a leak and performance issues, PlayerInputMapping.UI.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_Shortcuts.enabled, "This will cause a leak and performance issues, PlayerInputMapping.Shortcuts.Disable() has not been called.");
     }
 
     /// <summary>
@@ -896,15 +1160,8 @@ public partial class @PlayerInputMapping: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_LeftClick;
     private readonly InputAction m_Player_RightClick;
     private readonly InputAction m_Player_LeftMouseHold;
-    private readonly InputAction m_Player_CharacterSheet;
-    private readonly InputAction m_Player_Inventory;
-    private readonly InputAction m_Player_Journal;
-    private readonly InputAction m_Player_Escape;
     private readonly InputAction m_Player_MouseScrollHold;
     private readonly InputAction m_Player_MousePosition;
-    private readonly InputAction m_Player_SkipDialogue;
-    private readonly InputAction m_Player_HighlightInteractables;
-    private readonly InputAction m_Player_Help;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -941,22 +1198,6 @@ public partial class @PlayerInputMapping: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @LeftMouseHold => m_Wrapper.m_Player_LeftMouseHold;
         /// <summary>
-        /// Provides access to the underlying input action "Player/CharacterSheet".
-        /// </summary>
-        public InputAction @CharacterSheet => m_Wrapper.m_Player_CharacterSheet;
-        /// <summary>
-        /// Provides access to the underlying input action "Player/Inventory".
-        /// </summary>
-        public InputAction @Inventory => m_Wrapper.m_Player_Inventory;
-        /// <summary>
-        /// Provides access to the underlying input action "Player/Journal".
-        /// </summary>
-        public InputAction @Journal => m_Wrapper.m_Player_Journal;
-        /// <summary>
-        /// Provides access to the underlying input action "Player/Escape".
-        /// </summary>
-        public InputAction @Escape => m_Wrapper.m_Player_Escape;
-        /// <summary>
         /// Provides access to the underlying input action "Player/MouseScrollHold".
         /// </summary>
         public InputAction @MouseScrollHold => m_Wrapper.m_Player_MouseScrollHold;
@@ -964,18 +1205,6 @@ public partial class @PlayerInputMapping: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/MousePosition".
         /// </summary>
         public InputAction @MousePosition => m_Wrapper.m_Player_MousePosition;
-        /// <summary>
-        /// Provides access to the underlying input action "Player/SkipDialogue".
-        /// </summary>
-        public InputAction @SkipDialogue => m_Wrapper.m_Player_SkipDialogue;
-        /// <summary>
-        /// Provides access to the underlying input action "Player/HighlightInteractables".
-        /// </summary>
-        public InputAction @HighlightInteractables => m_Wrapper.m_Player_HighlightInteractables;
-        /// <summary>
-        /// Provides access to the underlying input action "Player/Help".
-        /// </summary>
-        public InputAction @Help => m_Wrapper.m_Player_Help;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1020,33 +1249,12 @@ public partial class @PlayerInputMapping: IInputActionCollection2, IDisposable
             @LeftMouseHold.started += instance.OnLeftMouseHold;
             @LeftMouseHold.performed += instance.OnLeftMouseHold;
             @LeftMouseHold.canceled += instance.OnLeftMouseHold;
-            @CharacterSheet.started += instance.OnCharacterSheet;
-            @CharacterSheet.performed += instance.OnCharacterSheet;
-            @CharacterSheet.canceled += instance.OnCharacterSheet;
-            @Inventory.started += instance.OnInventory;
-            @Inventory.performed += instance.OnInventory;
-            @Inventory.canceled += instance.OnInventory;
-            @Journal.started += instance.OnJournal;
-            @Journal.performed += instance.OnJournal;
-            @Journal.canceled += instance.OnJournal;
-            @Escape.started += instance.OnEscape;
-            @Escape.performed += instance.OnEscape;
-            @Escape.canceled += instance.OnEscape;
             @MouseScrollHold.started += instance.OnMouseScrollHold;
             @MouseScrollHold.performed += instance.OnMouseScrollHold;
             @MouseScrollHold.canceled += instance.OnMouseScrollHold;
             @MousePosition.started += instance.OnMousePosition;
             @MousePosition.performed += instance.OnMousePosition;
             @MousePosition.canceled += instance.OnMousePosition;
-            @SkipDialogue.started += instance.OnSkipDialogue;
-            @SkipDialogue.performed += instance.OnSkipDialogue;
-            @SkipDialogue.canceled += instance.OnSkipDialogue;
-            @HighlightInteractables.started += instance.OnHighlightInteractables;
-            @HighlightInteractables.performed += instance.OnHighlightInteractables;
-            @HighlightInteractables.canceled += instance.OnHighlightInteractables;
-            @Help.started += instance.OnHelp;
-            @Help.performed += instance.OnHelp;
-            @Help.canceled += instance.OnHelp;
         }
 
         /// <summary>
@@ -1076,33 +1284,12 @@ public partial class @PlayerInputMapping: IInputActionCollection2, IDisposable
             @LeftMouseHold.started -= instance.OnLeftMouseHold;
             @LeftMouseHold.performed -= instance.OnLeftMouseHold;
             @LeftMouseHold.canceled -= instance.OnLeftMouseHold;
-            @CharacterSheet.started -= instance.OnCharacterSheet;
-            @CharacterSheet.performed -= instance.OnCharacterSheet;
-            @CharacterSheet.canceled -= instance.OnCharacterSheet;
-            @Inventory.started -= instance.OnInventory;
-            @Inventory.performed -= instance.OnInventory;
-            @Inventory.canceled -= instance.OnInventory;
-            @Journal.started -= instance.OnJournal;
-            @Journal.performed -= instance.OnJournal;
-            @Journal.canceled -= instance.OnJournal;
-            @Escape.started -= instance.OnEscape;
-            @Escape.performed -= instance.OnEscape;
-            @Escape.canceled -= instance.OnEscape;
             @MouseScrollHold.started -= instance.OnMouseScrollHold;
             @MouseScrollHold.performed -= instance.OnMouseScrollHold;
             @MouseScrollHold.canceled -= instance.OnMouseScrollHold;
             @MousePosition.started -= instance.OnMousePosition;
             @MousePosition.performed -= instance.OnMousePosition;
             @MousePosition.canceled -= instance.OnMousePosition;
-            @SkipDialogue.started -= instance.OnSkipDialogue;
-            @SkipDialogue.performed -= instance.OnSkipDialogue;
-            @SkipDialogue.canceled -= instance.OnSkipDialogue;
-            @HighlightInteractables.started -= instance.OnHighlightInteractables;
-            @HighlightInteractables.performed -= instance.OnHighlightInteractables;
-            @HighlightInteractables.canceled -= instance.OnHighlightInteractables;
-            @Help.started -= instance.OnHelp;
-            @Help.performed -= instance.OnHelp;
-            @Help.canceled -= instance.OnHelp;
         }
 
         /// <summary>
@@ -1141,6 +1328,7 @@ public partial class @PlayerInputMapping: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_UI;
     private List<IUIActions> m_UIActionsCallbackInterfaces = new List<IUIActions>();
     private readonly InputAction m_UI_Click;
+    private readonly InputAction m_UI_Navigate;
     private readonly InputAction m_UI_Point;
     private readonly InputAction m_UI_Cancel;
     private readonly InputAction m_UI_ScrollWheel;
@@ -1163,6 +1351,10 @@ public partial class @PlayerInputMapping: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "UI/Click".
         /// </summary>
         public InputAction @Click => m_Wrapper.m_UI_Click;
+        /// <summary>
+        /// Provides access to the underlying input action "UI/Navigate".
+        /// </summary>
+        public InputAction @Navigate => m_Wrapper.m_UI_Navigate;
         /// <summary>
         /// Provides access to the underlying input action "UI/Point".
         /// </summary>
@@ -1220,6 +1412,9 @@ public partial class @PlayerInputMapping: IInputActionCollection2, IDisposable
             @Click.started += instance.OnClick;
             @Click.performed += instance.OnClick;
             @Click.canceled += instance.OnClick;
+            @Navigate.started += instance.OnNavigate;
+            @Navigate.performed += instance.OnNavigate;
+            @Navigate.canceled += instance.OnNavigate;
             @Point.started += instance.OnPoint;
             @Point.performed += instance.OnPoint;
             @Point.canceled += instance.OnPoint;
@@ -1255,6 +1450,9 @@ public partial class @PlayerInputMapping: IInputActionCollection2, IDisposable
             @Click.started -= instance.OnClick;
             @Click.performed -= instance.OnClick;
             @Click.canceled -= instance.OnClick;
+            @Navigate.started -= instance.OnNavigate;
+            @Navigate.performed -= instance.OnNavigate;
+            @Navigate.canceled -= instance.OnNavigate;
             @Point.started -= instance.OnPoint;
             @Point.performed -= instance.OnPoint;
             @Point.canceled -= instance.OnPoint;
@@ -1309,6 +1507,157 @@ public partial class @PlayerInputMapping: IInputActionCollection2, IDisposable
     /// Provides a new <see cref="UIActions" /> instance referencing this action map.
     /// </summary>
     public UIActions @UI => new UIActions(this);
+
+    // Shortcuts
+    private readonly InputActionMap m_Shortcuts;
+    private List<IShortcutsActions> m_ShortcutsActionsCallbackInterfaces = new List<IShortcutsActions>();
+    private readonly InputAction m_Shortcuts_Escape;
+    private readonly InputAction m_Shortcuts_HighlightInteractables;
+    private readonly InputAction m_Shortcuts_Help;
+    private readonly InputAction m_Shortcuts_CharacterSheet;
+    private readonly InputAction m_Shortcuts_Inventory;
+    private readonly InputAction m_Shortcuts_Journal;
+    /// <summary>
+    /// Provides access to input actions defined in input action map "Shortcuts".
+    /// </summary>
+    public struct ShortcutsActions
+    {
+        private @PlayerInputMapping m_Wrapper;
+
+        /// <summary>
+        /// Construct a new instance of the input action map wrapper class.
+        /// </summary>
+        public ShortcutsActions(@PlayerInputMapping wrapper) { m_Wrapper = wrapper; }
+        /// <summary>
+        /// Provides access to the underlying input action "Shortcuts/Escape".
+        /// </summary>
+        public InputAction @Escape => m_Wrapper.m_Shortcuts_Escape;
+        /// <summary>
+        /// Provides access to the underlying input action "Shortcuts/HighlightInteractables".
+        /// </summary>
+        public InputAction @HighlightInteractables => m_Wrapper.m_Shortcuts_HighlightInteractables;
+        /// <summary>
+        /// Provides access to the underlying input action "Shortcuts/Help".
+        /// </summary>
+        public InputAction @Help => m_Wrapper.m_Shortcuts_Help;
+        /// <summary>
+        /// Provides access to the underlying input action "Shortcuts/CharacterSheet".
+        /// </summary>
+        public InputAction @CharacterSheet => m_Wrapper.m_Shortcuts_CharacterSheet;
+        /// <summary>
+        /// Provides access to the underlying input action "Shortcuts/Inventory".
+        /// </summary>
+        public InputAction @Inventory => m_Wrapper.m_Shortcuts_Inventory;
+        /// <summary>
+        /// Provides access to the underlying input action "Shortcuts/Journal".
+        /// </summary>
+        public InputAction @Journal => m_Wrapper.m_Shortcuts_Journal;
+        /// <summary>
+        /// Provides access to the underlying input action map instance.
+        /// </summary>
+        public InputActionMap Get() { return m_Wrapper.m_Shortcuts; }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
+        public void Enable() { Get().Enable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
+        public void Disable() { Get().Disable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
+        public bool enabled => Get().enabled;
+        /// <summary>
+        /// Implicitly converts an <see ref="ShortcutsActions" /> to an <see ref="InputActionMap" /> instance.
+        /// </summary>
+        public static implicit operator InputActionMap(ShortcutsActions set) { return set.Get(); }
+        /// <summary>
+        /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <param name="instance">Callback instance.</param>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
+        /// </remarks>
+        /// <seealso cref="ShortcutsActions" />
+        public void AddCallbacks(IShortcutsActions instance)
+        {
+            if (instance == null || m_Wrapper.m_ShortcutsActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_ShortcutsActionsCallbackInterfaces.Add(instance);
+            @Escape.started += instance.OnEscape;
+            @Escape.performed += instance.OnEscape;
+            @Escape.canceled += instance.OnEscape;
+            @HighlightInteractables.started += instance.OnHighlightInteractables;
+            @HighlightInteractables.performed += instance.OnHighlightInteractables;
+            @HighlightInteractables.canceled += instance.OnHighlightInteractables;
+            @Help.started += instance.OnHelp;
+            @Help.performed += instance.OnHelp;
+            @Help.canceled += instance.OnHelp;
+            @CharacterSheet.started += instance.OnCharacterSheet;
+            @CharacterSheet.performed += instance.OnCharacterSheet;
+            @CharacterSheet.canceled += instance.OnCharacterSheet;
+            @Inventory.started += instance.OnInventory;
+            @Inventory.performed += instance.OnInventory;
+            @Inventory.canceled += instance.OnInventory;
+            @Journal.started += instance.OnJournal;
+            @Journal.performed += instance.OnJournal;
+            @Journal.canceled += instance.OnJournal;
+        }
+
+        /// <summary>
+        /// Removes <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <remarks>
+        /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
+        /// </remarks>
+        /// <seealso cref="ShortcutsActions" />
+        private void UnregisterCallbacks(IShortcutsActions instance)
+        {
+            @Escape.started -= instance.OnEscape;
+            @Escape.performed -= instance.OnEscape;
+            @Escape.canceled -= instance.OnEscape;
+            @HighlightInteractables.started -= instance.OnHighlightInteractables;
+            @HighlightInteractables.performed -= instance.OnHighlightInteractables;
+            @HighlightInteractables.canceled -= instance.OnHighlightInteractables;
+            @Help.started -= instance.OnHelp;
+            @Help.performed -= instance.OnHelp;
+            @Help.canceled -= instance.OnHelp;
+            @CharacterSheet.started -= instance.OnCharacterSheet;
+            @CharacterSheet.performed -= instance.OnCharacterSheet;
+            @CharacterSheet.canceled -= instance.OnCharacterSheet;
+            @Inventory.started -= instance.OnInventory;
+            @Inventory.performed -= instance.OnInventory;
+            @Inventory.canceled -= instance.OnInventory;
+            @Journal.started -= instance.OnJournal;
+            @Journal.performed -= instance.OnJournal;
+            @Journal.canceled -= instance.OnJournal;
+        }
+
+        /// <summary>
+        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="ShortcutsActions.UnregisterCallbacks(IShortcutsActions)" />.
+        /// </summary>
+        /// <seealso cref="ShortcutsActions.UnregisterCallbacks(IShortcutsActions)" />
+        public void RemoveCallbacks(IShortcutsActions instance)
+        {
+            if (m_Wrapper.m_ShortcutsActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        /// <summary>
+        /// Replaces all existing callback instances and previously registered input action callbacks associated with them with callbacks provided via <param cref="instance" />.
+        /// </summary>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
+        /// </remarks>
+        /// <seealso cref="ShortcutsActions.AddCallbacks(IShortcutsActions)" />
+        /// <seealso cref="ShortcutsActions.RemoveCallbacks(IShortcutsActions)" />
+        /// <seealso cref="ShortcutsActions.UnregisterCallbacks(IShortcutsActions)" />
+        public void SetCallbacks(IShortcutsActions instance)
+        {
+            foreach (var item in m_Wrapper.m_ShortcutsActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_ShortcutsActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    /// <summary>
+    /// Provides a new <see cref="ShortcutsActions" /> instance referencing this action map.
+    /// </summary>
+    public ShortcutsActions @Shortcuts => new ShortcutsActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     /// <summary>
     /// Provides access to the input control scheme.
@@ -1424,34 +1773,6 @@ public partial class @PlayerInputMapping: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnLeftMouseHold(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "CharacterSheet" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnCharacterSheet(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "Inventory" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnInventory(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "Journal" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnJournal(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "Escape" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnEscape(InputAction.CallbackContext context);
-        /// <summary>
         /// Method invoked when associated input action "MouseScrollHold" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
@@ -1465,27 +1786,6 @@ public partial class @PlayerInputMapping: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnMousePosition(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "SkipDialogue" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnSkipDialogue(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "HighlightInteractables" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnHighlightInteractables(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "Help" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnHelp(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.
@@ -1501,6 +1801,13 @@ public partial class @PlayerInputMapping: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnClick(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Navigate" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNavigate(InputAction.CallbackContext context);
         /// <summary>
         /// Method invoked when associated input action "Point" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
@@ -1550,5 +1857,55 @@ public partial class @PlayerInputMapping: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnMiddleClick(InputAction.CallbackContext context);
+    }
+    /// <summary>
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Shortcuts" which allows adding and removing callbacks.
+    /// </summary>
+    /// <seealso cref="ShortcutsActions.AddCallbacks(IShortcutsActions)" />
+    /// <seealso cref="ShortcutsActions.RemoveCallbacks(IShortcutsActions)" />
+    public interface IShortcutsActions
+    {
+        /// <summary>
+        /// Method invoked when associated input action "Escape" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnEscape(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "HighlightInteractables" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnHighlightInteractables(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Help" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnHelp(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "CharacterSheet" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnCharacterSheet(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Inventory" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnInventory(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Journal" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnJournal(InputAction.CallbackContext context);
     }
 }
