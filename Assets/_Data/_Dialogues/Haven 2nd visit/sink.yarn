@@ -3,7 +3,7 @@ tags:
 position: -149,-121
 color: red
 ---
-[nomarkup][Sink is filled with old dishes from only God knows when.][/nomarkup] #line:0f8c704
+{$storyteller}: [nomarkup][The sink is objectively disgusting.][/nomarkup]
 -> [nomarkup][Take the tape.][/nomarkup] <<if CustomVisited("sinkTape") == false>>
     <<GiveItem "IT_Q_DUCTTAPE">>
     <<jump sinkTape>> 
@@ -24,30 +24,33 @@ position: -302,213
 ---
 <<set $kevinMoved to true>>
 <<if $diegoMoved == true>>
-    [nomarkup][You heft the corpse of your superintendent and drag him into the closet where you find that Diego has already been put. One thing is for sure - you too have skeletons in your closet. Quite literally.][/nomarkup] #line:0b76f74 
+    {$storyteller}: [nomarkup][You heft Kevin’s corpse and drag him into the closet where you put Diego...][/nomarkup]
 <<else>>
-    [nomarkup][There's plenty of room in the closet. Diego's corpse is still in the shower, but it'll probably fit in here just fine.][/nomarkup] #line:030ac41 
+    {$storyteller}: [nomarkup][You heft Kevin’s corpse and drag him into the closet. Diego's corpse is still in the shower, but it'll probably fit in here just fine.][/nomarkup]
 <<endif>>
 <<jump sink>>
 ===
 title: cleanSlurry
 position: -27,207
 ---
-[nomarkup][Since you're crouched you can clean up the bloody slurry from the sink as well - just so it doesn't make your nose - and apparently Beast - annoyed by the smell of the blood. You take an old rag and get to work making the puddle disappear in a few moments.][/nomarkup] #line:05a4242 
+{$storyteller}: [nomarkup][You take an old sponge and scrub the gunk clean as best as you can..][/nomarkup] #line:05a4242
+<<if GetIsPartyMemberRecruited($anastasia) is true>>
+    {$anastasia}: Cleanliness is next to godliness.
+<<endif>>
 <<jump sink>>
 ===
 title: sinkBoxes
 ---
-[nomarkup][You collect all the pizza boxes you have collected. It seems that you have jusr enough of them to cover the entire window.][/nomarkup]
+{$storyteller}: [nomarkup][You collect all the pizza boxes you have collected. It seems that you have just enough of them to cover the entire window.][/nomarkup]
 <<jump sink>>
 ===
 title: sinkTape
 ---
-[nomarkup][It takes several long seconds to unjam the junk drawer and open it. You remember your dad telling you to always have some duct tape handy, just in case. You find a half-full roll underneath a deck of playing cards and set it on the countertop. Too bad you can't use the tape on the Beast.][/nomarkup]
+{$storyteller}: [nomarkup][It takes several long seconds to unjam the junk drawer and open it.. You find a half-full roll underneath a deck of playing cards and set it on the countertop..][/nomarkup]
 <<jump sink>>
 ===
 title: sinkHammer
 ---
-[nomarkup][When you moved Kevin's body you see that he brought hammer and nails with him. They might come in handy.][/nomarkup]
+{$storyteller}: [nomarkup][When you moved Kevin's body, you see that he brought a hammer and nails with him. They might come in handy.][/nomarkup]
 <<jump sink>>
 ===
