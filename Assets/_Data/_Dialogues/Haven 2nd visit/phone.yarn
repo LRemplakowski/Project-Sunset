@@ -3,7 +3,7 @@ tags:
 color: red
 position: -99,-460
 ---
-[nomarkup][It doesn't take a rocket scientist to notice a rip in the wall where phone cable should be. It's most likely Dominic who's responsible or someone who works for him. You can feel the urge to call Arthur, ask him to come over and stay with you - but you couldn't even if you wanted to.][/nomarkup] #line:0600fec 
+{$storyteller}: [nomarkup][It doesn't take a rocket scientist to notice a rip in the wall where phone cable should be. It's most likely Dominic who's responsible or someone who works for him. You can feel the urge to call Arthur, ask him to come over and stay with you - but you couldn't even if you wanted to.][/nomarkup] #line:0600fec 
 <<if GetAttributeSkillPoolSize("Intelligence","Technology")==1>>
     -> [nomarkup][Try to fix it.][/nomarkup]
     <<jump phoneInt1>>
@@ -25,68 +25,51 @@ position: -99,-460
 title: phoneInt1
 position: 75,-135
 ---
-[nomarkup][You spend a couple of minutes finding a place to plug the cord into the wall, moving it around until the power connects. You feel a slight jolt in your arm at the shoulder and a green light flashes.][/nomarkup] #line:04cb380 
--> [nomarkup][Dial up Arthur.][/nomarkup] #line:01ac1f8 
-    [nomarkup][You wait for a few minutes for the phone to ring and find that it hasn't rung. After a few minutes it's clear that it isn't dialing and becomes tomorrow's problem.][/nomarkup] #line:0f6729b
-    -> [nomarkup][End dialogue.][/nomarkup] 
--> [nomarkup][Put the phone in its cradle.][/nomarkup] #line:0aa1003 
-    [nomarkup][You look at the phone and immediately think better of it. There's nothing you want to do less than call Arthur and burden him even more. Setting the phone in its cradle, you return to the rest of the apartment.][/nomarkup]
-    -> [nomarkup][End dialogue.][/nomarkup] #line:007c81a 
+{$storyteller}: [nomarkup][You spend a couple of minutes finding a place to plug the cord into the wall, moving it around until the power connects. You feel a slight jolt in your arm at the shoulder and a green light flashes.][/nomarkup] #line:04cb380
+-> [nomarkup][Dial up Arthur.][/nomarkup] #line:01ac1f8
+    {$storyteller}: [nomarkup][You wait for a few minutes for the phone to ring and find that it hasn't rung. After a few minutes it's clear that it isn't dialing.][/nomarkup] #line:0f6729b
+    -> [nomarkup][End dialogue.][/nomarkup]
+-> [nomarkup][End dialogue.][/nomarkup] #line:007c81a
 ===
 title: phoneInt2Duct
 position: 225,-417
 ---
-[nomarkup][You spend a couple of minutes with the cord and find where it's been ripped, connecting it with duct tape and nodding. It'll do.][/nomarkup] #line:08038ea 
--> [nomarkup][Dial up Arthur.][/nomarkup] #line:0c7934d 
-    [nomarkup][You wait for a few minutes for the phone to ring, unsurprisingly Arthur doesn't pick up. You wait for it to go all the way through the dial-up ring only for...][/nomarkup] #line:038439e 
-    Phone: We're sorry, the number you're trying to dial has been disconnected. We're sorry, the number that you're trying to call has been disconnected. We're - #line:0713d37 
+{$storyteller}: [nomarkup][You spend a couple of minutes with the cord and find where it's been ripped, connecting it with duct tape and nodding. It'll do.][/nomarkup] #line:08038ea
+-> [nomarkup][Dial up Arthur.][/nomarkup] #line:0c7934d
+    {$storyteller}: [nomarkup][You wait for a few minutes for the phone to ring, unsurprisingly Arthur doesn't pick up. You wait for it to go all the way through the dial-up ring only for...][/nomarkup] #line:038439e
+    Phone: We're sorry, the number you're trying to dial has been disconnected. We're sorry, the number that you're trying to call has been disconnected. We're - #line:0713d37
     <<set $phoneBroken to false>>
--> [nomarkup][Put the phone in its cradle.][/nomarkup] #line:01254be 
-    [nomarkup][You look at the phone and immediately think better of it. There's nothing you want to do less than call Arthur and burden him even more. Setting the phone in its cradle, you return to the rest of the apartment.][/nomarkup] #line:076d56a 
     -> [nomarkup][End dialogue.][/nomarkup]
+-> [nomarkup][End dialogue.][/nomarkup]
 ===
 title: phoneInt2
 position: -49,339
 ---
-[nomarkup][You spend a couple of minutes finding a place to plug the cord into the wall, moving it around until the power connects. You feel a slight jolt in your arm at the shoulder and a green light flashes.][/nomarkup] #line:04cd872 
--> [nomarkup][Dial up Arthur.][/nomarkup] #line:01a8dce 
-    [nomarkup][You wait for a few minutes for the phone to ring and find that it hasn't rung. After a few minutes, it's clear that it isn't dialing. You figure that the problem might be that the power isn't holding steady. Maybe if you found something to hold the chord together?][/nomarkup] #line:0e3ed75 
-    [nomarkup][You have some duct tape somewhere around the sink from what you recall. It's always handy to have some - especially when you live alone in a crappy apartment.][/nomarkup]
--> [nomarkup][Put the phone in its cradle.][/nomarkup] #line:08766f2 
-    [nomarkup][You look at the phone and immediately think better of it. There's nothing you want to do less than call Arthur and burden him even more. Setting the phone in its cradle, you return to the rest of the apartment.][/nomarkup]
-    [nomarkup][As you do you see that the cord has been jostled by the notion, a light that was blinking green having turned off briefly. Maybe if you had some duct tape you could fix the cord?][/nomarkup] #line:0c28b58 
+{$storyteller}: [nomarkup][You spend a couple of minutes finding a place to plug the cord into the wall, moving it around until the power connects. You feel a slight jolt in your arm at the shoulder and a green light flashes.][/nomarkup] #line:04cd872
+-> [nomarkup][Dial up Arthur.][/nomarkup] #line:01a8dce
+    {$storyteller}: [nomarkup][You wait for a few minutes for the phone to ring and find that it hasn't rung. After a few minutes, it's clear that it isn't dialing. You figure that the problem might be that the power isn't holding steady. Maybe if you found something to hold the chord together?][/nomarkup] #line:0e3ed75
+    {$storyteller}: [nomarkup][You have some duct tape somewhere around the sink from what you recall. It's always handy to have some - especially when you live alone in a crappy apartment.][/nomarkup]
     -> [nomarkup][End dialogue.][/nomarkup]
+-> [nomarkup][End dialogue.][/nomarkup]
 ===
 title: phoneInt3Duct
 position: -193,164
 ---
-[nomarkup][You spend a couple of minutes with the cord and find where it's been ripped, connecting it with duct tape and nodding. It'll do.][/nomarkup] #line:071a784 
--> [nomarkup][Dial up Arthur.][/nomarkup] #line:07d8db1 
-    [nomarkup][You wait for a few minutes for the phone to ring, unsurprisingly Arthur doesn't pick up. You wait for it to go all the way through the dial-up ring only for...][/nomarkup] #line:0264e36 
-    Phone: We're sorry, the number you're trying to dial has been disconnected. We're sorry, the number that you're trying to call has been disconnected. We're - #line:0af0878 
+{$storyteller}: [nomarkup][You spend a couple of minutes with the cord and find where it's been ripped, connecting it with duct tape and nodding. It'll do.][/nomarkup] #line:071a784
+-> [nomarkup][Dial up Arthur.][/nomarkup] #line:07d8db1
+    {$storyteller}: [nomarkup][You wait for a few minutes for the phone to ring, unsurprisingly Arthur doesn't pick up. You wait for it to go all the way through the dial-up ring only for...][/nomarkup] #line:0264e36
+    Phone: We're sorry, the number you're trying to dial has been disconnected. We're sorry, the number that you're trying to call has been disconnected. We're - #line:0af0878
     <<set $phoneBroken to false>>
     <<if IsObjectiveActive("Q_0P_BLOODY_HELL", "BH9_WATCH_VHS")>>
-        [nomarkup][No answer... but you had to check. Lucia definately has him.][/nomarkup]
         <<if GetIsPartyMemberRecruited($anastasia) is true>>
-            {$anastasia}: Who're you calling?
-            -> {$pcName}: Checking if the tape isn't some kind of a ruse.
-            {$anastasia}: And?
-            -> {$pcName}: It isn't. Lucia has him.
-            {$anastasia}: Even if you want to do something about it it's too late now.
+            {$anastasia}: Even if you want to do something about it, too late now.
+            -> [nomarkup][End dialogue.][/nomarkup]
         <<endif>>
-        -> [nomarkup][End dialogue.][/nomarkup]
     <<else>>
-        [nomarkup][Strange, Arthur should be in home right now. Why he wouldn't answer?][/nomarkup] #line:0d3f63f 
-        <<if GetIsPartyMemberRecruited($anastasia) is true>>
-            {$anastasia}: Who're you calling? I could go for a bite actually... [nomarkup][She flashes a fang-filled smile.][/nomarkup] #line:0ad89ae 
-            -> {$pcName}: No. Ana... I'm too tired for this. #line:0bc4563
-            {$anastasia}: Okay sourpuss. #line:01f7e26 
-            -> {$pcName}: Ana... #line:0d765c2 
-            {$anastasia}: Shit. Sorry? Sorry. #line:0cd03b5
-        <<endif>>
-        -> [nomarkup][End dialogue.][/nomarkup] 
+        {$storyteller}: [nomarkup][Strange, Arthur should be at home right now. Why he wouldn't answer?][/nomarkup] #line:0d3f63f
+        -> [nomarkup][End dialogue.][/nomarkup]
     <<endif>>
--> [nomarkup][Put the phone in its cradle.][/nomarkup] #line:0aeebf8 
-    [nomarkup][You look at the phone and immediately think better of it. There's nothing you want to do less than call Arthur and burden him even more. Setting the phone in its cradle, you return to the rest of the apartment.][/nomarkup] #line:005b892
-    -> [nomarkup][End dialogue.][/nomarkup] 
+-> [nomarkup][Put the phone in its cradle.][/nomarkup] #line:0aeebf8
+    {$storyteller}: [nomarkup][You look at the phone and immediately think better of it. There's nothing you want to do less than call Arthur and burden him even more. Setting the phone in its cradle, you return to the rest of the apartment.][/nomarkup] #line:005b892
+    -> [nomarkup][End dialogue.][/nomarkup]
 ===
