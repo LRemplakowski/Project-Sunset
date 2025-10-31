@@ -978,6 +978,34 @@ public partial class @PlayerInputMapping: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""ShortcutsPopup"",
+            ""id"": ""c8c64f62-4a50-49b6-a4de-a59e4020add4"",
+            ""actions"": [
+                {
+                    ""name"": ""Escape"",
+                    ""type"": ""Button"",
+                    ""id"": ""06ab240f-ebdc-498c-a35a-d8fe4047ae38"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""c0b6ba2a-ab84-42bf-abd9-0c3a1edb2cc8"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Escape"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -1072,6 +1100,9 @@ public partial class @PlayerInputMapping: IInputActionCollection2, IDisposable
         m_Shortcuts_CharacterSheet = m_Shortcuts.FindAction("CharacterSheet", throwIfNotFound: true);
         m_Shortcuts_Inventory = m_Shortcuts.FindAction("Inventory", throwIfNotFound: true);
         m_Shortcuts_Journal = m_Shortcuts.FindAction("Journal", throwIfNotFound: true);
+        // ShortcutsPopup
+        m_ShortcutsPopup = asset.FindActionMap("ShortcutsPopup", throwIfNotFound: true);
+        m_ShortcutsPopup_Escape = m_ShortcutsPopup.FindAction("Escape", throwIfNotFound: true);
     }
 
     ~@PlayerInputMapping()
@@ -1079,6 +1110,7 @@ public partial class @PlayerInputMapping: IInputActionCollection2, IDisposable
         UnityEngine.Debug.Assert(!m_Player.enabled, "This will cause a leak and performance issues, PlayerInputMapping.Player.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_UI.enabled, "This will cause a leak and performance issues, PlayerInputMapping.UI.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_Shortcuts.enabled, "This will cause a leak and performance issues, PlayerInputMapping.Shortcuts.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_ShortcutsPopup.enabled, "This will cause a leak and performance issues, PlayerInputMapping.ShortcutsPopup.Disable() has not been called.");
     }
 
     /// <summary>
@@ -1658,6 +1690,102 @@ public partial class @PlayerInputMapping: IInputActionCollection2, IDisposable
     /// Provides a new <see cref="ShortcutsActions" /> instance referencing this action map.
     /// </summary>
     public ShortcutsActions @Shortcuts => new ShortcutsActions(this);
+
+    // ShortcutsPopup
+    private readonly InputActionMap m_ShortcutsPopup;
+    private List<IShortcutsPopupActions> m_ShortcutsPopupActionsCallbackInterfaces = new List<IShortcutsPopupActions>();
+    private readonly InputAction m_ShortcutsPopup_Escape;
+    /// <summary>
+    /// Provides access to input actions defined in input action map "ShortcutsPopup".
+    /// </summary>
+    public struct ShortcutsPopupActions
+    {
+        private @PlayerInputMapping m_Wrapper;
+
+        /// <summary>
+        /// Construct a new instance of the input action map wrapper class.
+        /// </summary>
+        public ShortcutsPopupActions(@PlayerInputMapping wrapper) { m_Wrapper = wrapper; }
+        /// <summary>
+        /// Provides access to the underlying input action "ShortcutsPopup/Escape".
+        /// </summary>
+        public InputAction @Escape => m_Wrapper.m_ShortcutsPopup_Escape;
+        /// <summary>
+        /// Provides access to the underlying input action map instance.
+        /// </summary>
+        public InputActionMap Get() { return m_Wrapper.m_ShortcutsPopup; }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
+        public void Enable() { Get().Enable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
+        public void Disable() { Get().Disable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
+        public bool enabled => Get().enabled;
+        /// <summary>
+        /// Implicitly converts an <see ref="ShortcutsPopupActions" /> to an <see ref="InputActionMap" /> instance.
+        /// </summary>
+        public static implicit operator InputActionMap(ShortcutsPopupActions set) { return set.Get(); }
+        /// <summary>
+        /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <param name="instance">Callback instance.</param>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
+        /// </remarks>
+        /// <seealso cref="ShortcutsPopupActions" />
+        public void AddCallbacks(IShortcutsPopupActions instance)
+        {
+            if (instance == null || m_Wrapper.m_ShortcutsPopupActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_ShortcutsPopupActionsCallbackInterfaces.Add(instance);
+            @Escape.started += instance.OnEscape;
+            @Escape.performed += instance.OnEscape;
+            @Escape.canceled += instance.OnEscape;
+        }
+
+        /// <summary>
+        /// Removes <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <remarks>
+        /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
+        /// </remarks>
+        /// <seealso cref="ShortcutsPopupActions" />
+        private void UnregisterCallbacks(IShortcutsPopupActions instance)
+        {
+            @Escape.started -= instance.OnEscape;
+            @Escape.performed -= instance.OnEscape;
+            @Escape.canceled -= instance.OnEscape;
+        }
+
+        /// <summary>
+        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="ShortcutsPopupActions.UnregisterCallbacks(IShortcutsPopupActions)" />.
+        /// </summary>
+        /// <seealso cref="ShortcutsPopupActions.UnregisterCallbacks(IShortcutsPopupActions)" />
+        public void RemoveCallbacks(IShortcutsPopupActions instance)
+        {
+            if (m_Wrapper.m_ShortcutsPopupActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        /// <summary>
+        /// Replaces all existing callback instances and previously registered input action callbacks associated with them with callbacks provided via <param cref="instance" />.
+        /// </summary>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
+        /// </remarks>
+        /// <seealso cref="ShortcutsPopupActions.AddCallbacks(IShortcutsPopupActions)" />
+        /// <seealso cref="ShortcutsPopupActions.RemoveCallbacks(IShortcutsPopupActions)" />
+        /// <seealso cref="ShortcutsPopupActions.UnregisterCallbacks(IShortcutsPopupActions)" />
+        public void SetCallbacks(IShortcutsPopupActions instance)
+        {
+            foreach (var item in m_Wrapper.m_ShortcutsPopupActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_ShortcutsPopupActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    /// <summary>
+    /// Provides a new <see cref="ShortcutsPopupActions" /> instance referencing this action map.
+    /// </summary>
+    public ShortcutsPopupActions @ShortcutsPopup => new ShortcutsPopupActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     /// <summary>
     /// Provides access to the input control scheme.
@@ -1907,5 +2035,20 @@ public partial class @PlayerInputMapping: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnJournal(InputAction.CallbackContext context);
+    }
+    /// <summary>
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "ShortcutsPopup" which allows adding and removing callbacks.
+    /// </summary>
+    /// <seealso cref="ShortcutsPopupActions.AddCallbacks(IShortcutsPopupActions)" />
+    /// <seealso cref="ShortcutsPopupActions.RemoveCallbacks(IShortcutsPopupActions)" />
+    public interface IShortcutsPopupActions
+    {
+        /// <summary>
+        /// Method invoked when associated input action "Escape" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnEscape(InputAction.CallbackContext context);
     }
 }

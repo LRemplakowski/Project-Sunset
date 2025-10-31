@@ -31,10 +31,16 @@ namespace SunsetSystems.Persistence.UI
             ClearSelectedSave();
         }
 
+        //private void OnEnable()
+        //{
+        //    SunsetInputHandler.Instance.OverrideInput(this, SunsetInputHandler.UI_MAP);
+        //}
+
         private void OnDisable()
         {
             _deleteSaveConfirmationPopup.Hide();
             _newSaveConfirmationPopup.Hide();
+            //SunsetInputHandler.Instance.ClearInputOverride(this);
         }
 
         public void ShowScreen(bool includeNewSaveSlot = false)

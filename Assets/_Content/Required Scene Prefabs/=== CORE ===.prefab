@@ -972,7 +972,6 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   _playerInput: {fileID: 7998144975505011157}
-  _uiInputModule: {fileID: 0}
 --- !u!114 &7998144975505011157
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1062,26 +1061,6 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4684825997953639188}
         m_TargetAssemblyTypeName: SunsetInputHandler, SunsetSystems
-        m_MethodName: InventoryAction
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 73be0c94-55bc-420a-a277-b86ba3a225f3
-    m_ActionName: 'Player/Inventory[/Keyboard/i]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: f99799ad-213e-494e-b8b2-c3e206865e37
-    m_ActionName: 'UI/Escape[/Keyboard/escape]'
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4684825997953639188}
-        m_TargetAssemblyTypeName: SunsetInputHandler, SunsetSystems
         m_MethodName: EscapeAction
         m_Mode: 0
         m_Arguments:
@@ -1092,24 +1071,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: cb12a3a9-ae32-40ce-8347-9952e1df95aa
-    m_ActionName: 'Player/Escape[/Keyboard/escape]'
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4684825997953639188}
-        m_TargetAssemblyTypeName: SunsetInputHandler, SunsetSystems
-        m_MethodName: CharacterSheetAction
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: bc103939-7778-4ea1-9f4f-f7e5275e5908
-    m_ActionName: 'Player/CharacterSheet[/Keyboard/c]'
+    m_ActionId: f99799ad-213e-494e-b8b2-c3e206865e37
+    m_ActionName: 'UI/Escape[/Keyboard/escape]'
   - m_PersistentCalls:
       m_Calls: []
     m_ActionId: 251cb44e-4dd6-45a2-82ed-d7ef4dac9984
@@ -1139,26 +1102,34 @@ MonoBehaviour:
     m_ActionId: 7be2fee1-49a6-4393-80b6-67696fbeb487
     m_ActionName: 'Player/RightClick[/Mouse/rightButton]'
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4684825997953639188}
-        m_TargetAssemblyTypeName: SunsetInputHandler, SunsetSystems
-        m_MethodName: JournalAction
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: eede28a6-5c14-43a7-a43c-1233ea383bea
-    m_ActionName: 'Player/Journal[/Keyboard/j]'
+      m_Calls: []
+    m_ActionId: 96522dbe-f560-44ea-b7f9-867121f3cde1
+    m_ActionName: 'UI/Scroll[/Mouse/forwardButton,/Mouse/backButton]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ad5184e2-84c1-4a42-967b-f022816639dc
+    m_ActionName: 'UI/RightClick[/Mouse/rightButton]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b65a58c1-602b-4a72-b56f-f363e9b83b73
+    m_ActionName: 'UI/Navigate[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 7f799ec4-2fbf-44ff-9ee2-6af14c409070
+    m_ActionName: 'UI/Submit[/Keyboard/enter]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3e128fb0-89e6-48de-8215-96a35ed4c387
+    m_ActionName: 'UI/Forward Dialogue[/Keyboard/space]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 6ae20f30-b82c-4237-8d29-512907a6f615
+    m_ActionName: 'UI/MiddleClick[/Mouse/middleButton]'
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4684825997953639188}
         m_TargetAssemblyTypeName: SunsetInputHandler, SunsetSystems
-        m_MethodName: SkipDialogueAction
+        m_MethodName: EscapeAction
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1168,8 +1139,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: b430a763-75d6-4ca3-b8da-f1c7000e8ece
-    m_ActionName: 'Player/SkipDialogue[/Keyboard/space]'
+    m_ActionId: ba4b575f-da26-421c-aed4-cf3b54638bc3
+    m_ActionName: 'Shortcuts/Escape[/Keyboard/escape]'
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4684825997953639188}
@@ -1184,8 +1155,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 28bba3a0-357d-4bc6-9e21-3d9cdc1ecc33
-    m_ActionName: 'Player/HighlightInteractables[/Keyboard/tab]'
+    m_ActionId: a9c1a77e-5a25-425c-8668-fcae9b8bda6a
+    m_ActionName: 'Shortcuts/HighlightInteractables[/Keyboard/tab]'
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4684825997953639188}
@@ -1200,16 +1171,72 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: c6071cb5-f65a-4c95-9e14-427763b30f7c
-    m_ActionName: 'Player/Help[/Keyboard/f1]'
+    m_ActionId: d6b034c0-de44-4713-b3ab-7570570adb36
+    m_ActionName: 'Shortcuts/Help[/Keyboard/f1]'
   - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 96522dbe-f560-44ea-b7f9-867121f3cde1
-    m_ActionName: 'UI/Scroll[/Mouse/forwardButton,/Mouse/backButton]'
+      m_Calls:
+      - m_Target: {fileID: 4684825997953639188}
+        m_TargetAssemblyTypeName: SunsetInputHandler, SunsetSystems
+        m_MethodName: CharacterSheetAction
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 4140c2e6-7c35-4fe9-8f93-693d01eb7191
+    m_ActionName: 'Shortcuts/CharacterSheet[/Keyboard/c]'
   - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: ad5184e2-84c1-4a42-967b-f022816639dc
-    m_ActionName: 'UI/RightClick[/Mouse/rightButton]'
+      m_Calls:
+      - m_Target: {fileID: 4684825997953639188}
+        m_TargetAssemblyTypeName: SunsetInputHandler, SunsetSystems
+        m_MethodName: InventoryAction
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 1d160c2c-6067-4dad-943a-3591e858b68c
+    m_ActionName: 'Shortcuts/Inventory[/Keyboard/i]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4684825997953639188}
+        m_TargetAssemblyTypeName: SunsetInputHandler, SunsetSystems
+        m_MethodName: JournalAction
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: e73891de-425d-4292-99d1-0b1b3d922d9d
+    m_ActionName: 'Shortcuts/Journal[/Keyboard/j]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4684825997953639188}
+        m_TargetAssemblyTypeName: SunsetInputHandler, SunsetSystems
+        m_MethodName: PopupCancel
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 06ab240f-ebdc-498c-a35a-d8fe4047ae38
+    m_ActionName: 'ShortcutsPopup/Escape[/Keyboard/escape]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: Player
@@ -1248,11 +1275,11 @@ MonoBehaviour:
   m_XRTrackingOrigin: {fileID: 0}
   m_ActionsAsset: {fileID: -944628639613478452, guid: 2d26b75c6cc56fd4394301de7c0a5752, type: 3}
   m_PointAction: {fileID: -2558016673230066697, guid: 2d26b75c6cc56fd4394301de7c0a5752, type: 3}
-  m_MoveAction: {fileID: 0}
-  m_SubmitAction: {fileID: 0}
+  m_MoveAction: {fileID: -2862088654786226321, guid: 2d26b75c6cc56fd4394301de7c0a5752, type: 3}
+  m_SubmitAction: {fileID: 6282924929525842995, guid: 2d26b75c6cc56fd4394301de7c0a5752, type: 3}
   m_CancelAction: {fileID: -4786970870711918226, guid: 2d26b75c6cc56fd4394301de7c0a5752, type: 3}
   m_LeftClickAction: {fileID: -8811700906294004514, guid: 2d26b75c6cc56fd4394301de7c0a5752, type: 3}
-  m_MiddleClickAction: {fileID: 0}
+  m_MiddleClickAction: {fileID: 3279352641294131588, guid: 2d26b75c6cc56fd4394301de7c0a5752, type: 3}
   m_RightClickAction: {fileID: 3837173908680883260, guid: 2d26b75c6cc56fd4394301de7c0a5752, type: 3}
   m_ScrollWheelAction: {fileID: 3304477214571592728, guid: 2d26b75c6cc56fd4394301de7c0a5752, type: 3}
   m_TrackedDevicePositionAction: {fileID: 0}
@@ -4303,7 +4330,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8554691751661220614, guid: 822dd1e947124ec4998b5d4f2aee95ec, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -20.632584
+      value: -3.4325833
       objectReference: {fileID: 0}
     - target: {fileID: 8554691751661220614, guid: 822dd1e947124ec4998b5d4f2aee95ec, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4311,7 +4338,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8554691751661220614, guid: 822dd1e947124ec4998b5d4f2aee95ec, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.503679
+      value: -2.2036788
       objectReference: {fileID: 0}
     - target: {fileID: 8554691751661220614, guid: 822dd1e947124ec4998b5d4f2aee95ec, type: 3}
       propertyPath: m_LocalRotation.w

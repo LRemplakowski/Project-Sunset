@@ -9783,6 +9783,7 @@ GameObject:
   - component: {fileID: 1290016051}
   - component: {fileID: 1290016050}
   - component: {fileID: 1290016053}
+  - component: {fileID: 1290016054}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -9917,20 +9918,7 @@ MonoBehaviour:
     m_ActionId: f601cab9-9997-42cd-8ce6-415bfea5e206
     m_ActionName: 'UI/Point[/Mouse/position]'
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2082188606}
-        m_TargetAssemblyTypeName: SunsetSystems.Persistence.UI.SaveLoadScreenManager,
-          SunsetSystems
-        m_MethodName: OnCancel
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: f99799ad-213e-494e-b8b2-c3e206865e37
     m_ActionName: 'UI/Cancel[/Keyboard/escape]'
   - m_PersistentCalls:
@@ -9954,7 +9942,19 @@ MonoBehaviour:
     m_ActionId: 6ae20f30-b82c-4237-8d29-512907a6f615
     m_ActionName: 'UI/MiddleClick[/Mouse/middleButton]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1733228025}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: ba4b575f-da26-421c-aed4-cf3b54638bc3
     m_ActionName: 'Shortcuts/Escape[/Keyboard/escape]'
   - m_PersistentCalls:
@@ -9981,11 +9981,37 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: b65a58c1-602b-4a72-b56f-f363e9b83b73
     m_ActionName: 'UI/Navigate[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 06ab240f-ebdc-498c-a35a-d8fe4047ae38
+    m_ActionName: 'ShortcutsPopup/Escape[/Keyboard/escape]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
   m_DefaultActionMap: UI
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 1019134786}
+--- !u!114 &1290016054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1290016049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a5d38d04e4192a4d9765fa8007d66d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
+  _playerInput: {fileID: 1290016053}
 --- !u!1 &1290641194 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1529137792507634230, guid: 0b1abba0124b7e04db91a721d14a9359, type: 3}
@@ -13950,6 +13976,11 @@ CanvasRenderer:
   m_CorrespondingSourceObject: {fileID: 1529137792199404985, guid: 0b1abba0124b7e04db91a721d14a9359, type: 3}
   m_PrefabInstance: {fileID: 1529137791817623277}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1733228025 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8195376245004068112, guid: 0b1abba0124b7e04db91a721d14a9359, type: 3}
+  m_PrefabInstance: {fileID: 1529137791817623277}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1736027079 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1529137791055031985, guid: 0b1abba0124b7e04db91a721d14a9359, type: 3}
@@ -16907,17 +16938,6 @@ CanvasRenderer:
   m_CorrespondingSourceObject: {fileID: 1529137792074699104, guid: 0b1abba0124b7e04db91a721d14a9359, type: 3}
   m_PrefabInstance: {fileID: 1529137791817623277}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2082188606 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1646874172900541278, guid: 0b1abba0124b7e04db91a721d14a9359, type: 3}
-  m_PrefabInstance: {fileID: 1529137791817623277}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e967265e37bca3b4db56b3ac8aee396c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2084071315 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1529137791114858917, guid: 0b1abba0124b7e04db91a721d14a9359, type: 3}

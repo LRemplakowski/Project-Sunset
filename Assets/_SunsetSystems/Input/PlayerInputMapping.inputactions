@@ -892,6 +892,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "Shortcuts Popup",
+            "id": "c8c64f62-4a50-49b6-a4de-a59e4020add4",
+            "actions": [
+                {
+                    "name": "Escape",
+                    "type": "Button",
+                    "id": "06ab240f-ebdc-498c-a35a-d8fe4047ae38",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "c0b6ba2a-ab84-42bf-abd9-0c3a1edb2cc8",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Escape",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": [

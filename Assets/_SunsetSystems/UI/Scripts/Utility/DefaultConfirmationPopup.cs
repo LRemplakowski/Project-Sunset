@@ -2,6 +2,7 @@
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace SunsetSystems.UI.Utils
 {
@@ -20,6 +21,14 @@ namespace SunsetSystems.UI.Utils
             _popupText.text = viewData.Text;
             _confirmationDelegate = onConfirmDelegate;
             gameObject.SetActive(true);
+            SunsetInputHandler.Instance.OverrideInput(this, SunsetInputHandler.UI_MAP, SunsetInputHandler.SHORTCUTS_POPUP_MAP);
+            SunsetInputHandler.OnPopupCancel += OnInputCancel;
+        }
+
+        private void OnInputCancel(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+                OnCancel();
         }
 
         public virtual void OnConfirm()
@@ -42,6 +51,8 @@ namespace SunsetSystems.UI.Utils
         private void Cleanup()
         {
             _confirmationDelegate = null;
+            SunsetInputHandler.Instance.ClearInputOverride(this);
+            SunsetInputHandler.OnPopupCancel -= OnInputCancel;
         }
     }
 }
