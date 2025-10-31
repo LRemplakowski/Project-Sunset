@@ -16,5 +16,10 @@ namespace SunsetSystems.Abilities
         public string ID => _scriptID;
         public string Name => _fallbackName;
         public string Description => _fallbackDescription;
+
+        public int CompareTo(IDiscipline other)
+        {
+            return Name.CompareTo(other.Name);
+        }
     }
 }

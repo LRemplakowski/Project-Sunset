@@ -1,6 +1,8 @@
+using System;
+
 namespace SunsetSystems.Abilities
 {
-    public interface IDiscipline
+    public interface IDiscipline : IComparable<IDiscipline>
     {
         string ID { get; }
         string Name { get; }
