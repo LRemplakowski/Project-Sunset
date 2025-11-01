@@ -109,15 +109,17 @@ title: subsequentInteractions
 position: -502,87
 ---
 <<if GetIsPartyMemberRecruited($anastasia) is false>>
-    {$storyteller}: [nomarkup][Kate immediately addresses Anastaisa.][/nomarkup] #line:08fbef5
-    {$sforzaMask}: Ciao, piccola mia. Who I am speaking with? #lastline
+    <<jump subsequentQuestions>>
 <<else>>
-    <<if $anastasiaIntroduced is false and GetIsPartyMemberRecruited($anastasia) is true>>
+    <<if $anastasiaIntroduced is false>>
+        {$storyteller}: [nomarkup][Kate immediately addresses Anastasia.][/nomarkup] #line:08fbef5
+        {$sforzaMask}: Ciao, piccola mia. Who I am speaking with?
         <<set $anastasiaIntroduced to true>>
         {$anastasia}: Anastasia, charmed m'lady. 
         {$storyteller}: [nomarkup][Kate seems unimpressed, a deadpan expression.][/nomarkup]
         {$sforzaMask}: A pleasure for you to finally introduce yourself! I cannot imagine why we didn't get together sooner. Were you afraid that I'd bite?
         {$storyteller}: [nomarkup][Kate's smile doesn't reach her eyes, but she allows this particular insult to go unpunished.][/nomarkup]
+        <<jump subsequentQuestions>>
     <<endif>>
 <<endif>>
 <<jump subsequentQuestions>>

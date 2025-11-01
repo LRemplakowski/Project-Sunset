@@ -53,13 +53,13 @@ position: 1589,-1077
 {$storyteller}: [nomarkup][After years of heavy use, the mass of soot does not want to slide easily into the wastebasket. You'll probably need to wash the ashtray in order to see clearly what is engraved on its bottom.][/nomarkup]
 -> [nomarkup][Try to read the inscription anyway.] (Resolve+Awareness)[/nomarkup] #line:0e9f52b 
     <<if Roll("Resolve","Awareness") >=3>>
-        {$storyteller}: [nomarkup][You are barely able to make out the numerals: “969.”.][/nomarkup]
+        {$storyteller}: [nomarkup][You are barely able to make out the numerals: “969.”.][/nomarkup] #success
         {$kieran}: Diana told me she came to America and opened The Embassy in 1969.
         <<set $safeCode to true>>
         {$storyteller}: [nomarkup][You put the ashtray back on the desk.][/nomarkup] #lastline 
         <<jump deskExaminationOptions>>
     <<else>>
-        {$storyteller}: [nomarkup][Maybe it's nothing special after all, and you're putting an irrational amount of importance on this?][/nomarkup] #lastline
+        {$storyteller}: [nomarkup][Maybe it's nothing special after all, and you're putting an irrational amount of importance on this?][/nomarkup] #lastline #failure
         <<jump deskExaminationOptions>>
     <<endif>>
 -> [nomarkup][Is this ashtray unique?] (Intelligence+Investigation)[/nomarkup] #line:0fa0839 
@@ -71,7 +71,7 @@ position: 1589,-1077
         {$storyteller}: [nomarkup][You put the ashtray back on the desk.][/nomarkup] #lastline #line:0f7fd6b 
         <<jump deskExaminationOptions>>
     <<else>>
-        {$storyteller}: [nomarkup][Maybe it's nothing special after all, and you're putting an irrational amount of importance on this?][/nomarkup] #lastline
+        {$storyteller}: [nomarkup][Maybe it's nothing special after all, and you're putting an irrational amount of importance on this?][/nomarkup] #lastline #failure
         <<jump deskExaminationOptions>>
     <<endif>>
 ===
@@ -106,7 +106,7 @@ position: 1400,-1286
 ---
 {$storyteller}: [nomarkup][Today's copy of the Nevada Sands.][/nomarkup]
 {$storyteller}: “The Nevada Sands — Saturday, June 14, 1986. “The British are Coming - For Our Nightlife” By Leonard Quill, Staff Writer.
-{$storyteller}: [nomarkup][The article is a puff piece about The Embassy. It mentions the venue opened in 1969.][/nomarkup]
+{$storyteller}: [nomarkup][The article is a puff piece about The Embassy. It mentions the venue opened in 1969.][/nomarkup] #lastline
 <<set $safeCode to true>>
 <<jump deskExaminationOptions>>
 ===

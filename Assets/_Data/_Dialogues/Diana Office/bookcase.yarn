@@ -42,14 +42,20 @@ position: -906,-1095
 title: bookcaseExamine
 position: -1609,-2088
 ---
-{$storyteller}: [nomarkup][One volume sticks out  as the most heavily used with a weathered, wrinkled spine.“The Book of Law” by Aleister Crowley.][/nomarkup] #line:07c9215
 <<if Roll ("Intelligence","Occult") >=5>>
-    [nomarkup][You recognize the author. He was a prominent English occultist and ceremonial magician.][/nomarkup] #line:07ae103 #lastline
+    {$storyteller}: [nomarkup][One volume sticks out as the most heavily used with a weathered, wrinkled spine.“The Book of Law” by Aleister Crowley.][/nomarkup] #line:07c9215
+    {$storyteller}: [nomarkup][You recognize the author. He was a prominent English occultist and ceremonial magician.][/nomarkup] #line:07ae103
+    -> {$pcName}: [nomarkup][Examine “The Book of Law”.][/nomarkup] #line:08a5386
+    {$kieran}: [nomarkup]<i>Liber Al vel Legis</i>[/nomarkup] Good eye. Let me check it first. I do not think there is a trap, but with matters of the occult, you're better safe than sorry. (+1 Kieran Influence) #line:0f594d6
+    <<ModifyInfluence 1 {$kieran}>>
+    <<jump booksHaveTeeth>>
+<<else>>
+    {$storyteller}: [nomarkup][One volume sticks out as the most heavily used with a weathered, wrinkled spine.“The Book of Law” by Aleister Crowley.][/nomarkup] 
+    {$kieran}: [nomarkup]<i>Liber Al vel Legis</i>[/nomarkup] Good eye. Let me check it first. I do not think there is a trap, but with matters of the occult, you're better safe than sorry. (+1 Kieran Influence) 
+    -> {$pcName}: [nomarkup][Examine “The Book of Law”.][/nomarkup]
+    <<ModifyInfluence 1 {$kieran}>>
+    <<jump booksHaveTeeth>>
 <<endif>>
--> {$pcName}: [nomarkup][Examine “The Book of Law”.][/nomarkup] #line:08a5386
-{$kieran}: [nomarkup]<i>Liber Al vel Legis</i>[/nomarkup] Good eye. Let me check it first. I do not think there is a trap, but with matters of the occult, you're better safe than sorry. (+1 Kieran Influence) #line:0f594d6
-<<ModifyInfluence 1 {$kieran}>>
-<<jump booksHaveTeeth>>
 ===
 title: booksHaveTeeth
 position: -1628,-1244
@@ -61,7 +67,7 @@ position: -1628,-1244
 {$storyteller}: [nomarkup][He rubs the spine of the book without taking it off the shelf.][/nomarkup] 
 {$kieran}: Everything looks to be in order. #line:0157695
 {$storyteller}: [nomarkup][You leaf through the book and notice one word highlighted and underlined at multiple points throughout the text.][/nomarkup] #line:057f624
-{$storyteller}: [nomarkup][“The word of the law is <i>Thelema<i>. Do what thou wilt shall be the whole of the Law.”][/nomarkup]
+{$storyteller}: [nomarkup][“The word of the law is <i>Thelema</i>. Do what thou wilt shall be the whole of the Law.”][/nomarkup]
 {$storyteller}: [nomarkup][Kieran rubs his forehead.][/nomarkup]
 {$kieran}: Thelema? Interesting. Occult terminology for self-actualization. Maybe her reason for reading it so diligently is more about Thelema, and not magic, in particular? #line:0cc5e56
 <<set $thelema to true>>
@@ -104,7 +110,7 @@ position: -591,2368
 title: poeCode
 position: -1327,1711
 ---
-[nomarkup][53‡‡†305))6*;4826)4‡.)4‡);80<br>6*;48†8¶60))85;1‡(;;‡*8†83(88)<br>5*†;46(;88*96*?;8)*‡(;485);5*†<br>2:*‡(;4956*2(5*-4)8¶8*;40692<br>85);)6†8)4‡‡;1(‡9;48081;8:8‡1<br>;48†85;4)485†528806*81(‡9;48<br>;(88;4(‡?34;48)4‡;161;:188;‡?;][/nomarkup] #line:0fea452 
+{$storyteller}: [nomarkup][53‡‡†305))6*;4826)4‡.)4‡);80<br>6*;48†8¶60))85;1‡(;;‡*8†83(88)<br>5*†;46(;88*96*?;8)*‡(;485);5*†<br>2:*‡(;4956*2(5*-4)8¶8*;40692<br>85);)6†8)4‡‡;1(‡9;48081;8:8‡1<br>;48†85;4)485†528806*81(‡9;48<br>;(88;4(‡?34;48)4‡;161;:188;‡?;][/nomarkup] #line:0fea452 
 {$storyteller}: [nomarkup][You search the pages carefully for some sort of decryption key. Some pages are ripped and missing.][/nomarkup]
 <<jump poeBookExamineQuestions>>
 ===
