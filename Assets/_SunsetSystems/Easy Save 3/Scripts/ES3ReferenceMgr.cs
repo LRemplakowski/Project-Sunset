@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using ES3Internal;
 using UnityEngine.SceneManagement;
+using Sirenix.OdinInspector;
+
 #if UNITY_EDITOR
 using UnityEditor;
 using UnityEditor.SceneManagement;
@@ -29,7 +31,7 @@ public class ES3ReferenceMgr : ES3ReferenceMgrBase
         ES3ReferenceMgrBase.isEnteringPlayMode = isEnteringPlayMode;
 
         // This will get the dependencies for all GameObjects and Components from the active scene.
-        AddDependencies(this.gameObject.scene.GetRootGameObjects());
+        //AddDependencies(this.gameObject.scene.GetRootGameObjects());
         AddDependenciesFromFolders();
         AddPrefabsToManager();
         RemoveNullOrInvalidValues();

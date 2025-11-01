@@ -1,4 +1,5 @@
 using System;
+using SunsetSystems.Audio;
 using UnityEngine;
 
 namespace ES3Types
@@ -16,9 +17,9 @@ namespace ES3Types
 		{
 			var instance = (SunsetSystems.Audio.ScenePlaylistData)obj;
 			
-			writer.WriteProperty("Exploration", instance.Exploration, ES3Internal.ES3TypeMgr.GetOrCreateES3Type(typeof(SunsetSystems.Audio.IPlaylist)));
-			writer.WriteProperty("Combat", instance.Combat, ES3Internal.ES3TypeMgr.GetOrCreateES3Type(typeof(SunsetSystems.Audio.IPlaylist)));
-			writer.WriteProperty("Dialogue", instance.Dialogue, ES3Internal.ES3TypeMgr.GetOrCreateES3Type(typeof(SunsetSystems.Audio.IPlaylist)));
+			writer.WritePropertyByRef("Exploration", instance.Exploration as PlaylistConfig);
+			writer.WritePropertyByRef("Combat", instance.Combat as PlaylistConfig);
+			writer.WritePropertyByRef("Dialogue", instance.Dialogue as PlaylistConfig);
 		}
 
 		public override object Read<T>(ES3Reader reader)
@@ -31,13 +32,13 @@ namespace ES3Types
 				{
 					
 					case "Exploration":
-						instance.Exploration = reader.Read<SunsetSystems.Audio.IPlaylist>();
+						instance.Exploration = reader.Read<PlaylistConfig>();
 						break;
 					case "Combat":
-						instance.Combat = reader.Read<SunsetSystems.Audio.IPlaylist>();
+						instance.Combat = reader.Read<PlaylistConfig>();
 						break;
 					case "Dialogue":
-						instance.Dialogue = reader.Read<SunsetSystems.Audio.IPlaylist>();
+						instance.Dialogue = reader.Read<PlaylistConfig>();
 						break;
 					default:
 						reader.Skip();

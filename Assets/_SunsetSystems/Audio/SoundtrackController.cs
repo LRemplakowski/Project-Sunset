@@ -161,25 +161,25 @@ namespace SunsetSystems.Audio
             {
                 if (_playlistOverrides.TryGetValue(GameState.Exploration, out var existing) && existing != playlistData.Exploration)
                 {
-                    existing?.ReleaseReferences();
-                    _playlistOverrides[GameState.Exploration] = playlistData.Exploration;
+                    existing?.ReleaseReferences();               
                 }
+                _playlistOverrides[GameState.Exploration] = playlistData.Exploration;
             }
             if (playlistData.Combat != null)
             {
                 if (_playlistOverrides.TryGetValue(GameState.Combat, out var existing) && existing != playlistData.Combat)
                 {
                     existing?.ReleaseReferences();
-                    _playlistOverrides[GameState.Combat] = playlistData.Combat;
                 }
+                _playlistOverrides[GameState.Combat] = playlistData.Combat;
             }
             if (playlistData.Dialogue != null)
             {
                 if (_playlistOverrides.TryGetValue(GameState.Dialogue, out var existing) && existing != playlistData.Dialogue)
                 {
                     existing?.ReleaseReferences();
-                    _playlistOverrides[GameState.Dialogue] = playlistData.Dialogue;
                 }
+                _playlistOverrides[GameState.Dialogue] = playlistData.Dialogue;
             }
             PlayStatePlaylist(GameState.Exploration);
         }

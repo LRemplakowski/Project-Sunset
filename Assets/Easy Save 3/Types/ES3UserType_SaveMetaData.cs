@@ -23,7 +23,7 @@ namespace ES3Types
 			writer.WriteProperty("PlayTime", instance.PlayTime, ES3Type_double.Instance);
 			writer.WriteProperty("LevelLoadingData", instance.LevelLoadingData, ES3UserType_LevelLoadingData.Instance);
 			writer.WriteProperty("PlaylistData", instance.PlaylistData, ES3UserType_ScenePlaylistData.Instance);
-			writer.WritePropertyByRef("SaveScreenShot", instance.SaveScreenShot);
+			writer.WriteProperty("SaveScreenShot", instance.SaveScreenShot, ES3.ReferenceMode.ByValue);
 		}
 
 		public override object Read<T>(ES3Reader reader)
