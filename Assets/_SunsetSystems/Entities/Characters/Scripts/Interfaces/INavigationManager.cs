@@ -14,7 +14,7 @@ namespace SunsetSystems.Entities.Characters.Navigation
         float CurrentSpeed { get; }
         float MaxSpeed { get; }
 
-        bool Warp(Vector3 position);
+        bool Warp(Vector3 position, Quaternion rotation);
         UniTask<ABPath> CalculatePathAsync(Vector3 targetPosition);
         bool CalculatePath(Vector3 targetPosition, out ABPath path);
         UniTask<Dictionary<Vector3, float>> CalculateMultiplePathsAsync(Vector3[] targetPosition);

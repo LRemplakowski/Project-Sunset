@@ -136,7 +136,7 @@ namespace SunsetSystems.Core.SceneLoading
                 {
                     ICreature creature = party[i];
                     Vector3 position = positions[i];
-                    creature.ForceToPosition(position);
+                    creature.ForceToPosition(position, waypoint.transform.rotation);
                 }
             }
 

@@ -78,7 +78,8 @@ namespace SunsetSystems.Core
             await fade.DoFadeOutAsync(.5f);
             await new WaitForUpdate();
             _desireeOnBed.SetActive(false);
-            _desiree.ForceToPosition(WaypointManager.Instance.GetSceneDefaultEntryWaypoint().transform.position);
+            var waypoint = WaypointManager.Instance.GetSceneDefaultEntryWaypoint();
+            _desiree.ForceToPosition(waypoint.transform);
             await fade.DoFadeInAsync(.5f);
         }
 
@@ -86,8 +87,8 @@ namespace SunsetSystems.Core
         {
             SceneLoadingUIManager fade = SceneLoadingUIManager.Instance;
             await fade.DoFadeOutAsync(.5f);
-            _landlord.ForceToPosition(_landlordSpawnWaypoint.transform.position);
-            PartyManager.Instance.MainCharacter.ForceToPosition(_pcLandlordVisitWaypoint.transform.position);
+            _landlord.ForceToPosition(_landlordSpawnWaypoint.transform);
+            PartyManager.Instance.MainCharacter.ForceToPosition(_pcLandlordVisitWaypoint.transform);
             CameraControl.ForceToPosition(_landlordEnterCameraPosition);
             CameraControl.ForceRotation(_landlordEnterCameraRotation);
             await fade.DoFadeInAsync(.5f);
@@ -97,8 +98,8 @@ namespace SunsetSystems.Core
         {
             SceneLoadingUIManager fade = SceneLoadingUIManager.Instance;
             await fade.DoFadeOutAsync(.5f);
-            _landlord.ForceToPosition(_landlordSinkWaypoint.transform.position);
-            PartyManager.Instance.MainCharacter.ForceToPosition(_pcLandlordSinkWaypoint.transform.position);
+            _landlord.ForceToPosition(_landlordSinkWaypoint.transform);
+            PartyManager.Instance.MainCharacter.ForceToPosition(_pcLandlordSinkWaypoint.transform);
             CameraControl.ForceToPosition(_landlordSinkCameraPosition);
             CameraControl.ForceRotation(_landlordSinkCameraRotation);
             await new WaitForFixedUpdate();
@@ -114,7 +115,7 @@ namespace SunsetSystems.Core
         {
             _coffeeTableTransform.position = _tablePositionForCover;
             _coffeeTableTransform.eulerAngles = _tableRotationForCover;
-            PartyManager.Instance.MainCharacter.ForceToPosition(_pcCoverWaypoint.transform.position);
+            PartyManager.Instance.MainCharacter.ForceToPosition(_pcCoverWaypoint.transform);
         }
 
         public async void BargeIn()
@@ -125,8 +126,8 @@ namespace SunsetSystems.Core
             _havenDoors.Open = true;
             _dominic.References.GameObject.SetActive(true);
             _kieran.References.GameObject.SetActive(true);
-            _dominic.ForceToPosition(_dominicWaypoint.transform.position);
-            _kieran.ForceToPosition(_kieranWaypoint.transform.position);
+            _dominic.ForceToPosition(_dominicWaypoint.transform);
+            _kieran.ForceToPosition(_kieranWaypoint.transform);
             CameraControl.ForceToPosition(_cameraPositionDominicEnter);
             await new WaitForFixedUpdate();
             CameraControl.ForceRotation(_cameraRotationDominicEnter);
@@ -141,9 +142,9 @@ namespace SunsetSystems.Core
         {
             SceneLoadingUIManager fade = SceneLoadingUIManager.Instance;
             await fade.DoFadeOutAsync(.5f);
-            PartyManager.Instance.MainCharacter.ForceToPosition(_pcFridgeWaypoint.transform.position);
-            _dominic.ForceToPosition(_dominicFridgeWaypoint.transform.position);
-            _kieran.ForceToPosition(_kieranFridgeWaypoint.transform.position);
+            PartyManager.Instance.MainCharacter.ForceToPosition(_pcFridgeWaypoint.transform);
+            _dominic.ForceToPosition(_dominicFridgeWaypoint.transform);
+            _kieran.ForceToPosition(_kieranFridgeWaypoint.transform);
             CameraControl.ForceToPosition(_cameraPositionPinnedToWall);
             await new WaitForFixedUpdate();
             CameraControl.ForceRotation(_cameraRotationPinnedToWall);

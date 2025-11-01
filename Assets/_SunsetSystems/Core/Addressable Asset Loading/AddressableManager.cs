@@ -12,8 +12,9 @@ namespace SunsetSystems.Core.AddressableManagement
     {
         private readonly Dictionary<AssetReference, AsyncOperationHandle> assetHandlesDictionary = new();
 
-        private void OnDestroy()
+        protected override void OnDestroy()
         {
+            base.OnDestroy();
             assetHandlesDictionary.Clear();
         }
 

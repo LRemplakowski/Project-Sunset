@@ -138,7 +138,7 @@ namespace SunsetSystems.Party
                     _activeParty.Add(key, await InitializePartyMemberInCreatureStorage(template));
                     if (_initializeAtSavedPositions && _partyPositions.TryGetValue(key, out Vector3 savedPosition) && _activeParty.TryGetValue(key, out ICreature creature))
                     {
-                        creature.ForceToPosition(savedPosition);
+                        creature.ForceToPosition(savedPosition, Quaternion.identity);
                     }
                 }
             }

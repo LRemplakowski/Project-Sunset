@@ -1,16 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Redcode.Awaiting;
 using Sirenix.OdinInspector;
-using SunsetSystems.Abilities;
 using SunsetSystems.ActionSystem;
 using SunsetSystems.Entities.Data;
 using SunsetSystems.Equipment;
 using UMA.CharacterSystem;
 using UnityEngine;
-using UnityEngine.AI;
 
 namespace SunsetSystems.Entities.Characters
 {
@@ -85,10 +82,10 @@ namespace SunsetSystems.Entities.Characters
         public EntityAction PeekCurrentAction => _actionQueue.Peek();
         public bool HasActionsQueued => PeekCurrentAction is not Idle || _actionQueue.Count > 1;
 
-        public void ForceToPosition(Vector3 position)
+        public void ForceToPosition(Vector3 position, Quaternion rotation)
         {
             ClearAllActions();
-            References.NavigationManager.Warp(position);
+            References.NavigationManager.Warp(position, rotation);
             //if (NavMesh.SamplePosition(position, out NavMeshHit hit, 1f, (int)NavMeshAreas.Walkable))
             //{
             //    Debug.Log($"Forcing Creature {gameObject.name} to position: {hit.position}!");
@@ -100,7 +97,8 @@ namespace SunsetSystems.Entities.Characters
             //}
         }
 
-        public void ForceToPosition(Transform positionTransform) => ForceToPosition(positionTransform.position);
+        [Button]
+        public void ForceToPosition(Transform positionTransform) => ForceToPosition(positionTransform.position, positionTransform.rotation);
 
         public void FacePointInSpace(Vector3 point) => References.NavigationManager.FaceDirectionAfterMovementFinished(point);
 
@@ -232,7 +230,7 @@ namespace SunsetSystems.Entities.Characters
             base.InjectPersistenceData(data);
             if (data is not CreaturePersistenceData creaturePersistenceData)
                 return;
-            ForceToPosition(creaturePersistenceData.WorldPosition);
+            ForceToPosition(creaturePersistenceData.WorldPosition, Quaternion.identity);
             var dna = References.GetCachedComponentInChildren<DynamicCharacterAvatar>();
             if (dna.UpdatePending())
                 dna.CharacterCreated.AddAction((ud) => { if (creaturePersistenceData.UMAHidden) ud.Hide(); else ud.Show(); });
