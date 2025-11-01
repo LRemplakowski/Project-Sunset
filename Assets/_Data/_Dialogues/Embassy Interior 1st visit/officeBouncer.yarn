@@ -32,30 +32,30 @@ title: officeBouncerTechnicalNode2
 title: officeBouncerKateSentUs
 position: -86,6
 ---
-[nomarkup][The man doesn't react at all to this information.][/nomarkup] #line:06cb9dc 
+{$storyteller}: [nomarkup][The man doesn't react at all to this information.][/nomarkup] #line:06cb9dc 
 {$kieran}: Did you hear her? Last time I checked, you were not deaf. Quite the opposite. #line:02e9baa 
 Office Bouncer: ...Ms. Foster is not taking any visitors at the moment. #line:0b0c979 
 {$kieran}: Kate isn't going to like this. 
-[nomarkup][A bead of sweat forms off the Bouncer's head but he doesn't budge.][/nomarkup] #line:072e3c5 
+{$storyteller}: [nomarkup][A bead of sweat forms off the Bouncer's head but he doesn't budge.][/nomarkup] #line:072e3c5 
 <<if GetIsPartyMemberRecruited($anastasia) is true>>
     $anastasia}: Oh, let me guess. [nomarkup][Mimicing the bouncer's voice.][/nomarkup] Ms. Foster is not taking any visitors at the moment
     {$storyteller}: [nomarkup][He swallows, visibly stressed.][/nomarkup]
     Office Bouncer: ...Ms. Foster is not taking any visitors at the moment.
     {$anastasia}: See? Told ya.
 <<endif>>
-[nomarkup][It appears you need to look for another way in...][/nomarkup]
+{$storyteller}: [nomarkup][It appears you need to look for another way in...][/nomarkup]
 -> [nomarkup][Walk away.][/nomarkup]
 ===
 title: drinkSuccess
 position: 241,17
 ---
-[$storyteller}: [nomarkup][The Bouncer scans the room nervously.][/nomarkup]
-Office Bouncer: I shouldn't drink on duty. #success #line:06b94f1 
+{$storyteller}: [nomarkup][The Bouncer scans the room nervously.][/nomarkup] #success
+Office Bouncer: I shouldn't drink on duty. #line:06b94f1 
 <<if GetIsPartyMemberRecruited($anastasia) is true>>
     {$anastasia}: But you want to. #lastline #line:0c8ca12 
 <<endif>>
 -> {$pcName}: Come on. Nobody's looking. #line:07514c0 
-[$storyteller}: [nomarkup][Without a word, the Bouncer grabs the drinks and greedily drinks it in one gulp.][/nomarkup] #line:0e7521a 
+{$storyteller}: [nomarkup][Without a word, the Bouncer grabs the drinks and greedily drinks it in one gulp.][/nomarkup] #line:0e7521a 
 <<if GetHasItem("IT_Q_BENZOS") is true>>
     Office Bouncer: I don't feel so good... #line:0e3e133 
     <<jump afterBouncerCutscene>>
@@ -77,7 +77,7 @@ position: 246,222
     {$anastasia}: What a lightweight. Back where I come from, we drink vodka like water. #line:09073f5
     -> [nomarkup][Walk away.][/nomarkup]
 <<else>>
-    [$storyteller}: [nomarkup][The doors to the office is opened.][/nomarkup]
+    {$storyteller}: [nomarkup][The doors to the office is opened.][/nomarkup]
     -> [nomarkup][Walk in.][/nomarkup]
 <<endif>>
 ===
