@@ -21,7 +21,8 @@ namespace SunsetSystems.UI.Utils
             _popupText.text = viewData.Text;
             _confirmationDelegate = onConfirmDelegate;
             gameObject.SetActive(true);
-            SunsetInputHandler.Instance.OverrideInput(this, SunsetInputHandler.UI_MAP, SunsetInputHandler.SHORTCUTS_POPUP_MAP);
+            if (SunsetInputHandler.Instance != null)
+                SunsetInputHandler.Instance.OverrideInput(this, SunsetInputHandler.UI_MAP, SunsetInputHandler.SHORTCUTS_POPUP_MAP);
             SunsetInputHandler.OnPopupCancel += OnInputCancel;
         }
 
@@ -51,7 +52,8 @@ namespace SunsetSystems.UI.Utils
         private void Cleanup()
         {
             _confirmationDelegate = null;
-            SunsetInputHandler.Instance.ClearInputOverride(this);
+            if (SunsetInputHandler.Instance != null)
+                SunsetInputHandler.Instance.ClearInputOverride(this);
             SunsetInputHandler.OnPopupCancel -= OnInputCancel;
         }
     }

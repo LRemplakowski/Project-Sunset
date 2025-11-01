@@ -14566,6 +14566,91 @@ Transform:
   - {fileID: 831363369}
   m_Father: {fileID: 3675175499416549661}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &194333938
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 194333939}
+  - component: {fileID: 194333941}
+  - component: {fileID: 194333940}
+  m_Layer: 0
+  m_Name: Embassy Shootout Override
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &194333939
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 194333938}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 912762183}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &194333940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 194333938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c7d5cc2b3ee4e84ca89b1ae86be3e15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 11400000, guid: 8a7c03115252fe7448b0255207255cd0, type: 2}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _playlistToInject
+      Entry: 10
+      Data: 0
+  _targetGameState: 0
+--- !u!114 &194333941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 194333938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c7d5cc2b3ee4e84ca89b1ae86be3e15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 11400000, guid: de8f95f8880bdc441aaeaee6777f378d, type: 2}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _playlistToInject
+      Entry: 10
+      Data: 0
+  _targetGameState: 2
 --- !u!1 &197684531
 GameObject:
   m_ObjectHideFlags: 0
@@ -18719,27 +18804,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 567734191989458246, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 567734191989458246, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 567734191989458246, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 560
       objectReference: {fileID: 0}
     - target: {fileID: 567734191989458246, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 528.71
       objectReference: {fileID: 0}
     - target: {fileID: 567734191989458246, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 560
       objectReference: {fileID: 0}
     - target: {fileID: 567734191989458246, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -264.355
       objectReference: {fileID: 0}
     - target: {fileID: 628229198219499971, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_AnchorMax.x
@@ -18783,27 +18868,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 790546485332453286, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 790546485332453286, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 790546485332453286, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 560
       objectReference: {fileID: 0}
     - target: {fileID: 790546485332453286, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 31.29
       objectReference: {fileID: 0}
     - target: {fileID: 790546485332453286, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 280
       objectReference: {fileID: 0}
     - target: {fileID: 790546485332453286, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -574.35504
       objectReference: {fileID: 0}
     - target: {fileID: 820774632742123829, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: serializationData.Prefab
@@ -19199,27 +19284,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1958964686343284344, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1958964686343284344, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1958964686343284344, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 560
       objectReference: {fileID: 0}
     - target: {fileID: 1958964686343284344, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 440
       objectReference: {fileID: 0}
     - target: {fileID: 1958964686343284344, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 560
       objectReference: {fileID: 0}
     - target: {fileID: 1958964686343284344, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -840
       objectReference: {fileID: 0}
     - target: {fileID: 2004387855734353292, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_AnchorMax.y
@@ -19279,27 +19364,27 @@ PrefabInstance:
       objectReference: {fileID: 2146170913191627318, guid: 4769f016047210d478f53803138aacf5, type: 3}
     - target: {fileID: 2226573316802865885, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2226573316802865885, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2226573316802865885, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 560
       objectReference: {fileID: 0}
     - target: {fileID: 2226573316802865885, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 22.22
       objectReference: {fileID: 0}
     - target: {fileID: 2226573316802865885, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 280
       objectReference: {fileID: 0}
     - target: {fileID: 2226573316802865885, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -11.11
       objectReference: {fileID: 0}
     - target: {fileID: 2258071461949067205, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_AnchorMax.y
@@ -20997,8 +21082,6 @@ GameObject:
   m_Component:
   - component: {fileID: 463110375}
   - component: {fileID: 463110378}
-  - component: {fileID: 463110377}
-  - component: {fileID: 463110376}
   m_Layer: 0
   m_Name: OnShotsFired
   m_TagString: Untagged
@@ -21021,58 +21104,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7767397511166496138}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &463110376
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 463110374}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c7d5cc2b3ee4e84ca89b1ae86be3e15, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 11400000, guid: 8a7c03115252fe7448b0255207255cd0, type: 2}
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: _playlistToInject
-      Entry: 10
-      Data: 0
-  _targetGameState: 0
---- !u!114 &463110377
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 463110374}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c7d5cc2b3ee4e84ca89b1ae86be3e15, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 11400000, guid: de8f95f8880bdc441aaeaee6777f378d, type: 2}
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: _playlistToInject
-      Entry: 10
-      Data: 0
-  _targetGameState: 2
 --- !u!114 &463110378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21088,10 +21119,10 @@ MonoBehaviour:
   _listenForNode: shotsFired
   OnNodeEventMatch:
     _PersistentCalls:
-    - _Target: {fileID: 463110377}
+    - _Target: {fileID: 194333941}
       _MethodName: EnableOverride
       _PersistentArguments: []
-    - _Target: {fileID: 463110376}
+    - _Target: {fileID: 194333940}
       _MethodName: EnableOverride
       _PersistentArguments: []
 --- !u!1 &466179462
@@ -37304,9 +37335,9 @@ MonoBehaviour:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
+    - {fileID: 874003521}
     - {fileID: 3636615562471254056}
     - {fileID: 6162206024482089395}
-    - {fileID: 874003521}
     - {fileID: 7471926044057796404}
     SerializedBytesString: 
     Prefab: {fileID: 0}
@@ -37332,7 +37363,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: WP_EMBASSY_OFFICE
+      Data: WP_EMBASSY_MAIN_SHOOTOUT_START
     - Name: $v
       Entry: 10
       Data: 0
@@ -37344,7 +37375,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: WP_EMBASSY_MAIN_OFFICE_EXIT
+      Data: WP_EMBASSY_OFFICE
     - Name: $v
       Entry: 10
       Data: 1
@@ -37356,7 +37387,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: WP_EMBASSY_MAIN_SHOOTOUT_START
+      Data: WP_EMBASSY_MAIN_OFFICE_EXIT
     - Name: $v
       Entry: 10
       Data: 2
@@ -43921,6 +43952,39 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 2009751204}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &912762182
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 912762183}
+  m_Layer: 0
+  m_Name: === PLAYLIST OVERRIDES ===
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &912762183
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 912762182}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children:
+  - {fileID: 2110791563}
+  - {fileID: 194333939}
+  m_Father: {fileID: 2466286216319737399}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &917099932
 GameObject:
@@ -71390,8 +71454,8 @@ Avatar:
     742852947: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Waist/CC_Base_Spine01/CC_Base_Spine02/CC_Base_NeckTwist01/CC_Base_NeckTwist02/CC_Base_Head/CC_Base_FacialBone/UMAadjustment.Rcheek
     3833206019: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Waist/CC_Base_Spine01/CC_Base_Spine02/CC_Base_R_RibsTwist
     1617059106: Root/Global/Position
-    3191111898: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Pelvis/CC_Base_R_Thigh/CC_Base_R_Calf
     208684537: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Waist/CC_Base_Spine01/CC_Base_Spine02/CC_Base_L_Clavicle/CC_Base_L_Upperarm/CC_Base_L_Forearm/CC_Base_L_Hand/CC_Base_L_Mid1/CC_Base_L_Mid2
+    3191111898: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Pelvis/CC_Base_R_Thigh/CC_Base_R_Calf
     2692193155: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Waist/CC_Base_Spine01/CC_Base_Spine02/CC_Base_R_Clavicle/CC_Base_R_Upperarm/CC_Base_R_Forearm/CC_Base_R_Hand/CC_Base_R_Index1/CC_Base_R_Index2
     160473484: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Waist/CC_Base_Spine01/CC_Base_Spine02/CC_Base_L_Clavicle/CC_Base_L_Upperarm/CC_Base_L_Forearm/CC_Base_L_Hand/CC_Base_L_Thumb1/CC_Base_L_Thumb2
     2527479459: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Waist/CC_Base_Spine01/CC_Base_Spine02/CC_Base_R_Clavicle/CC_Base_R_Upperarm/CC_Base_R_UpperarmTwist01/CC_Base_R_UpperarmTwist02
@@ -95813,6 +95877,7 @@ PlayableDirector:
     value: {fileID: 1751309138}
   m_ExposedReferences:
     m_References:
+    - c7af0595b9e9b004ba29ea80608aef0e: {fileID: 2023359529}
     - e01cb6b53a692594a9b11d3b1594f870: {fileID: 1751309137}
     - 703de628246cdbb46b88a99db11be4bd: {fileID: 1998584008}
     - d73b545a9a59e4b45bd3bd72728d2ab5: {fileID: 1751309137}
@@ -96121,7 +96186,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1998584003}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.6650926, z: 0, w: 0.7467609}
+  m_LocalRotation: {x: 0, y: 0.66509295, z: 0, w: 0.7467606}
   m_LocalPosition: {x: 0.12, y: 5, z: -1016.72}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
@@ -98793,6 +98858,91 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2029458053}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2110791562
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2110791563}
+  - component: {fileID: 2110791565}
+  - component: {fileID: 2110791564}
+  m_Layer: 0
+  m_Name: Diana Office Override
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2110791563
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2110791562}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 912762183}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2110791564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2110791562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c7d5cc2b3ee4e84ca89b1ae86be3e15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 11400000, guid: d9d15beb918001a4f928cc626e68c84c, type: 2}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _playlistToInject
+      Entry: 10
+      Data: 0
+  _targetGameState: 0
+--- !u!114 &2110791565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2110791562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c7d5cc2b3ee4e84ca89b1ae86be3e15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 11400000, guid: d9d15beb918001a4f928cc626e68c84c, type: 2}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _playlistToInject
+      Entry: 10
+      Data: 0
+  _targetGameState: 2
 --- !u!1 &2114489767
 GameObject:
   m_ObjectHideFlags: 0
@@ -103609,7 +103759,13 @@ MonoBehaviour:
   _nameplateOffset: {x: 0, y: 3, z: 0}
   _interactableOnce: 0
   OnInteractionTriggered:
-    _PersistentCalls: []
+    _PersistentCalls:
+    - _Target: {fileID: 2110791565}
+      _MethodName: DisableOverride
+      _PersistentArguments: []
+    - _Target: {fileID: 2110791564}
+      _MethodName: DisableOverride
+      _PersistentArguments: []
 --- !u!4 &1187578031883884182 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1187578031712813030, guid: 5fd475a07782c9d4394eb94c5a7bc834, type: 3}
@@ -107189,6 +107345,7 @@ Transform:
   - {fileID: 8332902861619227432}
   - {fileID: 1266146440}
   - {fileID: 2102049994}
+  - {fileID: 912762183}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2487437550517883836
@@ -116646,13 +116803,7 @@ MonoBehaviour:
   _dialogueProject: {fileID: 7545569452688597077, guid: 8d6dea8ee4799c24fa15b145a197c5c8, type: 3}
   <EntryNode>k__BackingField: enteringOffice
   OnDialogueStarted:
-    _PersistentCalls:
-    - _Target: {fileID: 8749366122194891324}
-      _MethodName: EnableOverride
-      _PersistentArguments: []
-    - _Target: {fileID: 8749366122194891325}
-      _MethodName: EnableOverride
-      _PersistentArguments: []
+    _PersistentCalls: []
   OnDialogueFinished:
     _PersistentCalls: []
   OnNodeStarted:
@@ -136768,8 +136919,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4710307667416970090}
   - component: {fileID: 5516994023395119408}
-  - component: {fileID: 8749366122194891324}
-  - component: {fileID: 8749366122194891325}
   m_Layer: 0
   m_Name: Diana Office Enter Dialogue
   m_TagString: Untagged
@@ -136777,58 +136926,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &8749366122194891324
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8749366122194891323}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c7d5cc2b3ee4e84ca89b1ae86be3e15, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 11400000, guid: d9d15beb918001a4f928cc626e68c84c, type: 2}
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: _playlistToInject
-      Entry: 10
-      Data: 0
-  _targetGameState: 2
---- !u!114 &8749366122194891325
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8749366122194891323}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c7d5cc2b3ee4e84ca89b1ae86be3e15, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  serializationData:
-    SerializedFormat: 2
-    SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 11400000, guid: d9d15beb918001a4f928cc626e68c84c, type: 2}
-    SerializedBytesString: 
-    Prefab: {fileID: 0}
-    PrefabModificationsReferencedUnityObjects: []
-    PrefabModifications: []
-    SerializationNodes:
-    - Name: _playlistToInject
-      Entry: 10
-      Data: 0
-  _targetGameState: 0
 --- !u!114 &8759151109328000909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138815,7 +138912,13 @@ MonoBehaviour:
   _nameplateOffset: {x: 0, y: 3, z: 0}
   _interactableOnce: 0
   OnInteractionTriggered:
-    _PersistentCalls: []
+    _PersistentCalls:
+    - _Target: {fileID: 2110791565}
+      _MethodName: EnableOverride
+      _PersistentArguments: []
+    - _Target: {fileID: 2110791564}
+      _MethodName: EnableOverride
+      _PersistentArguments: []
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

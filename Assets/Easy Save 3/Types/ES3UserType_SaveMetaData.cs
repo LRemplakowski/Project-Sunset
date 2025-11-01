@@ -4,7 +4,7 @@ using UnityEngine;
 namespace ES3Types
 {
 	[UnityEngine.Scripting.Preserve]
-	[ES3PropertiesAttribute("SaveID", "SaveName", "SaveDate", "LevelLoadingData", "PlaylistData", "SaveScreenShot")]
+	[ES3PropertiesAttribute("SaveID", "SaveName", "SaveDate", "ActiveQuestName", "PlayTime", "LevelLoadingData", "PlaylistData", "SaveScreenShot")]
 	public class ES3UserType_SaveMetaData : ES3Type
 	{
 		public static ES3Type Instance = null;
@@ -19,10 +19,11 @@ namespace ES3Types
 			writer.WriteProperty("SaveID", instance.SaveID, ES3Type_string.Instance);
 			writer.WriteProperty("SaveName", instance.SaveName, ES3Type_string.Instance);
 			writer.WriteProperty("SaveDate", instance.SaveDate, ES3Type_string.Instance);
-            writer.WriteProperty("ActiveQuestName", instance.ActiveQuestName, ES3Type_string.Instance);
-            writer.WriteProperty("LevelLoadingData", instance.LevelLoadingData, ES3UserType_LevelLoadingData.Instance);
+			writer.WriteProperty("ActiveQuestName", instance.ActiveQuestName, ES3Type_string.Instance);
+			writer.WriteProperty("PlayTime", instance.PlayTime, ES3Type_double.Instance);
+			writer.WriteProperty("LevelLoadingData", instance.LevelLoadingData, ES3UserType_LevelLoadingData.Instance);
 			writer.WriteProperty("PlaylistData", instance.PlaylistData, ES3UserType_ScenePlaylistData.Instance);
-			writer.WriteProperty("SaveScreenShot", instance.SaveScreenShot);
+			writer.WritePropertyByRef("SaveScreenShot", instance.SaveScreenShot);
 		}
 
 		public override object Read<T>(ES3Reader reader)
@@ -46,7 +47,10 @@ namespace ES3Types
 					case "ActiveQuestName":
 						instance.ActiveQuestName = reader.Read<System.String>(ES3Type_string.Instance);
 						break;
-                    case "LevelLoadingData":
+					case "PlayTime":
+						instance.PlayTime = reader.Read<System.Double>(ES3Type_double.Instance);
+						break;
+					case "LevelLoadingData":
 						instance.LevelLoadingData = reader.Read<SunsetSystems.Core.SceneLoading.LevelLoadingData>(ES3UserType_LevelLoadingData.Instance);
 						break;
 					case "PlaylistData":

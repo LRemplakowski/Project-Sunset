@@ -53,7 +53,7 @@ namespace ES3Types
 	{
 		public static ES3Type Instance;
 
-		public ES3UserType_ScenePlaylistDataArray() : base(typeof(SunsetSystems.Audio.IPlaylist[]), ES3UserType_ScenePlaylistData.Instance)
+		public ES3UserType_ScenePlaylistDataArray() : base(typeof(SunsetSystems.Audio.ScenePlaylistData[]), ES3UserType_ScenePlaylistData.Instance)
 		{
 			Instance = this;
 		}
