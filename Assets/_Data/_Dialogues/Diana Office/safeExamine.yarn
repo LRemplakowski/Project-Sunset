@@ -201,7 +201,7 @@ position: -284,185
 {$storyteller}: [nomarkup][Kieran gives you a disapproving look.][/nomarkup]
 -> {$pcName}: I need to pay my bills. #line:0212bfb
 <<ModifyInfluence -2 {$kieran}>>
-{$kieran}: Then you should other means of income before resorting to stealing from a Camarilla establishment.! (-2 Kieran influence) #line:0a341aa
+{$kieran}: Then you should other means of income before resorting to stealing from a Camarilla establishment! (-2 Kieran influence) #line:0a341aa
 <<AddMoney 500>>
 <<jump safeQuestions>>
 ===
