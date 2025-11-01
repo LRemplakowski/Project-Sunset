@@ -70,9 +70,16 @@ namespace SunsetSystems.Entities.Interactable
             {
                 _interactable = value;
                 if (_interactable)
+                {
                     InteractablesInScene.Add(this);
+                }
                 else
+                {
                     InteractablesInScene.Remove(this);
+                    IsHoveredOver = false;
+                    ForceHover = false;
+                }
+
                 if (_interactionCollider != null)
                     _interactionCollider.enabled = value;
             }
