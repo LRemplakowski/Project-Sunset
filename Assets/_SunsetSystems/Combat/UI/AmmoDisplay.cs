@@ -15,7 +15,10 @@ namespace SunsetSystems.Combat.UI
         public void SetAmmoCounterVisible(bool visible)
         {
             if (_ammoText)
+            {
                 _ammoText.enabled = visible;
+                _ammoText.gameObject.SetActive(visible);
+            }
         }
 
         public void UpdateAmmoData(in WeaponAmmoData ammoData)

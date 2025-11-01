@@ -78,6 +78,7 @@ namespace SunsetSystems.Combat.UI
             CacheSelectionDelegate(selectionDelegate);
             SetupButtonVisuals(ability);
             _buttonTooltip.Initialize(ability);
+            gameObject.name = $"Ability - {ability.GetAbilityUIData().GetLocalizedName()}";
         }
 
         public void SetUpdateAmmoCounterEnabled(bool enabled)
