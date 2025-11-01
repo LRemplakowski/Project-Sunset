@@ -107,6 +107,7 @@ namespace SunsetSystems.UI
             _itemEntry = new();
             _stackSize.gameObject.SetActive(false);
             _button.interactable = false;
+            OnPointerExit(null);
         }
 
         public void OpentContextMenu()
