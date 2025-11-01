@@ -93,7 +93,7 @@ PrefabInstance:
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 1030979276, guid: abc00000000000419973620146968814, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 9089201682636401846}
+      addedObject: {fileID: 1961430539278810742}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abc00000000000419973620146968814, type: 3}
 --- !u!4 &5708644325192697666 stripped
@@ -101,7 +101,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1030979276, guid: abc00000000000419973620146968814, type: 3}
   m_PrefabInstance: {fileID: 5708644325145606542}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &9089201683084317306
+--- !u!1001 &7668088703395031413
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -109,61 +109,57 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5708644325192697666}
     m_Modifications:
-    - target: {fileID: 1030979275, guid: abc00000000000419973620146968814, type: 3}
-      propertyPath: m_Name
-      value: Furniture_Speaker_01_Prefab_1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1030979276, guid: abc00000000000419973620146968814, type: 3}
-      propertyPath: m_LocalScale.x
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1030979276, guid: abc00000000000419973620146968814, type: 3}
+    - target: {fileID: 8165836063338338051, guid: 4a16247accb96594fb54f6c904fb00e7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.00399971
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1030979276, guid: abc00000000000419973620146968814, type: 3}
+    - target: {fileID: 8165836063338338051, guid: 4a16247accb96594fb54f6c904fb00e7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.398
+      value: 1.4
       objectReference: {fileID: 0}
-    - target: {fileID: 1030979276, guid: abc00000000000419973620146968814, type: 3}
+    - target: {fileID: 8165836063338338051, guid: 4a16247accb96594fb54f6c904fb00e7, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1030979276, guid: abc00000000000419973620146968814, type: 3}
+    - target: {fileID: 8165836063338338051, guid: 4a16247accb96594fb54f6c904fb00e7, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9998241
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1030979276, guid: abc00000000000419973620146968814, type: 3}
+    - target: {fileID: 8165836063338338051, guid: 4a16247accb96594fb54f6c904fb00e7, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1030979276, guid: abc00000000000419973620146968814, type: 3}
+    - target: {fileID: 8165836063338338051, guid: 4a16247accb96594fb54f6c904fb00e7, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.01875702
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1030979276, guid: abc00000000000419973620146968814, type: 3}
+    - target: {fileID: 8165836063338338051, guid: 4a16247accb96594fb54f6c904fb00e7, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1030979276, guid: abc00000000000419973620146968814, type: 3}
+    - target: {fileID: 8165836063338338051, guid: 4a16247accb96594fb54f6c904fb00e7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1030979276, guid: abc00000000000419973620146968814, type: 3}
+    - target: {fileID: 8165836063338338051, guid: 4a16247accb96594fb54f6c904fb00e7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -2.15
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1030979276, guid: abc00000000000419973620146968814, type: 3}
+    - target: {fileID: 8165836063338338051, guid: 4a16247accb96594fb54f6c904fb00e7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8165836063338338052, guid: 4a16247accb96594fb54f6c904fb00e7, type: 3}
+      propertyPath: m_Name
+      value: Furniture_Speaker_01_Prefab_Reversed
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: abc00000000000419973620146968814, type: 3}
---- !u!4 &9089201682636401846 stripped
+  m_SourcePrefab: {fileID: 100100000, guid: 4a16247accb96594fb54f6c904fb00e7, type: 3}
+--- !u!4 &1961430539278810742 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 1030979276, guid: abc00000000000419973620146968814, type: 3}
-  m_PrefabInstance: {fileID: 9089201683084317306}
+  m_CorrespondingSourceObject: {fileID: 8165836063338338051, guid: 4a16247accb96594fb54f6c904fb00e7, type: 3}
+  m_PrefabInstance: {fileID: 7668088703395031413}
   m_PrefabAsset: {fileID: 0}
