@@ -45,7 +45,7 @@ position: -130,38
     {$storyteller}: [nomarkup][You can't put your finger on it, but something is off about her.][/nomarkup] #line:0d9b7de
 <<endif>> 
 <<if Roll("Intelligence","Medicine") >= 3>>
-    {$storyteller}: [nomarkup][Her skin is blanched unusually pale. Her diaphragm isn't moving, either. She isn't breathing.][/nomarkup] #line:0791089 
+    {$storyteller}: [nomarkup][Her skin is blanched unusually pale. Her diaphragm isn't moving, either. She isn't breathing.][/nomarkup] #lastline #line:0791089 
     <<set $anaIsVampire to true>>
     <<jump anastasiaKnowIsKindred>>
 //<<elseif GetDiscipline "Auspex" == true>>
@@ -61,7 +61,7 @@ position: -130,38
     {$kieran}: I know what you are. #line:0d4eed3 
     {$anastasia}: [nomarkup][Laughing.][/nomarkup] Excuse me and what might that be. #line:09dd861 
     {$kieran}: Don't play coy, Kindred. You should be aware of the laws we adhere to. #line:0fe2b2a 
-    {$anastasia}: Alright big guy. Care to tell me what I need to do to be welcomed? #lastline  #line:0e1949e 
+    {$anastasia}: Alright big guy. Care to tell me what I need to do to be welcomed? #lastline #line:0e1949e 
     <<jump anaIsSire>>
 <<endif>>
 ===
