@@ -870,17 +870,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a5d38d04e4192a4d9765fa8007d66d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &10680912 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1563005795421086484, guid: 4769f016047210d478f53803138aacf5, type: 3}
-  m_PrefabInstance: {fileID: 455209720}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 10682918}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd3f36d87db2ac447a3cb25339c61571, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &10680914 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8363173163765928263, guid: 4769f016047210d478f53803138aacf5, type: 3}
@@ -4683,17 +4672,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &10681817 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8400243579288208856, guid: 4769f016047210d478f53803138aacf5, type: 3}
-  m_PrefabInstance: {fileID: 455209720}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 10680968}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd3f36d87db2ac447a3cb25339c61571, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!224 &10681820 stripped
@@ -37326,10 +37304,10 @@ MonoBehaviour:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
-    - {fileID: 6162206024482089395}
-    - {fileID: 7471926044057796404}
     - {fileID: 3636615562471254056}
+    - {fileID: 6162206024482089395}
     - {fileID: 874003521}
+    - {fileID: 7471926044057796404}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -37354,7 +37332,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: WP_EMBASSY_MAIN_OFFICE_EXIT
+      Data: WP_EMBASSY_OFFICE
     - Name: $v
       Entry: 10
       Data: 0
@@ -37366,7 +37344,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Backdoor Waypoint
+      Data: WP_EMBASSY_MAIN_OFFICE_EXIT
     - Name: $v
       Entry: 10
       Data: 1
@@ -37378,7 +37356,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: WP_EMBASSY_OFFICE
+      Data: WP_EMBASSY_MAIN_SHOOTOUT_START
     - Name: $v
       Entry: 10
       Data: 2
@@ -37390,7 +37368,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: WP_EMBASSY_MAIN_SHOOTOUT_START
+      Data: Backdoor Waypoint
     - Name: $v
       Entry: 10
       Data: 3
@@ -49104,7 +49082,7 @@ MonoBehaviour:
     - {fileID: 10682572}
     - {fileID: 10681816}
     - {fileID: 10682524}
-    - {fileID: 10681817}
+    - {fileID: 0}
     - {fileID: 10681820}
     - {fileID: 2100000, guid: 6d1adb4c6e251ce45a78a461bad5ffd6, type: 3}
     - {fileID: 0}
@@ -53130,7 +53108,7 @@ MonoBehaviour:
     - {fileID: 10681164}
     - {fileID: 10681008}
     - {fileID: 10681114}
-    - {fileID: 10680912}
+    - {fileID: 0}
     - {fileID: 0}
     - {fileID: 1015337464}
     - {fileID: 0}
@@ -71412,8 +71390,8 @@ Avatar:
     742852947: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Waist/CC_Base_Spine01/CC_Base_Spine02/CC_Base_NeckTwist01/CC_Base_NeckTwist02/CC_Base_Head/CC_Base_FacialBone/UMAadjustment.Rcheek
     3833206019: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Waist/CC_Base_Spine01/CC_Base_Spine02/CC_Base_R_RibsTwist
     1617059106: Root/Global/Position
-    208684537: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Waist/CC_Base_Spine01/CC_Base_Spine02/CC_Base_L_Clavicle/CC_Base_L_Upperarm/CC_Base_L_Forearm/CC_Base_L_Hand/CC_Base_L_Mid1/CC_Base_L_Mid2
     3191111898: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Pelvis/CC_Base_R_Thigh/CC_Base_R_Calf
+    208684537: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Waist/CC_Base_Spine01/CC_Base_Spine02/CC_Base_L_Clavicle/CC_Base_L_Upperarm/CC_Base_L_Forearm/CC_Base_L_Hand/CC_Base_L_Mid1/CC_Base_L_Mid2
     2692193155: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Waist/CC_Base_Spine01/CC_Base_Spine02/CC_Base_R_Clavicle/CC_Base_R_Upperarm/CC_Base_R_Forearm/CC_Base_R_Hand/CC_Base_R_Index1/CC_Base_R_Index2
     160473484: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Waist/CC_Base_Spine01/CC_Base_Spine02/CC_Base_L_Clavicle/CC_Base_L_Upperarm/CC_Base_L_Forearm/CC_Base_L_Hand/CC_Base_L_Thumb1/CC_Base_L_Thumb2
     2527479459: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Waist/CC_Base_Spine01/CC_Base_Spine02/CC_Base_R_Clavicle/CC_Base_R_Upperarm/CC_Base_R_UpperarmTwist01/CC_Base_R_UpperarmTwist02
@@ -94152,6 +94130,22 @@ PrefabInstance:
       propertyPath: serializationData.Prefab
       value: 
       objectReference: {fileID: 409868112203810021, guid: 5fd475a07782c9d4394eb94c5a7bc834, type: 3}
+    - target: {fileID: 409868112203810021, guid: 5fd475a07782c9d4394eb94c5a7bc834, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 409868112203810021, guid: 5fd475a07782c9d4394eb94c5a7bc834, type: 3}
+      propertyPath: 'serializationData.PrefabModifications.Array.data[0]'
+      value: '"path":"_actionPerformer","value":$eref:0'
+      objectReference: {fileID: 0}
+    - target: {fileID: 409868112203810021, guid: 5fd475a07782c9d4394eb94c5a7bc834, type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 409868112203810021, guid: 5fd475a07782c9d4394eb94c5a7bc834, type: 3}
+      propertyPath: 'serializationData.PrefabModificationsReferencedUnityObjects.Array.data[0]'
+      value: 
+      objectReference: {fileID: 660093643280168043}
     - target: {fileID: 660093643310669083, guid: 5fd475a07782c9d4394eb94c5a7bc834, type: 3}
       propertyPath: serializationData.Prefab
       value: 
@@ -94252,6 +94246,53 @@ PrefabInstance:
       propertyPath: serializationData.Prefab
       value: 
       objectReference: {fileID: 1441128836294789900, guid: 5fd475a07782c9d4394eb94c5a7bc834, type: 3}
+    - target: {fileID: 1441128836294789900, guid: 5fd475a07782c9d4394eb94c5a7bc834, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1441128836294789900, guid: 5fd475a07782c9d4394eb94c5a7bc834, type: 3}
+      propertyPath: 'serializationData.PrefabModifications.Array.data[0]'
+      value: '"path":"_knownPowers","add_keys":{"$id":0,"$type":"System.Object[],
+        mscorlib","$rlength":1,"$rcontent":[{"$id":1,"$type":"System.String, mscorlib","DISCIPLINE_OBLIVION"}]},"remove_keys":null'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1441128836294789900, guid: 5fd475a07782c9d4394eb94c5a7bc834, type: 3}
+      propertyPath: 'serializationData.PrefabModifications.Array.data[1]'
+      value: '"path":"_knownPowers.{\"DISCIPLINE_OBLIVION\"}","value":{"$id":0,"$type":"SunsetSystems.Abilities.DisciplineData,
+        SunsetSystems","_discipline":$eref:0,"_currentLevel":4,"_knownPowers":{"$id":1,"$type":"System.Collections.Generic.Dictionary`2[[System.String,
+        mscorlib],[SunsetSystems.Abilities.IDisciplinePower, SunsetSystems]], mscorlib","comparer":{"$id":2,"$type":"System.Collections.Generic.GenericEqualityComparer`1[[System.String,
+        mscorlib]], mscorlib"},"$rlength":1,"$rcontent":[{"$k":"ea90d8f4-af6d-41c8-bb0c-b21e748ea00e","$v":$eref:1}]}}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1441128836294789900, guid: 5fd475a07782c9d4394eb94c5a7bc834, type: 3}
+      propertyPath: 'serializationData.PrefabModifications.Array.data[2]'
+      value: '"path":"_knownPowers.{\"DISCIPLINE_OBLIVION\"}._currentLevel","value":{"$id":0,"$type":"System.Int32,
+        mscorlib",4}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1441128836294789900, guid: 5fd475a07782c9d4394eb94c5a7bc834, type: 3}
+      propertyPath: 'serializationData.PrefabModifications.Array.data[3]'
+      value: '"path":"_knownPowers.{\"DISCIPLINE_OBLIVION\"}._discipline","value":$eref:0'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1441128836294789900, guid: 5fd475a07782c9d4394eb94c5a7bc834, type: 3}
+      propertyPath: 'serializationData.PrefabModifications.Array.data[4]'
+      value: '"path":"_knownPowers.{\"DISCIPLINE_OBLIVION\"}._knownPowers","value":{"$id":0,"$type":"System.Collections.Generic.Dictionary`2[[System.String,
+        mscorlib],[SunsetSystems.Abilities.IDisciplinePower, SunsetSystems]], mscorlib","comparer":{"$id":1,"$type":"System.Collections.Generic.GenericEqualityComparer`1[[System.String,
+        mscorlib]], mscorlib"},"$rlength":1,"$rcontent":[{"$k":"ea90d8f4-af6d-41c8-bb0c-b21e748ea00e","$v":$eref:1}]}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1441128836294789900, guid: 5fd475a07782c9d4394eb94c5a7bc834, type: 3}
+      propertyPath: 'serializationData.PrefabModifications.Array.data[5]'
+      value: '"path":"_knownPowers.{\"DISCIPLINE_OBLIVION\"}._knownPowers.{\"ea90d8f4-af6d-41c8-bb0c-b21e748ea00e\"}","value":$eref:1'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1441128836294789900, guid: 5fd475a07782c9d4394eb94c5a7bc834, type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1441128836294789900, guid: 5fd475a07782c9d4394eb94c5a7bc834, type: 3}
+      propertyPath: 'serializationData.PrefabModificationsReferencedUnityObjects.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 7d538cd3c528d154c82b5b057c7d0705, type: 2}
+    - target: {fileID: 1441128836294789900, guid: 5fd475a07782c9d4394eb94c5a7bc834, type: 3}
+      propertyPath: 'serializationData.PrefabModificationsReferencedUnityObjects.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: ed4918234cb4159418b9e8c69280991b, type: 2}
     - target: {fileID: 1617358537211728380, guid: 5fd475a07782c9d4394eb94c5a7bc834, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.671
