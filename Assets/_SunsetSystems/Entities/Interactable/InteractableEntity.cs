@@ -75,9 +75,9 @@ namespace SunsetSystems.Entities.Interactable
                 }
                 else
                 {
-                    InteractablesInScene.Remove(this);
                     IsHoveredOver = false;
                     ForceHover = false;
+                    InteractablesInScene.Remove(this);
                 }
 
                 if (_interactionCollider != null)
@@ -214,8 +214,8 @@ namespace SunsetSystems.Entities.Interactable
 
         private void HandleHoverHiglight()
         {
-            if (_highlightHandler != null && Interactable)
-                _highlightHandler.SetHighlightActive(IsHoveredOver);
+            if (_highlightHandler != null)
+                _highlightHandler.SetHighlightActive(IsHoveredOver && Interactable);
         }
 
         private void HandleNameplate()
