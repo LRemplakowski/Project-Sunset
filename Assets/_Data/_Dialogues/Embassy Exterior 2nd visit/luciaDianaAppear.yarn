@@ -3,19 +3,33 @@ tags:
 position: -208,-188
 ---
 <<set $rollModifier to 0>>
-[nomarkup][Every muscle in your body tenses up at the sight of the Kindred before you.][/nomarkup] #line:03d6adc 
-Mysterious Woman: We're almost there Dove! Start the car for me will you? We have some company I have to... deal with. Don't let me down now, we're so close... [nomarkup][She runs her hand along a woman's face as you see blonde hair disapear behind a car.][/nomarkup] #line:0528d70 
-Mysterious Woman 2: Bloody fuckin' hell did you embrace the Goddamn Terminator?! #line:0f863da 
-{$sire}: Oh Sweetie, you do me proud. #line:0cba7ec 
-[nomarkup][You find yourself staring at Lucia, her yellow eyes seem so familiar. You find yourself remembering the last time you saw them blown with pride and interest.][/nomarkup] #line:002f46f 
+{$storyteller}: [nomarkup][Every muscle in your body tenses up at the sight of the Kindred before you.][/nomarkup] #line:03d6adc
+Mysterious Woman: We're almost there, Di! Start the car for me will you? We have some company I have to deal with. 
+{$storyteller}: [nomarkup][You find yourself staring at Lucia, her yellow eyes seem so familiar.][/nomarkup] #line:002f46f
 <<jump beginFlashback>>
 ===
 title: beginFlashback
 position: 107,-119
 ---
-[nomarkup][You had had a long night, a long series of nights that had all started to blend together. It's hard to find the motivation to continue onward when everything feels like a constant downhill slide. That's how you'd found yourself in the Embassy. Looking for something to dull the boredom, something to take the edge off. What sort of evening you're here for, only time will tell.][/nomarkup] #line:005c744 
--> [nomarkup][You needed the job so badly...][/nomarkup] #line:055f3a4 
-    <<jump theJobStarts>>
--> [nomarkup][You were lonely and needed company...][/nomarkup] #line:0997034 
-    <<jump theOfferStarts>>
+[nomarkup][You start to remember the night you you found yourself at the Embassy. ][/nomarkup] #line:005c744
+-> [nomarkup][You needed the job so badly...][/nomarkup] #line:055f3a4
+<<jump JobFlashback>>
+-> [nomarkup][You were lonely and needed company...][/nomarkup] #line:0997034
+<<jump OfferFlashback>>
+===
+title: JobFlashback
+position: 
+---
+//show same visual from flashback in dumpTheBodies.yarn of Desiree, Diana, and Diego in the alley//
+{$storyteller}: [nonmarkup][Seeing you were desperate, Diana offered you a job alongside one of her other runners, Diego. Said you can discuss the details back at your place.][/nonmarkup]
+{$diana}: You made it.
+<<jump havenJobArrival>>
+===
+title: OfferFlashback
+position: 
+---
+//show same visual from flashback in dumpTheBodies.yarn of Desiree, Diana, and Diego in the alley//
+{$storyteller}: [nonmarkup][In a moment of drunken weakness, Diana offered you and Diego to engage in a menage trois back at your place.][/nonmarkup]
+{$diana}: You made it.
+<<jump havenJobArrival>>
 ===
