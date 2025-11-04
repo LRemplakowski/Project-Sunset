@@ -1,3 +1,4 @@
+using System;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Playables;
@@ -25,6 +26,32 @@ namespace SunsetSystems.Cinematics
             }
         }
 
+        private void Start()
+        {
+            SubscribeDirectorEvents();
+        }
+
+        private void OnDestroy()
+        {
+            UnsubscribeDirectorEvents();
+        }
+
+        private void SubscribeDirectorEvents()
+        {
+            if (_playableDirector == null) return;
+
+            _playableDirector.played += OnCutscenePlay;
+            _playableDirector.stopped += OnCutsceneStop;
+        }
+
+        private void UnsubscribeDirectorEvents()
+        {
+            if (_playableDirector == null) return;
+
+            _playableDirector.played -= OnCutscenePlay;
+            _playableDirector.stopped -= OnCutsceneStop;
+        }
+
         [Button]
         public void PlayCutscene(PlayableAsset asset, DirectorWrapMode wrapMode, bool doCrossFade = false)
         {
@@ -41,7 +68,9 @@ namespace SunsetSystems.Cinematics
         public void SetDirector(PlayableDirector director)
         {
             StopCutscene();
+            UnsubscribeDirectorEvents();
             _playableDirector = director;
+            SubscribeDirectorEvents();
         }
 
         public void PlayCutscene(PlayableAsset asset, DirectorWrapMode wrapMode)
@@ -67,6 +96,16 @@ namespace SunsetSystems.Cinematics
             _playableDirector.Stop();
             _playableDirector.Play(asset, wrapMode);
             _playableDirector.playableGraph.GetRootPlayable(0).SetSpeed(1);
+        }
+
+        private void OnCutsceneStop(PlayableDirector director)
+        {
+            SunsetInputHandler.Instance.ClearInputOverride(this);
+        }
+
+        private void OnCutscenePlay(PlayableDirector director)
+        {
+            SunsetInputHandler.Instance.OverrideInput(this, SunsetInputHandler.UI_MAP);
         }
     }
 }
