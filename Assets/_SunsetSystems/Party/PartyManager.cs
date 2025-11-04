@@ -142,7 +142,7 @@ namespace SunsetSystems.Party
                     }
                 }
             }
-            OnActivePartyInitialized?.InvokeSafe(_activeParty.Values.ToList());
+            OnActivePartyInitialized?.InvokeSafe(_activeParty.Values.ToArray());
         }
 
         private async Awaitable InitializePartyAtWaypoint(IWaypoint waypoint)
@@ -233,6 +233,7 @@ namespace SunsetSystems.Party
             _coterieMemberKeysCache.Add(creature.References.CreatureData.DatabaseID);
             _cachedPartyTemplates.Add(memberTemplate.DatabaseID, memberTemplate);
             TryAddMemberToActiveRoster(creature.References.CreatureData.DatabaseID, creature);
+            creature.References.Transform.SetParent(_creatureParent);
             OnPartyMemberRecruited?.InvokeSafe(creature.References.CreatureData.DatabaseID);
         }
 
