@@ -147,7 +147,7 @@ color: purple
     <<if GetIsPartyMemberRecruited($anastasia) is true>>
         {$anastasia}: Bathroom, NOW!#line:06a2e6b #lastline
     <<else>>
-        {$beast}: [nonmarkup][Instinct takes over, compelling you to run to the bathroom.][/nonmarkup]
+        {$beast}: [nomarkup][Instinct takes over, compelling you to run to the bathroom.][/nomarkup]
     <<endif>>
 <<endif>>
 ===

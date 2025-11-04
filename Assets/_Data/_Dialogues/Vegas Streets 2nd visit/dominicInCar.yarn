@@ -31,7 +31,7 @@ title: carInteractions
 -> {$pcName}: So... what happens next? <<if CustomVisited("whatsNext") == false>> #line:0236d96 
     <<jump whatsNext>>
 -> [nomarkup][Stay silent.][/nomarkup] #line:0afdc86
-    {$storyteller}: [nonmarkup][You approach your apartmnet.][/nonmarkup]  #line:0a3fe17 
+    {$storyteller}: [nomarkup][You approach your apartmnet.][/nomarkup]  #line:0a3fe17 
     {$sheriff}: Hey, sorry about tonight.#line:09df32e
     -> [nomarkup][End dialogue.][/nomarkup] #line:05c5c48 
 ===
@@ -161,7 +161,7 @@ title: radioDecision
 ===
 title: anaInMirror
 ---
-{$storyteller}: [nonmarkup][Ana follows behind you on her motorcycle.][/nonmarkup] #line:0f19cb1 
+{$storyteller}: [nomarkup][Ana follows behind you on her motorcycle.][/nomarkup] #line:0f19cb1 
 <<jump carInteractions>>
 ===
 title: lookAtDiana

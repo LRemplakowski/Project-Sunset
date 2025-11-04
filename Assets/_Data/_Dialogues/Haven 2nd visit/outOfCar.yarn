@@ -11,14 +11,14 @@ tags:
 <<declare $attemptsCounter to 0>>
 <<declare $windowCurtain to false>>
 <<declare $windowBoxes to false>>
-{$storyteller}: [nonmarkup][You approach your apartment door, ready to unpack the horrors of tonight.][/nonmarkup]
+{$storyteller}: [nomarkup][You approach your apartment door, ready to unpack the horrors of tonight.][/nomarkup]
 <<if GetIsPartyMemberRecruited($anastasia) is true>>
-    {$storyteller}: [nonmarkup][Anastasia’s shadow falls across the peeling paint of the hallway.][/nonmarkup]
+    {$storyteller}: [nomarkup][Anastasia's shadow falls across the peeling paint of the hallway.][/nomarkup]
     {$anastasia}: May I come in?
-    ->  [nonmarkup][Yes.][/nonmarkup]
-            {$storyteller}: [nonmarkup][Anastasia follows you inside.][/nonmarkup]
-    ->  [nonmarkup][No.][/nonmarkup]
+    ->  [nomarkup][Yes.][/nomarkup]
+            {$storyteller}: [nomarkup][Anastasia follows you inside.][/nomarkup]
+    ->  [nomarkup][No.][/nomarkup]
             {$anastasia}: Until next time.
-            {$storyteller}: [nonmarkup][Anastasia nods and walks away.][/nonmarkup]
+            {$storyteller}: [nomarkup][Anastasia nods and walks away.][/nomarkup]
 <<endif>>
 ===
