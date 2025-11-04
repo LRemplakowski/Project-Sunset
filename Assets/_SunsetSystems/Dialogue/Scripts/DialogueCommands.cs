@@ -142,5 +142,14 @@ namespace SunsetSystems.Dialogue
                 }
             }
         }
+
+        [YarnCommand("RemovePartyMember")]
+        public static void RemovePartyMember(string characterID)
+        {
+            if (CreatureDatabase.Instance.TryGetEntry(characterID, out var config))
+            {
+                PartyManager.Instance.TryRemoveMemberFromActiveRoster(config);
+            }
+        }
     }
 }
