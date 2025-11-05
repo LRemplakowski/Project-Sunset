@@ -1,5 +1,6 @@
+using System;
 using System.Collections.Generic;
-using Redcode.Awaiting;
+using Cysharp.Threading.Tasks;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -18,7 +19,7 @@ namespace SunsetSystems.Audio
         private int _currentTrackIndex = 0;
         private bool _firstTrackRequest = true;
 
-        public async Awaitable<AudioClip> NextTrack()
+        public async UniTask<AudioClip> NextTrack()
         {
             if (_tracks.Count <= 0)
                 return default;
@@ -28,7 +29,7 @@ namespace SunsetSystems.Audio
             return result;
         }
 
-        public async Awaitable<AudioClip> PreviousTrack()
+        public async UniTask<AudioClip> PreviousTrack()
         {
             if (_tracks.Count <= 0)
                 return default;
@@ -87,7 +88,7 @@ namespace SunsetSystems.Audio
             _loadedTrackHandles.Clear();
         }
 
-        private async Awaitable<AudioClip> LoadOrGetTrackByIndex(int trackIndex)
+        private async UniTask<AudioClip> LoadOrGetTrackByIndex(int trackIndex)
         {
             if (_loadedTrackHandles.TryGetValue(trackIndex, out var existingHandle))
             {
@@ -95,18 +96,27 @@ namespace SunsetSystems.Audio
                     return existingHandle.Result;
             }
 
-            AssetReference track = _tracks[trackIndex];
-            var handle = track.LoadAssetAsync<AudioClip>();
-            await handle;
-
-            if (handle.Status == AsyncOperationStatus.Succeeded)
+            try
             {
-                _loadedTrackHandles[trackIndex] = handle;
-                return handle.Result;
-            }
+                AssetReference track = _tracks[trackIndex];
+                var handle = track.LoadAssetAsync<AudioClip>();
+                await handle.ToUniTask();
 
-            Debug.LogError($"Failed to load AudioClip at index {trackIndex} from Addressables.");
-            return default;
+                if (handle.Status == AsyncOperationStatus.Succeeded)
+                {
+                    _loadedTrackHandles[trackIndex] = handle;
+                    return handle.Result;
+                }
+
+                Debug.LogError($"Failed to load AudioClip at index {trackIndex} from Addressables.");
+                return default;
+            }
+            catch (IndexOutOfRangeException indexException)
+            {
+                Debug.LogError($"{nameof(PlaylistConfig)} >>> Failed to load an audio clip at index {trackIndex}!");
+                Debug.LogException(indexException, this);
+                return AudioClip.Create("FALLBACK", 0, 0, 0, false);
+            }
         }
     }
 }
