@@ -1,5 +1,7 @@
+using System;
 using Sirenix.OdinInspector;
 using SunsetSystems.Core;
+using SunsetSystems.Core.SceneLoading;
 using SunsetSystems.Game;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -33,40 +35,59 @@ namespace SunsetSystems.Audio
             {
                 Destroy(gameObject);
             }
-            if (PlayerPrefs.HasKey(SettingsConstants.MUSIC_VOLUME_KEY))
-            {
-                SetMusicVolume(PlayerPrefs.GetFloat(SettingsConstants.MUSIC_VOLUME_KEY));
-            }
-            else
-            {
-                SetMusicVolume(MusicDefaultValue);
-            }
 
-            if (PlayerPrefs.HasKey(SettingsConstants.SFX_VOLUME_KEY))
-            {
-                SetSFXVolume(PlayerPrefs.GetFloat(SettingsConstants.SFX_VOLUME_KEY));
-            }
-            else
-            {
-                SetSFXVolume(SFXDefaultValue);
-            }
-
-                GameManager.OnGameStateChanged += OnGameStateChanged;
+            GameManager.OnGameStateChanged += OnGameStateChanged;
+            LevelLoader.OnLevelLoadEnd += OnLevelLoadEnd;
         }
 
         private void Start()
         {
+            SetMusicVolume(GetSavedMusicVolume());
+            SetSFXVolume(GetSavedSFXVolume());
             OnGameStateChanged(GameManager.Instance.CachedGameState);
         }
 
         private void OnDestroy()
         {
             GameManager.OnGameStateChanged -= OnGameStateChanged;
+            LevelLoader.OnLevelLoadEnd -= OnLevelLoadEnd;
         }
 
         private void OnGameStateChanged(GameState newGameState)
         {
             _soundtrackController.PlayStatePlaylist(newGameState);
+            SetMusicVolume(GetSavedMusicVolume());
+            SetSFXVolume(GetSavedSFXVolume());
+        }
+
+        private void OnLevelLoadEnd()
+        {
+            SetMusicVolume(GetSavedMusicVolume());
+            SetSFXVolume(GetSavedSFXVolume());
+        }
+
+        private float GetSavedMusicVolume()
+        {
+            if (PlayerPrefs.HasKey(SettingsConstants.MUSIC_VOLUME_KEY))
+            {
+                return PlayerPrefs.GetFloat(SettingsConstants.MUSIC_VOLUME_KEY);
+            }
+            else
+            {
+                return MusicDefaultValue;
+            }
+        }
+
+        private float GetSavedSFXVolume()
+        {
+            if (PlayerPrefs.HasKey(SettingsConstants.SFX_VOLUME_KEY))
+            {
+                return PlayerPrefs.GetFloat(SettingsConstants.SFX_VOLUME_KEY);
+            }
+            else
+            {
+                return SFXDefaultValue;
+            }
         }
 
         public void PlaySFXOneShot(string sfxName)
