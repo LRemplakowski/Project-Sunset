@@ -1,0 +1,182 @@
+﻿title: anastasiaDj
+tags:
+---
+<<if GetIsPartyMemberRecruited($anastasia) is false>>
+	<<if CustomVisited("DJ1stTimeAlone")>>
+		<<jump DJ1stTimeAlone>> 
+	<<endif>>
+<<else>>
+	<<if CustomVisited("DJ1stTimeAna")>>
+		<<jump DJ1stTimeAna>>
+	<<endif>>
+<<endif>>
+=== 
+title: DJ1stTimeAlone
+---
+{$storyteller}: [nomarkup][As you approach the booth, the DJ glances at you briefly but continues to groove despite you.][/nomarkup]
+-> {$pcName}: This song rocks. <<if CustomVisited("ThisSongRocks") == false and CustomVisited("ThisSongSucks") == false>> 
+    <<jump ThisSongRocks>>
+-> {$pcName}: This song sucks. <<if CustomVisited("ThisSongSucks") == false and CustomVisited("ThisSongRocks") == false>> 
+    <<jump ThisSongSucks>>
+-> {$pcName}: Can I make a recommendation? <<if CustomVisited("DJRecommendation") == false>> 
+    <<jump DJRecommendation>>
+-> [nomarkup][Walk away.][/nomarkup]
+=== 
+title: ThisSongRocks
+---
+{$storyteller}: [nomarkup][He smiles at you.][/nomarkup]
+DJ: Thank you. I made this mix myself. That means a lot.
+{$storyteller}: [nomarkup][He beams, intensely focused on the mix, nodding along to the beat.][/nomarkup]
+<<jump anastasiaDj>>
+=== 
+title: ThisSongSucks
+---
+{$storyteller}: [nomarkup][He glares at you.][/nomarkup]
+DJ: …
+{$storyteller}: [nomarkup][He is concentrating intensely, trying to hide a flicker of anxiety beneath his focused gaze, nodding along to the beat.][/nomarkup]
+<<jump anastasiaDj>>
+=== 
+title: DJRecommendation
+---
+DJ: No.
+<<jump anastasiaDj>>
+=== 
+title: DJ1stTimeAna
+---
+{$storyteller}: [nomarkup][As you approach the booth, the DJ looks directly at Anastasia and rolls his eyes.][/nomarkup]
+DJ: Oh, you again.
+{$anastasia}: Mate, whatever this is, it won’t cut it. You’ve got to put on some real rock.
+DJ: Yeah, for the tenth time, I’m not gonna do that.
+{$anastasia}: Figures.
+{$storyteller}: [nomarkup][Anastasia turns toward you, visibly annoyed. She seems deadset on this.][/nomarkup]
+-> [nomarkup][Convince Anastasia to let it go.][/nomarkup] <<if CustomVisited("AnaPersuasion") == false and CustomVisited("AnaIntimidate") == false>>
+    <<jump ConvinceAnastasia>>
+-> [nomarkup][Help Anastasia change the music.][/nomarkup] 
+    <<jump ChangeMusic>>
+-> [nomarkup][Walk away.][/nomarkup]
+=== 
+title: ConvinceAnastasia
+---
+{$storyteller}: [nomarkup][Anastasia folds her arms, waiting for your response.][/nomarkup]
+-> {$pcName}: We have more important things to do. (Manipulation + Persuasion) <<if CustomVisited("AnaPersuasion") == false>>
+    <<jump AnaPersuasion>>
+-> {$pcName}: You are still under my supervision. (Strength + Intimidate) <<if CustomVisited("AnaIntimidate") == false>>
+    <<jump AnaIntimidate>>
+=== 
+title: AnaPersuasion
+---
+<<if Roll("Manipulation","Persuasion") >= 3>>
+	{$storyteller}: [nomarkup][She exhales slowly and nods.][/nomarkup]
+	{$anastasia}: Fine. Maybe I’m overreacting.
+	<<jump DJOutcomeSame>>
+<<else>>
+	{$anastasia}: You really don’t get it, do you?
+	<<ChangeInfluence($anastasia, -1)>>
+	<<jump DJOutcomeSame>>
+<<endif>>
+=== 
+title: AnaIntimidate
+---
+<<if Roll("Strength","Intimidate") >= 3>>
+	{$storyteller}: [nomarkup][Her jaw tightens but she nods reluctantly.][/nomarkup]
+	<<ChangeInfluence($anastasia, -1)>>
+	<<jump DJOutcomeSame>>
+<<else>>
+	{$storyteller}: [nomarkup][She laughs bitterly.][/nomarkup]
+	<<ChangeInfluence($anastasia, -2)>>
+	<<jump DJOutcomeSame>>
+<<endif>>
+=== 
+title: ChangeMusic
+---
+{$storyteller}: [nomarkup][You glance between Anastasia and the DJ, weighing your options.][/nomarkup]
+-> [nomarkup][Sneak behind the booth.] (Dexterity + Sneak)[/nomarkup] <<if CustomVisited("DJOptionSneak") == false>>
+    <<jump DJOptionSneak>>
+-> {$pcName}: Change the music, or I'll go to Kate. (Manipulation + Intimidate) <<if CustomVisited("DJOptionIntimidate") == false>>
+    <<jump DJOptionIntimidate>>
+-> {$pcName}: Can you change the music? I can buy you a drink in exchange. (Charisma + Persuasion) <<if CustomVisited("DJOptionPersuasion") == false>>
+    <<jump DJOptionPersuasion>>
+-> {$pcName}: Anyone has an idea how to distract him? <<if CustomVisited("DJOptionOblivion") == false>>
+    <<jump DJOptionOblivion>>
+=== 
+title: DJOptionSneak
+---
+<<if Roll("Dexterity","Sneak") >= 3>>
+	<<jump DJHack>>
+<<else>>
+	<<jump DJSneakFail>>
+<<endif>>
+===
+title: DJHack
+---
+{$storyteller}: [nomarkup][You hijack the system unnoticed. The music abruptly changes.][/nomarkup]
+{$storyteller}: [nomarkup][Anastasia seems to be happy though. DJ though is confused and tries to regain control over the console.] (+1 Anastasia influence)[/nomarkup]
+<<ModifyInfluence +1 {$anastasia}>>
+<<jump DJOutcomeDifferent>>
+===
+title: DJSneakFail
+---
+{$storyteller}: [nomarkup][The console flashes red, and the DJ turns, furious.][/nomarkup]
+DJ: Get the hell out of here or I'll call security!
+<<jump DJOutcomeSame>>
+=== 
+title: DJOptionIntimidate
+---
+<<if Roll("Manipulation","Intimidate") >= 3>>
+	{$storyteller}: [nomarkup][He hesitates, visibly nervous.][/nomarkup]
+		<<jump DJOutcomeDifferent>>
+<<else>>
+	{$storyteller}: [nomarkup][He laughs and dismisses your threat.][/nomarkup]
+		<<jump DJOutcomeSame>>
+<<endif>>
+=== 
+title: DJOptionPersuasion
+---
+<<if Roll("Charisma","Persuasion") >= 3>>
+	{$storyteller}: [nomarkup][He listens and reluctantly changes the song.][/nomarkup]
+	<<ChangeInfluence($anastasia, +1)>>
+		<<jump DJOutcomeDifferent>>
+<<else>>
+	{$storyteller}: [nomarkup][He ignores you and turns up the volume.][/nomarkup]
+		<<jump DJOutcomeSame>>
+<<endif>>
+=== 
+title: DJOptionOblivion
+---
+<<if UseDiscipline("Oblivion")>=1>>
+	{$storyteller}: [nomarkup][Her shadows ripple through the booth, and the DJ quickly changes the song.][/nomarkup]
+	<<ChangeInfluence($anastasia, +2)>>
+		<<jump DJOutcomeDifferent>>
+<<else>>
+	{$storyteller}: [nomarkup][Her shadows tear through the equipment, shorting it out completely.][/nomarkup]
+		<<jump DJOutcomeNoMusic>>
+<<endif>>
+=== 
+title: DJOptionDominate
+---
+<<if UseDiscipline("Dominate")>=1>>
+	{$storyteller}: [nomarkup][The DJ obeys without resistance.][/nomarkup]
+	<<ChangeInfluence($anastasia, +1)>>
+		<<jump DJOutcomeDifferent>>
+<<else>>
+	{$storyteller}: [nomarkup][He resists her influence, sweating but defiant.][/nomarkup]
+		<<jump DJOutcomeSame>>
+<<endif>>
+=== 
+title: DJOutcomeSame
+---
+{$storyteller}: [nomarkup][The same track continues to play.][/nomarkup]
+=== 
+title: DJOutcomeDifferent
+---
+{$storyteller}: [nomarkup][A new track begins to play through the speakers.][/nomarkup]
+=== 
+title: DJSubsequent
+---
+<<if CustomVisited("DJOutcomeSame")>>
+<<endif>>
+<<if CustomVisited("DJOutcomeDifferent")>>
+<<endif>>
+<<if CustomVisited("DJOutcomeNoMusic")>>
+<<endif>>
+===
