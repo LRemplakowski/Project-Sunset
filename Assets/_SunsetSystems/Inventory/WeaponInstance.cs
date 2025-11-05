@@ -3,6 +3,8 @@ using SunsetSystems.Animation;
 using UnityEngine;
 using UnityEngine.VFX;
 using UMA;
+using SunsetSystems.Combat;
+using SunsetSystems.Entities;
 
 namespace SunsetSystems.Equipment
 {
@@ -20,7 +22,7 @@ namespace SunsetSystems.Equipment
         [SerializeField]
         private VisualEffect muzzleFlash;
         [SerializeField]
-        private Rigidbody bulletPrefab;
+        private GunBullet bulletPrefab;
         [SerializeField]
         private AudioClip shotSFX;
         [SerializeField]
@@ -34,6 +36,8 @@ namespace SunsetSystems.Equipment
         public WeaponAnimationDataProvider WeaponAnimationData { get; private set; }
 
         public GameObject GameObject => this.gameObject;
+
+        private ITargetable _target;
 
         private void OnValidate()
         {
@@ -61,14 +65,16 @@ namespace SunsetSystems.Equipment
         {
             if (muzzleFlash != null)
                 muzzleFlash.Play();
-            if (bulletPrefab)
+            if (bulletPrefab != null && _target != null)
             {
-                Rigidbody bulletInstance = Instantiate(bulletPrefab, projectileOrigin.position, Quaternion.identity);
-                bulletInstance.AddForce(projectileOrigin.forward * bulletVelocity);
-                Destroy(bulletInstance.gameObject, bulletLifetime);
+                IProjectile bulletInstance = Instantiate(bulletPrefab, projectileOrigin.position, Quaternion.identity);
+                bulletInstance.Launch(_target);
             }
             if (shotSFX != null)
-                _weaponAudioSource.PlayOneShot(shotSFX);
+            {
+                _weaponAudioSource.clip = shotSFX;
+                _weaponAudioSource.Play();
+            }
         }
 
         [Button]
@@ -77,5 +83,7 @@ namespace SunsetSystems.Equipment
             if (reloadSFX != null)
                 _weaponAudioSource.PlayOneShot(reloadSFX);
         }
+
+        public void SetWeaponTarget(ITargetable target) => _target = target;
     }
 }

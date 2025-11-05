@@ -1,4 +1,5 @@
 using SunsetSystems.Animation;
+using SunsetSystems.Combat;
 using UnityEngine;
 
 namespace SunsetSystems.Equipment
@@ -8,6 +9,7 @@ namespace SunsetSystems.Equipment
         GameObject GameObject { get; }
         WeaponAnimationDataProvider WeaponAnimationData { get; }
 
+        void SetWeaponTarget(ITargetable target);
         void PlayFireWeaponFX();
         void PlayReloadSFX();
     }

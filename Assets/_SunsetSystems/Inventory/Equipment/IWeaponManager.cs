@@ -9,6 +9,8 @@ namespace SunsetSystems.Equipment
         UltEvent<ICombatant> OnWeaponChanged { get; set; }
         UltEvent<ICombatant, WeaponAmmoData> OnAmmoChanged { get; set; }
 
+        ITargetable WeaponTarget { get; set; }
+
         void SetSelectedWeapon(SelectedWeapon weapon);
         IWeapon GetSelectedWeapon();
         IWeapon GetPrimaryWeapon();

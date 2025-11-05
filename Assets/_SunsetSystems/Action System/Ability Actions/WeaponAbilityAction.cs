@@ -93,6 +93,7 @@ namespace SunsetSystems.ActionSystem
             }
             _attackFinished.Value = true;
             _attackRoutine = null;
+            Attacker.References.WeaponManager.WeaponTarget = null;
 
             static void LogAttack(ICombatant attacker, ITargetable target, in AttackResult result)
             {
@@ -114,6 +115,7 @@ namespace SunsetSystems.ActionSystem
             }
             else
             {
+                Attacker.References.WeaponManager.WeaponTarget = Target;
                 Attacker.References.AnimationManager.PlayFireWeaponAnimation();
             }
         }

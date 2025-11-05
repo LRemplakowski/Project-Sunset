@@ -48,6 +48,8 @@ namespace SunsetSystems.Equipment
         [field: SerializeField]
         public UltEvent<ICombatant, WeaponAmmoData> OnAmmoChanged { get; set; }
 
+        public ITargetable WeaponTarget { get; set; }
+
         private void OnEnable()
         {
             CombatManager.OnCombatStart += OnCombatStart;
@@ -273,7 +275,10 @@ namespace SunsetSystems.Equipment
         public void OnAnimationEvent(string eventType)
         {
             if (string.Equals(eventType, FIRE_WEAPON_EVENT) && weaponInstance != null)
+            {
+                weaponInstance.SetWeaponTarget(WeaponTarget);
                 weaponInstance.PlayFireWeaponFX();
+            }
         }
     }
 }

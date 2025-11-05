@@ -9,10 +9,16 @@ namespace SunsetSystems.Entities
 {
     public interface IProjectile
     {
-        void Launch(ITargetable target, Action projectileImpactCallback = null);
+        /// <summary>
+        /// Lanuch the projectile at a target.
+        /// </summary>
+        /// <param name="target">Target to aim projectile at.</param>
+        /// <param name="projectileImpactCallback">Callback when projectiles hits <paramref name="target"/>.</param>
+        /// <param name="ignoreColliders">Colliders to ignore when resolving collisions.</param>
+        void Launch(ITargetable target, Action projectileImpactCallback = null, params Collider[] ignoreColliders);
     }
 
-    public class Projectile : SerializedMonoBehaviour, IProjectile
+    public class SpellProjectile : SerializedMonoBehaviour, IProjectile
     {
         [TabGroup("Behaviour")]
         [SerializeField]
@@ -73,8 +79,15 @@ namespace SunsetSystems.Entities
         }
 
         [Button]
-        public void Launch(ITargetable target, Action projectileImpactCallback = null)
+        public void Launch(ITargetable target, Action projectileImpactCallback = null, params Collider[] ignoreColliders)
         {
+            if (target == null)
+            {
+                Debug.LogError($"{nameof(SpellProjectile)} >>> Launching spell projectile failed. {nameof(ITargetable)} given is null!", this);
+                Addressables.ReleaseInstance(gameObject);
+                return;
+            }
+
             _target = target;
             _projectileImpactCallback = projectileImpactCallback;
             if (_immediateImpact)
