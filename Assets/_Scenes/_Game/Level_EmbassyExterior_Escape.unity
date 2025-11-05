@@ -5562,8 +5562,8 @@ Avatar:
     742852947: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Waist/CC_Base_Spine01/CC_Base_Spine02/CC_Base_NeckTwist01/CC_Base_NeckTwist02/CC_Base_Head/CC_Base_FacialBone/UMAadjustment.Rcheek
     3833206019: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Waist/CC_Base_Spine01/CC_Base_Spine02/CC_Base_R_RibsTwist
     1617059106: Root/Global/Position
-    3191111898: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Pelvis/CC_Base_R_Thigh/CC_Base_R_Calf
     208684537: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Waist/CC_Base_Spine01/CC_Base_Spine02/CC_Base_L_Clavicle/CC_Base_L_Upperarm/CC_Base_L_Forearm/CC_Base_L_Hand/CC_Base_L_Mid1/CC_Base_L_Mid2
+    3191111898: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Pelvis/CC_Base_R_Thigh/CC_Base_R_Calf
     2692193155: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Waist/CC_Base_Spine01/CC_Base_Spine02/CC_Base_R_Clavicle/CC_Base_R_Upperarm/CC_Base_R_Forearm/CC_Base_R_Hand/CC_Base_R_Index1/CC_Base_R_Index2
     160473484: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Waist/CC_Base_Spine01/CC_Base_Spine02/CC_Base_L_Clavicle/CC_Base_L_Upperarm/CC_Base_L_Forearm/CC_Base_L_Hand/CC_Base_L_Thumb1/CC_Base_L_Thumb2
     2527479459: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Waist/CC_Base_Spine01/CC_Base_Spine02/CC_Base_R_Clavicle/CC_Base_R_Upperarm/CC_Base_R_UpperarmTwist01/CC_Base_R_UpperarmTwist02
@@ -27044,7 +27044,7 @@ PlayableDirector:
   m_GameObject: {fileID: 873231622}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: cdfe7ebd18fd3ab42bb80f7c1daacd1e, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: 8ebfcd9535ba4c444b3977762a41f7be, type: 2}
   m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
@@ -27288,6 +27288,8 @@ PlayableDirector:
     value: {fileID: 1300909734}
   - key: {fileID: 8040853931760412667, guid: cdfe7ebd18fd3ab42bb80f7c1daacd1e, type: 2}
     value: {fileID: 1286024082}
+  - key: {fileID: 1176983695934919589, guid: 8ebfcd9535ba4c444b3977762a41f7be, type: 2}
+    value: {fileID: 101100192}
   m_ExposedReferences:
     m_References:
     - f4148e143d510d3409b34ef8fb369e65: {fileID: 508876401}
@@ -27308,6 +27310,7 @@ PlayableDirector:
     - d934150970e515148a6a8c7787e54c46: {fileID: 1362839083}
     - 634a3a24fe8df6e43837e3ddad8afb7b: {fileID: 580243907}
     - d0c9e1d9f0f8dda4da1d81695b45732b: {fileID: 979341154}
+    - 8639c369e78a26c4cbf60c7f90c723df: {fileID: 406658176}
     - 7f80849c3b0f92442acae06e780deb26: {fileID: 1969858020}
     - 1d36fad526cd61e4d9ad36ad7697f886: {fileID: 201888756}
     - d219992cba4b64d4eae5a1d327dbe6a1: {fileID: 580243907}
@@ -27319,6 +27322,7 @@ PlayableDirector:
     - 67e3b77b54af8724680f226892f79865: {fileID: 201888756}
     - 88d57ef192a4caa4eaf5164065f2828b: {fileID: 2046232891}
     - 7062decfbf6aace4fbb72e54147b0973: {fileID: 1969858020}
+    - ed9cdefee7686a94f98574ea2dfcdfad: {fileID: 1377206772}
     - 9c8420bc7ff88ce4193285ec4c90c3c4: {fileID: 923320733}
     - fad3f0c5d8c0f7247be7d1bab910e5dc: {fileID: 508876401}
     - 5560bbc9b9caf94449d2d5fb026d6522: {fileID: 201888756}
@@ -28016,7 +28020,18 @@ MonoBehaviour:
   OnDialogueStarted:
     _PersistentCalls: []
   OnDialogueFinished:
-    _PersistentCalls: []
+    _PersistentCalls:
+    - _Target: {fileID: 600957226}
+      _MethodName: StopCutscene
+      _PersistentArguments:
+      - _Type: 1
+        _Int: 0
+        _String: 
+        _X: 0
+        _Y: 0
+        _Z: 0
+        _W: 0
+        _Object: {fileID: 0}
   OnNodeStarted:
     _PersistentCalls: []
   OnNodeFinished:
@@ -33622,19 +33637,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1058466362985259641, guid: ca25568f9fc53874180c32257d9d4746, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9183419
+      value: 0.89811724
       objectReference: {fileID: 0}
     - target: {fileID: 1058466362985259641, guid: ca25568f9fc53874180c32257d9d4746, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.27582845
+      value: 0.23890483
       objectReference: {fileID: 0}
     - target: {fileID: 1058466362985259641, guid: ca25568f9fc53874180c32257d9d4746, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.27184594
+      value: 0.35679433
       objectReference: {fileID: 0}
     - target: {fileID: 1058466362985259641, guid: ca25568f9fc53874180c32257d9d4746, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.08165026
+      value: -0.094909534
       objectReference: {fileID: 0}
     - target: {fileID: 1063374975983357750, guid: ca25568f9fc53874180c32257d9d4746, type: 3}
       propertyPath: m_Version
@@ -35709,6 +35724,7 @@ Transform:
   - {fileID: 923320730}
   - {fileID: 580243906}
   - {fileID: 407171094}
+  - {fileID: 1377206771}
   m_Father: {fileID: 8246983939366491000}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1187386147 stripped
@@ -38952,6 +38968,81 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4faa17c9e2ada5d4e9cbd6070c24c2d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1377206770
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1377206771}
+  - component: {fileID: 1377206772}
+  m_Layer: 0
+  m_Name: Ghouls Approach Camera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1377206771
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377206770}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.24961068, y: 0.7288109, z: -0.33649465, w: 0.5415723}
+  m_LocalPosition: {x: -23.612244, y: 7.982214, z: -9.387012}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 1165819096}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1377206772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377206770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Priority:
+    Enabled: 0
+    m_Value: 0
+  OutputChannel: 1
+  StandbyUpdate: 2
+  m_StreamingVersion: 20241001
+  m_LegacyPriority: 0
+  Target:
+    TrackingTarget: {fileID: 0}
+    LookAtTarget: {fileID: 0}
+    CustomLookAtTarget: 0
+  Lens:
+    FieldOfView: 60.000004
+    OrthographicSize: 10
+    NearClipPlane: 0.3
+    FarClipPlane: 1000
+    Dutch: 0
+    ModeOverride: 0
+    PhysicalProperties:
+      GateFit: 2
+      SensorSize: {x: 21.946, y: 16.002}
+      LensShift: {x: 0, y: 0}
+      FocusDistance: 10
+      Iso: 200
+      ShutterSpeed: 0.005
+      Aperture: 16
+      BladeCount: 5
+      Curvature: {x: 2, y: 11}
+      BarrelClipping: 0.25
+      Anamorphism: 0
+  BlendHint: 0
 --- !u!1 &1377937949 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4247092824877383042, guid: 4769f016047210d478f53803138aacf5, type: 3}
@@ -43759,9 +43850,9 @@ MonoBehaviour:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
-    - {fileID: 1588838461}
     - {fileID: 2730284256039935026}
     - {fileID: 120229347}
+    - {fileID: 1588838461}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -43786,7 +43877,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Diana Arrival Waypoint
+      Data: WP_EMBASSY_EXIT
     - Name: $v
       Entry: 10
       Data: 0
@@ -43798,7 +43889,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: WP_EMBASSY_EXIT
+      Data: DOMINIC_ARRIVAL
     - Name: $v
       Entry: 10
       Data: 1
@@ -43810,7 +43901,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: DOMINIC_ARRIVAL
+      Data: Diana Arrival Waypoint
     - Name: $v
       Entry: 10
       Data: 2
@@ -49710,8 +49801,8 @@ Avatar:
     742852947: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Waist/CC_Base_Spine01/CC_Base_Spine02/CC_Base_NeckTwist01/CC_Base_NeckTwist02/CC_Base_Head/CC_Base_FacialBone/UMAadjustment.Rcheek
     3833206019: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Waist/CC_Base_Spine01/CC_Base_Spine02/CC_Base_R_RibsTwist
     1617059106: Root/Global/Position
-    3191111898: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Pelvis/CC_Base_R_Thigh/CC_Base_R_Calf
     208684537: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Waist/CC_Base_Spine01/CC_Base_Spine02/CC_Base_L_Clavicle/CC_Base_L_Upperarm/CC_Base_L_Forearm/CC_Base_L_Hand/CC_Base_L_Mid1/CC_Base_L_Mid2
+    3191111898: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Pelvis/CC_Base_R_Thigh/CC_Base_R_Calf
     2692193155: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Waist/CC_Base_Spine01/CC_Base_Spine02/CC_Base_R_Clavicle/CC_Base_R_Upperarm/CC_Base_R_Forearm/CC_Base_R_Hand/CC_Base_R_Index1/CC_Base_R_Index2
     160473484: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Waist/CC_Base_Spine01/CC_Base_Spine02/CC_Base_L_Clavicle/CC_Base_L_Upperarm/CC_Base_L_Forearm/CC_Base_L_Hand/CC_Base_L_Thumb1/CC_Base_L_Thumb2
     2527479459: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Waist/CC_Base_Spine01/CC_Base_Spine02/CC_Base_R_Clavicle/CC_Base_R_Upperarm/CC_Base_R_UpperarmTwist01/CC_Base_R_UpperarmTwist02
