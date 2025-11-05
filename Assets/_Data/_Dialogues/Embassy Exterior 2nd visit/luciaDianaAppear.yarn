@@ -4,14 +4,14 @@ position: -208,-188
 ---
 <<set $rollModifier to 0>>
 {$storyteller}: [nomarkup][Every muscle in your body tenses up at the sight of the Kindred before you.][/nomarkup] #line:03d6adc
-Mysterious Woman: We're almost there, Di! Start the car for me will you? We have some company I have to deal with. 
+Mysterious Woman: We're almost there, Di! Start the car for me, will you? We have some company I have to deal with. 
 {$storyteller}: [nomarkup][You find yourself staring at Lucia, her yellow eyes seem so familiar.][/nomarkup] #line:002f46f
 <<jump beginFlashback>>
 ===
 title: beginFlashback
 position: 107,-119
 ---
-[nomarkup][You start to remember the night you you found yourself at the Embassy. ][/nomarkup] #line:005c744
+[nomarkup][You start to remember the night you found yourself at the Embassy. ][/nomarkup] #line:005c744
 -> [nomarkup][You needed the job so badly...][/nomarkup] #line:055f3a4
 <<jump JobFlashback>>
 -> [nomarkup][You were lonely and needed company...][/nomarkup] #line:0997034
@@ -33,3 +33,23 @@ position:
 {$diana}: You made it.
 <<jump havenJobArrival>>
 ===
+title: havenJobArrival
+tags:
+position: -20,-539
+---
+//part takes place in PC Haven exterior in the black van//
+{$storyteller}: [nomarkup][You didn't know what the night would bring.][/nomarkup]
+<<jump arrivalPassive>>
+===
+//Haven corridor//
+title: arrivalPassive
+position: 64,17
+---
+//if scene didn't progress to Haven interior, it does now//
+{$storyteller}: \[You didn't know <i>she<i> was already inside till it was too late.\]
+===
+//PC is tied to the chair, Lucia is leaning towards him, Diego lies on his side on the floor//
+//fade to black, end flashback, back to embassy exterior where flashback started//
+
+
+
