@@ -441,7 +441,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
+    SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -4483,14 +4483,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
-    SerializedBytes: 0101150000005f00700065007200730069007300740065006e00740043006f006d0070006f006e0065006e00740073002f00000000016c000000530079007300740065006d002e0043006f006c006c0065006300740069006f006e0073002e00470065006e0065007200690063002e004c00690073007400600031005b005b00530075006e00730065007400530079007300740065006d0073002e00500065007200730069007300740065006e00630065002e004900500065007200730069007300740065006e00740043006f006d0070006f006e0065006e0074002c002000530075006e00730065007400530079007300740065006d0073005d005d002c0020006d00730063006f0072006c0069006200000000000600000000000000000705
+    SerializedFormat: 2
+    SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: _persistentComponents
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[SunsetSystems.Persistence.IPersistentComponent,
+        SunsetSystems]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   _unique: {fileID: 194022449}
   <EnablePersistence>k__BackingField: 1
 --- !u!114 &194022449
@@ -4569,15 +4582,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
-    SerializedBytes: 0b01110000005f0070006c00610079006c0069007300740054006f0049006e006a0065006300740000000000
+    SerializedFormat: 2
+    SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 11400000, guid: 8a7c03115252fe7448b0255207255cd0, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: _playlistToInject
+      Entry: 10
+      Data: 0
   _targetGameState: 0
 --- !u!114 &194333941
 MonoBehaviour:
@@ -4592,15 +4608,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
-    SerializedBytes: 0b01110000005f0070006c00610079006c0069007300740054006f0049006e006a0065006300740000000000
+    SerializedFormat: 2
+    SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 11400000, guid: de8f95f8880bdc441aaeaee6777f378d, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: _playlistToInject
+      Entry: 10
+      Data: 0
   _targetGameState: 2
 --- !u!1 &197684531
 GameObject:
@@ -6648,14 +6667,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
-    SerializedBytes: 0101150000005f00700065007200730069007300740065006e00740043006f006d0070006f006e0065006e00740073002f00000000016c000000530079007300740065006d002e0043006f006c006c0065006300740069006f006e0073002e00470065006e0065007200690063002e004c00690073007400600031005b005b00530075006e00730065007400530079007300740065006d0073002e00500065007200730069007300740065006e00630065002e004900500065007200730069007300740065006e00740043006f006d0070006f006e0065006e0074002c002000530075006e00730065007400530079007300740065006d0073005d005d002c0020006d00730063006f0072006c0069006200000000000600000000000000000705
+    SerializedFormat: 2
+    SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: _persistentComponents
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[SunsetSystems.Persistence.IPersistentComponent,
+        SunsetSystems]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   _unique: {fileID: 310800303}
   <EnablePersistence>k__BackingField: 1
 --- !u!114 &310800303
@@ -6817,8 +6849,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
-    SerializedBytes: 010115000000700065007200730069007300740065006e00740045006e007400690074006900650073005300650074002f00000000016f000000530079007300740065006d002e0043006f006c006c0065006300740069006f006e0073002e00470065006e0065007200690063002e004800610073006800530065007400600031005b005b00530075006e00730065007400530079007300740065006d0073002e00500065007200730069007300740065006e00630065002e004900500065007200730069007300740065006e0074004f0062006a006500630074002c002000530075006e00730065007400530079007300740065006d0073005d005d002c002000530079007300740065006d002e0043006f007200650000000000061a000000000000000c000000000c010000000c020000000c030000000c040000000c050000000c060000000c070000000c080000000c090000000c0a0000000c0b0000000c0c0000000c0d0000000c0e0000000c0f0000000c100000000c110000000c120000000c130000000c140000000c150000000c160000000c170000000c180000000c190000000705
+    SerializedFormat: 2
+    SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 194022448}
     - {fileID: 660093643280168043}
@@ -6850,7 +6882,98 @@ MonoBehaviour:
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: persistentEntitiesSet
+      Entry: 7
+      Data: 0|System.Collections.Generic.HashSet`1[[SunsetSystems.Persistence.IPersistentObject,
+        SunsetSystems]], System.Core
+    - Name: 
+      Entry: 12
+      Data: 26
+    - Name: 
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 2
+    - Name: 
+      Entry: 10
+      Data: 3
+    - Name: 
+      Entry: 10
+      Data: 4
+    - Name: 
+      Entry: 10
+      Data: 5
+    - Name: 
+      Entry: 10
+      Data: 6
+    - Name: 
+      Entry: 10
+      Data: 7
+    - Name: 
+      Entry: 10
+      Data: 8
+    - Name: 
+      Entry: 10
+      Data: 9
+    - Name: 
+      Entry: 10
+      Data: 10
+    - Name: 
+      Entry: 10
+      Data: 11
+    - Name: 
+      Entry: 10
+      Data: 12
+    - Name: 
+      Entry: 10
+      Data: 13
+    - Name: 
+      Entry: 10
+      Data: 14
+    - Name: 
+      Entry: 10
+      Data: 15
+    - Name: 
+      Entry: 10
+      Data: 16
+    - Name: 
+      Entry: 10
+      Data: 17
+    - Name: 
+      Entry: 10
+      Data: 18
+    - Name: 
+      Entry: 10
+      Data: 19
+    - Name: 
+      Entry: 10
+      Data: 20
+    - Name: 
+      Entry: 10
+      Data: 21
+    - Name: 
+      Entry: 10
+      Data: 22
+    - Name: 
+      Entry: 10
+      Data: 23
+    - Name: 
+      Entry: 10
+      Data: 24
+    - Name: 
+      Entry: 10
+      Data: 25
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   _unique: {fileID: 317269506}
 --- !u!114 &317269506
 MonoBehaviour:
@@ -8720,27 +8843,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 567734191989458246, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 567734191989458246, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 567734191989458246, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 560
       objectReference: {fileID: 0}
     - target: {fileID: 567734191989458246, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 528.71
       objectReference: {fileID: 0}
     - target: {fileID: 567734191989458246, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 560
       objectReference: {fileID: 0}
     - target: {fileID: 567734191989458246, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -264.355
       objectReference: {fileID: 0}
     - target: {fileID: 628229198219499971, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_AnchorMax.x
@@ -8784,27 +8907,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 790546485332453286, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 790546485332453286, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 790546485332453286, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 560
       objectReference: {fileID: 0}
     - target: {fileID: 790546485332453286, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 31.29
       objectReference: {fileID: 0}
     - target: {fileID: 790546485332453286, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 280
       objectReference: {fileID: 0}
     - target: {fileID: 790546485332453286, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -574.35504
       objectReference: {fileID: 0}
     - target: {fileID: 820774632742123829, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: serializationData.Prefab
@@ -9200,27 +9323,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1958964686343284344, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1958964686343284344, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1958964686343284344, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 560
       objectReference: {fileID: 0}
     - target: {fileID: 1958964686343284344, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 440
       objectReference: {fileID: 0}
     - target: {fileID: 1958964686343284344, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 560
       objectReference: {fileID: 0}
     - target: {fileID: 1958964686343284344, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -840
       objectReference: {fileID: 0}
     - target: {fileID: 2004387855734353292, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_AnchorMax.y
@@ -9280,27 +9403,27 @@ PrefabInstance:
       objectReference: {fileID: 2146170913191627318, guid: 4769f016047210d478f53803138aacf5, type: 3}
     - target: {fileID: 2226573316802865885, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2226573316802865885, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2226573316802865885, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 560
       objectReference: {fileID: 0}
     - target: {fileID: 2226573316802865885, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 22.22
       objectReference: {fileID: 0}
     - target: {fileID: 2226573316802865885, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 280
       objectReference: {fileID: 0}
     - target: {fileID: 2226573316802865885, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -11.11
       objectReference: {fileID: 0}
     - target: {fileID: 2258071461949067205, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_AnchorMax.y
@@ -10996,6 +11119,39 @@ MonoBehaviour:
     - _Target: {fileID: 194333940}
       _MethodName: EnableOverride
       _PersistentArguments: []
+    - _Target: {fileID: 876095303}
+      _MethodName: SetActive
+      _PersistentArguments:
+      - _Type: 1
+        _Int: 0
+        _String: 
+        _X: 0
+        _Y: 0
+        _Z: 0
+        _W: 0
+        _Object: {fileID: 0}
+    - _Target: {fileID: 1461905495}
+      _MethodName: SetActive
+      _PersistentArguments:
+      - _Type: 1
+        _Int: 1
+        _String: 
+        _X: 0
+        _Y: 0
+        _Z: 0
+        _W: 0
+        _Object: {fileID: 0}
+    - _Target: {fileID: 310800300}
+      _MethodName: SetActive
+      _PersistentArguments:
+      - _Type: 1
+        _Int: 1
+        _String: 
+        _X: 0
+        _Y: 0
+        _Z: 0
+        _W: 0
+        _Object: {fileID: 0}
 --- !u!1 &466179462
 GameObject:
   m_ObjectHideFlags: 0
@@ -11061,15 +11217,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
-    SerializedBytes: 0101250000003c00500065007200730069007300740065006e00740043006f006d0070006f006e0065006e00740073003e006b005f005f004200610063006b0069006e0067004600690065006c0064002f00000000016c000000530079007300740065006d002e0043006f006c006c0065006300740069006f006e0073002e00470065006e0065007200690063002e004c00690073007400600031005b005b00530075006e00730065007400530079007300740065006d0073002e00500065007200730069007300740065006e00630065002e004900500065007200730069007300740065006e00740043006f006d0070006f006e0065006e0074002c002000530075006e00730065007400530079007300740065006d0073005d005d002c0020006d00730063006f0072006c00690062000000000006000000000000000007050b010b0000005f007200650066006500720065006e0063006500730000000000
+    SerializedFormat: 2
+    SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 466651187}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: <PersistentComponents>k__BackingField
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[SunsetSystems.Persistence.IPersistentComponent,
+        SunsetSystems]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _references
+      Entry: 10
+      Data: 0
   <Faction>k__BackingField: 0
   _unique: {fileID: 466651186}
   <EnablePersistence>k__BackingField: 1
@@ -11168,7 +11340,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
+    SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -12073,18 +12245,86 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
-    SerializedBytes: 01010f0000005f007300630065006e00650057006100790070006f0069006e00740073002f000000000181000000530079007300740065006d002e0043006f006c006c0065006300740069006f006e0073002e00470065006e0065007200690063002e00440069006300740069006f006e00610072007900600032005b005b00530079007300740065006d002e0053007400720069006e0067002c0020006d00730063006f0072006c00690062005d002c005b00530075006e00730065007400530079007300740065006d0073002e004c006500760065006c005500740069006c006900740079002e0057006100790070006f0069006e0074002c002000530075006e00730065007400530079007300740065006d0073005d005d002c0020006d00730063006f0072006c00690062000000000001010800000063006f006d00700061007200650072002f010000000159000000530079007300740065006d002e0043006f006c006c0065006300740069006f006e0073002e00470065006e0065007200690063002e00470065006e00650072006900630045007100750061006c0069007400790043006f006d0070006100720065007200600031005b005b00530079007300740065006d002e0053007400720069006e0067002c0020006d00730063006f0072006c00690062005d005d002c0020006d00730063006f0072006c00690062000100000005060400000000000000042e27010200000024006b00011b000000570050005f0045004d00420041005300530059005f004d00410049004e005f004f00460046004900430045005f0045005800490054000b0102000000240076000000000005042e27010200000024006b0001110000004200610063006b0064006f006f007200200057006100790070006f0069006e0074000b0102000000240076000100000005042e27010200000024006b00011e000000570050005f0045004d00420041005300530059005f004d00410049004e005f00530048004f004f0054004f00550054005f00530054004100520054000b0102000000240076000200000005042e27010200000024006b000111000000570050005f0045004d00420041005300530059005f004f00460046004900430045000b01020000002400760003000000050705
+    SerializedFormat: 2
+    SerializedBytes: 
     ReferencedUnityObjects:
-    - {fileID: 6162206024482089395}
-    - {fileID: 7471926044057796404}
     - {fileID: 874003521}
+    - {fileID: 7471926044057796404}
+    - {fileID: 6162206024482089395}
     - {fileID: 3636615562471254056}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: _sceneWaypoints
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[SunsetSystems.LevelUtility.Waypoint,
+        SunsetSystems]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 4
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: WP_EMBASSY_MAIN_SHOOTOUT_START
+    - Name: $v
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: Backdoor Waypoint
+    - Name: $v
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: WP_EMBASSY_MAIN_OFFICE_EXIT
+    - Name: $v
+      Entry: 10
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: WP_EMBASSY_OFFICE
+    - Name: $v
+      Entry: 10
+      Data: 3
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   _defaultSceneWaypoint: {fileID: 7471926044057796404}
 --- !u!4 &572948843
 Transform:
@@ -13823,7 +14063,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
+    SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -16622,7 +16862,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
+    SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -18269,7 +18509,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
+    SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -18459,14 +18699,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
-    SerializedBytes: 0101150000005f00700065007200730069007300740065006e00740043006f006d0070006f006e0065006e00740073002f00000000016c000000530079007300740065006d002e0043006f006c006c0065006300740069006f006e0073002e00470065006e0065007200690063002e004c00690073007400600031005b005b00530075006e00730065007400530079007300740065006d0073002e00500065007200730069007300740065006e00630065002e004900500065007200730069007300740065006e00740043006f006d0070006f006e0065006e0074002c002000530075006e00730065007400530079007300740065006d0073005d005d002c0020006d00730063006f0072006c0069006200000000000600000000000000000705
+    SerializedFormat: 2
+    SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: _persistentComponents
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[SunsetSystems.Persistence.IPersistentComponent,
+        SunsetSystems]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   _unique: {fileID: 876095307}
   <EnablePersistence>k__BackingField: 1
 --- !u!114 &876095307
@@ -18990,7 +19243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
+    SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -19016,8 +19269,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
-    SerializedBytes: 0101250000003c00500065007200730069007300740065006e00740043006f006d0070006f006e0065006e00740073003e006b005f005f004200610063006b0069006e0067004600690065006c0064002f00000000016c000000530079007300740065006d002e0043006f006c006c0065006300740069006f006e0073002e00470065006e0065007200690063002e004c00690073007400600031005b005b00530075006e00730065007400530079007300740065006d0073002e00500065007200730069007300740065006e00630065002e004900500065007200730069007300740065006e00740043006f006d0070006f006e0065006e0074002c002000530075006e00730065007400530079007300740065006d0073005d005d002c0020006d00730063006f0072006c00690062000000000006000000000000000007050b010b0000005f007200650066006500720065006e00630065007300000000000101240000003c0049006e0074006500720061006300740069006f006e00480061006e0064006c006500720073003e006b005f005f004200610063006b0069006e0067004600690065006c0064002f010000000175000000530079007300740065006d002e0043006f006c006c0065006300740069006f006e0073002e00470065006e0065007200690063002e004c00690073007400600031005b005b00530075006e00730065007400530079007300740065006d0073002e0045006e007400690074006900650073002e0049006e00740065007200610063007400610062006c0065002e00490049006e0074006500720061006300740069006f006e00480061006e0064006c00650072002c002000530075006e00730065007400530079007300740065006d0073005d005d002c0020006d00730063006f0072006c0069006200010000000601000000000000000c0100000007050b01110000005f0068006900670068006c006900670068007400480061006e0064006c006500720002000000
+    SerializedFormat: 2
+    SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 938003572}
     - {fileID: 21033717}
@@ -19026,7 +19279,42 @@ MonoBehaviour:
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: <PersistentComponents>k__BackingField
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[SunsetSystems.Persistence.IPersistentComponent,
+        SunsetSystems]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _references
+      Entry: 10
+      Data: 0
+    - Name: <InteractionHandlers>k__BackingField
+      Entry: 7
+      Data: 1|System.Collections.Generic.List`1[[SunsetSystems.Entities.Interactable.IInteractionHandler,
+        SunsetSystems]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _highlightHandler
+      Entry: 10
+      Data: 2
   <Faction>k__BackingField: 0
   _unique: {fileID: 938003573}
   <EnablePersistence>k__BackingField: 1
@@ -19053,7 +19341,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
+    SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -20239,10 +20527,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _listenForNode: 
   OnNodeEventMatch:
-    _PersistentCalls:
-    - _Target: {fileID: 0}
-      _MethodName: Begin
-      _PersistentArguments: []
+    _PersistentCalls: []
 --- !u!1 &991326631
 GameObject:
   m_ObjectHideFlags: 0
@@ -24372,8 +24657,8 @@ Avatar:
     742852947: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Waist/CC_Base_Spine01/CC_Base_Spine02/CC_Base_NeckTwist01/CC_Base_NeckTwist02/CC_Base_Head/CC_Base_FacialBone/UMAadjustment.Rcheek
     3833206019: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Waist/CC_Base_Spine01/CC_Base_Spine02/CC_Base_R_RibsTwist
     1617059106: Root/Global/Position
-    208684537: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Waist/CC_Base_Spine01/CC_Base_Spine02/CC_Base_L_Clavicle/CC_Base_L_Upperarm/CC_Base_L_Forearm/CC_Base_L_Hand/CC_Base_L_Mid1/CC_Base_L_Mid2
     3191111898: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Pelvis/CC_Base_R_Thigh/CC_Base_R_Calf
+    208684537: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Waist/CC_Base_Spine01/CC_Base_Spine02/CC_Base_L_Clavicle/CC_Base_L_Upperarm/CC_Base_L_Forearm/CC_Base_L_Hand/CC_Base_L_Mid1/CC_Base_L_Mid2
     2692193155: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Waist/CC_Base_Spine01/CC_Base_Spine02/CC_Base_R_Clavicle/CC_Base_R_Upperarm/CC_Base_R_Forearm/CC_Base_R_Hand/CC_Base_R_Index1/CC_Base_R_Index2
     160473484: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Waist/CC_Base_Spine01/CC_Base_Spine02/CC_Base_L_Clavicle/CC_Base_L_Upperarm/CC_Base_L_Forearm/CC_Base_L_Hand/CC_Base_L_Thumb1/CC_Base_L_Thumb2
     2527479459: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Waist/CC_Base_Spine01/CC_Base_Spine02/CC_Base_R_Clavicle/CC_Base_R_Upperarm/CC_Base_R_UpperarmTwist01/CC_Base_R_UpperarmTwist02
@@ -28851,8 +29136,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
-    SerializedBytes: 0101250000003c00500065007200730069007300740065006e00740043006f006d0070006f006e0065006e00740073003e006b005f005f004200610063006b0069006e0067004600690065006c0064002f00000000016c000000530079007300740065006d002e0043006f006c006c0065006300740069006f006e0073002e00470065006e0065007200690063002e004c00690073007400600031005b005b00530075006e00730065007400530079007300740065006d0073002e00500065007200730069007300740065006e00630065002e004900500065007200730069007300740065006e00740043006f006d0070006f006e0065006e0074002c002000530075006e00730065007400530079007300740065006d0073005d005d002c0020006d00730063006f0072006c00690062000000000006000000000000000007050b010b0000005f007200650066006500720065006e00630065007300000000000101240000003c0049006e0074006500720061006300740069006f006e00480061006e0064006c006500720073003e006b005f005f004200610063006b0069006e0067004600690065006c0064002f010000000175000000530079007300740065006d002e0043006f006c006c0065006300740069006f006e0073002e00470065006e0065007200690063002e004c00690073007400600031005b005b00530075006e00730065007400530079007300740065006d0073002e0045006e007400690074006900650073002e0049006e00740065007200610063007400610062006c0065002e00490049006e0074006500720061006300740069006f006e00480061006e0064006c00650072002c002000530075006e00730065007400530079007300740065006d0073005d005d002c0020006d00730063006f0072006c0069006200010000000601000000000000000c0100000007050b01110000005f0068006900670068006c006900670068007400480061006e0064006c006500720002000000
+    SerializedFormat: 2
+    SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 1204183183}
     - {fileID: 2009562388}
@@ -28861,7 +29146,42 @@ MonoBehaviour:
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: <PersistentComponents>k__BackingField
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[SunsetSystems.Persistence.IPersistentComponent,
+        SunsetSystems]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _references
+      Entry: 10
+      Data: 0
+    - Name: <InteractionHandlers>k__BackingField
+      Entry: 7
+      Data: 1|System.Collections.Generic.List`1[[SunsetSystems.Entities.Interactable.IInteractionHandler,
+        SunsetSystems]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _highlightHandler
+      Entry: 10
+      Data: 2
   <Faction>k__BackingField: 0
   _unique: {fileID: 1204183184}
   <EnablePersistence>k__BackingField: 1
@@ -28888,7 +29208,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
+    SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -28922,7 +29242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
+    SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -29197,14 +29517,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
-    SerializedBytes: 0101150000005f00700065007200730069007300740065006e00740043006f006d0070006f006e0065006e00740073002f00000000016c000000530079007300740065006d002e0043006f006c006c0065006300740069006f006e0073002e00470065006e0065007200690063002e004c00690073007400600031005b005b00530075006e00730065007400530079007300740065006d0073002e00500065007200730069007300740065006e00630065002e004900500065007200730069007300740065006e00740043006f006d0070006f006e0065006e0074002c002000530075006e00730065007400530079007300740065006d0073005d005d002c0020006d00730063006f0072006c0069006200000000000600000000000000000705
+    SerializedFormat: 2
+    SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: _persistentComponents
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[SunsetSystems.Persistence.IPersistentComponent,
+        SunsetSystems]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   _unique: {fileID: 1248306816}
   <EnablePersistence>k__BackingField: 1
 --- !u!1 &1258473400
@@ -30562,7 +30895,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
+    SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -30609,8 +30942,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
-    SerializedBytes: 0101250000003c00500065007200730069007300740065006e00740043006f006d0070006f006e0065006e00740073003e006b005f005f004200610063006b0069006e0067004600690065006c0064002f00000000016c000000530079007300740065006d002e0043006f006c006c0065006300740069006f006e0073002e00470065006e0065007200690063002e004c00690073007400600031005b005b00530075006e00730065007400530079007300740065006d0073002e00500065007200730069007300740065006e00630065002e004900500065007200730069007300740065006e00740043006f006d0070006f006e0065006e0074002c002000530075006e00730065007400530079007300740065006d0073005d005d002c0020006d00730063006f0072006c00690062000000000006000000000000000007050b010b0000005f007200650066006500720065006e00630065007300000000000101240000003c0049006e0074006500720061006300740069006f006e00480061006e0064006c006500720073003e006b005f005f004200610063006b0069006e0067004600690065006c0064002f010000000175000000530079007300740065006d002e0043006f006c006c0065006300740069006f006e0073002e00470065006e0065007200690063002e004c00690073007400600031005b005b00530075006e00730065007400530079007300740065006d0073002e0045006e007400690074006900650073002e0049006e00740065007200610063007400610062006c0065002e00490049006e0074006500720061006300740069006f006e00480061006e0064006c00650072002c002000530075006e00730065007400530079007300740065006d0073005d005d002c0020006d00730063006f0072006c0069006200010000000601000000000000000c0100000007050b01110000005f0068006900670068006c006900670068007400480061006e0064006c006500720002000000
+    SerializedFormat: 2
+    SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 1367376763}
     - {fileID: 6956503951008402251}
@@ -30619,7 +30952,42 @@ MonoBehaviour:
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: <PersistentComponents>k__BackingField
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[SunsetSystems.Persistence.IPersistentComponent,
+        SunsetSystems]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _references
+      Entry: 10
+      Data: 0
+    - Name: <InteractionHandlers>k__BackingField
+      Entry: 7
+      Data: 1|System.Collections.Generic.List`1[[SunsetSystems.Entities.Interactable.IInteractionHandler,
+        SunsetSystems]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _highlightHandler
+      Entry: 10
+      Data: 2
   <Faction>k__BackingField: 0
   _unique: {fileID: 1367376764}
   <EnablePersistence>k__BackingField: 1
@@ -30646,7 +31014,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
+    SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -30923,7 +31291,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
+    SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -31167,14 +31535,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
-    SerializedBytes: 0101150000005f00700065007200730069007300740065006e00740043006f006d0070006f006e0065006e00740073002f00000000016c000000530079007300740065006d002e0043006f006c006c0065006300740069006f006e0073002e00470065006e0065007200690063002e004c00690073007400600031005b005b00530075006e00730065007400530079007300740065006d0073002e00500065007200730069007300740065006e00630065002e004900500065007200730069007300740065006e00740043006f006d0070006f006e0065006e0074002c002000530075006e00730065007400530079007300740065006d0073005d005d002c0020006d00730063006f0072006c0069006200000000000600000000000000000705
+    SerializedFormat: 2
+    SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: _persistentComponents
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[SunsetSystems.Persistence.IPersistentComponent,
+        SunsetSystems]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
   _unique: {fileID: 1461905498}
   <EnablePersistence>k__BackingField: 1
 --- !u!114 &1461905498
@@ -34578,7 +34959,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
+    SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -34645,8 +35026,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
-    SerializedBytes: 0101250000003c00500065007200730069007300740065006e00740043006f006d0070006f006e0065006e00740073003e006b005f005f004200610063006b0069006e0067004600690065006c0064002f00000000016c000000530079007300740065006d002e0043006f006c006c0065006300740069006f006e0073002e00470065006e0065007200690063002e004c00690073007400600031005b005b00530075006e00730065007400530079007300740065006d0073002e00500065007200730069007300740065006e00630065002e004900500065007200730069007300740065006e00740043006f006d0070006f006e0065006e0074002c002000530075006e00730065007400530079007300740065006d0073005d005d002c0020006d00730063006f0072006c00690062000000000006000000000000000007050b010b0000005f007200650066006500720065006e00630065007300000000000101240000003c0049006e0074006500720061006300740069006f006e00480061006e0064006c006500720073003e006b005f005f004200610063006b0069006e0067004600690065006c0064002f010000000175000000530079007300740065006d002e0043006f006c006c0065006300740069006f006e0073002e00470065006e0065007200690063002e004c00690073007400600031005b005b00530075006e00730065007400530079007300740065006d0073002e0045006e007400690074006900650073002e0049006e00740065007200610063007400610062006c0065002e00490049006e0074006500720061006300740069006f006e00480061006e0064006c00650072002c002000530075006e00730065007400530079007300740065006d0073005d005d002c0020006d00730063006f0072006c0069006200010000000601000000000000000c0100000007050b01110000005f0068006900670068006c006900670068007400480061006e0064006c006500720002000000
+    SerializedFormat: 2
+    SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 1856962906}
     - {fileID: 2145278627}
@@ -34655,7 +35036,42 @@ MonoBehaviour:
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: <PersistentComponents>k__BackingField
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[SunsetSystems.Persistence.IPersistentComponent,
+        SunsetSystems]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _references
+      Entry: 10
+      Data: 0
+    - Name: <InteractionHandlers>k__BackingField
+      Entry: 7
+      Data: 1|System.Collections.Generic.List`1[[SunsetSystems.Entities.Interactable.IInteractionHandler,
+        SunsetSystems]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _highlightHandler
+      Entry: 10
+      Data: 2
   <Faction>k__BackingField: 0
   _unique: {fileID: 1856962907}
   <EnablePersistence>k__BackingField: 1
@@ -34682,7 +35098,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
+    SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -36435,15 +36851,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
-    SerializedBytes: 0101250000003c00500065007200730069007300740065006e00740043006f006d0070006f006e0065006e00740073003e006b005f005f004200610063006b0069006e0067004600690065006c0064002f00000000016c000000530079007300740065006d002e0043006f006c006c0065006300740069006f006e0073002e00470065006e0065007200690063002e004c00690073007400600031005b005b00530075006e00730065007400530079007300740065006d0073002e00500065007200730069007300740065006e00630065002e004900500065007200730069007300740065006e00740043006f006d0070006f006e0065006e0074002c002000530075006e00730065007400530079007300740065006d0073005d005d002c0020006d00730063006f0072006c00690062000000000006000000000000000007050b010b0000005f007200650066006500720065006e0063006500730000000000
+    SerializedFormat: 2
+    SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 1962621793}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: <PersistentComponents>k__BackingField
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[SunsetSystems.Persistence.IPersistentComponent,
+        SunsetSystems]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _references
+      Entry: 10
+      Data: 0
   <Faction>k__BackingField: 0
   _unique: {fileID: 1962621794}
   <EnablePersistence>k__BackingField: 1
@@ -36492,7 +36924,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
+    SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -37280,7 +37712,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
+    SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -39432,15 +39864,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
-    SerializedBytes: 0b01110000005f0070006c00610079006c0069007300740054006f0049006e006a0065006300740000000000
+    SerializedFormat: 2
+    SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 11400000, guid: d9d15beb918001a4f928cc626e68c84c, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: _playlistToInject
+      Entry: 10
+      Data: 0
   _targetGameState: 0
 --- !u!114 &2110791565
 MonoBehaviour:
@@ -39455,15 +39890,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
-    SerializedBytes: 0b01110000005f0070006c00610079006c0069007300740054006f0049006e006a0065006300740000000000
+    SerializedFormat: 2
+    SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 11400000, guid: d9d15beb918001a4f928cc626e68c84c, type: 2}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: _playlistToInject
+      Entry: 10
+      Data: 0
   _targetGameState: 2
 --- !u!1 &2114489767
 GameObject:
@@ -40679,7 +41117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
+    SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -40812,15 +41250,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
-    SerializedBytes: 0101250000003c00500065007200730069007300740065006e00740043006f006d0070006f006e0065006e00740073003e006b005f005f004200610063006b0069006e0067004600690065006c0064002f00000000016c000000530079007300740065006d002e0043006f006c006c0065006300740069006f006e0073002e00470065006e0065007200690063002e004c00690073007400600031005b005b00530075006e00730065007400530079007300740065006d0073002e00500065007200730069007300740065006e00630065002e004900500065007200730069007300740065006e00740043006f006d0070006f006e0065006e0074002c002000530075006e00730065007400530079007300740065006d0073005d005d002c0020006d00730063006f0072006c00690062000000000006000000000000000007050b010b0000005f007200650066006500720065006e0063006500730000000000
+    SerializedFormat: 2
+    SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 7776209881997690385}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: <PersistentComponents>k__BackingField
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[SunsetSystems.Persistence.IPersistentComponent,
+        SunsetSystems]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _references
+      Entry: 10
+      Data: 0
   <Faction>k__BackingField: 0
   _unique: {fileID: 355114157112420809}
   <EnablePersistence>k__BackingField: 1
@@ -41433,8 +41887,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
-    SerializedBytes: 0101250000003c00500065007200730069007300740065006e00740043006f006d0070006f006e0065006e00740073003e006b005f005f004200610063006b0069006e0067004600690065006c0064002f00000000016c000000530079007300740065006d002e0043006f006c006c0065006300740069006f006e0073002e00470065006e0065007200690063002e004c00690073007400600031005b005b00530075006e00730065007400530079007300740065006d0073002e00500065007200730069007300740065006e00630065002e004900500065007200730069007300740065006e00740043006f006d0070006f006e0065006e0074002c002000530075006e00730065007400530079007300740065006d0073005d005d002c0020006d00730063006f0072006c00690062000000000006000000000000000007050b010b0000005f007200650066006500720065006e00630065007300000000000101240000003c0049006e0074006500720061006300740069006f006e00480061006e0064006c006500720073003e006b005f005f004200610063006b0069006e0067004600690065006c0064002f010000000175000000530079007300740065006d002e0043006f006c006c0065006300740069006f006e0073002e00470065006e0065007200690063002e004c00690073007400600031005b005b00530075006e00730065007400530079007300740065006d0073002e0045006e007400690074006900650073002e0049006e00740065007200610063007400610062006c0065002e00490049006e0074006500720061006300740069006f006e00480061006e0064006c00650072002c002000530075006e00730065007400530079007300740065006d0073005d005d002c0020006d00730063006f0072006c0069006200010000000601000000000000000c0100000007050b01110000005f0068006900670068006c006900670068007400480061006e0064006c006500720002000000
+    SerializedFormat: 2
+    SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 7464458211060672964}
     - {fileID: 9142495229022000657}
@@ -41443,7 +41897,42 @@ MonoBehaviour:
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: <PersistentComponents>k__BackingField
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[SunsetSystems.Persistence.IPersistentComponent,
+        SunsetSystems]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _references
+      Entry: 10
+      Data: 0
+    - Name: <InteractionHandlers>k__BackingField
+      Entry: 7
+      Data: 1|System.Collections.Generic.List`1[[SunsetSystems.Entities.Interactable.IInteractionHandler,
+        SunsetSystems]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _highlightHandler
+      Entry: 10
+      Data: 2
   <Faction>k__BackingField: 0
   _unique: {fileID: 6584098323284566006}
   <EnablePersistence>k__BackingField: 1
@@ -41503,7 +41992,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
+    SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -41524,7 +42013,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
+    SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -42215,7 +42704,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
+    SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -42255,8 +42744,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
-    SerializedBytes: 0101250000003c00500065007200730069007300740065006e00740043006f006d0070006f006e0065006e00740073003e006b005f005f004200610063006b0069006e0067004600690065006c0064002f00000000016c000000530079007300740065006d002e0043006f006c006c0065006300740069006f006e0073002e00470065006e0065007200690063002e004c00690073007400600031005b005b00530075006e00730065007400530079007300740065006d0073002e00500065007200730069007300740065006e00630065002e004900500065007200730069007300740065006e00740043006f006d0070006f006e0065006e0074002c002000530075006e00730065007400530079007300740065006d0073005d005d002c0020006d00730063006f0072006c00690062000000000006000000000000000007050b010b0000005f007200650066006500720065006e00630065007300000000000101240000003c0049006e0074006500720061006300740069006f006e00480061006e0064006c006500720073003e006b005f005f004200610063006b0069006e0067004600690065006c0064002f010000000175000000530079007300740065006d002e0043006f006c006c0065006300740069006f006e0073002e00470065006e0065007200690063002e004c00690073007400600031005b005b00530075006e00730065007400530079007300740065006d0073002e0045006e007400690074006900650073002e0049006e00740065007200610063007400610062006c0065002e00490049006e0074006500720061006300740069006f006e00480061006e0064006c00650072002c002000530075006e00730065007400530079007300740065006d0073005d005d002c0020006d00730063006f0072006c0069006200010000000601000000000000000c0100000007052d01110000005f0068006900670068006c006900670068007400480061006e0064006c0065007200
+    SerializedFormat: 2
+    SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 6278026688185438425}
     - {fileID: 875941254291374608}
@@ -42264,7 +42753,42 @@ MonoBehaviour:
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: <PersistentComponents>k__BackingField
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[SunsetSystems.Persistence.IPersistentComponent,
+        SunsetSystems]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _references
+      Entry: 10
+      Data: 0
+    - Name: <InteractionHandlers>k__BackingField
+      Entry: 7
+      Data: 1|System.Collections.Generic.List`1[[SunsetSystems.Entities.Interactable.IInteractionHandler,
+        SunsetSystems]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _highlightHandler
+      Entry: 6
+      Data: 
   <Faction>k__BackingField: 0
   _unique: {fileID: 3850572531364794574}
   <EnablePersistence>k__BackingField: 1
@@ -42334,7 +42858,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
+    SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -42380,7 +42904,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
+    SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -43471,7 +43995,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
+    SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -43950,8 +44474,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
-    SerializedBytes: 0101250000003c00500065007200730069007300740065006e00740043006f006d0070006f006e0065006e00740073003e006b005f005f004200610063006b0069006e0067004600690065006c0064002f00000000016c000000530079007300740065006d002e0043006f006c006c0065006300740069006f006e0073002e00470065006e0065007200690063002e004c00690073007400600031005b005b00530075006e00730065007400530079007300740065006d0073002e00500065007200730069007300740065006e00630065002e004900500065007200730069007300740065006e00740043006f006d0070006f006e0065006e0074002c002000530075006e00730065007400530079007300740065006d0073005d005d002c0020006d00730063006f0072006c00690062000000000006000000000000000007050b010b0000005f007200650066006500720065006e00630065007300000000000101240000003c0049006e0074006500720061006300740069006f006e00480061006e0064006c006500720073003e006b005f005f004200610063006b0069006e0067004600690065006c0064002f010000000175000000530079007300740065006d002e0043006f006c006c0065006300740069006f006e0073002e00470065006e0065007200690063002e004c00690073007400600031005b005b00530075006e00730065007400530079007300740065006d0073002e0045006e007400690074006900650073002e0049006e00740065007200610063007400610062006c0065002e00490049006e0074006500720061006300740069006f006e00480061006e0064006c00650072002c002000530075006e00730065007400530079007300740065006d0073005d005d002c0020006d00730063006f0072006c0069006200010000000601000000000000000c0100000007050b01110000005f0068006900670068006c006900670068007400480061006e0064006c006500720002000000
+    SerializedFormat: 2
+    SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 7103524867749997875}
     - {fileID: 8333558304763706846}
@@ -43960,7 +44484,42 @@ MonoBehaviour:
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: <PersistentComponents>k__BackingField
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[SunsetSystems.Persistence.IPersistentComponent,
+        SunsetSystems]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _references
+      Entry: 10
+      Data: 0
+    - Name: <InteractionHandlers>k__BackingField
+      Entry: 7
+      Data: 1|System.Collections.Generic.List`1[[SunsetSystems.Entities.Interactable.IInteractionHandler,
+        SunsetSystems]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _highlightHandler
+      Entry: 10
+      Data: 2
   <Faction>k__BackingField: 0
   _unique: {fileID: 2222961262602747153}
   <EnablePersistence>k__BackingField: 1
@@ -45593,8 +46152,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
-    SerializedBytes: 0101250000003c00500065007200730069007300740065006e00740043006f006d0070006f006e0065006e00740073003e006b005f005f004200610063006b0069006e0067004600690065006c0064002f00000000016c000000530079007300740065006d002e0043006f006c006c0065006300740069006f006e0073002e00470065006e0065007200690063002e004c00690073007400600031005b005b00530075006e00730065007400530079007300740065006d0073002e00500065007200730069007300740065006e00630065002e004900500065007200730069007300740065006e00740043006f006d0070006f006e0065006e0074002c002000530075006e00730065007400530079007300740065006d0073005d005d002c0020006d00730063006f0072006c00690062000000000006000000000000000007050b010b0000005f007200650066006500720065006e00630065007300000000000101240000003c0049006e0074006500720061006300740069006f006e00480061006e0064006c006500720073003e006b005f005f004200610063006b0069006e0067004600690065006c0064002f010000000175000000530079007300740065006d002e0043006f006c006c0065006300740069006f006e0073002e00470065006e0065007200690063002e004c00690073007400600031005b005b00530075006e00730065007400530079007300740065006d0073002e0045006e007400690074006900650073002e0049006e00740065007200610063007400610062006c0065002e00490049006e0074006500720061006300740069006f006e00480061006e0064006c00650072002c002000530075006e00730065007400530079007300740065006d0073005d005d002c0020006d00730063006f0072006c0069006200010000000601000000000000000c0100000007050b01110000005f0068006900670068006c006900670068007400480061006e0064006c006500720002000000
+    SerializedFormat: 2
+    SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 505433596202714246}
     - {fileID: 4207877656884651613}
@@ -45603,7 +46162,42 @@ MonoBehaviour:
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: <PersistentComponents>k__BackingField
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[SunsetSystems.Persistence.IPersistentComponent,
+        SunsetSystems]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _references
+      Entry: 10
+      Data: 0
+    - Name: <InteractionHandlers>k__BackingField
+      Entry: 7
+      Data: 1|System.Collections.Generic.List`1[[SunsetSystems.Entities.Interactable.IInteractionHandler,
+        SunsetSystems]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _highlightHandler
+      Entry: 10
+      Data: 2
   <Faction>k__BackingField: 0
   _unique: {fileID: 3546795184496290902}
   <EnablePersistence>k__BackingField: 1
@@ -45630,7 +46224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
+    SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -45655,7 +46249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
+    SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -46768,7 +47362,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
+    SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -47047,7 +47641,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
+    SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -47552,7 +48146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
+    SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -48361,7 +48955,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
+    SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -49013,7 +49607,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
+    SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -49507,7 +50101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
+    SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -49644,8 +50238,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
-    SerializedBytes: 0101250000003c00500065007200730069007300740065006e00740043006f006d0070006f006e0065006e00740073003e006b005f005f004200610063006b0069006e0067004600690065006c0064002f00000000016c000000530079007300740065006d002e0043006f006c006c0065006300740069006f006e0073002e00470065006e0065007200690063002e004c00690073007400600031005b005b00530075006e00730065007400530079007300740065006d0073002e00500065007200730069007300740065006e00630065002e004900500065007200730069007300740065006e00740043006f006d0070006f006e0065006e0074002c002000530075006e00730065007400530079007300740065006d0073005d005d002c0020006d00730063006f0072006c00690062000000000006000000000000000007050b010b0000005f007200650066006500720065006e00630065007300000000000101240000003c0049006e0074006500720061006300740069006f006e00480061006e0064006c006500720073003e006b005f005f004200610063006b0069006e0067004600690065006c0064002f010000000175000000530079007300740065006d002e0043006f006c006c0065006300740069006f006e0073002e00470065006e0065007200690063002e004c00690073007400600031005b005b00530075006e00730065007400530079007300740065006d0073002e0045006e007400690074006900650073002e0049006e00740065007200610063007400610062006c0065002e00490049006e0074006500720061006300740069006f006e00480061006e0064006c00650072002c002000530075006e00730065007400530079007300740065006d0073005d005d002c0020006d00730063006f0072006c0069006200010000000601000000000000000c0100000007050b01110000005f0068006900670068006c006900670068007400480061006e0064006c006500720002000000
+    SerializedFormat: 2
+    SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 1920287908506471160}
     - {fileID: 2490006425632269712}
@@ -49654,7 +50248,42 @@ MonoBehaviour:
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: <PersistentComponents>k__BackingField
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[SunsetSystems.Persistence.IPersistentComponent,
+        SunsetSystems]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _references
+      Entry: 10
+      Data: 0
+    - Name: <InteractionHandlers>k__BackingField
+      Entry: 7
+      Data: 1|System.Collections.Generic.List`1[[SunsetSystems.Entities.Interactable.IInteractionHandler,
+        SunsetSystems]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _highlightHandler
+      Entry: 10
+      Data: 2
   <Faction>k__BackingField: 0
   _unique: {fileID: 4798420563904337790}
   <EnablePersistence>k__BackingField: 1
@@ -50797,7 +51426,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
+    SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -50852,7 +51481,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
+    SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -51154,8 +51783,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
-    SerializedBytes: 0101250000003c00500065007200730069007300740065006e00740043006f006d0070006f006e0065006e00740073003e006b005f005f004200610063006b0069006e0067004600690065006c0064002f00000000016c000000530079007300740065006d002e0043006f006c006c0065006300740069006f006e0073002e00470065006e0065007200690063002e004c00690073007400600031005b005b00530075006e00730065007400530079007300740065006d0073002e00500065007200730069007300740065006e00630065002e004900500065007200730069007300740065006e00740043006f006d0070006f006e0065006e0074002c002000530075006e00730065007400530079007300740065006d0073005d005d002c0020006d00730063006f0072006c00690062000000000006000000000000000007050b010b0000005f007200650066006500720065006e00630065007300000000000101240000003c0049006e0074006500720061006300740069006f006e00480061006e0064006c006500720073003e006b005f005f004200610063006b0069006e0067004600690065006c0064002f010000000175000000530079007300740065006d002e0043006f006c006c0065006300740069006f006e0073002e00470065006e0065007200690063002e004c00690073007400600031005b005b00530075006e00730065007400530079007300740065006d0073002e0045006e007400690074006900650073002e0049006e00740065007200610063007400610062006c0065002e00490049006e0074006500720061006300740069006f006e00480061006e0064006c00650072002c002000530075006e00730065007400530079007300740065006d0073005d005d002c0020006d00730063006f0072006c0069006200010000000601000000000000000c0100000007050b01110000005f0068006900670068006c006900670068007400480061006e0064006c006500720002000000
+    SerializedFormat: 2
+    SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 5536876411059064131}
     - {fileID: 996809893059143194}
@@ -51164,7 +51793,42 @@ MonoBehaviour:
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: <PersistentComponents>k__BackingField
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[SunsetSystems.Persistence.IPersistentComponent,
+        SunsetSystems]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _references
+      Entry: 10
+      Data: 0
+    - Name: <InteractionHandlers>k__BackingField
+      Entry: 7
+      Data: 1|System.Collections.Generic.List`1[[SunsetSystems.Entities.Interactable.IInteractionHandler,
+        SunsetSystems]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _highlightHandler
+      Entry: 10
+      Data: 2
   <Faction>k__BackingField: 0
   _unique: {fileID: 6112173195893288933}
   <EnablePersistence>k__BackingField: 1
@@ -51206,8 +51870,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
-    SerializedBytes: 0301160000005f00640065006600610075006c0074005300630065006e00650050006c00610079006c0069007300740073002f000000000134000000530075006e00730065007400530079007300740065006d0073002e0041007500640069006f002e005300630065006e00650050006c00610079006c0069007300740044006100740061002c002000530075006e00730065007400530079007300740065006d0073000b010b0000004500780070006c006f0072006100740069006f006e00000000000b010600000043006f006d00620061007400010000000b01080000004400690061006c006f0067007500650000000000050b01130000005f0061006e00610073007400610073006900610043006f006d00700061006e0069006f006e00020000002d01190000005f0065006d0062006100730073007900530068006f006f0074006f007500740045006e0063006f0075006e00740065007200
+    SerializedFormat: 2
+    SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 11400000, guid: 7b8b8442463db5c4e8bfdeb31091f00a, type: 2}
     - {fileID: 11400000, guid: 9068e7bb1875fe74081764fb52a1c993, type: 2}
@@ -51216,7 +51880,28 @@ MonoBehaviour:
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: _defaultScenePlaylists
+      Entry: 7
+      Data: SunsetSystems.Audio.ScenePlaylistData, SunsetSystems
+    - Name: Exploration
+      Entry: 10
+      Data: 0
+    - Name: Combat
+      Entry: 10
+      Data: 1
+    - Name: Dialogue
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _anastasiaCompanion
+      Entry: 10
+      Data: 2
+    - Name: _embassyShootoutEncounter
+      Entry: 6
+      Data: 
   _unique: {fileID: 7963081405262213552}
   <OnSceneStart>k__BackingField:
     _PersistentCalls:
@@ -51266,8 +51951,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
-    SerializedBytes: 0101250000003c00500065007200730069007300740065006e00740043006f006d0070006f006e0065006e00740073003e006b005f005f004200610063006b0069006e0067004600690065006c0064002f00000000016c000000530079007300740065006d002e0043006f006c006c0065006300740069006f006e0073002e00470065006e0065007200690063002e004c00690073007400600031005b005b00530075006e00730065007400530079007300740065006d0073002e00500065007200730069007300740065006e00630065002e004900500065007200730069007300740065006e00740043006f006d0070006f006e0065006e0074002c002000530075006e00730065007400530079007300740065006d0073005d005d002c0020006d00730063006f0072006c00690062000000000006000000000000000007050b010b0000005f007200650066006500720065006e00630065007300000000000101240000003c0049006e0074006500720061006300740069006f006e00480061006e0064006c006500720073003e006b005f005f004200610063006b0069006e0067004600690065006c0064002f010000000175000000530079007300740065006d002e0043006f006c006c0065006300740069006f006e0073002e00470065006e0065007200690063002e004c00690073007400600031005b005b00530075006e00730065007400530079007300740065006d0073002e0045006e007400690074006900650073002e0049006e00740065007200610063007400610062006c0065002e00490049006e0074006500720061006300740069006f006e00480061006e0064006c00650072002c002000530075006e00730065007400530079007300740065006d0073005d005d002c0020006d00730063006f0072006c0069006200010000000601000000000000000c0100000007050b01110000005f0068006900670068006c006900670068007400480061006e0064006c006500720002000000
+    SerializedFormat: 2
+    SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 514158454141194298}
     - {fileID: 996809893059143194}
@@ -51276,7 +51961,42 @@ MonoBehaviour:
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: <PersistentComponents>k__BackingField
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[SunsetSystems.Persistence.IPersistentComponent,
+        SunsetSystems]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _references
+      Entry: 10
+      Data: 0
+    - Name: <InteractionHandlers>k__BackingField
+      Entry: 7
+      Data: 1|System.Collections.Generic.List`1[[SunsetSystems.Entities.Interactable.IInteractionHandler,
+        SunsetSystems]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _highlightHandler
+      Entry: 10
+      Data: 2
   <Faction>k__BackingField: 0
   _unique: {fileID: 1644672968419363019}
   <EnablePersistence>k__BackingField: 1
@@ -52001,7 +52721,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
+    SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -52078,7 +52798,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
+    SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -52627,7 +53347,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
+    SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -53296,7 +54016,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
+    SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -54221,7 +54941,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
+    SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -54277,7 +54997,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
+    SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -56767,7 +57487,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
+    SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -57360,7 +58080,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
+    SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -66815,7 +67535,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
+    SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -66841,7 +67561,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
+    SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -66867,8 +67587,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
-    SerializedBytes: 0101250000003c00500065007200730069007300740065006e00740043006f006d0070006f006e0065006e00740073003e006b005f005f004200610063006b0069006e0067004600690065006c0064002f00000000016c000000530079007300740065006d002e0043006f006c006c0065006300740069006f006e0073002e00470065006e0065007200690063002e004c00690073007400600031005b005b00530075006e00730065007400530079007300740065006d0073002e00500065007200730069007300740065006e00630065002e004900500065007200730069007300740065006e00740043006f006d0070006f006e0065006e0074002c002000530075006e00730065007400530079007300740065006d0073005d005d002c0020006d00730063006f0072006c00690062000000000006000000000000000007050b010b0000005f007200650066006500720065006e00630065007300000000000101240000003c0049006e0074006500720061006300740069006f006e00480061006e0064006c006500720073003e006b005f005f004200610063006b0069006e0067004600690065006c0064002f010000000175000000530079007300740065006d002e0043006f006c006c0065006300740069006f006e0073002e00470065006e0065007200690063002e004c00690073007400600031005b005b00530075006e00730065007400530079007300740065006d0073002e0045006e007400690074006900650073002e0049006e00740065007200610063007400610062006c0065002e00490049006e0074006500720061006300740069006f006e00480061006e0064006c00650072002c002000530075006e00730065007400530079007300740065006d0073005d005d002c0020006d00730063006f0072006c0069006200010000000601000000000000000c0100000007050b01110000005f0068006900670068006c006900670068007400480061006e0064006c006500720002000000
+    SerializedFormat: 2
+    SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 2236516394184328196}
     - {fileID: 8327077784504629086}
@@ -66877,7 +67597,42 @@ MonoBehaviour:
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: <PersistentComponents>k__BackingField
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[SunsetSystems.Persistence.IPersistentComponent,
+        SunsetSystems]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _references
+      Entry: 10
+      Data: 0
+    - Name: <InteractionHandlers>k__BackingField
+      Entry: 7
+      Data: 1|System.Collections.Generic.List`1[[SunsetSystems.Entities.Interactable.IInteractionHandler,
+        SunsetSystems]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _highlightHandler
+      Entry: 10
+      Data: 2
   <Faction>k__BackingField: 0
   _unique: {fileID: 5412717257041068039}
   <EnablePersistence>k__BackingField: 1
@@ -66987,39 +67742,6 @@ MonoBehaviour:
         _Object: {fileID: 0}
     - _Target: {fileID: 1367376762}
       _MethodName: set_Interactable
-      _PersistentArguments:
-      - _Type: 1
-        _Int: 1
-        _String: 
-        _X: 0
-        _Y: 0
-        _Z: 0
-        _W: 0
-        _Object: {fileID: 0}
-    - _Target: {fileID: 876095303}
-      _MethodName: SetActive
-      _PersistentArguments:
-      - _Type: 1
-        _Int: 0
-        _String: 
-        _X: 0
-        _Y: 0
-        _Z: 0
-        _W: 0
-        _Object: {fileID: 0}
-    - _Target: {fileID: 1461905495}
-      _MethodName: SetActive
-      _PersistentArguments:
-      - _Type: 1
-        _Int: 1
-        _String: 
-        _X: 0
-        _Y: 0
-        _Z: 0
-        _W: 0
-        _Object: {fileID: 0}
-    - _Target: {fileID: 310800300}
-      _MethodName: SetActive
       _PersistentArguments:
       - _Type: 1
         _Int: 1
@@ -67528,7 +68250,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
+    SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -67549,7 +68271,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
+    SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -68151,7 +68873,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
+    SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -68339,8 +69061,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
-    SerializedBytes: 0101250000003c00500065007200730069007300740065006e00740043006f006d0070006f006e0065006e00740073003e006b005f005f004200610063006b0069006e0067004600690065006c0064002f00000000016c000000530079007300740065006d002e0043006f006c006c0065006300740069006f006e0073002e00470065006e0065007200690063002e004c00690073007400600031005b005b00530075006e00730065007400530079007300740065006d0073002e00500065007200730069007300740065006e00630065002e004900500065007200730069007300740065006e00740043006f006d0070006f006e0065006e0074002c002000530075006e00730065007400530079007300740065006d0073005d005d002c0020006d00730063006f0072006c00690062000000000006000000000000000007050b010b0000005f007200650066006500720065006e00630065007300000000000101240000003c0049006e0074006500720061006300740069006f006e00480061006e0064006c006500720073003e006b005f005f004200610063006b0069006e0067004600690065006c0064002f010000000175000000530079007300740065006d002e0043006f006c006c0065006300740069006f006e0073002e00470065006e0065007200690063002e004c00690073007400600031005b005b00530075006e00730065007400530079007300740065006d0073002e0045006e007400690074006900650073002e0049006e00740065007200610063007400610062006c0065002e00490049006e0074006500720061006300740069006f006e00480061006e0064006c00650072002c002000530075006e00730065007400530079007300740065006d0073005d005d002c0020006d00730063006f0072006c0069006200010000000601000000000000000c0100000007050b01110000005f0068006900670068006c006900670068007400480061006e0064006c006500720002000000
+    SerializedFormat: 2
+    SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 7258324837399183481}
     - {fileID: 8613296240024704442}
@@ -68349,7 +69071,42 @@ MonoBehaviour:
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: <PersistentComponents>k__BackingField
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[SunsetSystems.Persistence.IPersistentComponent,
+        SunsetSystems]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _references
+      Entry: 10
+      Data: 0
+    - Name: <InteractionHandlers>k__BackingField
+      Entry: 7
+      Data: 1|System.Collections.Generic.List`1[[SunsetSystems.Entities.Interactable.IInteractionHandler,
+        SunsetSystems]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _highlightHandler
+      Entry: 10
+      Data: 2
   <Faction>k__BackingField: 0
   _unique: {fileID: 8759151109328000909}
   <EnablePersistence>k__BackingField: 1
@@ -68821,8 +69578,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
-    SerializedBytes: 0101250000003c00500065007200730069007300740065006e00740043006f006d0070006f006e0065006e00740073003e006b005f005f004200610063006b0069006e0067004600690065006c0064002f00000000016c000000530079007300740065006d002e0043006f006c006c0065006300740069006f006e0073002e00470065006e0065007200690063002e004c00690073007400600031005b005b00530075006e00730065007400530079007300740065006d0073002e00500065007200730069007300740065006e00630065002e004900500065007200730069007300740065006e00740043006f006d0070006f006e0065006e0074002c002000530075006e00730065007400530079007300740065006d0073005d005d002c0020006d00730063006f0072006c00690062000000000006000000000000000007050b010b0000005f007200650066006500720065006e00630065007300000000000101240000003c0049006e0074006500720061006300740069006f006e00480061006e0064006c006500720073003e006b005f005f004200610063006b0069006e0067004600690065006c0064002f010000000175000000530079007300740065006d002e0043006f006c006c0065006300740069006f006e0073002e00470065006e0065007200690063002e004c00690073007400600031005b005b00530075006e00730065007400530079007300740065006d0073002e0045006e007400690074006900650073002e0049006e00740065007200610063007400610062006c0065002e00490049006e0074006500720061006300740069006f006e00480061006e0064006c00650072002c002000530075006e00730065007400530079007300740065006d0073005d005d002c0020006d00730063006f0072006c0069006200010000000601000000000000000c0100000007050b01110000005f0068006900670068006c006900670068007400480061006e0064006c006500720002000000
+    SerializedFormat: 2
+    SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 2830264552334238496}
     - {fileID: 5015156290917675208}
@@ -68831,7 +69588,42 @@ MonoBehaviour:
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: <PersistentComponents>k__BackingField
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[SunsetSystems.Persistence.IPersistentComponent,
+        SunsetSystems]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _references
+      Entry: 10
+      Data: 0
+    - Name: <InteractionHandlers>k__BackingField
+      Entry: 7
+      Data: 1|System.Collections.Generic.List`1[[SunsetSystems.Entities.Interactable.IInteractionHandler,
+        SunsetSystems]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _highlightHandler
+      Entry: 10
+      Data: 2
   <Faction>k__BackingField: 0
   _unique: {fileID: 6206383478018958181}
   <EnablePersistence>k__BackingField: 1
@@ -69113,7 +69905,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
+    SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -69166,7 +69958,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
+    SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -69721,7 +70513,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
+    SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -69742,7 +70534,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
+    SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -71156,7 +71948,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
+    SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -71431,7 +72223,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
+    SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -71452,7 +72244,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
+    SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -71478,7 +72270,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
+    SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -72320,8 +73112,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
-    SerializedBytes: 0101250000003c00500065007200730069007300740065006e00740043006f006d0070006f006e0065006e00740073003e006b005f005f004200610063006b0069006e0067004600690065006c0064002f00000000016c000000530079007300740065006d002e0043006f006c006c0065006300740069006f006e0073002e00470065006e0065007200690063002e004c00690073007400600031005b005b00530075006e00730065007400530079007300740065006d0073002e00500065007200730069007300740065006e00630065002e004900500065007200730069007300740065006e00740043006f006d0070006f006e0065006e0074002c002000530075006e00730065007400530079007300740065006d0073005d005d002c0020006d00730063006f0072006c00690062000000000006000000000000000007050b010b0000005f007200650066006500720065006e00630065007300000000000101240000003c0049006e0074006500720061006300740069006f006e00480061006e0064006c006500720073003e006b005f005f004200610063006b0069006e0067004600690065006c0064002f010000000175000000530079007300740065006d002e0043006f006c006c0065006300740069006f006e0073002e00470065006e0065007200690063002e004c00690073007400600031005b005b00530075006e00730065007400530079007300740065006d0073002e0045006e007400690074006900650073002e0049006e00740065007200610063007400610062006c0065002e00490049006e0074006500720061006300740069006f006e00480061006e0064006c00650072002c002000530075006e00730065007400530079007300740065006d0073005d005d002c0020006d00730063006f0072006c0069006200010000000601000000000000000c0100000007050b01110000005f0068006900670068006c006900670068007400480061006e0064006c006500720002000000
+    SerializedFormat: 2
+    SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 3715605147699786640}
     - {fileID: 4639866671184038554}
@@ -72330,7 +73122,42 @@ MonoBehaviour:
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: <PersistentComponents>k__BackingField
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[SunsetSystems.Persistence.IPersistentComponent,
+        SunsetSystems]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _references
+      Entry: 10
+      Data: 0
+    - Name: <InteractionHandlers>k__BackingField
+      Entry: 7
+      Data: 1|System.Collections.Generic.List`1[[SunsetSystems.Entities.Interactable.IInteractionHandler,
+        SunsetSystems]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _highlightHandler
+      Entry: 10
+      Data: 2
   <Faction>k__BackingField: 0
   _unique: {fileID: 7741202270933577918}
   <EnablePersistence>k__BackingField: 1
@@ -72744,15 +73571,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
-    SerializedBytes: 0b010b0000005f007200650066006500720065006e0063006500730000000000
+    SerializedFormat: 2
+    SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 265292995730081614}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: _references
+      Entry: 10
+      Data: 0
 --- !u!1 &7740102221378635109
 GameObject:
   m_ObjectHideFlags: 0
@@ -72836,7 +73666,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
+    SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -75951,7 +76781,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
+    SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -76033,7 +76863,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
+    SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -76241,8 +77071,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
-    SerializedBytes: 0101250000003c00500065007200730069007300740065006e00740043006f006d0070006f006e0065006e00740073003e006b005f005f004200610063006b0069006e0067004600690065006c0064002f00000000016c000000530079007300740065006d002e0043006f006c006c0065006300740069006f006e0073002e00470065006e0065007200690063002e004c00690073007400600031005b005b00530075006e00730065007400530079007300740065006d0073002e00500065007200730069007300740065006e00630065002e004900500065007200730069007300740065006e00740043006f006d0070006f006e0065006e0074002c002000530075006e00730065007400530079007300740065006d0073005d005d002c0020006d00730063006f0072006c00690062000000000006000000000000000007050b010b0000005f007200650066006500720065006e00630065007300000000000101240000003c0049006e0074006500720061006300740069006f006e00480061006e0064006c006500720073003e006b005f005f004200610063006b0069006e0067004600690065006c0064002f010000000175000000530079007300740065006d002e0043006f006c006c0065006300740069006f006e0073002e00470065006e0065007200690063002e004c00690073007400600031005b005b00530075006e00730065007400530079007300740065006d0073002e0045006e007400690074006900650073002e0049006e00740065007200610063007400610062006c0065002e00490049006e0074006500720061006300740069006f006e00480061006e0064006c00650072002c002000530075006e00730065007400530079007300740065006d0073005d005d002c0020006d00730063006f0072006c0069006200010000000601000000000000000c0100000007050b01110000005f0068006900670068006c006900670068007400480061006e0064006c006500720002000000
+    SerializedFormat: 2
+    SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 6420178813409334459}
     - {fileID: 8669931733519979512}
@@ -76251,7 +77081,42 @@ MonoBehaviour:
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: <PersistentComponents>k__BackingField
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[SunsetSystems.Persistence.IPersistentComponent,
+        SunsetSystems]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _references
+      Entry: 10
+      Data: 0
+    - Name: <InteractionHandlers>k__BackingField
+      Entry: 7
+      Data: 1|System.Collections.Generic.List`1[[SunsetSystems.Entities.Interactable.IInteractionHandler,
+        SunsetSystems]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _highlightHandler
+      Entry: 10
+      Data: 2
   <Faction>k__BackingField: 0
   _unique: {fileID: 3150670096275377529}
   <EnablePersistence>k__BackingField: 1
@@ -76429,7 +77294,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
+    SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -76529,7 +77394,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
+    SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -77177,7 +78042,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
+    SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -77864,7 +78729,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
+    SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -77939,7 +78804,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
+    SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects: []
     SerializedBytesString: 
@@ -78523,8 +79388,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
-    SerializedFormat: 0
-    SerializedBytes: 0101250000003c00500065007200730069007300740065006e00740043006f006d0070006f006e0065006e00740073003e006b005f005f004200610063006b0069006e0067004600690065006c0064002f00000000016c000000530079007300740065006d002e0043006f006c006c0065006300740069006f006e0073002e00470065006e0065007200690063002e004c00690073007400600031005b005b00530075006e00730065007400530079007300740065006d0073002e00500065007200730069007300740065006e00630065002e004900500065007200730069007300740065006e00740043006f006d0070006f006e0065006e0074002c002000530075006e00730065007400530079007300740065006d0073005d005d002c0020006d00730063006f0072006c00690062000000000006000000000000000007050b010b0000005f007200650066006500720065006e00630065007300000000000101240000003c0049006e0074006500720061006300740069006f006e00480061006e0064006c006500720073003e006b005f005f004200610063006b0069006e0067004600690065006c0064002f010000000175000000530079007300740065006d002e0043006f006c006c0065006300740069006f006e0073002e00470065006e0065007200690063002e004c00690073007400600031005b005b00530075006e00730065007400530079007300740065006d0073002e0045006e007400690074006900650073002e0049006e00740065007200610063007400610062006c0065002e00490049006e0074006500720061006300740069006f006e00480061006e0064006c00650072002c002000530075006e00730065007400530079007300740065006d0073005d005d002c0020006d00730063006f0072006c0069006200010000000601000000000000000c0100000007050b01110000005f0068006900670068006c006900670068007400480061006e0064006c006500720002000000
+    SerializedFormat: 2
+    SerializedBytes: 
     ReferencedUnityObjects:
     - {fileID: 8908677987100016289}
     - {fileID: 2954050786318652630}
@@ -78533,7 +79398,42 @@ MonoBehaviour:
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes: []
+    SerializationNodes:
+    - Name: <PersistentComponents>k__BackingField
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[SunsetSystems.Persistence.IPersistentComponent,
+        SunsetSystems]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _references
+      Entry: 10
+      Data: 0
+    - Name: <InteractionHandlers>k__BackingField
+      Entry: 7
+      Data: 1|System.Collections.Generic.List`1[[SunsetSystems.Entities.Interactable.IInteractionHandler,
+        SunsetSystems]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 1
+    - Name: 
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _highlightHandler
+      Entry: 10
+      Data: 2
   <Faction>k__BackingField: 0
   _unique: {fileID: 137367140729733844}
   <EnablePersistence>k__BackingField: 1
