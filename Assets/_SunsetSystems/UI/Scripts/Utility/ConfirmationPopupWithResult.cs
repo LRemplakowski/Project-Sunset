@@ -33,5 +33,11 @@ namespace SunsetSystems.UI.Utils
         }
 
         protected abstract bool TryGetReturnValue(out T result);
+
+        public void Show(Action<T> onConfirmDelegate)
+        {
+            base.Show(null);
+            _confirmationDelegate = onConfirmDelegate;
+        }
     }
 }
