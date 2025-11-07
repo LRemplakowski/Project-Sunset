@@ -34,6 +34,8 @@ namespace SunsetSystems.Cinematics
         private void OnDestroy()
         {
             UnsubscribeDirectorEvents();
+            if (SunsetInputHandler.Instance != null)
+                SunsetInputHandler.Instance.ClearInputOverride(this);
         }
 
         private void SubscribeDirectorEvents()
