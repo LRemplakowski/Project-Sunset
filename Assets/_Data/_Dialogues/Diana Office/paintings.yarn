@@ -15,8 +15,6 @@ position: -225,-696
     <<jump paintingIntelligenceRoll>>
 -> [nomarkup][Destroy the paintings.][/nomarkup] <<if CustomVisited("paintingsDestroyed") == false>> #line:063d360 
     <<jump paintingsDestroyed>>
--> [nomarkup][Examine the safe.][/nomarkup] <<if $paintingsPutDown == true>> #line:0847f88 
-    <<jump safeExamine>>
 -> [nomarkup][Take down one of the paintings.][/nomarkup] <<if CustomVisited("successContinued") == false and $safeDiscovered == true and CustomVisited("paintingsDestroyed") == false>> #line:033b9e3 
     <<jump successContinued>>
 -> [nomarkup][Examine destroyed paintings.][/nomarkup] <<if CustomVisited("paintingsDestroyed") and CustomVisited("examineScraps") is false>>
@@ -60,8 +58,6 @@ position: 1190,619
 {$kieran}: As long as we're missing the correct combination, prying it open would take the entire night. #lastline #line:08cdc27
 -> [nomarkup][Examine the stamp.][/nomarkup] <<if CustomVisited("paintingsDestroyed") == false>> #line:08344ae 
     <<jump paintingSuccessExamination>>
--> [nomarkup][Examine the safe.][/nomarkup] #line:0ad9884 
-    <<jump safeExamine>>
 -> [nomarkup][Walk away.][/nomarkup] #line:03b4936 
 ===
 title: paintingIntelligenceSuccess

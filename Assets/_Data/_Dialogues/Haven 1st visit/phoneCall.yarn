@@ -11,7 +11,7 @@ tags:
 ---
 {$storyteller}: [nomarkup][The last voice you want to hear blares out the line.][/nomarkup] #line:03673f5
 {$storyteller}: [nomarkup][Your ex.][/nomarkup]  
-{$exspouse}: Oh thank God you answered! Are you alright? Nobody has been able to reach you. I was getting worried. #line:0acac77 
+{$exspouse}: Oh, thank God you answered! Are you alright? Nobody has been able to reach you. I was getting worried. #line:0acac77 
 {$storyteller}: [nomarkup][The worst part is you know their concern is sincere.][/nomarkup] #line:08f0ead 
 -> {$pcName}: Sorry, I was sleeping. #line:0668f0e 
     {$exspouse}: Okay? It's 8. Your phone's been ringing all day. Clients. #line:0fc5976 
@@ -20,14 +20,14 @@ tags:
 -> {$pcName}: [nomarkup][Hang up.][/nomarkup] #line:05fcbfb 
     {$storyteller}: [nomarkup][Arthur desperately mutters something before the line clicks.][/nomarkup] #line:01792fb 
     <<jump AfterPhoneCall>>
-{$exspouse}: Well listen, sorry if this is bad timing, but I'm stressing about the - my mortgage, and I was wondering if you have any updates about the money I lent you. #line:03744d9 
+{$exspouse}: Well, listen, sorry if this is bad timing, but I'm stressing about the - my mortgage, and I was wondering if you have any updates about the money I lent you. #line:03744d9 
 -> {$pcName}: I'm working on it. Give me time. (Charisma + Persuasion) #line:0c5da88 
     <<if Roll("Charisma","Persuasion") >= 2>>
         {$exspouse}: Okay. I trust you. Just keep me updated, alright? #success #success #line:00bd597  
         {$exspouse}: I'll let you get to it then. Bye. 
         <<jump AfterPhoneCall>>
     <<else>>
-        {$exspouse}: You've been saying that for months now. Look, I tried to help you get back your feet and start your agency, but I feel like I'm running out of options here. #failure #line:0f845ee 
+        {$exspouse}: You've been saying that for months now. Look, I tried to help you get back on your feet and start your agency, but I feel like I'm running out of options here. #failure #line:0f845ee 
         -> {$pcName}: I understand where you're coming from. I'm sorry. #line:0efc39a 
             {$exspouse}: It's okay. I know you're good for it. Just keep me updated, alright? #line:0f7704f 
             {$exspouse}: I'll let you get to it then. Bye.
@@ -40,16 +40,16 @@ tags:
             {$storyteller}: [nomarkup][Arthur desperately mutters something before the line clicks.][/nomarkup] #line:07ea3e2 
             <<jump AfterPhoneCall>>
     <<endif>>
--> [nomarkup][Hang up.][/nomarkup] #line:030676c 
+-> {$pcName}: [nomarkup][Hang up.][/nomarkup] #line:030676c 
     {$storyteller}: [nomarkup][Arthur desperately mutters something before the line clicks.][/nomarkup] #line:064cff9 
     <<jump AfterPhoneCall>>
 ===
 title: AfterPhoneCall
 tags:
 ---
-{$storyteller}: [nomarkup][You didn't want things to end like this. You wish he never gave you that loan, but you also know you'd have never been able to start your agency without it.][/nomarkup]
+{$storyteller}: [nomarkup][You didn't want things to end like this. You wish he had never given you that loan, but you also know you'd have never been able to start your agency without it.][/nomarkup]
 -> {$pcName}: Ugh. #line:02db9ac 
 <<CompleteObjective "Q_0P_MAIN_SATURDAY_START" "ANSWER_PHONE">>
 {$storyteller}: [nomarkup][Your body mirrors the weariness of your mind. You need something to take the edge off.][/nomarkup] #line:077a6da 
--> [nomarkup][Walk away.][/nomarkup]
+-> {$pcName}: [nomarkup][Walk away.][/nomarkup]
 ===

@@ -73,7 +73,7 @@ title: safeOpened
 tags:
 position: -1111,-157
 ---
-{$storyteller}: [nomarkup][The safe contains cash and a few financial documents and deedsA .45 caliber gun lying inside along with some ammunition. A gleaming vial of a vivid red liquid.][/nomarkup] #line:0d46450
+{$storyteller}: [nomarkup][The safe contains cash and a few financial documents and deeds. A .45 caliber gun lying inside, along with some ammunition. A gleaming vial of a vivid red liquid.][/nomarkup] #line:0d46450
 {$kieran}: Great work! #line:06e7470
 <<if GetIsPartyMemberRecruited($anastasia) is true>>
     {$anastasia}: How do we split the spoils? #line:0b237a6
@@ -119,7 +119,7 @@ title: safeDocumentsExamine
 position: -1165,1070
 ---
 {$storyteller}: [nomarkup][You rummage through the documents. Nothing particularly interesting. Just financial records and the like.][/nomarkup]
-{$storyteller}: [nomarkup][When you flip through one of the stapled packets, a folded up piece of paper that had been loosely stuck between its pages falls to the floor. You pick it up to examine it.][/nomarkup]
+{$storyteller}: [nomarkup][When you flip through one of the stapled packets, a folded-up piece of paper that had been loosely stuck between its pages falls to the floor. You pick it up to examine it.][/nomarkup]
 Love Letter: For my beloved Diana, the only one who can see me for who I am and pierce the darkness I've armored myself with... The only person who knows my pain intimately enough to stave my Beast away... #line:0999c1e 
 Love Letter: I can't stand to see you used by that insect of a Kindred you call your Master any longer. Like a mosquito, or some hungry parasite, she doesn't just sting, she bites and drains and takes and bleeds you dry until there is nothing left of you nor the woman you used to be - the woman I love... #line:0333eda 
 Love Letter: You have spent so long under her cruel watch - nothing more than a convenient tool to be used and abused, and I think it has been long enough... So fight it.
@@ -169,7 +169,7 @@ position: 458,599
     {$kieran}: Yes. A useful trick. (+1 Kieran Influence) #line:01b5ea3
     <<ModifyInfluence 1 {$kieran}>>
     -> {$pcName}: Can I learn to do that? #line:0ced55a
-    {$kieran}: [nomarkup][Shakes his head.][/nomarkup] It's something only my Clan is permitted to learn. #line:01aeb8a
+    {$kieran}: [nomarkup][Shakes his head.][/nomarkup] It's something only my clan is permitted to learn. #line:01aeb8a
     <<if GetIsPartyMemberRecruited($anastasia) is true>>
         {$anastasia}: Permitted? Jeez. #line:0ed285a
     <<endif>>
@@ -191,8 +191,8 @@ position: -245,1149
 title: safeContinuation
 position: -370,798
 ---
-{$kieran}: Brujah blood. Unless it's yours then it very well may be… #line:0ef449e
-{$kieran}: We should hold on to this vial. Diana may be more involved with your Sire than we realized.  #line:04e369d
+{$kieran}: Brujah blood. Unless it's yours, then it very well may be… #line:0ef449e
+{$kieran}: We should hold on to this vial. Diana may be more involved with your sire than we realized.  #line:04e369d
 <<jump safeQuestions>>
 ===
 title: takeSafeMoney
@@ -201,7 +201,7 @@ position: -284,185
 {$storyteller}: [nomarkup][Kieran gives you a disapproving look.][/nomarkup]
 -> {$pcName}: I need to pay my bills. #line:0212bfb
 <<ModifyInfluence -2 {$kieran}>>
-{$kieran}: Then you should other means of income before resorting to stealing from a Camarilla establishment! (-2 Kieran influence) #line:0a341aa
+{$kieran}: Then you should have other means of income before resorting to stealing from a Camarilla establishment! (-2 Kieran influence) #line:0a341aa
 <<AddMoney 500>>
 <<jump safeQuestions>>
 ===

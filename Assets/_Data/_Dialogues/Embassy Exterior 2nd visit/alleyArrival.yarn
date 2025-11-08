@@ -13,7 +13,7 @@ position: -516,-712
 {$storyteller}: [nomarkup][The alley smells like blood, death, and burnt rubber. A person slumped against the brick wall tilts their head up just enough to make direct eye contact as the door slams closed behind you.][/nomarkup] #line:0d12354
 <<if GetIsPartyMemberRecruited($anastasia) is true>>
     {$anastasia}: Shit! Let's get the hell out of here. #line:0694dee
-    {$kieran}: You're welcome to leave, but we cannot until we find her Sire. We cannot go back to Dominic empty-handed. #line:0296d1e #lastline
+    {$kieran}: You're welcome to leave, but we cannot until we find her sire. We cannot go back to Dominic empty-handed. #line:0296d1e #lastline
 <<else>>
     {$storyteller}: [nomarkup][Sirens can be heard wailing not too far from here.][/nomarkup]
     {$kieran}: We cannot leave until we find your sire. We cannot go back to Dominic empty-handed. #lastline #line:0f2aadd

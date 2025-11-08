@@ -11,7 +11,7 @@ Mysterious Woman: We're almost there, Di! Start the car for me, will you? We hav
 title: beginFlashback
 position: 107,-119
 ---
-[nomarkup][You start to remember the night you found yourself at the Embassy. ][/nomarkup] #line:005c744
+[nomarkup][You start to remember the night you found yourself at the Embassy.][/nomarkup] #line:005c744
 -> [nomarkup][You needed the job so badly...][/nomarkup] #line:055f3a4
 <<jump JobFlashback>>
 -> [nomarkup][You were lonely and needed company...][/nomarkup] #line:0997034
@@ -46,10 +46,8 @@ title: arrivalPassive
 position: 64,17
 ---
 //if scene didn't progress to Haven interior, it does now//
-{$storyteller}: \[You didn't know <i>she<i> was already inside till it was too late.\]
+{$storyteller}: [nomarkup][You didn't know <i>she</i> was already inside till it was too late.][/nomarkup]
 ===
-//PC is tied to the chair, Lucia is leaning towards him, Diego lies on his side on the floor//
-//fade to black, end flashback, back to embassy exterior where flashback started//
 
 
 

@@ -35,7 +35,7 @@ tags:
     {$storyteller}: [nomarkup][You find his wallet containing some money and ID. His name is Diego Vazguez.][/nomarkup] #success #line:0d4bee2 
     <<AddMoney 50>>
 <<else>>
-    {$storyteller}: [nomarkup][You find his wallet and ID, but his name is partially smeared in blood. You can only make out his initials - DV.][/nomarkup] #failure #line:0544c71 
+    {$storyteller}: [nomarkup][You find his wallet and ID, but his name is partially smeared in blood. You can only make out his initials, DV.][/nomarkup] #failure #line:0544c71 
 <<endif>>
 {$storyteller}: [nomarkup][You find a black and white photo of him holding a baby.][/nomarkup] #lastline #line:0b217be 
 <<jump ShowerInteractions>>

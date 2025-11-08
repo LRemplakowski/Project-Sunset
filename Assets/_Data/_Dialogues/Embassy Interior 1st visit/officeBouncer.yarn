@@ -3,7 +3,7 @@ position: 58,-333
 ---
 //if $kateDealsWithBouncer==1 there is no bouncer//
 <<set $talkedToBouncer to true>>
-{$storyteller}: [nomarkup][An intimidating, almost stereotypical Bouncer in a tight, black V-neckand sunglasses crosses his arms before you.][/nomarkup]
+{$storyteller}: [nomarkup][An intimidating, almost stereotypical Bouncer in a tight, black V-neck and sunglasses crosses his arms before you.][/nomarkup]
 Office Bouncer: [nomarkup][Tersely.][/nomarkup] Private area. Ms. Foster is not taking any visitors at the moment
 -> {$pcName}: She's expecting me. <<if ($dianaOffice == true) and (CustomVisited("officeBouncerTechnicalNode1") == false)>> #line:0400125 
     {$storyteller}: [nomarkup][He glares through his shades.][/nomarkup]
@@ -38,7 +38,7 @@ Office Bouncer: ...Ms. Foster is not taking any visitors at the moment. #line:0b
 {$kieran}: Kate isn't going to like this. 
 {$storyteller}: [nomarkup][A bead of sweat forms off the Bouncer's head but he doesn't budge.][/nomarkup] #line:072e3c5 
 <<if GetIsPartyMemberRecruited($anastasia) is true>>
-    $anastasia}: Oh, let me guess. [nomarkup][Mimicing the bouncer's voice.][/nomarkup] Ms. Foster is not taking any visitors at the moment
+    {$anastasia}: Oh, let me guess. [nomarkup][Mimicing the bouncer's voice.][/nomarkup] Ms. Foster is not taking any visitors at the moment
     {$storyteller}: [nomarkup][He swallows, visibly stressed.][/nomarkup]
     Office Bouncer: ...Ms. Foster is not taking any visitors at the moment.
     {$anastasia}: See? Told ya.

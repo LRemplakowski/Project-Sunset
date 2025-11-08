@@ -20,7 +20,7 @@ position: 714,-1674
 <<if GetIsPartyMemberRecruited($anastasia) is true>>
     {$anastasia}: So what? She [nomarkup]<i>is</i>[/nomarkup] a Tremere's ghoul. Isn't it obvious that she would be interested in this stuff? #line:07b2bb1
 <<endif>>
-{$kieran}: She has never shown any interest in magic nor the occult. She was satisfied with running the show for Kate, or at least, she seemed to be... #line:096dd74
+{$kieran}: She has never shown any interest in magic or the occult. She was satisfied with running the show for Kate, or at least, she seemed to be... #line:096dd74
 <<jump bookcaseInteractions>>
 ===
 title: bookcaseInteractions
@@ -205,14 +205,14 @@ title: poeMissingPagesDexteritySuccess
 position: 925,624
 ---
 {$storyteller}: [nomarkup][The shelf is really high up there. Even on your tip-toes, it's a stretch. You look around for something you can climb on, but all you can see is heavy furniture.][/nomarkup] #success
-{$storyteller}: [nomarkup][Praying that the shelves won't break under your weight, you decide to use them as an improvised ladder. Luckily for you, the bookshelf is made from solid mahogany, and you are able to reach the pages before causing any damage.][/nomarkup] 
+{$storyteller}: [nomarkup][Praying that the shelves won't break under your weight, you decide to use them as an improvised ladder. Luckily for you, the bookshelf is made from solid mahogany, and you manage to reach the pages before causing any damage.][/nomarkup] 
 {$storyteller}: [nomarkup][Just as suspected, these are the missing pages containing the decryption key and riddle solution from the story.][/nomarkup]
 <<jump poeBookExamineMentalSuccess>>
 ===
 title: poeMissingPagesDexterityFailure
 position: 270,1119
 ---
-{$storyteller}: [nomarkup][Praying that the shelves won't break under your weight, you decide to use them as an improvised ladder. It cracks immediately however. You slip and fall onto the floor.][/nomarkup] #failure
+{$storyteller}: [nomarkup][Praying that the shelves won't break under your weight, you decide to use them as an improvised ladder. It cracks immediately, however. You slip and fall onto the floor.][/nomarkup] #failure
 <<if GetIsPartyMemberRecruited($anastasia) is true>>
     {$anastasia}: Graceful.  #line:0e53648 
 <<endif>>

@@ -1,14 +1,14 @@
 ﻿title: embassyArrival
 tags:
 ---
-{$storyteller}: [nomarkup][Kieran chauffeurs you to Embassy, parallel parking neatly next to the sidewalk a down from the main entrance to this - the city's best (and only) British rock club.][/nomarkup]
+{$storyteller}: [nomarkup][Kieran chauffeurs you to Embassy, parallel parking neatly next to the sidewalk down from the main entrance to this the city's best (and only) British rock club.][/nomarkup]
 {$storyteller}: [nomarkup][An ominous glow from the neon Union Jack illuminates the sidewalk as you both exit Kieran's vehicle.][/nomarkup] #line:00aef1c
-{$kieran}: As I was saying the Embassy is my Sire, Kate's Domain. Off the books, of course, the club's day to day operations are run by her ghoul, Diana. #lastline #line:01bda99
+{$kieran}: As I was saying, the Embassy is my sire's Kate, Domain. Off the books, of course, the club's day-to-day operations are run by her ghoul, Diana. #lastline #line:01bda99
 <<jump ArrivalQuestions>>
 ===
 title: ArrivalQuestions
 ---
--> {$pcName}: You're telling me "ghouls" are real too? <<if CustomVisited("vampiricWeaknesses") == false>> #line:0a1597d 
+-> {$pcName}: You're telling me "ghouls" are real, too? <<if CustomVisited("vampiricWeaknesses") == false>> #line:0a1597d 
     <<jump vampiricWeaknesses>>
 -> {$pcName}: What do you mean by 'domain'? <<if CustomVisited("whatIsDomain") == false>> #line:091d4cf 
     <<jump whatIsDomain>>
@@ -21,7 +21,7 @@ position: 217,-136
 {$kieran}: Being Kindred is uncharted territory for you. A re-evaluation of your beliefs would be prudent. #line:06a28c3
 {$kieran}: When a mortal drinks some of a Kindred's blood, they become creatures subservient to us - ghouls. They share the longevity of their master, given they do not bite the hand that feeds them... #line:03b7150
 -> {$pcName}: So we do live forever? #line:02593b4
-    {$kieran}:Those who keep away from trouble most certainly can live long enough for it to feel so, but we do not share this prospect in our current situation.
+    {$kieran}: Those who keep away from trouble most certainly can live long enough for it to feel so, but we do not share this prospect in our current situation.
     {$kieran}: I will gladly answer the questions you have about Kindred as soon as we are off the hook. #lastline #line:07bca25
     <<jump ArrivalQuestions>>
 -> {$pcName}: What does it take to kill us? #line:0a5e59d

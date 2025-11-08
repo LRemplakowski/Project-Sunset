@@ -40,7 +40,7 @@ position: 439,-259
 KNOCK! KNOCK! KNOCK! #line:0705409 
 {$storyteller}: [nomarkup][No response.][/nomarkup] #line:0fdd8d6 
 <<if GetAttributeSkillPoolSize("Wits","Insight") >= 5>>
-    {$storyteller}: [nomarkup][A shiver runs down your spine. You feel the strangest sense you shouldn't go in there.][/nomarkup] #line:0e82241 
+    {$storyteller}: [nomarkup][A shiver runs down your spine. You feel the strangest sense that you shouldn't go in there.][/nomarkup] #line:0e82241 
     <<set $strangeInsightModifier to 1>>
 <<endif>>
 <<jump DoorVisit>>

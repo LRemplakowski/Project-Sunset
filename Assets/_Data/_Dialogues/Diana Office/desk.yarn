@@ -17,7 +17,7 @@ position: 135,-1136
 title: deskInteractions
 position: 152,-466
 ---
-{$storyteller}: [nomarkup][You could use a desk like this in your apartment. It would definately make your office more... prestigious.][/nomarkup]
+{$storyteller}: [nomarkup][You could use a desk like this in your apartment. It would definitely make your office more... prestigious.][/nomarkup]
 -> [nomarkup][Inspect the desk.][/nomarkup] #line:02b7b75 
     <<jump deskExamination>>
 -> [nomarkup][Boot the computer.][/nomarkup] <<if $computerUnusable == false>> #line:001bf2a 
@@ -114,7 +114,7 @@ title: computerTurnedOn
 position: -673,-267
 ---
 {$storyteller}: [nomarkup][You flip the switch on the side of the box nesting the screen, it flashes to life. A series of scratches and metallic bleeps are emitted from the steel cube.][/nomarkup]
-{$storyteller}: [nomarkup][The glass screen shows a series of letters, which disappear less than a second later. The system promps you for a password.][/nomarkup]
+{$storyteller}: [nomarkup][The glass screen shows a series of letters, which disappear less than a second later. The system prompts you for a password.][/nomarkup]
 -> [nomarkup][Hack the computer.] (Intelligence + Technology)[/nomarkup]
     <<if Roll("intelligence","technology")>=(4-$computerModelIdentified)>>
         <<jump hackingSuccess>>
@@ -183,7 +183,7 @@ position: 136,124
 <<if Roll("Resolve","Investigation")>=4>>
     <<set $safeDiscovered to true>>
     {$storyteller}: [nomarkup][You dig through several monotonously similar sets of data indicating the financial state of the club.][/nomarkup] #success
-    {$storyteller}: [nomarkup][Nearly half an hour is spent on this wearisome slog, and you are nearing admission of defeat, when you spy an entry indicating that Diana ordered a wall mounted safe.][/nomarkup] #line:0d51e54
+    {$storyteller}: [nomarkup][Nearly half an hour is spent on this wearisome slog, and you are nearing admission of defeat, when you spy an entry indicating that Diana ordered a wall-mounted safe.][/nomarkup] #line:0d51e54
     {$storyteller}: [nomarkup][It was quite the expenditure, but as a Vegas club owner, she had the means to afford it.][/nomarkup]
     {$storyteller}: [nomarkup][You glance about, scouring the walls for it, but you don't see any indication that it's been installed in plain sight.][/nomarkup]
     {$storyteller}: [nomarkup][Maybe it's behind one of the paintings?][/nomarkup]  #line:0c55659

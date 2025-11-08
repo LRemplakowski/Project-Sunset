@@ -58,15 +58,15 @@ CRACK!
 <<endif>>
 <<HandleAltercationWithDominic>>
 {$storyteller}: [nomarkup][He saunters towards you, pinning you to the fridge, but he doesn't even raise his hands.][/nomarkup]  
-{$sheriff}: You want easy - stop strugglin'. You want messy - keep squirmin'. #line:07bce9b 
+{$sheriff}: You want easy, stop strugglin'. You want messy, keep squirmin'. #line:07bce9b 
 -> [nomarkup][Drop your weapon.][/nomarkup] <<if $gotweapon == true>> #line:0bbfd00 
     {$sheriff}: Sharp. #line:01ea142 
 -> [nomarkup][Run.][/nomarkup] #line:0ef42d5 
     [nomarkup][Before you have the chance to even take a step, he moves with inhuman speed to block your exit.][/nomarkup] #line:0b4ff3e 
-{$sheriff}: Heh, you sure know how to make an impression - I'll give you that. #line:07a7163 
+{$sheriff}: Heh, you sure know how to make an impression, I'll give you that. #line:07a7163 
 {$storyteller}: [nomarkup][Imposing. The man pulls out a cigarette and lights it, the flickering flame produced by the zippo lighter in his hand reflected by his sunglasses. The small flame is close enough to make you recoil instinctively.][/nomarkup]
 {$storyteller}: [nomarkup][He taps the ash from his cigarette in your sink.][/nomarkup]
-{$sheriff}: I'm gonna be straight with ya - you ain't walkin' away from this. I'm just debatin' whether to do it now... or haul you off and let the missus decide.
+{$sheriff}: I'm gonna be straight with ya, you ain't walkin' away from this. I'm just debatin' whether to do it now... or haul you off and let the missus decide.
 {$sheriff}: [nomarkup][He falls silent for a second, allowing himself to breathe in another dose of thick, tar-laden smoke from his cigarette.][/nomarkup]  #line:0ac98e8 
 {$sheriff}: How about this, tell me where your sire's hidin' and I'll make it quick.
 {$storyteller}: [nomarkup][Your sire? What is he talking about?][/nomarkup]
@@ -80,7 +80,7 @@ title: WantToKill
 tags:
 ---
 {$storyteller}: [nomarkup][Your words bring him to pause.][/nomarkup]
-{$sheriff}: Darlin', don't get me wrong - it ain't personal. It's jus' the law of the jungle. You're an apex predator now, but sloppy, and you've already killed.
+{$sheriff}: Darlin', don't get me wrong, it ain't personal. It's jus' the law of the jungle. You're an apex predator now, but sloppy, and you've already killed.
 {$kieran}: Consider it for your own benefit.
 <<jump AnyOtherQuestions>>
 ===
@@ -88,7 +88,7 @@ title: SireInfo
 tags:
 ---
 {$storyteller}: [nomarkup][One question in particular sticks out to you the most.][/nomarkup]
--> {$pcName}: What did you mean by sire?
+-> {$pcName}: What did you mean by 'sire'?
 {$storyteller}: [nomarkup][Both men seem a little stunned by your question. They scan you up and down searching for something.][/nomarkup] #line:0f6a534
 {$sheriff}: You don't know, do ya?
 {$kieran}: Confusion is to be expected, given the nature of your...
@@ -96,7 +96,7 @@ tags:
 {$sheriff}: They sure did ya dirty, didn't they? Hate to be the one tellin' you this, but your sire's the one that turned you into a vampire. #line:0d32d70
 {$storyteller}: [nomarkup][You're sure you must have misunderstood.][/nomarkup]
 {$pcName}: A vampire?
-{$sheriff}: Yes ma'am, you heard me right. You're one of us now.
+{$sheriff}: Yes, ma'am, you heard me right. You're one of us now.
 {$kieran}: 'Kindred' is the term we use in sophisticated circles. #line:015f79e
 {$sheriff}: Not that it matters to ya now, but at least you know you didn't kill for nothin'. #line:00482a8
 {$sheriff}: You were just hungry.
@@ -106,7 +106,7 @@ tags:
 title: WhoAreYou
 tags:
 ---
-{$sheriff}: Aw, my bad. Wouldn't wanna be rude. Name's Dominic. I'm the Sheriff 'round here, but don't get it twisted - I ain't no pig. Just the closest thing us Kindred got to law in these parts. Sourface here? That's Kieran. He's a bit shy.
+{$sheriff}: Aw, my bad. Wouldn't wanna be rude. Name's Dominic. I'm the Sheriff 'round here, but don't get it twisted, I ain't no pig. Just the closest thing us Kindred got to law in these parts. Sourface here? That's Kieran. He's a bit shy.
 {$kieran}: I can introduce myself. #line:00c1a47 
 {$sheriff}: Sure you can. #line:0d2b8f2 
 {$storyteller}: [nomarkup][Kieran sighs, glaring tired daggers at Dominic.][/nomarkup] #line:091e88b  
@@ -161,30 +161,30 @@ tags:
 <<if GetAttributeSkillPoolSize("Composure","Insight") >= 4>>
     {$storyteller}: [nomarkup][You can't shake off a feeling that Dominic shows signs of relief for some reason. It's discreet, but it's there. His posture got less tense.][/nomarkup] #line:0f02589
 <<endif>>
-{$kieran}: She has proven to be very resourceful and insightful in the past. Killing her will only a waste of resources and potential. 
+{$kieran}: She has proven to be very resourceful and insightful in the past. Killing her will be a waste of resources and potential. 
 {$kieran}: She managed to put the heat on the Prince. She was also very close to discovering Kindred's existence.
 {$kieran}: If we hope to find her sire, let's not waste her talents and use them in this endeavor. Two birds with one stone, so to speak.
 {$storyteller}: [nomarkup][Dominic slightly loosens his iron grip, but remains steadfast. His brow furrows, and you can practically see the cogs in his mind beginning to spin.][/nomarkup]
-{$sheriff}: I see why Kate keeps you around, Kieran. You make good points, but Sam would be pissed if she found out I allowed a fledgling loose let alone. Tellin' her name would not make it any easier. 
+{$sheriff}: I see why Kate keeps you around, Kieran. You make good points, but Sam would be pissed if she found out I allowed a fledgling loos. Let alone, tellin' her name would not make it any easier. 
 {$kieran}: Like you stated, she is not experienced in our ways. Tracking her down would not be challenging. Especially now, when we know of her identity and appearance.
 {$storyteller}: [nomarkup][He looks straight at you in a way that makes every fibre in your body tighten.][/nomarkup]
 {$kieran}: You will not squander this opportunity by running, correct?
 {$storyteller}: [nomarkup][You nod in agreement. Regardless of whether or not you mean, you know it'd be suicide to refuse.][/nomarkup] 
-{$kieran}: Should she prove herself to be capable, the Praxis will surely find a place for someone who is capable in the art of investigation. Even you cannot deny that - given your role.
-{$storyteller}: [nomarkup][Dominic stays silent for a few moments before his cheeky smile returns; he sighs, shakes his head and takes a step back. He drops you to the floor.][/nomarkup]
+{$kieran}: Should she prove herself to be capable, the Praxis will surely find a place for someone capable in the art of investigation. Even you cannot deny that, given your role.
+{$storyteller}: [nomarkup][Dominic stays silent for a few moments before his cheeky smile returns; he sighs, shakes his head, and takes a step back. He drops you to the floor.][/nomarkup]
 {$sheriff}: You win this one. But that girl's your mess to clean up. Come hell or high water, you stick together. I just hope whatever you're after's worth all this blood and noise. #line:04eea9b 
 {$storyteller}: [nomarkup][Kieran blinks several times. You hope he doesn't regret his choice.][/nomarkup] 
 {$kieran}: Understood.
 {$storyteller}: [nomarkup][Dominic grins, showing nearly all his teeth in satisfaction.][/nomarkup] 
 -> {$pcName}: Thanks, I guess. #line:0f24878 
     {$sheriff}: That's the spirit.
-    {$storyteller}: [nomarkup][He pats you on the arm - like you're his best friend. It makes you feel even more uncomfortable.][/nomarkup]
+    {$storyteller}: [nomarkup][He pats you on the arm like you're his best friend. It makes you feel even more uncomfortable.][/nomarkup]
     {$sheriff}: It ain't me you oughta be thankin' though. 
 -> {$pcName}: I'm nobody's pet. #line:0df7461 
     {$sheriff}: I think you might be, darlin'. Think whatever you want, but better behave unless you wanna be put down like a rabid dog.
-{$sheriff}: But I do have one condition - can't be goin' home to my wife knowin' I've gone and broken too many Traditions. Can't have the rabble thinkin' I'm handin' out hall passes like hotcakes.
+{$sheriff}: But I do have one condition: can't be goin' home to my wife knowin' I've gone and broken too many Traditions. Can't have the rabble thinkin' I'm handin' out hall passes like hotcakes.
 {$storyteller}: [nomarkup][He lowers his sunglasses slightly and you see his eyebrows rise over their rims, a serious look on his face.][/nomarkup] #line:08fe248
-{$sheriff}: You need to find your Sire. Tonight. We clear?
+{$sheriff}: You need to find your sire. Tonight. We clear?
 {$pcName}: That's impossible! I don't even remember where I was last night. #line:0df954f 
 {$kieran}: ... I'm sure we will find some way to manage.
 {$storyteller}: [nomarkup][He says, looking at you.][/nomarkup] #line:05082d0 
@@ -203,43 +203,42 @@ tags:
     {$sheriff}: Ah, 'course you're a Brujah. #line:0af945a 
 <<endif>> 
 {$pcName}: What's that supposed to mean? #line:0dc424c 
-{$kieran}: Similar to how humans have ethnicities, Kindred have certain... classifications applicable to us. We call them Clans.
+{$kieran}: Similar to how humans have ethnicities, Kindred have certain... classifications applicable to us. We call them clans.
 {$kieran}: You come from an ancient bloodline of Kindred known for their... strong convictions. #line:0efa0eb 
 {$sheriff}: Guess it ain't your fault you're the kinda trouble only a sire could love. #line:06773aa 
 {$storyteller}: [nomarkup][Coming from this guy, of all people...][/nomarkup]
-{$sheriff}: Heh... judge by the strength o' your blood, your sire ain't small potatoes. Good luck - you're both gonna need it #line:073f51b 
+{$sheriff}: Heh... judge by the strength o' your blood, your sire ain't small potatoes. Good luck, you're both gonna need it. #line:073f51b 
 {$sheriff}: I'm off. I'll have a team swing by to clean up soon. Pleasure meetin' you, Desiree. I'll be in touch.
 {$storyteller}: [nomarkup][He lowers his shades a bit and winks.][/nomarkup]  #line:079d346 
 <<CompleteObjective "Q_0P_MAIN_SATURDAY_START" "TAKE_COVER">>
 {$kieran}: Well then. 
 {$storyteller}: [nomarkup][His breath takes a short halt as he is looking at his watch.][/nomarkup]
-{$kieran}: We are on the clock, miss Bardot. We have approximately nine hours, so let's make the best of it. 
+{$kieran}: We are on the clock, miss. We have approximately nine hours, so let's make the best of it. 
 {$storyteller}: [nomarkup][He looks back up at you.][/nomarkup]
-{$kieran}: Be blunt with me; we cannot afford insincerity. I wish to solve your problem as much as you do. Do you remember anything, whatsoever, from the last 24 hours? #line:0ba7936 
+{$kieran}: Be blunt with me; we cannot afford insincerity. I wish to solve your problem as much as you do. Do you remember anything whatsoever from the last 24 hours? #line:0ba7936 
 -> {$pcName}: I wish I did. #line:0c089cd 
     {$kieran}: That makes two of us. Sadly, it does not help us, either. #line:0f914a5 
 -> {$pcName}: I woke up. #line:0dfd727 
     {$kieran}: Not unlike several thousands of people and Kindred in the Valley. #line:00a5116 
-{$kieran}: Please, attempt to reconstruct recent events with me, miss Bardot. This is your flat, correct? Recall your most recent memory of this place before today.
+{$kieran}: Please, attempt to reconstruct recent events with me, miss. This is your flat, correct? Recall your most recent memory of this place before today.
 {$kieran}: Is there anything that is here and was not before? Anything missing or different, and if so, can you name it? Aside from the dead people, of course. #line:0b61e19 
 {$storyteller}: [nomarkup][You rub your temple. The clinical tone of the questions is not dissimilar to the kind of prodding inquiry one would receive in therapy.][/nomarkup]
-{$storyteller}: [nomarkup][Sadly, you seem to come up short - no matter how hard you try. You sigh and shake your head.][/nomarkup]	 #line:020d9cc 
+{$storyteller}: [nomarkup][Sadly, you seem to come up short no matter how hard you try. You sigh and shake your head.][/nomarkup] #line:020d9cc 
 {$storyteller}: [nomarkup][He stares at you, analyzing your every move.][/nomarkup]
-{$kieran}: Nothing? That's alright... One's memory may be feeble at times - especially if the event one is remembering is traumatizing. Next, we should search the apartment. Perhaps something will jog your mind. #line:0fd0013 
+{$kieran}: Nothing? That's alright... One's memory may be feeble at times, especially if the event one is remembering is traumatizing. Next, we should search the apartment. Perhaps something will jog your mind. #line:0fd0013 
 {$storyteller}: [nomarkup][Before the conversation comes to an end, you feel the need to say one last thing.][/nomarkup] #line:097de2e 
 -> {$pcName}: Thanks for saving me. #line:095235a 
     {$storyteller}: [nomarkup][He raises his head a bit.][/nomarkup] 
-    {$kieran}: This is not sympathy, so please do not take it as such. My good will extends only as far as your resolve. (+1 Kieran Influence) #line:07a4702
+    {$kieran}: This is not sympathy, so please do not take it as such. My goodwill extends only as far as your resolve. (+1 Kieran Influence) #line:07a4702
     <<ModifyInfluence 1 {$kieran}>> 
 -> {$pcName}: So you're my jailor. #line:0cebb89 
     {$storyteller}: [nomarkup][He crosses his arms, glaring at you coldly.][/nomarkup] 
-    {$kieran}: That would imply I will come out of this ordeal unscathed should you fail, and I believe Dominic made himself clear: you are my responsibility now. #line:03eb161 
-    <<ModifyInfluence -1 {$kieran}>> 
+    {$kieran}: That would imply I will come out of this ordeal unscathed should you fail, and I believe Dominic made himself clear: you are my responsibility now. #line:03eb161  
 {$pcName}: Why did you do it, then, if you knew the risks? #line:0d89e29 
-{$storyteller}: [nomarkup][He looks at you intently for several seconds - trying to gather his thoughts.][/nomarkup]
+{$storyteller}: [nomarkup][He looks at you intently for several seconds, trying to gather his thoughts.][/nomarkup]
 {$kieran}: It seems we may have a chance to emerge from this predicament unscathed. We merely need to continue moving. 
 <<if GetAttributeSkillPoolSize("Wits","Insight") >= 3>>
-    {$storyteller}: [nomarkup][He's trying to avoid answering - acknowledging the fact that he didn't expect this to happen.][/nomarkup] #line:0aa1e4e 
+    {$storyteller}: [nomarkup][He's trying to avoid answering, acknowledging the fact that he didn't expect this to happen.][/nomarkup] #line:0aa1e4e 
 <<elseif GetAttributeSkillPoolSize("Wits", "Insight") >= 4>>    
     {$storyteller}: [nomarkup][He miscalculated, and he's ashamed of that fact.][/nomarkup]  #line:094d354 
 <<endif>>
