@@ -131,7 +131,7 @@ title: subsequentQuestions
     <<jump whoIsDiana>>
 -> {$pcName}: How did you come to own this place? #line:0174ecc 
     <<jump howSheStarted>>
--> {$pcName}: Tell me about yourself. #line:023a789 
+-> {$pcName}: Tell me about yourself. <<if CustomVisited("kateTalksAboutHerself") == false>> #line:023a789 
     <<jump kateTalksAboutHerself>>
 -> {$pcName}: What do you think about the Prince? <<if CustomVisited("howSheStarted") == true>> #line:0dfc750 
     <<jump katePrinceOpinion>>

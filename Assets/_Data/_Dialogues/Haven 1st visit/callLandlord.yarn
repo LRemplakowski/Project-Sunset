@@ -17,7 +17,6 @@ position: -328,-104
         -> {$pcName}: Sure.#line:025fbad
             {$landlord}: Let me get dressed. I'll see you shortly.
             <<CompleteObjective "Q_0P_FIX_SINK" "CALL_LANDLORD">> 
-            [nomarkup][He hangs up.][/nomarkup] #line:0de55de
             -> [nomarkup][Hang up.][/nomarkup]
         -> {$pcName}: That's a rip off! #line:04a227e
             {$landlord}: I'm a capitalist. Take it or leave it. I'm going back to bed. #line:007cdae
@@ -39,7 +38,6 @@ position: 408,-214
         -> {$pcName}: Sure.
             {$landlord}: Let me get dressed. I'll see you shortly.
             <<CompleteObjective "Q_0P_FIX_SINK" "CALL_LANDLORD">> 
-            [nomarkup][He hangs up.][/nomarkup]
             -> [nomarkup][Hang up.][/nomarkup]
         -> {$pcName}: That's a rip off!
             <<FailObjective "Q_0P_FIX_SINK" "CALL_LANDLORD">>
@@ -60,7 +58,6 @@ position: 113,-107
     {$landlord}: It must be hard for you, not having a man in your life. Wearing the pants is more difficult than you'd expect, huh? #success #line:048fb02 
     {$landlord}: Let me get dressed. I'll see you shortly. #line:047c5ab
     <<CompleteObjective "Q_0P_FIX_SINK" "CALL_LANDLORD">>  
-    [nomarkup][He hangs up.][/nomarkup] #line:006c4c6 
     -> [nomarkup][Hang up.][/nomarkup]   
 <<else>>
     {$landlord}: Don't act like we're friends. You don't even know my last name. I only let you sign the lease because I pitied you. You're on your own. #failure #line:0bc3d9f 
@@ -75,8 +72,7 @@ position: 157,51
 <<if Roll("Charisma","Subterfuge") >= (3 + $kevinRollModifier)>>
     {$landlord}: Oh... anything you say? #success #line:0a58c93 
     {$landlord}: Let me get dressed. I'll see you shortly.
-    <<CompleteObjective "Q_0P_FIX_SINK" "CALL_LANDLORD">> 
-    [nomarkup][He hangs up.][/nomarkup] #line:042db95    
+    <<CompleteObjective "Q_0P_FIX_SINK" "CALL_LANDLORD">>   
     -> [nomarkup][Hang up.][/nomarkup]
 <<else>>
     {$landlord}: Nice try, dear. I know I'm a catch, but I don't stick my dick in divorcees. Too much baggage. #failure #line:0d976d4 

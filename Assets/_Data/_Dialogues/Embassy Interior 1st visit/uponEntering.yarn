@@ -16,10 +16,10 @@ tags:
 {$storyteller}: [nomarkup][A neon haze mists the air, the temperature of the room brought higher by the mass of bodies dancing and mingling.][/nomarkup]
 {$storyteller}: [nomarkup][It's a pretty popular place, that much is for certain... Despite the familiar environment, you still don't remember the previous night, however.][/nomarkup] #line:0236402
 {$kieran}: It would be best not to test Kate's patience. Talk to her first before doing anything else.
-{$kieran}: After she welcomes us, we may wander freely - so long as we don't commit some outrageous offense and force her to rescind her welcome. #line:0e1aaa4
+{$kieran}: After she welcomes us, we may wander freely - so long as we do not commit some outrageous offense and force her to rescind her welcome. #line:0e1aaa4
 <<if Roll("Wits","Insight")>=3>>
     {$storyteller}: [nomarkup][He seems to be somewhat nervous at the prospect - the anxiety seeping through his otherwise calm demeanor.][/nomarkup]
 <<endif>>
-{$kieran}: She'll be up those stairs in her VIP section.
+{$kieran}: She will be up those stairs in her VIP section.
 -> [nomarkup][End dialogue.][/nomarkup]
 ===

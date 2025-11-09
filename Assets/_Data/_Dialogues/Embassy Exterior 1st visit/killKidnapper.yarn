@@ -3,7 +3,7 @@ tags:
 position: 490,264
 ---
 <<declare $disciplineUse to false>>
-{$kieran}: I vouched for your ability to maintain a low profile, but... you are ever the magnet for trouble, aren't you? #line:0fbaad4 
+{$kieran}: I vouched for your ability to maintain a low profile, but... you are ever the magnet for trouble, are you not? #line:0fbaad4 
 {$storyteller}: [nomarkup][The man shuffles to his feet, stumbling.][/nomarkup] #line:048081a 
 Drunk Guy: [nomarkup][Slurring.][/nomarkup] Oh my God! You killed them! I'm gonna call the cops! #line:02bd4bd 
 {$storyteller}: [nomarkup][You cover your nose feeling the rancid stench of alcohol on his breath.][/nomarkup]
@@ -16,9 +16,9 @@ title: drunkardOptions
 position: 210,265
 ---
 {$storyteller}: [nomarkup][The drunk man is standing... barely, even with your help.][/nomarkup]
--> {$pcName}: (Manipulation + Steetwise) What do you think she would have done to you?<<if CustomVisited("streetwiseRoll") ==false>> #line:0aaf290 
+-> {$pcName}: What do you think she would have done to you? (Manipulation + Steetwise) <<if CustomVisited("streetwiseRoll") ==false>> #line:0aaf290 
     <<jump streetwiseRoll>>
--> {$pcName}: (Strength + Intimidate) Do that and you're next.<<if CustomVisited("intimidationRoll") ==false>> #line:07e1194 
+-> {$pcName}: Do that and you're next. (Strength + Intimidate) <<if CustomVisited("intimidationRoll") ==false>> #line:07e1194 
     <<jump intimidationRoll>>
 -> {$kieran}: (Dominate) Let's [nomarkup]<i>forget</i>[/nomarkup] this ever happened.<<if CustomVisited("dominateCloudMemory") ==false>> #line:0249559 
     <<jump dominateCloudMemory>>
@@ -34,7 +34,7 @@ position: 40,-74
     <<jump drunkardSuccess>>
 <<else>>
     Drunk Guy: Still doesn't make it right for you to kill them. That's why we have a criminal justice system. #failure #line:008c641 
-    {$kieran}: And where was that system when you were nearly kidnapped? I am sure it was not here. Otherwise, you wouldn't have needed our help. #line:0c7ede0 #lastline
+    {$kieran}: And where was that system when you were nearly kidnapped? I am sure it was not here. Otherwise, you wouldn't have needed our help. #line:0c7ede0
     <<jump drunkardOptions>>
 <<endif>>
 ===
@@ -48,7 +48,7 @@ position: -109,-294
     <<jump drunkardSuccess>>
 <<else>>
     Drunk Guy: I'm not scared of death. I'd rather die than betray my beliefs. #failure #line:037f79a 
-    {$kieran}: Great, you will be a real martyr.  #line:069892b #lastline
+    {$kieran}: Great, you will be a real martyr.  #line:069892b
     <<jump drunkardOptions>>
 <<endif>>
 ===
@@ -109,7 +109,7 @@ position: -509,170
 ===
 title: dumpsterCleanup
 ---
-{$kieran}: We need to get rid of these bodies before anybody comes by. There's a dumpster in the back alley Kate uses for clean up.
+{$kieran}: We need to get rid of these bodies before anybody comes by. There is a dumpster in the back alley Kate uses for clean up.
 {$storyteller}: [nomarkup][Sifting through the corpses pockets you find a Bottle of Benzos and a note that reads Orders from Lucia.][/nomarkup]
 Orders from Lucia: Since you've been getting fucked up on the supply and apparently are too stupid to remember: Once they're good and messed up, bring'em to the Factory for processing. Lucia #line:00a9c24
 {$kieran}: Curious. It appears there is a human trafficking ring operating in the area. Are Kindred involved?

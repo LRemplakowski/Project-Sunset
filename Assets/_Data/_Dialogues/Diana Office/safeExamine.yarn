@@ -169,7 +169,7 @@ position: 458,599
     {$kieran}: Yes. A useful trick. (+1 Kieran Influence) #line:01b5ea3
     <<ModifyInfluence 1 {$kieran}>>
     -> {$pcName}: Can I learn to do that? #line:0ced55a
-    {$kieran}: [nomarkup][Shakes his head.][/nomarkup] It's something only my clan is permitted to learn. #line:01aeb8a
+    {$kieran}: [nomarkup][Shakes his head.][/nomarkup] It is something only my clan is permitted to learn. #line:01aeb8a
     <<if GetIsPartyMemberRecruited($anastasia) is true>>
         {$anastasia}: Permitted? Jeez. #line:0ed285a
     <<endif>>
@@ -182,7 +182,7 @@ title: bloodVialFailure
 position: -245,1149
 ---
 -> {$pcName}: That was evidence! #line:0255b57
-{$kieran}: Trust me, I know what I'm doing. #line:0d7c422
+{$kieran}: Trust me, I know what I am doing. #line:0d7c422
 <<if GetIsPartyMemberRecruited($anastasia) is true>>
     {$anastasia}: You're not exactly the trusting type. #line:029a549
 <<endif>>
@@ -191,7 +191,7 @@ position: -245,1149
 title: safeContinuation
 position: -370,798
 ---
-{$kieran}: Brujah blood. Unless it's yours, then it very well may be… #line:0ef449e
+{$kieran}: Brujah blood. Unless it is yours, then it very well may be… #line:0ef449e
 {$kieran}: We should hold on to this vial. Diana may be more involved with your sire than we realized.  #line:04e369d
 <<jump safeQuestions>>
 ===

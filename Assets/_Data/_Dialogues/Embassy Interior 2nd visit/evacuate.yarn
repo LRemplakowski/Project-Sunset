@@ -57,9 +57,9 @@ position: 374,33
 title: failureOption
 position: 228,476
 ---
-{$storyteller}: [nomarkup][Pinnd down, your eyes are drawn to and meet the gaze of a young man, the pupils of his deep brown eyes wide with fear. He's right next to you, having crawled into cover with the last of his strength.][/nomarkup]
+{$storyteller}: [nomarkup][Pinned down, your eyes are drawn to and meet the gaze of a young man, the pupils of his deep brown eyes wide with fear. He's right next to you, having crawled into cover with the last of his strength.][/nomarkup]
 <<if Roll ("Intelligence","Medicine")>=3>>
-    {$storyteller}: [nomarkup][This man isn't going to be able to walk without treatment of some kind - that much is for certain.][/nomarkup] #lastline #line:03470eb
+    {$storyteller}: [nomarkup][This man isn't going to be able to walk without treatment of some kind - that much is for certain.][/nomarkup] #line:03470eb
 <<endif>>
 {$storyteller}: [nomarkup][Bleeding profusely from his leg, which he unwittingly drags behind him, he grabs onto your shirt, clinging to it desperately, and you find yourself unable to move.][/nomarkup] #line:0481065
 -> {$pcName}: [nomarkup][Tell him you'll come back for him.][/nomarkup] (Manipulation+Insight) #line:0f4f0d1

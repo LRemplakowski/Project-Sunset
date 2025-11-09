@@ -43,17 +43,15 @@ title: bookcaseExamine
 position: -1609,-2088
 ---
 <<if Roll ("Intelligence","Occult") >=5>>
-    {$storyteller}: [nomarkup][One volume sticks out as the most heavily used with a weathered, wrinkled spine.“The Book of Law” by Aleister Crowley.][/nomarkup] #line:07c9215
+    {$storyteller}: [nomarkup][One volume sticks out as the most heavily used with a weathered, wrinkled spine. “The Book of Law” by Aleister Crowley.][/nomarkup] #line:07c9215
     {$storyteller}: [nomarkup][You recognize the author. He was a prominent English occultist and ceremonial magician.][/nomarkup] #line:07ae103
     -> {$pcName}: [nomarkup][Examine “The Book of Law”.][/nomarkup] #line:08a5386
-    {$kieran}: [nomarkup]<i>Liber Al vel Legis</i>[/nomarkup] Good eye. Let me check it first. I do not think there is a trap, but with matters of the occult, you're better safe than sorry. (+1 Kieran Influence) #line:0f594d6
-    <<ModifyInfluence 1 {$kieran}>>
+    {$kieran}: [nomarkup]<i>Liber Al vel Legis</i>[/nomarkup]. Let me check it first. I do not think there is a trap, but with matters of the occult, you're better safe than sorry.
     <<jump booksHaveTeeth>>
 <<else>>
     {$storyteller}: [nomarkup][One volume sticks out as the most heavily used with a weathered, wrinkled spine.“The Book of Law” by Aleister Crowley.][/nomarkup] 
-    {$kieran}: [nomarkup]<i>Liber Al vel Legis</i>[/nomarkup] Good eye. Let me check it first. I do not think there is a trap, but with matters of the occult, you're better safe than sorry. (+1 Kieran Influence) 
+    {$kieran}: [nomarkup]<i>Liber Al vel Legis</i>[/nomarkup] Good eye. Let me check it first. I do not think there is a trap, but with matters of the occult, you're better safe than sorry.
     -> {$pcName}: [nomarkup][Examine “The Book of Law”.][/nomarkup]
-    <<ModifyInfluence 1 {$kieran}>>
     <<jump booksHaveTeeth>>
 <<endif>>
 ===

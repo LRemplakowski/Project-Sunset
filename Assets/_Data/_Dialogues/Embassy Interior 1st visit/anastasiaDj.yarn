@@ -45,8 +45,8 @@ title: DJ1stTimeAna
 ---
 {$storyteller}: [nomarkup][As you approach the booth, the DJ looks directly at Anastasia and rolls his eyes.][/nomarkup]
 DJ: Oh, you again.
-{$anastasia}: Mate, whatever this is, it won’t cut it. You’ve got to put on some real rock.
-DJ: Yeah, for the tenth time, I’m not gonna do that.
+{$anastasia}: Mate, whatever this is, it won't cut it. You've got to put on some real rock.
+DJ: Yeah, for the tenth time, I'm not gonna do that.
 {$anastasia}: Figures.
 {$storyteller}: [nomarkup][Anastasia turns toward you, visibly annoyed. She seems deadset on this.][/nomarkup]
 -> [nomarkup][Convince Anastasia to let it go.][/nomarkup] <<if CustomVisited("AnaPersuasion") == false and CustomVisited("AnaIntimidate") == false>>
@@ -67,10 +67,10 @@ title: AnaPersuasion
 ---
 <<if Roll("Manipulation","Persuasion") >= 3>>
 	{$storyteller}: [nomarkup][She exhales slowly and nods.][/nomarkup]
-	{$anastasia}: Fine. Maybe I’m overreacting.
+	{$anastasia}: Fine. Maybe I'm overreacting.
 	<<jump DJOutcomeSame>>
 <<else>>
-	{$anastasia}: You really don’t get it, do you?
+	{$anastasia}: You really don't get it, do you?
 	<<ChangeInfluence($anastasia, -1)>>
 	<<jump DJOutcomeSame>>
 <<endif>>

@@ -33,7 +33,7 @@ position: -302,213
 title: cleanSlurry
 position: -27,207
 ---
-{$storyteller}: [nomarkup][You take an old sponge and scrub the gunk clean as best as you can..][/nomarkup] #line:05a4242
+{$storyteller}: [nomarkup][You take an old sponge and scrub the gunk clean as best as you can.][/nomarkup] #line:05a4242
 <<if GetIsPartyMemberRecruited($anastasia) is true>>
     {$anastasia}: Cleanliness is next to godliness.
 <<endif>>

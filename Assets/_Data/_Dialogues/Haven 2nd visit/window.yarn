@@ -34,7 +34,7 @@ color: red
     <<jump windowHaveSheets>>  
 -> [nomarkup][Use pizza boxes.][/nomarkup] <<if GetHasItem("IT_Q_PIZZABOXES")>> #line:09ebc04 
     <<jump windowHaveSheets>>
--> [nomarkup][Use furniture in the apartment.][/nomarkup] #line:00862d9 
+-> [nomarkup][Use furniture in the apartment.][/nomarkup] <<if IsObjectiveActive("Q_0P_BLOODY_HELL", "BH10_LIGHTPROOF_APARTMENT")>> #line:00862d9 
     <<jump windowUseFurniture>>
 -> [nomarkup][Leave it be.][/nomarkup] #line:0aefd63 
 ===
