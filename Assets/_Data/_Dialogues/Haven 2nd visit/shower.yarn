@@ -4,22 +4,19 @@ color: blue
 position: -185,-349
 ---
 {$storyteller}: [nomarkup][The smell of death and burnt chemicals clings to your walking corpse.][/nomarkup]
-<<if IsObjectiveActive("Q_0P_BLOODY_HELL","BH7_TAKE_SHOWER")>>
-    -> [nomarkup][Take a shower.][/nomarkup] <<if GetIsPartyMemberRecruited($anastasia) is false>> #line:0f525b8 
-        <<jump showerAlone>>
-    -> [nomarkup][Don't take a shower.][/nomarkup] #line:0298725 
-        <<jump noShower>>
-<<else>>
-    -> [nomarkup][Rip the shower curtain off the rail.] (Strength + Athletics)[/nomarkup] 
-        <<jump showerStrRoll>>
-    -> [nomarkup][Carefully remove the curtain from the rod.] (Intelligence + Craft)[/nomarkup]
-        <<jump showerIntRoll>>
-<<endif>>
+-> [nomarkup][Take a shower.][/nomarkup] <<if IsObjectiveActive("Q_0P_BLOODY_HELL","BH7_TAKE_SHOWER")>> #line:0f525b8 
+    <<jump showerAlone>>
+-> [nomarkup][Don't take a shower.][/nomarkup] <<if IsObjectiveActive("Q_0P_BLOODY_HELL","BH7_TAKE_SHOWER")>> #line:0298725 
+    <<jump noShower>>
+-> [nomarkup][Rip the shower curtain off the rail.] (Strength + Athletics)[/nomarkup] <<if IsObjectiveActive("Q_0P_BLOODY_HELL","BH10_LIGHTPROOF_APARTMENT")>>
+    <<jump showerStrRoll>>
+-> [nomarkup][Carefully remove the curtain from the rod.] (Intelligence + Craft)[/nomarkup] <<if IsObjectiveActive("Q_0P_BLOODY_HELL","BH10_LIGHTPROOF_APARTMENT")>>
+    <<jump showerIntRoll>>
 ===
 title: noShower
 position: -61,67
 ---
-{$storyteller}: [nomarkup][Images of Diego’s corpse flood your mind. You shake your head. You can’t under. Let your scent reflect your character.][/nomarkup]
+{$storyteller}: [nomarkup][Images of Diego's corpse flood your mind. You shake your head. You can't under. Let your scent reflect your character.][/nomarkup]
 <<jump showerKnock>>
 ===
 title: showerStrRoll
@@ -116,5 +113,5 @@ position: 254,262
 ---
 //SFX knocking on the door
 {$storyteller}: [nomarkup][To your surprise you suddenly hear knocking on the door - softer this time][/nomarkup]
--> [nomarkup][Get out of the shower.][/nomarkup]
+-> [nomarkup][Get to the apartment door.][/nomarkup]
 ===

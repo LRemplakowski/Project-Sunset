@@ -15,9 +15,9 @@ position: 1151,-609
 color: red
 ---
 <<if GetIsPartyMemberRecruited($anastasia) is false>>
-    {$storyteller}: [nomarkup][A light in the distance gleams at you reflected off the chrome of a motorcycle engine. It’s Anastasia from The Embassy. She waves at you as she leaves.][/nomarkup] #line:0d0f2a9
+    {$storyteller}: [nomarkup][A light in the distance gleams at you reflected off the chrome of a motorcycle engine. It's Anastasia from The Embassy. She waves at you as she leaves.][/nomarkup] #line:0d0f2a9
 <<else>>
-    {$storyteller}: [nomarkup][A light in the distance gleams at you reflected off the chrome of a motorcycle engine. The figure on the bike is clearly a woman, but you can’t make her out. She waves at you as she leaves.][/nomarkup] #line:063abc2
+    {$storyteller}: [nomarkup][A light in the distance gleams at you reflected off the chrome of a motorcycle engine. The figure on the bike is clearly a woman, but you can't make her out. She waves at you as she leaves.][/nomarkup] #line:063abc2
 <<endif>>
 <<jump windowOptions>>
 ===
@@ -42,7 +42,7 @@ title: blinds
 position: -705,466
 ---
 <<set $windowBlinds to true>>
-{$storyteller}: [nomarkup][You close the blinds, but deep down you know that will not be enough You need to seal around the edges as well if you don’t want to find out firsthand what happens when a vampire faces the sun.][/nomarkup]
+{$storyteller}: [nomarkup][You close the blinds, but deep down you know that will not be enough You need to seal around the edges as well if you don't want to find out firsthand what happens when a vampire faces the sun.][/nomarkup]
 <<jump windowOptions>>
 ===
 title: windowHaveSheets
@@ -123,7 +123,7 @@ position: 524,813
 <<if $attemptsCounter == 1>>
     {$storyteller}: [nomarkup][You should be safe. At least for the day.][/nomarkup] #line:0f92836
 <<else>>
-    {$storyteller}: [nomarkup][Dawn gets nearer and nearer. You start to feel a tiredness seeping into your mind and body, and you can't shake the feeling off, you feel unable to do anything else.][/nomarkup] 
+    {$storyteller}: [nomarkup][Dawn gets nearer and nearer. You start to feel a tiredness seeping into your mind and body, and you can't shake the feeling off; you feel unable to do anything else.][/nomarkup] 
 <<endif>>
 ===
 title: windowNailingSheetsFailure
@@ -143,7 +143,7 @@ color: purple
     <<jump windowOptions>>
 <<else>>
     <<FailObjective "Q_0P_BLOODY_HELL" "BH10_LIGHTPROOF_APARTMENT">>
-    {$storyteller}: [nomarkup][Dawn gets nearer and nearer. You start to feel a tiredness seeping into your mind and body, and you can't shake the feeling off. You failed to light-proof the window, but you feel unable to do anything else.][/nomarkup]
+    {$storyteller}: [nomarkup][Dawn gets nearer and nearer. You start to feel a tiredness seeping into your mind and body, and you can't shake the feeling off. You failed to lightproof the window, but you feel unable to do anything else.][/nomarkup]
     <<if GetIsPartyMemberRecruited($anastasia) is true>>
         {$anastasia}: Bathroom, NOW!#line:06a2e6b #lastline
     <<else>>

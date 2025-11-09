@@ -9,7 +9,6 @@ position: -516,-712
 <<declare $wannabeDefector to false>>
 <<declare $kateAnastasia to false>>
 <<declare $dianaWithKate to false>>
-<<declare $dominicHasDiana to false>>
 {$storyteller}: [nomarkup][The alley smells like blood, death, and burnt rubber. A person slumped against the brick wall tilts their head up just enough to make direct eye contact as the door slams closed behind you.][/nomarkup] #line:0d12354
 <<if GetIsPartyMemberRecruited($anastasia) is true>>
     {$anastasia}: Shit! Let's get the hell out of here. #line:0694dee

@@ -8,7 +8,7 @@ KNOCK! KNOCK! KNOCK! #line:018c7a7
 {$storyteller}: [nomarkup][The sound brings up involuntary memories.][/nomarkup] #line:0a66899
 <<if GetIsPartyMemberRecruited($anastasia) is true>>
     {$anastasia}: Who's that? #line:0e17e58
-    {$storyteller}:  [nomarkup][At least you’re not alone this time.][/nomarkup] #line:0db5e01
+    {$storyteller}: [nomarkup][At least you're not alone this time.][/nomarkup] #lastline #line:0db5e01
 <<endif>>
 -> {$pcName}: Who's there?
     <<jump doorOptions>>

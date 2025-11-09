@@ -3,13 +3,11 @@ tags:
 position: -170,-235
 ---
 {$storyteller}: [nomarkup][You turn the TV on.][/nomarkup]
-<<if CustomVisited("newsReport") == false>>
+-> [nomarkup][Watch late night news.][/nomarkup] <<if CustomVisited("newsReport") == false>>
     <<jump newsReport>>
-<<else>>
-    -> [nomarkup][Insert the tape.][/nomarkup] <<if GetHasItem("IT_Q_VHS") and not CustomVisited("tvInsertTape")>> #line:00f170c
-        <<jump tvInsertTape>>
-    -> [nomarkup][Turn TV off.][/nomarkup] #line:0c461ea
-<<endif>>
+-> [nomarkup][Insert the tape.][/nomarkup] <<if GetHasItem("IT_Q_VHS") and not CustomVisited("tvInsertTape")>> #line:00f170c
+    <<jump tvInsertTape>>
+-> [nomarkup][Turn TV off.][/nomarkup] #line:0c461ea
 ===
 title: newsReport
 tags:
@@ -52,11 +50,11 @@ position: -147,208
 {$storyteller}: [nomarkup][VHS static blurs the screen until a face comes into view under a harsh light.][/nomarkup]
 {$storyteller}: [nomarkup][Arthur.][/nomarkup]
 {$storyteller}: [nomarkup][A bloody gash marks his forehead. His fingers were white-knuckled in a futile attempt to break free from restraints.][/nomarkup] #line:0fce1d3
-{$storyteller}: [nomarkup][From around the camera, [nomarkup]<i>[/nomarkup]she[nomarkup]<i>[/nomarkup] steps into view. Placing her hands on Arthur's shoulders.][/nomarkup] 
+{$storyteller}: [nomarkup][From around the camera, <i>she</i> steps into view. Placing her hands on Arthur's shoulders.][/nomarkup] 
 {$sire}: Since you've taken something of mine, I figured I'd go ahead and take something of yours. 
 {$storyteller}: [nomarkup][She licks the gash on his forehead. He whimpers in agony.][/nomarkup] 
 {$sire}: Don't worry. I won't hurt him. Yet. Come and find us. #line:0a941a1
-{$storyteller}: [nomarkup][The tape clips and nothing but static returns to the screen. ][/nomarkup] #line:0510d57
+{$storyteller}: [nomarkup][The tape clips and nothing but static returns to the screen.][/nomarkup] #line:0510d57
 -> [nomarkup][I have to get him out of there.][/nomarkup] #line:07d3e5c
     <<if GetIsPartyMemberRecruited($anastasia) is true>>
         <<jump tvTapeAnaComments>>

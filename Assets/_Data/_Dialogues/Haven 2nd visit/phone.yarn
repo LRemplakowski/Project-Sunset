@@ -3,73 +3,48 @@ tags:
 color: red
 position: -99,-460
 ---
-{$storyteller}: [nomarkup][It doesn't take a rocket scientist to notice a rip in the wall where phone cable should be. It's most likely Dominic who's responsible or someone who works for him. You can feel the urge to call Arthur, ask him to come over and stay with you - but you couldn't even if you wanted to.][/nomarkup] #line:0600fec 
-<<if GetAttributeSkillPoolSize("Intelligence","Technology")==1>>
-    -> [nomarkup][Try to fix it.][/nomarkup]
-    <<jump phoneInt1>>
-<<elseif GetAttributeSkillPoolSize("Intelligence","Technology")==2 and GetHasItem("IT_Q_DUCTTAPE")==true>>
-    -> [nomarkup][Try to fix it with the tape.][/nomarkup]
-    <<jump phoneInt2Duct>>
-<<elseif GetAttributeSkillPoolSize("Intelligence","Technology")==2>>
-    -> [nomarkup][Try to fix it.][/nomarkup]
-    <<jump phoneInt2>>
-<<elseif GetAttributeSkillPoolSize("Intelligence","Technology")>=3 and GetHasItem("IT_Q_DUCTTAPE")==true>>
-    -> [nomarkup][Try to fix it with the tape.][/nomarkup]
-    <<jump phoneInt3Duct>>
-<<elseif GetAttributeSkillPoolSize("Intelligence","Technology")>=3>>
-    -> [nomarkup][Try to fix it.][/nomarkup]
-    <<jump phoneInt2>>
+<<if $phoneBroken == true>>
+    {$storyteller}: [nomarkup][It doesn't take a rocket scientist to notice a rip in the wall where phone cable should be. It's most likely Dominic who's responsible or someone who works for him. You can feel the urge to call Arthur, ask him to come over and stay with you - but you couldn't even if you wanted to.][/nomarkup] #lastline #line:0600fec
+<<else>> 
+    {$storyteller}: [nomarkup][Thanks to your efforts the phone is functional again.][/nomarkup] #lastline
 <<endif>>
+-> [nomarkup][Try to fix it.][/nomarkup] <<if GetHasItem("IT_Q_DUCTTAPE")==false and CustomVisited("phoneInt1")==false>>
+    <<jump phoneInt1>>
+-> [nomarkup][Try to fix it with the tape.][/nomarkup] <<if GetHasItem("IT_Q_DUCTTAPE")==true and CustomVisited("phoneInt2Duct")==false>>
+    <<jump phoneInt2Duct>>
+-> [nomarkup][Dial up Arthur.][/nomarkup] <<if $phoneBroken == false and CustomVisited("dialArthur") == false>>
+    <<jump dialArthur>>
 -> [nomarkup][Leave the phone alone.][/nomarkup]
 ===
 title: phoneInt1
 position: 75,-135
 ---
-{$storyteller}: [nomarkup][You spend a couple of minutes finding a place to plug the cord into the wall, moving it around until the power connects. You feel a slight jolt in your arm at the shoulder and a green light flashes.][/nomarkup] #line:04cb380
+{$storyteller}: [nomarkup][You spend a couple of minutes finding a place to plug the cord into the wall, moving it around until the power connects. You feel a slight jolt in your arm at the shoulder, and a green light flashes.][/nomarkup] #line:04cb380
 -> [nomarkup][Dial up Arthur.][/nomarkup] #line:01ac1f8
-    {$storyteller}: [nomarkup][You wait for a few minutes for the phone to ring and find that it hasn't rung. After a few minutes it's clear that it isn't dialing.][/nomarkup] #line:0f6729b
+    {$storyteller}: [nomarkup][You wait for a few minutes, for the phone to ring and find that it hasn't rung. After a few minutes it's clear that it isn't dialing.][/nomarkup] #line:0f6729b
     -> [nomarkup][End dialogue.][/nomarkup]
 -> [nomarkup][End dialogue.][/nomarkup] #line:007c81a
 ===
 title: phoneInt2Duct
 position: 225,-417
 ---
+<<set $phoneBroken to false>>
 {$storyteller}: [nomarkup][You spend a couple of minutes with the cord and find where it's been ripped, connecting it with duct tape and nodding. It'll do.][/nomarkup] #line:08038ea
 -> [nomarkup][Dial up Arthur.][/nomarkup] #line:0c7934d
-    {$storyteller}: [nomarkup][You wait for a few minutes for the phone to ring, unsurprisingly Arthur doesn't pick up. You wait for it to go all the way through the dial-up ring only for...][/nomarkup] #line:038439e
-    Phone: We're sorry, the number you're trying to dial has been disconnected. We're sorry, the number that you're trying to call has been disconnected. We're - #line:0713d37
-    <<set $phoneBroken to false>>
-    -> [nomarkup][End dialogue.][/nomarkup]
+    <<jump dialArthur>>
 -> [nomarkup][End dialogue.][/nomarkup]
 ===
-title: phoneInt2
-position: -49,339
+title: dialArthur
 ---
-{$storyteller}: [nomarkup][You spend a couple of minutes finding a place to plug the cord into the wall, moving it around until the power connects. You feel a slight jolt in your arm at the shoulder and a green light flashes.][/nomarkup] #line:04cd872
--> [nomarkup][Dial up Arthur.][/nomarkup] #line:01a8dce
-    {$storyteller}: [nomarkup][You wait for a few minutes for the phone to ring and find that it hasn't rung. After a few minutes, it's clear that it isn't dialing. You figure that the problem might be that the power isn't holding steady. Maybe if you found something to hold the chord together?][/nomarkup] #line:0e3ed75
-    {$storyteller}: [nomarkup][You have some duct tape somewhere around the sink from what you recall. It's always handy to have some - especially when you live alone in a crappy apartment.][/nomarkup]
-    -> [nomarkup][End dialogue.][/nomarkup]
--> [nomarkup][End dialogue.][/nomarkup]
-===
-title: phoneInt3Duct
-position: -193,164
----
-{$storyteller}: [nomarkup][You spend a couple of minutes with the cord and find where it's been ripped, connecting it with duct tape and nodding. It'll do.][/nomarkup] #line:071a784
--> [nomarkup][Dial up Arthur.][/nomarkup] #line:07d8db1
-    {$storyteller}: [nomarkup][You wait for a few minutes for the phone to ring, unsurprisingly Arthur doesn't pick up. You wait for it to go all the way through the dial-up ring only for...][/nomarkup] #line:0264e36
-    Phone: We're sorry, the number you're trying to dial has been disconnected. We're sorry, the number that you're trying to call has been disconnected. We're - #line:0af0878
-    <<set $phoneBroken to false>>
-    <<if IsObjectiveActive("Q_0P_BLOODY_HELL", "BH9_WATCH_VHS")>>
-        <<if GetIsPartyMemberRecruited($anastasia) is true>>
-            {$anastasia}: Even if you want to do something about it, too late now.
-            -> [nomarkup][End dialogue.][/nomarkup]
-        <<endif>>
-    <<else>>
-        {$storyteller}: [nomarkup][Strange, Arthur should be at home right now. Why he wouldn't answer?][/nomarkup] #line:0d3f63f
+{$storyteller}: [nomarkup][You wait for a few minutes ,for the phone to ring, unsurprisingly Arthur doesn't pick up. You wait for it to go all the way through the dial-up ring only for...][/nomarkup] #line:038439e
+Phone: We're sorry, the number you're trying to dial has been disconnected. We're sorry, the number that you're trying to call has been disconnected. We're - #line:0713d37
+<<if IsObjectiveActive("Q_0P_BLOODY_HELL", "BH9_WATCH_VHS")>>
+    <<if GetIsPartyMemberRecruited($anastasia) is true>>
+        {$anastasia}: Even if you want to do something about it, too late now.
         -> [nomarkup][End dialogue.][/nomarkup]
     <<endif>>
--> [nomarkup][Put the phone in its cradle.][/nomarkup] #line:0aeebf8
-    {$storyteller}: [nomarkup][You look at the phone and immediately think better of it. There's nothing you want to do less than call Arthur and burden him even more. Setting the phone in its cradle, you return to the rest of the apartment.][/nomarkup] #line:005b892
+<<else>>
+    {$storyteller}: [nomarkup][Strange, Arthur should be at home right now. Why he wouldn't answer?][/nomarkup] #line:0d3f63f
     -> [nomarkup][End dialogue.][/nomarkup]
+<<endif>>
 ===

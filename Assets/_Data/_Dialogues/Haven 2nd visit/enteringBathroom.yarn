@@ -7,9 +7,9 @@ position: 35,-453
 <<if GetIsPartyMemberRecruited($anastasia) is true>>
     {$anastasia}: Do you need help with this guy? #line:0103150
         -> {$pcName}: Yes. #line:0e946bb
-        <<jump anaTakesBody>>
-    -> {$pcName}: No. I’ll do it myself. #line:0bdf1b7
-        <<jump pcTakesBody>>
+            <<jump anaTakesBody>>
+        -> {$pcName}: No. I'll do it myself. #line:0bdf1b7
+            <<jump pcTakesBody>>
 <<else>>
     <<jump pcTakesBody>>
 <<endif>>
@@ -18,12 +18,12 @@ title: anaTakesBody
 position: 255,25
 ---
 {$storyteller}: [nomarkup][Anastasia picks his limp body up.][/nomarkup] #line:02e995d
-{$storyteller}: [nomarkup][You make room for her to drag him out of the bathroom and hide him in your closet for the time being. ][/nomarkup]
+{$storyteller}: [nomarkup][You make room for her to drag him out of the bathroom and hide him in your closet for the time being.][/nomarkup]
 -> [nomarkup][End dialogue.][/nomarkup]
 ===
 title: pcTakesBody
 position: -229,-4
 ---
-{$storyteller}: [nomarkup][You pick his limp body up. You drag him out of the bathroom and hide him in your closet for the time being][/nomarkup] #line:0555d84
+{$storyteller}: [nomarkup][You pick his limp body up. You drag him out of the bathroom and hide him in your closet for the time being.][/nomarkup] #line:0555d84
 -> [nomarkup][End dialogue.][/nomarkup]
 ===

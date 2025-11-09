@@ -24,9 +24,9 @@ position: -302,213
 ---
 <<set $kevinMoved to true>>
 <<if $diegoMoved == true>>
-    {$storyteller}: [nomarkup][You heft Kevin’s corpse and drag him into the closet where you put Diego...][/nomarkup]
+    {$storyteller}: [nomarkup][You heft Kevin's corpse and drag him into the closet where you put Diego...][/nomarkup]
 <<else>>
-    {$storyteller}: [nomarkup][You heft Kevin’s corpse and drag him into the closet. Diego's corpse is still in the shower, but it'll probably fit in here just fine.][/nomarkup]
+    {$storyteller}: [nomarkup][You heft Kevin's corpse and drag him into the closet. Diego's corpse is still in the shower, but it'll probably fit in here just fine.][/nomarkup]
 <<endif>>
 <<jump sink>>
 ===
@@ -46,7 +46,7 @@ title: sinkBoxes
 ===
 title: sinkTape
 ---
-{$storyteller}: [nomarkup][It takes several long seconds to unjam the junk drawer and open it.. You find a half-full roll underneath a deck of playing cards and set it on the countertop..][/nomarkup]
+{$storyteller}: [nomarkup][It takes several long seconds to unjam the junk drawer and open it. You find a half-full roll underneath a deck of playing cards and set it on the countertop.][/nomarkup]
 <<jump sink>>
 ===
 title: sinkHammer
