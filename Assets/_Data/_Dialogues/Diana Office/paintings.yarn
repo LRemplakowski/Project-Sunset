@@ -17,14 +17,14 @@ position: -225,-696
     <<jump paintingsDestroyed>>
 -> [nomarkup][Take down one of the paintings.][/nomarkup] <<if CustomVisited("successContinued") == false and $safeDiscovered == true and CustomVisited("paintingsDestroyed") == false>> #line:033b9e3 
     <<jump successContinued>>
--> [nomarkup][Examine destroyed paintings.][/nomarkup] <<if CustomVisited("paintingsDestroyed") and CustomVisited("examineScraps") is false>>
+-> [nomarkup][Examine the destroyed paintings.][/nomarkup] <<if CustomVisited("paintingsDestroyed") and CustomVisited("examineScraps") is false>>
     <<jump examineScraps>>
 -> [nomarkup][Walk away.][/nomarkup] #line:0c06753 
 ===
 title: paintingAwarenessRoll
 position: 663,-678
 ---
-<<if Roll("resolve","awareness") >=(3-$paintingsOutOfPlace)>>
+<<if Roll("resolve","awareness") >=(2-$paintingsOutOfPlace)>>
     <<jump paintingAwarenessSuccess>>
 <<else>>
     <<jump paintingAwarenessFailure>>
@@ -33,7 +33,7 @@ position: 663,-678
 title: paintingIntelligenceRoll
 position: -557,-77
 ---
-<<if Roll("inteligence","finance") >=(4-$paintingsOutOfPlace)>>
+<<if Roll("inteligence","finance") >=(3-$paintingsOutOfPlace)>>
     <<jump paintingIntelligenceSuccess>>
 <<else>>
     <<jump paintingIntelligenceFailure>>
@@ -42,7 +42,7 @@ position: -557,-77
 title: paintingAwarenessSuccess
 position: 1229,243
 ---
-{$storyteller}: [nomarkup][Looking past the barrage of colors and shapes  you notice that the largest of the paintings in the polyptych casts an uneven shadow on the wall, its frame slightly askew.][/nomarkup] #success
+{$storyteller}: [nomarkup][Looking past the barrage of colors and shapes, you notice that the largest of the paintings in the polyptych casts an uneven shadow on the wall, its frame slightly askew.][/nomarkup] #success
 {$storyteller}: [nomarkup][You reach up to straighten it, but the panel comes loose, revealing a safe hidden in the alcove behind the artwork.][/nomarkup]
 {$storyteller}: [nomarkup][Flipping the canvas over to place it gently to the side, you also notice a stamp affixed to the painting's back.][/nomarkup]
 <<set $paintingsPutDown to true>> 
@@ -73,7 +73,7 @@ position: 584,623
 title: paintingIntelligenceFailure
 position: -605,207
 ---
-[nomarkup][These paintings had to have been picked up at a garage sale, or even more likely, fished out of a dumpster, because there isn't any value here to speak of.][/nomarkup] #failure #line:0632c87 
+{$storyteller}: [nomarkup][These paintings had to have been picked up at a garage sale, or even more likely, fished out of a dumpster, because there isn't any value here to speak of.][/nomarkup] #failure #line:0632c87 
 <<jump paintingsInteractions>>
 ===
 title: paintingSuccessExamination
@@ -81,12 +81,12 @@ position: 1740,623
 ---
 <<set $aidanFoster to true>>
 <<set $safeCode to true>>
-{$storyteller}: [nomarkup][You squat and squint your eyes trying to read what is written on the piece of paper glued to the canvas.][/nomarkup]
-{$storyteller}: [nomarkup][The paper is yellowed. The text indicates that it was bought at the Vibrant Vistas Gallery. It also says that this particular piece was bought on June 17th, 1969.][/nomarkup]
+{$storyteller}: [nomarkup][You squat and squint your eyes, trying to read what is written on the piece of paper glued to the canvas.][/nomarkup]
+{$storyteller}: [nomarkup][The paper is yellowed. The text indicates that it was bought at the Vibrant Vistas Gallery on June 17th, 1969.][/nomarkup] #line:06c123e
 {$kieran}: Vibrant Vistas Gallery... The address... I believe it's somewhere around downtown. And the date: the 17th of June, 1969. This is probably when it was bought. #line:0d53691 
-{$storyteller}: [nomarkup][Your attention is caught by a small handwritten note on the stamp - “For my beloved Diana, on one of the most important days of her life. - Aidan Foster.”][/nomarkup]
+{$storyteller}: [nomarkup][Your attention is caught by a small handwritten note on the stamp - “For my beloved Diana, on one of the most important days of her life: Aidan Foster.”][/nomarkup]
 -> {$pcName}: Does the name Aidan Foster ring any bells? #line:0266774
-{$kieran}:  Aiden Foster. I've seen that name once before. Before I was Embraced, I was one of Kate's other ghouls. I helped Diana from time to time with the papers and stumbled upon an envelope with the guy's name on it. Asking her about it was a touchy subject.
+{$kieran}:  Aiden Foster. I've seen that name once before. Before I was Embraced, I was one of Kate's other ghouls. I helped Diana from time to time with the papers and stumbled upon an envelope with the guy's name on it. Asking her about it was a particularly touchy subject.
 -> {$pcName}: Good to know. May be important. Thanks Kieran. #line:0893dd5 
 <<if CustomVisited("paintingsDestroyed") == false>>
     {$storyteller}: [nomarkup][You leave the painting alone. You will not gain more information from it.][/nomarkup] #line:0d6d4a6

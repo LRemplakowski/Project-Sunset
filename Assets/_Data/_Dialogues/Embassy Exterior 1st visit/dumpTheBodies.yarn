@@ -2,14 +2,14 @@
 tags:
 ---
 <<declare $toldKieranAboutVision to false>>
-{$storyteller}: [nomarkup][As you round the corner, a force comes over you that makes you stop in your tracks. Déjà Vu. You feel like you've been here last night.][/nomarkup] #line:0659906
+{$storyteller}: [nomarkup][As you round the corner, a force comes over you that makes you stop in your tracks. Déjà vu. You feel like you've been here last night.][/nomarkup] #line:0659906
 <<jump flashback>>
 ===
 title: flashback
 ---
 {$storyteller}: [nomarkup][You are walking down the alley with a man you have trouble recognizing. Not just any man.][/nomarkup]
 {$storyteller}: [nomarkup][He is the man you found dead in your shower earlier tonight.][/nomarkup]
-{$storyteller}: [nomarkup][At the end of the alleyway, where the passage opens up to the street you see a woman that waits for you.][/nomarkup] #line:0c2c0f6
+{$storyteller}: [nomarkup][At the end of the alleyway, where the passage opens up to the street, you see a woman that waits for you.][/nomarkup] #line:0c2c0f6
 Mysterious Woman: You made it. #line:066a4a7
 <<jump kieranInterrupts>>
 ===
@@ -30,17 +30,18 @@ title: toldAboutVision
 <<ModifyInfluence 1 {$kieran}>>
 {$kieran}: Do not tell me Dominic was wrong, and you are actually a Malkavian. (+1 Kieran Influence) #line:094a46c
 -> {$pcName}: What's a Malkavian? #line:0bb2389
-{$kieran}: Another clan. Not important right now.. Please, tell me about this vision. #line:017c8bd
+{$kieran}: Another clan. Not important right now. Please, tell me about this vision. #line:017c8bd
 -> {$pcName}: I was in this alley last night with the guy... #line:0e53e4b
 {$kieran}: The man you killed? #line:088ce81
 -> {$pcName}: ...A woman was with us too. #line:06a1d4a
 {$kieran}: Could be your sire. It seems as if we are hot on her trail, if your recollection is to be trusted.
-{$storyteller}: [nomarkup][His expression visibly brightens just the tiniest bit, at the notion. It's a proverbial light at the end of the tunnel - something to latch onto.][/nomarkup] #line:083b5f9
+{$storyteller}: [nomarkup][His expression visibly brightens just the tiniest bit at the notion. It's a proverbial light at the end of the tunnel, something to latch onto.][/nomarkup] #line:083b5f9
 <<jump backDoor>>
 ===
 title: dontTellAboutVision
 ---
-{$kieran}: Your dissociation is one thing, but withholding potentially helpful information is another. It did not seem like nothing. If youa are sure, though... I will take your word for it.
+{$kieran}: Your dissociation is one thing, but withholding potentially helpful information is another. It did not seem like [nomarkup]<i>nothing</i>[/nomarkup]. If you are sure, though... I will take your word for it. (-1 Kieran Influence)
+<<ModifyInfluence -1 {$kieran}>>
 {$kieran}: Do your best to maintain focus. We are running short on time. #line:04c605f
 <<jump backDoor>>
 ===

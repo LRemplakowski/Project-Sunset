@@ -90,7 +90,7 @@ title: bookcaseRadio
 position: 2087,315
 ---
 {$storyteller}: [nomarkup][The radio crackles to life. The current broadcast is already in progress.][/nomarkup] #line:045b27a
-Radio: Reports are coming in from all across Nevada, strange lights dancing over the mountains, unexplained radio signals, and people claiming to have seen beings… beings that don't quite look human. And all eyes are turning toward the most secretive military installation in the state: Area 51.
+Radio: Reports are coming in from all across Nevada, strange lights dancing over the mountains, unexplained radio signals, and people claiming to have seen beings… Beings that don't quite look human. And all eyes are turning toward the most secretive military installation in the state: Area 51.
 Radio: For years, the government has denied any extraterrestrial activity, but locals whisper about blacked-out hangars, odd aircraft, and scientists working in shadows.
 {$kieran}: What conspiratorial nonsense.
 <<if GetIsPartyMemberRecruited($anastasia) is true>>
@@ -108,8 +108,12 @@ position: -591,2368
 title: poeCode
 position: -1327,1711
 ---
-{$storyteller}: [nomarkup][53‡‡†305))6*;4826)4‡.)4‡);80<br>6*;48†8¶60))85;1‡(;;‡*8†83(88)<br>5*†;46(;88*96*?;8)*‡(;485);5*†<br>2:*‡(;4956*2(5*-4)8¶8*;40692<br>85);)6†8)4‡‡;1(‡9;48081;8:8‡1<br>;48†85;4)485†528806*81(‡9;48<br>;(88;4(‡?34;48)4‡;161;:188;‡?;][/nomarkup] #line:0fea452 
-{$storyteller}: [nomarkup][You search the pages carefully for some sort of decryption key. Some pages are ripped and missing.][/nomarkup]
+<<if CustomVisited("poeBookExamineMentalSuccess") == false>>
+    {$storyteller}: [nomarkup][53‡‡†305))6*;4826)4‡.)4‡);80<br>6*;48†8¶60))85;1‡(;;‡*8†83(88)<br>5*†;46(;88*96*?;8)*‡(;485);5*†<br>2:*‡(;4956*2(5*-4)8¶8*;40692<br>85);)6†8)4‡‡;1(‡9;48081;8:8‡1<br>;48†85;4)485†528806*81(‡9;48<br>;(88;4(‡?34;48)4‡;161;:188;‡?;][/nomarkup] #line:0fea452 
+    {$storyteller}: [nomarkup][You search the pages carefully for some sort of decryption key. Some pages are ripped and missing.][/nomarkup]
+<<else>>
+    A good glass in the bishop's hostel and in the devil's seat...\\n Forty-one degrees and thirteen minutes...\\n Northeast and by north...\\n The main branch, seventh limb, east side...\\n Shoot from the left eye of the death's-head...\\n A beeline from the tree, through the shot fifty feet out.
+<<endif>>
 <<jump poeBookExamineQuestions>>
 ===
 title: poeBookExamineQuestions

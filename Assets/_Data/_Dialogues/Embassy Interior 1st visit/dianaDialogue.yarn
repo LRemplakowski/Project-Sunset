@@ -4,7 +4,7 @@ position: 136,-238
 <<set $dianaMet to true>>
 {$storyteller}: [nomarkup][Despite the sea of UK memorabilia, for the first time tonight you hear an authentic British accent slice through the crowd.][/nomarkup] #line:055b0be 
 {$diana}: -love, the answer to your question is no. Get your arse the fuck out of my building. I'm not asking twice.
-{$storyteller}: [nomarkup][Diana is dressing down a rowdy patron, but her eyes become transfixed on you as she notices you approach.][/nomarkup]
+{$storyteller}: [nomarkup][Diana is dressing down a rowdy patron, but her eyes become transfixed on you as she notices your approach.][/nomarkup]
 {$storyteller}: [nomarkup][You recognize her as the woman from your vision.][/nomarkup]
 <<if $toldKieranAboutVision is true>>
     {$kieran}: Another vision?
@@ -15,14 +15,14 @@ position: 136,-238
 ===
 title: tellAboutVision
 ---
-{$kieran}: Who Diana? She is here every night. That is hardly surprising.
+{$kieran}: Who? Diana? She is here every night. That is hardly surprising.
 -> {$pcName}: It was more than that.
 <<jump approachDiana>>
 ===
 title: approachDiana
 ---
 {$storyteller}: [nomarkup][As you weave through the crowd making your way to the bar, Kieran grabs your shoulder.][/nomarkup] 
-{$kieran}: Proceed with caution. Diana is Kate's favorite ghoul. If something were to happen to her, she would be pissed
+{$kieran}: Proceed with caution. Diana is Kate's favorite ghoul. If something were to happen to her, she would be irritated.
 -> {$pcName}: [nomarkup][Nod.][/nomarkup] #line:0c46c4d 
     {$kieran}: [nomarkup][Kieran nods back.][/nomarkup]
     <<jump dianaApproached>>
@@ -33,7 +33,7 @@ title: approachDiana
         {$kieran}: The corpse in your bathroom implies otherwise.
     <<endif>>
     <<if GetIsPartyMemberRecruited($anastasia) is true>>
-    {$anastasia}: And you think I'm dangerous.
+        {$anastasia}: And you think I'm [nomarkup]<i>dangerous</i>[/nomarkup].
     <<endif>>
     <<jump dianaApproached>>
 ===
@@ -57,7 +57,7 @@ title: dianaApproachedSuccess
 ---
 {$diana}: Better than you, I bet. How much do you remember about last night, exactly? #success #line:06d8310 
 -> {$pcName}: Enough to know things got pretty crazy. #line:0032d67 
-{$diana}: [nomarkup][Chuckling.][/nomarkup] That's a description for it... Absolutely bloody mental is another. Say, want to come to my office for a drink? #line:0c93b0a 
+{$diana}: [nomarkup][Chuckling][/nomarkup] That's a description for it... “Absolutely bloody mental” is another.  
 {$diana}: Say, want to come by my office for a drink?
 <<set $dianaOffice to true>>
 <<jump dianaInvitation>>
@@ -86,7 +86,7 @@ title: dianaInvitation
 ===
 title: blownOffByDiana
 ---
--> {$pcName}: You're not just gonna blow me off!    #line:00f5f4d
-{$storyteller}: [nomarkup][She, in fact, blows you off. Vanishing into the crowd.][/nomarkup] #line:0f325cd
+-> {$pcName}: You're not just gonna blow me off! #line:00f5f4d
+{$storyteller}: [nomarkup][She, in fact, blows you off, vanishing into the crowd...][/nomarkup] #line:0f325cd
 //cut to black, Diana disappears//
 ===

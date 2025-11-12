@@ -13,12 +13,12 @@ position: -328,-104
     {$storyteller}: [nomarkup][You describe the status of your sink. You can hear his contempt through the phone.][/nomarkup]
     {$landlord}: Again? There's no way. I just fixed it last week. You must be washing grease down the drain. Not my problem. Hire a plumber. #line:085cb16
     -> {$pcName}: I'll pay you for your time. #line:02582fe
-        {$landlord}: Now you're speaking my language. I'll have to charge you a-uh- a late night fee, of course. #line:07f776e
+        {$landlord}: Now you're speaking my language. I'll have to charge you a-uh... a late night fee, of course. #line:07f776e
         -> {$pcName}: Sure.#line:025fbad
             {$landlord}: Let me get dressed. I'll see you shortly.
             <<CompleteObjective "Q_0P_FIX_SINK" "CALL_LANDLORD">> 
             -> [nomarkup][Hang up.][/nomarkup]
-        -> {$pcName}: That's a rip off! #line:04a227e
+        -> {$pcName}: That's a rip-off! #line:04a227e
             {$landlord}: I'm a capitalist. Take it or leave it. I'm going back to bed. #line:007cdae
             -> [nomarkup][Hang up.][/nomarkup] #line:0bdecac
     -> {$pcName}: Please? I'm trying to get my life together. (Manipulation + Persuasion) <<if CustomVisited("ManipPersKevin") == false>> #line:04d20e9
@@ -34,12 +34,12 @@ position: 408,-214
 ---
 {$landlord}: So, anything else you have to offer? #line:07f16fa 
 -> {$pcName}: I'll pay you for your time.
-        {$landlord}: Now you're speaking my language. I'll have to charge you a-uh- a late night fee, of course.
+        {$landlord}: Now you're speaking my language. I'll have to charge you a-uh... a late night fee, of course.
         -> {$pcName}: Sure.
             {$landlord}: Let me get dressed. I'll see you shortly.
             <<CompleteObjective "Q_0P_FIX_SINK" "CALL_LANDLORD">> 
             -> [nomarkup][Hang up.][/nomarkup]
-        -> {$pcName}: That's a rip off!
+        -> {$pcName}: That's a rip-off!
             <<FailObjective "Q_0P_FIX_SINK" "CALL_LANDLORD">>
             {$landlord}: I'm a capitalist. Take it or leave it. I'm going back to bed.
             -> [nomarkup][Hang up.][/nomarkup]
@@ -70,7 +70,7 @@ tags:
 position: 157,51
 ---
 <<if Roll("Charisma","Subterfuge") >= (3 + $kevinRollModifier)>>
-    {$landlord}: Oh... anything you say? #success #line:0a58c93 
+    {$landlord}: Oh... Anything, you say? #success #line:0a58c93
     {$landlord}: Let me get dressed. I'll see you shortly.
     <<CompleteObjective "Q_0P_FIX_SINK" "CALL_LANDLORD">>   
     -> [nomarkup][Hang up.][/nomarkup]
@@ -86,7 +86,7 @@ position: 85,-289
 ---
 <<if Roll("Manipulation","Intimidation") >= (3 + $kevinRollModifier)>>
     <<CompleteObjective "Q_0P_FIX_SINK" "CALL_LANDLORD">> 
-    {$landlord}: Oh, I didn't know that. I'll uhm- I'll be right over. #success #line:04512a2  
+    {$landlord}: Oh, I didn't know that. I'll, uhm- I'll be right over. #success #line:04512a2
     -> [nomarkup][Hang up.][/nomarkup] #line:0a463c8  
 <<else>>
     {$storyteller}: [nomarkup][He snorts out a laugh on the other end.][/nomarkup] #failure #line:0401975 

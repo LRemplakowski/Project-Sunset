@@ -1,7 +1,7 @@
 ﻿title: kieranDialogue
 tags: 
 ---
-{$storyteller}: [nomarkup][You drive through Vegas streets. Kieran is a cautious driver, adhering to the traffic rules to the letter. He looks a little bit tense. You have time to relax, or talk.][/nomarkup] #line:05cc647 
+{$storyteller}: [nomarkup][You drive through Vegas' streets. Kieran is a cautious driver, adhering to the traffic rules to the letter. He looks a bit tense. You have time to relax, or talk.][/nomarkup] #line:05cc647 
 -> {$pcName}: Kieran, may I ask you some questions? #line:0e614f7 
     <<jump askQuestions>>
 -> [nomarkup][Stay silent.][/nomarkup] #line:011080e 
@@ -61,7 +61,7 @@ title: kieranDominicRelations
     -> {$pcName}: Duties? #line:0d2f8a8 
     {$kieran}: My sire wished to test my capabilities in the field. I was ordered to aid Dominic in apprehending you, but instead, here I am, accounting. #line:0197673 
         -> {$pcName}: Accounting? #line:017f074 
-                {$kieran}: You are my adoptive childe, for tonight at least. Thus, you are under my Accounting, of sorts.
+                {$kieran}: And you are my adoptive childe, for tonight at least. Thus, you are under the Tradition of Accounting, of sorts. #line:07999d5
                 -> {$pcName}: This sounds... awkward. #line:0b15454 
                 {$kieran}: If you are referring to the implication that I am your paternal figure now, then yes. I agree. #line:0f11c17
                 <<jump questionsKieran>>
@@ -71,18 +71,18 @@ title: vampisismExplained
 {$kieran}: We exist, yes. So do many of the myriad of myths and monsters you were told to be wary of as a child. Unfortunately, however, introductions to those will have to wait, too. #line:00de44d 
     -> {$pcName}: Not even a crash course? #line:0a9b893 
         <<if CustomVisited("SireInfo") == true>>
-            {$kieran}: The one you had back in your apartment was not sufficient? #line:0b6fda2
+            {$kieran}: Was the one you had back in your apartment not sufficient? #line:0b6fda2
 		    {$kieran}: Listen, I understand what you are saying, but we really have to get going. #line:00ec54f
         <<else>>
-	        {$kieran}: I would give you one, however, I just do not think we have the time for this. You will learn as we go.
+	        {$kieran}: I would give you one; however, I just do not think we have the time for this. You will learn as we go. #lastline
         <<endif>>
  <<jump questionsKieran>>
 ===
 title: willHeKillUs
 ---
-{$kieran}: Not that I am willing to risk it, but I have a higher chance of clemency given that he would have to take my execution up with the higher echelons of our shared clan.
+{$kieran}: Not that I am willing to risk it, but I have a higher chance of clemency given that he would have to take my execution up with the higher echelons of our clan.
 {$kieran}: For you, however, the deal was sealed the moment Dominic allowed you this opportunity.
-{$kieran}: He was not lying; he is bound by our laws. They are normally exceedingly harsh and inflexible, but Dominic agreed to bend the rules because he has a bigger fish to fry, for the time being.
+{$kieran}: He was not lying; he is bound by our laws. They are normally exceedingly harsh and inflexible, but Dominic agreed to bend the rules because he has bigger fish to fry, for the time being.
 {$kieran}: Those laws are not frequently bent; one can generally only count on the occasional, conditional pardon for very good reason.
 {$kieran}: Harsh they may be, but they serve their purpose well. These rules have maintained our society for centuries, keeping mortals unaware of our existence. #line:0237466 
 <<jump questionsKieran>>
@@ -100,7 +100,7 @@ title: drinks
 <<elseif GetCompanionInfluence($kieran)<=-1>>
     {$kieran}: ...and no amount would make it worth your prolonged company. #line:0ddc428
 <<else>>
-    {$kieran}: ... but I don't know if such a thing would be... appropriate. #line:0a4ea6d
+    {$kieran}: But I do not know if such a thing would be... appropriate. #line:0a4ea6d #lastline
 <<endif>>
 <<jump questionsKieran>>
 ===
@@ -128,20 +128,21 @@ title: catherinaCharacteristics
 -> {$pcName}: We [nomarkup]<i>will</i>[/nomarkup] meet her at some point, right? 
 <<if GetCompanionInfluence($kieran)>=1>>
     {$storyteller}: [nomarkup][You see him thinking like he's gathering his own thoughts to give an opinion on this particular topic.][/nomarkup]
-    {$kieran}: She is… okay if you ask for my opinion. She also likes to meet new people, so you have some advantage here. Just act nice and do not be rude and you will be fine.    
+    {$kieran}: She is… fine, if you ask for my opinion. She also likes to meet new people, so you have something in your favor here. Just act nice and do not be rude and you will be fine.
     <<jump kieransSire>>
 <<elseif GetCompanionInfluence($kieran)<=-1>>
-    {$kieran}: I don't want to sound rude, but I'm not certain how this is relevant to the ongoing investigation. #line:065ce23 
+    {$kieran}: I do not want to sound rude, but I am not certain about the relevance of this to the ongoing investigation. #line:065ce23 
     <<jump kieransSire>>
 <<else>>
     {$kieran}: She is my sire and she owns the Embassy. That's all you need to know for now. Just act nice and do not be rude and you will be fine.
 <<endif>>
+{$kieran}: Other than that, I won't say. Gossip is simply not the way I prefer to spend my time. #line:0b7fef2
 <<jump kieransSire>>
 ===
 title: catherinasAge
 ---
 {$kieran}: Let me think... [nomarkup][He pauses for a while, glancing upward as he calculates her age in his head.][/nomarkup] She has been around for nearly 500 years, and is what we call an elder. A being to be respected, possessing a sum of experience and wisdom that both of us can only dream of. #line:093bc71 
-[nomarkup][At first you don't know what to say, other than blinking your eyes in surprise.][/nomarkup] #line:0d85064 
+{$storyteller}: [nomarkup][At first, you don't know what to say. You blinkyour eyes in surprise.][/nomarkup] #line:0d85064
 {$kieran}: [nomarkup][He chuckles upon seeing your reaction.][/nomarkup] She is not the oldest around, you know, probably not even in this city. There are much older Kindred lurking in the shadows. Especially in Europe. #line:03119e8 
 <<jump kieransSire>>
 ===
@@ -157,14 +158,14 @@ title: occultQuestions
 {$kieran}: As for the super speed and strength, those are a few abilities that Kindred do have. Training to hone them is a necessity, though. Never forget this. #line:051f8a9
 -> {$pcName}: Can you teach me everything you mentioned just now? #line:0f53480
 {$kieran}: That is exactly the kind of mindset that will get you killed. One's abilities are not toys. #line:07c1a8c
-{$kieran}: And sadly, the answer is once again no. I do not know all of those powers, myself.
-{$kieran}: I am sure you will find a suitable teacher, when the time comes, however. Being Brujah, the powers you possess are quite common amongst Kindred. #line:0748c05
+{$kieran}: And, sadly, the answer is once again no. I do not know all of those powers myself.
+{$kieran}: I am sure you will find a suitable teacher when the time comes, however. Being a Brujah, the powers you possess are quite common amongst Kindred. #line:0748c05
 <<jump occultChoices>>
 ===
 title: occultChoices
 ---
 {$kieran}: What else do you want to know? #line:067a952 
--> {$pcName}: Being Brujah... So the powers you get are based on your clan? #line:0866b7b 
+-> {$pcName}: “Being a Brujah”... So the powers you get are based on your clan? #line:0866b7b
     <<jump superhero>>
 -> {$pcName}: What's your clan? #line:0813c5a 
     <<jump kieransClan>>
@@ -199,10 +200,10 @@ title: kieransClan
             <<elseif GetCompanionInfluence($kieran)==0>>
                 {$kieran}: The first thing you must know when attempting to learn about the Tremere is that we are highly secretive, often for good reason... #line:01db9ce 
             <<else>>
-                {$kieran}: No. Figure it out on your own time. #line:0149275 
+                {$kieran}: You will figure it out on your own time. #line:0149275
             <<endif>>
     <<else>>
-        {$kieran}: Dominic was correct. You are indeed annoying. But no.
+        {$kieran}: Dominic was correct. You are indeed annoying.
     <<endif>>
 -> {$pcName}: [nomarkup][Leave it be.][/nomarkup] Alright, then. #line:0d98606 
     {$kieran}: [nomarkup][He visibly relaxes, his posture and expression softening.][/nomarkup]
@@ -213,6 +214,6 @@ title: unaware
 {$kieran}: Well, some powers are subtler than others in their usage and effects.
 {$kieran}: It is difficult to detect a supernatural charm or allure, for instance, whereas something like super speed or strength is leagues more noticeable. #line:07000e7 
 {$kieran}: Moreover, it is a fact that your powers are available to you innately through your sire, but their initial distribution is generally varied. 
-{$kieran}: Causes for these fluctuations in initial skill levels of fledglings are not well-understood. #line:0ab2603 
+{$kieran}: Causes for these fluctuations in initial skill levels of fledglings are not well-understood yet. #line:0ab2603
 <<jump occultChoices>>
 ===

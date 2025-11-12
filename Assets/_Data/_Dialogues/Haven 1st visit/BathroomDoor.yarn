@@ -28,7 +28,7 @@ position: 114,94
     <<jump BathroomDoorKnock>>
 -> [nomarkup][Try to kick the door open.] (Strength + Brawl)[/nomarkup] <<if CustomVisited("BahtroomDoorKick") == false>> #line:0c702b0 
     <<jump BathroomDoorKick>>
--> [nomarkup][Crowbar the door.] (Strength + Melee)[/nomarkup] <<if GetHasItem("IT_WPN_ML_CROWBAR") == true>> #line:0cb3a69 
+-> [nomarkup][Crowbar the door open.] (Strength + Melee)[/nomarkup] <<if GetHasItem("IT_WPN_ML_CROWBAR") == true>> #line:0cb3a69 
     <<jump BathroomDoorCrowbar>>
 -> [nomarkup][Unlock the door.][/nomarkup] <<if GetHasItem("IT_Q_BATHROOM_KEY") == true>> #line:04a268c 
     <<jump BathroomDoorUnlock>>
@@ -61,7 +61,7 @@ position: 567,-63
 <<else>>
     <<if Roll("Strength","Brawl") >= (6 - $strangeInsightModifier)>>
         <<CompleteObjective "Q_0P_MAIN_SATURDAY_START" "ENTER_BATHROOM">>
-        {$storyteller}: [nomarkup][You strike the door with precisely enough force to bust the door open without damaging the door.][/nomarkup] #success #line:0a62dfb 
+        {$storyteller}: [nomarkup][You strike the door with precisely enough force to bust it open without causing any damage.][/nomarkup] #success #line:0a62dfb 
         -> [nomarkup][Go inside.][/nomarkup]
     <<else>>
         {$storyteller}:[nomarkup][Despite your best efforts, the door doesn't budge.][/nomarkup] #failure #line:0082b73 

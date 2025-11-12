@@ -10,7 +10,7 @@ tags:
 -> [nomarkup][Climb up the HVAC.](Dexterity + Athletics)[/nomarkup] #line:0725c2d
     {$kieran}: Be careful! #line:07d5dc3
     <<if GetIsPartyMemberRecruited($anastasia) is true>>
-        {$anastasia}: [nomarkup][coughs.][/nomarkup] Pussy. #line:0f31569
+        {$anastasia}: [nomarkup][Coughs.][/nomarkup] Pussy. #line:0f31569
     <<endif>>
     <<if Roll ("dexterity","Athletics") >=2>>
         <<jump climbingSuccess>>

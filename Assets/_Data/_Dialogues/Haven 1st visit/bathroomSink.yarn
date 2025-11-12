@@ -24,7 +24,7 @@ tags:
     {$storyteller}: [nomarkup][Your eyes are sunken. Cheeks gaunt. Your skin seems egregiously ashy and pallid. Upon closer inspection, you see that your canines have grown into fangs.][/nomarkup]
 <<endif>>
 <<if GetAttributeSkillPoolSize("Intelligence","Occult") >= 2>>
-    {$storyteller}: [nomarkup][This can't be, it just… can't. What you're beginning to think you are is… They're not real. This has to be the hangover messing with you.][/nomarkup] #lastline
+    {$storyteller}: [nomarkup][This can't be, it just… can't. What you're beginning to think you are… They're not real. This has to be the hangover messing with you.][/nomarkup] #lastline
 <<endif>>
 <<jump BathroomSinkInteractions>>
 ===

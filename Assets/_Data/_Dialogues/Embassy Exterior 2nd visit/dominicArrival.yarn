@@ -23,7 +23,7 @@ position: -147,-165
 {$storyteller}: [nomarkup][You point to Diana who looks at you with hatred. She's apparently not grateful for her life.][/nomarkup]
 {$sheriff}: You got somethin' you want to explain here Kate?
 {$sforzaMask}: Do you not have any decorum, Dominic? None at all? I've only just got here. #line:062ac4a 
-{$sheriff}: Your ghoul. Your childer. Your Domain. Your problem. #line:0d98ad8 
+{$sheriff}: Your ghoul. Your childer. Your domain. Your problem. #line:0d98ad8 
 {$sheriff}: This is gettin' more and more interestin'.
 {$sheriff}: Of all people in Vegas, you'd be the last that I'd accuse of leavin' the latch open on the barn.
 {$sheriff}: Doggone, I'd be laughin' if that didn't leave the door open for everyone else, too.
@@ -112,7 +112,7 @@ title: luciaTakeHer
 {$sheriff}: Might could. #line:0a7953c 
 {$sforzaMask}: Do you still want to give the fledgling decision rights, Sheriff? #line:0ce5af4 
 <<ModifyInfluence $sforzaMask -1>>
-{$sheriff}: I believe she just lost them. Take your pet, Kate. Kieran, keep an eye on that one to make sure that the blood bond fades quickly. I don't need such a lazy spy in my wife's Domain. #line:075b58e 
+{$sheriff}: I believe she just lost them. Take your pet, Kate. Kieran, keep an eye on that one to make sure that the blood bond fades quickly. I don't need such a lazy spy in my wife's domain. #line:075b58e 
 <<jump takeYourPet>>
 ===
 title: letHerGo

@@ -4,7 +4,7 @@ tags:
 <<StartQuest "Q_0P_FIX_SINK">>
 <<if $vomit == true>>
     {$storyteller}: [nomarkup][The sink is filled with red chunky lumps of bile and meat.][/nomarkup] #line:0f33850
-    {$storyteller}: [nomarkup][Something is clearly gravely wrong, but not like you can afford a visit to the ER.][/nomarkup]
+    {$storyteller}: [nomarkup][Something is CLEARLY wrong, but it's not like you can afford a visit to the ER.][/nomarkup] #lastline
 <<else>>
     {$storyteller}: [nomarkup][Stagnant dish water ponds in your clogged sink with traces of red. Not the first time. You get what you pay for.][/nomarkup] #line:0f4b5be
 <<endif>>
@@ -20,11 +20,11 @@ tags:
         <<set $police to true>>
         {$storyteller}: [nomarkup][The pipe breaks at your touch. You are soaked in red bile. You should be disgusted, but you find yourself transfixed by the fluid. You get distracted from the sink and find yourself licking the sludge off your fingers. The taste is foul but satisfying.][/nomarkup] #failure #line:04f3ed7
     <<endif>>
-    {$storyteller}: [nomarkup][You found the source of the clog at least, the Bathroom Key and an... eyeball?][/nomarkup] #line:05f01af
+    {$storyteller}: [nomarkup][You found the source of the clog at least, the bathroom key and an... eyeball?][/nomarkup] #line:05f01af
     {$pcName}: [nomarkup][What the fuck?][/nomarkup] #line:00217e7
-    {$storyteller}: [nomarkup][Its deep brown iris settles on you. Its gaze feels almost accusatory.][/nomarkup]
+    {$storyteller}: [nomarkup][Its deep brown iris settles on you with an almost accusatory gaze.][/nomarkup]
     -> [nomarkup][Toss it.][/nomarkup] #line:06d7db9
-        {$storyteller}: [nomarkup][With a wet PLOP it splashes and bobs and down in the sink.][/nomarkup] #line:07e083e
+        {$storyteller}: [nomarkup][A wet PLOP. It splashes and bobs up and down in the sink.][/nomarkup] #line:07e083e
         -> [nomarkup][Walk away.][/nomarkup] #line:0fcb8b5
     -> [nomarkup][Eat it.][/nomarkup] #line:02a5771
         {$storyteller}: [nomarkup][Instinct. You fit the whole eyeball into your mouth. A slimy, viscous fluid squirts in between your teeth. It's grotesque, but oddly satisfying.][/nomarkup] (-1 Hunger). #line:07e4fad

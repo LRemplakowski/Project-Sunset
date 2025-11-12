@@ -10,19 +10,19 @@ position: -910,-108
 title: meetingKate
 position: -540,-238
 ---
-{$storyteller}: [nomarkup][Before you sits a beautiful woman in her mid-forties, beautiful with the ghosts of wrinkles beginning to etch themselves onto her face.][/nomarkup]
+{$storyteller}: [nomarkup][Before you sits a woman in her mid-forties, beautiful with the ghosts of wrinkles beginning to etch themselves onto her face.][/nomarkup]
 {$storyteller}: [nomarkup][A gold-embroidered corset, patterned with proud peacocks, cinches her waist impossibly tight beneath cascading dark red hair and a shimmering sequined dress.][/nomarkup]
 {$storyteller}: [nomarkup][Pale legs in lace stockings cross elegantly as crimson nails trace the rim of a glass filled with something far darker than wine.][/nomarkup]
 {$storyteller}: [nomarkup][Bathed in soft vermillion light, her armchair is her throne, the perch of this room's red queen.][/nomarkup]
 <<if GetIsPartyMemberRecruited($anastasia) is false>>
     {$sforzaMask}: Kieran. Back so soon? Hope Dominic didn't run you off. Who's your friend?
-    {$storyteller}: [nomarkup][Her eyes are turned on you. She speaks with an Italian accent?][/nomarkup]
+    {$storyteller}: [nomarkup][Her eyes are turned on you. She speaks with an Italian accent.][/nomarkup]
 <<else>>
     {$sforzaMask}: Kieran, back so soon? Hope Dominic didn't run you off. Who are your friends?
     {$storyteller}: [nomarkup][Her eyes are turned on you. She speaks with an Italian accent.][/nomarkup] #line:069afd3
     <<set $anastasiaIntroduced to true>>
-    {$anastasia}: Anastasia, charmed m'lady. 
-    {$storyteller}: [nomarkup][Kate seems unimpressed, a deadpan expression.][/nomarkup]
+    {$anastasia}: Anastasia. Charmed, m'lady. 
+    {$storyteller}: [nomarkup][Kate seems unimpressed, a deadpan expression resting on her face.][/nomarkup]
     {$sforzaMask}: A pleasure for you to finally introduce yourself! I cannot imagine why we didn't get together sooner. Were you afraid that I'd bite?
     {$storyteller}: [nomarkup][Kate's smile doesn't reach her eyes, but she allows this particular insult to go unpunished.][/nomarkup] #line:07c201d
 <<endif>>
@@ -32,13 +32,13 @@ position: -540,-238
 {$storyteller}: [nomarkup][Incredulous, she lifts an eyebrow.][/nomarkup]
 {$sforzaMask}: I can see Dominic is trying to start another scandal in Court. How nice of him. 
 {$sforzaMask}: Does Prince Douglas know? #line:056e742
-{$kieran}: I'll leave their marital drama up to them. But she probably knows. And if not now, then she will soon. As for your guest...
+{$kieran}: I'll leave their marital drama up to them, but by now she probably knows. And if not now, then she will soon. As for your guest…
 {$storyteller}: [nomarkup][He turns to you.][/nomarkup] 
-{$sforzaMask}: I know who she is. You're the one who managed to expose that little blackmail operation our dear Prince was running. I'm surprised you even lived long enough to be Embraced into one of us. 
+{$sforzaMask}: I know who she is. You're the one who managed to expose that little blackmail operation our dear Prince was running. I'm surprised you lived long enough to be Embraced into one of us. 
 {$kieran}: Dominic is of the opinion that she has enough potential for a simple execution to be a waste. Her first task is to find her sire to minimize the scandal.
 {$storyteller}: [nomarkup][This is not how events unfolded in your apartment. It was Kieran who needed to convince Dominic of your competence, not the other way around...][/nomarkup] #line:01efab0 
 {$sforzaMask}: Interesting. 
-{$storyteller}: [nomarkup][She gives you an ocular pat down, eyeing the length of your figure and smiles.][/nomarkup] 
+{$storyteller}: [nomarkup][She gives you an ocular pat down, eyeing the length of your figure, and smiles.][/nomarkup] 
 {$sforzaMask}: I suppose if Dominic believes you're worth violating our Traditions over, then you must be something quite special?
 {$sforzaMask}: Good luck with this little test, my dear, and do come back if you succeed? Don't forget to tell me all about it, I'm so curious!
 -> {$pcName}: Thank you. #line:099b710 
@@ -49,10 +49,10 @@ position: -540,-238
     {$storyteller}: [nomarkup][She laughs, yet her tone is far from amused.][/nomarkup] 
     {$sforzaMask}: My dear, you should learn to be more guarded with your intentions if you want to make something of your new life. Not all Kindred are as nice as I am; some think that the solution to a wounded pride is a missing tooth... (-1 Kieran Influence) #line:07fa057 
     <<ModifyInfluence -1 {$kieran}>>
-    {$kieran}: She does have a fiery temperament, but... it's to be expected, given her Blood. #line:00590a3 
+    {$kieran}: She does have a fiery temperament, but... it is to be expected, given her Blood. #line:00590a3 
     {$sforzaMask}: Another Brujah? 
     {$storyteller}: [nomarkup][She sighs and rolls her eyes.][/nomarkup] 
-    {$sforzaMask}: I would heartily endorse some anger management classes and, if you would like to live a long, prosperous life, to not lean on excuses. #lastline #line:0179d9d 
+    {$sforzaMask}: I would heartily endorse some anger management classes and, if you would like to live a long, prosperous life, not to lean on excuses. #line:0179d9d #lastline
     <<jump questionsAboutLastNight>>
 ===
 title: questionsAboutLastNight
@@ -73,7 +73,7 @@ position: -212,-233
 {$sforzaMask}: Making a mess already, piccola mia? You must be smarter than that.
 {$sforzaMask}: I'm sure Kieran will help you realize your full potential, and in time, build you into an upstanding member of the Praxis.
 {$storyteller}: [nomarkup][She gazes meaningfully at you both.][/nomarkup]
-{$sforzaMask}: He [nomarkup]<i>is my</i>[/nomarkup] childe, after all. 
+{$sforzaMask}: He is [nomarkup]<i>my</i>[/nomarkup] childe, after all. 
 {$storyteller}: [nomarkup][Kieran only reciprocates with a shallow nod, though there may be some pride in the way he glances at you momentarily.][/nomarkup]
 -> {$pcName}: Did we leave with anybody else? #line:0f44f9e 
 {$sforzaMask}: My dear, if you left with anyone else, I can't say. I was... preoccupied. 
@@ -115,8 +115,8 @@ position: -502,87
         {$storyteller}: [nomarkup][Kate immediately addresses Anastasia.][/nomarkup] #line:08fbef5
         {$sforzaMask}: Ciao, piccola mia. Who am I speaking with?
         <<set $anastasiaIntroduced to true>>
-        {$anastasia}: Anastasia, charmed m'lady. 
-        {$storyteller}: [nomarkup][Kate seems unimpressed, a deadpan expression.][/nomarkup]
+        {$anastasia}: Anastasia. Charmed m'lady. 
+        {$storyteller}: [nomarkup][Kate seems unimpressed, a deadpan expression resting on her face.][/nomarkup]
         {$sforzaMask}: A pleasure for you to finally introduce yourself! I cannot imagine why we didn't get together sooner. Were you afraid that I'd bite?
         {$storyteller}: [nomarkup][Kate's smile doesn't reach her eyes, but she allows this particular insult to go unpunished.][/nomarkup]
         <<jump subsequentQuestions>>
@@ -185,8 +185,8 @@ position: -76,570
 title: howSheStarted
 position: -70,220
 ---
-{$sforzaMask}: Diana owns the place, piccola mia. I just look after it. It was a gift from our ever so “ever-so-beloved” Prince.
-{$sforzaMask}: She saw fit to bestow upon me this modest domain as a token of her gratitude after that nasty business with what happened to the previous Prince.
+{$sforzaMask}: Diana owns the place, piccola mia. I just look after it. It was a gift from our ever so [nomarkup]<i>>beloved</i>[/nomarkup] Prince.
+{$sforzaMask}: She saw fit to bestow upon me this modest domain as a token of her gratitude after that nasty business that happened to the previous Prince.
 {$sforzaMask}: I knew that The Embassy would be the perfect spot to establish a hub where Kindred could gather and socialize, a true haven for our dysfunctional little family.
 {$sforzaMask}: It required a bit of remodeling and adapting to the needs of our kind, but with Diana's help and expertise, it has blossomed. #line:0709911
 <<jump subsequentQuestions>>
@@ -203,7 +203,7 @@ position: 530,-103
 ---
 {$sforzaMask}: Ah, it's so refreshing to have someone around as oblivious to politics as you.
 {$sforzaMask}: Kieran, be a dear and educate your new friend on the intricacies of our society, would you? It would be a good refresher, and it may save her life.
-{$kieran}: The Prince is the head figure in charge of the Camarilla's Domain here in Las Vegas. 
+{$kieran}: The Prince is the head figure in charge of the Camarilla's domain here in Las Vegas. 
 <<jump subsequentQuestions>>
 ===
 title: previousPrince
@@ -220,7 +220,7 @@ position: 908,-62
 {$kieran}: A bunch of savages. #line:0bd540d 
 {$sforzaMask}: A dangerous, misguided organization that rejects the Camarilla's Traditions in what they justify as some sort of twisted Jyhad.
 {$sforzaMask}: Benedic didn't see them as a serious threat, and thus, he suffered final death at their hands. 
-{$sforzaMask}: Some advice, if I were someone in your position, I would do my very best to know as little about them as possible.
+{$sforzaMask}: Some advice: if I were someone in your position, I would do my very best to know as little about them as possible.
 <<jump subsequentQuestions>>
 ===
 title: whatAreTraditions
@@ -238,11 +238,11 @@ position: 537,611
 {$kieran}: A Kindred sect founded more than five hundred years ago with the Six Traditions as our core guiding tenets. All of us are members, and citizens, so to speak, of the Praxis.
 {$kieran}: The institution's organization is modeled after feudalistic societies of the Middle Ages, with the Prince of a given territory being the equivalent of a Lord. #lastline
 -> {$pcName}: Our Prince is a Lady, no? 
-{$sforzaMask}: Women's work so rarely intersected with something so crass as leadership you see, so when the systems were being designed, such words as “Princess” and “Lady” were neatly left out. How thoughtful of them, no?
+{$sforzaMask}: Women's work so rarely intersected with something so crass as leadership, you see, so when the systems were being designed, such words as “Princess” and “Lady” were neatly left out. How thoughtful of them, no?
 {$storyteller}: [nomarkup][The tone in her voice is sweet, but the way she says the words has a distinct air of disdain. Kate smiles at you.][/nomarkup]
 {$sforzaMask}: But it's different now, no? The tide of progress lifts all boats! #line:0c7e90e 
 <<if Roll ("Wits","Awareness")>=4>>
-    {$storyteller}: [nomarkup][It's a smile, but you get the impression it may have been bitter, once - sharp and astringent, but those emotions have clearly been dulled by time.][/nomarkup] #line:0a719c9 
+    {$storyteller}: [nomarkup][It's a smile, but you get the impression it may have been bitter, once sharp and astringent, but those emotions have clearly been dulled by time.][/nomarkup] #line:0a719c9 
 <<endif>>
 <<jump subsequentQuestions>>
 ===
@@ -266,10 +266,10 @@ title: KateTalkWithBouncer
 ---
 //cut to black - Kate goes from her lodge and takes care of the bouncer//
 {$sforzaMask}: He won't be an issue anymore. #line:0f0538b 
-{$kieran}: Thank you ma'am. #line:0486696 
+{$kieran}: Thank you, ma'am. #line:0486696 
 -> {$pcName}: What did you do to him? #line:0d333c8 
 {$sforzaMask}: We had a conversation, my darling. Do you need anything else? #line:02c7a04 
-{$kieran}: It would be best to refrain from asking prying questions. He's out of our way - that is what counts. #line:0467994 
+{$kieran}: It would be best to refrain from asking prying questions. He's out of our way, that is what counts. #line:0467994 
 <<if GetIsPartyMemberRecruited($anastasia) is true>>
     {$anastasia}: How ominous. #lastline #line:0c10d16 
 <<endif>>

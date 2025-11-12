@@ -4,7 +4,7 @@ color: red
 position: -99,-460
 ---
 <<if $phoneBroken == true>>
-    {$storyteller}: [nomarkup][It doesn't take a rocket scientist to notice a rip in the wall where phone cable should be. It's most likely Dominic who's responsible or someone who works for him. You can feel the urge to call Arthur, ask him to come over and stay with you - but you couldn't even if you wanted to.][/nomarkup] #lastline #line:0600fec
+    {$storyteller}: [nomarkup][ The phone's cable has been ripped from the wall. You suspect most likely Dominic who's responsible. You can feel the urge to call Arthur.][/nomarkup] #lastline #line:0600fec
 <<else>> 
     {$storyteller}: [nomarkup][Thanks to your efforts the phone is functional again.][/nomarkup] #lastline
 <<endif>>
@@ -29,14 +29,14 @@ title: phoneInt2Duct
 position: 225,-417
 ---
 <<set $phoneBroken to false>>
-{$storyteller}: [nomarkup][You spend a couple of minutes with the cord and find where it's been ripped, connecting it with duct tape and nodding. It'll do.][/nomarkup] #line:08038ea
+{$storyteller}: [nomarkup][You spend a couple of minutes with the cord and find where it's been ripped, connecting it with duct tape. You nod.It'll do.][/nomarkup] #line:08038ea
 -> [nomarkup][Dial up Arthur.][/nomarkup] #line:0c7934d
     <<jump dialArthur>>
 -> [nomarkup][End dialogue.][/nomarkup]
 ===
 title: dialArthur
 ---
-{$storyteller}: [nomarkup][You wait for a few minutes ,for the phone to ring, unsurprisingly Arthur doesn't pick up. You wait for it to go all the way through the dial-up ring only for...][/nomarkup] #line:038439e
+{$storyteller}: [nomarkup][You wait for a few minutes, for the phone to ring, unsurprisingly Arthur doesn't pick up. You wait for it the dial-up ring only for...][/nomarkup] #line:038439e
 Phone: We're sorry, the number you're trying to dial has been disconnected. We're sorry, the number that you're trying to call has been disconnected. We're - #line:0713d37
 <<if IsObjectiveActive("Q_0P_BLOODY_HELL", "BH9_WATCH_VHS")>>
     <<if GetIsPartyMemberRecruited($anastasia) is true>>

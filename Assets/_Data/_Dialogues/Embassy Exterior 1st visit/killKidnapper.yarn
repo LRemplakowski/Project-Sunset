@@ -6,8 +6,8 @@ position: 490,264
 {$kieran}: I vouched for your ability to maintain a low profile, but... you are ever the magnet for trouble, are you not? #line:0fbaad4 
 {$storyteller}: [nomarkup][The man shuffles to his feet, stumbling.][/nomarkup] #line:048081a 
 Drunk Guy: [nomarkup][Slurring.][/nomarkup] Oh my God! You killed them! I'm gonna call the cops! #line:02bd4bd 
-{$storyteller}: [nomarkup][You cover your nose feeling the rancid stench of alcohol on his breath.][/nomarkup]
-{$kieran}: We just saved you from a “kidnapping”, risking our own lives along the way. Or are you too inebriated to recognize how close you were to being disappeared?
+{$storyteller}: [nomarkup][You cover your nose as you feel the rancid stench of alcohol on his breath.][/nomarkup]
+{$kieran}: We just saved you from a kidnapping, risking our own lives along the way. Or are you too inebriated to recognize how close you were to being abducted? #line:037bdef
 Drunk Guy: I'm a pacifist. I have a principled stance against violence of any kind. #line:0d8c706 
 {$kieran}: How quaint. #line:04cdba9
 <<jump drunkardOptions>>
@@ -29,7 +29,7 @@ title: streetwiseRoll
 position: 40,-74
 ---
 <<if Roll("Manipulation","Streetwise")>=2>>
-    Drunk Guy: You guys [nomarkup]<i>did</i>[/nomarkup] save me. I guess I can let it slide. #success #line:0f71b72 
+    Drunk Guy: You guys [nomarkup]<i>did</i>[/nomarkup] saved me. I guess I can let it slide. #success #line:0f71b72 
     {$kieran}: We appreciate the gratitude. #line:039313f 
     <<jump drunkardSuccess>>
 <<else>>
@@ -60,12 +60,12 @@ position: 341,-14
     {$storyteller}: [nomarkup][Then, a moment later, he suddenly regains his attentiveness, looking around with visible confusion.][/nomarkup] #line:0780a65 
     <<set $disciplineUse to true>>
     Drunk Guy: Huh, where am I? #line:0880839 
-    {$kieran}: You are at the Embassy. You were just walking home. #line:0d60ff4 
+    {$kieran}: You are at The Embassy. You were just walking home. #line:0d60ff4 
     Drunk Guy: Thanks, I'm drunk. Can I bum a ride? #line:0343eda
     {$kieran}: No.
     Drunk Guy: Oh, okay. Good night. 
     <<if Roll("Wits","Insight")>=2>>
-        {$storyteller}: [nomarkup][That was an abrupt heel-turn. You cannot shake the feeling that something unnatural happened here - something that Kieran did. Or said. Hard to tell.][/nomarkup] #line:0e0a20b 
+        {$storyteller}: [nomarkup][That was an abrupt heel-turn. You cannot shake the feeling that something unnatural happened here; something that Kieran did. Or said. Hard to tell.][/nomarkup] #line:0e0a20b 
         <<jump drunkardSuccess>>
     <<else>>
         <<jump drunkardSuccess>>
@@ -80,9 +80,9 @@ title: killTheDrunkard
 position: -328,-137
 ---
 Drunk Guy: Why are you looking at me like that? Stay away! #line:01c9b51
-{$storyteller}: [nomarkup][The man attempts to fight, but it's no use. Already in a weakened state, he goes down with a single blow][/nomarkup] #line:0f90220
-{$storyteller}: [nomarkup][Kieran's disappointment turns into barely restrained anger - his frown deep and his nostrils flaring.][/nomarkup]
-{$kieran}: So that is your solution? Reducing people down to obstacles to be removed? It sure is convenient, is it not? The overwhelming force you have been gifted with. (-2 Kieran Influence) #line:0da39f3
+{$storyteller}: [nomarkup][The man attempts to fight, but it's no use. Already in a weakened state, he goes down with a single blow.][/nomarkup] #line:0f90220
+{$storyteller}: [nomarkup][Kieran's disappointment turns into barely restrained anger, his frown deep and his nostrils flaring.][/nomarkup]
+{$kieran}: So that is your solution? Reducing people to obstacles to be removed? It sure is convenient, is it not? The overwhelming force you have been gifted with. (-2 Kieran Influence) #line:0da39f3
 <<ModifyInfluence -2 {$kieran}>>
 {$kieran}: Just remember, you're not the only one...  #line:00f8949
 {$storyteller}: [nomarkup][He closes his eyes, taking a deep breath in an attempt to calm himself down. All that remains afterward is a glare steeped in bitter resignation.][/nomarkup]
@@ -99,18 +99,18 @@ title: kieranComment
 position: -509,170
 ---
 <<if $disciplineUse ==true>>
-    -> {$pcName}: You told that guy to forget that something happened and he did.
+    -> {$pcName}: You told that guy to forget that something happened, and he did.
     {$storyteller}: [nomarkup][He seems not to understand at first what you are referring to, but then you see the realization in his eyes.][/nomarkup] 
-    {$kieran}: Ah, you mean Disciplines. With the powers of my blood, the mind can be dominated and bent to another's will - up to and including memory erasure. #line:09ff9d3 
+    {$kieran}: Ah, you mean Disciplines. With the powers of my Blood, the mind can be dominated and bent to another's will, up to and including memory erasure. #line:09ff9d3 
     -> {$pcName}: Can you teach me that? #line:09b478a 
-    {$kieran}: Sadly, no. At least, not so easily. Your blood has other useful, hidden powers, but now is not the time nor place. #line:0e36b59
+    {$kieran}: Sadly, no. At least, not so easily. Your blood has other useful, hidden powers, but now is not the time nor the place. #line:0e36b59
 <<endif>> 
 <<jump dumpsterCleanup>>
 ===
 title: dumpsterCleanup
 ---
-{$kieran}: We need to get rid of these bodies before anybody comes by. There is a dumpster in the back alley Kate uses for clean up.
-{$storyteller}: [nomarkup][Sifting through the corpses pockets you find a Bottle of Benzos and a note that reads Orders from Lucia.][/nomarkup]
+{$kieran}: We need to get rid of these bodies before anybody comes by. There is a dumpster in the back alley Kate uses for cleanup.
+{$storyteller}: [nomarkup][Sifting through the corpses’s pockets you find a Bottle of Benzos and a note that reads: “Orders from Lucia”.][/nomarkup]
 Orders from Lucia: Since you've been getting fucked up on the supply and apparently are too stupid to remember: Once they're good and messed up, bring'em to the Factory for processing. Lucia #line:00a9c24
 {$kieran}: Curious. It appears there is a human trafficking ring operating in the area. Are Kindred involved?
 -> [nomarkup][Walk away.][/nomarkup]

@@ -39,7 +39,7 @@ Cheryl Ahmadi (KLVN Channel 4): Attempts to get in contact with the owner of the
 Reporter: Efforts are underway currently to try and clear the building of those still trapped inside. It would seem that a broken door in the back alley allowed many to escape.
 Reporter: The fire team on duty this evening commented that it likely saved a great many people from smoke annihilation...  #line:066812a
 {$storyteller}: [nomarkup][The reporter drones on as you see police come and talk with the new station, saying that they suspect a string of violent crimes in the area all to be tied to a resurgence of gang violence and organized crime after a series of arrests late last year.][/nomarkup]
--> [nomarkup][Insert the tape.][/nomarkup] <<if GetHasItem("IT_Q_VHS") and not CustomVisited("tvInsertTape")>> #line:080e42f 
+-> [nomarkup][Insert the tape.][/nomarkup] <<if GetHasItem("IT_Q_VHS")>> #line:080e42f 
     <<jump tvInsertTape>>
 -> [nomarkup][Turn TV off.][/nomarkup] #line:0e2c32c 
 ===
