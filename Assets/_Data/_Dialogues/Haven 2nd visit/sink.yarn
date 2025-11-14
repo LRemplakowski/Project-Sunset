@@ -3,7 +3,7 @@ tags:
 position: -149,-121
 color: red
 ---
-{$storyteller}: [nomarkup][The sink is objectively disgusting.][/nomarkup]
+{$storyteller}: [nomarkup][The sink is <i>disgusting</i>.][/nomarkup] #line:0f8c704
 -> [nomarkup][Take the tape.][/nomarkup] <<if CustomVisited("sinkTape") == false>>
     <<GiveItem "IT_Q_DUCTTAPE">>
     <<jump sinkTape>> 
@@ -24,7 +24,7 @@ position: -302,213
 ---
 <<set $kevinMoved to true>>
 <<if $diegoMoved == true>>
-    {$storyteller}: [nomarkup][You heft Kevin's corpse and drag him into the closet where you put Diego...][/nomarkup]
+    {$storyteller}: [nomarkup][You heft Kevin's corpse and drag him into the closet where you had put Diego...][/nomarkup]
 <<else>>
     {$storyteller}: [nomarkup][You heft Kevin's corpse and drag him into the closet. Diego's corpse is still in the shower, but it'll probably fit in here just fine.][/nomarkup]
 <<endif>>
@@ -41,16 +41,16 @@ position: -27,207
 ===
 title: sinkBoxes
 ---
-{$storyteller}: [nomarkup][You collect all the pizza boxes you have collected. It seems that you have just enough of them to cover the entire window.][/nomarkup]
+{$storyteller}: [nomarkup][You collect all the pizza boxes you can find. It seems that you have just enough of them to cover the entire window.][/nomarkup]
 <<jump sink>>
 ===
 title: sinkTape
 ---
-{$storyteller}: [nomarkup][It takes several long seconds to unjam the junk drawer and open it. You find a half-full roll underneath a deck of playing cards and set it on the countertop.][/nomarkup]
+{$storyteller}: [nomarkup][It takes long seconds to unjam the junk drawer and open it. You find a half-full roll underneath a deck of playing cards and set it on the countertop.][/nomarkup]
 <<jump sink>>
 ===
 title: sinkHammer
 ---
-{$storyteller}: [nomarkup][When you moved Kevin's body, you see that he brought a hammer and nails with him. They might come in handy.][/nomarkup]
+{$storyteller}: [nomarkup][When you move Kevin's body, you notice that he brought a hammer and some nails with him. They might come in handy.][/nomarkup]
 <<jump sink>>
 ===

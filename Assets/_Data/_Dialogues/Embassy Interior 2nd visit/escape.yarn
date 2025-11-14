@@ -8,8 +8,8 @@ position: 1,-230
 <<declare $carryingNPC to 0>>
 <<declare $ranForIt to 0>>
 {$storyteller}: [nomarkup][You're greeted by plumes of feathers, wood chips, and couch padding floating through the glowing air as the gunfire tears through the scenery.][/nomarkup]
-{$storyteller}: [nomarkup][The club's patrons cower behind makeshift furniture barricades, couches, and under tables - doing anything they can to shelter themselves from the bullets and flames.][/nomarkup]
-{$storyteller}: [nomarkup][You're going to have to get through all of that, if you want to escape, but you're safe where you are, for now...][/nomarkup] #line:035bc8f
+{$storyteller}: [nomarkup][The club's patrons cower behind makeshift furniture barricades, couches, and under tables, doing anything they can to shelter themselves from the bullets and flames.][/nomarkup]
+{$storyteller}: [nomarkup][You're going to have to get through all of that if you want to escape, but you're safe where you are, for now...][/nomarkup] #line:035bc8f
 <<jump boom>>
 ===
 title: boom
@@ -17,7 +17,7 @@ title: boom
 <<PlaySFX "explosion">>
 BOOM!
 {$storyteller}: [nomarkup][Powdered debris fall from the cracks forming in the ceiling as the club is rocked by an explosion.][/nomarkup] #line:0b0136e
-{$storyteller}: [nomarkup][A few patrons who run towards the exits barely make it a few steps before they are filled with lead - mown down in a mist of blood.][/nomarkup] #line:0c644e5
+{$storyteller}: [nomarkup][A few patrons who run towards the exits barely make it a few steps before they are filled with lead, mown down in a mist of blood.][/nomarkup] #line:0c644e5
 {$storyteller}: [nomarkup][Kieran cocks his head to the side and closes his eyes, muttering to himself for a few long moments.][/nomarkup] 
 {$kieran}: Five at the entrance with guns, and at least one of the patrons has returned fire. #line:0793024
 <<if GetIsPartyMemberRecruited($anastasia) is true>>

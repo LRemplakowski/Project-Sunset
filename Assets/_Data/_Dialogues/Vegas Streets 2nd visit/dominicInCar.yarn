@@ -2,17 +2,17 @@
 tags:
 ---
 <<set $playerNickname to "Deputee">>
-{$storyteller}: [nomarkup][Sheriff sits at a drivers seat smoking a cigarette. Thankfully, he rolled down the window.][/nomarkup] #line:0dea140 
+{$storyteller}: [nomarkup][The Sheriff sits at the driver's seat, a cigarette in between his fingers. Thankfully, he had rolled down the window.][/nomarkup]
 <<jump carInteractions>>
 ===
 title: carInteractions
 ---
-{$storyteller}: [nomarkup][Dominic looks at the road sitting behind his wheel.][/nomarkup] #line:02f0e0a 
+[nomarkup][Dominic looks at the road, sitting behind the wheel.][/nomarkup] #line:02f0e0a 
 -> {$pcName}: May I have one? <<if CustomVisited("haveACigarette") == false>> #line:038577a 
     <<jump haveACigarette>>
 -> {$pcName}: [nomarkup][Point out his wedding ring.][/nomarkup] <<if CustomVisited("tellAboutHer") == false>> #line:0e54197 
     <<jump tellAboutHerIntro>>
--> {$pcName}: What happens with Diana? <<if CustomVisited("whatHappensWithDiana") == false>> #line:0868058 
+-> {$pcName}: What happens with Diana now? <<if CustomVisited("whatHappensWithDiana") == false>> #line:0868058 
     <<jump whatHappensWithDiana>>
 -> {$pcName}: Nice car. <<if CustomVisited("niceCar") == false and CustomVisited("badCar") == false>> #line:0ba8e56  
     <<jump niceCar>>
@@ -20,7 +20,7 @@ title: carInteractions
     <<jump badCar>>
 -> [nomarkup][Turn on the radio.][/nomarkup] <<if CustomVisited("turnOnRadio") == false>> #line:0f1e6db 
     <<jump turnOnRadio>>
--> [nomarkup][Look at rearview mirror.][/nomarkup] <<if GetIsPartyMemberRecruited($anastasia) is true and CustomVisited("anaInMirror") == false>> #line:0ef26b0 
+-> [nomarkup][Look at the rearview mirror.][/nomarkup] <<if GetIsPartyMemberRecruited($anastasia) is true and CustomVisited("anaInMirror") == false>> #line:0ef26b0 
     <<jump anaInMirror>>
 -> [nomarkup][Look behind at Diana.][/nomarkup] <<if CustomVisited("lookAtDiana") == false and CustomVisited("dominicTakeHer") == true>> #line:0d105db 
     <<jump lookAtDiana>>
@@ -33,16 +33,16 @@ title: carInteractions
 ===
 title: haveACigarette
 ---
-{$sheriff}: Old habits die hard? Sure, some should be in the glove compartment next to you. #line:0a539cd 
+{$sheriff}: Old habits die hard, ain't that the truth. Should be a pack sittin' in the glove compartment next to you if you're fixin' for a smoke.
 {$storyteller}: [nomarkup][You open up the glove compartment only to find a whole carton.][/nomarkup] #line:0bce8c1 
-{$sheriff}: Take 'em, they're yours, Deputee. I have a whole cupboard of those in my place. #line:0916ce4 
-{$storyteller}: [nomarkup][You put a cig in your mouth and light it up with the car lighter. You take in the smoke with a deep breath into your lungs.][/nomarkup] #line:07a1309 
-{$storyteller}: [nomarkup][It doesn't give the same “kick” or “taste” as usual, but it's still a shred of a normal life you had. You close your eyes for a second, allowing your senses to drift with the smoke.][/nomarkup] #line:0c060ef 
-{$sheriff}: It'll never be the same, but it feels nice, donnit? Got that rhythmic meditation shit. #line:003d78e 
+{$sheriff}: Take 'em. They're yours, Deputee. I have a whole cupboard o' those in my place. #line:08471aa
+{$storyteller}: [nomarkup][You put a cig in your mouth and light it up with the car lighter. You take in the smoke into your lungs with a deep breath.][/nomarkup]
+{$storyteller}: [nomarkup][It doesn't give the same “kick” or “taste” as usual, but it's still a shred of thenormal life you had. You close your eyes for a second, allowing your senses to drift with the smoke.][/nomarkup] #line:0104c58
+{$sheriff}: Ain't ever gonna match the real thing, but it does the trick, don't it? Got that steady cadence, like breathin' drills they beat into us back in the day. #line:003d78e 
 {$storyteller}: [nomarkup][You blow a puff of smoke. Dominic doesn't mind.][/nomarkup] #line:0bebd6b 
 {$sheriff}: Chase that. #line:0d3cfef
-{$storyteller}: [nomarkup][He threw out the bud through the window and let out a sigh.][/nomarkup] #line:01f4e68 
-{$sheriff}: Well, it ain't cancer that'll get ya in the end.  #line:099440d 
+{$storyteller}: [nomarkup][He throws out the bud and sighs.][/nomarkup]
+{$sheriff}: Well, it sure ain't cancer that's gonna punch your ticket.  #line:099440d 
 <<jump carInteractions>>
 ===
 title: tellAboutHerIntro
@@ -67,12 +67,12 @@ title: tellAboutHer
 ===
 title: herRole
 ---
-{$sheriff}: Yes. She's the highest-rankin' local representative of the Camarilla, and I'm her humble clenched fist ready to strike when necessary. #line:0d3ed4f 
+{$sheriff}: Yes. She's the highest-rankin' local representative of the Camarilla, and I'm her humble clenched fist, ready to strike when necessary. #line:0080386
 <<jump tellAboutHer>>
 ===
 title: normalFamily
 ---
-{$sheriff}: It's a long story. We met in court back when I was under Kate's thumb.  #line:05e4864 
+{$sheriff}: It's a long story. We met in the Court back when I was under Kate's thumb.  #line:05e4864 
 {$sheriff}: We became close when we investigated the murder of the former Prince, Benedic. #line:05b3121 
 {$sheriff}: Makes me worried for her safety, to be honest with you, but I won't let the Sabbat attack us on our home turf again. #line:00f1ddf 
 <<jump tellAboutHer>>
@@ -83,7 +83,7 @@ title: anyAdvice
 -> {$pcName}: Can you vouch for me before her? #line:0ea78c3
 <<if GetCompanionInfluence ($sheriff)==1>>
     {$sheriff}: I can do that, but you'll owe me one, an' I don't mean this is a way where I want you bringin' food to the cookout. #line:039828f 
-    {$sheriff}: You'll do what I ask when I ask it. You always gotta pay your debts. #line:00474ba
+    {$sheriff}: You'll do what I ask when I ask it. You always gotta pay your boons. #line:00474ba
 <<elseif GetCompanionInfluence ($sheriff)>1>>
     {$sheriff}: Sure could, I can remind her how well you handle the... circumstances. #line:07b4c57
 <<else>>
@@ -94,7 +94,7 @@ title: anyAdvice
 title: whatHappensWithDiana
 ---
 <<if CustomVisited("dominicTakeHer") == true>>
-    {$storyteller}: [nomarkup][He looks at his driver's mirror back at silent Diana, who looks on the passing streets with an absent look on her face.][/nomarkup] #line:044abaf 
+    {$storyteller}: [nomarkup][He looks at his driver's mirror back at silent Diana, who watches passing streets with an absent look on her face.][/nomarkup]
 <<endif>>
 {$sheriff}: Nothing good. I'll tell you that. #line:0d6226e 
 <<jump carInteractions>>
@@ -102,20 +102,20 @@ title: whatHappensWithDiana
 title: niceCar
 ---
 {$sheriff}: You betcha. Bought freshly from the assembly line in the 70s. Still in great shape after all these years, she's a bit like me, really. #line:0bc0fdd 
-{$sheriff}: I can't even count how many times it saved my unlife and how many races we've won. Sprints are my favorite. The only thing that isn't original is the hood and several parts. #line:07c9557 
+{$sheriff}: I can't even count how many times it saved me in the nightsand how many races we've won. Sprints are my favorite. The only thing that isn't original is the hood and several parts. 
 {$sheriff}: I had to adjust this sweetie into the best street racin' car because most usually people hear me before they see me. #line:024dae8 
-{$sheriff}: It's like a trademark right now. When you hear V8 headin' your way, you can assume it's me. And never EVER try to scratch my baby. #line:02ef1a8
+{$sheriff}: It's like a trademark now. When you hear V8 headin' your way, you can assume it's me. And never EVER try to scratch my baby. #line:02ef1a8
 <<ModifyInfluence 1 {$sheriff}>>
 <<jump carInteractions>>
 ===
 title: badCar
 ---
 {$storyteller}: [nomarkup][He turns to you, slowly, and lowers his glasses.][/nomarkup] #line:0bc1389 
-{$sheriff}: I recommend you rethink that statement, girl. You obviously don't know nothin' about cars. #line:06c58d1 
+{$sheriff}: I recommend you rethink that statement, girl. You obviously know nothin' about cars. #line:06c58d1 
 {$storyteller}: [nomarkup][His gaze turns again to the road.][/nomarkup] #line:09741a1 
 {$sheriff}: What's your car, huh? Rabbit? Omni? I have a V8 under the hood. Not some shitty I4. Yeah, it drinks gas like we drink blood, but the performance? Worth every dollar you pump into the tank. #line:03810b5 
-{$storyteller}: [nomarkup][He snorts - visibly annoyed for some reason.][/nomarkup] #line:0c1ffc9 
-{$sheriff}: ... pile of junk. #line:01a995b
+{$storyteller}: [nomarkup][He snorts, visibly annoyed for some reason.][/nomarkup]
+{$sheriff}: ... [nomarkup]<i>”pile of junk”</i>[/nomarkup]. #line:01a995b
 <<ModifyInfluence -1 {$sheriff}>>
 <<jump carInteractions>>
 ===
@@ -131,13 +131,13 @@ title: turnOnRadio
 ===
 title: musicSurprised
 ---
-{$storyteller}: [nomarkup][He taps the rhythm with his fingers on the wheel moving his head a little. He definitely has some musical talent, because his tapping is seamless to the rhythm coming out of the speakers.][/nomarkup] #line:0302a8a 
+{$storyteller}: [nomarkup][He taps the rhythm with his fingers on the wheel, moving his head a little. He definitely has some musical talent, because his tapping is seamless to the rhythm coming out of the speakers.][/nomarkup] #line:0302a8a 
 {$sheriff}: I love it. Feeds the soul. #line:0c7788e
 <<jump radioDecision>>
 ===
 title: musicComplaining
 ---
-{$storyteller}: [nomarkup][He taps the rhythm with his fingers on the wheel moving his head a little. He definitely has some musical talent, because his tapping is seamless to the rhythm coming out of the speakers.][/nomarkup] #line:0ec27c3 
+{$storyteller}: [nomarkup][He taps the rhythm with his fingers on the wheel, moving his head a little. He definitely has some musical talent, because his tapping is seamless to the rhythm coming out of the speakers.][/nomarkup] #line:0ec27c3 
 {$sheriff}: If you don't like it just switch it off, I won't be mad about it. Not everyone likes to listen to this shit. #line:016b801
 <<jump radioDecision>>
 ===
@@ -145,14 +145,14 @@ title: radioDecision
 ---
 {$storyteller}: [nomarkup][The noise coming from the radio is nearly unbearable for most people.][/nomarkup] #line:010f8a8
 -> [nomarkup][Switch it off.][/nomarkup] #line:0a1c6e0
-    {$storyteller}: [nomarkup][To Dominic's slight disappointment you turn the radio off. Silence comes back to the car, being disturbed only by the roar of the engine.][/nomarkup] #line:069deb1
+    {$storyteller}: [nomarkup][To Dominic's slight disappointment, you turn the radio off. Silence comes back to the car, being disturbed only by the roar of the engine.][/nomarkup] #line:069deb1
     <<jump carInteractions>>
 -> [nomarkup][Leave it as it is.][/nomarkup] #line:0c61dac
     {$storyteller}: [nomarkup][Music fills up the car. Dominic even starts to hum the melody.][/nomarkup] #line:02d6031
     <<jump carInteractions>>
 -> [nomarkup][Turn volume down.][/nomarkup] #line:03f7b84
     {$storyteller}: [nomarkup][The volume is in this sweet spot where it doesn't make you nearly deaf listening to it and you can continue the conversation without screaming at each other.][/nomarkup] #line:0d3a32e
-    {$sheriff}: You know that it's made to be loud? #line:0572aa8
+    {$sheriff}: You know that it's made to be loud, right? #line:0572aa8
     <<jump carInteractions>>
 ===
 title: anaInMirror
@@ -162,18 +162,18 @@ title: anaInMirror
 ===
 title: lookAtDiana
 ---
-{$storyteller}: [nomarkup][Diana sits behind you expressionless staring absently at the window and street passing behind it.][/nomarkup] #line:00fc25f 
+{$storyteller}: [nomarkup][Diana sits behind you, staring absently at the window.][/nomarkup] 
 {$storyteller}: [nomarkup][It looks like all the will to fight has left her and you see an empty husk of a person.][/nomarkup] #line:03ce531
 <<jump carInteractions>>
 ===
 title: whatsNext
 ---
 {$sheriff}: I ain't no specialist in Kindred politics. I leave that headache to my better half. But I reckon your story's gonna follow the usual track. #line:0010b08 
-{$sheriff}: Well… [nomarkup]<i>maybe</i>[/nomarkup] not. My call here's liable to stir up a lil' scandal at Court. But don't you lose sleep over that. #line:0b35306 
-{$sheriff}: Kindred love to jaw, gossip, and plan ten steps ahead - even when they can barely count to five. You just watch who you rub elbows with, 'cause you're gonna draw eyes, darlin'. That's a promise. #line:01d8b15 
+{$sheriff}: Well... maybe not. My call here's liable to stir up a lil' scandal at the Court. But don't you lose sleep over that.
+{$sheriff}: Kindred love to jaw, gossip, and plan ten steps ahead, even when they can barely count to five. You just watch who you rub elbows with, 'cause you're gonna draw eyes, darlin'. That's a promise. #line:01d8b15 
 {$sheriff}: And hell, look at me forgettin' the important stuff: grab every boon you can get your hands on. #line:03b1456 
-{$sheriff}: Favors are the only real currency we got. Without a reputation or someone owin' you, you ain't lastin' long in this town. #line:0fd5252 
-{$sheriff}: And for the love of all that's holy, find yourself a crew. Folks like you. Young and eager to prove they ain't prey.  #line:0713cb5 
+{$sheriff}: Favors are the only real currency we got. Without a reputation, or someone owin' you, you ain't lastin' long in this town.
+{$sheriff}: And for the love of all that's holy, find yourself a crew. Folks like you. Young, and eager to prove they ain't prey.  #line:0713cb5 
 {$sheriff}: Nights get mean when you're ridin' solo. You're gonna need somebody you can at least halfway trust. #line:01af099 
 <<jump carInteractions>>
 ===

@@ -15,7 +15,7 @@ position: 714,-1674
 {$storyteller}: [nomarkup][The bookcase is filled with a myriad of items. The larger ones being a TV, a radio, and some decorative vases.][/nomarkup] #line:0723eb9
 {$storyteller}: [nomarkup][The books are a mix of modern titles and esoteric occult tomes. The faint scent of lignin permeates the air.][/nomarkup]
 {$storyteller}: [nomarkup][Several scrolls lean against the farthest shelf on top, and you ponder whether they are made from paper or parchment.][/nomarkup]
-{$storyteller}: [nomarkup][A traditional quill is even nestled amongst them, gathering dust with time. What a strange, dissonant fusion of new and old.][/nomarkup] #line:04c2c4b
+{$storyteller}: [nomarkup][A traditional quill is nestled amongst them, gathering dust with time. What a strange, dissonant fusion of new and old.][/nomarkup] #line:04c2c4b
 {$kieran}: Curious, some of these books look out of place.#line:0bd847a
 <<if GetIsPartyMemberRecruited($anastasia) is true>>
     {$anastasia}: So what? She [nomarkup]<i>is</i>[/nomarkup] a Tremere's ghoul. Isn't it obvious that she would be interested in this stuff? #line:07b2bb1
@@ -75,7 +75,7 @@ title: bookcaseExcamineNormal
 position: 2202,1634
 ---
 {$storyteller}: [nomarkup][Various works of fiction, self-help, and business management books line the shelf.][/nomarkup]
-{$storyteller}: [nomarkup][One book catches your eye slightly jutted out compared to the rest, “The Gold-Bug and Other Short Stories” by Edgar Allan Poe.][/nomarkup] #line:0442577
+{$storyteller}: [nomarkup][One book catches your eye, slightly jutted out compared to the rest, “The Gold-Bug and Other Short Stories” by Edgar Allan Poe.][/nomarkup] #line:0442577
 {$kieran}: From what I recall of literature, “The Gold Bug” is a story about deciphering a message leading to a hidden treasure.
 <<set $goldBugPassword to true>>
 <<jump poeBookExamine>>
@@ -119,7 +119,7 @@ position: -1327,1711
 title: poeBookExamineQuestions
 position: -432,-386
 ---
-{$storyteller}: [nomarkup][You hold old and dusty book in your hands.][/nomarkup]
+{$storyteller}: [nomarkup][You hold the old and dusty book in your hands.][/nomarkup]
 -> [nomarkup][Try to recall the code.] (Intelligence+Academics)[/nomarkup] <<if CustomVisited("poeExamineAcademicsRoll") == false and $goldBugCombination == false>> #line:0d8cc1f 
     <<jump poeExamineAcademicsRoll>>
 -> [nomarkup][Try to break the code by yourself.] (Intelligence+Investigation)[/nomarkup] <<if CustomVisited("poeExamineInvestigationRoll") == false and $goldBugCombination == false>> #line:0f3e02d 
@@ -158,7 +158,7 @@ A good glass in the bishop's hostel and in the devil's seat...\\n Forty-one degr
 title: poeExamineFailure
 position: -1308,-317
 ---
-{$storyteller}: [nomarkup][It's no use. All your getting from this code is a headache.][/nomarkup] #failure 
+{$storyteller}: [nomarkup][It's no use. All you're getting from this code is a headache.][/nomarkup] #failure 
 <<jump poeBookExamineQuestions>>
 ===
 title: poeExamineInvestigationRoll
@@ -190,7 +190,7 @@ position: -561,911
 title:poeExamineAwarenessRollSuccess
 position: 504,736
 ---
-{$storyteller}: [nomarkup][You look around the shelves. Then up. As you glance toward the top of the shelf, you see a piece of paper tucked under a pile of other books, protruding just off the edge.][/nomarkup] #success
+{$storyteller}: [nomarkup][You look around the shelves, then up. As you glance toward the top of the shelf, you see a piece of paper tucked under a pile of other books, protruding just off the edge.][/nomarkup] #success
 -> [nomarkup][Try to reach it.] (Dexterity+Athletics)[/nomarkup] #line:075d965 
     <<jump poeMissingPagesDexterityRoll>>
 ===
@@ -206,7 +206,7 @@ position: 1389,-509
 title: poeMissingPagesDexteritySuccess
 position: 925,624
 ---
-{$storyteller}: [nomarkup][The shelf is really high up there. Even on your tip-toes, it's a stretch. You look around for something you can climb on, but all you can see is heavy furniture.][/nomarkup] #success
+{$storyteller}: [nomarkup][The shelf is really high up there. Even on your tiptoes, it's a stretch. You look around for something you can climb on, but all you can see is heavy furniture.][/nomarkup] #success
 {$storyteller}: [nomarkup][Praying that the shelves won't break under your weight, you decide to use them as an improvised ladder. Luckily for you, the bookshelf is made from solid mahogany, and you manage to reach the pages before causing any damage.][/nomarkup] 
 {$storyteller}: [nomarkup][Just as suspected, these are the missing pages containing the decryption key and riddle solution from the story.][/nomarkup]
 <<jump poeBookExamineMentalSuccess>>
@@ -240,11 +240,11 @@ title: poeExamineAthleticsSuccess
 position: 1318,189
 ---
 <<if GetPartyHasDiscipline ("Potence") == true>>
-    {$storyteller}: [nomarkup][This CRT TV is heavier than it looks, but with a good grip and no assistance (thank you very much), you are able to tilt the TV out of the shelf as far as the cable allows.][/nomarkup] #success #line:058d792
+    {$storyteller}: [nomarkup][This CRT TV is heavier than it looks, but with a good grip and no assistance (thank you very much), you tilt the TV out of the shelf as far as the cable allows.][/nomarkup] #success #line:058d792
     {$storyteller}: [nomarkup][Aside from dust, you see a folded page lying under the box, which looks like it has been ripped from a book.][/nomarkup] 
     {$storyteller}: [nomarkup][You take it, placing the TV gently back in its spot and unfold this little mystery. It looks like you found the missing page containing the riddle solution!][/nomarkup]  
 <<else>>
-    {$storyteller}: [nomarkup][This CRT TV is heavier than it looks, but with a good grip and help from one of your companions, you are able to tilt the TV out of the shelf as far as the cable allows.][/nomarkup]  #success
+    {$storyteller}: [nomarkup][This CRT TV is heavier than it looks, but with a good grip and help from one of your companions, you tilt the TV out of the shelf as far as the cable allows.][/nomarkup]  #success
     {$storyteller}: [nomarkup][Aside from dust, you see a folded page lying under the box, which looks like it has been ripped from a book.][/nomarkup] #line:0385030
     {$storyteller}: [nomarkup][You take it, placing the TV gently back in its spot and unfold this little mystery. It looks like you found the missing page containing the riddle solution!][/nomarkup]  #line:0200b43
 <<endif>>
@@ -253,6 +253,6 @@ position: 1318,189
 title:  poeExamineAthleticsFailure
 position: 904,1585
 ---
-{$storyteller}: [nomarkup][The TV is too heavy; you barely manage to shift it a smidgen before it falls directly onto your foot...][/nomarkup] #failure 
+{$storyteller}: [nomarkup][The TV is too heavy; you barely manage to shift it a smidgen before it falls directly onto your foot.][/nomarkup] #failure 
 <<jump poeBookExamineQuestions>>
 ===

@@ -4,68 +4,67 @@ position: -147,-165
 ---
 //Dominic car comes to view, it's owner comes out with gun in his hand//
 {$storyteller}: [nomarkup][Dominic jumps out of his car, holding his gun tightly with a grimace on his face.][/nomarkup]
-{$sheriff}: Somebody wanna explain what in the blue blazes happened here tonight? I turn my back for a couple hours and suddenly Elysium's lightin' up like a damn war zone.
-{$storyteller}: [nomarkup][He stares daggers at you and then Kiran, you were his responsibility after all.][/nomarkup]
-{$sforzaMask}: Dominic, been a long time, dear. Wish it were under better circumstances.
+{$sheriff}: Somebody wanna explain what in the blue blazes went down here tonight? I step out for a couple hours and you folks turn Elysium into somethin' that looks like a Fourth of July gone wrong.
+{$storyteller}: [nomarkup][He stares daggers at you and then Kiran. You were his responsibility, after all.][/nomarkup]
+{$sforzaMask}: Dominic! It's been a long time, dear. Wish we were under better circumstances.
 {$sforzaMask}: This is not their doing. In fact, they were an asset in fending off the attack. It was an inside job from my own ghoul.
 {$kieran}: It was an escape plan for Diana. One we arrived just in time for, conveniently. #line:0e5f7e8
 <<if GetIsPartyMemberRecruited($anastasia) is true>>
-    {$anastasia}: Was she planning to make it look like she died in the attack then? #line:0d1f889
+    {$anastasia}: Was she planning to make it look like she died in the attack, then? #line:0d1f889
     {$kieran}: That seems most likely to me. It would at least have bought her time... #line:01f9527 #lastline
 <<endif>>
--> {$pcName}: Sheriff, her name is Lucia. My Sire.
+-> {$pcName}: Sheriff, her name is Lucia. My sire.
 {$sheriff}: At least we have a name. #line:0341cc4 
 {$storyteller}: [nomarkup][The Kindred collectively stare at you as you compose yourself. The headlights of the car shine off the walls and scatter shadows over all of you.][/nomarkup]
-{$storyteller}: [nomarkup][Kieran tries to make himself scarce almost hiding in the shadows while Anastasia boldly stands in the light.][/nomarkup]
+{$storyteller}: [nomarkup][Kieran tries to make himself scarce, almost hiding in the shadows while Anastasia boldly stands in the light.][/nomarkup]
 {$storyteller}: [nomarkup][Kate's curves are illuminated by the light while her face is cast in shadows, using the headlights to look at her perfectly done nails.][/nomarkup]
 {$storyteller}: [nomarkup][Dominic's face is unreadable as his eyes are blocked out by the reflective lights of his car.][/nomarkup] #line:01f732b
 {$sheriff}: Do we have anythin' on this Lucia woman?
-{$storyteller}: [nomarkup][You point to Diana who looks at you with hatred. She's apparently not grateful for her life.][/nomarkup]
-{$sheriff}: You got somethin' you want to explain here Kate?
+{$storyteller}: [nomarkup][You point to Diana, who looks at you with hatred. She's apparently not grateful for her life.][/nomarkup]
+{$sheriff}: You got somethin' you want to explain here, Kate?
 {$sforzaMask}: Do you not have any decorum, Dominic? None at all? I've only just got here. #line:062ac4a 
 {$sheriff}: Your ghoul. Your childer. Your domain. Your problem. #line:0d98ad8 
 {$sheriff}: This is gettin' more and more interestin'.
 {$sheriff}: Of all people in Vegas, you'd be the last that I'd accuse of leavin' the latch open on the barn.
 {$sheriff}: Doggone, I'd be laughin' if that didn't leave the door open for everyone else, too.
 {$sforzaMask}: Dominic, clearly it would seem that there's been some sort of malicious plot to embroil me in whatever awful situation Ms. Bardot has found herself run afoul of.
-{$sforzaMask}: I would never have guessed that Diana would be so disloyal to our mutual efforts and prefer these violent outbursts, she was so faithful to our desire for peace here in Las Vegas. #line:0bf6a21 
-{$sheriff}: [nomarkup][He looks very unenthused by Kate's response but turns to Diana with an even more deadpan expression.][/nomarkup] How's that been workin' out for you? #line:0d7b8b2 
-{$diana}: I don't know Dominic, how's it feel to take it up the ass to a woman called the Prince? #line:0d4bfee 
+{$sforzaMask}: I would never have guessed that Diana would be so disloyal to our mutual efforts and prefer these violent outbursts. She was so faithful to our desire for peace here in Las Vegas. #line:0bf6a21 
+{$sheriff}: [nomarkup][He looks very unenthused by Kate's response, but turns to Diana with an even more deadpan expression.][/nomarkup] How's that been workin' out for you? #line:0d7b8b2 
+{$diana}: I don't know, Dominic. How's it feel to take it up the ass to a woman called the Prince? #line:0d4bfee 
 {$sheriff}: [nomarkup][He makes a thoughtful expression at her and grins][/nomarkup] You know? Haven't tried that yet. Maybe we'll go shoppin' and I'll find out. #line:097e29e 
 {$diana}: You're fucking pathetic. You have nearly half a century and the best you could be is a fucking pig. #line:00aa884 
 {$storyteller}: [nomarkup][Dominic's expression changes to be far more serious and deadly. He leans forward towards her and his eyes narrow.][/nomarkup] #line:09e9150 
 {$sheriff}: And yet I'm not the one squealin'. Lucia isn't comin' back for you and we don't have due process.
 {$storyteller}: [nomarkup][He taps her lightly on the shoulder and she goes reeling back as if she was pushed.][/nomarkup]
 {$sheriff}: I am a judge, jury, and executioner out here, and I can make this very unpleasant for us both.
-{$sheriff}: Keep goin' down this way and I swear by the Blood in my veins - even Kate or your precious Lucia will not be able to recognize what will remain of you when I'm done. 
-{$storyteller}: [nomarkup][He grinned with weird bestiality, showing his bared fangs, and his eyes started to glow crimson red in the shadows of the alley.][/nomarkup]
-{$storyteller}: [nomarkup][His voice is so cold that you could swear you felt it freeze your veins. Even if he seemed pissed in your apartment right now he seems to be fear incarnate.][/nomarkup]
-{$storyteller}: [nomarkup][All of your senses are overwhelmed with one emotion - to run away.][/nomarkup]
-{$storyteller}: [nomarkup][Luckily you are not the one that is in trouble. At least not right now.][/nomarkup]
-{$storyteller}: [nomarkup][As Diana stumbles back he doesn't move forward, her eyes flashing with fear as her trembling lip curls into a sneer.][/nomarkup]
+{$sheriff}: Keep goin' down this way and I swear by the Blood in my veins: even Kate or your precious Lucia will not be able to recognize what will remain of you when I'm done. 
+{$storyteller}: [nomarkup][He grins with weird bestiality, showing his bared fangs, and his eyes glow crimson red in the shadows of the alley.][/nomarkup]
+{$storyteller}: [nomarkup][His voice is so cold that you can swear you feel it freeze your veins. Even if he seemed pissed in your apartment, right now he seems to be fear incarnate.][/nomarkup]
+{$storyteller}: [nomarkup][All of your senses are overwhelmed with one emotion: to run away.][/nomarkup]
+{$storyteller}: [nomarkup][Luckily, you are not the one that is in trouble. At least not now.][/nomarkup]
+{$storyteller}: [nomarkup][As Diana stumbles back he, doesn't move forward. Her eyes flashing with fear as her trembling lip curls into a sneer.][/nomarkup]
 <<jump whatToDoWithDiana>>
 ===
 title: whatToDoWithDiana
 ---
-{$storyteller}: [nomarkup][Diana leans against the wall trying not to look at anyone, avoiding eye contact and trying desperately to tuck her head against her shoulder.][/nomarkup]
-{$storyteller}: [nomarkup][You can feel the others crowding, moving in towards her and clearly she can feel it too.][/nomarkup] 
-{$storyteller}: [nomarkup][There's a long pause and then the group collectively turns and looks at Dominic.][/nomarkup]
-{$storyteller}: [nomarkup][The Sheriff caught halfway through exhaling a lung full of cigarette smoke. He groans and pushes up his sunglasses, waving his hand.][/nomarkup]
-{$sheriff}: That leaves just one thing left, donnit. #line:0b89473
+{$storyteller}: [nomarkup][Diana leans against the wall, trying not to look at anyone, avoiding eye contact, and trying desperately to tuck her head against her shoulder.][/nomarkup]
+{$storyteller}: [nomarkup][You can feel the others crowding, moving in towards her. Clearly she can feel it too.][/nomarkup] #line:0cf4514
+{$storyteller}: [nomarkup][The Sheriff's caught halfway through exhaling a lung full of cigarette smoke. He groans and pushes up his sunglasses, waving his hand.][/nomarkup] #line:0b2851e
+{$sheriff}: That leaves just one thing left, donnit? #line:0b89473
 {$sforzaMask}: Well... #line:0fa639d
-{$sheriff}: So let's let the fledglin' here choose. She's got the most information of all of us about what Diana here has been up to, tinker tailor soldier spy - what's the plan to keep this shit contained, Deputee? #line:08ccf83
+{$sheriff}: So let's let the fledglin' here choose. She's got the most information of all of us about what Diana has been up to. So, what's the plan to keep this shit contained, Deputee? #line:08ccf83
 {$sforzaMask}: Dominic... #line:0110007
 {$sheriff}: Sheriff. Ma'am. And if you're about to suggest that you take her, you're gonna need to come up with a real good reason. 
 {$sheriff}: I am not goin' to be out here tomorrow night, wonderin' how you managed to have another mess perpetuated right under yo' nose. #line:04d88be
-{$sforzaMask}: Sheriff Evans. I think that you and I have both been made aware of unexpected events happening under our watch, like a little rat sneaking around and committing an illicit Embrace?
-{$sforzaMask}: Multiple breaches of the masquerade in Elysium territory, a duty of protection that falls on, and I am so sorry to remind you, but your head as we have failed to elect either an Elysium proper nor a Keeper of Elysium.
+{$sforzaMask}: Sheriff Evans, I think that you and I have both been made aware of unexpected events happening under our watch, like a little rat sneaking around and committing an illicit Embrace?
+{$sforzaMask}: Multiple breaches of the Masquerade in Elysium territory, a duty of protection that falls on — and I am so sorry to remind you, but — <i>your head</i>, as we have failed to elect either an Elysium proper nor a Keeper of Elysium.
 {$sforzaMask}: [nomarkup][Sighs.][/nomarkup] There have been failings on all sides, but I assure you that I do not make the same mistake twice.
 {$sforzaMask}: Diana feels as though she's been undervalued in this system, and you are aware of my favoritism towards her. I would rather not have a future childe having the lesson that violence solves all problems reinforced. #line:05aa28c
 {$sheriff}: Plannin' another Embrace already? So shortly after Kieran? #line:034927c
 {$sforzaMask}: Kieran turned out to be such a compelling case on why childer bring so much to our community! #line:010fe2e
 {$sheriff}: Yes Ma'am he does. #line:0d70abc
-{$storyteller}: [nomarkup][Kieran looks a little bashful and nods to them both. Dominic purses his lips and you can see your reflection in his mirrored sunglasses.][/nomarkup] #line:038da7f
-{$sheriff}: Alright Deputee. Make the call.
+{$storyteller}: [nomarkup][Kieran looks a little bashful and nods to them both. Dominic purses his lips, and you can see your reflection in his mirrored sunglasses.][/nomarkup] #line:038da7f
+{$sheriff}: Alright, Deputee. Make the call.
 -> {$pcName}: Take your pet, Kate. #line:0c295de 
     <<ModifyInfluence $sforzaMask +1>>
     <<jump takeYourPet>>
@@ -80,18 +79,18 @@ title: whatToDoWithDiana
 title: takeYourPet
 ---
 {$sforzaMask}: Ah, at least someone can see the reason. Diana, dear, come with me now? #line:0b43e53
-{$storyteller}: [nomarkup][Diana continues to lean on the wall refusing to acknowledge or look at Kate, or anyone really. Kate sighs, stepping forward and placing a hand on Diana's cheek.][/nomarkup] #line:0d5b73e
-{$sforzaMask}: Tonight was a lot, wasn't it my dear? You don't need to say anything, we'll take you home. No more talk of extortion by some awful bitch or blood bonds tonight, I think there has been quite enough of that.
+{$storyteller}: [nomarkup][Diana continues to lean on the wall, refusing to acknowledge or look at Kate (or anyone, really). Kate sighs, stepping forward and placing a hand on Diana's cheek.][/nomarkup] 
+{$sforzaMask}: Tonight was a lot, wasn't it, my dear? You don't need to say anything, we'll take you home. No more talk of extortion by some awful bitch or Blood Bonds tonight, I think there has been quite enough of that.
 {$sforzaMask}: Kieran? Could you pick up Diana for me? She seems in no state to walk to the car. #line:038d302
-{$kieran}: Hey Diana... #line:099a20e
-{$diana}: Hey Kieran. #line:09bec90
+{$kieran}: Hey, Diana... #line:099a20e
+{$diana}: Hey, Kieran. #line:09bec90
 {$storyteller}: [nomarkup][His tone is so soft and comforting as he speaks, slow and calming.][/nomarkup]
 {$kieran}: I'm going to wrap your arms around my shoulders and pick you up. You're going to feel just a little pull, but that's just your center of weight shifting. Let me know if you feel sick, alright? #line:0bcd310
-{$diana}: Okay Kieran, I'll do that. #line:0392f56
+{$diana}: Okay, Kieran, I'll do that. #line:0392f56
 {$storyteller}: [nomarkup][Wrapping her arms around his shoulders, the Tremere deadlifts the ghoul, and she tucks her head into his shoulder.][/nomarkup]
 {$storyteller}: [nomarkup][A muffled voice comes from his neck, so soft you can hardly hear it.][/nomarkup] #line:0d9cfa3
-{$diana}: Hey Kieran? #line:0696acb
-{$kieran}: Yeah Diana? #line:07f2dca
+{$diana}: Hey, Kieran? #line:0696acb
+{$kieran}: Yeah, Diana? #line:07f2dca
 {$diana}: I feel sick. 
 {$storyteller}: [nomarkup][She sounds... lost. And with his back turned to you, it's impossible to see his expression.][/nomarkup] #line:0e4ecfd
 {$kieran}: ... I know. #line:04e9843
@@ -100,19 +99,19 @@ title: takeYourPet
 ===
 title: dominicTakeHer
 ---
-{$storyteller}: [nomarkup][Dominic raises an eyebrow as if to say continue, his lips set in a hard line.][/nomarkup] #line:0554f57
+{$storyteller}: [nomarkup][Dominic raises an eyebrow as if to say “continue”, his lips set in a hard line.][/nomarkup] #line:0554f57
 <<jump afterDiana>>
 ===
 title: luciaTakeHer
 ---
-{$sheriff}: How? In a care package? Tied up with a little bow? Are we goin' to send Lucia a personally signed note with a kiss? 'You forgot this at the Embassy, please help yourself to Camarilla secrets'? #line:016988e 
--> {$pcName}: I... No. Diana wanted to go with Lucia, let her go to Lucia. She's not useful to either of you anymore, right? #line:0fbc162 
-{$sheriff}: That doesn't mean she isn't useful to your Momma. #line:0c13447 
+{$sheriff}: How? In a care package? Tied up with a little bow? Are we goin' to send Lucia a personally signed note with a kiss? 'You forgot this at The Embassy, please help yourself to Camarilla secrets'? #line:016988e
+-> {$pcName}: I... No. Diana wanted to go with Lucia, so let her go with Lucia. She's not useful to either of you anymore, right? #line:0fbc162
+{$sheriff}: That doesn't mean she isn't useful to your momma. #line:0c13447 
 {$sforzaMask}: And I do rather object to the whole idea. I do not want to see Diana fall into enemy hands. I don't even want to imagine what they could do to a former Tremere ghoul. No. #line:0b2ffdf 
 {$sheriff}: Might could. #line:0a7953c 
 {$sforzaMask}: Do you still want to give the fledgling decision rights, Sheriff? #line:0ce5af4 
 <<ModifyInfluence $sforzaMask -1>>
-{$sheriff}: I believe she just lost them. Take your pet, Kate. Kieran, keep an eye on that one to make sure that the blood bond fades quickly. I don't need such a lazy spy in my wife's domain. #line:075b58e 
+{$sheriff}: I believe she just lost them. Take your pet, Kate. Kieran, keep an eye on that one to make sure that the Blood Bond fades quickly. I don't need such a lazy spy in my wife's domain. #line:075b58e
 <<jump takeYourPet>>
 ===
 title: letHerGo
@@ -125,5 +124,5 @@ title: afterDiana
 {$sheriff}: Now that that's over. I s'ppose, technically, you did pass my test, so I'll let ya'll live. Kieran'll be real happy to hear that. #line:02bf59b
 {$storyteller}: [nomarkup][Kieran looks back from where he's loading Diana into the car and gives a nod, his long shadow casting over you. He leans down and disappears from sight.][/nomarkup] #line:0d45000
 -> {$pcName}: So you're not going to kill me, Sheriff? #line:0211acc
-{$sheriff}: Not tonight Deputee. The misses will want to meet you, but it's probably best we leave that for another time. Maybe when you've got that temper in line. #line:022a1b4
+{$sheriff}: Not tonight, Deputee. The misses will want to meet you, but it's probably best we leave that for another time. #line:022a1b4
 ===

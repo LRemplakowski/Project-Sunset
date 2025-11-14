@@ -7,7 +7,7 @@ position: 135,-1136
     {$kieran}: She made a mess of the place before she left. What did she grab?
     {$storyteller}: [nomarkup][You do not touch the clutter, instead scanning for anything that could tell you why things are so disorganized. What you think is a computerrests on its side.][/nomarkup] #lastline 
     <<if Roll ("Intelligence","Technology")>=4>>
-        {$storyteller}: [nomarkup][Upon closer inspection you recognize the model. It's sad that such a technological marvel seems to be so haphazardly disrespected - especially since it's a relatively new model - only made available to consumers a year or two ago.][/nomarkup] #lastline
+        {$storyteller}: [nomarkup][Upon closer inspection you recognize the model. It's sad that such a technological marvel seems to be so haphazardly disrespected, especially since it's a relatively new model, only made available to consumers a year or two ago.][/nomarkup] #line:04edffd
         <<set $computerModelIdentified to 1>>
     <<endif>>
 <<else>>
@@ -17,7 +17,7 @@ position: 135,-1136
 title: deskInteractions
 position: 152,-466
 ---
-{$storyteller}: [nomarkup][You could use a desk like this in your apartment. It would definitely make your office more... prestigious.][/nomarkup]
+{$storyteller}: [nomarkup][You could use a desk like this in your apartment. It would definitely make your office more prestigious.][/nomarkup]
 -> [nomarkup][Inspect the desk.][/nomarkup] #line:02b7b75 
     <<jump deskExamination>>
 -> [nomarkup][Boot the computer.][/nomarkup] <<if $computerUnusable == false>> #line:001bf2a 
@@ -29,7 +29,7 @@ position: 152,-466
 title: deskExamination
 position: 715,-686
 ---
-{$storyteller}: [nomarkup][There are several items strewn about the desk. Mostly office supplies and stationary. A newspaper and some of the missing books from the shelf.][/nomarkup]
+{$storyteller}: [nomarkup][There are several items strewn about the desk. Mostly office supplies and stationery. A newspaper and some of the missing books from the shelf.][/nomarkup]
 {$storyteller}: [nomarkup][An ornate designer ashtray shines through, it seems commemorative with a dazzling gemstone Union Jack. There's an engraving in the lining, but you can't make it out past the accumulated smudges of ash.][/nomarkup] #lastline
 <<jump deskExaminationOptions>>
 ===
@@ -50,7 +50,7 @@ position: 1275,-633
 title: throwAsh
 position: 1589,-1077
 ---
-{$storyteller}: [nomarkup][After years of heavy use, the mass of soot does not want to slide easily into the wastebasket. You'll probably need to wash the ashtray in order to see clearly what is engraved on its bottom.][/nomarkup]
+{$storyteller}: [nomarkup][After years of heavy use, the mass of soot doesn't slide easily into the wastebasket. You'll probably need to wash the ashtray to see clearly what is engraved on its bottom.][/nomarkup] #line:0d1020c
 -> [nomarkup][Try to read the inscription anyway.] (Resolve+Awareness)[/nomarkup] #line:0e9f52b 
     <<if Roll("Resolve","Awareness") >=3>>
         {$storyteller}: [nomarkup][You are barely able to make out the numerals: “969.”.][/nomarkup] #success
@@ -96,7 +96,7 @@ position: 1801,-177
     {$anastasia}: Diana seems like the obsessive type. #lastline
 <<endif>>
 -> [nomarkup][Inspect the bookmarked pages.][/nomarkup] #line:0ee85bf 
-{$storyteller}: [nomarkup][One of the bookmarks tells you the date of founding of the Church of Satan - April 30th, 1966.][/nomarkup] #lastline
+{$storyteller}: [nomarkup][One of the bookmarks tells you the date of founding of the Church of Satan: April 30th, 1966.][/nomarkup] #lastline
 <<set $satanDate to true>>
 <<set $satanCode to true>>
 <<jump deskExaminationOptions>>
@@ -155,7 +155,7 @@ title: hackingFailure
 position: -917,97
 ---
 <<set $safeFailCounter to inc($safeFailCounter)>>
-{$storyteller}: [nomarkup][The input cursor's incessant flashing taunting you relentlessly. Despite your every attempt, the computer refuses to allow you past the login screen.][/nomarkup] #failure
+{$storyteller}: [nomarkup][The input cursor's incessant flashing, taunting you relentlessly. Despite your every attempt, the computer refuses to allow you past the login screen.][/nomarkup] #failure
 <<jump computerTurnedOn>>
 ===
 title: wrongPassword
@@ -183,7 +183,7 @@ position: 136,124
 <<if Roll("Resolve","Investigation")>=4>>
     <<set $safeDiscovered to true>>
     {$storyteller}: [nomarkup][You dig through several monotonously similar sets of data indicating the financial state of the club.][/nomarkup] #success
-    {$storyteller}: [nomarkup][Nearly half an hour is spent on this wearisome slog, and you are nearing admission of defeat, when you spy an entry indicating that Diana ordered a wall-mounted safe.][/nomarkup] #line:0d51e54
+    {$storyteller}: [nomarkup][Nearly half an hour is spent on this wearisome slog, and you are nearing admission of defeat when you spy an entry indicating that Diana ordered a wall-mounted safe.][/nomarkup] #line:0d51e54
     {$storyteller}: [nomarkup][It was quite the expenditure, but as a Vegas club owner, she had the means to afford it.][/nomarkup]
     {$storyteller}: [nomarkup][You glance about, scouring the walls for it, but you don't see any indication that it's been installed in plain sight.][/nomarkup]
     {$storyteller}: [nomarkup][Maybe it's behind one of the paintings?][/nomarkup]  #line:0c55659

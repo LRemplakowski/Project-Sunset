@@ -53,7 +53,7 @@ position: -378,-751
 title: safeForceOpened
 position: -674,-46
 ---
-{$storyteller}: [nomarkup][You jimmy your crowbar into the slit between the safe's frame and the doors - applying a gradually increasing amount of force.][/nomarkup] #success 
+{$storyteller}: [nomarkup][You jimmy your crowbar into the slit between the safe's frame and the doors, applying a gradually increasing amount of force.][/nomarkup] #success 
 {$storyteller}: [nomarkup][Using the wall to push this improvised lever forth, you make several attempts. You feel the lock give in to your brute strength.][/nomarkup] 
 <<jump safeOpened>>
 ===
@@ -119,13 +119,13 @@ position: -1165,1070
 ---
 {$storyteller}: [nomarkup][You rummage through the documents. Nothing particularly interesting. Just financial records and the like.][/nomarkup]
 {$storyteller}: [nomarkup][When you flip through one of the stapled packets, a folded-up piece of paper that had been loosely stuck between its pages falls to the floor. You pick it up to examine it.][/nomarkup]
-Love Letter: For my beloved Diana, the only one who can see me for who I am and pierce the darkness I've armored myself with... The only person who knows my pain intimately enough to stave my Beast away... #line:0999c1e 
-Love Letter: I can't stand to see you used by that insect of a Kindred you call your Master any longer. Like a mosquito, or some hungry parasite, she doesn't just sting, she bites and drains and takes and bleeds you dry until there is nothing left of you nor the woman you used to be - the woman I love... #line:0333eda 
-Love Letter: You have spent so long under her cruel watch - nothing more than a convenient tool to be used and abused, and I think it has been long enough... So fight it.
-Love Letter: Fight the bond she has forced on you, the chains that bind you to her - choose me, and in doing so, the freedom you deserve. But above all else, choose yourself, Dove. #line:0a132e0 
-Love Letter: I want us to live together - be together as equals, such that we'll be bonded only through trust and love rather than coercion and obligation.
-Love Letter: I promise that once the last of your bindings are broken, we will escape and make our home far, far away from here - from Jyhad and the pressures foisted upon us by wicked institutions.  #line:06ece37 
-Love Letter: It will be just you - and me. Together in the night. #line:07e7453 
+Love Letter: For my beloved Diana, the only one who can see me for who I am and pierce the darkness I've armored myself with. The only person who knows my pain intimately enough to stave my Beast away... #line:0999c1e 
+Love Letter: I can't stand to see you used by that insect of a Kindred you call your master any longer. Like a mosquito, or some hungry parasite, she doesn't just sting, she bites and drains and takes and bleeds you dry until there is nothing left of you nor the woman you used to be. The woman I love. #line:0333eda 
+Love Letter: You have spent so long under her cruel watch, nothing more than a convenient tool to be used and abused, and I think it has been long enough. So fight it.
+Love Letter: Fight the Bond she has forced on you, the chains that bind you to her. Choose me, and in doing so, the freedom you deserve. But above all else, choose yourself, Dove. #line:0a132e0 
+Love Letter: I want us to live together, be together as equals, such that we'll be bonded only through trust and love rather than coercion and obligation.
+Love Letter: I promise that once the last of your bindings are broken, we will escape and make our home far, far away from here, from Jyhad and the pressures foisted upon us by wicked institutions.  #line:06ece37 
+Love Letter: It will be just you and me. Together in the night. #line:07e7453 
 Love Letter: With love,  #line:026c4fd 
 Love Letter: Lucia #line:00d2b26 #lastline
 <<set $luciaLoveLetter to true>>
@@ -134,9 +134,9 @@ Love Letter: Lucia #line:00d2b26 #lastline
 title: shotsFired
 ---
 <<PlaySFX "gunshot_rapid_fire">>
-{$storyteller}: [nomarkup][As you finish reading the letter, a sharp sound rings out from the club downstairs - a sound that cannot be mistaken for anything else. A gunshot.][/nomarkup]
+{$storyteller}: [nomarkup][As you finish reading the letter, a sharp sound rings out from the club downstairs, a sound that cannot be mistaken for anything else. A gunshot.][/nomarkup]
 {$kieran}: What the hell? #line:0decad3 
-{$kieran}: That did not sound good... We need to leave. Now.
+{$kieran}: That did not sound good. We need to leave. Now.
 <<if GetIsPartyMemberRecruited($anastasia) is true>>
     {$anastasia}: Looks like we're getting some action. #lastline
 <<endif>>
@@ -161,8 +161,8 @@ position: 31,551
 title: bloodVialKieranExamine
 position: 458,599
 ---
-{$storyteller}: [nomarkup][Kieran uncorks the glass receptacle, tilting it gently towards his palm. Allowing a droplet of the fluid to splash onto his skin, he quickly tastes it.][/nomarkup] 
-{$storyteller}: [nomarkup][A puzzled expression then flashes across his features, his brows furrowed, as he reseals it.][/nomarkup] #lastline #line:03c693e
+{$storyteller}: [nomarkup][Kieran uncorks the glass receptacle, tilting it gently towards his palm. Allowing a droplet of the fluid to splash onto his skin, he tastes it.][/nomarkup] 
+{$storyteller}: [nomarkup][A puzzled expression flashes across his features, his brows furrowed as he reseals the flask.][/nomarkup] #lastline #line:03c693e
 <<if Roll ("Intelligence","Occult") >=4 or Roll ("Wits","Awareness") >=4>>
     -> {$pcName}: Did you just do the same thing that Dominic did back in my apartment? #line:0a7f352
     {$kieran}: Yes. A useful trick. (+1 Kieran Influence) #line:01b5ea3
@@ -190,7 +190,7 @@ position: -245,1149
 title: safeContinuation
 position: -370,798
 ---
-{$kieran}: Brujah blood. Unless it is yours, then it very well may be… #line:0ef449e
+{$kieran}: Brujah Blood. Unless it is yours, then it very well may be… #line:0ef449e
 {$kieran}: We should hold on to this vial. Diana may be more involved with your sire than we realized.  #line:04e369d
 <<jump safeQuestions>>
 ===
@@ -239,8 +239,8 @@ position: -968,-471
 {$storyteller}: [nomarkup][Only looking at a safe knob makes you furious. Your breath gets short, your new fangs irritate you in the mouth.][/nomarkup]
 {$storyteller}: [nomarkup][Something is crawling up your spine, just like drunken rage. Your vision becomes red as you are pushed back in your mind when the tsunami of blood takes control over you.][/nomarkup]
 {$storyteller}: [nomarkup][You see your arms like in a dream sequence, grabbing the safe doors by the hinges. You just rip it off like a piece of paper and throw it at your partners in crime.][/nomarkup]
-{$storyteller}: [nomarkup][Yes... Yes, there it is! You felt it on the verges of your senses - blood. The blood you know... You grab a vial and down it in one gulp.][/nomarkup]
-{$storyteller}: [nomarkup][As the last drop runs down your throat it feels like an ice that revive you. You shake your head, looking at the aftermath of your actions...][/nomarkup]
+{$storyteller}: [nomarkup][Yes... Yes, there it is! You felt it on the verges of your senses: blood. The blood you know... You grab a vial and down it in one gulp.][/nomarkup]
+{$storyteller}: [nomarkup][As the last drop runs down your throat it feels like an icy revival. You shake your head, looking at the aftermath of your actions...][/nomarkup]
 {$kieran}: This vial could have contained an important clue!
 {$storyteller}: [nomarkup][The safe contained cash and a few financial documents and deeds. A .45 caliber gun lying inside, along with some ammunition.][/nomarkup]
 <<if GetIsPartyMemberRecruited($anastasia) is true>>

@@ -3,15 +3,15 @@ tags:
 position: -85,-55
 ---
 <<if GetIsPartyMemberRecruited($anastasia) is true>>
-    {$storyteller}: [nomarkup][Ana wanders through your home, checking out the kitchen and cabinets, looking at your mail. Eventually, she even spots an image of Arthur, smiling and happy in a picture.][/nomarkup]
-    {$storyteller}: [nomarkup][She smiles as she looks back at you before she sees something in your face and sets it down.][/nomarkup] #line:0f5d28b
+    {$storyteller}: [nomarkup][Ana wanders through your home, checking out the kitchen and cabinets, looking at your mail. Eventually, she spots a picture of Arthur, smiling and happy.][/nomarkup] 
+    {$storyteller}: [nomarkup][She smiles as she looks back at you. Then, noticing the slight change in your expression, she sets the picture down.][/nomarkup] #line:0f5d28b
     {$anastasia}: Kind of a shithole, isn't it? #line:0941406
     {$anastasia}: I say we need to get something over the windows or we're going to fucking die. Two birds with one stone? Shower and cover the windows? #line:0a44c33
 <<else>>
-    {$storyteller}: [nomarkup][You stand in your home staring at the bills on your counter, the sink dripping a methodical drip of water ][/nomarkup]
-    {$storyteller}: [nomarkup][Looking at the windows, you see the very edge of a light purple along the horizon. Eventually, the sun will rise and even though you don't feel like moving, don't feel like rising unbidden strength comes to you.][/nomarkup] 
-    {$storyteller}: [nomarkup][You push yourself off the counter with a need to find something to barricade yourself away from the light.][/nomarkup] #line:0297d17
-    {$beast}: [nomarkup][You're not dying after one night. Get a grip.][/nomarkup] #line:0b4a2f3
-    {$storyteller}: [nomarkup][You find yourself staring out at your empty house, puppeteered by ambition and unable to stop yourself from moving forward.][/nomarkup] #line:0e9c890
+    {$storyteller}: [nomarkup][You stand in your home, staring at the bills on your counter, the sink dripping a methodical drip of water ][/nomarkup]
+    {$storyteller}: [nomarkup][Looking at the windows, you see the very edge of purple along the horizon. Eventually, the sun will rise, and even though you don't feel like rising, unbidden strength comes to you.][/nomarkup] 
+    {$storyteller}: [nomarkup][You push yourself off the counter with a need to find something to barricade yourself from the light.][/nomarkup] #line:0297d17
+    {$beast}: [nomarkup][You're not lasting less than one night. Get a grip!][/nomarkup] #line:0b4a2f3
+    {$storyteller}: [nomarkup][You find yourself staring out at your empty house, puppeteered by ambition and unable to stop from moving forward.][/nomarkup] #line:0e9c890
 <<endif>>
 ===

@@ -7,38 +7,38 @@ position: -170,-235
     <<jump newsReport>>
 -> [nomarkup][Insert the tape.][/nomarkup] <<if GetHasItem("IT_Q_VHS") and not CustomVisited("tvInsertTape")>> #line:00f170c
     <<jump tvInsertTape>>
--> [nomarkup][Turn TV off.][/nomarkup] #line:0c461ea
+-> [nomarkup][Turn the TV off.][/nomarkup] #line:0c461ea
 ===
 title: newsReport
 tags:
 position: 5,-10
 ---
 {$storyteller}: [nomarkup][KLVN Channel 4 broadcasts grainy footage of The Embassy, smoking and charred.][/nomarkup]
-Cheryl Ahmadi (KLVN Channel 4): We come to you tonight looking over the Embassy, where a firefight has rocked the local community, turning a once peaceful club on the Strip into a warzone.
+Cheryl Ahmadi (KLVN Channel 4): We come to you tonight looking over The Embassy, where a firefight has rocked the local community, turning a once peaceful club on the Strip into a warzone.
 Cheryl Ahmadi (KLVN Channel 4): Shots were heard late this evening when a series of armed men broke through the doors and opened fire. We bring you now to the carnage left over in the wake of this horrific attack. #line:015f715 
-Reporter: Gunshots were reported at the Embassy nightclub. Police report this can be attributed to gang violence. 
+Reporter: Gunshots were reported at The Embassy nightclub. Police report this can be attributed to gang violence. 
 Reporter: We're unsure what may have prompted this, but having gotten in contact with the mayor's office, he promises that he will swiftly be taking action.
-Cheryl Ahmadi (KLVN Channel 4): Attempts to get in contact with the owner of the Embassy have failed, but all reports indicate that she was still inside when the fighting started. Can you tell me what's happening?
+Cheryl Ahmadi (KLVN Channel 4): Attempts to get in contact with the owner of The Embassy have failed, but all reports indicate that she was still inside when the fighting started. Can you tell me what's happening?
 <<if $doeEyedRescued == 1>>
     {$storyteller}: [nomarkup][A young man with large brown eyes, whom you recognize from the club, is wrapped in a highly reflective blanket.][/nomarkup]
-    {$storyteller}: [nomarkup][His face looks pale and sallow, but he's clearly been attended to by a nurse and is sitting on the curb with a thousand-yard stare. The reporter makes their way over to him.][/nomarkup] #line:0f29c75
-    Reporter: Yes, Cheryl, we've been told that the front of the Embassy was hit the hardest, and it's where the majority of the casualties occurred. Young man? Young man?! #line:0c3c5df
-    Doe Eyed Man: Y... yes? #line:0b4bfa4
+    {$storyteller}: [nomarkup][His face looks pale and sallow, but he's clearly been tended to by a nurse, and sits on the curb with a thousand-yard stare. The reporter makes their way over to him.][/nomarkup] #line:0f29c75
+    Reporter: Yes, Cheryl, we've been told that the front of The Embassy was hit the hardest, and it's where the majority of the casualties occurred. Young man- Young man? #line:0c3c5df
+    Doe-Eyed Man: Y... yes? #line:0b4bfa4
     Reporter: Do you have anything you want to say about what happened here tonight? I'm sure this has been one of the worst nights of your life. 
-    {$storyteller}: [nomarkup][The reporter's tone is almost gleeful and you can see his eyes dim slightly.][/nomarkup] #line:0cce8bb
-    Doe Eyed Man: I just wanted to say thank you to the people who saved my life. If you're out there. My name is Jesse Ried. I'm... I uh. I work downtown. #line:03dcc9f
+    {$storyteller}: [nomarkup][The reporter's tone is almost gleeful, and his eyes dim slightly.][/nomarkup] #line:0cce8bb
+    Doe-Eyed Man: I just wanted to say thank you to the people who saved my life. If you're out there. My name is Jesse Ried. I'm... I uh. I work downtown. #line:03dcc9f
     Reporter: You said that someone saved you. Do you have a description? #line:0054fc9
     Jesse Ried: N... no? Is that okay? 
-    {$storyteller}: [nomarkup][He curls in on himself, trying to pull his reflective almost aluminum-looking blanket tighter around his shoulders.][/nomarkup]
-    {$storyteller}: [nomarkup][The reporter gives him a wane look that quickly recovers into a smile as the camera pans away from Jesse and over towards the building as the ceiling catches on fire.][/nomarkup] 
-    Reporter: Alright, folks, well, you heard it here. There is a guardian angel out in the Embassy here tonight. #line:0a512cd
+    {$storyteller}: [nomarkup][He curls in on himself, trying to pull his reflective blanket, almost aluminum-looking, tighter around his shoulders.][/nomarkup]
+    {$storyteller}: [nomarkup][The reporter gives him a wane look that quickly recovers into a smile as the camera pans away from Jesse and over towards the building's ceiling, engulfed in flames.][/nomarkup] 
+    Reporter: Alright, folks, well, you heard it here. There is a guardian angel out in The Embassy here tonight. #line:0a512cd
 <<else>>
-    {$storyteller}: [nomarkup][You see a series of stretchers being filmed coming out of the Embassy. From one of them, a hand falls, and you can see thick blood staining the idea of where a thigh would be.][/nomarkup]
-    {$storyteller}: [nomarkup][You can feel your stomach start to turn, and a shout from the Reporter as the camera pans away from the injured and dying being pulled from the building and back to the reporter.][/nomarkup] #line:01b536b
+    {$storyteller}: [nomarkup][You see a series of stretchers being filmed coming out of The Embassy. From one of them, a hand falls, and you can see thick blood staining the idea of where a thigh would be.][/nomarkup]
+    {$storyteller}: [nomarkup][Your stomach starts to turn, and the reporter shouts as the camera pans away from the injured and dying being pulled from the building and back to the reporter.][/nomarkup] #line:01b536b
 <<endif>>
 Reporter: Efforts are underway currently to try and clear the building of those still trapped inside. It would seem that a broken door in the back alley allowed many to escape.
-Reporter: The fire team on duty this evening commented that it likely saved a great many people from smoke annihilation...  #line:066812a
-{$storyteller}: [nomarkup][The reporter drones on as you see police come and talk with the new station, saying that they suspect a string of violent crimes in the area all to be tied to a resurgence of gang violence and organized crime after a series of arrests late last year.][/nomarkup]
+Reporter: The fire team on duty this evening commented that it likely saved many people from smoke annihilation...  #line:066812a
+{$storyteller}: [nomarkup][The reporter drones on as police come and talk with the new station, saying that they suspect a string of violent crimes in the area all to be tied to a resurgence of gang violence and organized crime after a series of arrests late last year.][/nomarkup]
 -> [nomarkup][Insert the tape.][/nomarkup] <<if GetHasItem("IT_Q_VHS")>> #line:080e42f 
     <<jump tvInsertTape>>
 -> [nomarkup][Turn TV off.][/nomarkup] #line:0e2c32c 
@@ -50,7 +50,7 @@ position: -147,208
 {$storyteller}: [nomarkup][VHS static blurs the screen until a face comes into view under a harsh light.][/nomarkup]
 {$storyteller}: [nomarkup][Arthur.][/nomarkup]
 {$storyteller}: [nomarkup][A bloody gash marks his forehead. His fingers were white-knuckled in a futile attempt to break free from restraints.][/nomarkup] #line:0fce1d3
-{$storyteller}: [nomarkup][From around the camera, <i>she</i> steps into view. Placing her hands on Arthur's shoulders.][/nomarkup] 
+{$storyteller}: [nomarkup][From around the camera, <i>she</i> steps into view, placing her hands on Arthur's shoulders.][/nomarkup] 
 {$sire}: Since you've taken something of mine, I figured I'd go ahead and take something of yours. 
 {$storyteller}: [nomarkup][She licks the gash on his forehead. He whimpers in agony.][/nomarkup] 
 {$sire}: Don't worry. I won't hurt him. Yet. Come and find us. #line:0a941a1
@@ -73,15 +73,15 @@ position: -138,427
 ---
 {$anastasia}: Who was that? #line:07baec2
 -> {$pcName}: It was my ex. #line:0cf3afb
-    {$anastasia}: Ugh really? You can do so much better. #line:0ec80b6
-    {$anastasia}: It's too late to do anything right now, and we still need to do something about your window if we don't want to burn to a crisp.
+    {$anastasia}: Ugh, really? You can do so much better. #line:0ec80b6
+    {$anastasia}: It's too late to do anything now, and we still need to do something about your window if we don't want to burn to a crisp.
     -> [nomarkup][Turn the TV off.][/nomarkup]
 -> {$pcName}: Someone from my past. #line:0a76d3f
     {$anastasia}: Well, whoever it is, Lucia seems to be digging her claws into him, thinking it would provoke you. #line:0d4aaa8
-    {$anastasia}: It's too late to do anything right now, and we still need to do something about your window if we don't want to burn to a crisp.
+    {$anastasia}: It's too late to do anything now, and we still need to do something about your window if we don't want to burn to a crisp.
     -> [nomarkup][Turn the TV off.][/nomarkup]
 -> {$pcName}: No one. #line:089d547
-    {$anastasia}: Doesn't seem like just no one to me, but if you say so. Whoever it is, Lucia seems to be digging her claws into him, thinking it would provoke you.. #line:0a74afa
-    {$anastasia}: It's too late to do anything right now, and we still need to do something about your window if we don't want to burn to a crisp.
+    {$anastasia}: Doesn't seem like just no one to me, but if you say so... Whoever it is, Lucia seems to be digging her claws into him, thinking it would provoke you.. #line:0a74afa
+    {$anastasia}: It's too late to do anything now, and we still need to do something about your window if we don't want to burn to a crisp.
     -> [nomarkup][Turn the TV off.][/nomarkup]
 ===

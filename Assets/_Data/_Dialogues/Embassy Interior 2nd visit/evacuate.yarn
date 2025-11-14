@@ -44,22 +44,22 @@ position: 539,-208
 ---
 {$storyteller}: [nomarkup][Moving quickly without caring if you are seen, you race through the club as a spray of bullets tail you.][/nomarkup] #success 
 <<set $ranForIt to 1>>
-{$storyteller}: [nomarkup][Swiftly moving in and out of cover, your mad dash proves a success as you reach the Alley Door.][/nomarkup]
+{$storyteller}: [nomarkup][Swiftly moving in and out of cover, your mad dash proves a success as you reach the alley door.][/nomarkup]
 -> [nomarkup][Exit Embassy.][/nomarkup]
 ===
 title: evacuateStamFailure
 position: 374,33
 ---
 {$storyteller}: [nomarkup][As you rush from one bit of cover to the next, sliding behind an overturned couch, you can hear the screams of other people similarly trying to find their way out.][/nomarkup] #failure
-{$storyteller}: [nomarkup][Disoriented and winded, there isn't anywhere to safely move without running into a fleeing patron blocking your path][/nomarkup] #line:0c2c756
+{$storyteller}: [nomarkup][Disoriented and winded, there isn't anywhere to safely move to without running into a fleeing patron blocking your path.][/nomarkup] #line:0c2c756
 <<jump failureOption>>
 ===
 title: failureOption
 position: 228,476
 ---
-{$storyteller}: [nomarkup][Pinned down, your eyes are drawn to and meet the gaze of a young man, the pupils of his deep brown eyes wide with fear. He's right next to you, having crawled into cover with the last of his strength.][/nomarkup]
+{$storyteller}: [nomarkup][Pinnd down, your eyes meet the gaze of a young man, the pupils of his deep brown eyes wide with fear. He's right next to you, having crawled into cover with the last of his strength.][/nomarkup]
 <<if Roll ("Intelligence","Medicine")>=3>>
-    {$storyteller}: [nomarkup][This man isn't going to be able to walk without treatment of some kind - that much is for certain.][/nomarkup] #line:03470eb
+    {$storyteller}: [nomarkup][This man isn't going to be able to walk without treatment of some kind, that much is for certain.][/nomarkup] #line:03470eb
 <<endif>>
 {$storyteller}: [nomarkup][Bleeding profusely from his leg, which he unwittingly drags behind him, he grabs onto your shirt, clinging to it desperately, and you find yourself unable to move.][/nomarkup] #line:0481065
 -> {$pcName}: [nomarkup][Tell him you'll come back for him.][/nomarkup] (Manipulation+Insight) #line:0f4f0d1
@@ -83,7 +83,7 @@ position: 537,514
 title: sootheDoeEyedSuccess
 position: 547,728
 ---
-{$storyteller}: [nomarkup][You place your hand in his and give him a small, kind smile - the tense muscles around your eyes relaxing as you whisper your last words to him.][/nomarkup] #success
+{$storyteller}: [nomarkup][You place your hand in his and give him a small, kind smile, the tense muscles around your eyes relaxing as you whisper your last words to him.][/nomarkup] #success
 {$storyteller}: [nomarkup][He hiccups and nods, letting you go as his body fully relaxes, his eyes locked on you as hiccups spasm in his throat.][/nomarkup] #line:0bc185b
 <<set $doeEyedManAlive to 1>>
 <<jump physicalOptions>>
@@ -91,8 +91,8 @@ position: 547,728
 title: sootheDoeEyedFailure
 position: 916,955
 ---
-{$storyteller}: [nomarkup][You place your hand in his and give him a small, kind smile - the tense muscles around your eyes relaxing as you whisper your last words to him.][/nomarkup] #failure
-{$storyteller}: [nomarkup][There's something that makes his expression sour, contorting in fear, and he scrambles to get away - out of cover and back into the smoke.][/nomarkup]
+{$storyteller}: [nomarkup][You place your hand in his and give him a small, kind smile, the tense muscles around your eyes relaxing as you whisper your last words to him.][/nomarkup] #failure
+{$storyteller}: [nomarkup][There's something that makes his expression sour, contorting in fear, and he scrambles to get away, out of cover and back into the smoke.][/nomarkup]
 {$storyteller}: [nomarkup][You hear shouts from the front of the club as the armed assailants notice his movement. You'll be exposed when you make your own exit.][/nomarkup] #line:0efe99c
 <<set $doeEyedManAlive to 1>>
 <<set $doeEyedManSeen to 1>>
@@ -116,7 +116,7 @@ position: 372,926
 title: convinceDoeEyedFailure
 position: 221,1198
 ---
-{$storyteller}: [nomarkup][He clings ever-tighter to youHis screams and shouts and sobbing pleas for help attract a lot of attention prior to him passing out...][/nomarkup] #failure #line:086d846
+{$storyteller}: [nomarkup][He clings ever-tighter to you. His screams and shouts and sobbing pleas for help attract a lot of attention prior to him passing out...][/nomarkup] #failure #line:086d846
 <<set $doeEyedManAlive to 0>>
 <<jump physicalOptions>>
 ===
@@ -139,7 +139,7 @@ position: 86,959
 title: intimidateDoeEyedFailure
 position: -95,1189
 ---
-{$storyteller}: [nomarkup][He starts to go pale as he begins to sway - knocking into your cover, jostling it, and causing the gunfire to briefly cease as you are noticed. It'll be less safe when you duck out of cover now.][/nomarkup] #failure #line:0cae12d
+{$storyteller}: [nomarkup][He starts to go pale as he begins to sway, knocking into your cover, jostling it, and causing the gunfire to briefly cease as you are noticed. It'll be less safe when you duck out of cover now.][/nomarkup] #failure #line:0cae12d
 <<set $doeEyedManSeen to 1>>
 <<jump physicalOptions>>
 ===
@@ -207,7 +207,7 @@ position: 231,2630
 title: runShootingFailure
 position: 494,2639
 ---
-{$storyteller}: [nomarkup][Sprinting out of cover, you run with all your might, but right before you reach the Alley Door, you're hit by a stray bullet in the leg. It hurts like hell, but you'll live.][+1 superficial damage][/nomarkup] #failure #line:073db02
+{$storyteller}: [nomarkup][Sprinting out of cover, you run with all your might, but right before you reach the alley door, you're hit by a stray bullet in the leg. It hurts like hell, but you'll live.][+1 superficial damage][/nomarkup] #failure #line:073db02
 <<DealDamage $pcName 1>>
 -> [nomarkup][End dialogue.][/nomarkup]
 ===

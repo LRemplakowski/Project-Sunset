@@ -34,12 +34,14 @@ title: showerStrSuccess
 position: 664,158
 ---
 {$storyteller}: [nomarkup][You yank the shower curtain off its railing causing the fabric and plastic lining to crumble to the floor.][/nomarkup] #success
+-> [nomarkup][End dialogue.][/nomarkup]
 ===
 title: showerStrFailure
 position: 677,-5
 ---
 {$storyteller}: [nomarkup][You yank the shower curtain off its railing, causing the fabric and plastic lining to crumble to the floor. CLANG! The sound of metal against metal. The ring hooks have ripped through the fabric, making it harder to hang.][/nomarkup] #failure
 <<set $curtainRipped to 1>>
+-> [nomarkup][End dialogue.][/nomarkup]
 ===
 title: showerIntRoll
 position: 227,-348
@@ -56,12 +58,14 @@ title: showerIntSuccess
 position: 571,-270
 ---
 {$storyteller}: [nomarkup][You get up on the toilet and carefully unhook each metal attachment ring, pulling the shower curtain off the rod. At the end of it, you have a plastic liner and the fabric you were looking for.][/nomarkup] #success
+-> [nomarkup][End dialogue.][/nomarkup]
 ===
 title: showerIntFailure
 position: 563,-424
 ---
-{$storyteller}: [nomarkup][You get up on the toilet and start to carefully unhook each of the carefully unhook metal attachment ring rods. At the end of it, you have a plastic liner and the fabric you were looking for. CLANG! The sound of metal against metal. The ring hooks have ripped through the fabric, making it harder to hang.][/nomarkup] #failure
+{$storyteller}: [nomarkup][You get up on the toilet and start to carefully unhook each of the ring rods. In the end, you have a plastic liner and the fabric you were looking for. CLANG! The sound of metal against metal. The ring hooks have ripped through the fabric, making it harder to hang.][/nomarkup] #failure 
 <<set $curtainRipped to 1>>
+-> [nomarkup][End dialogue.][/nomarkup]
 ===
 title: showerAlone
 position: -1205,-123
@@ -85,9 +89,9 @@ title: showerAloneCompFailure
 position: -1051,64
 ---
 {$storyteller}: [nomarkup][The water runs black at your feet as you rinse off the blood and grime clinging to your flesh.][/nomarkup] 
-{$storyteller}: [nomarkup][You can see a silhouette through the shower curtain. BANG BANG BANG.][/nomarkup] 
-{$storyteller}: [nomarkup][You can hear a pounding on the bathroom wall and feel your body tense. A wild, surging fear claws at you as you feel danger coming in all around you.][/nomarkup] 
-{$storyteller}: [nomarkup][Prickles of water against your skin, the flaking of drywall above you, the shouting from beyond the curtain, a standing shadow that is taller than you from your seated position in the shower.][/nomarkup] 
+{$storyteller}: [nomarkup][You see a silhouette through the shower curtain. BANG BANG BANG.][/nomarkup] 
+{$storyteller}: [nomarkup][A pounding on the bathroom wall makes your body tense. A wild, surging fear claws at you as danger comes all around.][/nomarkup] 
+{$storyteller}: [nomarkup][Prickles of water against your skin, the flaking of drywall from above, the shouting from beyond the curtain, a standing shadow that is taller than you from your seated position in the shower.][/nomarkup]
 {$storyteller}: [nomarkup][You feel a burning in your throat, in your eyes, and an itch in your hands. The shower is coated in blood, and you can feel bits of skin with muscle attached floating past your foot.][/nomarkup] 
 {$storyteller}: [nomarkup][You have to defend yourself or you're going to die in here.][/nomarkup] 
 {$storyteller}: [nomarkup][Your eyes flash with an image of yourself in Diego's place.][/nomarkup] #line:0a3368d
@@ -98,12 +102,12 @@ title: proofingObjectiveFailed
 position: 568,-716
 ---
 //player proceeds here automatically if he fails proofing the window - he goes into bathroom with ana if recruited//
-{$storyteller}: [nomarkup][You dash through the light rushing through to your enclosed bathroom. The light scalds you at the touch, and it takes inhuman effort to make it as your limbs grow heavier.][/nomarkup]
-{$storyteller}: [nomarkup][You slam the door and put some dirty clothes in your attempt to block any light seeping from under the door. Your limbs are heavy as lead.][/nomarkup
+{$storyteller}: [nomarkup][You dash through the light rushing to your enclosed bathroom. The light scalds you at the touch, and it takes inhuman effort to make it as your limbs grow heavier.][/nomarkup]
+{$storyteller}: [nomarkup][You slam the door and put some dirty clothes in your attempt to block any light seeping from under the door. Your limbs are heavy as lead.][/nomarkup]
 <<if GetIsPartyMemberRecruited($anastasia) is true>>
-    {$storyteller}: [nomarkup][Anastasia gets in just after you helping you with covering any gaps you could've missed.][/nomarkup]
-    {$storyteller}: [nomarkup][She doesn't talk. She just collapses on the floor motionless, still holding a rag she grabbed. She looks eerie with a large burn on her arm.][/nomarkup]
-    {$storyteller}: [nomarkup][Very corpse-like - especially with her near-white complexion.][/nomarkup]
+    {$storyteller}: [nomarkup][Anastasia gets in just after you, covering any gaps you could've missed.][/nomarkup]
+    {$storyteller}: [nomarkup][She doesn't talk. She just collapses on the floor motionless, still holding a rag. She looks eerie with a large burn on her arm.][/nomarkup]
+    {$storyteller}: [nomarkup][Very corpse-like, especially with her near-white complexion.][/nomarkup]
 <<endif>>
 {$storyteller}: [nomarkup][The floor is cold and uncomfortable., but you can't do anything about it as you drift off into darkness.][/nomarkup]
 -> [nomarkup][End the night.][/nomarkup]
@@ -112,6 +116,6 @@ title: showerKnock
 position: 254,262
 ---
 //SFX knocking on the door
-{$storyteller}: [nomarkup][To your surprise you suddenly hear knocking on the door - softer this time][/nomarkup]
+{$storyteller}: [nomarkup][To your surprise you suddenly hear knocking on the door. Softer, this time][/nomarkup]
 -> [nomarkup][Get to the apartment door.][/nomarkup]
 ===

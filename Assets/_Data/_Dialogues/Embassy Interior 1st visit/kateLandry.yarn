@@ -30,7 +30,7 @@ position: -540,-238
 {$storyteller}: [nomarkup][He clears his throat upon noticing your gaze. He's clearly embarrassed.][/nomarkup] 
 {$kieran}:Good evening, Kate. You surely remember that Dominic decided to take me with him on one of his “missions”. This is the fledgling we were tasked with apprehending. #line:0e13aca 
 {$storyteller}: [nomarkup][Incredulous, she lifts an eyebrow.][/nomarkup]
-{$sforzaMask}: I can see Dominic is trying to start another scandal in Court. How nice of him. 
+{$sforzaMask}: I can see Dominic is trying to start another scandal in the Court. How nice of him. 
 {$sforzaMask}: Does Prince Douglas know? #line:056e742
 {$kieran}: I'll leave their marital drama up to them, but by now she probably knows. And if not now, then she will soon. As for your guest…
 {$storyteller}: [nomarkup][He turns to you.][/nomarkup] 
@@ -47,12 +47,12 @@ position: -540,-238
     <<jump questionsAboutLastNight>>
 -> {$pcName}: Probably not. 
     {$storyteller}: [nomarkup][She laughs, yet her tone is far from amused.][/nomarkup] 
-    {$sforzaMask}: My dear, you should learn to be more guarded with your intentions if you want to make something of your new life. Not all Kindred are as nice as I am; some think that the solution to a wounded pride is a missing tooth... (-1 Kieran Influence) #line:07fa057 
+    {$sforzaMask}: My dear, you should learn to be more guarded with your intentions if you wish to become someone in the nights.
     <<ModifyInfluence -1 {$kieran}>>
     {$kieran}: She does have a fiery temperament, but... it is to be expected, given her Blood. #line:00590a3 
     {$sforzaMask}: Another Brujah? 
     {$storyteller}: [nomarkup][She sighs and rolls her eyes.][/nomarkup] 
-    {$sforzaMask}: I would heartily endorse some anger management classes and, if you would like to live a long, prosperous life, not to lean on excuses. #line:0179d9d #lastline
+    {$sforzaMask}: I would heartily endorse some anger management classes and, if you hope to last a few years more, not to lean on excuses. #line:0179d9d #lastline
     <<jump questionsAboutLastNight>>
 ===
 title: questionsAboutLastNight
@@ -164,7 +164,7 @@ position: -357,803
 ---
 {$sforzaMask}: You can meet her here almost every night.
 {$sforzaMask}: I may be old, but I'm not blind. She's been seeing someone, on occasion. But it hasn't interfered with her duties, so I haven't said anything.
-{$sforzaMask}: I like her having her own life. Keeps things interesting. #line:00f510d 
+{$sforzaMask}: I like her having her own affairs. Keeps things… interesting. #line:00f510d
 <<if $dianaMet ==true>>
     -> {$pcName}: She led me into the alley last night. #line:065676d 
     <<jump whatDianaDid>>
@@ -202,7 +202,7 @@ title: princeExplained
 position: 530,-103
 ---
 {$sforzaMask}: Ah, it's so refreshing to have someone around as oblivious to politics as you.
-{$sforzaMask}: Kieran, be a dear and educate your new friend on the intricacies of our society, would you? It would be a good refresher, and it may save her life.
+{$sforzaMask}: Kieran, be a dear and educate your new friend on the intricacies of our society, would you? It would be a good refresher, and it may save her someday. #line:0417d47
 {$kieran}: The Prince is the head figure in charge of the Camarilla's domain here in Las Vegas. 
 <<jump subsequentQuestions>>
 ===

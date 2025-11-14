@@ -15,9 +15,9 @@ position: 1151,-609
 color: red
 ---
 <<if GetIsPartyMemberRecruited($anastasia) is false>>
-    {$storyteller}: [nomarkup][A light in the distance gleams at you reflected off the chrome of a motorcycle engine. It's Anastasia from The Embassy. She waves at you as she leaves.][/nomarkup] #line:0d0f2a9
+    {$storyteller}: [nomarkup][A light in the distance gleams at you, reflected off the chrome of a motorcycle engine. It's Anastasia from The Embassy. She waves at you as she leaves.][/nomarkup] #line:0d0f2a9
 <<else>>
-    {$storyteller}: [nomarkup][A light in the distance gleams at you reflected off the chrome of a motorcycle engine. The figure on the bike is clearly a woman, but you can't make her out. She waves at you as she leaves.][/nomarkup] #line:063abc2
+    {$storyteller}: [nomarkup][A light in the distance gleams at you, reflected off the chrome of a motorcycle engine. The figure on the bike is clearly a woman, but you can't make her out. She waves at you as she leaves.][/nomarkup] #line:063abc2
 <<endif>>
 <<jump windowOptions>>
 ===
@@ -25,7 +25,7 @@ title: windowOptions
 position: -408,302
 color: red
 ---
-{$beast}: [nomarkup][A panicked sense of urgency arises from your being as you see the sunrise poking through the distance. You have to be quick.][/nomarkup]
+{$beast}: [nomarkup][A panicked sense of urgency arises from your being as you see the sunrise poking in the distance. You have to be quick.][/nomarkup]
 -> [nomarkup][Close blinds.][/nomarkup] <<if CustomVisited("blinds") == false>> #line:01181c6 
     <<jump blinds>>
 -> [nomarkup][Use bed sheets.][/nomarkup] <<if GetHasItem("IT_Q_SHEETS")>> #line:05d62c3
@@ -42,7 +42,7 @@ title: blinds
 position: -705,466
 ---
 <<set $windowBlinds to true>>
-{$storyteller}: [nomarkup][You close the blinds, but deep down you know that will not be enough You need to seal around the edges as well if you don't want to find out firsthand what happens when a vampire faces the sun.][/nomarkup]
+{$storyteller}: [nomarkup][You close the blinds, but deep down you know that will not be enough. You need to seal around the edges as well if you don't want to find out firsthand what happens when a vampire faces the sun.][/nomarkup]
 <<jump windowOptions>>
 ===
 title: windowHaveSheets
@@ -53,7 +53,7 @@ position: -860,956
 <<elseif GetHasItem("IT_Q_DUCTTAPE")>>
     <<jump windowHaveSheetsAndTape>>
 <<else>>
-    {$storyteller}: [nomarkup][Without anything to hold the proofing material in place you may as well just leave them on the ground.][/nomarkup] #line:0ee314c
+    {$storyteller}: [nomarkup][Without anything to hold the proofing material in place, you may as well just leave them on the ground.][/nomarkup] #line:0ee314c
     <<jump windowOptions>>
 <<endif>>
 ===
@@ -61,7 +61,7 @@ title: windowHaveSheetsAndHammer
 position: -395,808
 color: blue
 ---
-{$storyteller}: [nomarkup][With hammer in hand you'll be able to nail the material to the wall.][/nomarkup]
+{$storyteller}: [nomarkup][With a hammer in hand, you'll be able to nail the material to the wall.][/nomarkup] #line:094b4c8
 -> [nomarkup][Try to place nails evenly.] (Intelligence + Craft)[/nomarkup] #line:0f74556 
 <<set $attemptsCounter to ($attemptsCounter + 1)>>
 <<if GetHasItem("IT_Q_SHEETS")>>
@@ -88,7 +88,7 @@ title: windowNailingSheetsSuccess
 position: -78,870
 ---
 <<set $windowSheets to true>>
-{$storyteller}: [nomarkup][You smooth out the folded sheet and nail it in place before taking a step back to admire your handiwork. So far, so good. Maybe you won't burst into flames after all. [/nomarkup] #success #line:0f5e5cd
+{$storyteller}: [nomarkup][You smooth out the folded sheet and nail it in place before taking a step back to admire your handiwork. So far, so good. Maybe you won't burst into flames, after all.][/nomarkup] #success #line:0f5e5cd
 <<RemoveItem "IT_Q_SHEETS">>
 <<jump successfulProofing>>
 ===
@@ -96,10 +96,10 @@ title: windowNailingCurtainSuccess
 position: -71,1015
 ---
 <<if GetHasItem("IT_Q_SHOWERCURTAIN_TORN")>>
-    {$storyteller}: [nomarkup][You smooth out the folded curtain and nail it in place before taking a step back to admire your handiwork. So far, so good. Maybe you won't burst into flames after all. [/nomarkup] #success
+    {$storyteller}: [nomarkup][You smooth out the folded curtain and nail it in place before taking a step back to admire your handiwork. So far, so good. Maybe you won't burst into flames, after all.][/nomarkup] #success
     <<RemoveItem "IT_Q_SHOWERCURTAIN_TORN">>
 <<else>>
-    {$storyteller}: [nomarkup][You smooth out the folded curtain and nail it in place before taking a step back to admire your handiwork. So far, so good. Maybe you won't burst into flames after all.][/nomarkup] #success
+    {$storyteller}: [nomarkup][You smooth out the folded curtain and nail it in place before taking a step back to admire your handiwork. So far, so good. Maybe you won't burst into flames, after all.][/nomarkup] #success
     <<RemoveItem "IT_Q_SHOWERCURTAIN">>
 <<endif>>
 <<jump successfulProofing>>
@@ -108,8 +108,8 @@ title: windowNailingCurtainFailure
 position: -72,703
 ---
 <<if GetHasItem("IT_Q_SHOWERCURTAIN_TORN")>>
-    {$storyteller}: [nomarkup][You smooth out the curtain and pin it to the wall with a few thumbtacks. You step back and inspect your handiwork. The curtain holds for a few seconds before fluttering to the ground  thanks to the bent tacks.][/nomarkup] #failure
-    {$storyteller}: [nomarkup][The shower curtain right now looks even worse than before you ripped it. The cracks of light are growing brighter. You need to find something stronger to hold it up.][/nomarkup] #line:0da4bc2
+    {$storyteller}: [nomarkup][You smooth out the curtain and pin it to the wall with a few thumbtacks. You step back and inspect your handiwork. The curtain holds for a few seconds before fluttering to the ground thanks to the bent tacks.][/nomarkup] #failure
+    {$storyteller}: [nomarkup][The shower curtain right now looks even worse than before you had ripped it. The cracks of light glow even brighter. You need to find something stronger to hold it up.][/nomarkup] #line:0da4bc2
     <<RemoveItem "IT_Q_SHOWERCURTAIN_TORN">>
 <<else>>
     {$storyteller}: [nomarkup][You smooth out the curtain and pin it to the wall with a few thumbtacks. You step back and inspect your handiwork. The curtain holds for a few seconds before fluttering to the ground thanks to the bent tacks.][/nomarkup] #failure
@@ -130,7 +130,7 @@ title: windowNailingSheetsFailure
 position: -69,539
 ---
 {$storyteller}: [nomarkup][You smooth out the sheet and pin it to the wall with a few thumbtacks. You step back and inspect your handiwork. The sheet holds for a few seconds before fluttering to the ground thanks to the bent tacks.][/nomarkup] #failure
-{$storyteller}: [nomarkup][The cracks of light are growing brighter. You need to find something stronger to hold it up.][/nomarkup] 
+{$storyteller}: [nomarkup][The cracks of light glow even brighter. You need to find something stronger to hold it up.][/nomarkup]
 <<RemoveItem "IT_Q_SHEETS">>
 <<jump unsuccesfulProofing>>
 ===
@@ -155,7 +155,7 @@ title: windowHaveSheetsAndTape
 position: 322,-378
 color: blue
 ---
-{$storyteller}: [nomarkup][With duct tape in hand you'll be able to stick the material to the wall. These can tape the kids and repair nearly everything. So why not stick something to the wall?][/nomarkup] #line:05d613e 
+{$storyteller}: [nomarkup][With duct tape in hand, you'll be able to stick the material to the wall. These can tape the kids and repair nearly everything. So why not stick something to the wall?][/nomarkup] #line:05d613e 
 <<if GetHasItem("IT_Q_PIZZABOXES")>>
     -> [nomarkup][Tape the cardboard to the window.] (Resolve + Craft)[/nomarkup] #line:0ceb501 
     <<set $attemptsCounter to ($attemptsCounter + 1)>>
@@ -195,15 +195,15 @@ position: 587,132
 ---
 <<set $windowSheets to true>>
 {$storyteller}: [nomarkup][You smooth out the folded sheet and tape it in place before taking a step back to admire your handiwork.][/nomarkup] #success 
-{$storyteller}: [nomarkup][This task required some acrobatics, but you managed to go through such a trivial obstacle. So far, so good. Maybe you won't burst into flames after all.][/nomarkup] #line:0a7cc3e
+{$storyteller}: [nomarkup][This task required some acrobatics, but you managed to go through such a trivial obstacle. So far, so good. Maybe you won't burst into flames, after all.][/nomarkup] #line:0a7cc3e
 <<RemoveItem "IT_Q_SHEETS">>
 <<jump successfulProofing>>
 ===
 title: windowTapingSheetsFailure
 position: 890,-451
 ---
-{$storyteller}: [nomarkup][You smooth out the sheet and tape it to the wall, sometimes clumsily taping yourself to the wall. You step back and inspect your handiwork. The sheet holds for a few seconds before fluttering to the ground  thanks to the bent tacks..][/nomarkup] #failure 
-{$storyteller}: [nomarkup][The cracks of light are growing brighter. You need to find something stronger to hold it up..][/nomarkup] 
+{$storyteller}: [nomarkup][You smooth out the sheet and tape it to the wall, sometimes clumsily taping yourself to the wall. You step back and inspect your handiwork. The sheet holds for a few seconds before fluttering to the ground thanks to the bent tacks..][/nomarkup] #failure 
+{$storyteller}: [nomarkup][The cracks of light glow even brighter. You need to find something stronger to hold it up.][/nomarkup]
 <<RemoveItem "IT_Q_SHEETS">>
 <<jump unsuccesfulProofing>>
 ===
@@ -224,7 +224,7 @@ title: windowTapingCurtainFailure
 position: 770,-312
 ---
 <<if GetHasItem("IT_Q_SHOWERCURTAIN_TORN")>>
-    {$storyteller}: [nomarkup][Despite your best efforts the curtain won't stick to the tape. Pacing back and forth, you search the apartment for a solution as the sun creeps closer to the horizon.][/nomarkup] #failure #line:0056288
+    {$storyteller}: [nomarkup][Despite your best efforts, the curtain won't stick to the tape. Pacing back and forth, you search the apartment for a solution as the sun creeps closer on the horizon.][/nomarkup] #failure #line:0056288
     <<RemoveItem "IT_Q_SHOWERCURTAIN_TORN">>
 <<else>>
     {$storyteller}: [nomarkup][You remember reading something about duct tape not sticking to wet surfaces.][/nomarkup] #failure
@@ -238,7 +238,7 @@ title: windowTapingCardboardSuccess
 position: 372,135
 ---
 <<set $windowBoxes to true>>
-{$storyteller}: [nomarkup][You rip some so they fit as they should, covering it entirely. Sometimes you have to use scissors or a knife to cut them and remember to do it along the fibers, but in the end, you're really satisfied with what you created.][/nomarkup] #success #line:0391cc0
+{$storyteller}: [nomarkup][You rip some so they fit as they should, covering the window entirely. Sometimes you have to use scissors or a knife to cut them and remember to do it along the fibers, but in the end, you're really satisfied with what you created.][/nomarkup] #success #line:0391cc0
 <<jump successfulProofing>>
 ===
 title: windowTapingCardboardFailure
@@ -253,8 +253,8 @@ position: -777,1303
 color: blue
 ---
 {$storyteller}: [nomarkup][You look around for suitable furniture. Something that will cover the window. It won't be ideal, but it has to suffice. The first thing that comes to your mind is your clunky fridge.][/nomarkup]
-{$storyteller}: [nomarkup][The second one is the bookcase. In the case of the fridge, it should be easy - it's empty - so you don't risk something falling out.][/nomarkup]
-{$storyteller}: [nomarkup][It's just pretty heavy. The bookcase is lighter, but you don't have the time to put everything down on the shelves. And you're sentimental about some trinkets you've collected and placed on it.][/nomarkup] #line:0cee63e
+{$storyteller}: [nomarkup][The second one is the bookcase. In the case of the fridge, it should be easy. It's empty, so you don't risk something falling out.][/nomarkup]
+{$storyteller}: [nomarkup][It's pretty heavy, although. The bookcase is lighter, but you don't have the time to put everything down on the shelves. And you're sentimental about some trinkets you've collected and placed on it.][/nomarkup] #line:0cee63e
 <<set $attemptsCounter to ($attemptsCounter + 1)>>
 -> [nomarkup][Move the fridge.] (Strenght + Athletics)[/nomarkup] <<if CustomVisited("windowMoveFridgeRoll") == false>> #line:0ccbe95
     <<jump windowMoveFridgeRoll>>
@@ -279,12 +279,12 @@ title: windowMoveFridgeSuccess
 position: 104,1550
 ---
 <<if GetIsPartyMemberRecruited($anastasia) is true>>
-    {$storyteller}: [nomarkup][With Anastasia's help, you are able to push the fridge from its normal spot to the window. Aside from opening its doors, it fits perfectly - just enough to cover the window.][/nomarkup] #success #line:081418f
+    {$storyteller}: [nomarkup][With Anastasia's help, you push the fridge from its normal spot to the window. Aside from opening its doors, it fits perfectly, just enough to cover the whole window.][/nomarkup] #success #line:081418f
 <<elseif GetCharacterDisciplineRank($pcName,"POTENCE") > 0>>
     {$storyteller}: [nomarkup][By pushing the fridge alone, you discovered that you have much more strength than you used to. It certainly helped a lot.][/nomarkup] #success
-    {$storyteller}: [nomarkup][You are able to push the fridge from its normal spot to the window. Aside from opening its doors, it fits perfectly - just enough to cover the window.][/nomarkup] #line:078120d
+    {$storyteller}: [nomarkup][You push the fridge from its normal spot to the window. Aside from opening its doors, it fits perfectly, just enough to cover the whole window.][/nomarkup] #line:078120d
 <<else>>
-    {$storyteller}: [nomarkup][The fridge is stubborn, but you don't get tired either. Finally, it goes into a new place, encouraged by you. Aside from opening its doors, it fits perfectly - just enough to cover the window.][/nomarkup] #success #line:08abeea
+    {$storyteller}: [nomarkup][The fridge is stubborn, but you don't get tired either. Finally, it goes into a new place, encouraged by you. Aside from opening its doors, it fits perfectly, just enough to cover the whole window.][/nomarkup] #success #line:08abeea
 <<endif>>
 <<jump successfulProofing>>
 
@@ -320,7 +320,7 @@ color: yellow
 title: windowMoveBookcaseSuccess
 position: 104,1203
 ---
-{$storyteller}: [nomarkup][You get the file cabinet out of the way and try to gently push the bookcase. It takes some patience and balancing - especially when the wall changes angle - but without a bigger issue, you managed to push the bookcase into its new place without any major accidents. You should be safe from the sun.][/nomarkup] #success
+{$storyteller}: [nomarkup][You get the file cabinet out of the way and try to gently push the bookcase. It takes some patience and balancing, especially when the wall changes angle, but without a bigger issue, you managed to push the bookcase into its new place without any major accidents. You should be safe from the sun.][/nomarkup] #success #line:090160b
 <<jump successfulProofing>>
 ===
 title: windowMoveBookcaseFailure

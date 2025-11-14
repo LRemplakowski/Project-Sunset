@@ -24,7 +24,7 @@ position: -516,-712
         {$anastasia}: Are we seriously doing this right now? #line:0dfef3d
     <<endif>>
     {$kieran}: If you survive tonight, you will find out sooner or later. #line:08c7587
-    -> {$pcName}: We need to move. Sooner, rather than later. #line:048181d
+    -> {$pcName}: We need to move. #line:048181d
     <<if GetIsPartyMemberRecruited($anastasia) is true>>
         {$anastasia}: Finally, a sensible idea. #line:04dde74
     <<endif>>
@@ -35,7 +35,7 @@ title: ghoulsApproach
 tags: 
 position: -497,-462
 ---
-Ghoul:  Couple of stragglers, Karl. #line:0d085be
+Ghoul: Couple of stragglers, Karl. #line:0d085be
 -> {$pcName}: We just killed all of your friends in there. Do you want to try us? (Charisma + Subterfuge) #line:09ef5cc
     <<jump charismaGhoulsRoll>>
 -> {$pcName}: [nomarkup][Draw your weapon.][/nomarkup] #line:0549e88
