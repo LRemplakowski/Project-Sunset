@@ -62,7 +62,7 @@ position: -212,-233
 {$storyteller}: [nomarkup][Her lips curl in an amused grin as her eyes drift off to the side, her focus turning towards her own memories.][/nomarkup]
 {$sforzaMask}: Yes, I do remember seeing you here.
 {$storyteller}: [nomarkup][She remarks off-handedly, a devious grin coming to her lips.][/nomarkup]
-{$sforzaMask}: You were on the dancefloor and found yourself something of a partner in crime and left before I had the opportunity to thank you for your article.
+{$sforzaMask}: You were on the dancefloor and found yourself something of a partner in crime, and left before I had the opportunity to thank you for your article.
 {$storyteller}: [nomarkup][She makes a wide, sweeping gesture with her hand.][/nomarkup]
 {$sforzaMask}: Maybe he's your sire? 
 <<if GetIsPartyMemberRecruited($anastasia) is true>>
@@ -211,7 +211,7 @@ position: 740,281
 ---
 {$sforzaMask}: Benedic was the Prince before Sam.
 {$sforzaMask}: He was assassinated by his own Sheriff, Geoffrey Montrose, in a conspiracy with the Sabbat, but they learned their lesson.
-{$sforzaMask}: They've since been hunted down and killed for their crimes against the Praxis. #line:0fbf8e9
+{$sforzaMask}: They've since been hunted down and sentenced to Final Death for their crimes against the Praxis. #line:0fbf8e9
 <<jump subsequentQuestions>>
 ===
 title: whatIsSabbat

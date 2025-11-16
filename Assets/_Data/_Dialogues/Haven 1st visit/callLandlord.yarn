@@ -13,7 +13,7 @@ position: -328,-104
     {$storyteller}: [nomarkup][You describe the status of your sink. You can hear his contempt through the phone.][/nomarkup]
     {$landlord}: Again? There's no way. I just fixed it last week. You must be washing grease down the drain. Not my problem. Hire a plumber. #line:085cb16
     -> {$pcName}: I'll pay you for your time. #line:02582fe
-        {$landlord}: Now you're speaking my language. I'll have to charge you a-uh... a late night fee, of course. #line:07f776e
+        {$landlord}: Now you're speaking my language. I'll have to charge you a-uh... a late-night fee, of course. #line:07f776e
         -> {$pcName}: Sure.#line:025fbad
             {$landlord}: Let me get dressed. I'll see you shortly.
             <<CompleteObjective "Q_0P_FIX_SINK" "CALL_LANDLORD">> 
@@ -34,7 +34,7 @@ position: 408,-214
 ---
 {$landlord}: So, anything else you have to offer? #line:07f16fa 
 -> {$pcName}: I'll pay you for your time.
-        {$landlord}: Now you're speaking my language. I'll have to charge you a-uh... a late night fee, of course.
+        {$landlord}: Now you're speaking my language. I'll have to charge you a-uh... a late-night fee, of course.
         -> {$pcName}: Sure.
             {$landlord}: Let me get dressed. I'll see you shortly.
             <<CompleteObjective "Q_0P_FIX_SINK" "CALL_LANDLORD">> 

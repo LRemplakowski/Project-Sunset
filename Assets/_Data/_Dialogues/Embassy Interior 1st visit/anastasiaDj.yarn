@@ -171,12 +171,3 @@ title: DJOutcomeDifferent
 ---
 {$storyteller}: [nomarkup][A new track begins to play through the speakers.][/nomarkup]
 === 
-title: DJSubsequent
----
-<<if CustomVisited("DJOutcomeSame")>>
-<<endif>>
-<<if CustomVisited("DJOutcomeDifferent")>>
-<<endif>>
-<<if CustomVisited("DJOutcomeNoMusic")>>
-<<endif>>
-===
