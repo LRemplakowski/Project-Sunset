@@ -88,7 +88,7 @@ namespace SunsetSystems.Persistence
             //_gameData.ClearSaveData();
             string filePath = SaveIDToFilePath(saveID);
             ES3.LoadInto(GAME_DATA, filePath, GameData);
-            var blackboardData = ES3.Load<BlackboardSaveData>(BLACKBOARD_DATA, filePath);
+            var blackboardData = ES3.Load(BLACKBOARD_DATA, filePath, new BlackboardSaveData() { Data = new() });
             ScriptableVariableBase.InjectSaveData(blackboardData);
         }
 
