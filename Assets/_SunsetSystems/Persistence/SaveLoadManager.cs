@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using Sirenix.OdinInspector;
 using SunsetSystems.Audio;
+using SunsetSystems.Blackboard;
 using SunsetSystems.Core.SceneLoading;
 using SunsetSystems.Journal;
 using UnityEngine;
 
 namespace SunsetSystems.Persistence
 {
-
     public class SaveLoadManager : SerializedMonoBehaviour
     {
         [SerializeField]
@@ -20,6 +20,7 @@ namespace SunsetSystems.Persistence
         private const string SAVE_PATH = "Saves/";
         private const string META_DATA = "SAVE_META";
         private const string GAME_DATA = "SAVE_GAME";
+        private const string BLACKBOARD_DATA = "GLOBAL_BLACKBOARD";
 
         [ShowInInspector, ReadOnly]
         private GlobalPersistenceData _gameData = new();
@@ -71,6 +72,7 @@ namespace SunsetSystems.Persistence
             UpdateRuntimeDataCache();
             ES3.Save(META_DATA, metaData, filename);
             ES3.Save(GAME_DATA, GameData, filename);
+            ES3.Save(BLACKBOARD_DATA, ScriptableVariableBase.GetSaveData(), filename);
         }
 
         public static void UpdateRuntimeDataCache()
@@ -86,6 +88,8 @@ namespace SunsetSystems.Persistence
             //_gameData.ClearSaveData();
             string filePath = SaveIDToFilePath(saveID);
             ES3.LoadInto(GAME_DATA, filePath, GameData);
+            var blackboardData = ES3.Load<BlackboardSaveData>(BLACKBOARD_DATA, filePath);
+            ScriptableVariableBase.InjectSaveData(blackboardData);
         }
 
         private static Texture2D TakeGameScreenShot()
