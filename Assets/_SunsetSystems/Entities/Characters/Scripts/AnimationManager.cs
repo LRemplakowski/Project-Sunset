@@ -285,9 +285,9 @@ namespace SunsetSystems.Animation
             animator.SetBool(_inCoverAnimationParamHash, enabled);
         }
 
-        public void TriggerDeathAnimation()
+        public void SetIsDead(bool dead)
         {
-            SetBool(_isDeadAnimationParamHash, true);
+            SetBool(_isDeadAnimationParamHash, dead);
         }
 
         public void SetTrigger(string name)
