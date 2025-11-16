@@ -1,7 +1,11 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using Sirenix.OdinInspector;
+using SunsetSystems.Combat;
 using SunsetSystems.Dice;
 using SunsetSystems.Entities.Data;
+using SunsetSystems.Party;
 using UltEvents;
 using UnityEngine;
 
@@ -16,13 +20,14 @@ namespace SunsetSystems.Entities.Characters
             get
             {
                 if (_owner == null)
-                    _owner = GetComponent<Creature>();
+                    _owner = GetComponentInParent<Creature>();
                 return _owner;
             }
         }
 
         [Title("Events")]
         public UltEvent<ICreature> OnCreatureDied = new();
+        public UltEvent<ICreature> OnCreatureRevived = new();
         [field: Title("Debug")]
         [field: SerializeField]
         public StatsData Stats { get; private set; }
@@ -32,12 +37,28 @@ namespace SunsetSystems.Entities.Characters
         public Tracker Hunger => Stats.Trackers.GetTracker(TrackerType.Hunger);
         public Tracker Humanity => Stats.Trackers.GetTracker(TrackerType.Humanity);
 
-        public StatsManager Instance { get; protected set; }
-
         private void OnValidate()
         {
             if (_owner == null)
                 _owner = GetComponentInParent<Creature>();
+        }
+
+        private void Start()
+        {
+            CombatManager.OnCombatEnd += OnCombatEnd;
+        }
+
+        private void OnDestroy()
+        {
+            CombatManager.OnCombatEnd -= OnCombatEnd;
+        }
+
+        private void OnCombatEnd(IEnumerable<ICombatant> combatants)
+        {
+            if (PartyManager.Instance.ActiveParty.Contains(Owner) && IsDead())
+            {
+                Heal(1);
+            }
         }
 
         [Button]
@@ -46,11 +67,7 @@ namespace SunsetSystems.Entities.Characters
             Stats = new(config);
         }
 
-        private void Start()
-        {
-            OnValidate();
-        }
-
+        [Button]
         public void TakeDamage(int damage)
         {
             Health.SuperficialDamage += damage;
@@ -58,6 +75,7 @@ namespace SunsetSystems.Entities.Characters
                 Die();
         }
 
+        [Button]
         public bool TryUseBlood(int amount)
         {
             if (amount > Hunger.GetValue())
@@ -66,6 +84,7 @@ namespace SunsetSystems.Entities.Characters
             return true;
         }
 
+        [Button]
         public void RegainBlood(int amount)
         {
             if (amount > Hunger.SuperficialDamage)
@@ -82,10 +101,15 @@ namespace SunsetSystems.Entities.Characters
 
         public void Heal(int amount)
         {
+            bool wasDead = IsDead();
             int currentDamage = Health.SuperficialDamage;
             currentDamage -= amount;
             currentDamage = currentDamage < 0 ? 0 : currentDamage;
             Health.SuperficialDamage = currentDamage;
+            if (wasDead && IsAlive())
+            {
+                OnCreatureRevived?.InvokeSafe(Owner);
+            }
         }
 
         public int GetCombatSpeed()
@@ -179,10 +203,7 @@ namespace SunsetSystems.Entities.Characters
 
         public HealthData GetHealthData()
         {
-            HealthData.HealthDataBuilder builder = new(Health.MaxValue);
-            builder.SetSuperficialDamage(Health.SuperficialDamage);
-            builder.SetAggravatedDamage(Health.AggravatedDamage);
-            return builder.Create();
+            return new HealthData(Health.MaxValue, Health.SuperficialDamage, Health.AggravatedDamage);
         }
     }
 
@@ -190,36 +211,11 @@ namespace SunsetSystems.Entities.Characters
     {
         public readonly int maxHealth, superficialDamage, aggravatedDamage;
 
-        private HealthData(int maxHealth, int superficialDamage, int aggravatedDamage)
+        public HealthData(int maxHealth, int superficialDamage, int aggravatedDamage)
         {
             this.maxHealth = maxHealth;
             this.superficialDamage = superficialDamage;
             this.aggravatedDamage = aggravatedDamage;
-        }
-
-        public class HealthDataBuilder
-        {
-            private int maxHealth, superficialDamage = 0, aggravatedDamage = 0;
-
-            public HealthDataBuilder(int maxHealth)
-            {
-                this.maxHealth = maxHealth;
-            }
-
-            public void SetSuperficialDamage(int superficialDamage)
-            {
-                this.superficialDamage = superficialDamage;
-            }
-
-            public void SetAggravatedDamage(int aggravatedDamage)
-            {
-                this.aggravatedDamage = aggravatedDamage;
-            }
-
-            public HealthData Create()
-            {
-                return new HealthData(maxHealth, superficialDamage, aggravatedDamage);
-            }
         }
     }
 }

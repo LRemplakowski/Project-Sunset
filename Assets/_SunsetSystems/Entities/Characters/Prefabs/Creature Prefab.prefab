@@ -1635,8 +1635,40 @@ MonoBehaviour:
         _W: 0
         _Object: {fileID: 0}
     - _Target: {fileID: 4678919013744510610}
-      _MethodName: TriggerDeathAnimation
-      _PersistentArguments: []
+      _MethodName: SetIsDead
+      _PersistentArguments:
+      - _Type: 1
+        _Int: 1
+        _String: 
+        _X: 0
+        _Y: 0
+        _Z: 0
+        _W: 0
+        _Object: {fileID: 0}
+  OnCreatureRevived:
+    _PersistentCalls:
+    - _Target: {fileID: 409868112203810021}
+      _MethodName: SetNavigationEnabled
+      _PersistentArguments:
+      - _Type: 1
+        _Int: 1
+        _String: 
+        _X: 0
+        _Y: 0
+        _Z: 0
+        _W: 0
+        _Object: {fileID: 0}
+    - _Target: {fileID: 4678919013744510610}
+      _MethodName: SetIsDead
+      _PersistentArguments:
+      - _Type: 1
+        _Int: 0
+        _String: 
+        _X: 0
+        _Y: 0
+        _Z: 0
+        _W: 0
+        _Object: {fileID: 0}
   <Stats>k__BackingField:
     Trackers:
       health:

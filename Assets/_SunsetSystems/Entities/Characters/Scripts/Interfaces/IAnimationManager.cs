@@ -12,7 +12,7 @@ namespace SunsetSystems.Animation
         void PlayTakeHitAnimation();
         void SetCombatAnimationTypeOverride(WeaponAnimationType preCastAnimationType);
         void SetCoverAnimationsEnabled(bool enabled);
-        void TriggerDeathAnimation();
+        void SetIsDead(bool dead);
         void SetTrigger(int hash);
         Vector3 GetBonePosition(HumanBodyBones bone);
     }
