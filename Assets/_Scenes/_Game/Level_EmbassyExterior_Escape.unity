@@ -5562,8 +5562,8 @@ Avatar:
     742852947: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Waist/CC_Base_Spine01/CC_Base_Spine02/CC_Base_NeckTwist01/CC_Base_NeckTwist02/CC_Base_Head/CC_Base_FacialBone/UMAadjustment.Rcheek
     3833206019: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Waist/CC_Base_Spine01/CC_Base_Spine02/CC_Base_R_RibsTwist
     1617059106: Root/Global/Position
-    208684537: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Waist/CC_Base_Spine01/CC_Base_Spine02/CC_Base_L_Clavicle/CC_Base_L_Upperarm/CC_Base_L_Forearm/CC_Base_L_Hand/CC_Base_L_Mid1/CC_Base_L_Mid2
     3191111898: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Pelvis/CC_Base_R_Thigh/CC_Base_R_Calf
+    208684537: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Waist/CC_Base_Spine01/CC_Base_Spine02/CC_Base_L_Clavicle/CC_Base_L_Upperarm/CC_Base_L_Forearm/CC_Base_L_Hand/CC_Base_L_Mid1/CC_Base_L_Mid2
     2692193155: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Waist/CC_Base_Spine01/CC_Base_Spine02/CC_Base_R_Clavicle/CC_Base_R_Upperarm/CC_Base_R_Forearm/CC_Base_R_Hand/CC_Base_R_Index1/CC_Base_R_Index2
     160473484: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Waist/CC_Base_Spine01/CC_Base_Spine02/CC_Base_L_Clavicle/CC_Base_L_Upperarm/CC_Base_L_Forearm/CC_Base_L_Hand/CC_Base_L_Thumb1/CC_Base_L_Thumb2
     2527479459: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Waist/CC_Base_Spine01/CC_Base_Spine02/CC_Base_R_Clavicle/CC_Base_R_Upperarm/CC_Base_R_UpperarmTwist01/CC_Base_R_UpperarmTwist02
@@ -15841,12 +15841,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 475503034}
     - target: {fileID: 1441128836294789900, guid: 5fd475a07782c9d4394eb94c5a7bc834, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1441128836294789900, guid: 5fd475a07782c9d4394eb94c5a7bc834, type: 3}
       propertyPath: serializationData.Prefab
       value: 
       objectReference: {fileID: 1441128836294789900, guid: 5fd475a07782c9d4394eb94c5a7bc834, type: 3}
     - target: {fileID: 1441128836294789900, guid: 5fd475a07782c9d4394eb94c5a7bc834, type: 3}
       propertyPath: serializationData.PrefabModifications.Array.size
-      value: 1
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1441128836294789900, guid: 5fd475a07782c9d4394eb94c5a7bc834, type: 3}
       propertyPath: 'serializationData.PrefabModifications.Array.data[0]'
@@ -15854,9 +15858,51 @@ PrefabInstance:
         mscorlib","$rlength":1,"$rcontent":[{"$id":1,"$type":"System.String, mscorlib","DISCIPLINE_BLOOD_SORCERY"}]},"remove_keys":null'
       objectReference: {fileID: 0}
     - target: {fileID: 1441128836294789900, guid: 5fd475a07782c9d4394eb94c5a7bc834, type: 3}
-      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.size
-      value: 0
+      propertyPath: 'serializationData.PrefabModifications.Array.data[1]'
+      value: '"path":"_knownPowers.{\"DISCIPLINE_BLOOD_SORCERY\"}","value":{"$id":0,"$type":"SunsetSystems.Abilities.DisciplineData,
+        SunsetSystems","_discipline":$eref:0,"_currentLevel":5,"_knownPowers":{"$id":1,"$type":"System.Collections.Generic.Dictionary`2[[System.String,
+        mscorlib],[SunsetSystems.Abilities.IDisciplinePower, SunsetSystems]], mscorlib","comparer":{"$id":2,"$type":"System.Collections.Generic.GenericEqualityComparer`1[[System.String,
+        mscorlib]], mscorlib"},"$rlength":2,"$rcontent":[{"$k":"1d2fea70-4f90-499e-8d77-c779ecd23b4c","$v":$eref:1},{"$k":"30dcbc60-963e-4d2d-8b8e-e83a9e8d01b0","$v":$eref:2}]}}'
       objectReference: {fileID: 0}
+    - target: {fileID: 1441128836294789900, guid: 5fd475a07782c9d4394eb94c5a7bc834, type: 3}
+      propertyPath: 'serializationData.PrefabModifications.Array.data[2]'
+      value: '"path":"_knownPowers.{\"DISCIPLINE_BLOOD_SORCERY\"}._currentLevel","value":{"$id":0,"$type":"System.Int32,
+        mscorlib",5}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1441128836294789900, guid: 5fd475a07782c9d4394eb94c5a7bc834, type: 3}
+      propertyPath: 'serializationData.PrefabModifications.Array.data[3]'
+      value: '"path":"_knownPowers.{\"DISCIPLINE_BLOOD_SORCERY\"}._discipline","value":$eref:0'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1441128836294789900, guid: 5fd475a07782c9d4394eb94c5a7bc834, type: 3}
+      propertyPath: 'serializationData.PrefabModifications.Array.data[4]'
+      value: '"path":"_knownPowers.{\"DISCIPLINE_BLOOD_SORCERY\"}._knownPowers","value":{"$id":0,"$type":"System.Collections.Generic.Dictionary`2[[System.String,
+        mscorlib],[SunsetSystems.Abilities.IDisciplinePower, SunsetSystems]], mscorlib","comparer":{"$id":1,"$type":"System.Collections.Generic.GenericEqualityComparer`1[[System.String,
+        mscorlib]], mscorlib"},"$rlength":2,"$rcontent":[{"$k":"1d2fea70-4f90-499e-8d77-c779ecd23b4c","$v":$eref:1},{"$k":"30dcbc60-963e-4d2d-8b8e-e83a9e8d01b0","$v":$eref:2}]}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1441128836294789900, guid: 5fd475a07782c9d4394eb94c5a7bc834, type: 3}
+      propertyPath: 'serializationData.PrefabModifications.Array.data[5]'
+      value: '"path":"_knownPowers.{\"DISCIPLINE_BLOOD_SORCERY\"}._knownPowers.{\"1d2fea70-4f90-499e-8d77-c779ecd23b4c\"}","value":$eref:1'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1441128836294789900, guid: 5fd475a07782c9d4394eb94c5a7bc834, type: 3}
+      propertyPath: 'serializationData.PrefabModifications.Array.data[6]'
+      value: '"path":"_knownPowers.{\"DISCIPLINE_BLOOD_SORCERY\"}._knownPowers.{\"30dcbc60-963e-4d2d-8b8e-e83a9e8d01b0\"}","value":$eref:2'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1441128836294789900, guid: 5fd475a07782c9d4394eb94c5a7bc834, type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1441128836294789900, guid: 5fd475a07782c9d4394eb94c5a7bc834, type: 3}
+      propertyPath: 'serializationData.PrefabModificationsReferencedUnityObjects.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 9ed1f2af930747a4989f54dea89481c0, type: 2}
+    - target: {fileID: 1441128836294789900, guid: 5fd475a07782c9d4394eb94c5a7bc834, type: 3}
+      propertyPath: 'serializationData.PrefabModificationsReferencedUnityObjects.Array.data[1]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 345380c614fc89e4f9d1c7ec7cfa0ca4, type: 2}
+    - target: {fileID: 1441128836294789900, guid: 5fd475a07782c9d4394eb94c5a7bc834, type: 3}
+      propertyPath: 'serializationData.PrefabModificationsReferencedUnityObjects.Array.data[2]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 7b68e67c5c4747f4d8e9a2b1ebfb925d, type: 2}
     - target: {fileID: 1617358537211728380, guid: 5fd475a07782c9d4394eb94c5a7bc834, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.45
@@ -43828,9 +43874,9 @@ MonoBehaviour:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
+    - {fileID: 1588838461}
     - {fileID: 120229347}
     - {fileID: 2730284256039935026}
-    - {fileID: 1588838461}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -43855,7 +43901,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: DOMINIC_ARRIVAL
+      Data: Diana Arrival Waypoint
     - Name: $v
       Entry: 10
       Data: 0
@@ -43867,7 +43913,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: WP_EMBASSY_EXIT
+      Data: DOMINIC_ARRIVAL
     - Name: $v
       Entry: 10
       Data: 1
@@ -43879,7 +43925,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: Diana Arrival Waypoint
+      Data: WP_EMBASSY_EXIT
     - Name: $v
       Entry: 10
       Data: 2
@@ -49779,8 +49825,8 @@ Avatar:
     742852947: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Waist/CC_Base_Spine01/CC_Base_Spine02/CC_Base_NeckTwist01/CC_Base_NeckTwist02/CC_Base_Head/CC_Base_FacialBone/UMAadjustment.Rcheek
     3833206019: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Waist/CC_Base_Spine01/CC_Base_Spine02/CC_Base_R_RibsTwist
     1617059106: Root/Global/Position
-    208684537: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Waist/CC_Base_Spine01/CC_Base_Spine02/CC_Base_L_Clavicle/CC_Base_L_Upperarm/CC_Base_L_Forearm/CC_Base_L_Hand/CC_Base_L_Mid1/CC_Base_L_Mid2
     3191111898: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Pelvis/CC_Base_R_Thigh/CC_Base_R_Calf
+    208684537: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Waist/CC_Base_Spine01/CC_Base_Spine02/CC_Base_L_Clavicle/CC_Base_L_Upperarm/CC_Base_L_Forearm/CC_Base_L_Hand/CC_Base_L_Mid1/CC_Base_L_Mid2
     2692193155: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Waist/CC_Base_Spine01/CC_Base_Spine02/CC_Base_R_Clavicle/CC_Base_R_Upperarm/CC_Base_R_Forearm/CC_Base_R_Hand/CC_Base_R_Index1/CC_Base_R_Index2
     160473484: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Waist/CC_Base_Spine01/CC_Base_Spine02/CC_Base_L_Clavicle/CC_Base_L_Upperarm/CC_Base_L_Forearm/CC_Base_L_Hand/CC_Base_L_Thumb1/CC_Base_L_Thumb2
     2527479459: Root/Global/Position/RL_BoneRoot/CC_Base_Hip/CC_Base_Waist/CC_Base_Spine01/CC_Base_Spine02/CC_Base_R_Clavicle/CC_Base_R_Upperarm/CC_Base_R_UpperarmTwist01/CC_Base_R_UpperarmTwist02

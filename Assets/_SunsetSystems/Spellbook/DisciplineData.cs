@@ -10,7 +10,7 @@ namespace SunsetSystems.Abilities
     [Serializable]
     public class DisciplineData : IDisciplineInfo, IUserInfertaceDataProvider<IDisciplineInfo>, IIntValue
     {
-        [SerializeField]
+        [OdinSerialize]
         private IDiscipline _discipline;
         [SerializeField]
         private int _currentLevel;
