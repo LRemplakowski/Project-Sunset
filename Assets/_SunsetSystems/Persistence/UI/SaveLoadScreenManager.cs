@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Linq;
 using Sirenix.OdinInspector;
+using SunsetSystems.Combat;
 using SunsetSystems.Core.SceneLoading;
 using SunsetSystems.UI.Utils;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace SunsetSystems.Persistence.UI
 {
@@ -19,6 +21,8 @@ namespace SunsetSystems.Persistence.UI
         [SerializeField]
         private GameObject _newSaveGameObject;
         [SerializeField]
+        private Button _newSaveButton;
+        [SerializeField]
         private ISaveView _saveDetailsView;
         [SerializeField]
         private IConfirmationPopup _deleteSaveConfirmationPopup;
@@ -31,16 +35,22 @@ namespace SunsetSystems.Persistence.UI
             ClearSelectedSave();
         }
 
-        //private void OnEnable()
-        //{
-        //    SunsetInputHandler.Instance.OverrideInput(this, SunsetInputHandler.UI_MAP);
-        //}
+        private void OnEnable()
+        {
+            if (_newSaveButton != null)
+            {
+                _newSaveButton.interactable = CombatManager.Instance == null || !CombatManager.Instance.HasActiveEncounter;
+            }
+        }
 
         private void OnDisable()
         {
             _deleteSaveConfirmationPopup.Hide();
             _newSaveConfirmationPopup.Hide();
-            //SunsetInputHandler.Instance.ClearInputOverride(this);
+            if (_newSaveButton != null)
+            {
+                _newSaveButton.interactable = CombatManager.Instance == null || !CombatManager.Instance.HasActiveEncounter;
+            }
         }
 
         public void ShowScreen(bool includeNewSaveSlot = false)
@@ -103,7 +113,6 @@ namespace SunsetSystems.Persistence.UI
         {
             SaveLoadManager.DeleteSaveFile(meta.SaveID);
             RefreshSaveScreen(_newSaveGameObject != null && _newSaveGameObject.activeInHierarchy);
-            StartCoroutine(DisableInteractionForSeconds(.5f));
         }
 
 
@@ -111,7 +120,6 @@ namespace SunsetSystems.Persistence.UI
         {
             SaveLoadManager.CreateNewSaveFile(saveName);
             RefreshSaveScreen(true);
-            StartCoroutine(DisableInteractionForSeconds(.5f));
         }
 
         public void ShowNewSaveConfirmation()
@@ -127,13 +135,6 @@ namespace SunsetSystems.Persistence.UI
         public void OnCancel()
         {
             gameObject.SetActive(false);
-        }
-
-        private IEnumerator DisableInteractionForSeconds(float seconds)
-        {
-            _saveLoadCanvasGroup.interactable = false;
-            yield return new WaitForSeconds(seconds);
-            _saveLoadCanvasGroup.interactable = true;
         }
     }
 }

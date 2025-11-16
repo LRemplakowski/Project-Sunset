@@ -5,9 +5,7 @@ using System.Threading.Tasks;
 using Redcode.Awaiting;
 using Sirenix.OdinInspector;
 using SunsetSystems.ActionSystem;
-using SunsetSystems.Entities;
 using SunsetSystems.Party;
-using UltEvents;
 using UnityEngine;
 
 namespace SunsetSystems.Combat
@@ -46,6 +44,8 @@ namespace SunsetSystems.Combat
             }
         }
         private ICombatant FirstActor;
+
+        public bool HasActiveEncounter => CurrentEncounter != null;
 
         private void Awake()
         {
