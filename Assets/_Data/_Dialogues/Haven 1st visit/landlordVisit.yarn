@@ -1,6 +1,7 @@
 ﻿title: LandlordVisit
 tags:
 ---
+<<PlaySFX "door_knock_light">>
 KNOCK. KNOCK. KNOCK. #line:015551b 
 <<BringLandlordForVisit>>
 <<if $bathroomdoordestroyed == true>>
@@ -45,9 +46,9 @@ KNOCK. KNOCK. KNOCK. #line:015551b
 title: KevinMurderAftermath
 tags:
 ---
+<<CompleteObjective "Q_0P_FIX_SINK" "EAT_LANDLORD">>
 {$storyteller}: [nomarkup][Looking at his mangled corpse, a wave of guilt followed closely by panic washes over you, and you feel yourself begin to drown in it... Breathing doesn't come easy as you struggle to reckon with what just happened.][/nomarkup]
 {$storyteller}: [nomarkup][What <i>you</i> did.][/nomarkup] #lastline #line:0c4827c
-<<CompleteObjective "Q_0P_FIX_SINK" "EAT_LANDLORD">>
 -> [nomarkup][Pick up the Bathroom Key.][/nomarkup] #line:05c3efb 
     <<GiveItem "IT_Q_BATHROOM_KEY">>
     {$storyteller}: [nomarkup][You grab the Bathroom Key up off the floor next to Kevin's corpse.][/nomarkup] #line:0d2efa8

@@ -21,7 +21,7 @@ title: JobFlashback
 position: 
 ---
 //show same visual from flashback in dumpTheBodies.yarn of Desiree, Diana, and Diego in the alley//
-{$storyteller}: [nonmarkup][Seeing you were desperate, Diana offered you a job alongside one of her other runners, Diego. Said you could discuss the details back at your place.][/nonmarkup]
+{$storyteller}: [nomarkup][Seeing you were desperate, Diana offered you a job alongside one of her other runners, Diego. Said you could discuss the details back at your place.][/nomarkup]
 {$diana}: You made it.
 <<jump havenJobArrival>>
 ===
@@ -29,7 +29,7 @@ title: OfferFlashback
 position: 
 ---
 //show same visual from flashback in dumpTheBodies.yarn of Desiree, Diana, and Diego in the alley//
-{$storyteller}: [nonmarkup][In a moment of drunken weakness, Diana offered you and Diego to engage in a ménage à trois back at your place.][/nonmarkup]
+{$storyteller}: [nomarkup][In a moment of drunken weakness, Diana offered you and Diego to engage in a ménage à trois back at your place.][/nomarkup]
 {$diana}: You made it.
 <<jump havenJobArrival>>
 ===
@@ -46,7 +46,7 @@ title: arrivalPassive
 position: 64,17
 ---
 //if scene didn't progress to Haven interior, it does now//
-[$storyteller}: [nonmarkup][You didn't know <i>she</i> was already inside until it was too late.][/nonmarkup]
+{$storyteller}: [nomarkup][You didn't know <i>she</i> was already inside until it was too late.][/nomarkup]
 -> [nomarkup][End conversation.][/nomarkup]
 ===
 

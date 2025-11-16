@@ -4,7 +4,11 @@ position: 58,-333
 //if $kateDealsWithBouncer==1 there is no bouncer//
 <<set $talkedToBouncer to true>>
 {$storyteller}: [nomarkup][An intimidating, almost stereotypical bouncer in a tight, black V-neck and sunglasses crosses his arms before you.][/nomarkup]
-Office Bouncer: [nomarkup][Tersely.][/nomarkup] Private area. Ms. Foster is not taking any visitors at the moment
+Office Bouncer: [nomarkup][Tersely.][/nomarkup] Private area. Ms. Foster is not taking any visitors at the moment #lastline
+<<jump officeNoEntry>>
+===
+title: officeNoEntry
+---
 -> {$pcName}: She's expecting me. <<if ($dianaOffice == true) and (CustomVisited("officeBouncerTechnicalNode1") == false)>> #line:0400125 
     {$storyteller}: [nomarkup][He glares through his shades.][/nomarkup]
     Office Bouncer: Ms. Foster is not taking any visitors at the moment.
@@ -61,15 +65,15 @@ Office Bouncer: I shouldn't drink on duty. #line:06b94f1
     Office Bouncer: I don't feel so good... #line:0e3e133 
     <<jump afterBouncerCutscene>>
 <<else>>
-    Office Bouncer: Thanks! #line:00b692b 
-    <<jump officeBouncer>>
+    Office Bouncer: Thanks! #line:00b692b #lastline
+    <<jump officeNoEntry>>
 <<endif>>
 ===
 title: drinkFailure
 position: 399,-286
 ---
-Office Bouncer: I'm not allowed to drink at work. #failure #line:05bd021 
-<<jump officeBouncer>>
+Office Bouncer: I'm not allowed to drink at work. #failure #line:05bd021 #lastline
+<<jump officeNoEntry>>
 ===
 title: afterBouncerCutscene
 position: 246,222

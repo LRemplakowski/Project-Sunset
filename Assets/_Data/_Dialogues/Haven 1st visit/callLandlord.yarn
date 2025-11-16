@@ -15,8 +15,8 @@ position: -328,-104
     -> {$pcName}: I'll pay you for your time. #line:02582fe
         {$landlord}: Now you're speaking my language. I'll have to charge you a-uh... a late-night fee, of course. #line:07f776e
         -> {$pcName}: Sure.#line:025fbad
-            {$landlord}: Let me get dressed. I'll see you shortly.
             <<CompleteObjective "Q_0P_FIX_SINK" "CALL_LANDLORD">> 
+            {$landlord}: Let me get dressed. I'll see you shortly.
             -> [nomarkup][Hang up.][/nomarkup]
         -> {$pcName}: That's a rip-off! #line:04a227e
             {$landlord}: I'm a capitalist. Take it or leave it. I'm going back to bed. #line:007cdae
@@ -55,9 +55,9 @@ tags:
 position: 113,-107
 ---            
 <<if Roll("Manipulation","Persuasion") >= (3 + $kevinRollModifier)>>
+    <<CompleteObjective "Q_0P_FIX_SINK" "CALL_LANDLORD">> 
     {$landlord}: It must be hard for you, not having a man in your life. Wearing the pants is more difficult than you'd expect, huh? #success #line:048fb02 
-    {$landlord}: Let me get dressed. I'll see you shortly. #line:047c5ab
-    <<CompleteObjective "Q_0P_FIX_SINK" "CALL_LANDLORD">>  
+    {$landlord}: Let me get dressed. I'll see you shortly. #line:047c5ab 
     -> [nomarkup][Hang up.][/nomarkup]   
 <<else>>
     {$landlord}: Don't act like we're friends. You don't even know my last name. I only let you sign the lease because I pitied you. You're on your own. #failure #line:0bc3d9f 
@@ -70,9 +70,9 @@ tags:
 position: 157,51
 ---
 <<if Roll("Charisma","Subterfuge") >= (3 + $kevinRollModifier)>>
+    <<CompleteObjective "Q_0P_FIX_SINK" "CALL_LANDLORD">> 
     {$landlord}: Oh... Anything, you say? #success #line:0a58c93
-    {$landlord}: Let me get dressed. I'll see you shortly.
-    <<CompleteObjective "Q_0P_FIX_SINK" "CALL_LANDLORD">>   
+    {$landlord}: Let me get dressed. I'll see you shortly.  
     -> [nomarkup][Hang up.][/nomarkup]
 <<else>>
     {$landlord}: Nice try, dear. I know I'm a catch, but I don't stick my dick in divorcees. Too much baggage. #failure #line:0d976d4 
