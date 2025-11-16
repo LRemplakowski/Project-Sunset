@@ -1,12 +1,7 @@
-﻿title: dumpTheBodies
-tags:
+﻿title: embassyEntranceFlashback
 ---
 <<declare $toldKieranAboutVision to false>>
 {$storyteller}: [nomarkup][As you round the corner, a force comes over you that makes you stop in your tracks. Déjà vu. You feel like you've been here last night.][/nomarkup] #line:0659906
-<<jump flashback>>
-===
-title: flashback
----
 {$storyteller}: [nomarkup][You are walking down the alley with a man you have trouble recognizing. Not just any man.][/nomarkup]
 {$storyteller}: [nomarkup][He is the man you found dead in your shower earlier tonight.][/nomarkup]
 {$storyteller}: [nomarkup][At the end of the alleyway, where the passage opens up to the street, you see a woman that waits for you.][/nomarkup] #line:0c2c0f6
@@ -44,4 +39,21 @@ title: dontTellAboutVision
 <<ModifyInfluence -1 {$kieran}>>
 {$kieran}: Do your best to maintain focus. We are running short on time. #line:04c605f
 <<jump backDoor>>
+===
+title: backDoor
+tags:
+---
+{$kieran}: Remember to behave. We are not here to have a good time. #line:000f80a 
+-> {$pcName}: I don't need a chaperone to enter a club. #line:05016e8 
+    {$kieran}: And I do not need to be chaperoning, but here we are. #line:0bda9c5
+    ->[nomarkup][Enter the club.][/nomarkup] 
+-> {$pcName}: Party my ass off, got it. #line:014c64e 
+    {$kieran}: Sometimes, I get the feeling that your main goal is to see how much you can push my buttons. Do not. #line:01775b0
+    ->[nomarkup][Enter the club.][/nomarkup] 
+===
+title: kieranRefusesEntrance
+---
+{$storyteller}: [nomarkup][Kieran stops you before you can enter the club.][/nomarkup]
+{$kieran}: We can not enter before we clean up the mess.
+{$storyteller}: [nomarkup][He points towards the bodies behind you.][/nomarkup]
 ===
