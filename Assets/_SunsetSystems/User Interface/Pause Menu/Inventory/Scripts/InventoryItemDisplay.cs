@@ -103,11 +103,11 @@ namespace SunsetSystems.UI
 
         private void ResetView()
         {
+            OnPointerExit(null);
             _icon.gameObject.SetActive(false);
             _itemEntry = new();
             _stackSize.gameObject.SetActive(false);
             _button.interactable = false;
-            OnPointerExit(null);
         }
 
         public void OpentContextMenu()
