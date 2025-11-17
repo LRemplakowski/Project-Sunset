@@ -45,7 +45,7 @@ namespace SunsetSystems.Core.SceneLoading
             OnBeforePersistentDataCache?.Invoke();
             SaveLoadManager.UpdateRuntimeDataCache();
             OnLevelLoadStart?.Invoke();
-            loadingScreenUI.EnableAndResetLoadingScreen();
+            await loadingScreenUI.EnableAndResetLoadingScreen();
             await new WaitForUpdate();
             await loadingScreenUI.DoFadeInAsync(loadingCrossfadeTime / 2f);
             await DoSceneLoading(data.LoadingData);
@@ -80,7 +80,7 @@ namespace SunsetSystems.Core.SceneLoading
             loadingCamera.gameObject.SetActive(true);
             OnLevelLoadStart?.Invoke();
             Debug.Log($"Level Loading >>> Begin data loading...");
-            loadingScreenUI.EnableAndResetLoadingScreen();
+            await loadingScreenUI.EnableAndResetLoadingScreen();
             await new WaitForSeconds(.5f);
             await loadingScreenUI.DoFadeInAsync(loadingCrossfadeTime / 2f);
             var saveMetaData = SaveLoadManager.GetSaveMetaData(saveID);

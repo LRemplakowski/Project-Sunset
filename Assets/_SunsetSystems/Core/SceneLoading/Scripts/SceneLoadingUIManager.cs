@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 
 namespace SunsetSystems.Core.SceneLoading.UI
@@ -51,7 +52,7 @@ namespace SunsetSystems.Core.SceneLoading.UI
 
         public void UpadteLoadingBar(float value) => loadingScreen.SetLoadingProgress(value);
 
-        public async void EnableAndResetLoadingScreen()
+        public async UniTask EnableAndResetLoadingScreen()
         {
             loadingScreen.gameObject.SetActive(true);
             await loadingScreen.LoadRandomLoadingScreen();

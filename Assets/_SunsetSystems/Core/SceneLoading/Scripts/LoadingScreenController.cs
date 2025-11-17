@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 using Sirenix.OdinInspector;
 using TMPro;
 using UnityEngine;
@@ -73,7 +74,7 @@ namespace SunsetSystems.Core.SceneLoading.UI
         }
 
         [Button]
-        public async Task LoadRandomLoadingScreen()
+        public async UniTask LoadRandomLoadingScreen()
         {
             var screen = await loadingScreenProviderConfig.GetRandomLoadingScreenAsync();
             if (screen == null)

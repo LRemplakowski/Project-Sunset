@@ -1,6 +1,5 @@
 using System.Collections.Generic;
-using System.Threading.Tasks;
-using Redcode.Awaiting;
+using Cysharp.Threading.Tasks;
 using Sirenix.OdinInspector;
 using SunsetSystems.Core.AddressableManagement;
 using SunsetSystems.Utils.Extensions;
@@ -22,10 +21,11 @@ namespace SunsetSystems.Core.SceneLoading.UI
             _loadedScreens.Clear();
         }
 
-        public async Task<Sprite> GetRandomLoadingScreenAsync()
+        public async UniTask<Sprite> GetRandomLoadingScreenAsync()
         {
             AssetReference loadingScreenAssetRef = defaultLoadingScreens.GetRandom();
-            return await GetAssetAsync(loadingScreenAssetRef);
+            var result = await GetAssetAsync(loadingScreenAssetRef);
+            return result;
         }
 
         public void ReleaseLoadingScreens()
@@ -34,11 +34,11 @@ namespace SunsetSystems.Core.SceneLoading.UI
             toRelease.ForEach(screen => ReturnAsset(screen));
         }
 
-        public async Task<Sprite> GetAssetAsync(AssetReference assetReference)
+        public async UniTask<Sprite> GetAssetAsync(AssetReference assetReference)
         {
             _loadedScreens.Add(assetReference);
             var asyncOp = Addressables.LoadAssetAsync<Sprite>(assetReference);
-            await asyncOp.Task;
+            await asyncOp.ToUniTask();
             return asyncOp.Result;
         }
 
