@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using Pathfinding;
 using UnityEngine;
 
@@ -14,5 +12,6 @@ namespace SunsetSystems.Combat.Grid
         bool IsFree { get; }
         float CellSize { get; }
         bool Highlighted { get; }
+        ITargetable Targetable { get; }
     }
 }

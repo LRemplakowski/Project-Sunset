@@ -17,12 +17,13 @@ namespace SunsetSystems.Combat
         [Title("References")]
         [SerializeField]
         private CanvasGroup _combatUICanvasGroup;
-        [field: Title("Runtime")]
-        [field: ShowInInspector, ReadOnly]
+        [Title("Runtime")]
+        [ShowInInspector, ReadOnly]
         public Encounter CurrentEncounter { get; private set; }
 
-        [field: ShowInInspector, ReadOnly]
+        [ShowInInspector, ReadOnly]
         public List<ICombatant> Actors { get; private set; }
+        [ShowInInspector, ReadOnly]
         public List<ICombatant> LivingActors => Actors.Where(a => a.GetContext().IsAlive).ToList();
 
         public static event Action<IEnumerable<ICombatant>> OnCombatStart;

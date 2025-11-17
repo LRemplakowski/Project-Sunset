@@ -30,6 +30,7 @@ namespace SunsetSystems.Combat.Grid
         public Vector3Int GridPosition => unitData.GridPosition;
         public Vector3 WorldPosition => transform.position;
         public Transform ProjectileTarget => transform;
+        public ITargetable Targetable => this;
 
         public bool IsOccupied => unitData.IsOccupied;
         public bool IsFree => unitData.IsFree;
@@ -59,6 +60,7 @@ namespace SunsetSystems.Combat.Grid
                 Vector3 cellPosition = unitData.WorldPosition;
                 transform.localPosition = transform.InverseTransformPoint(cellPosition);
                 cellRenderer.transform.localScale = Vector3.one * unitData.CellSize;
+                unitData.UnitTargetable = this;
                 UpdateCellState();
                 return true;
             }

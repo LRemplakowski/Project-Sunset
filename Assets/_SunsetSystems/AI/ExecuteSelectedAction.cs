@@ -1,21 +1,22 @@
-using UnityEngine;
 using BehaviorDesigner.Runtime;
 using BehaviorDesigner.Runtime.Tasks;
+using UnityEngine;
 
 [TaskCategory("Turn System")]
 public class ExecuteSelectedAction : Action
 {
     [SerializeField, SharedRequired]
     private SharedAIContext _aiContext;
+	[SerializeField, SharedRequired]
+	private SharedBool _hasActed;
 
-	private bool _actionFinished = false;
 	private bool _executionFailed = false;
 
     public override void OnStart()
 	{
-		_actionFinished = false;
 		var context = _aiContext.Value;
-		_executionFailed = !context.GetAbilityUser().ExecuteAbility(context.SelectedAbility, OnExecutionFinished);
+		context.GetAbilityUser().SetCurrentTargetObject(context.SelectedTarget);
+        _executionFailed = !context.GetAbilityUser().ExecuteAbility(context.SelectedAbility, OnExecutionFinished);
 	}
 
 	public override TaskStatus OnUpdate()
@@ -24,7 +25,7 @@ public class ExecuteSelectedAction : Action
 		{
 			return TaskStatus.Failure;
 		}
-		if (_actionFinished)
+		if (_hasActed.Value)
         {
             return TaskStatus.Success;
         }
@@ -36,6 +37,6 @@ public class ExecuteSelectedAction : Action
 
 	private void OnExecutionFinished()
 	{
-		_actionFinished = true;
-	}
+		_hasActed.Value = true;
+    }
 }

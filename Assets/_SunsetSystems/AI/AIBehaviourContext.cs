@@ -7,6 +7,7 @@ using SunsetSystems.ActorResources;
 using SunsetSystems.Combat;
 using SunsetSystems.Combat.Grid;
 using SunsetSystems.Entities;
+using SunsetSystems.Equipment;
 using SunsetSystems.Game;
 using SunsetSystems.Inventory;
 using SunsetSystems.Utils.Extensions;
@@ -35,7 +36,7 @@ namespace SunsetSystems.AI
         [ShowInInspector, ReadOnly]
         public IAbilityConfig SelectedAbility { get; set; }
         [ShowInInspector, ReadOnly]
-        public ICombatant SelectedTarget { get; set; }
+        public ITargetable SelectedTarget { get; set; }
         [ShowInInspector, ReadOnly]
         public IGridCell SelectedPosition { get; set; }
 
@@ -68,11 +69,6 @@ namespace SunsetSystems.AI
             return CombatContext.IsInCover;
         }
 
-        public IEnumerable<ICombatant> GetAllHostileToMe()
-        {
-            return _combatManager.Actors.Where(actor => actor is IFactionMember factionMember && factionMember.IsHostileTowards(_combatBehaviour as IFactionMember));
-        }
-
         public bool IsCurrentTargetInAbilityRange()
         {
             return IsInAbilityRange(SelectedAbility, CombatContext, SelectedTarget);
@@ -83,7 +79,12 @@ namespace SunsetSystems.AI
 
         public int GetTargetsInWeaponRange()
         {
-            return _combatManager.LivingActors.Where(actor => IsHostileToMe(actor as ITargetable) && IsInAbilityRange(SelectedAbility, CombatContext, actor)).Count();
+            return _combatManager.LivingActors.Count(actor =>
+            {
+                return actor is ITargetable targetable
+                       && IsHostileToMe(targetable)
+                       && IsInAbilityRange(SelectedAbility, CombatContext, targetable);
+            });
         }
 
         private bool IsHostileToMe(ITargetable target)
@@ -93,45 +94,72 @@ namespace SunsetSystems.AI
             return factionMember.IsHostileTowards(_thisFaction);
         }
 
-        private static bool IsInAbilityRange(IAbilityConfig ability, ICombatContext attacker, ICombatant target)
+        private static bool IsInAbilityRange(IAbilityConfig ability, ICombatContext attacker, ITargetable target)
         {
             if (ability == null || target == null || attacker == null)
                 return false;
             var abilityUser = attacker.AbilityUser;
-            abilityUser.SetCurrentTargetObject(target as ITargetable);
+            abilityUser.SetCurrentTargetObject(target);
             var abilityTargetingData = ability.GetTargetingData(abilityUser.GetCurrentAbilityContext());
-            return abilityTargetingData.GetRangeType() switch
-            {
-                AbilityRange.Melee => IsInMeleeRange(attacker, target),
-                AbilityRange.Ranged => IsInRange(attacker, target, abilityTargetingData.GetRangeData().MaxRange),
-                _ => false,
-            };
-
-            static bool IsInMeleeRange(ICombatContext attacker, ICombatant target) => IsInRange(attacker, target, 1.6f);
-
-            static bool IsInRange(ICombatContext attacker, ICombatant target, float range)
-            {
-                return Vector3.Distance(attacker.Transform.position, target.Transform.position) <= range;
-            }
+            Vector3Int attackerPosition = attacker.GridPosition;
+            Vector3Int targetPosition = target.GetContext().GridPosition;
+            var gridDistance = Vector3Int.Distance(attackerPosition, targetPosition);
+            bool result = gridDistance <= abilityTargetingData.GetRangeData().MaxRange + .5f;
+            return result;
         }
 
         public bool SelectNextPosition()
         {
             var lastSelectedPosition = SelectedPosition;
-            var movementRange = _movementPointUser.GetCurrentMovementPoints();
+            var movementRange = _movementPointUser.GetCurrentMovementPoints() / 2;
             var gridManager = _combatManager.CurrentEncounter.GridManager;
             var positionsInRange = AIHelpers.GetPositionsInRange(_combatBehaviour, movementRange, gridManager);
+            var selectedAbilityRange = SelectedAbility.GetTargetingData(CombatContext.AbilityUser.GetCurrentAbilityContext());
             if (positionsInRange.Count() > 0)
             {
-                SelectedPosition = positionsInRange.GetRandom();
+                SelectedPosition = SelectPositionByWeapon(positionsInRange, selectedAbilityRange, SelectedTarget);
             }
             return lastSelectedPosition != SelectedPosition;
+        }
+
+        static IGridCell SelectPositionByWeapon(IEnumerable<IGridCell> gridCells, IAbilityTargetingData weapon, ITargetable target)
+        {
+            if (target == null || weapon == null)
+                return gridCells.GetRandom();
+            float maxRange = weapon.GetRangeData().MaxRange + .5f;
+            var result = gridCells.Where(cell => Vector3Int.Distance(target.GetContext().GridPosition, cell.GridPosition) <= maxRange)
+                                  .GetRandom();
+            result ??= gridCells.GetRandom();
+            return result;
+        }
+
+        public ITargetable[] GetAllHostiles()
+        {
+            return _combatManager.LivingActors
+                .Where(actor => IsHostileToMe(actor as ITargetable))
+                .Select(actor => actor as ITargetable)
+                .ToArray();
+        }
+
+        public WeaponAmmoData GetSelectedWeaponAmmoData()
+        {
+            return _combatBehaviour.References.WeaponManager.GetSelectedWeaponAmmoData();
+        }
+
+        public IWeapon GetWeapon()
+        {
+            return _combatBehaviour.References.WeaponManager.GetSelectedWeapon();
+        }
+
+        public void ReloadAmmo()
+        {
+            _combatBehaviour.References.WeaponManager.ReloadSelectedWeapon();
         }
 
         public bool GetHasEnoughActionPoints(IAbilityConfig selectedAbility)
         {
             var abilityUser = CombatContext.AbilityUser;
-            abilityUser.SetCurrentTargetObject(SelectedTarget as ITargetable);
+            abilityUser.SetCurrentTargetObject(SelectedTarget);
             return abilityUser.GetCanAffordAbility(selectedAbility);
         }
     }

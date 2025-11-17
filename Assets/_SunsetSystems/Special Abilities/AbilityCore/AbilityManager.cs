@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Cysharp.Threading.Tasks;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using SunsetSystems.ActionSystem;
@@ -64,11 +65,11 @@ namespace SunsetSystems.Abilities
             return false;
         }
 
-        public async Awaitable<bool> ExecuteAbilityAsync(IAbilityConfig ability)
+        public async UniTask<bool> ExecuteAbilityAsync(IAbilityConfig ability)
         {
             if (GetCanAffordAbility(ability) && ConsumeAbilityCost(ability) && ability.IsContextValidForExecution(GetCurrentAbilityContext()))
             {
-                await ability.GetExecutionStrategy().BeginExecute(GetCurrentAbilityContext(), null);
+                await ability.GetExecutionStrategy().BeginExecute(GetCurrentAbilityContext(), null).ToUniTask();
                 return true;
             }
             return false;

@@ -1,39 +1,51 @@
-using UnityEngine;
-using BehaviorDesigner.Runtime;
 using BehaviorDesigner.Runtime.Tasks;
-using SunsetSystems.Combat.Grid;
+using BehaviorDesigner.Runtime;
+using Cysharp.Threading.Tasks;
+using SunsetSystems.Abilities;
+using UnityEngine;
+using SunsetSystems.Combat;
 
 [TaskCategory("Grid System")]
 public class MoveToNextPosition : Action
 {
 	[SerializeField, SharedRequired]
 	private SharedAIContext _aiContext;
+	[SerializeField]
+	private MoveAbility _moveAbility;
+    [SerializeField, SharedRequired]
+    private SharedBool _hasMoved;
 
-	private Awaitable _movementTask;
-	private TaskStatus _currentStatus = TaskStatus.Inactive;
+    private bool _isMoving;
 
-	public override void OnStart()
+    public override void OnStart()
 	{
-		_currentStatus = TaskStatus.Running;
-	}
+        var abilityUser = _aiContext.Value.GetCombatant().References.AbilityUser;
+        abilityUser.SetCurrentTargetObject(_aiContext.Value.SelectedPosition.Targetable);
+        _isMoving = abilityUser.ExecuteAbility(_moveAbility, OnMovementFinished);
+    }
+
+    public override void OnEnd()
+    {
+        _isMoving = false;
+    }
 
     public override void OnBehaviorRestart()
     {
-        _movementTask?.Cancel();
-		_movementTask = null;
+        _hasMoved.Value = false;
     }
 
     public override TaskStatus OnUpdate()
 	{
-		if (_movementTask == null)
-		{
-			_currentStatus = TaskStatus.Failure;
-		}
-        else if (_movementTask.IsCompleted)
-        {
-			_currentStatus = TaskStatus.Success;
-        }
+        if (_hasMoved.Value)
+            return TaskStatus.Success;
+        else if (_isMoving)
+            return TaskStatus.Running;
+        else
+            return TaskStatus.Failure;
+    }
 
-        return _currentStatus;
-	}
+    private void OnMovementFinished()
+    {
+        _hasMoved.Value = true;
+    }
 }

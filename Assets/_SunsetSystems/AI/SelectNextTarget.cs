@@ -11,7 +11,7 @@ public class SelectNextTarget : Action
 
     public override void OnStart()
 	{
-		_aiContext.Value.SelectedTarget = _aiContext.Value.GetAllHostileToMe().GetRandom();
+		_aiContext.Value.SelectedTarget = _aiContext.Value.GetAllHostiles().GetNearest(_aiContext.Value.GetCombatant().GetContext().Transform.position);
 	}
 
 	public override TaskStatus OnUpdate()

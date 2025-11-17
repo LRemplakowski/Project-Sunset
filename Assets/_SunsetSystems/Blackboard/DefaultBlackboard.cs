@@ -21,6 +21,7 @@ namespace SunsetSystems.Blackboard
         public void SetValue<T>(string key, T value)
         {
             _data[key] = value;
+            OnDataUpdated?.Invoke(key);
         }
 
         public T ReadValue<T>(string key)

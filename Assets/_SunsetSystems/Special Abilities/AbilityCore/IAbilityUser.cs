@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Cysharp.Threading.Tasks;
 using SunsetSystems.Combat;
 using UnityEngine;
 
@@ -15,7 +16,7 @@ namespace SunsetSystems.Abilities
         bool GetCanAffordAbility(IAbilityConfig ability);
         bool GetHasValidAbilityContext(IAbilityConfig ability);
 
-        Awaitable<bool> ExecuteAbilityAsync(IAbilityConfig ability);
+        UniTask<bool> ExecuteAbilityAsync(IAbilityConfig ability);
         bool ExecuteAbility(IAbilityConfig ability, Action onCompleted = null);
 
         void SetCurrentTargetObject(ITargetable targetable);

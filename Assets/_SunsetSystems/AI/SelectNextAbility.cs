@@ -13,10 +13,12 @@ public class SelectNextAbility : Action
 
     public override void OnStart()
 	{
+        _aiContext.Value.ReloadAmmo();
         var randomAbility = _aiContext.Value.GetAbilityUser()
                                             .GetAllAbilities()
                                             .Select(abilityRuntime => abilityRuntime.AbilityConfig)
                                             .Where(ability => ability.GetCategories().HasFlag(AbilityCategory.Movement) is false)
+                                            .Where(ability => ability.GetCategories().HasFlag(AbilityCategory.Support) is false)
                                             .GetRandom();
 		_aiContext.Value.SelectedAbility = randomAbility;
 	}

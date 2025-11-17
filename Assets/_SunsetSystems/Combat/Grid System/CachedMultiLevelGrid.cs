@@ -8,6 +8,7 @@ using Sirenix.Serialization;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using Pathfinding;
+using SunsetSystems.Abilities;
 
 namespace SunsetSystems.Combat.Grid
 {
@@ -463,6 +464,7 @@ namespace SunsetSystems.Combat.Grid
         public List<ICover> AdjacentCoverSources = new();
         public CoverQuality CoverQuality;
         public ICombatant Occupier;
+        public ITargetable UnitTargetable;
         public bool IsOccupied => Occupier != null;
         public bool IsFree => !IsOccupied;
         private Vector3 _worldPositionCenter;
@@ -471,6 +473,7 @@ namespace SunsetSystems.Combat.Grid
 
         public bool Highlighted { get; set; }
         public GraphNode GraphNode { get; internal set; }
+        public ITargetable Targetable => UnitTargetable;
 
         public GridUnit(Vector3Int GridPosition, Vector3 WorldPosition)
         {

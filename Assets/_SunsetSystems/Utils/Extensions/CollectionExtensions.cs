@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using SunsetSystems.Combat;
+using SunsetSystems.Entities;
 using UnityEngine;
 
 namespace SunsetSystems.Utils.Extensions
@@ -22,6 +24,22 @@ namespace SunsetSystems.Utils.Extensions
             if (elementAtIndex == null)
                 Debug.Break();
             return elementAtIndex;
+        }
+
+        public static T GetNearest<T>(this IEnumerable<T> enumerable, Vector3 position) where T : IContextProvider<ITargetableContext>
+        {
+            T nearest = default;
+            float nearestDistanceSqr = float.MaxValue;
+            foreach (var element in enumerable)
+            {
+                float distanceSqr = (element.GetContext().Transform.position - position).sqrMagnitude;
+                if (distanceSqr < nearestDistanceSqr)
+                {
+                    nearest = element;
+                    nearestDistanceSqr = distanceSqr;
+                }
+            }
+            return nearest;
         }
     }
 }

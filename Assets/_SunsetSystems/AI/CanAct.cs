@@ -7,10 +7,12 @@ public class CanAct : Conditional
 {
     [SerializeField, SharedRequired]
     private SharedAIContext _aiContext;
+	[SerializeField, SharedRequired]
+	private SharedBool _hasActed;
 
-	public override TaskStatus OnUpdate()
+    public override TaskStatus OnUpdate()
 	{
-        return HasEnoughActionPoints() ? TaskStatus.Success : TaskStatus.Failure;
+        return HasEnoughActionPoints() && !_hasActed.Value ? TaskStatus.Success : TaskStatus.Failure;
     }
 
 	private bool HasEnoughActionPoints()

@@ -10,16 +10,26 @@ public class ShouldKeepCurrentPosition : Conditional
     [SerializeField, Range(1, 100)]
     private float _inCoverScore = 10, _currentPositionScore = 10, _hasTargetsInRange = 10f;
 
-    [SerializeField]
+    [SerializeField, SharedRequired]
     private SharedAIContext _aiContext;
+    [SerializeField, SharedRequired]
+    private SharedBool _hasMoved;
 
-    public override TaskStatus OnUpdate()
-	{
+    private bool _shouldKeepPosition;
+
+    public override void OnStart()
+    {
         float targetsScore = _aiContext.Value.GetTargetsInWeaponRange() * _hasTargetsInRange;
         float coverScore = _aiContext.Value.IsInCover() ? _inCoverScore : 0;
         float totalScore = _currentPositionScore + coverScore + targetsScore;
-        if (EvaluateScore(_keepPositionThreshold, totalScore))
+        _shouldKeepPosition = EvaluateScore(totalScore, _keepPositionThreshold);
+    }
+
+    public override TaskStatus OnUpdate()
+	{
+        if (_shouldKeepPosition)
         {
+            _hasMoved.Value = true;
             return TaskStatus.Success;
         }
         else
