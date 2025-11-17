@@ -3,12 +3,8 @@ tags:
 position: -32,-298
 color: red
 ---
-<<if IsObjectiveActive("Q_0P_BLOODY_HELL", "BH11_GO_SLEEP")>>
-    <<jump goToSleep>>
-<<else>>
-    [nomarkup][Your a little bit tarnished couch that doubles as your bed.][/nomarkup] #line:088b8f3 
-    -> [nomarkup][Take the sheets.][/nomarkup] <<if CustomVisited("sheets") == false>> #line:0c4587b
-        <<GiveItem "IT_Q_SHEETS">> 
-    -> [nomarkup][Walk away.][/nomarkup]
-<<endif>>
+[nomarkup][Your a little bit tarnished couch that doubles as your bed.][/nomarkup] #line:088b8f3 
+-> [nomarkup][Take the sheets.][/nomarkup] <<if GetHasItem("IT_Q_SHEETS") == false>> #line:0c4587b
+    <<GiveItem "IT_Q_SHEETS">> 
+-> [nomarkup][Walk away.][/nomarkup]
 ===

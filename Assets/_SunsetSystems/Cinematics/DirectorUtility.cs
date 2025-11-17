@@ -1,3 +1,4 @@
+using System;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Playables;
@@ -40,6 +41,13 @@ namespace SunsetSystems.Cinematics
             {
                 _resumeRequests++;
             }
+        }
+
+        public void ClearPlaybackControl()
+        {
+            _isPaused = false;
+            _resumeRequests = 0;
+            _director.playableGraph.GetRootPlayable(0).SetSpeed(1);
         }
     }
 }

@@ -12,7 +12,14 @@ namespace SunsetSystems.Cinematics
         [SerializeField, Required]
         private PlayableDirector _playableDirector;
         [SerializeField, Required]
+        private DirectorUtility _directorUtility;
+        [SerializeField, Required]
         private FadeScreenManager _crossFade;
+
+        private void OnValidate()
+        {
+            EnsureReferences();
+        }
 
         private void Awake()
         {
@@ -28,7 +35,24 @@ namespace SunsetSystems.Cinematics
 
         private void Start()
         {
+            EnsureReferences();
             SubscribeDirectorEvents();
+        }
+
+        private void EnsureReferences()
+        {
+            if (_playableDirector == null)
+            {
+                _playableDirector = FindAnyObjectByType<PlayableDirector>(FindObjectsInactive.Include);
+            }
+            if (_directorUtility == null)
+            {
+                _directorUtility = FindAnyObjectByType<DirectorUtility>(FindObjectsInactive.Include);
+            }
+            if (_crossFade == null)
+            {
+                _crossFade = FindAnyObjectByType<FadeScreenManager>(FindObjectsInactive.Include);
+            }
         }
 
         private void OnDestroy()
@@ -97,6 +121,7 @@ namespace SunsetSystems.Cinematics
         {
             _playableDirector.Stop();
             _playableDirector.Play(asset, wrapMode);
+            _directorUtility.ClearPlaybackControl();
             _playableDirector.playableGraph.GetRootPlayable(0).SetSpeed(1);
         }
 
