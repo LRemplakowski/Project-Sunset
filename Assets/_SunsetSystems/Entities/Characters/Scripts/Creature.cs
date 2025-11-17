@@ -53,6 +53,7 @@ namespace SunsetSystems.Entities.Characters
             {
                 var idle = ActionQueue.Dequeue();
                 idle.Abort();
+                idle.Cleanup();
                 ActionQueue.Peek().Begin();
             }
             else if (ActionQueue.Peek().EvaluateAction())
@@ -117,7 +118,11 @@ namespace SunsetSystems.Entities.Characters
         public void ClearAllActions()
         {
             while (ActionQueue.Count > 0)
-                ActionQueue.Dequeue().Cleanup();
+            {
+                var action = ActionQueue.Dequeue();
+                action.Abort();
+                action.Cleanup();
+            }
             ActionQueue.Enqueue(new Idle(this));
         }
 

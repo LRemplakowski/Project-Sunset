@@ -116,6 +116,8 @@ namespace SunsetSystems.Entities.Characters.Navigation
             // Set agent position directly
             CurrentNavigationAI.Teleport(position, true);
             CurrentNavigationAI.rotation = rotation;
+            CurrentNavigationAI.destination = position;
+            StopMovement();
             return true;
         }
 
