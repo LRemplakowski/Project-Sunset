@@ -25,6 +25,8 @@ public class SunsetInputHandler : SerializedMonoBehaviour, IGlobalInput
 
     [SerializeField]
     private PlayerInput _playerInput;
+    [SerializeField]
+    private InputActionReference[] _alwaysActiveActions;
 
     private readonly Dictionary<string, InputActionMap> _inputMaps = new();
     private readonly List<InputOverride> _inputOverrides = new();
@@ -165,16 +167,20 @@ public class SunsetInputHandler : SerializedMonoBehaviour, IGlobalInput
                 ToggleMap(active, map);
             }
         }
+        foreach (var action in _alwaysActiveActions)
+        {
+            action.action.Enable();
+        }
 
         static void ToggleMap(bool active, InputActionMap map)
         {
             if (active)
             {
-                map.Enable();
+                map.actions.ForEach(action => action.Enable());
             }
             else
             {
-                map.Disable();
+                map.actions.ForEach(action => action.Disable());
             }
         }
     }
