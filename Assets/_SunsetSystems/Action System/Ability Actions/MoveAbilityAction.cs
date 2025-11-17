@@ -4,7 +4,6 @@ using SunsetSystems.Combat;
 using SunsetSystems.Combat.Grid;
 using SunsetSystems.Entities.Characters.Navigation;
 using UnityEngine;
-using UnityEngine.AI;
 
 namespace SunsetSystems.ActionSystem
 {

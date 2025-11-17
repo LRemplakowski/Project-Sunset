@@ -1,4 +1,3 @@
-using System;
 using Sirenix.OdinInspector;
 using SunsetSystems.UI.Utils;
 using UnityEngine;

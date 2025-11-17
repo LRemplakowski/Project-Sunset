@@ -1,14 +1,12 @@
 using System.Threading.Tasks;
-using Redcode.Awaiting;
+using Cysharp.Threading.Tasks;
 using Sirenix.OdinInspector;
-using SunsetSystems.Core.SceneLoading.UI;
-using SunsetSystems.Dialogue;
-using SunsetSystems.Entities.Characters;
 using SunsetSystems.ActionSystem;
+using SunsetSystems.Core.SceneLoading.UI;
+using SunsetSystems.Entities.Characters;
 using SunsetSystems.Entities.Interactable;
 using SunsetSystems.Game;
 using SunsetSystems.Input.CameraControl;
-using SunsetSystems.Inventory.Data;
 using SunsetSystems.LevelUtility;
 using SunsetSystems.Party;
 using UnityEngine;
@@ -69,14 +67,14 @@ namespace SunsetSystems.Core
         public async override Task StartSceneAsync()
         {
             await base.StartSceneAsync();
-            await new WaitForUpdate();
+            await UniTask.NextFrame();
         }
 
         private async Task MovePCToPositionAfterDialogue(ICreature _desiree)
         {
             SceneLoadingUIManager fade = SceneLoadingUIManager.Instance;
             await fade.DoFadeOutAsync(.5f);
-            await new WaitForUpdate();
+            await UniTask.NextFrame();
             _desireeOnBed.SetActive(false);
             var waypoint = WaypointManager.Instance.GetSceneDefaultEntryWaypoint();
             _desiree.ForceToPosition(waypoint.transform);
@@ -102,7 +100,7 @@ namespace SunsetSystems.Core
             PartyManager.Instance.MainCharacter.ForceToPosition(_pcLandlordSinkWaypoint.transform);
             CameraControl.ForceToPosition(_landlordSinkCameraPosition);
             CameraControl.ForceRotation(_landlordSinkCameraRotation);
-            await new WaitForFixedUpdate();
+            await UniTask.WaitForFixedUpdate();
             await fade.DoFadeInAsync(.5f);
         }
 
@@ -129,12 +127,12 @@ namespace SunsetSystems.Core
             _dominic.ForceToPosition(_dominicWaypoint.transform);
             _kieran.ForceToPosition(_kieranWaypoint.transform);
             CameraControl.ForceToPosition(_cameraPositionDominicEnter);
-            await new WaitForFixedUpdate();
+            await UniTask.WaitForFixedUpdate();
             CameraControl.ForceRotation(_cameraRotationDominicEnter);
             PartyManager.Instance.MainCharacter.FacePointInSpace(_pcCoverWaypoint.GetFacingDirection());
             _dominic.FacePointInSpace(_dominicWaypoint.GetFacingDirection());
             _kieran.FacePointInSpace(_kieranWaypoint.GetFacingDirection());
-            await new WaitForFixedUpdate();
+            await UniTask.WaitForFixedUpdate();
             await fade.DoFadeInAsync(.5f);
         }
 
@@ -146,7 +144,7 @@ namespace SunsetSystems.Core
             _dominic.ForceToPosition(_dominicFridgeWaypoint.transform);
             _kieran.ForceToPosition(_kieranFridgeWaypoint.transform);
             CameraControl.ForceToPosition(_cameraPositionPinnedToWall);
-            await new WaitForFixedUpdate();
+            await UniTask.WaitForFixedUpdate();
             CameraControl.ForceRotation(_cameraRotationPinnedToWall);
             PartyManager.Instance.MainCharacter.FacePointInSpace(_pcFridgeWaypoint.GetFacingDirection());
             _dominic.FacePointInSpace(_dominicFridgeWaypoint.GetFacingDirection());
@@ -162,21 +160,9 @@ namespace SunsetSystems.Core
         public async void MoveDominicToDoorAndDestroy()
         {
             await _dominic.PerformAction(new Move(_dominic, _dominicDoorWaypoint.transform.position));
-            await new WaitForSeconds(.5f);
+            await UniTask.Delay(500);
             _dominic.References.GameObject.SetActive(false);
         }
-
-
-
-        //public async void QuitGame()
-        //{
-        //    SceneLoadingUIManager loading = this.FindFirstComponentWithTag<SceneLoadingUIManager>(TagConstants.SCENE_LOADING_UI);
-        //    await loading.DoFadeOutAsync(.5f);
-        //    //await LevelLoader.Instance.UnloadGameScene();
-        //    this.FindFirstComponentWithTag<MainMenuUIManager>(TagConstants.MAIN_MENU_UI).gameObject.SetActive(true);
-        //    this.FindFirstComponentWithTag<GameplayUIManager>(TagConstants.GAMEPLAY_UI).gameObject.SetActive(false);
-        //    await loading.DoFadeInAsync(.5f);
-        //}
 
         private class HavenSceneData : SceneLogicData
         {
