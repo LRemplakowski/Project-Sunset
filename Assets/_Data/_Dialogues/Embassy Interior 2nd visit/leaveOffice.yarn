@@ -59,7 +59,7 @@ position: -125,683
 {$storyteller}:  [nomarkup][You turn to Kieran, nodding once to indicate that you're ready.][/nomarkup] #line:0e5d1fd
 {$kieran}: You are not thinking of fighting them, are you? #line:010f2ce
 <<if GetIsPartyMemberRecruited($anastasia) is true>>
-    {$anastasia}: I'm not sure we'll have the option. #lastline
+    {$anastasia}: I'm not sure we'll have the choice. #lastline
 <<endif>>
 -> [nomarkup][Run!][/nomarkup]
 ===
