@@ -9,6 +9,8 @@ public class ShouldKeepCurrentPosition : Conditional
     private float _keepPositionThreshold = 100f;
     [SerializeField, Range(1, 100)]
     private float _inCoverScore = 10, _currentPositionScore = 10, _hasTargetsInRange = 10f;
+    [SerializeField]
+    private bool _invertEvaluation = false;
 
     [SerializeField, SharedRequired]
     private SharedAIContext _aiContext;
@@ -23,6 +25,8 @@ public class ShouldKeepCurrentPosition : Conditional
         float coverScore = _aiContext.Value.IsInCover() ? _inCoverScore : 0;
         float totalScore = _currentPositionScore + coverScore + targetsScore;
         _shouldKeepPosition = EvaluateScore(totalScore, _keepPositionThreshold);
+        if (_invertEvaluation)
+            _shouldKeepPosition = !_shouldKeepPosition;
     }
 
     public override TaskStatus OnUpdate()

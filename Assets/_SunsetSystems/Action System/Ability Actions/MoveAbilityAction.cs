@@ -24,7 +24,6 @@ namespace SunsetSystems.ActionSystem
             destination = context.TargetObject as IGridCell;
             combatant = context.SourceCombatBehaviour;
             navigationManager = context.SourceCombatBehaviour.References.NavigationManager;
-            conditions.Add(new Destination(navigationManager));
         }
 
         public override void Cleanup()
@@ -35,6 +34,10 @@ namespace SunsetSystems.ActionSystem
 
         public override void Begin()
         {
+            var destinationCondition = new Destination(navigationManager);
+            var delayCondition = new Delay(.2f, destinationCondition);
+            conditions.Add(destinationCondition);
+            conditions.Add(delayCondition);
             if (gridInstance.TryGetCurrentGridCell(combatant, out IGridCell occupiedCell))
             {
                 gridInstance.ClearOccupierFromCell(occupiedCell);

@@ -126,9 +126,23 @@ namespace SunsetSystems.AI
         {
             if (target == null || weapon == null)
                 return gridCells.GetRandom();
-            float maxRange = weapon.GetRangeData().MaxRange + .5f;
-            var result = gridCells.Where(cell => Vector3Int.Distance(target.GetContext().GridPosition, cell.GridPosition) <= maxRange)
-                                  .GetRandom();
+            var rangeData = weapon.GetRangeData();
+            float maxRange = rangeData.MaxRange + .5f;
+            IGridCell result = null;
+            switch (weapon.GetRangeType())
+            {
+                case AbilityRange.Melee:
+                    result = gridCells.Where(cell => Vector3Int.Distance(target.GetContext().GridPosition, cell.GridPosition) <= maxRange)
+                                      .GetRandom();
+                    result ??= gridCells.OrderBy(cell => Vector3Int.Distance(target.GetContext().GridPosition, cell.GridPosition))
+                                        .FirstOrDefault();
+                    break;
+                case AbilityRange.Ranged:
+                    result = gridCells.Where(cell => Vector3Int.Distance(target.GetContext().GridPosition, cell.GridPosition) <= maxRange)
+                                      .Where(cell => Vector3Int.Distance(target.GetContext().GridPosition, cell.GridPosition) >= rangeData.ShortRange)
+                                      .GetRandom();
+                    break;
+            }
             result ??= gridCells.GetRandom();
             return result;
         }

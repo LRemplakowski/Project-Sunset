@@ -13,6 +13,7 @@ namespace SunsetSystems.ActionSystem
         {
             this.agent = agent;
         }
+
         public override bool IsMet()
         {
             return agent.FinishedCurrentPath;

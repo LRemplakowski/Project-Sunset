@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using SunsetSystems.Abilities;
 using SunsetSystems.Combat.UI;
@@ -23,6 +24,7 @@ namespace SunsetSystems.Combat
             CombatManager.OnCombatRoundBegin += OnCombatRoundBegin;
             CombatManager.OnCombatRoundEnd += OnCombatRoundEnd;
             CombatManager.OnFullTurnCompleted += OnFullTurnCompleted;
+            CombatManager.OnCombatEnd += OnCombatEnd;
         }
 
         private void OnDestroy()
@@ -31,6 +33,7 @@ namespace SunsetSystems.Combat
             CombatManager.OnCombatRoundBegin -= OnCombatRoundBegin;
             CombatManager.OnCombatRoundEnd -= OnCombatRoundEnd;
             CombatManager.OnFullTurnCompleted -= OnFullTurnCompleted;
+            CombatManager.OnCombatEnd -= OnCombatEnd;
         }
 
         public void Initialize(ITargetingContext targetingContext)
@@ -64,6 +67,11 @@ namespace SunsetSystems.Combat
             {
                 CleanupBeforeActionChange(GetSelectedAbility());
             }
+        }
+
+        private void OnCombatEnd(IEnumerable<ICombatant> enumerable)
+        {
+            CleanupBeforeActionChange(GetSelectedAbility());
         }
 
         public void OnCombatActionSelected(IAbilityConfig newAbility)
