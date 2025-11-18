@@ -81,7 +81,10 @@ namespace SunsetSystems.Equipment
         public void PlayReloadSFX()
         {
             if (reloadSFX != null)
-                _weaponAudioSource.PlayOneShot(reloadSFX);
+            {
+                _weaponAudioSource.clip = reloadSFX;
+                _weaponAudioSource.Play();
+            }
         }
 
         public void SetWeaponTarget(ITargetable target) => _target = target;
