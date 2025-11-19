@@ -69,15 +69,17 @@ namespace SunsetSystems.Entities.Interactable
             set
             {
                 _interactable = value;
-                if (_interactable)
+                if (value)
                 {
                     InteractablesInScene.Add(this);
                 }
                 else
                 {
-                    IsHoveredOver = false;
-                    ForceHover = false;
+                    _isHoveredOver = false;
+                    _forceHover = false;
                     InteractablesInScene.Remove(this);
+                    SetHoverHighlightActive(false);
+                    UpdateHoverNameplate();
                 }
 
                 if (_interactionCollider != null)
@@ -108,8 +110,8 @@ namespace SunsetSystems.Entities.Interactable
             set
             {
                 _isHoveredOver = value;
-                HandleHoverHiglight();
-                HandleNameplate();
+                UpdateHoverHighlight();
+                UpdateHoverNameplate();
             }
         }
 
@@ -123,8 +125,8 @@ namespace SunsetSystems.Entities.Interactable
             set
             {
                 _forceHover = value;
-                HandleHoverHiglight();
-                HandleNameplate();
+                UpdateHoverHighlight();
+                UpdateHoverNameplate();
             }
         }
 
@@ -152,7 +154,7 @@ namespace SunsetSystems.Entities.Interactable
         {
             if (InteractionTransform == null)
                 InteractionTransform = this.transform;
-            if (Interactable)
+            if (_interactable)
                 InteractablesInScene.Add(this);
             if (_highlightHandler == null)
                 _highlightHandler = GetComponent<IHighlightHandler>();
@@ -161,7 +163,7 @@ namespace SunsetSystems.Entities.Interactable
 
         private void OnEnable()
         {
-            if (Interactable)
+            if (_interactable)
                 InteractablesInScene.Add(this);
             if (_linkedGameObject != null)
                 _linkedGameObject.SetActive(true);
@@ -212,13 +214,18 @@ namespace SunsetSystems.Entities.Interactable
             TargetedBy = null;
         }
 
-        private void HandleHoverHiglight()
+        private void UpdateHoverHighlight()
         {
-            if (_highlightHandler != null)
-                _highlightHandler.SetHighlightActive(IsHoveredOver && Interactable);
+            if (Interactable)
+                SetHoverHighlightActive(IsHoveredOver);
         }
 
-        private void HandleNameplate()
+        private void SetHoverHighlightActive(bool active)
+        {
+            _highlightHandler?.SetHighlightActive(active);
+        }
+
+        private void UpdateHoverNameplate()
         {
             IHoverNameplateSource.OnHoverStatusChange?.Invoke(this, Interactable && IsHoveredOver);   
         }

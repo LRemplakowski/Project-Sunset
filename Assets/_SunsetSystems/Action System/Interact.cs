@@ -2,7 +2,6 @@
 using Sirenix.OdinInspector;
 using SunsetSystems.Entities.Characters.Navigation;
 using UnityEngine;
-using UnityEngine.AI;
 
 namespace SunsetSystems.ActionSystem
 {
@@ -18,7 +17,6 @@ namespace SunsetSystems.ActionSystem
         public Interact(IActionPerformer owner, IInteractable target) : base(owner, false)
         {
             this.target = target;
-            conditions.Add(new InteractionComplete(target));
             this.navMeshAgent = owner.References.NavigationManager;
             this.destination = target.InteractionTransform.position;
         }
@@ -34,17 +32,18 @@ namespace SunsetSystems.ActionSystem
         public override void Begin()
         {
             float distance = Vector3.Distance(target.InteractionTransform.position, Owner.References.Transform.position);
+            conditions.Add(new InteractionComplete(target));
             if (distance > target.InteractionDistance)
             {
                 if (navMeshAgent.SetNavigationTarget(destination))
                 {
-                    conditions.Add(new Destination(navMeshAgent));
+                    //conditions.Add(new Destination(navMeshAgent));
                     delayedInteractionCoroutine = InteractWhenCloseEnough();
                     Owner.CoroutineRunner.StartCoroutine(delayedInteractionCoroutine);
                 }
                 else
                 {
-                    Cleanup();
+                    Abort();
                 }
             }
             else
@@ -60,6 +59,7 @@ namespace SunsetSystems.ActionSystem
                 yield return null;
             target.TargetedBy = Owner;
             target.Interact();
+            delayedInteractionCoroutine = null;
         }
     }
 }
