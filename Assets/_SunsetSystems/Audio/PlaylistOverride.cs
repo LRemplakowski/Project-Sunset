@@ -13,6 +13,11 @@ namespace SunsetSystems.Audio
         [SerializeField]
         private GameState _targetGameState;
 
+        private void OnDestroy()
+        {
+            DisableOverride();
+        }
+
         public void EnableOverride()
         {
             AudioManager.Instance.SetPlaylistOverride(_targetGameState, _playlistToInject);
