@@ -658,7 +658,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1073741839
   shape:
-    radius: 0.1
+    radius: 0.3
     height: 1.8
   movement:
     follower:
@@ -673,7 +673,7 @@ MonoBehaviour:
       allowRotatingOnSpotBacking: 1
     debugFlags: 64
     stopDistance: 0.2
-    rotationSmoothing: 0
+    rotationSmoothing: 0.1
     positionSmoothing: 0.25
     groundMask:
       serializedVersion: 2
