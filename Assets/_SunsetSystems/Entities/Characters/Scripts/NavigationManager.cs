@@ -36,7 +36,7 @@ namespace SunsetSystems.Entities.Characters.Navigation
         private IActionPerformer _actionPerformer;
 
         public Vector3 Position => CurrentNavigationAI.position;
-        public bool FinishedCurrentPath => CurrentNavigationAI.reachedDestination || CurrentNavigationAI.reachedCrowdedEndOfPath;
+        public bool FinishedCurrentPath => !CurrentNavigationAI.hasPath || CurrentNavigationAI.reachedDestination || CurrentNavigationAI.reachedCrowdedEndOfPath;
         public bool IsMoving => (CurrentNavigationAI.velocity.sqrMagnitude > MOVEMENT_THRESHOLD || !FinishedCurrentPath)
                                 && CurrentNavigationAI.simulateMovement
                                 && !CurrentNavigationAI.isStopped;
