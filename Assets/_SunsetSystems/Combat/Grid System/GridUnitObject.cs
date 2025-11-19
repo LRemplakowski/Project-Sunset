@@ -154,7 +154,7 @@ namespace SunsetSystems.Combat.Grid
 
         public enum GridCellBaseState
         {
-            Default, Highlight, Walkable, Sprintable
+            Default, Highlight, Walkable, Sprintable, Danger
         }
 
         public enum GridCellSubState
@@ -181,6 +181,8 @@ namespace SunsetSystems.Combat.Grid
                         else if (gridUnit.IsInMoveRange)
                             result.BaseState = GridCellBaseState.Walkable;
                     }
+                    if (gridUnit.Danger)
+                        result.BaseState = GridCellBaseState.Danger;
                     if (gridUnit.Highlighted)
                         result.BaseState = GridCellBaseState.Highlight;
                 }

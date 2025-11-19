@@ -2,13 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Pathfinding;
 using Redcode.Awaiting;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
-using Pathfinding;
-using SunsetSystems.Abilities;
 
 namespace SunsetSystems.Combat.Grid
 {
@@ -465,6 +464,7 @@ namespace SunsetSystems.Combat.Grid
         public CoverQuality CoverQuality;
         public ICombatant Occupier;
         public ITargetable UnitTargetable;
+        public bool Danger = false;
         public bool IsOccupied => Occupier != null;
         public bool IsFree => !IsOccupied;
         private Vector3 _worldPositionCenter;

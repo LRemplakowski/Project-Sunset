@@ -27,6 +27,7 @@ namespace SunsetSystems.Combat.Grid
 
         private GridUnit currentlyHighlightedCell;
         private readonly List<GridUnit> currentlyHighlitedGridUnits = new();
+        private readonly List<GridUnit> currentDangerousGridUnits = new();
         private readonly Dictionary<ICombatant, GridUnit> _occupiedGridCells = new();
 
         public float GetGridScale() => managedGrid.GridCellSize;
@@ -166,6 +167,66 @@ namespace SunsetSystems.Combat.Grid
         private float GetDistance(in Vector3Int from, in Vector3Int to)
         {
             return Mathf.Abs(from.x - to.x) + Mathf.Abs(from.z - to.z);
+        }
+
+        public void ClearDangerousCells()
+        {
+            foreach (var gridUnit in currentDangerousGridUnits)
+            {
+                gridUnit.Danger = false;
+                managedGrid.MarkCellDirty(gridUnit);
+            }
+        }
+
+        public ITargetable[] GetTargetablesInGridRange(Vector3Int origin, int radius)
+        {
+            return EnumerateTargetablesInGridRange(origin, radius).ToArray();
+        }
+
+        public IEnumerable<ITargetable> EnumerateTargetablesInGridRange(Vector3Int origin, int radius)
+        {
+            return EnumarteCellsInRadius(origin, radius).Where(cell => cell.IsOccupied)
+                                                        .Select(cell => cell.Occupier.References.Targetable);
+        }
+
+        private IEnumerable<GridUnit> EnumarteCellsInRadius(Vector3Int origin, int radius)
+        {
+            return managedGrid.GetAllWalkableGridUnits()
+                              .Where(unit => GetDistance(origin, unit.GridPosition) <= radius);
+        }
+
+        private GridUnit[] GetCellsInRadius(Vector3Int origin, int radius)
+        {
+            return EnumarteCellsInRadius(origin, radius).ToArray();
+        }
+
+        public void MarkCellsDangerous(bool dangerous, Vector3Int origin, int radius)
+        {
+            var cells = managedGrid.GetAllWalkableGridUnits()
+                                   .Where(unit => GetDistance(origin, unit.GridPosition) <= radius)
+                                   .ToArray(); 
+            MarkCellsDangerous(dangerous, cells);
+        }
+
+        public void MarkCellsDangerous(bool dangerous, params Vector3Int[] cells)
+        {
+            foreach (var cell in cells)
+            {
+                var gridUnit = this[cell];
+                gridUnit.Danger = dangerous;
+                managedGrid.MarkCellDirty(gridUnit);
+                currentDangerousGridUnits.Add(gridUnit);
+            }
+        }
+
+        private void MarkCellsDangerous(bool dangerous, params GridUnit[] cells)
+        {
+            foreach (var gridUnit in cells)
+            {
+                gridUnit.Danger = dangerous;
+                managedGrid.MarkCellDirty(gridUnit);
+                currentDangerousGridUnits.Add(gridUnit);
+            }
         }
 
         public void ShowCellsInMovementRange(ICombatant combatant)

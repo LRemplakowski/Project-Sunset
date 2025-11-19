@@ -24,11 +24,10 @@ namespace SunsetSystems.Abilities
 
         public void ResolveEffect(IAbilityConfig ability, IAbilityContext context)
         {
-            var overlapingTargets = Physics.OverlapSphere(context.TargetObject.ProjectileTarget.position, _areaSize, _targetLayer)
-                                           .Select(FindTargetable)
-                                           .Where(targetable => targetable != null && targetable.IsValidTarget(context.SourceCombatBehaviour, _targetableType))
-                                           .ToList();
-            foreach (var target in overlapingTargets)
+            var targets = context.GridManager.EnumerateTargetablesInGridRange(context.TargetObject.GetContext().GridPosition, _areaSize)
+                                             .Where(targetable => targetable.IsValidTarget(context.SourceCombatBehaviour, _targetableType))
+                                             .ToArray();
+            foreach (var target in targets)
             {
                 _effect.ResolveEffect(ability, new AbilityContext(context, target));
             }
@@ -54,7 +53,7 @@ namespace SunsetSystems.Abilities
             Rectangle
         }
 
-        private class AbilityContext : IAbilityContext
+        private readonly struct AbilityContext : IAbilityContext
         {
             private readonly IAbilityContext _baseContext;
             private readonly ITargetable _targetObject;

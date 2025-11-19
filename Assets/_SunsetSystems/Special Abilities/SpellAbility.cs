@@ -12,6 +12,11 @@ using UnityEngine.Serialization;
 
 namespace SunsetSystems.Abilities
 {
+    public interface IAOEAbility
+    {
+        int GetAOERadius(IAbilityContext context);
+    }
+
     public interface IAbilityEffect
     {
         void ResolveEffect(IAbilityConfig ability, IAbilityContext context);

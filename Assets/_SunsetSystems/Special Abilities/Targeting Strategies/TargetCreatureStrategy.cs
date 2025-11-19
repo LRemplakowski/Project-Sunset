@@ -20,13 +20,14 @@ namespace SunsetSystems.Abilities.Targeting
         {
             if (ValidateTarget(_ability, context, out ITargetable target) is false)
             {
-                ClearTargetingDelegates(context);
+                ClearTargeting(context);
                 DisableExecutionUI(context);
                 return;
             }
             ICombatant current = context.GetSelf();
             context.TargetUpdateDelegate().Invoke(target);
-            var abilityRange = _ability.GetTargetingData(context.GetAbilityContext()).GetRangeData();
+            var abilityContext = context.GetAbilityContext();
+            var abilityRange = _ability.GetTargetingData(abilityContext).GetRangeData();
             bool isTargetInRange = IsTargetInRange(current, target, in abilityRange);
             current.References.NavigationManager.FaceDirectionAfterMovementFinished(target.GetContext().Transform.position);
             context.TargetLockSetDelegate().Invoke(true);
@@ -37,6 +38,17 @@ namespace SunsetSystems.Abilities.Targeting
                     ShowTargetingLine(context, target.ProjectileTarget.position, TargetInRangeColor);
                 executionUI.RegisterConfirmationCallback(TriggerExecution);
                 executionUI.UpdateShowInterface(true, () => context.CanExecuteAbility(_ability));
+                if (IsDangerous(_ability, abilityContext))
+                {
+                    if (_ability is IAOEAbility aoe)
+                    {
+                        HighlightDanger(context, target, aoe.GetAOERadius(abilityContext));
+                    }
+                    else
+                    {
+                        HighlightDanger(context, target, 0);
+                    }
+                }
             }
             else
             {
@@ -49,7 +61,7 @@ namespace SunsetSystems.Abilities.Targeting
 
         public override void ExecuteClearTargetLock(ITargetingContext context)
         {
-            ClearTargetingDelegates(context);
+            ClearTargeting(context);
             DisableExecutionUI(context);
         }
 
@@ -57,7 +69,7 @@ namespace SunsetSystems.Abilities.Targeting
         {
             if (ValidateTarget(_ability, context, out ITargetable target) is false)
             {
-                ClearTargetingDelegates(context);
+                ClearTargeting(context);
                 return;
             }
             context.TargetUpdateDelegate().Invoke(target);
@@ -73,7 +85,7 @@ namespace SunsetSystems.Abilities.Targeting
 
         public override void ExecuteTargetingBegin(ITargetingContext context)
         {
-            ClearTargetingDelegates(context);
+            ClearTargeting(context);
             DisableExecutionUI(context);
             context.GetTargetingLineRenderer().SetPosition(0, context.GetSelf().AimingOrigin);
             base.ExecuteTargetingBegin(context);
@@ -82,7 +94,7 @@ namespace SunsetSystems.Abilities.Targeting
 
         public override void ExecuteTargetingEnd(ITargetingContext context)
         {
-            ClearTargetingDelegates(context);
+            ClearTargeting(context);
             DisableExecutionUI(context);
             base.ExecuteTargetingEnd(context);
         }
@@ -96,11 +108,12 @@ namespace SunsetSystems.Abilities.Targeting
             context.TargetingLineUpdateDelegate().Invoke(true);
         }
 
-        private void ClearTargetingDelegates(ITargetingContext context)
+        private void ClearTargeting(ITargetingContext context)
         {
             context.TargetUpdateDelegate().Invoke(null);
             context.TargetingLineUpdateDelegate().Invoke(false);
             context.TargetLockSetDelegate().Invoke(false);
+            ClearDangerHighlight(context);
         }
 
         private void DisableExecutionUI(ITargetingContext context)
@@ -132,5 +145,23 @@ namespace SunsetSystems.Abilities.Targeting
         }
 
         private static bool CanShowTargetingLine(in RangeData abilityRange) => abilityRange.MaxRange > 1;
+
+        private static bool IsDangerous(IAbilityConfig abilityConfig, IAbilityContext context)
+        {
+            var abilityCategory = abilityConfig.GetCategories();
+            return (abilityCategory & AbilityCategory.Dangerous) != 0;
+        }
+
+        private static void HighlightDanger(ITargetingContext context, ITargetable target, int radius)
+        {
+            var grid = context.GetCurrentGrid();
+            var gridPosition = target.GetContext().GridPosition;
+            grid.MarkCellsDangerous(true, gridPosition, radius);
+        }
+
+        private static void ClearDangerHighlight(ITargetingContext context)
+        {
+            context.GetCurrentGrid().ClearDangerousCells();
+        }
     }
 }
