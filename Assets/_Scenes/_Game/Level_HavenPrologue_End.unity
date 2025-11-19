@@ -1116,6 +1116,14 @@ MonoBehaviour:
         _Z: 0
         _W: 0
         _Object: {fileID: 0}
+      - _Type: 1
+        _Int: 0
+        _String: 
+        _X: 0
+        _Y: 0
+        _Z: 0
+        _W: 0
+        _Object: {fileID: 0}
   OnObjectiveActiveAfterSceneLoad:
     _PersistentCalls: []
 --- !u!1 &112428885
@@ -1815,7 +1823,7 @@ PlayableDirector:
   - key: {fileID: 7117721585107763358, guid: bfe2251f091048d4b8835f41c78a8582, type: 2}
     value: {fileID: 1752010404}
   - key: {fileID: -5851154346206341788, guid: bfe2251f091048d4b8835f41c78a8582, type: 2}
-    value: {fileID: 1947078012}
+    value: {fileID: 0}
   - key: {fileID: 5557205046556543910, guid: bfe2251f091048d4b8835f41c78a8582, type: 2}
     value: {fileID: 143095355}
   - key: {fileID: 5486529211790060198, guid: bfe2251f091048d4b8835f41c78a8582, type: 2}
@@ -1825,13 +1833,11 @@ PlayableDirector:
   - key: {fileID: -3041511452851496872, guid: 56294fc73b2505e4590c86a4af32f4a6, type: 2}
     value: {fileID: 1330660502}
   - key: {fileID: 1020530201918083240, guid: 56294fc73b2505e4590c86a4af32f4a6, type: 2}
-    value: {fileID: 1947078010}
+    value: {fileID: 309774651}
   - key: {fileID: -9186850744222515270, guid: 56294fc73b2505e4590c86a4af32f4a6, type: 2}
     value: {fileID: 309774652}
   - key: {fileID: 5979752541753396460, guid: 56294fc73b2505e4590c86a4af32f4a6, type: 2}
     value: {fileID: 98305234}
-  - key: {fileID: 6628420393346434603, guid: 56294fc73b2505e4590c86a4af32f4a6, type: 2}
-    value: {fileID: 309774651}
   m_ExposedReferences:
     m_References:
     - bf0d80f99674f7646919383adc75e1ed: {fileID: 149105948}
@@ -6383,9 +6389,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 900467796158517561, guid: 4769f016047210d478f53803138aacf5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 309774652}
-    - targetCorrespondingSourceObject: {fileID: 2568780906399956510, guid: 4769f016047210d478f53803138aacf5, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1947078012}
   m_SourcePrefab: {fileID: 100100000, guid: 4769f016047210d478f53803138aacf5, type: 3}
 --- !u!114 &309774648 stripped
 MonoBehaviour:
@@ -11367,6 +11370,14 @@ MonoBehaviour:
         _Int: 0
         _String: UnityEngine.Playables.DirectorWrapMode, UnityEngine.CoreModule,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+        _X: 0
+        _Y: 0
+        _Z: 0
+        _W: 0
+        _Object: {fileID: 0}
+      - _Type: 1
+        _Int: 0
+        _String: 
         _X: 0
         _Y: 0
         _Z: 0
@@ -25383,9 +25394,37 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1430959796}
     - target: {fileID: 409868112203810021, guid: 5fd475a07782c9d4394eb94c5a7bc834, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 409868112203810021, guid: 5fd475a07782c9d4394eb94c5a7bc834, type: 3}
       propertyPath: serializationData.Prefab
       value: 
       objectReference: {fileID: 409868112203810021, guid: 5fd475a07782c9d4394eb94c5a7bc834, type: 3}
+    - target: {fileID: 409868112203810021, guid: 5fd475a07782c9d4394eb94c5a7bc834, type: 3}
+      propertyPath: serializationData.PrefabModifications.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 409868112203810021, guid: 5fd475a07782c9d4394eb94c5a7bc834, type: 3}
+      propertyPath: 'serializationData.PrefabModifications.Array.data[0]'
+      value: '"path":"_actionPerformer","value":$eref:0'
+      objectReference: {fileID: 0}
+    - target: {fileID: 409868112203810021, guid: 5fd475a07782c9d4394eb94c5a7bc834, type: 3}
+      propertyPath: serializationData.PrefabModificationsReferencedUnityObjects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 409868112203810021, guid: 5fd475a07782c9d4394eb94c5a7bc834, type: 3}
+      propertyPath: 'serializationData.PrefabModificationsReferencedUnityObjects.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1430959786}
+    - target: {fileID: 438409855980846995, guid: 5fd475a07782c9d4394eb94c5a7bc834, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 438409855980846995, guid: 5fd475a07782c9d4394eb94c5a7bc834, type: 3}
+      propertyPath: enableLocalAvoidanceBacking
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 660093643310669083, guid: 5fd475a07782c9d4394eb94c5a7bc834, type: 3}
       propertyPath: serializationData.Prefab
       value: 
@@ -25490,6 +25529,10 @@ PrefabInstance:
       propertyPath: serializationData.Prefab
       value: 
       objectReference: {fileID: 3027579589492726522, guid: 5fd475a07782c9d4394eb94c5a7bc834, type: 3}
+    - target: {fileID: 3567113430688830349, guid: 5fd475a07782c9d4394eb94c5a7bc834, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3703066370810871723, guid: 5fd475a07782c9d4394eb94c5a7bc834, type: 3}
       propertyPath: _umaAvatar
       value: 
@@ -25896,7 +25939,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 1430959785}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a2c88b98e58e3b34fb47a6cb9e53f38e, type: 3}
   m_Name: 
@@ -25999,7 +26042,11 @@ MonoBehaviour:
   forceRebindAnimator: 0
   preloadWardrobeRecipes:
     loadDefaultRecipes: 1
-    recipes: []
+    recipes:
+    - _recipeName: Pervy Landlord Outfit Wardrobe Collection
+      _enabledInDefaultWardrobe: 1
+      _compatibleRaces:
+      - VampireMale
   raceAnimationControllers:
     defaultAnimationController: {fileID: 9100000, guid: b6baf64b1736249499205b779ee9dcba, type: 2}
     animators:
@@ -33707,33 +33754,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3624040156052946762, guid: 296ac565476416948b9aa3dda8cc4c45, type: 3}
   m_PrefabInstance: {fileID: 1937960184}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1947078010 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2568780906399956510, guid: 4769f016047210d478f53803138aacf5, type: 3}
-  m_PrefabInstance: {fileID: 309774647}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &1947078012
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1947078010}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1947400253
 PrefabInstance:
   m_ObjectHideFlags: 0
