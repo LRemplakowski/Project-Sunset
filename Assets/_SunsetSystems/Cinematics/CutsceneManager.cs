@@ -95,6 +95,7 @@ namespace SunsetSystems.Cinematics
             StopCutscene();
             UnsubscribeDirectorEvents();
             _playableDirector = director;
+            _directorUtility.SetDirector(director);
             SubscribeDirectorEvents();
         }
 

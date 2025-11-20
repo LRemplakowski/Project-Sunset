@@ -1,3 +1,4 @@
+using System;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Playables;
@@ -47,6 +48,12 @@ namespace SunsetSystems.Cinematics
             _isPaused = false;
             _resumeRequests = 0;
             _director.playableGraph.GetRootPlayable(0).SetSpeed(1);
+        }
+
+        public void SetDirector(PlayableDirector director)
+        {
+            ClearPlaybackControl();
+            _director = director;
         }
     }
 }
