@@ -127,7 +127,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 34
+        y: 68
         width: 37
         height: 34
       alignment: 0
@@ -149,7 +149,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 36
-        y: 34
+        y: 68
         width: 37
         height: 34
       alignment: 0
@@ -171,7 +171,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 73
-        y: 34
+        y: 68
         width: 37
         height: 34
       alignment: 0
@@ -193,7 +193,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 34
         width: 37
         height: 34
       alignment: 0
@@ -215,7 +215,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 36
-        y: 0
+        y: 34
         width: 37
         height: 34
       alignment: 0
@@ -237,7 +237,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 73
-        y: 0
+        y: 34
         width: 37
         height: 34
       alignment: 0
@@ -250,6 +250,72 @@ TextureImporter:
       bones: []
       spriteID: 4feb616d54c97594abf449b941d8e31f
       internalID: 1766299455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attribute-skill_clear_idle_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 37
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 16, y: 14, z: 16, w: 14}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e034fe1870b47c4f80ad7662a2ad333
+      internalID: -1193259356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attribute-skill_clear_hover_0
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 0
+        width: 37
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 16, y: 14, z: 16, w: 14}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d00d683bbf8fd44ab946a9918a062a1
+      internalID: 185274384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: attribute-skill_clear_pressed_0
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 0
+        width: 37
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 16, y: 14, z: 16, w: 14}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85a56ed276795b24db32a3032c2f32f3
+      internalID: 1499221268
       vertices: []
       indices: 
       edges: []
@@ -268,6 +334,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
+      attribute-skill_clear_hover_0: 185274384
+      attribute-skill_clear_idle_0: -1193259356
+      attribute-skill_clear_pressed_0: 1499221268
       chip_empty_hover: 1860263703
       chip_empty_normal: -102870867
       chip_empty_pressed: 1766299455
