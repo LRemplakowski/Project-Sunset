@@ -8,11 +8,13 @@ namespace SunsetSystems.Entities.Characters.Navigation
 {
     public interface INavigationManager
     {
+        public const float DESTINATION_REACHED_THRESHOLD = 0.25f;
         bool FinishedCurrentPath { get; }
         bool IsMoving { get; }
         Vector3 Position { get; }
         float CurrentSpeed { get; }
         float MaxSpeed { get; }
+        float RemainingDistance { get; }
 
         bool Warp(Vector3 position, Quaternion rotation);
         UniTask<ABPath> CalculatePathAsync(Vector3 targetPosition);

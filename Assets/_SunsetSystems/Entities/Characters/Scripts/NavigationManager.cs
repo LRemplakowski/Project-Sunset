@@ -36,13 +36,14 @@ namespace SunsetSystems.Entities.Characters.Navigation
         private IActionPerformer _actionPerformer;
 
         public Vector3 Position => CurrentNavigationAI.position;
-        public bool FinishedCurrentPath => !CurrentNavigationAI.hasPath || CurrentNavigationAI.reachedDestination || CurrentNavigationAI.reachedCrowdedEndOfPath;
+        public bool FinishedCurrentPath => !CurrentNavigationAI.hasPath || CurrentNavigationAI.reachedDestination || CurrentNavigationAI.reachedEndOfPath;
         public bool IsMoving => (CurrentNavigationAI.velocity.sqrMagnitude > MOVEMENT_THRESHOLD || !FinishedCurrentPath)
                                 && CurrentNavigationAI.simulateMovement
                                 && !CurrentNavigationAI.isStopped;
         public float CurrentSpeed => CurrentNavigationAI.velocity.magnitude;
         public float MaxSpeed => CurrentNavigationAI.maxSpeed;
         public string ComponentID => COMPONENT_ID;
+        public float RemainingDistance => CurrentNavigationAI.remainingDistance;
 
         private GraphMask _explorationMask;
         private GraphMask _combatMask;

@@ -29,6 +29,10 @@ namespace SunsetSystems.ActionSystem
         public override void Cleanup()
         {
             base.Cleanup();
+            if (navigationManager.RemainingDistance >= INavigationManager.DESTINATION_REACHED_THRESHOLD)
+            {
+                navigationManager.Warp(destination.WorldPosition, Quaternion.identity);
+            }
             navigationManager.StopMovement();
         }
 
