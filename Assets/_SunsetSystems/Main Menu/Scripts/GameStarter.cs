@@ -22,6 +22,8 @@ namespace SunsetSystems.Data
         [Title("Runtime")]
         [SerializeField]
         private ICreatureTemplateProvider _playerCharacterTemplate;
+        [SerializeField]
+        private MainCharacterCreator _playerCharacterCreator;
 
         [field: Title("Events")]
         [field: SerializeField]
@@ -59,8 +61,9 @@ namespace SunsetSystems.Data
         }
 
         public void StartGame()
-        {            
-            PartyManager.Instance.RecruitMainCharacter(_playerCharacterTemplate);
+        {    
+            var template = _playerCharacterCreator != null ? _playerCharacterCreator : _playerCharacterTemplate;
+            PartyManager.Instance.RecruitMainCharacter(template);
             OnGameStart?.Invoke();
             SaveLoadManager.ForceCreateNewSaveData();
             _ = LevelLoader.Instance.LoadNewScene(startSceneData);

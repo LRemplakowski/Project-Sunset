@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace SunsetSystems.MainMenu.UI
 {
@@ -74,10 +71,7 @@ namespace SunsetSystems.MainMenu.UI
 
         protected virtual void ClearDotGroup()
         {
-            for (int i = transform.childCount - 1; i >= 0; i--)
-            {
-                Destroy(transform.GetChild(i).gameObject);
-            }
+            transform.DestroyChildren();
         }
     }
 }

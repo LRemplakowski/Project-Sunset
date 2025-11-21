@@ -39,6 +39,11 @@ namespace SunsetSystems.MainMenu.UI
             EmptyDots = maxDots - minDots;
         }
 
+        public virtual void Initialize()
+        {
+
+        }
+
         public virtual void OnClick(int fullCount)
         {
             if (unassignedDots.HasEnabledDotGroupWithCount(fullCount - minDots) || fullCount == minDots)

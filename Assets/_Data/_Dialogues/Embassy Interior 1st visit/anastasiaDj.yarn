@@ -2,13 +2,9 @@
 tags:
 ---
 <<if GetIsPartyMemberRecruited($anastasia) is false>>
-	<<if CustomVisited("DJ1stTimeAlone")>>
-		<<jump DJ1stTimeAlone>> 
-	<<endif>>
+	<<jump DJ1stTimeAlone>>
 <<else>>
-	<<if CustomVisited("DJ1stTimeAna")>>
-		<<jump DJ1stTimeAna>>
-	<<endif>>
+	<<jump DJ1stTimeAna>>
 <<endif>>
 === 
 title: DJ1stTimeAlone

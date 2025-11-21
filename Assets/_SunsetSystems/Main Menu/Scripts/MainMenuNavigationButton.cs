@@ -14,11 +14,14 @@ namespace SunsetSystems.MainMenu.UI
 
         protected virtual void Start()
         {
-
+            if (fadeUI == null) 
+                fadeUI = FindAnyObjectByType<FadeScreenAnimator>(FindObjectsInactive.Include);
         }
 
         public async virtual void OnClick()
         {
+            if (fadeUI == null) 
+                fadeUI = FindAnyObjectByType<FadeScreenAnimator>(FindObjectsInactive.Include);
             await fadeUI.FadeOut(.5f);
             DoLoadTargetGUIScreen();
             await fadeUI.FadeIn(.5f);

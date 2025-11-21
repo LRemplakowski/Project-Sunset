@@ -83,20 +83,22 @@ namespace SunsetSystems.Entities.Data
 
         public static Attributes Initialize()
         {
-            Attributes result = new();
-            //PHYSICAL
-            result.strength = new CreatureAttribute(AttributeType.Strength);
-            result.dexterity = new CreatureAttribute(AttributeType.Dexterity);
-            result.stamina = new CreatureAttribute(AttributeType.Stamina);
-            //SOCIAL
-            result.charisma = new CreatureAttribute(AttributeType.Charisma);
-            result.manipulation = new CreatureAttribute(AttributeType.Manipulation);
-            result.composure = new CreatureAttribute(AttributeType.Composure);
-            //MENTAL
-            result.intelligence = new CreatureAttribute(AttributeType.Intelligence);
-            result.wits = new CreatureAttribute(AttributeType.Wits);
-            result.resolve = new CreatureAttribute(AttributeType.Resolve);
-            result.speed = new CreatureAttribute(AttributeType.Speed);
+            Attributes result = new()
+            {
+                //PHYSICAL
+                strength = new CreatureAttribute(AttributeType.Strength),
+                dexterity = new CreatureAttribute(AttributeType.Dexterity),
+                stamina = new CreatureAttribute(AttributeType.Stamina),
+                //SOCIAL
+                charisma = new CreatureAttribute(AttributeType.Charisma),
+                manipulation = new CreatureAttribute(AttributeType.Manipulation),
+                composure = new CreatureAttribute(AttributeType.Composure),
+                //MENTAL
+                intelligence = new CreatureAttribute(AttributeType.Intelligence),
+                wits = new CreatureAttribute(AttributeType.Wits),
+                resolve = new CreatureAttribute(AttributeType.Resolve),
+                speed = new CreatureAttribute(AttributeType.Speed)
+            };
             result.speed.SetValue(5);
             return result;
         }
@@ -105,17 +107,19 @@ namespace SunsetSystems.Entities.Data
         {
             if (existing == null)
                 return Initialize();
-            Attributes result = new();
-            result.strength = new(existing.strength);
-            result.dexterity = new(existing.dexterity);
-            result.stamina = new(existing.stamina);
-            result.charisma = new(existing.charisma);
-            result.manipulation = new(existing.manipulation);
-            result.composure = new(existing.composure);
-            result.intelligence = new(existing.intelligence);
-            result.wits = new(existing.wits);
-            result.resolve = new(existing.resolve);
-            result.speed = new(existing.speed);
+            Attributes result = new()
+            {
+                strength = new(existing.strength),
+                dexterity = new(existing.dexterity),
+                stamina = new(existing.stamina),
+                charisma = new(existing.charisma),
+                manipulation = new(existing.manipulation),
+                composure = new(existing.composure),
+                intelligence = new(existing.intelligence),
+                wits = new(existing.wits),
+                resolve = new(existing.resolve),
+                speed = new(existing.speed)
+            };
             return result;
         }
 
@@ -186,37 +190,39 @@ namespace SunsetSystems.Entities.Data
 
         public static Skills Initialize()
         {
-            Skills result = new();
-            //PHYSICAL
-            result.athletics = new Skill(SkillType.Athletics);
-            result.brawl = new Skill(SkillType.Brawl);
-            result.craft = new Skill(SkillType.Craft);
-            result.drive = new Skill(SkillType.Drive);
-            result.firearms = new Skill(SkillType.Firearms);
-            result.larceny = new Skill(SkillType.Larceny);
-            result.melee = new Skill(SkillType.Melee);
-            result.stealth = new Skill(SkillType.Stealth);
-            result.survival = new Skill(SkillType.Survival);
-            //SOCIAL
-            result.animalKen = new Skill(SkillType.AnimalKen);
-            result.etiquette = new Skill(SkillType.Etiquette);
-            result.insight = new Skill(SkillType.Insight);
-            result.intimidation = new Skill(SkillType.Intimidation);
-            result.leadership = new Skill(SkillType.Leadership);
-            result.performance = new Skill(SkillType.Performance);
-            result.persuasion = new Skill(SkillType.Persuasion);
-            result.streetwise = new Skill(SkillType.Streetwise);
-            result.subterfuge = new Skill(SkillType.Subterfuge);
-            //MENTAL
-            result.academics = new Skill(SkillType.Academics);
-            result.awarness = new Skill(SkillType.Awareness);
-            result.finance = new Skill(SkillType.Finance);
-            result.investigation = new Skill(SkillType.Investigation);
-            result.medicine = new Skill(SkillType.Medicine);
-            result.occult = new Skill(SkillType.Occult);
-            result.politics = new Skill(SkillType.Politics);
-            result.science = new Skill(SkillType.Science);
-            result.technology = new Skill(SkillType.Technology);
+            Skills result = new()
+            {
+                //PHYSICAL
+                athletics = new Skill(SkillType.Athletics),
+                brawl = new Skill(SkillType.Brawl),
+                craft = new Skill(SkillType.Craft),
+                drive = new Skill(SkillType.Drive),
+                firearms = new Skill(SkillType.Firearms),
+                larceny = new Skill(SkillType.Larceny),
+                melee = new Skill(SkillType.Melee),
+                stealth = new Skill(SkillType.Stealth),
+                survival = new Skill(SkillType.Survival),
+                //SOCIAL
+                animalKen = new Skill(SkillType.AnimalKen),
+                etiquette = new Skill(SkillType.Etiquette),
+                insight = new Skill(SkillType.Insight),
+                intimidation = new Skill(SkillType.Intimidation),
+                leadership = new Skill(SkillType.Leadership),
+                performance = new Skill(SkillType.Performance),
+                persuasion = new Skill(SkillType.Persuasion),
+                streetwise = new Skill(SkillType.Streetwise),
+                subterfuge = new Skill(SkillType.Subterfuge),
+                //MENTAL
+                academics = new Skill(SkillType.Academics),
+                awarness = new Skill(SkillType.Awareness),
+                finance = new Skill(SkillType.Finance),
+                investigation = new Skill(SkillType.Investigation),
+                medicine = new Skill(SkillType.Medicine),
+                occult = new Skill(SkillType.Occult),
+                politics = new Skill(SkillType.Politics),
+                science = new Skill(SkillType.Science),
+                technology = new Skill(SkillType.Technology)
+            };
             return result;
         }
 
@@ -224,37 +230,39 @@ namespace SunsetSystems.Entities.Data
         {
             if (existing == null)
                 return Initialize();
-            Skills result = new();
-            //PHYSICAL
-            result.athletics = new Skill(existing.athletics);
-            result.brawl = new Skill(existing.brawl);
-            result.craft = new Skill(existing.craft);
-            result.drive = new Skill(existing.drive);
-            result.firearms = new Skill(existing.firearms);
-            result.larceny = new Skill(existing.larceny);
-            result.melee = new Skill(existing.melee);
-            result.stealth = new Skill(existing.stealth);
-            result.survival = new Skill(existing.survival);
-            //SOCIAL
-            result.animalKen = new Skill(existing.animalKen);
-            result.etiquette = new Skill(existing.etiquette);
-            result.insight = new Skill(existing.insight);
-            result.intimidation = new Skill(existing.intimidation);
-            result.leadership = new Skill(existing.leadership);
-            result.performance = new Skill(existing.performance);
-            result.persuasion = new Skill(existing.persuasion);
-            result.streetwise = new Skill(existing.streetwise);
-            result.subterfuge = new Skill(existing.subterfuge);
-            //MENTAL
-            result.academics = new Skill(existing.academics);
-            result.awarness = new Skill(existing.awarness);
-            result.finance = new Skill(existing.finance);
-            result.investigation = new Skill(existing.investigation);
-            result.medicine = new Skill(existing.medicine);
-            result.occult = new Skill(existing.occult);
-            result.politics = new Skill(existing.politics);
-            result.science = new Skill(existing.science);
-            result.technology = new Skill(existing.technology);
+            Skills result = new()
+            {
+                //PHYSICAL
+                athletics = new Skill(existing.athletics),
+                brawl = new Skill(existing.brawl),
+                craft = new Skill(existing.craft),
+                drive = new Skill(existing.drive),
+                firearms = new Skill(existing.firearms),
+                larceny = new Skill(existing.larceny),
+                melee = new Skill(existing.melee),
+                stealth = new Skill(existing.stealth),
+                survival = new Skill(existing.survival),
+                //SOCIAL
+                animalKen = new Skill(existing.animalKen),
+                etiquette = new Skill(existing.etiquette),
+                insight = new Skill(existing.insight),
+                intimidation = new Skill(existing.intimidation),
+                leadership = new Skill(existing.leadership),
+                performance = new Skill(existing.performance),
+                persuasion = new Skill(existing.persuasion),
+                streetwise = new Skill(existing.streetwise),
+                subterfuge = new Skill(existing.subterfuge),
+                //MENTAL
+                academics = new Skill(existing.academics),
+                awarness = new Skill(existing.awarness),
+                finance = new Skill(existing.finance),
+                investigation = new Skill(existing.investigation),
+                medicine = new Skill(existing.medicine),
+                occult = new Skill(existing.occult),
+                politics = new Skill(existing.politics),
+                science = new Skill(existing.science),
+                technology = new Skill(existing.technology)
+            };
             return result;
         }
 

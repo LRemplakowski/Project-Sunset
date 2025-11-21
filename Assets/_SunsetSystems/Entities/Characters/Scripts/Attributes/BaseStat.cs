@@ -29,8 +29,7 @@ public abstract class BaseStat : IUserInfertaceDataProvider<BaseStat>, IIntValue
     public virtual void SetValue(int value)
     {
         SetValueImpl(value);
-        if (OnValueChange != null)
-            OnValueChange.Invoke();
+        OnValueChange?.Invoke();
     }
 
     protected abstract void SetValueImpl(int value);
@@ -53,15 +52,13 @@ public abstract class BaseStat : IUserInfertaceDataProvider<BaseStat>, IIntValue
     public virtual void AddModifier(int value, ModifierType type, string name)
     {
         Modifiers.Add(new Modifier(value, type, name));
-        if (OnValueChange != null)
-            OnValueChange.Invoke();
+        OnValueChange?.Invoke();
     }
 
     public virtual void AddModifier(Modifier modifier)
     {
         Modifiers.Add(modifier);
-        if (OnValueChange != null)
-            OnValueChange.Invoke();
+        OnValueChange?.Invoke();
     }
 
     public virtual void AddModifiers(List<Modifier> modifiers)
@@ -72,15 +69,13 @@ public abstract class BaseStat : IUserInfertaceDataProvider<BaseStat>, IIntValue
     public virtual void RemoveModifiersOfType(ModifierType type)
     {
         Modifiers.RemoveAll(m => (m.Type & ModifierType.ALL) > 0);
-        if (OnValueChange != null)
-            OnValueChange.Invoke();
+        OnValueChange?.Invoke();
     }
 
     public virtual void RemoveModifier(Modifier modifier)
     {
         Modifiers.Remove(modifier);
-        if (OnValueChange != null)
-            OnValueChange.Invoke();
+        OnValueChange?.Invoke();
     }
 
     public virtual List<Modifier> GetModifiers()
