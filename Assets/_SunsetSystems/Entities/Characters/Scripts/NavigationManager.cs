@@ -276,6 +276,7 @@ namespace SunsetSystems.Entities.Characters.Navigation
             CurrentNavigationAI.isStopped = true;
             CurrentNavigationAI.velocity = Vector3.zero;
             CurrentNavigationAI.destination = CurrentNavigationAI.position;
+            CurrentNavigationAI.SearchPath();
         }
 
         public void SetNavigationEnabled(bool enabled)
