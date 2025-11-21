@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using SunsetSystems.Entities.Characters;
 using SunsetSystems.Inventory.Data;
@@ -6,6 +7,9 @@ namespace SunsetSystems.Equipment
 {
     public interface IEquipmentManager
     {
+        event Action<IEquipableItem> OnItemEquipped;
+        event Action<IEquipableItem> OnItemUnequipped;
+
         Dictionary<EquipmentSlotID, IEquipmentSlot> EquipmentSlots { get; }
         IEnumerable<IBaseItem> EquippedItems { get; }
         EquipmentSlotID GetSlotForItem(IEquipableItem item);

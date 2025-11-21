@@ -13,6 +13,17 @@ namespace SunsetSystems.Entities.Characters
 {
     public class EquipmentManager : SerializedMonoBehaviour, IEquipmentManager
     {
+        public event Action<IEquipableItem> OnItemEquipped
+        {
+            add => ItemEquipped.DynamicCalls += value;
+            remove => ItemEquipped.DynamicCalls -= value;
+        }
+        public event Action<IEquipableItem> OnItemUnequipped
+        {
+            add => ItemUnequipped.DynamicCalls += value;
+            remove => ItemUnequipped.DynamicCalls -= value;
+        }
+
         [field: Title("Data")]
         [field: OdinSerialize, DictionaryDrawerSettings(IsReadOnly = true)]
         public Dictionary<EquipmentSlotID, IEquipmentSlot> EquipmentSlots { get; private set; }

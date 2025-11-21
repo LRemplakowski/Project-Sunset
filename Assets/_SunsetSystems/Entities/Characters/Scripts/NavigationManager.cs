@@ -224,7 +224,7 @@ namespace SunsetSystems.Entities.Characters.Navigation
 
         private IEnumerator FaceTargetInTime(float time, Vector3 targetPosition)
         {
-            yield return new WaitUntil(() => IsMoving == false);
+            yield return new WaitUntil(() => CurrentNavigationAI.entityExists && IsMoving == false);
 
             Vector3 lookPosition = targetPosition - Position;
             lookPosition.y = 0;

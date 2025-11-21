@@ -30,9 +30,17 @@ namespace SunsetSystems.Journal
                 Objective.OnObjectiveActive += StartHandlingObjective;
                 Objective.OnObjectiveFailed += StopHandlingObjective;
                 Objective.OnObjectiveCompleted += StopHandlingObjective;
+                QuestJournal.OnObjectiveDataInjected += HandleObjectiveDataInjected;
             }
         }
 
+        private void HandleObjectiveDataInjected(HashSet<Objective> objectives)
+        {
+            if (objectives.Contains(objectiveToTrigger))
+            {
+                StartHandlingObjective(objectiveToTrigger);
+            }
+        }
 
         private void StartHandlingObjective(Objective obj)
         {

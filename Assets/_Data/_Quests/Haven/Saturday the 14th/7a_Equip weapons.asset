@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 03279901bf879054f8d0647bf2c35ae7, type: 3}
-  m_Name: 7_Grab gun and crowbar
+  m_Name: 7a_Equip weapons
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -21,14 +21,16 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  <DatabaseID>k__BackingField: bef05115-2ad3-4c2a-ba3b-2f14934b38cb
-  <ReadableID>k__BackingField: GRAB_WEAPONS
+  <DatabaseID>k__BackingField: b2bc291d-6c3e-4dda-99f9-a0788e5e6e69
+  <ReadableID>k__BackingField: EQUIP_WEAPONS
   IsOptional: 0
-  Description: Grab the gun and the crowbar
+  Description: 'Grab the gun and the crowbar
+
+    (Press ''I'' to open Inventory)'
   IsFirst: 0
   IsLast: 0
   ObjectivesToCancelOnCompletion: []
   NextObjectives:
-  - {fileID: 11400000, guid: ef95d1642c5452d48a2b939ffbfadf1f, type: 2}
+  - {fileID: 11400000, guid: 807d484c35768254dbbe05a7a3fb3995, type: 2}
   NextObjectivesOnFailed: []
   ObjectivesToCancelOnFail: []

@@ -21156,18 +21156,18 @@ MonoBehaviour:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
-    - {fileID: 4465382662236084939}
-    - {fileID: 405509940611007120}
-    - {fileID: 4950092096058045171}
     - {fileID: 7717312302181153061}
-    - {fileID: 5135634278718082678}
     - {fileID: 6216623185040811584}
-    - {fileID: 6810282402838054528}
-    - {fileID: 337944793638444894}
-    - {fileID: 8165350680761484523}
-    - {fileID: 8134098342766710913}
     - {fileID: 9004222733306578357}
     - {fileID: 3294543174635250179}
+    - {fileID: 405509940611007120}
+    - {fileID: 4465382662236084939}
+    - {fileID: 8134098342766710913}
+    - {fileID: 8165350680761484523}
+    - {fileID: 4950092096058045171}
+    - {fileID: 337944793638444894}
+    - {fileID: 5135634278718082678}
+    - {fileID: 6810282402838054528}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -21192,7 +21192,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: PC_KEVIN_SINK
+      Data: PC_KEVIN_ENTER
     - Name: $v
       Entry: 10
       Data: 0
@@ -21204,7 +21204,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: KEVIN_SINK_FIX
+      Data: AREA_START
     - Name: $v
       Entry: 10
       Data: 1
@@ -21216,7 +21216,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: DOMINIC_LEAVE_AREA
+      Data: KEVIN_ENTER_APARTMENT
     - Name: $v
       Entry: 10
       Data: 2
@@ -21228,7 +21228,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: PC_KEVIN_ENTER
+      Data: DOMINIC_ENTER_APARTMENT
     - Name: $v
       Entry: 10
       Data: 3
@@ -21240,7 +21240,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: TAKE_COVER
+      Data: KEVIN_SINK_FIX
     - Name: $v
       Entry: 10
       Data: 4
@@ -21252,7 +21252,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: AREA_START
+      Data: PC_KEVIN_SINK
     - Name: $v
       Entry: 10
       Data: 5
@@ -21264,7 +21264,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: DOMINIC_FRIDGE
+      Data: KIERAN_LOOK_AROUND
     - Name: $v
       Entry: 10
       Data: 6
@@ -21276,7 +21276,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: PC_FRIDGE
+      Data: KIERAN_ENTER_APARTMENT
     - Name: $v
       Entry: 10
       Data: 7
@@ -21288,7 +21288,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: KIERAN_ENTER_APARTMENT
+      Data: DOMINIC_LEAVE_AREA
     - Name: $v
       Entry: 10
       Data: 8
@@ -21300,7 +21300,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: KIERAN_LOOK_AROUND
+      Data: PC_FRIDGE
     - Name: $v
       Entry: 10
       Data: 9
@@ -21312,7 +21312,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: KEVIN_ENTER_APARTMENT
+      Data: TAKE_COVER
     - Name: $v
       Entry: 10
       Data: 10
@@ -21324,7 +21324,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: DOMINIC_ENTER_APARTMENT
+      Data: DOMINIC_FRIDGE
     - Name: $v
       Entry: 10
       Data: 11
@@ -26914,6 +26914,176 @@ MonoBehaviour:
     - Name: _references
       Entry: 10
       Data: 0
+--- !u!1 &1752194578
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1752194579}
+  - component: {fileID: 1752194583}
+  - component: {fileID: 1752194582}
+  - component: {fileID: 1752194581}
+  - component: {fileID: 1752194580}
+  m_Layer: 0
+  m_Name: Equip Weapons Listener
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1752194579
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1752194578}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 8913791207594431474}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1752194580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1752194578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8874757a7c4685f4c8aae425732e43af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _persistentComponents
+      Entry: 7
+      Data: 0|System.Collections.Generic.List`1[[SunsetSystems.Persistence.IPersistentComponent,
+        SunsetSystems]], mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  _unique: {fileID: 1752194581}
+  <EnablePersistence>k__BackingField: 1
+--- !u!114 &1752194581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1752194578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d1796f3dc38e334ca54f2b0a067111d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: 591f163d-eb50-42ef-a166-cb3d3bd97697
+--- !u!114 &1752194582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1752194578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fff1eb63144a134096107f86924352b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 11400000, guid: 4887b1be59d667f49b71ceca04bfbc70, type: 2}
+    - {fileID: 11400000, guid: 653f5e6fd8bd7b34f99db81072d803dc, type: 2}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _requiredItems
+      Entry: 7
+      Data: 0|SunsetSystems.Inventory.Data.IEquipableItem[], SunsetSystems
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  _creatureConfig: {fileID: 11400000, guid: 04c45fa704f378243ae6f449ef101ff1, type: 2}
+  _objective: {fileID: 11400000, guid: ef95d1642c5452d48a2b939ffbfadf1f, type: 2}
+--- !u!114 &1752194583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1752194578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fff1eb63144a134096107f86924352b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 11400000, guid: b48d208275eb99d4291ecfa3e000f4e7, type: 2}
+    - {fileID: 11400000, guid: 653f5e6fd8bd7b34f99db81072d803dc, type: 2}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _requiredItems
+      Entry: 7
+      Data: 0|SunsetSystems.Inventory.Data.IEquipableItem[], SunsetSystems
+    - Name: 
+      Entry: 12
+      Data: 2
+    - Name: 
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  _creatureConfig: {fileID: 11400000, guid: 04c45fa704f378243ae6f449ef101ff1, type: 2}
+  _objective: {fileID: 11400000, guid: ef95d1642c5452d48a2b939ffbfadf1f, type: 2}
 --- !u!1 &1752509035
 GameObject:
   m_ObjectHideFlags: 0
@@ -51640,6 +51810,7 @@ Transform:
   - {fileID: 913325699222817310}
   - {fileID: 4333023176966673641}
   - {fileID: 1789934804}
+  - {fileID: 1752194579}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &8914474204551719019
