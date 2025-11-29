@@ -46,27 +46,28 @@ namespace SunsetSystems.Abilities
         [Button]
         public bool TryLearnPower(IDisciplinePower power)
         {
-#if UNITY_EDITOR
-            if (!Application.isPlaying)
-            {
-                UnityEditor.EditorUtility.SetDirty(this);
-            }
-#endif
+            bool result = false;
             if (_knownPowers.TryGetValue(power.Discipline.ID, out var disciplineData) && disciplineData != null)
             {
                 if (power.Level > disciplineData.CurrentLevel)
                     disciplineData.SetCurrentLevel(power.Level);
-                return disciplineData.TryAddPower(power);
+                result = disciplineData.TryAddPower(power);
             }
             else
             {
                 disciplineData = new DisciplineData();
                 disciplineData.SetCurrentLevel(power.Level);
                 disciplineData.SetDisciplineAsset(power.Discipline);
-                bool result = disciplineData.TryAddPower(power);
+                result = disciplineData.TryAddPower(power);
                 _knownPowers[power.Discipline.ID] = disciplineData;
-                return result;
             }
+#if UNITY_EDITOR
+            if (!Application.isPlaying)
+            {
+                UnityEditor.EditorUtility.SetDirty(this);
+            }
+#endif
+            return result;
         }
 
         public IEnumerable<IAbilityConfig> GetAbilities()
