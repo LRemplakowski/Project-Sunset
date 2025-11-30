@@ -33,7 +33,8 @@ namespace SunsetSystems.Cinematics
         {
             if (_isPaused)
             {
-                _director.playableGraph.GetRootPlayable(0).SetSpeed(1);
+                if (_director.playableGraph.IsValid())
+                    _director.playableGraph.GetRootPlayable(0).SetSpeed(1);
                 _resumeRequests = 0;
                 _isPaused = false;
             }
@@ -47,7 +48,8 @@ namespace SunsetSystems.Cinematics
         {
             _isPaused = false;
             _resumeRequests = 0;
-            _director.playableGraph.GetRootPlayable(0).SetSpeed(1);
+            if (_director.playableGraph.IsValid())
+                _director.playableGraph.GetRootPlayable(0).SetSpeed(1);
         }
 
         public void SetDirector(PlayableDirector director)
