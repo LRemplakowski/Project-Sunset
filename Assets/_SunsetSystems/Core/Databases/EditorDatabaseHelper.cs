@@ -1,4 +1,5 @@
 #if UNITY_EDITOR
+using SunsetSystems.Abilities;
 using SunsetSystems.Journal;
 using SunsetSystems.WorldMap;
 
@@ -13,6 +14,7 @@ namespace SunsetSystems.Core.Database
         public static UMAWardrobeDatabase WardrobeDB { get; set; }
         public static WorldMapEntryDatabase WorldMapDB { get; set; }
         public static AbilityDatabase AbilityDB { get; set; }
+        public static DisciplineDatabase DisciplineDB { get; set; }
     }
 }
 #endif

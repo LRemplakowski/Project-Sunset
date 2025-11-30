@@ -1,0 +1,238 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cda5bb0b1d6800f418410dcc73a694b7, type: 3}
+  m_Name: Discipline Database
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects:
+    - {fileID: 11400000, guid: f2fa499c19327eb4bae90fc3d7c1767c, type: 2}
+    - {fileID: 11400000, guid: ea88190ae9919bb42b2753439206bbde, type: 2}
+    - {fileID: 11400000, guid: 17c4cb24cc4476c43a074e6523bdae93, type: 2}
+    - {fileID: 11400000, guid: 7b68e67c5c4747f4d8e9a2b1ebfb925d, type: 2}
+    - {fileID: 11400000, guid: 345380c614fc89e4f9d1c7ec7cfa0ca4, type: 2}
+    - {fileID: 11400000, guid: ed4918234cb4159418b9e8c69280991b, type: 2}
+    - {fileID: 11400000, guid: 7a7176fb02cd05e45a844489a1944282, type: 2}
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: _databaseRegistry
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[SunsetSystems.Abilities.IDisciplinePower,
+        SunsetSystems]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 7
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 82aa8acc-3a85-4687-b356-208c55992225
+    - Name: $v
+      Entry: 10
+      Data: 0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: a48bb637-70d5-4adf-8e5f-4fb15f79bd6c
+    - Name: $v
+      Entry: 10
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 8dc5df58-9193-44dc-b541-c2abd132fcfb
+    - Name: $v
+      Entry: 10
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 30dcbc60-963e-4d2d-8b8e-e83a9e8d01b0
+    - Name: $v
+      Entry: 10
+      Data: 3
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: 1d2fea70-4f90-499e-8d77-c779ecd23b4c
+    - Name: $v
+      Entry: 10
+      Data: 4
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: ea90d8f4-af6d-41c8-bb0c-b21e748ea00e
+    - Name: $v
+      Entry: 10
+      Data: 5
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: ab9d1dcd-488b-427b-b908-c50f5b33a461
+    - Name: $v
+      Entry: 10
+      Data: 6
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: _readableIDRegistry
+      Entry: 7
+      Data: 2|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[System.String,
+        mscorlib]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 3|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
+        mscorlib]], mscorlib
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 7
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: AB_PR_AWE
+    - Name: $v
+      Entry: 1
+      Data: 82aa8acc-3a85-4687-b356-208c55992225
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: AB_DM_CLOUD_MEMORY
+    - Name: $v
+      Entry: 1
+      Data: a48bb637-70d5-4adf-8e5f-4fb15f79bd6c
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: AB_DM_MESMERIZE
+    - Name: $v
+      Entry: 1
+      Data: 8dc5df58-9193-44dc-b541-c2abd132fcfb
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: AB_BS_BLOOD_BOIL
+    - Name: $v
+      Entry: 1
+      Data: 30dcbc60-963e-4d2d-8b8e-e83a9e8d01b0
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: AB_BS_BLOOD_BOLT
+    - Name: $v
+      Entry: 1
+      Data: 1d2fea70-4f90-499e-8d77-c779ecd23b4c
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: AB_OB_OBLIVION_TOUCH
+    - Name: $v
+      Entry: 1
+      Data: ea90d8f4-af6d-41c8-bb0c-b21e748ea00e
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 1
+      Data: AB_PT_EARTSHOCK
+    - Name: $v
+      Entry: 1
+      Data: ab9d1dcd-488b-427b-b908-c50f5b33a461
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 

@@ -25,19 +25,19 @@ namespace SunsetSystems.Abilities
 
         public bool TryLearnPower(string powerID)
         {
-            var abDatabase = AbilityDatabase.Instance;
-            if (abDatabase == null)
+            var powerDB = DisciplineDatabase.Instance;
+            if (powerDB == null)
             {
-                Debug.LogError($"{nameof(SpellbookManager)} >>> Ability Database is null! Cannot learn new powers!", gameObject);
+                Debug.LogError($"{nameof(SpellbookManager)} >>> {nameof(DisciplineDatabase)} is null! Cannot learn new powers!", gameObject);
                 return false;
             }
-            if (TryGetAbilityFromDatabase(abDatabase, powerID, out var ability) && ability is IDisciplinePower disciplinePower)
+            if (TryGetPowerFromDatabase(powerDB, powerID, out var ability))
             {
-                return TryLearnPower(disciplinePower);
+                return TryLearnPower(ability);
             }
             return false;
 
-            static bool TryGetAbilityFromDatabase(AbilityDatabase abDatabase, string abilityID, out IAbilityConfig ability)
+            static bool TryGetPowerFromDatabase(DisciplineDatabase abDatabase, string abilityID, out IDisciplinePower ability)
             {
                 return abDatabase.TryGetEntry(abilityID, out ability) || abDatabase.TryGetEntryByReadableID(abilityID, out ability);
             }

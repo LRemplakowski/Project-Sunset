@@ -43,10 +43,11 @@ namespace SunsetSystems.Core.Database
             UnityEditor.EditorUtility.SetDirty(this);
             _databaseRegistry = new();
             _readableIDRegistry = new();
-            foreach (string guid in UnityEditor.AssetDatabase.FindAssets("t:ScriptableObject"))
+            string[] assetPaths = UnityEditor.AssetDatabase.FindAssets("t:ScriptableObject");
+            foreach (string guid in assetPaths)
             {
                 string path = UnityEditor.AssetDatabase.GUIDToAssetPath(guid);
-                var item = UnityEditor.AssetDatabase.LoadAssetAtPath<Object>(path);
+                var item = UnityEditor.AssetDatabase.LoadAssetAtPath<ScriptableObject>(path);
                 if (item is T typedItem)
                     Register(typedItem);
             }

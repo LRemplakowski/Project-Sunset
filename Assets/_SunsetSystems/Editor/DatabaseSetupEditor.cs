@@ -1,5 +1,6 @@
 using Sirenix.OdinInspector;
 using Sirenix.OdinInspector.Editor;
+using SunsetSystems.Abilities;
 using SunsetSystems.Core.Database;
 using SunsetSystems.Journal;
 using SunsetSystems.WorldMap;
@@ -32,6 +33,8 @@ namespace SunsetSystems.Editor
         public WorldMapEntryDatabase WorldMapDatabase;
         [AssetsOnly]
         public AbilityDatabase AbilityDatabase;
+        [AssetsOnly]
+        public DisciplineDatabase DisciplineDatabase;
 
         [MenuItem("Tools/Database Setup")]
         public static void OpenWindow()
@@ -71,6 +74,8 @@ namespace SunsetSystems.Editor
             WorldMapDatabase = AssetDatabase.LoadAssetAtPath<WorldMapEntryDatabase>(worldMapPath);
             string abilityPath = EditorPrefs.GetString("AbilityDatabase");
             AbilityDatabase = AssetDatabase.LoadAssetAtPath<AbilityDatabase>(abilityPath);
+            string disciplinePath = EditorPrefs.GetString("DisciplineDatabase");
+            DisciplineDatabase = AssetDatabase.LoadAssetAtPath<DisciplineDatabase>(disciplinePath);
         }
 
         private void SaveDatabaseReferences()
@@ -89,6 +94,8 @@ namespace SunsetSystems.Editor
             EditorPrefs.SetString("WorldMapDatabase", worldMapPath);
             string abilityPath = AssetDatabase.GetAssetPath(AbilityDatabase);
             EditorPrefs.SetString("AbilityDatabase", abilityPath);
+            string disciplinePath = AssetDatabase.GetAssetPath(DisciplineDatabase);
+            EditorPrefs.SetString("DisciplineDatabase", disciplinePath);
         }
 
         private void UpdateStaticReferences()
@@ -101,6 +108,7 @@ namespace SunsetSystems.Editor
             EditorDatabaseHelper.WardrobeDB = WardrobeDatabase;
             EditorDatabaseHelper.WorldMapDB = WorldMapDatabase;
             EditorDatabaseHelper.AbilityDB = AbilityDatabase;
+            EditorDatabaseHelper.DisciplineDB = DisciplineDatabase;
         }
     }
 }

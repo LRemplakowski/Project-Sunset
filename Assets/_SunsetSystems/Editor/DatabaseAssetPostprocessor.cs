@@ -1,3 +1,4 @@
+using SunsetSystems.Abilities;
 using SunsetSystems.Core.Database;
 using SunsetSystems.Journal;
 using SunsetSystems.WorldMap;
@@ -23,10 +24,12 @@ namespace SunsetSystems.Editor
             EditorDatabaseHelper.WorldMapDB = AssetDatabase.LoadAssetAtPath<WorldMapEntryDatabase>(worldMapPath);
             string abilityPath = EditorPrefs.GetString("AbilityDatabase");
             EditorDatabaseHelper.AbilityDB = AssetDatabase.LoadAssetAtPath<AbilityDatabase>(abilityPath);
+            string disciplinePath = EditorPrefs.GetString("DisciplineDatabase");
+            EditorDatabaseHelper.DisciplineDB = AssetDatabase.LoadAssetAtPath<DisciplineDatabase>(disciplinePath);
         }
 
         [InitializeOnEnterPlayMode]
-        private static void OnEnterPlayMode()
+        public static void OnEnterPlayMode()
         {
             string itemPath = EditorPrefs.GetString("ItemDatabase");
             EditorDatabaseHelper.ItemDB = AssetDatabase.LoadAssetAtPath<ItemDatabase>(itemPath);
@@ -42,6 +45,8 @@ namespace SunsetSystems.Editor
             EditorDatabaseHelper.WorldMapDB = AssetDatabase.LoadAssetAtPath<WorldMapEntryDatabase>(worldMapPath);
             string abilityPath = EditorPrefs.GetString("AbilityDatabase");
             EditorDatabaseHelper.AbilityDB = AssetDatabase.LoadAssetAtPath<AbilityDatabase>(abilityPath);
+            string disciplinePath = EditorPrefs.GetString("DisciplineDatabase");
+            EditorDatabaseHelper.DisciplineDB = AssetDatabase.LoadAssetAtPath<DisciplineDatabase>(disciplinePath);
         }
     }
 }

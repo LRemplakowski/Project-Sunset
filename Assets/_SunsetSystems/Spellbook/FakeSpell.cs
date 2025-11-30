@@ -26,5 +26,8 @@ namespace SunsetSystems.Abilities
         public string Description => _description;
         public IDiscipline Discipline => _discipline;
         public int Level => _level;
+
+        public string DatabaseID => _id.ToString();
+        public string ReadableID => _uniqueScriptName;
     }
 }

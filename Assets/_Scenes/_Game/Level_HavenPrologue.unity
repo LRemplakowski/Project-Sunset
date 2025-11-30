@@ -21160,18 +21160,18 @@ MonoBehaviour:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
+    - {fileID: 7717312302181153061}
+    - {fileID: 3294543174635250179}
     - {fileID: 8165350680761484523}
-    - {fileID: 8134098342766710913}
-    - {fileID: 6216623185040811584}
+    - {fileID: 9004222733306578357}
     - {fileID: 6810282402838054528}
     - {fileID: 337944793638444894}
-    - {fileID: 4465382662236084939}
-    - {fileID: 3294543174635250179}
-    - {fileID: 5135634278718082678}
-    - {fileID: 405509940611007120}
     - {fileID: 4950092096058045171}
-    - {fileID: 7717312302181153061}
-    - {fileID: 9004222733306578357}
+    - {fileID: 5135634278718082678}
+    - {fileID: 4465382662236084939}
+    - {fileID: 6216623185040811584}
+    - {fileID: 8134098342766710913}
+    - {fileID: 405509940611007120}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -21196,7 +21196,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: KIERAN_ENTER_APARTMENT
+      Data: PC_KEVIN_ENTER
     - Name: $v
       Entry: 10
       Data: 0
@@ -21208,7 +21208,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: KIERAN_LOOK_AROUND
+      Data: DOMINIC_ENTER_APARTMENT
     - Name: $v
       Entry: 10
       Data: 1
@@ -21220,7 +21220,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: AREA_START
+      Data: KIERAN_ENTER_APARTMENT
     - Name: $v
       Entry: 10
       Data: 2
@@ -21232,7 +21232,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: DOMINIC_FRIDGE
+      Data: KEVIN_ENTER_APARTMENT
     - Name: $v
       Entry: 10
       Data: 3
@@ -21244,7 +21244,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: PC_FRIDGE
+      Data: DOMINIC_FRIDGE
     - Name: $v
       Entry: 10
       Data: 4
@@ -21256,7 +21256,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: PC_KEVIN_SINK
+      Data: PC_FRIDGE
     - Name: $v
       Entry: 10
       Data: 5
@@ -21268,7 +21268,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: DOMINIC_ENTER_APARTMENT
+      Data: DOMINIC_LEAVE_AREA
     - Name: $v
       Entry: 10
       Data: 6
@@ -21292,7 +21292,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: KEVIN_SINK_FIX
+      Data: PC_KEVIN_SINK
     - Name: $v
       Entry: 10
       Data: 8
@@ -21304,7 +21304,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: DOMINIC_LEAVE_AREA
+      Data: AREA_START
     - Name: $v
       Entry: 10
       Data: 9
@@ -21316,7 +21316,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: PC_KEVIN_ENTER
+      Data: KIERAN_LOOK_AROUND
     - Name: $v
       Entry: 10
       Data: 10
@@ -21328,7 +21328,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: KEVIN_ENTER_APARTMENT
+      Data: KEVIN_SINK_FIX
     - Name: $v
       Entry: 10
       Data: 11
@@ -37997,18 +37997,6 @@ MonoBehaviour:
         _Object: {fileID: 0}
   OnNodeFinished:
     _PersistentCalls: []
---- !u!114 &3116861794953061366
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4880877536459193092}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd3f36d87db2ac447a3cb25339c61571, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &3173252531478833748 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4521848638175450508, guid: f8ef004012fdb10459a4f1fff0b67dae, type: 3}
@@ -42985,7 +42973,6 @@ GameObject:
   - component: {fileID: 1568645767999076322}
   - component: {fileID: 4445131781079220459}
   - component: {fileID: 2283024211525027516}
-  - component: {fileID: 3116861794953061366}
   m_Layer: 0
   m_Name: HavenSceneLogic
   m_TagString: Untagged
