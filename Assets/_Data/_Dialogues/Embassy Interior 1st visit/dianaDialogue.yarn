@@ -58,8 +58,8 @@ title: dianaApproachedSuccess
 {$diana}: Better than you, I bet. How much do you remember about last night, exactly? #success #line:06d8310 
 -> {$pcName}: Enough to know things got pretty crazy. #line:0032d67 
 {$diana}: [nomarkup][Chuckling][/nomarkup] That's a description for it... “Absolutely bloody mental” is another.  
-{$diana}: Say, want to come by my office for a drink?
 <<set $dianaOffice to true>>
+{$diana}: Say, want to come by my office for a drink? #lastline
 <<jump dianaInvitation>>
 ===
 title: dianaApproachedFailure
@@ -70,8 +70,8 @@ title: dianaApproachedFailure
 title: dianaThreatenedSuccess
 ---
 {$diana}: What in the bloody- #success #line:05b323b
-{$diana}: Let's take this to my office. I don't field complaints in a public forum. #line:0a48e2c
 <<set $dianaOffice to true>>
+{$diana}: Let's take this to my office. I don't field complaints in a public forum. #line:0a48e2c #lastline
 <<jump dianaInvitation>>
 ===
 title: dianaThreatenedFailure
@@ -82,7 +82,7 @@ title: dianaThreatenedFailure
 ===
 title: dianaInvitation
 ---
--> {$pcName}: Sure thing #line:0130b72 
+-> {$pcName}: Sure thing. #line:0130b72 
 ===
 title: blownOffByDiana
 ---
