@@ -109,6 +109,7 @@ namespace SunsetSystems.Party
             return _coterieMemberKeysCache.Contains(key);
         }
 
+        [Button]
         public async void StartPlayerParty()
         {
             if (string.IsNullOrWhiteSpace(_mainCharacterKey))

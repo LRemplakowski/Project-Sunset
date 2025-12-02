@@ -334,12 +334,14 @@ namespace SunsetSystems.Animation
                 var stateHash = animatorData.AnimatorStateData[key];
                 animator.Play(stateHash, key);
             }
+            SetIsDead(animatorData.IsDead);
         }
 
         [Serializable]
         public class AnimatorPersistenceData
         {
             public Dictionary<int, int> AnimatorStateData;
+            public bool IsDead;
 
             public AnimatorPersistenceData(AnimationManager animationManager)
             {
@@ -348,11 +350,13 @@ namespace SunsetSystems.Animation
                 {
                     AnimatorStateData[i] = animationManager.animator.GetCurrentAnimatorStateInfo(i).shortNameHash;
                 }
+                IsDead = animationManager.animator.GetBool(animationManager._isDeadAnimationParamHash);
             }
 
             public AnimatorPersistenceData()
             {
                 AnimatorStateData = new();
+                IsDead = false;
             }
         }
     }

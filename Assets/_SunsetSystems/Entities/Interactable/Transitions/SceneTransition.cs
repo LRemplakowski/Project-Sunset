@@ -50,12 +50,13 @@ namespace SunsetSystems.Core.SceneLoading
             LevelLoader.OnAfterScreenFadeOut -= InvokeAfterFadeOut;
         }
 
+        [Button]
         public void TriggerTransition()
         {
             HandleInteraction(null);
         }
 
-        public bool HandleInteraction(IActionPerformer interactee)
+        public bool HandleInteraction(IActionPerformer _)
         {
             Debug.Log("Interacting with area transition!");
             switch (_type)
