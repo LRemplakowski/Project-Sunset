@@ -467,15 +467,6 @@ public partial class @PlayerInputMapping: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Forward Dialogue"",
-                    ""type"": ""Button"",
-                    ""id"": ""3e128fb0-89e6-48de-8215-96a35ed4c387"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""MiddleClick"",
                     ""type"": ""PassThrough"",
                     ""id"": ""6ae20f30-b82c-4237-8d29-512907a6f615"",
@@ -829,17 +820,6 @@ public partial class @PlayerInputMapping: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""bfb82841-5e41-419f-b251-7b84a7686d83"",
-                    ""path"": ""<Keyboard>/space"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Forward Dialogue"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""afc345bb-230b-413c-8fb1-f1474c7f300c"",
                     ""path"": ""<Mouse>/middleButton"",
                     ""interactions"": """",
@@ -980,7 +960,7 @@ public partial class @PlayerInputMapping: IInputActionCollection2, IDisposable
             ]
         },
         {
-            ""name"": ""ShortcutsPopup"",
+            ""name"": ""Shortcuts Popup"",
             ""id"": ""c8c64f62-4a50-49b6-a4de-a59e4020add4"",
             ""actions"": [
                 {
@@ -1002,6 +982,45 @@ public partial class @PlayerInputMapping: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",
                     ""action"": ""Escape"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Dialogue"",
+            ""id"": ""03ffbf14-3a55-4bc7-92df-123cb12a497f"",
+            ""actions"": [
+                {
+                    ""name"": ""Forward Dialogue"",
+                    ""type"": ""Button"",
+                    ""id"": ""5f385b8e-9bfa-430c-a235-9ff15612c846"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""4d61017a-115a-4694-a4a1-cd5e5b6c389a"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Forward Dialogue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""41bf72a6-98a0-46ba-a0b6-dd7aba9e297c"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Forward Dialogue"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1090,7 +1109,6 @@ public partial class @PlayerInputMapping: IInputActionCollection2, IDisposable
         m_UI_ScrollWheel = m_UI.FindAction("ScrollWheel", throwIfNotFound: true);
         m_UI_RightClick = m_UI.FindAction("RightClick", throwIfNotFound: true);
         m_UI_Submit = m_UI.FindAction("Submit", throwIfNotFound: true);
-        m_UI_ForwardDialogue = m_UI.FindAction("Forward Dialogue", throwIfNotFound: true);
         m_UI_MiddleClick = m_UI.FindAction("MiddleClick", throwIfNotFound: true);
         // Shortcuts
         m_Shortcuts = asset.FindActionMap("Shortcuts", throwIfNotFound: true);
@@ -1100,9 +1118,12 @@ public partial class @PlayerInputMapping: IInputActionCollection2, IDisposable
         m_Shortcuts_CharacterSheet = m_Shortcuts.FindAction("CharacterSheet", throwIfNotFound: true);
         m_Shortcuts_Inventory = m_Shortcuts.FindAction("Inventory", throwIfNotFound: true);
         m_Shortcuts_Journal = m_Shortcuts.FindAction("Journal", throwIfNotFound: true);
-        // ShortcutsPopup
-        m_ShortcutsPopup = asset.FindActionMap("ShortcutsPopup", throwIfNotFound: true);
+        // Shortcuts Popup
+        m_ShortcutsPopup = asset.FindActionMap("Shortcuts Popup", throwIfNotFound: true);
         m_ShortcutsPopup_Escape = m_ShortcutsPopup.FindAction("Escape", throwIfNotFound: true);
+        // Dialogue
+        m_Dialogue = asset.FindActionMap("Dialogue", throwIfNotFound: true);
+        m_Dialogue_ForwardDialogue = m_Dialogue.FindAction("Forward Dialogue", throwIfNotFound: true);
     }
 
     ~@PlayerInputMapping()
@@ -1111,6 +1132,7 @@ public partial class @PlayerInputMapping: IInputActionCollection2, IDisposable
         UnityEngine.Debug.Assert(!m_UI.enabled, "This will cause a leak and performance issues, PlayerInputMapping.UI.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_Shortcuts.enabled, "This will cause a leak and performance issues, PlayerInputMapping.Shortcuts.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_ShortcutsPopup.enabled, "This will cause a leak and performance issues, PlayerInputMapping.ShortcutsPopup.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_Dialogue.enabled, "This will cause a leak and performance issues, PlayerInputMapping.Dialogue.Disable() has not been called.");
     }
 
     /// <summary>
@@ -1366,7 +1388,6 @@ public partial class @PlayerInputMapping: IInputActionCollection2, IDisposable
     private readonly InputAction m_UI_ScrollWheel;
     private readonly InputAction m_UI_RightClick;
     private readonly InputAction m_UI_Submit;
-    private readonly InputAction m_UI_ForwardDialogue;
     private readonly InputAction m_UI_MiddleClick;
     /// <summary>
     /// Provides access to input actions defined in input action map "UI".
@@ -1407,10 +1428,6 @@ public partial class @PlayerInputMapping: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "UI/Submit".
         /// </summary>
         public InputAction @Submit => m_Wrapper.m_UI_Submit;
-        /// <summary>
-        /// Provides access to the underlying input action "UI/ForwardDialogue".
-        /// </summary>
-        public InputAction @ForwardDialogue => m_Wrapper.m_UI_ForwardDialogue;
         /// <summary>
         /// Provides access to the underlying input action "UI/MiddleClick".
         /// </summary>
@@ -1462,9 +1479,6 @@ public partial class @PlayerInputMapping: IInputActionCollection2, IDisposable
             @Submit.started += instance.OnSubmit;
             @Submit.performed += instance.OnSubmit;
             @Submit.canceled += instance.OnSubmit;
-            @ForwardDialogue.started += instance.OnForwardDialogue;
-            @ForwardDialogue.performed += instance.OnForwardDialogue;
-            @ForwardDialogue.canceled += instance.OnForwardDialogue;
             @MiddleClick.started += instance.OnMiddleClick;
             @MiddleClick.performed += instance.OnMiddleClick;
             @MiddleClick.canceled += instance.OnMiddleClick;
@@ -1500,9 +1514,6 @@ public partial class @PlayerInputMapping: IInputActionCollection2, IDisposable
             @Submit.started -= instance.OnSubmit;
             @Submit.performed -= instance.OnSubmit;
             @Submit.canceled -= instance.OnSubmit;
-            @ForwardDialogue.started -= instance.OnForwardDialogue;
-            @ForwardDialogue.performed -= instance.OnForwardDialogue;
-            @ForwardDialogue.canceled -= instance.OnForwardDialogue;
             @MiddleClick.started -= instance.OnMiddleClick;
             @MiddleClick.performed -= instance.OnMiddleClick;
             @MiddleClick.canceled -= instance.OnMiddleClick;
@@ -1691,12 +1702,12 @@ public partial class @PlayerInputMapping: IInputActionCollection2, IDisposable
     /// </summary>
     public ShortcutsActions @Shortcuts => new ShortcutsActions(this);
 
-    // ShortcutsPopup
+    // Shortcuts Popup
     private readonly InputActionMap m_ShortcutsPopup;
     private List<IShortcutsPopupActions> m_ShortcutsPopupActionsCallbackInterfaces = new List<IShortcutsPopupActions>();
     private readonly InputAction m_ShortcutsPopup_Escape;
     /// <summary>
-    /// Provides access to input actions defined in input action map "ShortcutsPopup".
+    /// Provides access to input actions defined in input action map "Shortcuts Popup".
     /// </summary>
     public struct ShortcutsPopupActions
     {
@@ -1786,6 +1797,102 @@ public partial class @PlayerInputMapping: IInputActionCollection2, IDisposable
     /// Provides a new <see cref="ShortcutsPopupActions" /> instance referencing this action map.
     /// </summary>
     public ShortcutsPopupActions @ShortcutsPopup => new ShortcutsPopupActions(this);
+
+    // Dialogue
+    private readonly InputActionMap m_Dialogue;
+    private List<IDialogueActions> m_DialogueActionsCallbackInterfaces = new List<IDialogueActions>();
+    private readonly InputAction m_Dialogue_ForwardDialogue;
+    /// <summary>
+    /// Provides access to input actions defined in input action map "Dialogue".
+    /// </summary>
+    public struct DialogueActions
+    {
+        private @PlayerInputMapping m_Wrapper;
+
+        /// <summary>
+        /// Construct a new instance of the input action map wrapper class.
+        /// </summary>
+        public DialogueActions(@PlayerInputMapping wrapper) { m_Wrapper = wrapper; }
+        /// <summary>
+        /// Provides access to the underlying input action "Dialogue/ForwardDialogue".
+        /// </summary>
+        public InputAction @ForwardDialogue => m_Wrapper.m_Dialogue_ForwardDialogue;
+        /// <summary>
+        /// Provides access to the underlying input action map instance.
+        /// </summary>
+        public InputActionMap Get() { return m_Wrapper.m_Dialogue; }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
+        public void Enable() { Get().Enable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
+        public void Disable() { Get().Disable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
+        public bool enabled => Get().enabled;
+        /// <summary>
+        /// Implicitly converts an <see ref="DialogueActions" /> to an <see ref="InputActionMap" /> instance.
+        /// </summary>
+        public static implicit operator InputActionMap(DialogueActions set) { return set.Get(); }
+        /// <summary>
+        /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <param name="instance">Callback instance.</param>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
+        /// </remarks>
+        /// <seealso cref="DialogueActions" />
+        public void AddCallbacks(IDialogueActions instance)
+        {
+            if (instance == null || m_Wrapper.m_DialogueActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_DialogueActionsCallbackInterfaces.Add(instance);
+            @ForwardDialogue.started += instance.OnForwardDialogue;
+            @ForwardDialogue.performed += instance.OnForwardDialogue;
+            @ForwardDialogue.canceled += instance.OnForwardDialogue;
+        }
+
+        /// <summary>
+        /// Removes <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <remarks>
+        /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
+        /// </remarks>
+        /// <seealso cref="DialogueActions" />
+        private void UnregisterCallbacks(IDialogueActions instance)
+        {
+            @ForwardDialogue.started -= instance.OnForwardDialogue;
+            @ForwardDialogue.performed -= instance.OnForwardDialogue;
+            @ForwardDialogue.canceled -= instance.OnForwardDialogue;
+        }
+
+        /// <summary>
+        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="DialogueActions.UnregisterCallbacks(IDialogueActions)" />.
+        /// </summary>
+        /// <seealso cref="DialogueActions.UnregisterCallbacks(IDialogueActions)" />
+        public void RemoveCallbacks(IDialogueActions instance)
+        {
+            if (m_Wrapper.m_DialogueActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        /// <summary>
+        /// Replaces all existing callback instances and previously registered input action callbacks associated with them with callbacks provided via <param cref="instance" />.
+        /// </summary>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
+        /// </remarks>
+        /// <seealso cref="DialogueActions.AddCallbacks(IDialogueActions)" />
+        /// <seealso cref="DialogueActions.RemoveCallbacks(IDialogueActions)" />
+        /// <seealso cref="DialogueActions.UnregisterCallbacks(IDialogueActions)" />
+        public void SetCallbacks(IDialogueActions instance)
+        {
+            foreach (var item in m_Wrapper.m_DialogueActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_DialogueActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    /// <summary>
+    /// Provides a new <see cref="DialogueActions" /> instance referencing this action map.
+    /// </summary>
+    public DialogueActions @Dialogue => new DialogueActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     /// <summary>
     /// Provides access to the input control scheme.
@@ -1972,13 +2079,6 @@ public partial class @PlayerInputMapping: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnSubmit(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "Forward Dialogue" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnForwardDialogue(InputAction.CallbackContext context);
-        /// <summary>
         /// Method invoked when associated input action "MiddleClick" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
@@ -2037,7 +2137,7 @@ public partial class @PlayerInputMapping: IInputActionCollection2, IDisposable
         void OnJournal(InputAction.CallbackContext context);
     }
     /// <summary>
-    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "ShortcutsPopup" which allows adding and removing callbacks.
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Shortcuts Popup" which allows adding and removing callbacks.
     /// </summary>
     /// <seealso cref="ShortcutsPopupActions.AddCallbacks(IShortcutsPopupActions)" />
     /// <seealso cref="ShortcutsPopupActions.RemoveCallbacks(IShortcutsPopupActions)" />
@@ -2050,5 +2150,20 @@ public partial class @PlayerInputMapping: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnEscape(InputAction.CallbackContext context);
+    }
+    /// <summary>
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Dialogue" which allows adding and removing callbacks.
+    /// </summary>
+    /// <seealso cref="DialogueActions.AddCallbacks(IDialogueActions)" />
+    /// <seealso cref="DialogueActions.RemoveCallbacks(IDialogueActions)" />
+    public interface IDialogueActions
+    {
+        /// <summary>
+        /// Method invoked when associated input action "Forward Dialogue" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnForwardDialogue(InputAction.CallbackContext context);
     }
 }

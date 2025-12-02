@@ -20,6 +20,7 @@ public class SunsetInputHandler : SerializedMonoBehaviour, IGlobalInput
 
     public const string PLAYER_MAP = "Player";
     public const string UI_MAP = "UI";
+    public const string DIALOGUE_MAP = "Dialogue";
     public const string SHORTCUTS_MAP = "Shortcuts";
     public const string SHORTCUTS_POPUP_MAP = "Shortcuts Popup";
 
@@ -79,8 +80,10 @@ public class SunsetInputHandler : SerializedMonoBehaviour, IGlobalInput
             return;
         }
         _playerInput.actions.Disable();
+        //_playerInput.actions.actionMaps.ForEach(map => _inputMaps[map.name] = map);
         _inputMaps[PLAYER_MAP] = _playerInput.actions.FindActionMap(PLAYER_MAP, true);
         _inputMaps[UI_MAP] = _playerInput.actions.FindActionMap(UI_MAP, true);
+        _inputMaps[DIALOGUE_MAP] = _playerInput.actions.FindActionMap(DIALOGUE_MAP, true);
         _inputMaps[SHORTCUTS_MAP] = _playerInput.actions.FindActionMap(SHORTCUTS_MAP, true);
         _inputMaps[SHORTCUTS_POPUP_MAP] = _playerInput.actions.FindActionMap(SHORTCUTS_POPUP_MAP, true);
         GameManager.OnGameStateChanged += OnGameStateChanged;
@@ -117,7 +120,7 @@ public class SunsetInputHandler : SerializedMonoBehaviour, IGlobalInput
         {
             GameState.Exploration => new string[] { PLAYER_MAP, UI_MAP, SHORTCUTS_MAP },
             GameState.Combat => new string[] { PLAYER_MAP, UI_MAP, SHORTCUTS_MAP },
-            GameState.Dialogue => new string[] { UI_MAP },
+            GameState.Dialogue => new string[] { UI_MAP, DIALOGUE_MAP },
             GameState.MainMenu => new string[] { UI_MAP, SHORTCUTS_MAP },
             GameState.GamePaused => new string[] { UI_MAP, SHORTCUTS_MAP },
             GameState.WorldMap => new string[] { PLAYER_MAP, UI_MAP },

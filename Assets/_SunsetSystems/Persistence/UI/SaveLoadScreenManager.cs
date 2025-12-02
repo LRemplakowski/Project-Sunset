@@ -2,6 +2,7 @@ using System.Linq;
 using Sirenix.OdinInspector;
 using SunsetSystems.Combat;
 using SunsetSystems.Core.SceneLoading;
+using SunsetSystems.Dialogue;
 using SunsetSystems.UI.Utils;
 using UnityEngine;
 using UnityEngine.UI;
@@ -38,7 +39,7 @@ namespace SunsetSystems.Persistence.UI
         {
             if (_newSaveButton != null)
             {
-                _newSaveButton.interactable = CombatManager.Instance == null || !CombatManager.Instance.HasActiveEncounter;
+                _newSaveButton.interactable = CanCreateNewSave();
             }
         }
 
@@ -48,7 +49,22 @@ namespace SunsetSystems.Persistence.UI
             _newSaveConfirmationPopup.Hide();
             if (_newSaveButton != null)
             {
-                _newSaveButton.interactable = CombatManager.Instance == null || !CombatManager.Instance.HasActiveEncounter;
+                _newSaveButton.interactable = CanCreateNewSave();
+            }
+        }
+
+        private static bool CanCreateNewSave()
+        {
+            return IsNotInCombat() && IsNotRunningDialogue();
+
+            static bool IsNotInCombat()
+            {
+                return CombatManager.Instance == null || !CombatManager.Instance.HasActiveEncounter;
+            }
+
+            static bool IsNotRunningDialogue()
+            {
+                return DialogueManager.Instance == null || !DialogueManager.Instance.IsRunningDialogue;
             }
         }
 

@@ -381,15 +381,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Forward Dialogue",
-                    "type": "Button",
-                    "id": "3e128fb0-89e6-48de-8215-96a35ed4c387",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "MiddleClick",
                     "type": "PassThrough",
                     "id": "6ae20f30-b82c-4237-8d29-512907a6f615",
@@ -743,17 +734,6 @@
                 },
                 {
                     "name": "",
-                    "id": "bfb82841-5e41-419f-b251-7b84a7686d83",
-                    "path": "<Keyboard>/space",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Forward Dialogue",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "afc345bb-230b-413c-8fb1-f1474c7f300c",
                     "path": "<Mouse>/middleButton",
                     "interactions": "",
@@ -916,6 +896,45 @@
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
                     "action": "Escape",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Dialogue",
+            "id": "03ffbf14-3a55-4bc7-92df-123cb12a497f",
+            "actions": [
+                {
+                    "name": "Forward Dialogue",
+                    "type": "Button",
+                    "id": "5f385b8e-9bfa-430c-a235-9ff15612c846",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "4d61017a-115a-4694-a4a1-cd5e5b6c389a",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Forward Dialogue",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "41bf72a6-98a0-46ba-a0b6-dd7aba9e297c",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Forward Dialogue",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
