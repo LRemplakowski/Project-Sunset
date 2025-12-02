@@ -16,6 +16,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using Yarn.Unity;
 
@@ -57,6 +58,8 @@ namespace SunsetSystems.Dialogue
         private TextMeshProUGUI _photoText;
         [SerializeField]
         private List<OptionView> _optionViews;
+        [SerializeField]
+        private List<InputActionReference> _quickSelectActions;
 
         private StringBuilder _lineHistoryStringBuilder = new();
 
@@ -295,6 +298,7 @@ namespace SunsetSystems.Dialogue
         public override void RunOptions(DialogueOption[] dialogueOptions, Action<int> onOptionSelected)
         {
             _clampScrollbarNextFrame = true;
+            int visibleOptionIndex = 0;
             for (int i = 0; i < dialogueOptions.Length; i++)
             {
                 DialogueOption option = dialogueOptions[i];
@@ -310,19 +314,27 @@ namespace SunsetSystems.Dialogue
                 }
                 OptionView optionView = Instantiate(_optionViewPrefab, _optionParent);
                 optionView.transform.SetAsLastSibling();
+                optionView.OptionIndex = visibleOptionIndex;
                 optionView.OnOptionSelected = OptionViewWasSelected;
+                if (_quickSelectActions != null && visibleOptionIndex < _quickSelectActions.Count)
+                {
+                    var inputAction = _quickSelectActions[visibleOptionIndex];
+                    optionView.SetQuickSelectAction(inputAction);
+                }
                 _optionViews.Add(optionView);
                 optionView.Option = option;
                 optionView.interactable = option.IsAvailable;
                 optionView.gameObject.SetActive(true);
+                visibleOptionIndex++;
             }
             _optionsPresented = true;
             OnOptionsPresented?.Invoke();
             OnOptionSelected = onOptionSelected;
 
-            async void OptionViewWasSelected(DialogueOption option)
+            async void OptionViewWasSelected(IOptionEventData eventData)
             {
                 CleanupOptions();
+                var option = eventData.Option;
                 if (option.Line.CharacterName != null)
                 {
                     string formattedLineText = BuildFormattedText(option.Line);

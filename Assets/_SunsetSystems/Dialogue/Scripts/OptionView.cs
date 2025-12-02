@@ -1,23 +1,40 @@
 using System;
-using System.Text;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using Yarn.Unity;
 
 namespace SunsetSystems.Dialogue
 {
-    public class OptionView : Selectable, ISubmitHandler, IPointerClickHandler, IPointerEnterHandler
+    public interface IOptionEventData
+    {
+        DialogueOption Option { get; }
+        int OptionIndex { get; }
+    }
+
+    public class OptionView : Selectable, ISubmitHandler, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
     {
         [SerializeField] TextMeshProUGUI text;
         [SerializeField] bool showCharacterName = false;
 
-        public Action<DialogueOption> OnOptionSelected;
+        public Action<IOptionEventData> OnOptionSelected;
 
-        DialogueOption _option;
+        private DialogueOption _option;
+        private int _optionIndex;
+        private InputActionReference _quickSelectAction;
 
         bool hasSubmittedOptionSelection = false;
+        
+        public int OptionIndex
+        {
+            get => _optionIndex;
+            set
+            {
+                _optionIndex = value;
+            }
+        }
 
         public DialogueOption Option
         {
@@ -33,14 +50,39 @@ namespace SunsetSystems.Dialogue
                 // interactibility.
                 if (showCharacterName)
                 {
-                    text.text = value.Line.Text.Text;
+                    text.text = $"{OptionIndex + 1}. {value.Line.Text.Text}";
                 }
                 else
                 {
-                    text.text = value.Line.TextWithoutCharacterName.Text;
+                    text.text = $"{OptionIndex + 1}. {value.Line.TextWithoutCharacterName.Text}";
                 }
                 interactable = value.IsAvailable;
             }
+        }
+
+        protected override void OnDestroy()
+        {
+            base.OnDestroy();
+            if (_quickSelectAction != null)
+            {
+                _quickSelectAction.action.performed -= OnQuickSelectPerformed;
+            }
+        }
+
+        public void SetQuickSelectAction(InputActionReference actionReference)
+        {
+            if (_quickSelectAction != null)
+            {
+                _quickSelectAction.action.performed -= OnQuickSelectPerformed;
+            }
+            _quickSelectAction = actionReference;
+            _quickSelectAction.action.performed += OnQuickSelectPerformed;
+        }
+
+        private void OnQuickSelectPerformed(InputAction.CallbackContext context)
+        {
+            if (interactable)
+                InvokeOptionSelected();
         }
 
         // If we receive a submit or click event, invoke our "we just selected
@@ -58,7 +100,7 @@ namespace SunsetSystems.Dialogue
             // prevent this, we'll only invoke this if the flag hasn't been cleared already.
             if (hasSubmittedOptionSelection == false)
             {
-                OnOptionSelected.Invoke(Option);
+                OnOptionSelected.Invoke(new OptionEventData(Option, OptionIndex));
                 hasSubmittedOptionSelection = true;
             }
         }
@@ -74,6 +116,23 @@ namespace SunsetSystems.Dialogue
         public override void OnPointerEnter(PointerEventData eventData)
         {
             base.Select();
+        }
+
+        public override void OnPointerExit(PointerEventData eventData)
+        {
+            base.OnPointerExit(eventData);
+            EventSystem.current.SetSelectedGameObject(null);
+        }
+
+        private class OptionEventData : IOptionEventData
+        {
+            public DialogueOption Option { get; private set; }
+            public int OptionIndex { get; private set; }
+            public OptionEventData(DialogueOption option, int optionIndex)
+            {
+                Option = option;
+                OptionIndex = optionIndex;
+            }
         }
     }
 }

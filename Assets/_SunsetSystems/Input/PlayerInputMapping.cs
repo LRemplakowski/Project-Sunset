@@ -999,6 +999,96 @@ public partial class @PlayerInputMapping: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Option 1"",
+                    ""type"": ""Button"",
+                    ""id"": ""96880873-9801-424b-956b-a8f96b7cbe18"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Option 2"",
+                    ""type"": ""Button"",
+                    ""id"": ""f8269fb6-433a-45f1-ad57-ea53b91040c4"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Option 3"",
+                    ""type"": ""Button"",
+                    ""id"": ""a2bc5137-0566-403c-94a7-83e75944576e"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Option 4"",
+                    ""type"": ""Button"",
+                    ""id"": ""de29d3c8-083f-4d1d-827c-014732b9b415"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Option 5"",
+                    ""type"": ""Button"",
+                    ""id"": ""0ac106e4-3eac-4d06-85a5-452d5124dd4d"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Option 6"",
+                    ""type"": ""Button"",
+                    ""id"": ""d851de19-5107-43b0-a824-3cdb49e92335"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Option 7"",
+                    ""type"": ""Button"",
+                    ""id"": ""9dc3f84a-a674-487b-b089-0ccc5fffeedf"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Option 8"",
+                    ""type"": ""Button"",
+                    ""id"": ""521aef59-dcf5-4a77-a8c8-97db9fc9ec31"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Option 9"",
+                    ""type"": ""Button"",
+                    ""id"": ""05173e5f-7aad-44c6-8cc5-9df18e394a7b"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Option 10"",
+                    ""type"": ""Button"",
+                    ""id"": ""26279ac8-b92c-4f1e-8e7b-6c41b7790a9f"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -1019,8 +1109,118 @@ public partial class @PlayerInputMapping: IInputActionCollection2, IDisposable
                     ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Keyboard&Mouse"",
                     ""action"": ""Forward Dialogue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fd157032-f8ac-4389-bb4f-029b6c2b44b7"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Option 1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4211f0dd-5217-4bc5-8143-0a6ccfe5d3f2"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Option 2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""97a81590-b869-48be-b252-960f0e7665af"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Option 3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2769a3a3-2996-4f73-ad3b-3f506d63fec8"",
+                    ""path"": ""<Keyboard>/4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Option 4"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8eae2524-2be0-458f-b28d-a185d368def8"",
+                    ""path"": ""<Keyboard>/5"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Option 5"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""002daa56-0894-43da-88a7-d3bd1df7c773"",
+                    ""path"": ""<Keyboard>/6"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Option 6"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5a60784d-e541-42f9-979b-658514b52d6e"",
+                    ""path"": ""<Keyboard>/7"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Option 7"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""211efec6-6924-45df-979c-457b865c473c"",
+                    ""path"": ""<Keyboard>/8"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Option 8"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fc479229-6683-4c77-8a00-913bbc87ba49"",
+                    ""path"": ""<Keyboard>/9"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Option 9"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""19dfcc8e-0556-4970-80de-5ab37b445280"",
+                    ""path"": ""<Keyboard>/0"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Option 10"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1124,6 +1324,16 @@ public partial class @PlayerInputMapping: IInputActionCollection2, IDisposable
         // Dialogue
         m_Dialogue = asset.FindActionMap("Dialogue", throwIfNotFound: true);
         m_Dialogue_ForwardDialogue = m_Dialogue.FindAction("Forward Dialogue", throwIfNotFound: true);
+        m_Dialogue_Option1 = m_Dialogue.FindAction("Option 1", throwIfNotFound: true);
+        m_Dialogue_Option2 = m_Dialogue.FindAction("Option 2", throwIfNotFound: true);
+        m_Dialogue_Option3 = m_Dialogue.FindAction("Option 3", throwIfNotFound: true);
+        m_Dialogue_Option4 = m_Dialogue.FindAction("Option 4", throwIfNotFound: true);
+        m_Dialogue_Option5 = m_Dialogue.FindAction("Option 5", throwIfNotFound: true);
+        m_Dialogue_Option6 = m_Dialogue.FindAction("Option 6", throwIfNotFound: true);
+        m_Dialogue_Option7 = m_Dialogue.FindAction("Option 7", throwIfNotFound: true);
+        m_Dialogue_Option8 = m_Dialogue.FindAction("Option 8", throwIfNotFound: true);
+        m_Dialogue_Option9 = m_Dialogue.FindAction("Option 9", throwIfNotFound: true);
+        m_Dialogue_Option10 = m_Dialogue.FindAction("Option 10", throwIfNotFound: true);
     }
 
     ~@PlayerInputMapping()
@@ -1802,6 +2012,16 @@ public partial class @PlayerInputMapping: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Dialogue;
     private List<IDialogueActions> m_DialogueActionsCallbackInterfaces = new List<IDialogueActions>();
     private readonly InputAction m_Dialogue_ForwardDialogue;
+    private readonly InputAction m_Dialogue_Option1;
+    private readonly InputAction m_Dialogue_Option2;
+    private readonly InputAction m_Dialogue_Option3;
+    private readonly InputAction m_Dialogue_Option4;
+    private readonly InputAction m_Dialogue_Option5;
+    private readonly InputAction m_Dialogue_Option6;
+    private readonly InputAction m_Dialogue_Option7;
+    private readonly InputAction m_Dialogue_Option8;
+    private readonly InputAction m_Dialogue_Option9;
+    private readonly InputAction m_Dialogue_Option10;
     /// <summary>
     /// Provides access to input actions defined in input action map "Dialogue".
     /// </summary>
@@ -1817,6 +2037,46 @@ public partial class @PlayerInputMapping: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Dialogue/ForwardDialogue".
         /// </summary>
         public InputAction @ForwardDialogue => m_Wrapper.m_Dialogue_ForwardDialogue;
+        /// <summary>
+        /// Provides access to the underlying input action "Dialogue/Option1".
+        /// </summary>
+        public InputAction @Option1 => m_Wrapper.m_Dialogue_Option1;
+        /// <summary>
+        /// Provides access to the underlying input action "Dialogue/Option2".
+        /// </summary>
+        public InputAction @Option2 => m_Wrapper.m_Dialogue_Option2;
+        /// <summary>
+        /// Provides access to the underlying input action "Dialogue/Option3".
+        /// </summary>
+        public InputAction @Option3 => m_Wrapper.m_Dialogue_Option3;
+        /// <summary>
+        /// Provides access to the underlying input action "Dialogue/Option4".
+        /// </summary>
+        public InputAction @Option4 => m_Wrapper.m_Dialogue_Option4;
+        /// <summary>
+        /// Provides access to the underlying input action "Dialogue/Option5".
+        /// </summary>
+        public InputAction @Option5 => m_Wrapper.m_Dialogue_Option5;
+        /// <summary>
+        /// Provides access to the underlying input action "Dialogue/Option6".
+        /// </summary>
+        public InputAction @Option6 => m_Wrapper.m_Dialogue_Option6;
+        /// <summary>
+        /// Provides access to the underlying input action "Dialogue/Option7".
+        /// </summary>
+        public InputAction @Option7 => m_Wrapper.m_Dialogue_Option7;
+        /// <summary>
+        /// Provides access to the underlying input action "Dialogue/Option8".
+        /// </summary>
+        public InputAction @Option8 => m_Wrapper.m_Dialogue_Option8;
+        /// <summary>
+        /// Provides access to the underlying input action "Dialogue/Option9".
+        /// </summary>
+        public InputAction @Option9 => m_Wrapper.m_Dialogue_Option9;
+        /// <summary>
+        /// Provides access to the underlying input action "Dialogue/Option10".
+        /// </summary>
+        public InputAction @Option10 => m_Wrapper.m_Dialogue_Option10;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1846,6 +2106,36 @@ public partial class @PlayerInputMapping: IInputActionCollection2, IDisposable
             @ForwardDialogue.started += instance.OnForwardDialogue;
             @ForwardDialogue.performed += instance.OnForwardDialogue;
             @ForwardDialogue.canceled += instance.OnForwardDialogue;
+            @Option1.started += instance.OnOption1;
+            @Option1.performed += instance.OnOption1;
+            @Option1.canceled += instance.OnOption1;
+            @Option2.started += instance.OnOption2;
+            @Option2.performed += instance.OnOption2;
+            @Option2.canceled += instance.OnOption2;
+            @Option3.started += instance.OnOption3;
+            @Option3.performed += instance.OnOption3;
+            @Option3.canceled += instance.OnOption3;
+            @Option4.started += instance.OnOption4;
+            @Option4.performed += instance.OnOption4;
+            @Option4.canceled += instance.OnOption4;
+            @Option5.started += instance.OnOption5;
+            @Option5.performed += instance.OnOption5;
+            @Option5.canceled += instance.OnOption5;
+            @Option6.started += instance.OnOption6;
+            @Option6.performed += instance.OnOption6;
+            @Option6.canceled += instance.OnOption6;
+            @Option7.started += instance.OnOption7;
+            @Option7.performed += instance.OnOption7;
+            @Option7.canceled += instance.OnOption7;
+            @Option8.started += instance.OnOption8;
+            @Option8.performed += instance.OnOption8;
+            @Option8.canceled += instance.OnOption8;
+            @Option9.started += instance.OnOption9;
+            @Option9.performed += instance.OnOption9;
+            @Option9.canceled += instance.OnOption9;
+            @Option10.started += instance.OnOption10;
+            @Option10.performed += instance.OnOption10;
+            @Option10.canceled += instance.OnOption10;
         }
 
         /// <summary>
@@ -1860,6 +2150,36 @@ public partial class @PlayerInputMapping: IInputActionCollection2, IDisposable
             @ForwardDialogue.started -= instance.OnForwardDialogue;
             @ForwardDialogue.performed -= instance.OnForwardDialogue;
             @ForwardDialogue.canceled -= instance.OnForwardDialogue;
+            @Option1.started -= instance.OnOption1;
+            @Option1.performed -= instance.OnOption1;
+            @Option1.canceled -= instance.OnOption1;
+            @Option2.started -= instance.OnOption2;
+            @Option2.performed -= instance.OnOption2;
+            @Option2.canceled -= instance.OnOption2;
+            @Option3.started -= instance.OnOption3;
+            @Option3.performed -= instance.OnOption3;
+            @Option3.canceled -= instance.OnOption3;
+            @Option4.started -= instance.OnOption4;
+            @Option4.performed -= instance.OnOption4;
+            @Option4.canceled -= instance.OnOption4;
+            @Option5.started -= instance.OnOption5;
+            @Option5.performed -= instance.OnOption5;
+            @Option5.canceled -= instance.OnOption5;
+            @Option6.started -= instance.OnOption6;
+            @Option6.performed -= instance.OnOption6;
+            @Option6.canceled -= instance.OnOption6;
+            @Option7.started -= instance.OnOption7;
+            @Option7.performed -= instance.OnOption7;
+            @Option7.canceled -= instance.OnOption7;
+            @Option8.started -= instance.OnOption8;
+            @Option8.performed -= instance.OnOption8;
+            @Option8.canceled -= instance.OnOption8;
+            @Option9.started -= instance.OnOption9;
+            @Option9.performed -= instance.OnOption9;
+            @Option9.canceled -= instance.OnOption9;
+            @Option10.started -= instance.OnOption10;
+            @Option10.performed -= instance.OnOption10;
+            @Option10.canceled -= instance.OnOption10;
         }
 
         /// <summary>
@@ -2165,5 +2485,75 @@ public partial class @PlayerInputMapping: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnForwardDialogue(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Option 1" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnOption1(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Option 2" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnOption2(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Option 3" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnOption3(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Option 4" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnOption4(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Option 5" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnOption5(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Option 6" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnOption6(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Option 7" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnOption7(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Option 8" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnOption8(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Option 9" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnOption9(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Option 10" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnOption10(InputAction.CallbackContext context);
     }
 }
