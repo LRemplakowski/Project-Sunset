@@ -1,4 +1,6 @@
+using System;
 using Sirenix.OdinInspector;
+using SunsetSystems.Game;
 using UnityEngine;
 using UnityEngine.Playables;
 
@@ -30,12 +32,35 @@ namespace SunsetSystems.Cinematics
             {
                 Destroy(gameObject);
             }
+            GameManager.OnGameStateChanged += OnGameStateChanged;
         }
 
         private void Start()
         {
             EnsureReferences();
             SubscribeDirectorEvents();
+        }
+
+        private void OnDestroy()
+        {
+            UnsubscribeDirectorEvents();
+            GameManager.OnGameStateChanged -= OnGameStateChanged;
+            if (SunsetInputHandler.Instance != null)
+                SunsetInputHandler.Instance.ClearInputOverride(this);
+        }
+
+        private void OnGameStateChanged(GameState state)
+        {
+            if (_directorUtility == null) return;
+
+            if (state == GameState.GamePaused)
+            {
+                _playableDirector.Pause();
+            }
+            else
+            {
+                _playableDirector.Resume();
+            }
         }
 
         private void EnsureReferences()
@@ -52,13 +77,6 @@ namespace SunsetSystems.Cinematics
             {
                 _crossFade = FindAnyObjectByType<FadeScreenManager>(FindObjectsInactive.Include);
             }
-        }
-
-        private void OnDestroy()
-        {
-            UnsubscribeDirectorEvents();
-            if (SunsetInputHandler.Instance != null)
-                SunsetInputHandler.Instance.ClearInputOverride(this);
         }
 
         private void SubscribeDirectorEvents()
@@ -132,7 +150,7 @@ namespace SunsetSystems.Cinematics
 
         private void OnCutscenePlay(PlayableDirector director)
         {
-            SunsetInputHandler.Instance.OverrideInput(this, SunsetInputHandler.UI_MAP, SunsetInputHandler.DIALOGUE_MAP);
+            SunsetInputHandler.Instance.OverrideInput(this, SunsetInputHandler.UI_MAP, SunsetInputHandler.DIALOGUE_MAP, SunsetInputHandler.SHORTCUTS_MAP);
         }
     }
 }

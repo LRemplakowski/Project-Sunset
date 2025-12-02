@@ -13,6 +13,8 @@ namespace SunsetSystems.Cinematics
         private int _resumeRequests = 0;
         private bool _isPaused = false;
 
+        public bool IsPaused => _isPaused;
+
         [Button]
         public void HoldPlayback()
         {
