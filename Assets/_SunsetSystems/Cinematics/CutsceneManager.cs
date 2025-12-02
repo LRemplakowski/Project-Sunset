@@ -132,7 +132,7 @@ namespace SunsetSystems.Cinematics
 
         private void OnCutscenePlay(PlayableDirector director)
         {
-            SunsetInputHandler.Instance.OverrideInput(this, SunsetInputHandler.UI_MAP);
+            SunsetInputHandler.Instance.OverrideInput(this, SunsetInputHandler.UI_MAP, SunsetInputHandler.DIALOGUE_MAP);
         }
     }
 }
