@@ -337,6 +337,7 @@ MonoBehaviour:
   - {fileID: -5851154346206341788}
   - {fileID: 5557205046556543910}
   - {fileID: 5486529211790060198}
+  - {fileID: 5962714588241612372}
   m_FixedDuration: 0
   m_EditorSettings:
     m_Framerate: 60
@@ -393,6 +394,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fde0d25a170598d46a0b9dc16b4527a5, type: 3}
   m_Name: ActivationPlayableAsset
   m_EditorClassIdentifier: 
+--- !u!114 &3185304821054550274
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15c38f6fa1940124db1ab7f6fe7268d1, type: 3}
+  m_Name: Signal Emitter
+  m_EditorClassIdentifier: 
+  m_Time: 2.5
+  m_Retroactive: 0
+  m_EmitOnce: 0
+  m_Asset: {fileID: 11400000, guid: b87eb41e47b3c8945a14137a6f93a9bb, type: 2}
 --- !u!114 &5486529211790060198
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -441,6 +458,30 @@ MonoBehaviour:
   m_Markers:
     m_Objects:
     - {fileID: -6505653103738989484}
+--- !u!114 &5962714588241612372
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b46e36075dd1c124a8422c228e75e1fb, type: 3}
+  m_Name: Signal Track (2)
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_AnimClip: {fileID: 0}
+  m_Locked: 0
+  m_Muted: 0
+  m_CustomPlayableFullTypename: 
+  m_Curves: {fileID: 0}
+  m_Parent: {fileID: 11400000}
+  m_Children: []
+  m_Clips: []
+  m_Markers:
+    m_Objects:
+    - {fileID: 3185304821054550274}
 --- !u!114 &6505559141755702659
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -647,10 +688,10 @@ MonoBehaviour:
   m_Children: []
   m_Clips:
   - m_Version: 1
-    m_Start: 0
+    m_Start: 1
     m_ClipIn: 0
     m_Asset: {fileID: 2918206601334789094}
-    m_Duration: 2.5
+    m_Duration: 3
     m_TimeScale: 1
     m_ParentTrack: {fileID: 7117721585107763358}
     m_EaseInDuration: 0
