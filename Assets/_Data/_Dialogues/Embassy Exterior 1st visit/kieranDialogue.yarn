@@ -107,9 +107,9 @@ title: drinks
 title: kieransRing
 ---
 {$kieran}: [nomarkup][Kieran glances at his hand, hiding it quickly.][/nomarkup] Just a memento, nothing more. #line:09184f9 #lastline
--> {$pcName}: Seems to be more than that to me. <<if GetAttributeSkillPoolSize("wits","insight")>=5>> #line:0f85d7b 
-    {$storyteller}: [nomarkup][His face turns stone cold.][/nomarkup] 
-    {$kieran}: This line of inquiry is [nomarkup]<i>not</i>[/nomarkup] pertinent to our investigation. #line:048514c
+-> {$pcName}: Seems to be more than that to me. #line:0f85d7b 
+{$storyteller}: [nomarkup][His face turns stone cold.][/nomarkup] 
+{$kieran}: This line of inquiry is [nomarkup]<i>not</i>[/nomarkup] pertinent to our investigation. #line:048514c
 <<jump questionsKieran>>
 ===
 title: kieransSire
