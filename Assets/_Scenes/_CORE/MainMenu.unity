@@ -740,6 +740,7 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
+  _keepPreviousStatePlaylistWhenPaused: 1
   _soundtrackSource: {fileID: 437535271}
   _trackTransitionTime: 1
   _defaultVolume: 0.5
@@ -9893,6 +9894,10 @@ PrefabInstance:
       propertyPath: gameStarter
       value: 
       objectReference: {fileID: 2016589840}
+    - target: {fileID: 2819967803978145980, guid: 0b1abba0124b7e04db91a721d14a9359, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 2853372534888571112, guid: 0b1abba0124b7e04db91a721d14a9359, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

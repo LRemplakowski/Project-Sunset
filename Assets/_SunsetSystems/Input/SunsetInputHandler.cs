@@ -120,7 +120,7 @@ public class SunsetInputHandler : SerializedMonoBehaviour, IGlobalInput
         {
             GameState.Exploration => new string[] { PLAYER_MAP, UI_MAP, SHORTCUTS_MAP },
             GameState.Combat => new string[] { PLAYER_MAP, UI_MAP, SHORTCUTS_MAP },
-            GameState.Dialogue => new string[] { UI_MAP, DIALOGUE_MAP },
+            GameState.Dialogue => new string[] { UI_MAP, SHORTCUTS_MAP, DIALOGUE_MAP },
             GameState.MainMenu => new string[] { UI_MAP, SHORTCUTS_MAP },
             GameState.GamePaused => new string[] { UI_MAP, SHORTCUTS_MAP },
             GameState.WorldMap => new string[] { PLAYER_MAP, UI_MAP },

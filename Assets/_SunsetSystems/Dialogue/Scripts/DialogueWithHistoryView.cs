@@ -4,11 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
 using Redcode.Awaiting;
 using Sirenix.OdinInspector;
 using SunsetSystems.Audio;
 using SunsetSystems.Core.Database;
 using SunsetSystems.Entities.Characters;
+using SunsetSystems.Game;
 using SunsetSystems.Party;
 using TMPro;
 using UnityEngine;
@@ -89,13 +91,23 @@ namespace SunsetSystems.Dialogue
         private void Start()
         {
             DialogueManager.Instance.RegisterView(this);
+            GameManager.OnGameStateChanged += OnGameStateChanged;
             //gameObject.SetActive(false);
+        }
+
+        private void OnGameStateChanged(GameState state)
+        {
+            if (state != GameState.Dialogue)
+            {
+                _requestedLineInterrupt = true;
+            }
         }
 
         private void OnDestroy()
         {
             if (DialogueManager.Instance != null)
                 DialogueManager.Instance.UnregisterView(this);
+            GameManager.OnGameStateChanged -= OnGameStateChanged;
         }
 
         private void Update()
@@ -158,14 +170,16 @@ namespace SunsetSystems.Dialogue
                 AudioManager.Instance.PlayTypewriterEnd();
             _clampScrollbarNextFrame = true;
             await new WaitForSecondsRealtime(_lineCompletionDelay);
+            if (GameManager.Instance.IsCurrentState(GameState.Dialogue) == false)
+                await UniTask.WaitUntil(() => GameManager.Instance.IsCurrentState(GameState.Dialogue));
             if (dialogueLine.Metadata == null || (dialogueLine.Metadata.Any(tag => tag == LAST_LINE_TAG) is false))
                 await WaitForProceedToNextLine();
             onDialogueLineFinished?.Invoke();
 
-            async Awaitable WaitForProceedToNextLine()
+            async UniTask WaitForProceedToNextLine()
             {
                 _proceedToNextLineButton.gameObject.SetActive(true);
-                await new WaitUntil(() => _canProceedToNextLine);
+                await UniTask.WaitUntil(() => _canProceedToNextLine);
             }
         }
 
@@ -176,13 +190,13 @@ namespace SunsetSystems.Dialogue
             EventSystem.current.SetSelectedGameObject(null);
         }
 
-        private async Awaitable TypewriteText(LocalizedLine line)
+        private async UniTask TypewriteText(LocalizedLine line)
         {
             _lineHistory.maxVisibleCharacters += line.CharacterName?.Length ?? 0;
             float _currentVisibleCharacters = _lineHistory.maxVisibleCharacters;
             while (_lineHistory.textInfo.characterCount > _lineHistory.maxVisibleCharacters)
             {
-                await Awaitable.NextFrameAsync();
+                await UniTask.NextFrame();
                 if (_requestedLineInterrupt)
                 {
                     _clampScrollbarNextFrame = true;

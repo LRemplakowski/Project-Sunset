@@ -12,6 +12,8 @@ namespace SunsetSystems.Audio
     public class SoundtrackController : SerializedMonoBehaviour
     {
         [SerializeField]
+        private bool _keepPreviousStatePlaylistWhenPaused = false;
+        [SerializeField]
         private AudioSource _soundtrackSource;
         [SerializeField, Range(0.01f, 10f)]
         private float _trackTransitionTime = 1f;
@@ -69,6 +71,9 @@ namespace SunsetSystems.Audio
 
         private bool GetStatePlaylist(GameState state, out IPlaylist playlist)
         {
+            playlist = default;
+            if (_keepPreviousStatePlaylistWhenPaused && state == GameState.GamePaused)
+                return false;
             if (_playlistOverrides.TryGetValue(state, out playlist))
                 return true;
             else if (_statePlaylistPairs.TryGetValue(state, out playlist))

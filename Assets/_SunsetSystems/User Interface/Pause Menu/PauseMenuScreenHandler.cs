@@ -10,6 +10,8 @@ namespace SunsetSystems.UI
 {
     public class PauseMenuScreenHandler : SerializedMonoBehaviour
     {
+        private const string PAUSE_MENU_SCREEN = "PauseMenuScreen";
+
         [SerializeField]
         private GameObject inventory, journal, settings, characterSheet;
         [SerializeField]
@@ -23,10 +25,22 @@ namespace SunsetSystems.UI
         public PauseMenuScreen CurrentActiveScreen { get; private set; }
         private GameObject _lastSelectedScreen;
 
+        private readonly IGameStateRequest _pauseMenuStateRequest = new StateChangeRequest(PAUSE_MENU_SCREEN, GameState.GamePaused);
+
         public void QuitToMenu()
         {
             _onReturnToMenu?.Invoke();
             LevelLoader.Instance.BackToMainMenu();
+        }
+
+        private void OnEnable()
+        {
+            GameManager.Instance.RequestState(_pauseMenuStateRequest);
+        }
+
+        private void OnDisable()
+        {
+            GameManager.Instance.ReleaseState(_pauseMenuStateRequest);
         }
 
         public void OpenPauseMenu() => OpenMenuScreen(PauseMenuScreen.Settings);
@@ -34,8 +48,6 @@ namespace SunsetSystems.UI
 
         public void OpenMenuScreen(PauseMenuScreen screen)
         {
-            if (GameManager.Instance.CachedGameState == GameState.Dialogue)
-                return;
             if (_lastSelectedScreen != null)
                 _lastSelectedScreen.SetActive(false);
             switch (screen)

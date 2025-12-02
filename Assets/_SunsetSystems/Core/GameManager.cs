@@ -67,6 +67,11 @@ namespace SunsetSystems.Game
             _gameState = GetCurrentState();
         }
 
+        private void Start()
+        {
+            OnGameStateChanged?.Invoke(CachedGameState);
+        }
+
         private void Update()
         {
             CurrentPlayTime += Time.deltaTime;
