@@ -30,6 +30,8 @@ namespace SunsetSystems.Dialogue
 
         private readonly IGameStateRequest _dialogueStateRequest = new StateChangeRequest(DIALOGUE_MANAGER_STATE_ID, GameState.Dialogue);
 
+        public bool IsRunningDialogue => _dialogueRunner.IsDialogueRunning;
+
         protected void Awake()
         {
             if (Instance == null)

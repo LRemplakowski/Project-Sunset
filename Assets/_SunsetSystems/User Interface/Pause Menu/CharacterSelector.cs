@@ -3,7 +3,6 @@ using SunsetSystems.Party;
 using TMPro;
 using UltEvents;
 using UnityEngine;
-using UnityEngine.Events;
 
 namespace SunsetSystems.UI
 {
@@ -59,6 +58,16 @@ namespace SunsetSystems.UI
             UpdateSelectedText();
         }
 
+        public void SelectCharacter(string characterKey)
+        {
+            if (PartyManager.Instance.AllCoterieMembers.Contains(characterKey))
+            {
+                _selectedCharacterKey = characterKey;
+                OnSelectedCharacterChanged?.InvokeSafe();
+                UpdateSelectedText();
+            }
+        }
+
         public void PreviousCharacter()
         {
             int currentIndex = PartyManager.Instance.AllCoterieMembers.FindIndex(cd => cd.Equals(SelectedCharacterKey));
@@ -67,5 +76,7 @@ namespace SunsetSystems.UI
             OnSelectedCharacterChanged?.InvokeSafe();
             UpdateSelectedText();
         }
+
+        public void SetActive(bool active) => gameObject.SetActive(active);
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using Sirenix.OdinInspector;
 using SunsetSystems.Core.SceneLoading;
 using SunsetSystems.Game;
@@ -12,7 +13,7 @@ namespace SunsetSystems.UI
         [SerializeField]
         private GameObject inventory, journal, settings, characterSheet;
         [SerializeField]
-        private GameObject _characterSelector;
+        private CharacterSelector _characterSelector;
         [SerializeField]
         private GameObject _saveLoadScreen;
 
@@ -133,6 +134,8 @@ namespace SunsetSystems.UI
                 }
             }
         }
+
+        public void SetSelectedCharacter(string characterID) => _characterSelector.SelectCharacter(characterID);
     }
 
     public enum PauseMenuScreen

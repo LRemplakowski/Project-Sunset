@@ -11,23 +11,23 @@ namespace UI.CharacterPortraits
         [SerializeField]
         private GameObject _portraitPrefab;
         [ShowInInspector, ReadOnly]
-        private List<PortraitController> _portraits = new();
+        private readonly List<PortraitController> _portraits = new();
 
         public void OnPartyInitialized()
         {
             var activeParty = PartyManager.Instance.ActiveParty;
             foreach (var member in activeParty)
             {
-                AddPortrait(member.References.CreatureData.Portrait);
+                AddPortrait(member.References.CreatureData.Portrait, member.References.CreatureData.DatabaseID);
             }
         }
 
-        public void AddPortrait(Sprite portrait)
+        public void AddPortrait(Sprite portrait, string characterID)
         {
             GameObject portraitGO = Instantiate(_portraitPrefab, this.transform);
             if (!portraitGO.TryGetComponent<PortraitController>(out var portraitController))
                 Debug.LogWarning("jebany null");
-            portraitController.InitPotrait(portrait);
+            portraitController.InitPotrait(portrait, characterID);
             _portraits.Add(portraitController);
         }
 
