@@ -137,6 +137,9 @@ namespace SunsetSystems.Cinematics
 
         private void DoPlayNextCutscene(PlayableAsset asset, DirectorWrapMode wrapMode)
         {
+            if (_playableDirector == null) return;
+            if (_directorUtility == null) return;
+
             _playableDirector.Stop();
             _playableDirector.Play(asset, wrapMode);
             _directorUtility.ClearPlaybackControl();
@@ -145,12 +148,14 @@ namespace SunsetSystems.Cinematics
 
         private void OnCutsceneStop(PlayableDirector director)
         {
-            SunsetInputHandler.Instance.ClearInputOverride(this);
+            if (SunsetInputHandler.Instance != null)
+                SunsetInputHandler.Instance.ClearInputOverride(this);
         }
 
         private void OnCutscenePlay(PlayableDirector director)
         {
-            SunsetInputHandler.Instance.OverrideInput(this, SunsetInputHandler.UI_MAP, SunsetInputHandler.DIALOGUE_MAP, SunsetInputHandler.SHORTCUTS_MAP);
+            if (SunsetInputHandler.Instance != null)
+                SunsetInputHandler.Instance.OverrideInput(this, SunsetInputHandler.UI_MAP, SunsetInputHandler.DIALOGUE_MAP, SunsetInputHandler.SHORTCUTS_MAP);
         }
     }
 }
