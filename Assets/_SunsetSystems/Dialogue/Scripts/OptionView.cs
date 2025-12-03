@@ -65,7 +65,7 @@ namespace SunsetSystems.Dialogue
             base.OnDestroy();
             if (_quickSelectAction != null)
             {
-                _quickSelectAction.action.performed -= OnQuickSelectPerformed;
+                _quickSelectAction.action.started -= OnQuickSelectStarted;
             }
         }
 
@@ -73,13 +73,13 @@ namespace SunsetSystems.Dialogue
         {
             if (_quickSelectAction != null)
             {
-                _quickSelectAction.action.performed -= OnQuickSelectPerformed;
+                _quickSelectAction.action.started -= OnQuickSelectStarted;
             }
             _quickSelectAction = actionReference;
-            _quickSelectAction.action.performed += OnQuickSelectPerformed;
+            _quickSelectAction.action.started += OnQuickSelectStarted;
         }
 
-        private void OnQuickSelectPerformed(InputAction.CallbackContext context)
+        private void OnQuickSelectStarted(InputAction.CallbackContext context)
         {
             if (interactable)
                 InvokeOptionSelected();
