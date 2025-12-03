@@ -54,14 +54,14 @@ namespace SunsetSystems
             ModifyInfluence(creature.References.CreatureData.ReadableID, value);
         }
 
-        public void ModifyInfluence(string readableID, int value)
+        public void ModifyInfluence(string readableID, int value, bool postLog = true)
         {
             Debug.Log($"{nameof(RelationshipManager)} >>> Influence modified by {value}! Target: {readableID}");
             if (_influenceData.TryGetValue(readableID, out var stored))
                 _influenceData[readableID] = stored + value;
             else
                 _influenceData[readableID] = value;
-            if (CreatureDatabase.Instance.TryGetEntryByReadableID(readableID, out CreatureConfig entry))
+            if (CreatureDatabase.Instance.TryGetEntryByReadableID(readableID, out CreatureConfig entry) && postLog)
                 LogInfluenceModification(entry.FullName, value);
         }
 

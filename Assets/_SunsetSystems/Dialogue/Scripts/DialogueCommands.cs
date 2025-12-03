@@ -70,6 +70,12 @@ namespace SunsetSystems.Dialogue
             RelationshipManager.Instance.ModifyInfluence(companionID, amount);
         }
 
+        [YarnCommand("ModifyInfluenceNoLog")]
+        public static void ModifyInfluenceNoLog(int amount, string companionID)
+        {
+            RelationshipManager.Instance.ModifyInfluence(companionID, amount, false);
+        }
+
         [YarnCommand("RemoveMoney")]
         public static void RemoveMoney(float value)
         {
