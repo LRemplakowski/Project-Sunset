@@ -7,7 +7,7 @@ tags:
 ===
 title: carInteractions
 ---
-[nomarkup][Dominic looks at the road, sitting behind the wheel.][/nomarkup] #line:02f0e0a 
+{$storyteller}: [nomarkup][Dominic looks at the road, sitting behind the wheel.][/nomarkup] #line:02f0e0a 
 -> {$pcName}: May I have one? <<if CustomVisited("haveACigarette") == false>> #line:038577a 
     <<jump haveACigarette>>
 -> {$pcName}: [nomarkup][Point out his wedding ring.][/nomarkup] <<if CustomVisited("tellAboutHer") == false>> #line:0e54197 
@@ -105,7 +105,7 @@ title: niceCar
 {$sheriff}: I can't even count how many times it saved me in the nightsand how many races we've won. Sprints are my favorite. The only thing that isn't original is the hood and several parts. 
 {$sheriff}: I had to adjust this sweetie into the best street racin' car because most usually people hear me before they see me. #line:024dae8 
 {$sheriff}: It's like a trademark now. When you hear V8 headin' your way, you can assume it's me. And never EVER try to scratch my baby. #line:02ef1a8
-<<ModifyInfluence 1 {$sheriff}>>
+<<ModifyInfluenceNoLog 1 {$sheriff}>>
 <<jump carInteractions>>
 ===
 title: badCar
@@ -116,7 +116,7 @@ title: badCar
 {$sheriff}: What's your car, huh? Rabbit? Omni? I have a V8 under the hood. Not some shitty I4. Yeah, it drinks gas like we drink blood, but the performance? Worth every dollar you pump into the tank. #line:03810b5 
 {$storyteller}: [nomarkup][He snorts, visibly annoyed for some reason.][/nomarkup]
 {$sheriff}: ... [nomarkup]<i>”pile of junk”</i>[/nomarkup]. #line:01a995b
-<<ModifyInfluence -1 {$sheriff}>>
+<<ModifyInfluenceNoLog -1 {$sheriff}>>
 <<jump carInteractions>>
 ===
 title: turnOnRadio
