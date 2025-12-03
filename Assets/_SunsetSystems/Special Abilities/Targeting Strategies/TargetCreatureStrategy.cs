@@ -18,6 +18,7 @@ namespace SunsetSystems.Abilities.Targeting
 
         public override void ExecuteSetTargetLock(ITargetingContext context)
         {
+            ClearDangerHighlight(context);
             if (ValidateTarget(_ability, context, out ITargetable target) is false)
             {
                 ClearTargeting(context);
