@@ -18,18 +18,13 @@ namespace SunsetSystems.Utils
                 DoShowPopup();
                 _showPostGameScreen = false;
             }
-            else
-            {
-                gameObject.SetActive(false);
-            }
         }
 
         private void DoShowPopup()
         {
             if (_confirmationPopup == null) return;
 
-            void OnConfirm() => gameObject.SetActive(false);
-            _confirmationPopup.Show(OnConfirm);
+            _confirmationPopup.Show();
         }
 
         public void SetShowPostGameScreenAfterLevelLoad()
