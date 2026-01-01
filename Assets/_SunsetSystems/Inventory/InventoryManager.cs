@@ -12,7 +12,7 @@ using UnityEngine;
 namespace SunsetSystems.Inventory
 {
     [RequireComponent(typeof(ItemStorage))]
-    public class InventoryManager : SerializedMonoBehaviour, ISaveable, IResetable
+    public class InventoryManager : SerializedMonoBehaviour, ISaveable
     {
         public static InventoryManager Instance { get; private set; }
 
