@@ -22,9 +22,9 @@ namespace SunsetSystems.Combat
         public Encounter CurrentEncounter { get; private set; }
 
         [ShowInInspector, ReadOnly]
-        public List<ICombatant> Actors { get; private set; }
+        public List<ICombatant> Actors { get; private set; } = new();
         [ShowInInspector, ReadOnly]
-        public List<ICombatant> LivingActors => Actors.Where(a => a.GetContext().IsAlive).ToList();
+        public List<ICombatant> LivingActors => Actors?.Where(a => a.GetContext().IsAlive).ToList() ?? new();
 
         public static event Action<IEnumerable<ICombatant>> OnCombatStart;
         public static event Action<IEnumerable<ICombatant>> OnCombatEnd;
