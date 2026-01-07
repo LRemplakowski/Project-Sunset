@@ -13,7 +13,32 @@ namespace UI.CharacterPortraits
         [ShowInInspector, ReadOnly]
         private readonly List<PortraitController> _portraits = new();
 
+        private bool _dirty = false;
+
+        private void Start()
+        {
+            if (!_dirty) return;
+
+            Clear();
+            InstansiateActivePartyPortraits();
+            _dirty = false;
+        }
+
+        private void Update()
+        {
+            if (!_dirty) return;
+
+            Clear();
+            InstansiateActivePartyPortraits();
+            _dirty = false;
+        }
+
         public void OnPartyInitialized()
+        {
+            _dirty = true;
+        }
+
+        private void InstansiateActivePartyPortraits()
         {
             var activeParty = PartyManager.Instance.ActiveParty;
             foreach (var member in activeParty)
@@ -22,7 +47,7 @@ namespace UI.CharacterPortraits
             }
         }
 
-        public void AddPortrait(Sprite portrait, string characterID)
+        private void AddPortrait(Sprite portrait, string characterID)
         {
             GameObject portraitGO = Instantiate(_portraitPrefab, this.transform);
             if (!portraitGO.TryGetComponent<PortraitController>(out var portraitController))
@@ -31,7 +56,7 @@ namespace UI.CharacterPortraits
             _portraits.Add(portraitController);
         }
 
-        public void Clear()
+        private void Clear()
         {
             _portraits.ForEach(p => Destroy(p.gameObject));
             _portraits.Clear();

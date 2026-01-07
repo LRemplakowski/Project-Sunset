@@ -247,6 +247,32 @@ namespace SunsetSystems.Party
             _activeCoterieMemberKeys.Add(_mainCharacterKey);
         }
 
+        public void RecruitCharacter(CreatureConfig memberConfig)
+        {
+            var template = memberConfig.CreatureTemplate;
+            RecruitCharacter(template);
+        }
+
+        public async void SpawnCharacter(CreatureConfig memberConfig)
+        {
+            if (!_coterieMemberKeysCache.Contains(memberConfig.DatabaseID))
+            {
+                Debug.LogWarning($"{nameof(PartyManager)} >>> Cannot spawn character {memberConfig.FullName} because they are not recruited!");
+                return;
+            }
+
+            var template = memberConfig.CreatureTemplate;
+            var newMember = await InitializePartyMemberAtPosition(template, MainCharacter.Transform.position + GetOffset(2f));
+            _activeParty.Add(template.DatabaseID, newMember);
+            OnActivePartyInitialized?.InvokeSafe(_activeParty.Values.ToList());
+
+            static Vector3 GetOffset(float offsetDistance)
+            {
+                Vector2 randomPoint = UnityEngine.Random.insideUnitCircle * offsetDistance;
+                return new Vector3(randomPoint.x, 0, randomPoint.y);
+            }
+        }
+
         public bool TryAddMemberToActiveRoster(string memberID, ICreature creature)
         {
             _activeCoterieMemberKeys.Add(memberID);
