@@ -1,3 +1,33 @@
+3.5.25
+- Added ES3.LoadImageInto methods allowing you to load data into an existing Texture2D.
+
+3.5.24
+- Resolved issue where a lower priority ES3Type might be used instead of the higher priority one.
+- Worked around bug at Unity's end where initialisation method wasn't called, so Easy Save's global manager never gets created.
+
+3.5.23
+- Added 'Auto cache file on load' option to the settings.
+- Resolved edge case where ES3Spreadsheet would return an empty string rather than null.
+- Resolved issue where TMPro wasn't automatically added to Asmdef.
+- Resolved issue where Easy Save reference gathering routine would be called upon importing objects on some versions of Unity.
+
+3.5.22
+- Added automatic caching options which are revealed when setting your location to Cache in Tools > Easy Save 3 > Settings.
+- Changed ES3File/Caching so that it's representation of inheritence matches that of File.
+- Type checking now checks for inheritance (IsAssignableFrom).
+- Added an On After Create Slot event to the Save Slots. 
+- Added an option to save slots to automatically select the slot after the player creates it.
+- Resolved issue where save slot list was not being cleared.
+- Small UX changes for save slots.
+- Exposed Reference Mode in the default settings.
+
+3.5.21
+- You can now select what is saved from an ES3AutoSave Component.
+- OnBeforeSerialize and OnAfterDeserialize are now automatically called when a class is an ISerializationCallbackReceiver.
+- Added option to automatically create save file when the user creates a new save slot.
+- Fixed bug with save slots where slots weren't deleted in some cases.
+- Worked around bug at Unity's end where they apply the incorrect HideFlags for TextureAtlas and it's underlying Texture, causing a "Could not extract GUID in text file" error.
+
 3.5.20
 - Added support for Nullable types.
 - Resolved issue where a Debug.Log call was not stripped from the release package.

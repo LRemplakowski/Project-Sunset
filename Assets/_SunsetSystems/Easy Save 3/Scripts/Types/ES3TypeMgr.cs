@@ -54,12 +54,38 @@ namespace ES3Internal
             lock (_lock)
             {
                 types[type] = es3Type;
+                lastAccessedType = es3Type;
             }
         }
 
         internal static ES3Type CreateES3Type(Type type, bool throwException = true)
         {
-            ES3Type es3Type;
+            ES3Type es3Type = null;
+
+            // If we're saving a generic collection, see if it has an explicit implementation.
+            // If there isn't fall through to the default way of finding ES3 types.
+            if (ES3Reflection.IsGenericType(type) && ES3Reflection.ImplementsInterface(type, typeof(IEnumerable)))
+            {
+                Type genericType = ES3Reflection.GetGenericTypeDefinition(type);
+                if (typeof(List<>).IsAssignableFrom(genericType))
+                    es3Type = new ES3ListType(type);
+                else if (typeof(Dictionary<,>).IsAssignableFrom(genericType))
+                    es3Type = new ES3DictionaryType(type);
+                else if (genericType == typeof(Queue<>))
+                    es3Type = new ES3QueueType(type);
+                else if (genericType == typeof(Stack<>))
+                    es3Type = new ES3StackType(type);
+                else if (genericType == typeof(HashSet<>))
+                    es3Type = new ES3HashSetType(type);
+                else if (genericType == typeof(Unity.Collections.NativeArray<>))
+                    es3Type = new ES3NativeArrayType(type);
+
+                if (es3Type != null)
+                {
+                    Add(type, es3Type);
+                    return es3Type;
+                }
+            }
 
             if (ES3Reflection.IsEnum(type))
                 return new ES3Type_enum(type);
@@ -76,25 +102,6 @@ namespace ES3Internal
                     throw new NotSupportedException("Only arrays with up to three dimensions are supported by Easy Save.");
                 else
                     return null;
-            }
-            else if (ES3Reflection.IsGenericType(type) && ES3Reflection.ImplementsInterface(type, typeof(IEnumerable)))
-            {
-                Type genericType = ES3Reflection.GetGenericTypeDefinition(type);
-                if (typeof(List<>).IsAssignableFrom(genericType))
-                    es3Type = new ES3ListType(type);
-                else if (typeof(Dictionary<,>).IsAssignableFrom(genericType))
-                    es3Type = new ES3DictionaryType(type);
-                else if (genericType == typeof(Queue<>))
-                    es3Type = new ES3QueueType(type);
-                else if (genericType == typeof(Stack<>))
-                    es3Type = new ES3StackType(type);
-                else if (genericType == typeof(HashSet<>))
-                    es3Type = new ES3HashSetType(type);
-                else if (genericType == typeof(Unity.Collections.NativeArray<>))
-                    es3Type = new ES3NativeArrayType(type);
-                // Else see if there is an ES3Type with the generic type definition.
-                else if ((es3Type = GetES3Type(genericType)) != null)
-                    es3Type = GetGenericES3Type(type, throwException);
             }
             else if (ES3Reflection.IsPrimitive(type)) // ERROR: We should not have to create an ES3Type for a primitive.
             {
@@ -128,7 +135,7 @@ namespace ES3Internal
             if (es3Type == null || es3Type.type == null || es3Type.isUnsupported)
 			{
 				if(throwException)
-					throw new NotSupportedException($"ES3Type.type is null when trying to create an ES3Type for {type}, possibly because the element type is not supported.");
+					throw new NotSupportedException($"ES3Type.type is null when trying to create an ES3Type for {type}, possibly because the element type is not supported or there is no generic ES3Type for this class.");
 				return null;
 			}
 

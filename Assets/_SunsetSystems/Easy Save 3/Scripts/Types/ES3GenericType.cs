@@ -9,12 +9,6 @@ namespace ES3Types
         public Type[] genericArguments;
         public ES3Type[] genericArgumentES3Types;
 
-        public ES3Type argumentES3Type;
-        public Type genericArgument;
-
-        ES3Reflection.ES3ReflectedMember hasValueProperty;
-        ES3Reflection.ES3ReflectedMember valueProperty;
-
         public ES3GenericType(Type type) : base(type)
         {
             genericArguments = ES3Reflection.GetGenericArguments(type);
@@ -28,8 +22,7 @@ namespace ES3Types
             }
         }
 
-
-        public override void Write(object obj, ES3Writer writer)
+        /*public override void Write(object obj, ES3Writer writer)
         {
             var hasValue = (bool)hasValueProperty.GetValue(obj);
             writer.WriteProperty("HasValue", hasValue, ES3Type_bool.Instance);
@@ -57,6 +50,6 @@ namespace ES3Types
                 var constructor = ES3Reflection.GetConstructor(type, new Type[] { genericArgument });
                 return constructor.Invoke(new object[] { value });
             }
-        }
+        }*/
     }
 }

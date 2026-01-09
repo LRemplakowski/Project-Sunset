@@ -102,7 +102,7 @@ public class ES3
     {
         if (settings.location == Location.Cache)
         {
-            ES3File.GetOrCreateCachedFile(settings).Save(key, value);
+            ES3File.GetOrCreateCachedFile(settings).Save<T>(key, value);
             return;
         }
 
@@ -453,7 +453,17 @@ public class ES3
     public static T Load<T>(string key, ES3Settings settings)
     {
         if (settings.location == Location.Cache)
-            return ES3File.GetOrCreateCachedFile(settings).Load<T>(key);
+        {
+            var cachedFile = ES3File.GetCachedFile(settings);
+
+            if (settings.autoCacheFileOnLoad && cachedFile == null)
+                cachedFile = ES3File.CacheFile(settings);
+
+            if (cachedFile == null)
+                throw new System.IO.FileNotFoundException("File \"" + settings.FullPath + "\" could not be found.");
+
+            return cachedFile.Load<T>(key);
+        }
 
         using (var reader = ES3Reader.Create(settings))
         {
@@ -501,7 +511,17 @@ public class ES3
     public static T Load<T>(string key, T defaultValue, ES3Settings settings)
     {
         if (settings.location == Location.Cache)
-            return ES3File.GetOrCreateCachedFile(settings).Load<T>(key, defaultValue);
+        {
+            var cachedFile = ES3File.GetCachedFile(settings);
+
+            if (settings.autoCacheFileOnLoad && cachedFile == null)
+                cachedFile = ES3File.CacheFile(settings);
+
+            if (cachedFile == null)
+                return defaultValue;
+
+            return cachedFile.Load<T>(key, defaultValue);
+        }
 
         using (var reader = ES3Reader.Create(settings))
         {
@@ -591,7 +611,15 @@ public class ES3
 
         if (settings.location == Location.Cache)
         {
-            ES3File.GetOrCreateCachedFile(settings).LoadInto<T>(key, obj);
+            var cachedFile = ES3File.GetCachedFile(settings);
+
+            if (settings.autoCacheFileOnLoad && cachedFile == null)
+                cachedFile = ES3File.CacheFile(settings);
+
+            if (cachedFile == null)
+                throw new System.IO.FileNotFoundException("File \"" + settings.FullPath + "\" could not be found.");
+
+            cachedFile.LoadInto<T>(key, obj);
             return;
         }
 
@@ -655,7 +683,17 @@ public class ES3
     public static byte[] LoadRawBytes(ES3Settings settings)
     {
         if (settings.location == Location.Cache)
-            return ES3File.GetOrCreateCachedFile(settings).LoadRawBytes();
+        {
+            var cachedFile = ES3File.GetCachedFile(settings);
+
+            if (settings.autoCacheFileOnLoad && cachedFile == null)
+                cachedFile = ES3File.CacheFile(settings);
+
+            if (cachedFile == null)
+                throw new System.IO.FileNotFoundException("File \"" + settings.FullPath + "\" could not be found.");
+
+            return cachedFile.LoadRawBytes();
+        }
 
         using (var stream = ES3Stream.CreateStream(settings, ES3FileMode.Read))
         {
@@ -750,8 +788,43 @@ public class ES3
     public static Texture2D LoadImage(byte[] bytes)
     {
         var texture = new Texture2D(1, 1);
-        texture.LoadImage(bytes);
+        LoadImageInto(texture, bytes);
         return texture;
+    }
+
+    /// <summary>Loads a PNG or JPG as a Texture2D.</summary>
+    /// <param name="texture">The Texture2D to load the image into.</param>
+    /// <param name="imagePath">The relative or absolute path of the PNG or JPG file we want to load as a Texture2D.</param>
+    /// <param name="settings">The settings we want to use to override the default settings.</param>
+    public static void LoadImageInto(Texture2D texture, string imagePath)
+    {
+        LoadImageInto(texture, new ES3Settings(imagePath));
+    }
+
+    /// <summary>Loads a PNG or JPG as a Texture2D.</summary>
+    /// <param name="texture">The Texture2D to load the image into.</param>
+    /// <param name="imagePath">The relative or absolute path of the PNG or JPG file we want to load as a Texture2D.</param>
+    /// <param name="settings">The settings we want to use to override the default settings.</param>
+    public static void LoadImageInto(Texture2D texture, string imagePath, ES3Settings settings)
+    {
+        LoadImageInto(texture, new ES3Settings(imagePath, settings));
+    }
+
+    /// <summary>Loads a PNG or JPG as a Texture2D.</summary>
+    /// <param name="texture">The Texture2D to load the image into.</param>
+    /// <param name="settings">The settings we want to use to override the default settings.</param>
+    public static void LoadImageInto(Texture2D texture, ES3Settings settings)
+    {
+        byte[] bytes = ES3.LoadRawBytes(settings);
+        LoadImageInto(texture, bytes);
+    }
+
+    /// <summary>Loads a PNG or JPG as a Texture2D.</summary>
+    /// <param name="texture">The Texture2D to load the image into.</param>
+    /// <param name="bytes">The raw bytes of the PNG or JPG.</param>
+    public static void LoadImageInto(Texture2D texture, byte[] bytes)
+    {
+        texture.LoadImage(bytes);
     }
 
     /// <summary>Loads an audio file as an AudioClip. Note that MP3 files are not supported on standalone platforms and Ogg Vorbis files are not supported on mobile platforms.</summary>
@@ -1135,7 +1208,7 @@ public class ES3
     public static void CopyDirectory(ES3Settings oldSettings, ES3Settings newSettings)
     {
         if (oldSettings.location != Location.File)
-            throw new InvalidOperationException("ES3.CopyDirectory can only be used when the save location is 'File'");
+            throw new InvalidOperationException("ES3.CopyDirectory can only be used when the save location is 'File' or 'Cache', and can't be used with WebGL.");
 
         if (!DirectoryExists(oldSettings))
             throw new System.IO.DirectoryNotFoundException("Directory " + oldSettings.FullPath + " not found");
@@ -1145,11 +1218,11 @@ public class ES3
 
         foreach (var fileName in ES3.GetFiles(oldSettings))
             CopyFile(ES3IO.CombinePathAndFilename(oldSettings.path, fileName),
-                        ES3IO.CombinePathAndFilename(newSettings.path, fileName));
+                        ES3IO.CombinePathAndFilename(newSettings.path, fileName), oldSettings, newSettings);
 
         foreach (var directoryName in GetDirectories(oldSettings))
             CopyDirectory(ES3IO.CombinePathAndFilename(oldSettings.path, directoryName),
-                            ES3IO.CombinePathAndFilename(newSettings.path, directoryName));
+                            ES3IO.CombinePathAndFilename(newSettings.path, directoryName), oldSettings, newSettings);
     }
 
     /// <summary>Renames a file.</summary>
@@ -1366,8 +1439,8 @@ public class ES3
     {
         if (settings.location == Location.File)
             return ES3IO.DirectoryExists(settings.FullPath);
-        else if (settings.location == Location.PlayerPrefs || settings.location == Location.Cache)
-            throw new System.NotSupportedException("Directories are not supported for the Cache and PlayerPrefs location.");
+        else if (settings.location == Location.PlayerPrefs || Application.platform == RuntimePlatform.WebGLPlayer)
+            throw new System.NotSupportedException("Directories are not supported for PlayerPrefs or WebGL.");
         else if (settings.location == Location.Resources)
             throw new System.NotSupportedException("Checking existence of folder in Resources not supported.");
         return false;
@@ -1617,8 +1690,6 @@ public class ES3
     }
 
     /// <summary>Loads the default file in persistent storage into the cache.</summary>
-	/// <remarks>A backup is created by copying the file and giving it a .bak extension. 
-	/// If a backup already exists it will be overwritten, so you will need to ensure that the old backup will not be required before calling this method.</remarks>
 	public static void CacheFile()
     {
         CacheFile(new ES3Settings());

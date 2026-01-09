@@ -4,6 +4,7 @@ using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
 
 /// <summary>
 /// A script attached to the Create Slot button to manage slot creation.
@@ -23,10 +24,8 @@ public class ES3CreateSlot : MonoBehaviour
     {
         // Whether we should show or hide this Create Slot button based on the settings in the slot manager.
         gameObject.SetActive(mgr.showCreateSlotButton);
-
         // Make it so the Create Slot button brings up the Create Slot dialog.
-        createButton.onClick.AddListener(() => createDialog.gameObject.SetActive(true));
-
+        createButton.onClick.AddListener(ShowCreateSlotDialog);
         // Add listener to the confirmation button.
         createDialog.confirmButton.onClick.AddListener(TryCreateNewSlot);
     }
@@ -40,6 +39,16 @@ public class ES3CreateSlot : MonoBehaviour
         createDialog.confirmButton.onClick.RemoveAllListeners();
     }
 
+    // Called when the Create new slot button is pressed.
+    protected void ShowCreateSlotDialog()
+    {
+        // Make the dialog visible and active.
+        createDialog.gameObject.SetActive(true);
+        // Set the input field as active so the player doesn't need to click it to input their name.
+        inputField.Select();
+        inputField.ActivateInputField();
+    }
+
     // Called when the Create button is pressed in the Create New Slot dialog.
     public virtual void TryCreateNewSlot()
     {
@@ -51,31 +60,36 @@ public class ES3CreateSlot : MonoBehaviour
             return;
         }
 
-        // If a slot with this name already exists, require the user to enter a different name.
-        if (ES3.FileExists(mgr.GetSlotPath(inputField.text)))
+        // Get the file path for the slot we're trying to create.
+        var slotPath = mgr.GetSlotPath(inputField.text);
+
+        // If a slot with this name already exists, require the user to enter a different name,
+        // or if the slot is marked to be deleted, delete it's file so that this one can be created.
+        if (ES3.FileExists(slotPath))
         {
-            mgr.ShowErrorDialog("A slot already exists with this name. Please choose a different name.");
-            return;
+            // Check whether a slot exists with this name which has been marked for deletion.
+            var slotMarkedForDeletion = mgr.slots.Select(go => go.GetComponent<ES3Slot>()).FirstOrDefault(slot => mgr.GetSlotPath(slot.nameLabel.text) == slotPath && slot.markedForDeletion);
+
+            // If there's not a slot with this path marked for deletion, force user to choose another name.
+            if (slotMarkedForDeletion == null)
+            {
+                mgr.ShowErrorDialog("A slot already exists with this name. Please choose a different name.");
+                return;
+            }
+            // Otherwise, delete the slot so that it can be created from scratch.
+            else
+                slotMarkedForDeletion.DeleteSlot();
         }
 
         // Create the slot.
-        CreateNewSlot(inputField.text);
+        var slot = mgr.CreateNewSlot(inputField.text);
         // Clear the input field so the value isn't there when we reopen it.
         inputField.text = "";
         // Hide the dialog.
         createDialog.gameObject.SetActive(false);
-    }
 
-
-    // Creates a new slot by instantiating it in the UI and creating a save file for it.
-    protected virtual void CreateNewSlot(string slotName)
-    {
-        // Get the current timestamp.
-        var creationTimestamp = DateTime.Now;
-        // Create the slot in the UI.
-        var slot = mgr.InstantiateSlot(slotName, creationTimestamp);
-        // Move the slot to the top of the list.
-        slot.transform.SetSiblingIndex(1);
+        // If we've specified an event to be called after the user creaktes a slot, invoke it.
+        mgr.onAfterCreateSlot?.Invoke();
     }
 }
 

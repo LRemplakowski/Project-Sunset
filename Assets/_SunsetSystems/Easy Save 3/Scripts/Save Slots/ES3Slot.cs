@@ -29,7 +29,7 @@ public class ES3Slot : MonoBehaviour
     public Button undoButton;
 
     // Whether this slot has been marked for deletion.
-    protected bool markedForDeletion = false;
+    public bool markedForDeletion = false;
 
 #region Initialisation and Clean-up
 
@@ -74,7 +74,7 @@ public class ES3Slot : MonoBehaviour
                 // Show the dialog.
                 confirmationDialog.SetActive(true);
                 // Register the event for the confirmation button.
-                confirmationDialog.GetComponent<ES3SlotDialog>().confirmButton.onClick.AddListener(SelectSlot);
+                confirmationDialog.GetComponent<ES3SlotDialog>().confirmButton.onClick.AddListener(OverwriteThenSelectSlot);
                 return;
             }
         }
@@ -83,7 +83,7 @@ public class ES3Slot : MonoBehaviour
     }
 
     // Selects a slot and calls post-selection events if applicable.
-    protected virtual void SelectSlot()
+    public virtual void SelectSlot()
     {
         // Hide the confirmation dialog if it's open.
         confirmationDialog?.SetActive(false);
@@ -124,11 +124,22 @@ public class ES3Slot : MonoBehaviour
         deleteButton.gameObject.SetActive(true);
     }
 
-    // Deletes a save slot.
-    protected virtual void DeleteSlot()
+    // Deletes the existing data for a slot and then selects it.
+    protected virtual void OverwriteThenSelectSlot()
     {
-        // Delete the file linked to this slot.
-        ES3.DeleteFile(GetSlotPath());
+        DeleteSlot();
+        // Create the new slot.
+        var newSlot = mgr.CreateNewSlot(nameLabel.text);
+        // Select the new slot.
+        newSlot.SelectSlot();
+    }
+
+    // Deletes a save slot.
+    public virtual void DeleteSlot()
+    {
+        // Delete the file linked to this slot from both disk and cache.
+        ES3.DeleteFile(GetSlotPath(), new ES3Settings(ES3.Location.Cache));
+        ES3.DeleteFile(GetSlotPath(), new ES3Settings(ES3.Location.File));
         // Destroy this slot.
         Destroy(this.gameObject);
     }
@@ -142,6 +153,12 @@ public class ES3Slot : MonoBehaviour
     {
         // Get the slot path from the manager.
         return mgr.GetSlotPath(nameLabel.text);
+    }
+
+    // Moves this slot to the top of the slots List ScrollView.
+    public void MoveToTop()
+    {
+        transform.SetSiblingIndex(1);
     }
 
 #endregion
