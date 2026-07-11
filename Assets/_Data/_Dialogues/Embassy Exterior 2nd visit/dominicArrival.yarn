@@ -66,10 +66,10 @@ title: whatToDoWithDiana
 {$storyteller}: [nomarkup][Kieran looks a little bashful and nods to them both. Dominic purses his lips, and you can see your reflection in his mirrored sunglasses.][/nomarkup] #line:038da7f
 {$sheriff}: Alright, Deputee. Make the call.
 -> {$pcName}: Take your pet, Kate. #line:0c295de 
-    <<ModifyInfluence $sforzaMask +1>>
+    <<ModifyInfluence 1 "CR_UNIQUE_CATERINA_SFORZA">>
     <<jump takeYourPet>>
 -> {$pcName}: You're the Sheriff around here. Take her yourself. #line:01847ce 
-    <<ModifyInfluence $sheriff +1>>
+    <<ModifyInfluence 1 "CR_UNIQUE_DOMINIC_EVANS">>
     <<jump dominicTakeHer>>
 -> {$pcName}: Let's return her to the owner. #line:0d62e23 
     <<jump luciaTakeHer>>
@@ -110,7 +110,7 @@ title: luciaTakeHer
 {$sforzaMask}: And I do rather object to the whole idea. I do not want to see Diana fall into enemy hands. I don't even want to imagine what they could do to a former Tremere ghoul. No. #line:0b2ffdf 
 {$sheriff}: Might could. #line:0a7953c 
 {$sforzaMask}: Do you still want to give the fledgling decision rights, Sheriff? #line:0ce5af4 
-<<ModifyInfluence $sforzaMask -1>>
+<<ModifyInfluence -1 "CR_UNIQUE_CATERINA_SFORZA">>
 {$sheriff}: I believe she just lost them. Take your pet, Kate. Kieran, keep an eye on that one to make sure that the Blood Bond fades quickly. I don't need such a lazy spy in my wife's domain. #line:075b58e
 <<jump takeYourPet>>
 ===

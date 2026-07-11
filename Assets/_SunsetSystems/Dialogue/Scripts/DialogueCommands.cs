@@ -126,7 +126,7 @@ namespace SunsetSystems.Dialogue
         [YarnCommand("DealDamage")]
         public static void DealDamage(string characterID, int damage)
         {
-            if (CreatureDatabase.Instance.TryGetEntry(characterID, out var config))
+            if (CreatureDatabase.Instance.TryGetEntry(characterID, out var config) || CreatureDatabase.Instance.TryGetEntryByReadableID(characterID, out config))
             {
                 var partyMember = PartyManager.Instance.GetPartyMemberByID(config.DatabaseID);
                 if (partyMember != null)
@@ -139,7 +139,7 @@ namespace SunsetSystems.Dialogue
         [YarnCommand("DecreaseWillpower")]
         public static void DecreaseWillpower(string characterID, int value)
         {
-            if (CreatureDatabase.Instance.TryGetEntry(characterID, out var config))
+            if (CreatureDatabase.Instance.TryGetEntry(characterID, out var config) || CreatureDatabase.Instance.TryGetEntryByReadableID(characterID, out config))
             {
                 var partyMember = PartyManager.Instance.GetPartyMemberByID(config.DatabaseID);
                 if (partyMember != null)
@@ -152,7 +152,7 @@ namespace SunsetSystems.Dialogue
         [YarnCommand("RemovePartyMember")]
         public static void RemovePartyMember(string characterID)
         {
-            if (CreatureDatabase.Instance.TryGetEntry(characterID, out var config))
+            if (CreatureDatabase.Instance.TryGetEntry(characterID, out var config) || CreatureDatabase.Instance.TryGetEntryByReadableID(characterID, out config))
             {
                 PartyManager.Instance.TryRemoveMemberFromActiveRoster(config);
             }

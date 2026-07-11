@@ -19,7 +19,7 @@ tags:
             {$storyteller}: [nomarkup][Anastasia follows you inside.][/nomarkup]
     ->  [nomarkup][No.][/nomarkup]
             {$anastasia}: Until next time.
-            <<RemovePartyMember $anastasia>>
+            <<RemovePartyMember "CR_PARTY_ANASTASIA_KAMINSKA">>
             {$storyteller}: [nomarkup][Anastasia nods and walks away.][/nomarkup]
 <<endif>>
 ===

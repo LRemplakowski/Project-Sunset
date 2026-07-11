@@ -55,6 +55,7 @@ namespace SunsetSystems.Party
         [Title("Events")]
         public UltEvent<IEnumerable<ICreature>> OnActivePartyInitialized = new();
         public UltEvent<string> OnPartyMemberRecruited = new();
+        public UltEvent<string> OnPartyMemberRemovedFromRoster = new();
 
         private bool _initializeAtSavedPositions = false;
 
@@ -293,6 +294,7 @@ namespace SunsetSystems.Party
                 UpdatePartyMemberTemplateFromInstance(memberInstance);
                 CreatureFactory.Instance.DestroyCreature(memberInstance);
             }
+            if (result) OnPartyMemberRemovedFromRoster?.Invoke(memberID);
             return result;
         }
 

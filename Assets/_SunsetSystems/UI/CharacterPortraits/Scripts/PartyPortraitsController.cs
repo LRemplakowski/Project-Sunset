@@ -38,6 +38,11 @@ namespace UI.CharacterPortraits
             _dirty = true;
         }
 
+        public void OnPartyMemberRemovedFromRoster()
+        {
+            _dirty = true;
+        }
+
         private void InstansiateActivePartyPortraits()
         {
             var activeParty = PartyManager.Instance.ActiveParty;

@@ -23,7 +23,7 @@ title: showerStrRoll
 position: 330,-68
 color: red
 ---
-<<GiveItem IT_Q_SHOWERCURTAIN>>
+<<GiveItem "IT_Q_SHOWERCURTAIN">>
 <<if Roll("Strength","Athletics") >= 1 or GetCharacterDisciplineRank($pcName,"POTENCE") > 0>>
     <<jump showerStrSuccess>>
 <<else>>
@@ -47,7 +47,7 @@ title: showerIntRoll
 position: 227,-348
 color: red
 ---
-<<GiveItem IT_Q_SHOWERCURTAIN>>
+<<GiveItem "IT_Q_SHOWERCURTAIN">>
 <<if Roll("Intelligence","Craft") >= 1>>
     <<jump showerIntSuccess>>
 <<else>>
