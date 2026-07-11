@@ -1175,6 +1175,7 @@ GameObject:
   - component: {fileID: 77225714}
   - component: {fileID: 77225715}
   - component: {fileID: 77225716}
+  - component: {fileID: 77225717}
   m_Layer: 0
   m_Name: Lucia Escobar-Vega
   m_TagString: Untagged
@@ -1285,11 +1286,7 @@ MonoBehaviour:
   forceRebindAnimator: 0
   preloadWardrobeRecipes:
     loadDefaultRecipes: 1
-    recipes:
-    - _recipeName: _Base Look Lucia Escobar-Vega Entry Wardrobe Data
-      _enabledInDefaultWardrobe: 1
-      _compatibleRaces:
-      - VampireFemale
+    recipes: []
   raceAnimationControllers:
     defaultAnimationController: {fileID: 9100000, guid: b6baf64b1736249499205b779ee9dcba, type: 2}
     animators:
@@ -1563,7 +1560,7 @@ MonoBehaviour:
   customModel: {fileID: 0}
   customRotation: {x: 0, y: 0, z: 0}
   previewColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  _buildCharacterEnabled: 1
+  _buildCharacterEnabled: 0
   nextBuildSlotsOnly: 0
   debugVertexes: 1
 --- !u!95 &77225715
@@ -1657,6 +1654,20 @@ MonoBehaviour:
   characterHeight: 2
   characterRadius: 0.25
   characterMass: 50
+--- !u!114 &77225717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 77225710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc8d3f4a9f38fd949bd5fa64c66c3cbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _umaTextAsset: {fileID: 4900000, guid: cb3d78ed61701014dae162f6f06b80da, type: 3}
+  _avatar: {fileID: 77225714}
 --- !u!114 &83963220 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6875160928688257507, guid: 4769f016047210d478f53803138aacf5, type: 3}
@@ -1850,27 +1861,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 567734191989458246, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 567734191989458246, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 567734191989458246, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 560
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 567734191989458246, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 528.71
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 567734191989458246, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 560
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 567734191989458246, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -264.355
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 680596422096700416, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: serializationData.Prefab
@@ -1902,27 +1913,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 790546485332453286, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 790546485332453286, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 790546485332453286, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 560
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 790546485332453286, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 31.29
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 790546485332453286, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 280
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 790546485332453286, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -574.35504
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 820774632742123829, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: serializationData.Prefab
@@ -2202,27 +2213,27 @@ PrefabInstance:
       objectReference: {fileID: 1841230875796473286, guid: 4769f016047210d478f53803138aacf5, type: 3}
     - target: {fileID: 1958964686343284344, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1958964686343284344, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1958964686343284344, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 560
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1958964686343284344, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 440
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1958964686343284344, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 560
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1958964686343284344, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -840
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2004387855734353292, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_AnchorMax.y
@@ -2282,27 +2293,27 @@ PrefabInstance:
       objectReference: {fileID: 2146170913191627318, guid: 4769f016047210d478f53803138aacf5, type: 3}
     - target: {fileID: 2226573316802865885, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2226573316802865885, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2226573316802865885, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 560
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2226573316802865885, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 22.22
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2226573316802865885, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 280
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2226573316802865885, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -11.11
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2258071461949067205, guid: 4769f016047210d478f53803138aacf5, type: 3}
       propertyPath: m_AnchorMax.y
@@ -11702,6 +11713,7 @@ GameObject:
   - component: {fileID: 400852727}
   - component: {fileID: 400852729}
   - component: {fileID: 400852730}
+  - component: {fileID: 400852731}
   m_Layer: 0
   m_Name: Diego
   m_TagString: Untagged
@@ -11812,11 +11824,7 @@ MonoBehaviour:
   forceRebindAnimator: 0
   preloadWardrobeRecipes:
     loadDefaultRecipes: 1
-    recipes:
-    - _recipeName: _Base Look Diego Entry Wardrobe Data
-      _enabledInDefaultWardrobe: 1
-      _compatibleRaces:
-      - VampireMale
+    recipes: []
   raceAnimationControllers:
     defaultAnimationController: {fileID: 9100000, guid: 4810241992bc75942ad3ea373a7b5be9, type: 2}
     animators: []
@@ -12020,7 +12028,7 @@ MonoBehaviour:
   customModel: {fileID: 0}
   customRotation: {x: 0, y: 0, z: 0}
   previewColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  _buildCharacterEnabled: 1
+  _buildCharacterEnabled: 0
   nextBuildSlotsOnly: 0
   debugVertexes: 1
 --- !u!95 &400852727
@@ -12156,6 +12164,20 @@ MonoBehaviour:
   characterHeight: 2
   characterRadius: 0.25
   characterMass: 50
+--- !u!114 &400852731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 400852723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc8d3f4a9f38fd949bd5fa64c66c3cbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _umaTextAsset: {fileID: 4900000, guid: e3221a75a4571844baac308f50d5cc62, type: 3}
+  _avatar: {fileID: 400852726}
 --- !u!114 &406658176 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8548665778396660103, guid: 4769f016047210d478f53803138aacf5, type: 3}
@@ -12326,6 +12348,7 @@ GameObject:
   - component: {fileID: 409960070}
   - component: {fileID: 409960069}
   - component: {fileID: 409960072}
+  - component: {fileID: 409960073}
   m_Layer: 0
   m_Name: Lucia Behind Desiree Body
   m_TagString: Untagged
@@ -12500,11 +12523,7 @@ MonoBehaviour:
   forceRebindAnimator: 0
   preloadWardrobeRecipes:
     loadDefaultRecipes: 1
-    recipes:
-    - _recipeName: _Base Look Lucia Escobar-Vega Entry Wardrobe Data
-      _enabledInDefaultWardrobe: 1
-      _compatibleRaces:
-      - VampireFemale
+    recipes: []
   raceAnimationControllers:
     defaultAnimationController: {fileID: 9100000, guid: b6baf64b1736249499205b779ee9dcba, type: 2}
     animators: []
@@ -12778,7 +12797,7 @@ MonoBehaviour:
   customModel: {fileID: 0}
   customRotation: {x: 0, y: 0, z: 0}
   previewColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  _buildCharacterEnabled: 1
+  _buildCharacterEnabled: 0
   nextBuildSlotsOnly: 0
   debugVertexes: 1
 --- !u!114 &409960072
@@ -12850,6 +12869,20 @@ MonoBehaviour:
   characterHeight: 2
   characterRadius: 0.25
   characterMass: 50
+--- !u!114 &409960073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 409960066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc8d3f4a9f38fd949bd5fa64c66c3cbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _umaTextAsset: {fileID: 4900000, guid: 31f4e8d49fde243418834a779a15e7bf, type: 3}
+  _avatar: {fileID: 409960071}
 --- !u!114 &413216695 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 660093643310669083, guid: 5fd475a07782c9d4394eb94c5a7bc834, type: 3}
@@ -15016,6 +15049,7 @@ GameObject:
   - component: {fileID: 453041022}
   - component: {fileID: 453041024}
   - component: {fileID: 453041025}
+  - component: {fileID: 453041026}
   m_Layer: 0
   m_Name: Corridor Desiree
   m_TagString: Untagged
@@ -15126,15 +15160,7 @@ MonoBehaviour:
   forceRebindAnimator: 0
   preloadWardrobeRecipes:
     loadDefaultRecipes: 1
-    recipes:
-    - _recipeName: Desiree Outfit Wardrobe Collection
-      _enabledInDefaultWardrobe: 1
-      _compatibleRaces:
-      - VampireFemale
-    - _recipeName: _Base Look PC FemJournalist Entry Wardrobe Data
-      _enabledInDefaultWardrobe: 1
-      _compatibleRaces:
-      - VampireFemale
+    recipes: []
   raceAnimationControllers:
     defaultAnimationController: {fileID: 9100000, guid: b6baf64b1736249499205b779ee9dcba, type: 2}
     animators: []
@@ -15435,7 +15461,7 @@ MonoBehaviour:
   customModel: {fileID: 0}
   customRotation: {x: 0, y: 0, z: 0}
   previewColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  _buildCharacterEnabled: 1
+  _buildCharacterEnabled: 0
   nextBuildSlotsOnly: 0
   debugVertexes: 1
 --- !u!95 &453041022
@@ -15571,6 +15597,20 @@ MonoBehaviour:
   characterHeight: 2
   characterRadius: 0.25
   characterMass: 50
+--- !u!114 &453041026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 453041018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc8d3f4a9f38fd949bd5fa64c66c3cbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _umaTextAsset: {fileID: 4900000, guid: 382488d7f46800d42a4a7e4fb6328bfd, type: 3}
+  _avatar: {fileID: 453041021}
 --- !u!1 &457366927
 GameObject:
   m_ObjectHideFlags: 0
@@ -17073,6 +17113,7 @@ GameObject:
   - component: {fileID: 520168898}
   - component: {fileID: 520168897}
   - component: {fileID: 520168899}
+  - component: {fileID: 520168900}
   m_Layer: 0
   m_Name: Diego Inside
   m_TagString: Untagged
@@ -17205,11 +17246,7 @@ MonoBehaviour:
   forceRebindAnimator: 0
   preloadWardrobeRecipes:
     loadDefaultRecipes: 1
-    recipes:
-    - _recipeName: _Base Look Diego Entry Wardrobe Data
-      _enabledInDefaultWardrobe: 1
-      _compatibleRaces:
-      - VampireMale
+    recipes: []
   raceAnimationControllers:
     defaultAnimationController: {fileID: 9100000, guid: b6baf64b1736249499205b779ee9dcba, type: 2}
     animators: []
@@ -17413,7 +17450,7 @@ MonoBehaviour:
   customModel: {fileID: 0}
   customRotation: {x: 0, y: 0, z: 0}
   previewColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  _buildCharacterEnabled: 1
+  _buildCharacterEnabled: 0
   nextBuildSlotsOnly: 0
   debugVertexes: 1
 --- !u!114 &520168899
@@ -17485,6 +17522,20 @@ MonoBehaviour:
   characterHeight: 2
   characterRadius: 0.25
   characterMass: 50
+--- !u!114 &520168900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520168894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc8d3f4a9f38fd949bd5fa64c66c3cbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _umaTextAsset: {fileID: 4900000, guid: 52ae9f9822be12f498093993ff8b809a, type: 3}
+  _avatar: {fileID: 520168898}
 --- !u!1 &530952579
 GameObject:
   m_ObjectHideFlags: 0
@@ -18254,6 +18305,7 @@ GameObject:
   - component: {fileID: 565304861}
   - component: {fileID: 565304863}
   - component: {fileID: 565304864}
+  - component: {fileID: 565304865}
   m_Layer: 0
   m_Name: Desiree Looking Around
   m_TagString: Untagged
@@ -18364,15 +18416,7 @@ MonoBehaviour:
   forceRebindAnimator: 0
   preloadWardrobeRecipes:
     loadDefaultRecipes: 1
-    recipes:
-    - _recipeName: _Base Look PC FemJournalist Entry Wardrobe Data
-      _enabledInDefaultWardrobe: 1
-      _compatibleRaces:
-      - VampireFemale
-    - _recipeName: Desiree Outfit Wardrobe Collection
-      _enabledInDefaultWardrobe: 1
-      _compatibleRaces:
-      - VampireFemale
+    recipes: []
   raceAnimationControllers:
     defaultAnimationController: {fileID: 9100000, guid: 57b0ace6cb9712f43b6c3a1d220cdd48, type: 2}
     animators: []
@@ -18507,7 +18551,7 @@ MonoBehaviour:
   customModel: {fileID: 0}
   customRotation: {x: 0, y: 0, z: 0}
   previewColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  _buildCharacterEnabled: 1
+  _buildCharacterEnabled: 0
   nextBuildSlotsOnly: 0
   debugVertexes: 1
 --- !u!95 &565304863
@@ -18601,6 +18645,20 @@ MonoBehaviour:
   characterHeight: 2
   characterRadius: 0.25
   characterMass: 50
+--- !u!114 &565304865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 565304857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc8d3f4a9f38fd949bd5fa64c66c3cbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _umaTextAsset: {fileID: 4900000, guid: d1d11d5b78ddfd34eb8d00b76ecaf748, type: 3}
+  _avatar: {fileID: 565304861}
 --- !u!1 &580243905
 GameObject:
   m_ObjectHideFlags: 0
@@ -22781,6 +22839,7 @@ GameObject:
   - component: {fileID: 752694743}
   - component: {fileID: 752694744}
   - component: {fileID: 752694745}
+  - component: {fileID: 752694746}
   m_Layer: 0
   m_Name: Desiree Body
   m_TagString: Untagged
@@ -22891,15 +22950,7 @@ MonoBehaviour:
   forceRebindAnimator: 0
   preloadWardrobeRecipes:
     loadDefaultRecipes: 1
-    recipes:
-    - _recipeName: Desiree Outfit Wardrobe Collection
-      _enabledInDefaultWardrobe: 1
-      _compatibleRaces:
-      - VampireFemale
-    - _recipeName: _Base Look PC FemJournalist Entry Wardrobe Data
-      _enabledInDefaultWardrobe: 1
-      _compatibleRaces:
-      - VampireFemale
+    recipes: []
   raceAnimationControllers:
     defaultAnimationController: {fileID: 9100000, guid: a6699b5b361fce646887afd8bdb14c9a, type: 2}
     animators: []
@@ -23200,7 +23251,7 @@ MonoBehaviour:
   customModel: {fileID: 0}
   customRotation: {x: 0, y: 0, z: 0}
   previewColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  _buildCharacterEnabled: 1
+  _buildCharacterEnabled: 0
   nextBuildSlotsOnly: 0
   debugVertexes: 1
 --- !u!95 &752694744
@@ -23294,6 +23345,20 @@ MonoBehaviour:
   characterHeight: 2
   characterRadius: 0.25
   characterMass: 50
+--- !u!114 &752694746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 752694740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc8d3f4a9f38fd949bd5fa64c66c3cbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _umaTextAsset: {fileID: 4900000, guid: d04fc9beee58b5141aa2fd06fb4397e4, type: 3}
+  _avatar: {fileID: 752694743}
 --- !u!1 &767883292
 GameObject:
   m_ObjectHideFlags: 0
@@ -24091,6 +24156,7 @@ GameObject:
   - component: {fileID: 815226145}
   - component: {fileID: 815226147}
   - component: {fileID: 815226148}
+  - component: {fileID: 815226149}
   m_Layer: 0
   m_Name: Lucia
   m_TagString: Untagged
@@ -24201,11 +24267,7 @@ MonoBehaviour:
   forceRebindAnimator: 0
   preloadWardrobeRecipes:
     loadDefaultRecipes: 1
-    recipes:
-    - _recipeName: _Base Look Lucia Escobar-Vega Entry Wardrobe Data
-      _enabledInDefaultWardrobe: 1
-      _compatibleRaces:
-      - VampireFemale
+    recipes: []
   raceAnimationControllers:
     defaultAnimationController: {fileID: 9100000, guid: b6baf64b1736249499205b779ee9dcba, type: 2}
     animators: []
@@ -24479,7 +24541,7 @@ MonoBehaviour:
   customModel: {fileID: 0}
   customRotation: {x: 0, y: 0, z: 0}
   previewColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  _buildCharacterEnabled: 1
+  _buildCharacterEnabled: 0
   nextBuildSlotsOnly: 0
   debugVertexes: 1
 --- !u!95 &815226145
@@ -24615,6 +24677,20 @@ MonoBehaviour:
   characterHeight: 2
   characterRadius: 0.25
   characterMass: 50
+--- !u!114 &815226149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 815226141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc8d3f4a9f38fd949bd5fa64c66c3cbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _umaTextAsset: {fileID: 4900000, guid: 0134f1a7fe1b632489b2e9bff16e9a07, type: 3}
+  _avatar: {fileID: 815226144}
 --- !u!114 &818318895 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 409868112203810021, guid: 5fd475a07782c9d4394eb94c5a7bc834, type: 3}
@@ -28889,6 +28965,7 @@ GameObject:
   - component: {fileID: 979341158}
   - component: {fileID: 979341160}
   - component: {fileID: 979341161}
+  - component: {fileID: 979341162}
   m_Layer: 0
   m_Name: Corridor Diana
   m_TagString: Untagged
@@ -28999,11 +29076,7 @@ MonoBehaviour:
   forceRebindAnimator: 0
   preloadWardrobeRecipes:
     loadDefaultRecipes: 1
-    recipes:
-    - _recipeName: _Base Look Diana Foster Entry Wardrobe Data
-      _enabledInDefaultWardrobe: 1
-      _compatibleRaces:
-      - VampireFemale
+    recipes: []
   raceAnimationControllers:
     defaultAnimationController: {fileID: 9100000, guid: b6baf64b1736249499205b779ee9dcba, type: 2}
     animators: []
@@ -29304,7 +29377,7 @@ MonoBehaviour:
   customModel: {fileID: 0}
   customRotation: {x: 0, y: 0, z: 0}
   previewColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  _buildCharacterEnabled: 1
+  _buildCharacterEnabled: 0
   nextBuildSlotsOnly: 0
   debugVertexes: 1
 --- !u!95 &979341158
@@ -29440,6 +29513,20 @@ MonoBehaviour:
   characterHeight: 2
   characterRadius: 0.25
   characterMass: 50
+--- !u!114 &979341162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 979341154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc8d3f4a9f38fd949bd5fa64c66c3cbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _umaTextAsset: {fileID: 4900000, guid: d620dcd72b269c74b9c69cc121a943a9, type: 3}
+  _avatar: {fileID: 979341157}
 --- !u!1 &982345321
 GameObject:
   m_ObjectHideFlags: 0
@@ -31317,6 +31404,7 @@ GameObject:
   - component: {fileID: 1008491132}
   - component: {fileID: 1008491131}
   - component: {fileID: 1008491133}
+  - component: {fileID: 1008491134}
   m_Layer: 0
   m_Name: Diego Body
   m_TagString: Untagged
@@ -31449,11 +31537,7 @@ MonoBehaviour:
   forceRebindAnimator: 0
   preloadWardrobeRecipes:
     loadDefaultRecipes: 1
-    recipes:
-    - _recipeName: _Base Look Diego Entry Wardrobe Data
-      _enabledInDefaultWardrobe: 1
-      _compatibleRaces:
-      - VampireMale
+    recipes: []
   raceAnimationControllers:
     defaultAnimationController: {fileID: 9100000, guid: a6699b5b361fce646887afd8bdb14c9a, type: 2}
     animators: []
@@ -31565,7 +31649,7 @@ MonoBehaviour:
   customModel: {fileID: 0}
   customRotation: {x: 0, y: 0, z: 0}
   previewColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  _buildCharacterEnabled: 1
+  _buildCharacterEnabled: 0
   nextBuildSlotsOnly: 0
   debugVertexes: 1
 --- !u!114 &1008491133
@@ -31637,6 +31721,20 @@ MonoBehaviour:
   characterHeight: 2
   characterRadius: 0.25
   characterMass: 50
+--- !u!114 &1008491134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1008491128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc8d3f4a9f38fd949bd5fa64c66c3cbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _umaTextAsset: {fileID: 4900000, guid: 51bf002178b245e4a881f8a16ad560a2, type: 3}
+  _avatar: {fileID: 1008491132}
 --- !u!1 &1012428963
 GameObject:
   m_ObjectHideFlags: 19
@@ -39474,6 +39572,7 @@ GameObject:
   - component: {fileID: 1422645722}
   - component: {fileID: 1422645723}
   - component: {fileID: 1422645724}
+  - component: {fileID: 1422645725}
   m_Layer: 0
   m_Name: Diego Body
   m_TagString: Untagged
@@ -39584,11 +39683,7 @@ MonoBehaviour:
   forceRebindAnimator: 0
   preloadWardrobeRecipes:
     loadDefaultRecipes: 1
-    recipes:
-    - _recipeName: _Base Look Diego Entry Wardrobe Data
-      _enabledInDefaultWardrobe: 1
-      _compatibleRaces:
-      - VampireMale
+    recipes: []
   raceAnimationControllers:
     defaultAnimationController: {fileID: 9100000, guid: a6699b5b361fce646887afd8bdb14c9a, type: 2}
     animators: []
@@ -39700,7 +39795,7 @@ MonoBehaviour:
   customModel: {fileID: 0}
   customRotation: {x: 0, y: 0, z: 0}
   previewColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  _buildCharacterEnabled: 1
+  _buildCharacterEnabled: 0
   nextBuildSlotsOnly: 0
   debugVertexes: 1
 --- !u!95 &1422645723
@@ -39794,6 +39889,20 @@ MonoBehaviour:
   characterHeight: 2
   characterRadius: 0.25
   characterMass: 50
+--- !u!114 &1422645725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1422645719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc8d3f4a9f38fd949bd5fa64c66c3cbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _umaTextAsset: {fileID: 4900000, guid: 51bf002178b245e4a881f8a16ad560a2, type: 3}
+  _avatar: {fileID: 1422645722}
 --- !u!1 &1423621992
 GameObject:
   m_ObjectHideFlags: 0
@@ -39865,6 +39974,7 @@ GameObject:
   - component: {fileID: 1427591059}
   - component: {fileID: 1427591060}
   - component: {fileID: 1427591061}
+  - component: {fileID: 1427591062}
   m_Layer: 0
   m_Name: Desiree By Van Haven Body
   m_TagString: Untagged
@@ -39975,15 +40085,7 @@ MonoBehaviour:
   forceRebindAnimator: 0
   preloadWardrobeRecipes:
     loadDefaultRecipes: 1
-    recipes:
-    - _recipeName: Desiree Outfit Wardrobe Collection
-      _enabledInDefaultWardrobe: 1
-      _compatibleRaces:
-      - VampireFemale
-    - _recipeName: _Base Look PC FemJournalist Entry Wardrobe Data
-      _enabledInDefaultWardrobe: 1
-      _compatibleRaces:
-      - VampireFemale
+    recipes: []
   raceAnimationControllers:
     defaultAnimationController: {fileID: 9100000, guid: a6699b5b361fce646887afd8bdb14c9a, type: 2}
     animators: []
@@ -40284,7 +40386,7 @@ MonoBehaviour:
   customModel: {fileID: 0}
   customRotation: {x: 0, y: 0, z: 0}
   previewColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  _buildCharacterEnabled: 1
+  _buildCharacterEnabled: 0
   nextBuildSlotsOnly: 0
   debugVertexes: 1
 --- !u!95 &1427591060
@@ -40378,6 +40480,20 @@ MonoBehaviour:
   characterHeight: 2
   characterRadius: 0.25
   characterMass: 50
+--- !u!114 &1427591062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1427591055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc8d3f4a9f38fd949bd5fa64c66c3cbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _umaTextAsset: {fileID: 4900000, guid: ed1b8e45a794bfa4fb4e8caa88d80095, type: 3}
+  _avatar: {fileID: 1427591059}
 --- !u!1 &1438027494
 GameObject:
   m_ObjectHideFlags: 1
@@ -40603,6 +40719,7 @@ GameObject:
   - component: {fileID: 1461630372}
   - component: {fileID: 1461630374}
   - component: {fileID: 1461630375}
+  - component: {fileID: 1461630376}
   m_Layer: 0
   m_Name: Desiree Tied
   m_TagString: Untagged
@@ -40713,15 +40830,7 @@ MonoBehaviour:
   forceRebindAnimator: 0
   preloadWardrobeRecipes:
     loadDefaultRecipes: 1
-    recipes:
-    - _recipeName: Desiree Outfit Wardrobe Collection
-      _enabledInDefaultWardrobe: 1
-      _compatibleRaces:
-      - VampireFemale
-    - _recipeName: _Base Look PC FemJournalist Entry Wardrobe Data
-      _enabledInDefaultWardrobe: 1
-      _compatibleRaces:
-      - VampireFemale
+    recipes: []
   raceAnimationControllers:
     defaultAnimationController: {fileID: 9100000, guid: 06c5fcae4a868014f84fdd32fa0abcad, type: 2}
     animators: []
@@ -41022,7 +41131,7 @@ MonoBehaviour:
   customModel: {fileID: 0}
   customRotation: {x: 0, y: 0, z: 0}
   previewColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  _buildCharacterEnabled: 1
+  _buildCharacterEnabled: 0
   nextBuildSlotsOnly: 0
   debugVertexes: 1
 --- !u!95 &1461630372
@@ -41158,6 +41267,20 @@ MonoBehaviour:
   characterHeight: 2
   characterRadius: 0.25
   characterMass: 50
+--- !u!114 &1461630376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1461630368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc8d3f4a9f38fd949bd5fa64c66c3cbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _umaTextAsset: {fileID: 4900000, guid: fcdd8abf1f48dfb4d9007bb2de994d67, type: 3}
+  _avatar: {fileID: 1461630371}
 --- !u!1 &1462818747
 GameObject:
   m_ObjectHideFlags: 0
@@ -43926,9 +44049,9 @@ MonoBehaviour:
     SerializedFormat: 2
     SerializedBytes: 
     ReferencedUnityObjects:
-    - {fileID: 2730284256039935026}
-    - {fileID: 1588838461}
     - {fileID: 120229347}
+    - {fileID: 1588838461}
+    - {fileID: 2730284256039935026}
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
@@ -43953,7 +44076,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: WP_EMBASSY_EXIT
+      Data: DOMINIC_ARRIVAL
     - Name: $v
       Entry: 10
       Data: 0
@@ -43977,7 +44100,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 1
-      Data: DOMINIC_ARRIVAL
+      Data: WP_EMBASSY_EXIT
     - Name: $v
       Entry: 10
       Data: 2
@@ -46260,6 +46383,7 @@ GameObject:
   - component: {fileID: 1676350899}
   - component: {fileID: 1676350900}
   - component: {fileID: 1676350901}
+  - component: {fileID: 1676350902}
   m_Layer: 0
   m_Name: Diana Body
   m_TagString: Untagged
@@ -46370,11 +46494,7 @@ MonoBehaviour:
   forceRebindAnimator: 0
   preloadWardrobeRecipes:
     loadDefaultRecipes: 1
-    recipes:
-    - _recipeName: _Base Look Diana Foster Entry Wardrobe Data
-      _enabledInDefaultWardrobe: 1
-      _compatibleRaces:
-      - VampireFemale
+    recipes: []
   raceAnimationControllers:
     defaultAnimationController: {fileID: 9100000, guid: a6699b5b361fce646887afd8bdb14c9a, type: 2}
     animators: []
@@ -46648,7 +46768,7 @@ MonoBehaviour:
   customModel: {fileID: 0}
   customRotation: {x: 0, y: 0, z: 0}
   previewColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  _buildCharacterEnabled: 1
+  _buildCharacterEnabled: 0
   nextBuildSlotsOnly: 0
   debugVertexes: 1
 --- !u!95 &1676350900
@@ -46742,6 +46862,20 @@ MonoBehaviour:
   characterHeight: 2
   characterRadius: 0.25
   characterMass: 50
+--- !u!114 &1676350902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1676350896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc8d3f4a9f38fd949bd5fa64c66c3cbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _umaTextAsset: {fileID: 4900000, guid: bd5c51ddfd182a84b802987f7950cece, type: 3}
+  _avatar: {fileID: 1676350899}
 --- !u!1 &1677418938 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 375571750532069244, guid: 4769f016047210d478f53803138aacf5, type: 3}
@@ -47339,6 +47473,7 @@ GameObject:
   - component: {fileID: 1745846435}
   - component: {fileID: 1745846436}
   - component: {fileID: 1745846437}
+  - component: {fileID: 1745846438}
   m_Layer: 0
   m_Name: Corridor Diego
   m_TagString: Untagged
@@ -47449,11 +47584,7 @@ MonoBehaviour:
   forceRebindAnimator: 0
   preloadWardrobeRecipes:
     loadDefaultRecipes: 1
-    recipes:
-    - _recipeName: _Base Look Diego Entry Wardrobe Data
-      _enabledInDefaultWardrobe: 1
-      _compatibleRaces:
-      - VampireMale
+    recipes: []
   raceAnimationControllers:
     defaultAnimationController: {fileID: 9100000, guid: b6baf64b1736249499205b779ee9dcba, type: 2}
     animators: []
@@ -47657,7 +47788,7 @@ MonoBehaviour:
   customModel: {fileID: 0}
   customRotation: {x: 0, y: 0, z: 0}
   previewColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  _buildCharacterEnabled: 1
+  _buildCharacterEnabled: 0
   nextBuildSlotsOnly: 0
   debugVertexes: 1
 --- !u!95 &1745846436
@@ -47751,6 +47882,20 @@ MonoBehaviour:
   characterHeight: 2
   characterRadius: 0.25
   characterMass: 50
+--- !u!114 &1745846438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1745846432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc8d3f4a9f38fd949bd5fa64c66c3cbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _umaTextAsset: {fileID: 4900000, guid: 3b403029af780454284e6894ee31a376, type: 3}
+  _avatar: {fileID: 1745846435}
 --- !u!1 &1748028121
 GameObject:
   m_ObjectHideFlags: 0
@@ -54390,6 +54535,7 @@ GameObject:
   - component: {fileID: 1912291142}
   - component: {fileID: 1912291143}
   - component: {fileID: 1912291144}
+  - component: {fileID: 1912291145}
   m_Layer: 0
   m_Name: Diana By Van Haven Body
   m_TagString: Untagged
@@ -54500,11 +54646,7 @@ MonoBehaviour:
   forceRebindAnimator: 0
   preloadWardrobeRecipes:
     loadDefaultRecipes: 1
-    recipes:
-    - _recipeName: _Base Look Diana Foster Entry Wardrobe Data
-      _enabledInDefaultWardrobe: 1
-      _compatibleRaces:
-      - VampireFemale
+    recipes: []
   raceAnimationControllers:
     defaultAnimationController: {fileID: 9100000, guid: a6699b5b361fce646887afd8bdb14c9a, type: 2}
     animators: []
@@ -54805,7 +54947,7 @@ MonoBehaviour:
   customModel: {fileID: 0}
   customRotation: {x: 0, y: 0, z: 0}
   previewColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-  _buildCharacterEnabled: 1
+  _buildCharacterEnabled: 0
   nextBuildSlotsOnly: 0
   debugVertexes: 1
 --- !u!95 &1912291143
@@ -54899,6 +55041,20 @@ MonoBehaviour:
   characterHeight: 2
   characterRadius: 0.25
   characterMass: 50
+--- !u!114 &1912291145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1912291138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc8d3f4a9f38fd949bd5fa64c66c3cbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _umaTextAsset: {fileID: 4900000, guid: 30e1bec7668b5c340bd75d5eb8e11a54, type: 3}
+  _avatar: {fileID: 1912291142}
 --- !u!1 &1924160015
 GameObject:
   m_ObjectHideFlags: 0
@@ -56265,6 +56421,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   key: facaa79d-3434-47a9-b812-3dbc2ab74e25
+  immediatelyCommitToFile: 1
   saveEvent: 1
   loadEvent: 2
   settings:
@@ -56279,6 +56436,11 @@ MonoBehaviour:
     bufferSize: 2048
     saveChildren: 1
     postprocessRawCachedData: 0
+    storeCacheAtEndOfEveryFrame: 1
+    storeCacheOnApplicationQuit: 1
+    storeCacheOnApplicationPause: 1
+    autoCacheDefaultFile: 1
+    autoCacheFileOnLoad: 1
     typeChecking: 1
     safeReflection: 1
     memberReferenceMode: 0
@@ -63184,7 +63346,6 @@ MonoBehaviour:
     _BoundsHandles: {r: 0.29, g: 0.454, b: 0.741, a: 0.9}
     _ConnectionLowLerp: {r: 0, g: 1, b: 0, a: 0.5}
     _ConnectionHighLerp: {r: 1, g: 0, b: 0, a: 0.5}
-    _MeshEdgeColor: {r: 0, g: 0, b: 0, a: 0.5}
     _AreaColors: []
   tagNames:
   - Basic Ground
@@ -63262,7 +63423,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1073741824
-  desiredSimulationFPS: 20
   workerThreads: 2
   doubleBuffering: 0
   hardCollisions: 0

@@ -24,6 +24,11 @@ MonoBehaviour:
     bufferSize: 2048
     saveChildren: 0
     postprocessRawCachedData: 0
+    storeCacheAtEndOfEveryFrame: 1
+    storeCacheOnApplicationQuit: 1
+    storeCacheOnApplicationPause: 1
+    autoCacheDefaultFile: 1
+    autoCacheFileOnLoad: 1
     typeChecking: 1
     safeReflection: 1
     memberReferenceMode: 0
@@ -47,7 +52,6 @@ MonoBehaviour:
     - LoveHate
     - PackageTools
     - PixelCrushers
-    - Purchasing.Common
     - QuestMachine
     - Reflex
     - ShaderCrew.SeeThroughShader.Core.Runtime

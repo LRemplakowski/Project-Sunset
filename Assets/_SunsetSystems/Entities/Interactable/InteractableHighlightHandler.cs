@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Redcode.Awaiting;
+using Cysharp.Threading.Tasks;
 using Sirenix.OdinInspector;
 using SunsetSystems.Core.Rendering;
 using UnityEngine;
@@ -10,6 +10,8 @@ namespace SunsetSystems.Entities.Interactable
 {
     public class InteractableHighlightHandler : SerializedMonoBehaviour, IHighlightHandler, IRendererProcessor
     {
+        private static WaitForSeconds _waitForSeconds1 = new(1f);
+
         [Title("Config")]
         [SerializeField, ValueDropdown("GetLayerNames")]
         private string _highlightLayer = "Highlighted";
@@ -22,7 +24,7 @@ namespace SunsetSystems.Entities.Interactable
 
         [Title("Runtime")]
         [ShowInInspector, ReadOnly]
-        private Dictionary<Renderer, int> _rendererLayerCache = new();
+        private readonly Dictionary<Renderer, int> _rendererLayerCache = new();
 
 #if UNITY_EDITOR
         public string[] GetLayerNames()
@@ -35,7 +37,7 @@ namespace SunsetSystems.Entities.Interactable
         {
             if (_findRenderersAtRuntime && _rendererParent != null)
             {
-                await new WaitForSeconds(1f);
+                await UniTask.WaitForSeconds(1f);
                 _highlightRenderers = _rendererParent.GetComponentsInChildren<Renderer>().ToList();
             }
             CacheDefaultRendererLayers();

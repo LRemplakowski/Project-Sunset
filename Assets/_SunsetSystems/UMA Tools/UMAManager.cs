@@ -63,14 +63,13 @@ namespace SunsetSystems.UMA
 
         private void RebuildUMADelayed()
         {
-            _umaAvatar.BuildCharacterEnabled = false;
             _updatePendingCoroutine ??= StartCoroutine(UMARebuildAfterSeconds(1f));
 
             IEnumerator UMARebuildAfterSeconds(float seconds)
             {
+                _umaAvatar.BuildCharacterEnabled = false;
                 yield return new WaitForSeconds(seconds);
                 _umaAvatar.BuildCharacterEnabled = true;
-                _umaAvatar.BuildCharacter();
                 _updatePendingCoroutine = null;
             }
         }

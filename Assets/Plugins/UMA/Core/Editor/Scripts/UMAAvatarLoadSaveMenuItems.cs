@@ -590,8 +590,46 @@ namespace UMA.Editors
 			}
 		}
 
+		[MenuItem("UMA/Load and Save/Save Selected Avatars Txt to Directory", priority = 1)]
+        public static void SaveSelectedAvatarsTxtDirectory()
+        {
+			string directory = EditorUtility.OpenFolderPanel("Select directory to save serialized Avatars", "Assets", "");
+			if (string.IsNullOrWhiteSpace(directory)) return;
+            for (int i = 0; i < Selection.gameObjects.Length; i++)
+            {
+                var selectedTransform = Selection.gameObjects[i].transform;
+                var avatar = selectedTransform.GetComponent<UMAAvatarBase>();
+                while (avatar == null && selectedTransform.parent != null)
+                {
+                    selectedTransform = selectedTransform.parent;
+                    avatar = selectedTransform.GetComponent<UMAAvatarBase>();
+                }
 
-		[UnityEditor.MenuItem("GameObject/UMA/Show Mesh Info (runtime only)")]
+                if (avatar != null)
+                {
+                    var path = directory + "/" + avatar.name + ".txt";
+                    if (path.Length != 0)
+                    {
+                        var asset = ScriptableObject.CreateInstance<UMATextRecipe>();
+                        //check if Avatar is DCS
+                        if (avatar is UMA.CharacterSystem.DynamicCharacterAvatar)
+                        {
+                            asset.Save(avatar.umaData.umaRecipe, avatar.context, (avatar as DynamicCharacterAvatar).WardrobeRecipes, true);
+                        }
+                        else
+                        {
+                            asset.Save(avatar.umaData.umaRecipe, avatar.context);
+                        }
+                        System.IO.File.WriteAllText(path, asset.recipeString);
+                        UMAUtils.DestroySceneObject(asset);
+                    }
+                }
+            }
+			UnityEditor.AssetDatabase.Refresh();
+        }
+
+
+        [UnityEditor.MenuItem("GameObject/UMA/Show Mesh Info (runtime only)")]
 		public static void ShowSelectedAvatarStats()
 		{
 			if (Selection.gameObjects.Length == 1)

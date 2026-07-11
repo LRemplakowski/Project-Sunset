@@ -20,6 +20,7 @@ namespace SunsetSystems.UMA
         protected override void OnValidate()
         {
             base.OnValidate();
+            if (Application.isPlaying) return;
             if (Data == null)
             {
                 Data = CreateInstance<UMAWardrobeCollection>();

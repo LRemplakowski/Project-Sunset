@@ -321,7 +321,7 @@ namespace SunsetSystems.Party
                 partyPositions.Add(key, _activeParty[key].References.Transform.position);
             }
             saveData.PartyPositions = partyPositions;
-            saveData.PartyPositionsScene = SceneManager.GetActiveScene().name;
+            saveData.PartyPositionsScene = gameObject.scene.name;
             return saveData;
 
             Dictionary<string, ICreatureTemplate> UpdatePartyTemplates()
